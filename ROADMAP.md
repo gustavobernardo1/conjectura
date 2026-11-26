@@ -54,7 +54,8 @@ mathematics shows.
 ## Not planned
 
 - A custom multi-agent orchestration framework.
-- A website or leaderboards. (The generated summary reports counts only by
-  type and by status; see `docs/methodology.md`.)
+- A website or leaderboards. (The generated summary reports counts by type
+  and by status, and its block `public` counts promoted results only; see
+  `docs/methodology.md` and `docs/public-summary.md`.)
 - Formalizing results that are already established, except as calibration or
   as learning material labelled as such.

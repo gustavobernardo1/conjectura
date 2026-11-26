@@ -78,6 +78,13 @@ SEARCHED_NOVELTY = {"preliminary-search-completed", "no-prior-resolution-found"}
 # The authoritative records from which research/summary.json is generated.
 SUMMARY_SOURCES = [CATALOGUE, REGISTRY, PRIORITIES, LEAN_REGISTRY]
 STATUS_DIMENSIONS = ["mathematical", "formal", "novelty", "external_review"]
+# The ``public`` block of the summary (docs/public-summary.md). Its links resolve on
+# the branch the summary is served from: ``research`` holds the investigations and
+# everything that is on ``main``.
+PUBLIC_SCHEMA = ROOT / "research" / "schema" / "public-summary.schema.json"
+PUBLIC_BRANCH = "research"
+# Contribution types counted under a heading of their own; every other type is "other".
+PUBLIC_CATEGORIES = {"lemma": "lemmas", "theorem": "theorems", "counterexample": "counterexamples"}
 
 
 def load_json(path: Path) -> dict:
@@ -124,6 +131,16 @@ def standing(record: dict) -> str:
     if status["mathematical"] in SETTLED_STATUSES:
         return "established"
     return "candidate"
+
+
+def publicly_established(record: dict) -> bool:
+    """What the public summary counts: promoted, and original within a thorough documented search.
+
+    Promotion (``proved``/``disproved``) already requires a review, a recorded
+    novelty search and a result package; a search that is only preliminary is
+    not enough here.
+    """
+    return standing(record) == "established" and record["status"]["novelty"] == "no-prior-resolution-found"
 
 
 def current_reviews(record: dict) -> list[dict]:
@@ -572,6 +589,52 @@ def _counts(values) -> dict[str, int]:
     return dict(sorted(collections.Counter(values).items()))
 
 
+def public_summary(active: list[dict], problems: list[dict], records: list[dict], repository: str | None, root: Path = ROOT) -> dict:
+    """The block of the summary meant for presentation outside the repository.
+
+    Field definitions and counting rules: docs/public-summary.md. Every record is
+    counted at most once, under its ``type``; resolved conjectures are problems
+    of the catalogue and are counted apart from the contributions.
+    """
+
+    def url(path: str, view: str = "blob") -> str | None:
+        return f"{repository}/{view}/{PUBLIC_BRANCH}/{path}" if repository else None
+
+    def entry(record: dict, title: str, path: str, **extra) -> dict:
+        return {"id": record["id"], "title": title} | extra | {"url": url(path), "status": dict(record["status"])}
+
+    def discovery(record: dict, **extra) -> dict:
+        return entry(record, record["title"], record["result"], type=record["type"], **extra)
+
+    investigations = [entry(problem, problem["name"], problem["dossier"]) for problem in active]
+    established = [record for record in records if publicly_established(record)]
+    by_category = {name: 0 for name in [*PUBLIC_CATEGORIES.values(), "other"]}
+    for record in established:
+        by_category[PUBLIC_CATEGORIES.get(record["type"], "other")] += 1
+    # A problem the project formulated itself ('discovery') is a contribution, not a resolved conjecture.
+    resolved = [problem for problem in problems if publicly_established(problem) and "discovery" not in problem]
+    by_outcome = {value: sum(1 for problem in resolved if problem["status"]["mathematical"] == value) for value in ("proved", "disproved")}
+    verified = [
+        (stamp, discovery(record, verified_utc=stamp))
+        for record in established
+        if record["status"]["formal"] == "complete"
+        for stamp in [load_json(root / record["formal_receipt"])["created_utc"]]
+    ]
+    return {
+        "schema_version": 1,
+        "active_investigations": investigations,
+        "primary_investigation": investigations[0] if investigations else None,
+        "established_original_discoveries": by_category | {"total": len(established)},
+        "resolved_conjectures": by_outcome | {"total": len(resolved)},
+        "latest_established_original_discovery": _latest(
+            [(record["resolved_on"], discovery(record, established_on=record["resolved_on"])) for record in established]
+        ),
+        "latest_formally_verified_original_contribution": _latest(verified),
+        "research_catalogue_url": url(INDEX.relative_to(ROOT).as_posix()),
+        "reviewed_results_url": url("results", "tree"),
+    }
+
+
 def summarize(catalogue: dict, model: dict, registry: dict, root: Path = ROOT) -> dict:
     """The project summary without its ``generated`` block. Absent items are explicit nulls."""
     problems = {problem["id"]: problem for problem in catalogue["problems"]}
@@ -661,6 +724,9 @@ def summarize(catalogue: dict, model: dict, registry: dict, root: Path = ROOT) -
         "latest_reviewed_contribution": _latest(reviewed),
         "latest_formally_verified_contribution": _latest(formal),
         "latest_contribution_with_originality_assessment": _latest(assessed),
+        "public": public_summary(
+            [problems[entry["id"]] for entry in active], list(problems.values()), records, repository, root
+        ),
         "counts": {
             "problems": {
                 "catalogued": len(problems),
@@ -687,6 +753,7 @@ def summarize(catalogue: dict, model: dict, registry: dict, root: Path = ROOT) -
             "Novelty values other than 'prior-resolution-identified' hold only within the documented search coverage.",
             "A null value means that no record qualifies.",
             "Counts and 'latest' entries cover contributions of standing 'candidate' or 'established' only.",
+            "The block 'public' is stricter: beyond its investigations it covers only promoted records with novelty 'no-prior-resolution-found' (docs/public-summary.md).",
         ],
     }
 

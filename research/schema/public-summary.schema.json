@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gustavobernardo1/conjectura/research/schema/public-summary.schema.json",
+  "title": "Conjectura public summary",
+  "description": "The block 'public' of research/summary.json: the interface for presentation outside the repository. Field definitions and counting rules are in docs/public-summary.md. 'schema_version' changes only when a field of this block is removed, renamed or changes meaning.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "active_investigations",
+    "primary_investigation",
+    "established_original_discoveries",
+    "resolved_conjectures",
+    "latest_established_original_discovery",
+    "latest_formally_verified_original_contribution",
+    "research_catalogue_url",
+    "reviewed_results_url"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "active_investigations": { "type": "array", "items": { "$ref": "#/$defs/investigation" } },
+    "primary_investigation": { "anyOf": [{ "$ref": "#/$defs/investigation" }, { "type": "null" }] },
+    "established_original_discoveries": {
+      "description": "Each established original contribution is counted once, under its type.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["lemmas", "theorems", "counterexamples", "other", "total"],
+      "properties": {
+        "lemmas": { "$ref": "#/$defs/count" },
+        "theorems": { "$ref": "#/$defs/count" },
+        "counterexamples": { "$ref": "#/$defs/count" },
+        "other": { "$ref": "#/$defs/count" },
+        "total": { "$ref": "#/$defs/count" }
+      }
+    },
+    "resolved_conjectures": {
+      "description": "Catalogued problems settled by the project; counted apart from the contributions.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["proved", "disproved", "total"],
+      "properties": {
+        "proved": { "$ref": "#/$defs/count" },
+        "disproved": { "$ref": "#/$defs/count" },
+        "total": { "$ref": "#/$defs/count" }
+      }
+    },
+    "latest_established_original_discovery": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/discovery",
+          "required": ["established_on"],
+          "properties": { "established_on": { "type": "string", "format": "date" } }
+        },
+        { "type": "null" }
+      ]
+    },
+    "latest_formally_verified_original_contribution": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/discovery",
+          "required": ["verified_utc"],
+          "properties": { "verified_utc": { "description": "Creation time of the verification receipt.", "type": "string" } }
+        },
+        { "type": "null" }
+      ]
+    },
+    "research_catalogue_url": { "$ref": "#/$defs/url" },
+    "reviewed_results_url": { "$ref": "#/$defs/url" }
+  },
+  "$defs": {
+    "count": { "type": "integer", "minimum": 0 },
+    "url": { "description": "Null when the repository address is not recorded in CITATION.cff.", "type": ["string", "null"], "pattern": "^https://" },
+    "status": {
+      "description": "The four independent status dimensions, with the values of research/schema/catalogue.schema.json.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mathematical", "formal", "novelty", "external_review"],
+      "properties": {
+        "mathematical": { "type": "string" },
+        "formal": { "type": "string" },
+        "novelty": { "type": "string" },
+        "external_review": { "type": "string" }
+      }
+    },
+    "investigation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "url", "status"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^CJ-[0-9]{4}$" },
+        "title": { "type": "string" },
+        "url": { "$ref": "#/$defs/url" },
+        "status": { "$ref": "#/$defs/status" }
+      }
+    },
+    "discovery": {
+      "type": "object",
+      "required": ["id", "title", "type", "url", "status"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^MD-[0-9]{4}$" },
+        "title": { "type": "string" },
+        "type": { "description": "Contribution type, as in research/discoveries.json.", "type": "string" },
+        "url": { "$ref": "#/$defs/url" },
+        "status": { "$ref": "#/$defs/status" }
+      }
+    }
+  }
+}

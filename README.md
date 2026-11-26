@@ -47,7 +47,7 @@ receipts or novelty claims — see [`AGENTS.md`](AGENTS.md).
 | [`research/INDEX.md`](research/INDEX.md) | Generated view: the 15 catalogued problems, ranked, and the registered contributions. |
 | [`research/catalogue.json`](research/catalogue.json) | The single authoritative record of problems (`CJ-XXXX`), statuses and scores. |
 | [`research/discoveries.json`](research/discoveries.json) | The single authoritative record of mathematical contributions (`MD-XXXX`). An identifier establishes identity, not correctness or novelty. |
-| [`research/summary.json`](research/summary.json) | Generated machine-readable summary of the project, with explicit nulls where nothing qualifies. |
+| [`research/summary.json`](research/summary.json) | Generated machine-readable summary of the project, with explicit nulls where nothing qualifies. Its block `public` is the interface for display elsewhere ([contract](docs/public-summary.md)). |
 | `research/active/` | Working state of investigations in progress (on the `research` branch). |
 | [`research/scouting-log.md`](research/scouting-log.md) | How candidates were found, what was set aside, and which conjectures were found to have reported resolutions. |
 | `experiments/` | Reproducible exact computations (on the `research` branch). |

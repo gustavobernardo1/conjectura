@@ -92,7 +92,11 @@ registered, reviewed, formally verified and novelty-assessed contributions,
 counts by type and by status, links to the evidence, the generation date and
 the Git revision and blobs it was generated from. Where nothing qualifies it
 contains an explicit `null`. Rediscovered results, withdrawn records and
-calibration theorems are excluded from its counts. Generating it publishes
+calibration theorems are excluded from its counts. Its block `public` is the
+part meant to be displayed elsewhere: it lists the active investigations and
+counts only promoted records whose novelty is `no-prior-resolution-found`. The
+location, fields, counting rules and update mechanism of that block are the
+contract in [`public-summary.md`](public-summary.md). Generating it publishes
 nothing: no script in this repository writes to a profile or to another
 repository, and doing so is an outside action under the first paragraph of
 this policy.

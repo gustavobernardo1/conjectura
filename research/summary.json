@@ -109,6 +109,49 @@
       "limitations": "Collins (1989) and her thesis were not accessible and are known only second-hand; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars was not read; several citing papers were seen by title only; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The statement is elementary once the coefficients are explicit, so an earlier appearance is plausible."
     }
   },
+  "public": {
+    "schema_version": 1,
+    "active_investigations": [
+      {
+        "id": "CJ-0001",
+        "title": "Collins–Shor conjecture on the peak of the distance characteristic polynomial of a tree",
+        "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0001-collins-shor-peak.md",
+        "status": {
+          "mathematical": "active-investigation",
+          "formal": "not-started",
+          "novelty": "preliminary-search-completed",
+          "external_review": "not-reviewed"
+        }
+      }
+    ],
+    "primary_investigation": {
+      "id": "CJ-0001",
+      "title": "Collins–Shor conjecture on the peak of the distance characteristic polynomial of a tree",
+      "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0001-collins-shor-peak.md",
+      "status": {
+        "mathematical": "active-investigation",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      }
+    },
+    "established_original_discoveries": {
+      "lemmas": 0,
+      "theorems": 0,
+      "counterexamples": 0,
+      "other": 0,
+      "total": 0
+    },
+    "resolved_conjectures": {
+      "proved": 0,
+      "disproved": 0,
+      "total": 0
+    },
+    "latest_established_original_discovery": null,
+    "latest_formally_verified_original_contribution": null,
+    "research_catalogue_url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/INDEX.md",
+    "reviewed_results_url": "https://github.com/gustavobernardo1/conjectura/tree/research/results"
+  },
   "counts": {
     "problems": {
       "catalogued": 15,
@@ -162,12 +205,13 @@
     "The four status dimensions are independent; 'ai-reviewed' is not human or peer review.",
     "Novelty values other than 'prior-resolution-identified' hold only within the documented search coverage.",
     "A null value means that no record qualifies.",
-    "Counts and 'latest' entries cover contributions of standing 'candidate' or 'established' only."
+    "Counts and 'latest' entries cover contributions of standing 'candidate' or 'established' only.",
+    "The block 'public' is stricter: beyond its investigations it covers only promoted records with novelty 'no-prior-resolution-found' (docs/public-summary.md)."
   ],
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "d4aca8b27ee6d7d27f419e619717f641636b80dc",
+    "revision": "0ff2fad07274eea57f3ec6ddf39e74205ba5948b",
     "sources_committed": true,
     "sources": {
       "research/catalogue.json": "23afc1f259224590e5f0eea346418241bc68a497",

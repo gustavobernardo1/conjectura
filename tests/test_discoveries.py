@@ -288,3 +288,82 @@ def test_summary_names_its_sources_and_is_stable_when_they_do_not_change(data):
     assert cat.build_summary(*data, committed, stale, rebind=False) == stale
     stale["generated"]["sources"]["research/discoveries.json"] = "0" * 40
     assert cat.build_summary(*data, committed, stale, rebind=False)["generated"]["date"] != "2001-01-01"
+
+
+# ------------------------------------------------------------ public summary --
+
+
+def public_errors(block: dict) -> list[str]:
+    validator = cat.jsonschema.Draft202012Validator(cat.load_json(cat.PUBLIC_SCHEMA))
+    return [error.message for error in validator.iter_errors(block)]
+
+
+SEARCH = {"as_of": "2026-11-19", "coverage": "A documented search.", "limitations": "Stated."}
+
+
+def promoted(**fields) -> dict:
+    settled = status(mathematical="proved", novelty="no-prior-resolution-found", external_review="ai-reviewed")
+    return record(**({"status": settled, "result": "results/README.md", "resolved_on": "2026-11-20", "novelty_search": SEARCH} | fields))
+
+
+def test_public_block_of_the_committed_summary_follows_its_schema(data):
+    block = cat.load_json(cat.SUMMARY)["public"]
+    assert public_errors(block) == []
+    assert public_errors(block | {"unannounced_field": 1}) != []
+    assert block["primary_investigation"] == (block["active_investigations"] or [None])[0]
+
+
+def test_public_block_uses_zeros_and_explicit_nulls_when_nothing_qualifies(data):
+    catalogue = copy.deepcopy(data[0])
+    for problem in catalogue["problems"]:
+        problem["status"]["mathematical"] = "candidate"
+    # A candidate proof is registered, and it is not counted.
+    block = cat.summarize(catalogue, data[1], registry(record(status=status(mathematical="candidate-proof"))))["public"]
+    assert public_errors(block) == []
+    assert block["active_investigations"] == [] and block["primary_investigation"] is None
+    assert block["established_original_discoveries"] == {"lemmas": 0, "theorems": 0, "counterexamples": 0, "other": 0, "total": 0}
+    assert block["resolved_conjectures"] == {"proved": 0, "disproved": 0, "total": 0}
+    assert block["latest_established_original_discovery"] is None
+    assert block["latest_formally_verified_original_contribution"] is None
+
+
+def test_public_block_counts_only_promoted_original_records_and_each_once(data):
+    preliminary = status(mathematical="proved", novelty="preliminary-search-completed", external_review="ai-reviewed")
+    records = [
+        promoted(id="MD-9001", type="lemma", resolved_on="2026-11-21"),
+        promoted(id="MD-9002", type="theorem", resolved_on="2026-11-23", formal_receipt=RECEIPT, status=promoted()["status"] | {"formal": "complete"}),
+        promoted(id="MD-9003", type="counterexample"),
+        promoted(id="MD-9004", type="bound"),
+        promoted(id="MD-9005", type="theorem", status=preliminary, resolved_on="2026-11-25"),
+        promoted(id="MD-9006", type="theorem", status=promoted()["status"] | {"mathematical": "candidate-proof"}),
+        record(id="MD-9007", status=status(mathematical="previously-resolved", novelty="prior-resolution-identified")),
+        promoted(id="MD-9008", status=promoted()["status"] | {"mathematical": "superseded"}),
+        record(id="MD-9009", type="conjecture"),
+    ]
+    catalogue = copy.deepcopy(data[0])
+    settled = {"result": "results/README.md", "resolved_on": "2026-11-22"}
+    first, second, third, fourth = catalogue["problems"][1:5]
+    first |= settled | {"status": promoted()["status"]}
+    second |= settled | {"status": promoted()["status"] | {"mathematical": "disproved"}}
+    third |= settled | {"status": preliminary}  # originality not sufficiently assessed
+    fourth |= settled | {"status": promoted()["status"], "discovery": "MD-9009"}  # formulated by the project
+
+    block = cat.summarize(catalogue, data[1], registry(*records))["public"]
+    assert public_errors(block) == []
+    counts = block["established_original_discoveries"]
+    assert counts == {"lemmas": 1, "theorems": 1, "counterexamples": 1, "other": 1, "total": 4}
+    assert counts["total"] == sum(value for key, value in counts.items() if key != "total")
+    # The theorem MD-9002 is counted as a theorem; the conjectures are counted apart from it.
+    assert block["resolved_conjectures"] == {"proved": 1, "disproved": 1, "total": 2}
+
+    latest = block["latest_established_original_discovery"]
+    assert (latest["id"], latest["type"], latest["established_on"]) == ("MD-9002", "theorem", "2026-11-23")
+    assert latest["url"] == "https://github.com/gustavobernardo1/conjectura/blob/research/results/README.md"
+    assert latest["status"]["external_review"] == "ai-reviewed"
+    verified = block["latest_formally_verified_original_contribution"]
+    assert verified["id"] == "MD-9002" and verified["verified_utc"] == cat.load_json(ROOT / RECEIPT)["created_utc"]
+
+    primary = block["primary_investigation"]
+    assert primary == block["active_investigations"][0] and primary["id"] == "CJ-0001"
+    assert primary["url"].startswith("https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0001-")
+    assert block["reviewed_results_url"] == "https://github.com/gustavobernardo1/conjectura/tree/research/results"
