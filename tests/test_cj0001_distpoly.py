@@ -132,3 +132,11 @@ def test_refutation_of_star_minimality_at_order_20_by_both_methods():
         q[name] = Fraction(scaled[m - 1], scaled[m])
     assert q["star"] < q["double"] < 1
     assert distpoly.peak_indices(distpoly.scaled_coefficients(double_star)) == [m]
+
+
+@pytest.mark.parametrize("leaves", [[1], [4], [1, 1], [9, 9], [1, 1, 1], [5, 7, 9, 4], [3, 1, 2, 1, 6], [2, 1, 1, 1, 3, 1]])
+def test_caterpillar_quotient_formula_matches_direct_computation(leaves):
+    # Lemma L3: every coefficient, not only the critical ratio.
+    import near_star_families
+
+    assert near_star_families.sequences_proportional(leaves)

@@ -94,6 +94,14 @@ def critical_ratio_caterpillar(leaves: list[int]) -> Fraction:
     return values[m - 1] / values[m]
 
 
+def sequences_proportional(leaves: list[int]) -> bool:
+    """Whole-sequence check of the quotient formula against the direct computation."""
+    n = len(leaves) + sum(leaves)
+    direct = distpoly.scaled_coefficients(caterpillar_parents(leaves))
+    quotient = caterpillar_coefficients(leaves, list(range(n - 1)))
+    return all(quotient[k] > 0 and quotient[k] * direct[0] == quotient[0] * direct[k] for k in range(n - 1))
+
+
 def balanced(n: int, spine: int) -> list[int]:
     base, extra = divmod(n - spine, spine)
     return [base + (1 if index < extra else 0) for index in range(spine)]
@@ -103,26 +111,29 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", type=Path)
     args = parser.parse_args()
-    report: dict = {"experiment": "CJ-0001 near-star families and the lower-bound margin", "arithmetic": "exact; decimals are renderings"}
+    report: dict = {"experiment": "CJ-0001 near-star families and the lower-bound margin",
+                    "arithmetic": "exact; decimals are renderings", "run": distpoly.run_metadata()}
 
-    # 1. Validation of the quotient formula against the direct computation.
-    validation = [[29, 29], [19, 19, 19], [5, 7, 9, 4], [1, 1, 1], [3, 1, 2, 1, 6], [12, 1, 1, 30]]
+    # 1. Validation of the quotient formula against the direct computation:
+    #    the whole sequence d_0..d_{n-2} must be proportional, not only one ratio.
+    validation = [[29, 29], [19, 19, 19], [5, 7, 9, 4], [1, 1, 1], [3, 1, 2, 1, 6], [12, 1, 1, 30], [1], [4], [1, 1], [2, 1, 1, 1, 3, 1]]
     for leaves in validation:
-        assert critical_ratio_caterpillar(leaves) == critical_ratio_direct(caterpillar_parents(leaves)), leaves
+        assert sequences_proportional(leaves), leaves
     report["quotient_formula_validated_on"] = validation
-    print(f"quotient formula agrees with the direct computation on {len(validation)} caterpillars")
+    report["quotient_formula_validation"] = "all coefficients d_0..d_{n-2} proportional to the direct n x n computation"
+    print(f"quotient formula agrees with the direct computation (all coefficients) on {len(validation)} caterpillars")
 
-    # 2. Smallest even order at which some double star has a larger critical ratio than the star.
+    # 2. Double stars against the star, every order from 6 to 41 (both parities).
     report["double_star_vs_star"] = []
-    for n in range(6, 41, 2):
+    for n in range(6, 42):
         star = critical_ratio_direct(distpoly.star_parents(n))
         best = max((critical_ratio_direct(caterpillar_parents([a, n - 2 - a])), a) for a in range(1, (n - 2) // 2 + 1))
         entry = {"order": n, "star_q": str(star), "best_double_star": [best[1], n - 2 - best[1]], "best_double_star_q": str(best[0]),
                  "double_star_exceeds_star": best[0] > star, "best_double_star_q_below_1": best[0] < 1}
         report["double_star_vs_star"].append(entry)
-    first = next((entry["order"] for entry in report["double_star_vs_star"] if entry["double_star_exceeds_star"]), None)
-    report["first_even_order_where_a_double_star_exceeds_the_star"] = first
-    print(f"first even order (6..40) at which a double star has q larger than the star: {first}")
+    exceeding = [entry["order"] for entry in report["double_star_vs_star"] if entry["double_star_exceeds_star"]]
+    report["orders_6_to_41_where_a_double_star_exceeds_the_star"] = exceeding
+    print(f"orders (6..41) at which some double star has q larger than the star: {exceeding}")
 
     # 3. Balanced caterpillars at large even orders: n * (1 - q) by spine length.
     report["balanced_caterpillars"] = []

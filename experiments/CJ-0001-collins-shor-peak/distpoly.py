@@ -23,7 +23,8 @@ from flint import fmpz_mat
 from networkx.generators.nonisomorphic_trees import _next_rooted_tree, _next_tree
 
 # Number of unlabelled trees of order n (OEIS A000055), n = 0..25. Used only
-# to validate the enumeration; quoted from the OEIS entry.
+# to validate the enumeration. Compared term by term with
+# https://oeis.org/A000055/b000055.txt on 2026-11-26.
 A000055 = [1, 1, 1, 1, 2, 3, 6, 11, 23, 47, 106, 235, 551, 1301, 3159, 7741, 19320, 48629,
            123867, 317955, 823065, 2144505, 5623756, 14828074, 39299897, 104636890]
 
@@ -94,6 +95,38 @@ def conjectured_interval(n: int) -> tuple[int, int]:
     and floor(n/sqrt(5)) = floor(sqrt(n^2/5)) = isqrt(n^2 // 5).
     """
     return n // 2, n - isqrt(n * n // 5)
+
+
+def run_metadata() -> dict:
+    """Provenance stored in every result file: command, revision, versions, time."""
+    import datetime
+    import platform
+    import subprocess
+    import sys
+    from pathlib import Path
+
+    import flint
+    import networkx
+
+    root = Path(__file__).resolve().parents[2]
+
+    def git(*args: str) -> str | None:
+        done = subprocess.run(["git", *args], cwd=root, capture_output=True, text=True)
+        return done.stdout.strip() if done.returncode == 0 else None
+
+    script = Path(sys.argv[0]).resolve()
+    try:
+        script_name = script.relative_to(root).as_posix()
+    except ValueError:
+        script_name = script.name
+    return {
+        "command": ["python", script_name, *sys.argv[1:]],
+        "git_revision": git("rev-parse", "HEAD"),
+        # Results are evidence for the recorded revision only if the tree was clean.
+        "tree_clean": git("status", "--porcelain") == "",
+        "started_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "versions": {"python": platform.python_version(), "python-flint": flint.__version__, "networkx": networkx.__version__},
+    }
 
 
 def path_parents(n: int) -> list[int]:

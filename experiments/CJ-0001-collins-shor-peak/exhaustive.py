@@ -134,14 +134,11 @@ def main() -> int:
     if args.max_order >= len(distpoly.A000055):
         parser.error("no reference tree count for this order")
 
-    import flint
-    import networkx
-
     report = {
         "experiment": "CJ-0001 exhaustive peak location",
         "statement_tested": "every maximizing index k of d_0..d_{n-2} satisfies floor(n/2) <= k <= ceil(n - n/sqrt(5))",
         "arithmetic": "exact integers (python-flint characteristic polynomial)",
-        "versions": {"python": platform.python_version(), "python-flint": flint.__version__, "networkx": networkx.__version__},
+        "run": distpoly.run_metadata(),
         "workers": args.workers,
         "orders": [],
     }

@@ -4,11 +4,14 @@ For a tree T of order n write rho_k(T) = d_{k+1}(T) / d_k(T), 0 <= k <= n-3,
 S_n for the star and P_n for the path. The hypothesis is
 
   (i)  rho_k(T) >= rho_k(S_n)   for 0 <= k <= floor(n/2) - 1,
-  (ii) rho_k(T) <= rho_k(P_n)   for 0 <= k <= p_n,  p_n = largest maximizing index of P_n.
+  (ii) rho_k(T) <= rho_k(P_n)   for 0 <= k <= min(p_n, n-3),
+       p_n = largest maximizing index of P_n (rho_k is defined for k <= n-3;
+       when p_n = n-2 the upper bound on the peak is vacuous).
 
-Together with unimodality, (i) at k = floor(n/2) - 1 and (ii) at k = p_n give
+Together with log-concavity, (i) at k = floor(n/2) - 1 and (ii) at k = p_n give
 peak(S_n) <= peak(T) <= peak(P_n), hence the Collins–Shor interval whenever the
-star and the path satisfy it.
+star and the path satisfy it. Hypothesis (i) is refuted at order 20; see
+research/active/CJ-0001-collins-shor-peak/STATE.md.
 
 Ratios are compared by integer cross-multiplication (exact). Two modes:
 
@@ -230,7 +233,8 @@ def main() -> int:
     sampled.add_argument("--out", type=Path)
     args = parser.parse_args()
 
-    report: dict = {"experiment": "CJ-0001 ratio extremality (Conjecture A)", "mode": args.mode, "arithmetic": "exact integers"}
+    report: dict = {"experiment": "CJ-0001 ratio extremality (Hypotheses A(i) and A(ii))", "mode": args.mode,
+                    "arithmetic": "exact integers", "run": distpoly.run_metadata()}
     if args.mode == "exhaustive":
         pool = multiprocessing.Pool(args.workers) if args.workers > 1 else None
         report["orders"] = []
