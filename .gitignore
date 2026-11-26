@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Lean / Lake build products (the manifest and toolchain file are tracked)
+formalization/.lake/
+*.olean
+*.ilean
+
+# LaTeX build products
+manuscripts/**/*.aux
+manuscripts/**/*.log
+manuscripts/**/*.out
+manuscripts/**/*.bbl
+manuscripts/**/*.blg
+manuscripts/**/*.fls
+manuscripts/**/*.fdb_latexmk
+manuscripts/**/*.synctex.gz
+manuscripts/**/*.pdf
+
+# Large or transient experiment outputs. Small, exact result files that support
+# a claim are committed explicitly; scratch output goes here.
+experiments/**/scratch/
+experiments/**/*.tmp
+
+# Editors, operating systems, local agent state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.claude/settings.local.json
+.claude/worktrees/
+
+# Secrets must never be committed
+.env
+.env.*
+*.pem
+*.key

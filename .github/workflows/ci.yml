@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main, research]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: Catalogue, tooling and computations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - name: Tests that do not need Lean
+        run: uv run pytest -m "not lean"
+      - name: Catalogue is valid and the generated index is current
+        run: |
+          uv run python scripts/catalogue.py validate
+          uv run python scripts/catalogue.py render --check
+
+  lean:
+    name: Lean build, audit, kernel replay, negative tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --locked
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: formalization
+          use-mathlib-cache: true
+          build: true
+          test: false
+          lint: false
+      - name: Full verification (no receipt is written in CI)
+        run: uv run python scripts/verify_lean.py --no-receipt
+      - name: Positive and negative verification tests
+        run: uv run pytest -m lean

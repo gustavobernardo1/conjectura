@@ -1,0 +1,53 @@
+% Conjectura manuscript template. Plain LaTeX with standard packages only, so
+% that the source is accepted by arXiv without modification.
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Title}
+\author{Author}
+\address{Universidade Federal de Goi\'as (UFG), Brazil}
+\date{\today}
+
+\begin{document}
+
+\begin{abstract}
+State the result exactly, with all hypotheses.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+The conjecture, its source and statement number, what was known, what is proved here.
+
+\section{Statement and definitions}
+
+\section{Proof}
+
+\section{Computational evidence}
+Exact range covered, software versions, and the commands that reproduce it.
+
+\section{Formal verification}
+Lean theorem names, toolchain and Mathlib revision, receipt identifier, and the
+scope of what is and is not formalized.
+
+\section*{Use of AI systems}
+Which systems were used, for which parts of the work, and how each part was
+verified. See the attribution record in the repository.
+
+\section*{Limitations}
+
+\begin{thebibliography}{9}
+\end{thebibliography}
+
+\end{document}

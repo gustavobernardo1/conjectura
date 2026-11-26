@@ -1,0 +1,1351 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-26",
+  "problems": [
+    {
+      "id": "CJ-0001",
+      "slug": "collins-shor-peak",
+      "name": "Collins–Shor conjecture on the peak of the distance characteristic polynomial of a tree",
+      "authors": [
+        "K. L. Collins",
+        "Peter Shor"
+      ],
+      "source": {
+        "citation": "G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341 (journal version: Electron. J. Linear Algebra, 2018), Conjecture 1.2; originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor.",
+        "url": "https://arxiv.org/abs/1507.02341",
+        "statement_number": "Conjecture 1.2 (Collins 1989, Conjecture 9)",
+        "published": "1989",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "primary-source",
+        "note": "The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) was not accessed; according to arXiv:1507.02341 it states the bounds without floor and ceiling."
+      },
+      "statement": "Let $T$ be a tree of order $n \\ge 3$ with distance matrix $\\mathcal{D}(T)$ (the $(i,j)$ entry is the length of the path from $v_i$ to $v_j$). Let $\\delta_k(T)$ be the coefficient of $x^k$ in $\\det(\\mathcal{D}(T) - xI)$ and, for $0 \\le k \\le n-2$, let $d_k(T) = 2^{k-(n-2)}\\,|\\delta_k(T)|$ be the normalized coefficients. Conjecture 1.2 (Collins–Shor), verbatim: \"The [normalized] coefficients of the distance characteristic polynomial for any tree $T$ with $n$ vertices are unimodal with peak between $\\lfloor n/2 \\rfloor$ and $\\lceil n - n/\\sqrt{5} \\rceil$.\" Unimodality (indeed log-concavity) is Theorem 2.1 of the same paper. The open part is the location: every index $k$ at which $d_0(T),\\dots,d_{n-2}(T)$ attains its maximum satisfies $\\lfloor n/2 \\rfloor \\le k \\le \\lceil n - n/\\sqrt{5} \\rceil$. (The source does not say how a tie between two maximal coefficients is to be read; the project uses the strong reading 'every maximizing index' and records ties explicitly.)",
+      "fields": [
+        "spectral graph theory",
+        "matrix analysis",
+        "combinatorics"
+      ],
+      "dossier": "research/candidates/CJ-0001-collins-shor-peak.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "arXiv:1507.02341 (2018) states that the peak location remains open and reports verification for all trees of order at most 20; the 2022 follow-up arXiv:2206.07561 still treats peak location as unresolved; three web searches on 2026-11-26 found no later result. No source dated after 2022 was found.",
+        "url": "https://arxiv.org/abs/2206.07561"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Two web queries by a scout subagent (general web search; ar5iv full text of arXiv:1507.02341; abstract of arXiv:2206.07561) and one further web query by the coordinating agent on 2026-11-26; the TeX source of arXiv:1507.02341 was read for the exact statement.",
+        "limitations": "No direct arXiv listing search, no Google Scholar citation trawl of the 2018 ELA paper, no MathOverflow or Open Problem Garden check. The evidence of openness is 4+ years old; an unsuccessful 2025–2026 search does not establish that nobody has settled it. Forward citations of arXiv:1507.02341 and arXiv:2206.07561 should be checked before investing."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 3,
+          "why": "Read verbatim from the TeX source of arXiv:1507.02341; the original 1989 wording was not accessed and the tie convention is unstated."
+        },
+        "open_evidence": {
+          "score": 2,
+          "why": "Explicitly open in 2018 and treated as open in 2022, but no source after 2022; openness rests on unsuccessful searches."
+        },
+        "tractability": {
+          "score": 3,
+          "why": "Explicit coefficient formulas, real-rootedness and Newton-type ratio bounds give concrete handles; classes of trees look approachable."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "Exact integer characteristic polynomials of distance matrices are cheap; all trees of a given order can be enumerated."
+        },
+        "counterexample_search": {
+          "score": 4,
+          "why": "The literature stops at order 20; exhaustive search to order 23-25 is feasible on a desktop."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "Graham–Lovász 1978, Collins 1989, Aalipour et al. 2018 and a 2022 extension give techniques; the literature is small."
+        },
+        "lean_coverage": {
+          "score": 2,
+          "why": "Mathlib has trees, graph distance and characteristic polynomials; the distance matrix must be defined."
+        },
+        "partial_results_potential": {
+          "score": 4,
+          "why": "A new verified range, the peak for a tree family, or a sharper general bound than 2n/3 would each stand alone."
+        },
+        "significance": {
+          "score": 2,
+          "why": "A refinement of a 1978 Graham–Lovász question; of interest to the distance-spectra community, modest beyond it."
+        },
+        "low_computational_cost": {
+          "score": 3,
+          "why": "Minutes to hours on a desktop for the exhaustive range of interest."
+        },
+        "educational_value": {
+          "score": 4,
+          "why": "Teaches distance matrices, real-rooted polynomials, log-concavity, Newton inequalities, exact linear algebra."
+        },
+        "director_alignment": {
+          "score": 4,
+          "why": "Linear algebra plus graph theory plus exact computation: the centre of the director's background."
+        }
+      }
+    },
+    {
+      "id": "CJ-0002",
+      "slug": "chollet-permanent",
+      "name": "Chollet's permanent conjecture",
+      "authors": [
+        "Chollet"
+      ],
+      "source": {
+        "citation": "Chollet (1982), as stated in F. Zhang, An update on a few permanent conjectures, arXiv:1608.02844 (2016), Section 6, inequality (16).",
+        "url": "https://arxiv.org/abs/1608.02844",
+        "statement_number": "Chollet conjecture 1982, inequality (16) of the survey",
+        "published": "1982",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "secondary-source",
+        "note": "Statement quoted from Zhang's survey; Chollet's 1982 paper was not accessed."
+      },
+      "statement": "Quoted from Zhang (arXiv:1608.02844, Section 6 'Chollet conjecture is open'): 'Chollet conjecture 1982 [10]. If A >= 0 and B >= 0 are n x n matrices, then per(A \\circ B) <= per A per B (16)'. Here (Zhang, Section 2) M_n is the set of n x n complex matrices, 'A >= 0' means A is positive semidefinite (x^*Ax >= 0 for all x in C^n, hence Hermitian), per A = \\sum_{\\sigma \\in S_n} \\prod_{t=1}^n a_{t\\sigma(t)}, and A \\circ B = (a_{ij} b_{ij}) is the Hadamard (entrywise) product. Equivalent form (Zhang, quoting Chollet): 'Chollet showed that the inequality holds if and only if it is true when B = \\bar{A}: per(A \\circ \\bar{A}) <= (per A)^2 (17)'. Real special case posed as Zhang's Question 9: for a real positive semidefinite A = (a_{ij}), does per((a_{ij}^2)) <= (per A)^2 hold?",
+      "fields": [
+        "matrix analysis",
+        "inequalities"
+      ],
+      "dossier": "research/candidates/CJ-0002-chollet-permanent.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "P. Pant and R. Singh, arXiv:2604.24192 (v3, 21 November 2026) present it as an open conjecture and prove it only for structural classes.",
+        "url": "https://arxiv.org/abs/2604.24192"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "3 web queries by a scout subagent; sources checked: General web search (3 queries touching permanent conjectures); F. Zhang survey arXiv:1608.02844 (PDF pages 1–13 read); arXiv abstract page 2604.24192; preprints.org 202608.2196 (attempted, HTTP 403)",
+        "limitations": "2026 has seen a burst of (apparently AI-assisted, unrefereed) preprints on this exact conjecture; I could not read the order-<=6 preprint, so the true frontier (n = 5, 6 or 7) is uncertain. No arXiv listing search, MathOverflow, or Scholar check. The Wanless/Cheon open-problem updates were not consulted."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 3,
+          "why": "Unambiguous statement quoted from a survey by a specialist; the 1982 original was not accessed."
+        },
+        "open_evidence": {
+          "score": 4,
+          "why": "A paper revised five days before the search date still treats the general statement as open."
+        },
+        "tractability": {
+          "score": 2,
+          "why": "Open since 1982; general techniques are exhausted, but new structured classes were obtained in 2026 by elementary means."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "Exact permanents in rational or Gaussian-rational arithmetic are trivial up to order 12."
+        },
+        "counterexample_search": {
+          "score": 2,
+          "why": "Small orders are reported settled by unrefereed 2026 preprints, so a counterexample would need larger or cleverly structured matrices."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "Zhang's survey and the 2026 papers give a clear map of what is known."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "Mathlib has permanents, Hadamard products and positive semidefinite matrices."
+        },
+        "partial_results_potential": {
+          "score": 3,
+          "why": "A new matrix class is a real result, but the area became crowded in 2026."
+        },
+        "significance": {
+          "score": 3,
+          "why": "A classical question, the permanental analogue of Oppenheim's inequality."
+        },
+        "low_computational_cost": {
+          "score": 3,
+          "why": "Experiments are cheap; a systematic numerical search over complex PSD matrices is moderate."
+        },
+        "educational_value": {
+          "score": 4,
+          "why": "Teaches permanents, Schur products, positive semidefiniteness and multilinear algebra."
+        },
+        "director_alignment": {
+          "score": 4,
+          "why": "Pure matrix analysis."
+        }
+      }
+    },
+    {
+      "id": "CJ-0003",
+      "slug": "lieb-permanental-dominance",
+      "name": "Lieb's permanental dominance conjecture",
+      "authors": [
+        "E. H. Lieb"
+      ],
+      "source": {
+        "citation": "E. H. Lieb (1966), as stated in F. Zhang, An update on a few permanent conjectures, arXiv:1608.02844 (2016), Section 4, inequality (10).",
+        "url": "https://arxiv.org/abs/1608.02844",
+        "statement_number": "Lieb permanent dominance conjecture 1966, inequality (10) of the survey",
+        "published": "1966",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "secondary-source",
+        "note": "Statement quoted from Zhang's survey; Lieb's 1966 paper was not accessed."
+      },
+      "statement": "Quoted from Zhang (arXiv:1608.02844, Section 4): 'Lieb permanent dominance conjecture 1966 [28]. Let H be a subgroup of the symmetric group S_n and let \\chi be a character of degree m of H. Then (1/m) \\sum_{\\sigma \\in H} \\chi(\\sigma) \\prod_{i=1}^n a_{i\\sigma(i)} <= per A (10) holds for all n x n positive semidefinite Hermitian A.' Here per A = \\sum_{\\sigma \\in S_n} \\prod_i a_{i\\sigma(i)}; the left side is the normalized generalized matrix function d^H_\\chi(A)/\\chi(e). Important special case (H = S_n, \\chi irreducible): every normalized immanant of a PSD matrix is at most its permanent.",
+      "fields": [
+        "matrix analysis",
+        "inequalities",
+        "representation theory"
+      ],
+      "dossier": "research/candidates/CJ-0003-lieb-permanental-dominance.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Y. Li, arXiv:2609.13412 (11 September 2026) claims only the irreducible-immanant case up to order 15 and states that the subgroup form remains open.",
+        "url": "https://arxiv.org/abs/2609.13412"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "1 web queries by a scout subagent; sources checked: General web search (1 dedicated query plus 2 neighbouring permanent-conjecture queries); F. Zhang survey arXiv:1608.02844 (PDF pages 1–13 read); arXiv abstract page 2609.13412",
+        "limitations": "Wanless's survey (the authoritative status reference) was not fetched. The order-four general-subgroup paper (arXiv:2608.21749) was not read, so the smallest open case for general (H, \\chi) is not established here. No arXiv listing, MathOverflow or Scholar search."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 3,
+          "why": "Unambiguous statement quoted from a survey; the 1966 original was not accessed."
+        },
+        "open_evidence": {
+          "score": 4,
+          "why": "September 2026 preprints explicitly leave the general conjecture open."
+        },
+        "tractability": {
+          "score": 1,
+          "why": "Sixty years old and attacked by specialists; only finite cases are realistic."
+        },
+        "computational_experiments": {
+          "score": 3,
+          "why": "Finite cases are exactly checkable but need character tables and semidefinite certificates."
+        },
+        "counterexample_search": {
+          "score": 2,
+          "why": "The small cases are being closed by others in 2026; the remaining ones are large."
+        },
+        "supporting_literature": {
+          "score": 4,
+          "why": "A large literature and surveys exist."
+        },
+        "lean_coverage": {
+          "score": 2,
+          "why": "Permanents exist in Mathlib; immanants and generalized matrix functions do not."
+        },
+        "partial_results_potential": {
+          "score": 2,
+          "why": "Finite cases are meaningful but two 2026 preprints already cover the nearest ones."
+        },
+        "significance": {
+          "score": 4,
+          "why": "One of the central open problems on permanents."
+        },
+        "low_computational_cost": {
+          "score": 2,
+          "why": "Certificates for orders above 5 are computationally heavy."
+        },
+        "educational_value": {
+          "score": 4,
+          "why": "Connects matrix inequalities with the representation theory of the symmetric group."
+        },
+        "director_alignment": {
+          "score": 4,
+          "why": "Matrix analysis."
+        }
+      }
+    },
+    {
+      "id": "CJ-0004",
+      "slug": "liang-so-zhang-per-tensor",
+      "name": "Liang–So–Zhang per-tensor product conjecture (with Pate's conjecture)",
+      "authors": [
+        "Liang",
+        "So",
+        "Zhang",
+        "Pate"
+      ],
+      "source": {
+        "citation": "Liang, So and Zhang (1992) and Pate (1984), as stated in F. Zhang, An update on a few permanent conjectures, arXiv:1608.02844 (2016), Section 7, inequality (19).",
+        "url": "https://arxiv.org/abs/1608.02844",
+        "statement_number": "Section 7, inequality (19) of the survey",
+        "published": "1992",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "secondary-source",
+        "note": "Statement quoted from Zhang's survey; the primary papers were not accessed and their bibliographic data were not read."
+      },
+      "statement": "Quoted from Zhang (arXiv:1608.02844, Section 7): 'Liang-So-Zhang per-tensor product conjecture 1992 [59]. Let A and B be n x n and m x m positive semidefinite matrices, respectively. Then (per A)^m (per B)^n <= per(A \\otimes B)'. Special case (Pate 1984): 'If M \\in M_m is positive semidefinite and J_k is the all one matrix of size k, then (k!)^m (per M)^k <= per(J_k \\otimes M) (19) which has been confirmed for k = 2 by Pate 1984 [45] and for m = 2 [59].' For k = 2 the inequality reads 2^m (per M)^2 <= per([[M, M],[M, M]]). Companion conjecture in the same section: 'Liang-So-Zhang Hadamard-Kronecker product conjecture 1992 [59]. Let A and B be n x n positive semidefinite matrices. Then (per(A \\circ B))^n <= per(A \\otimes B)' (proved in [59, Theorem 2] for any PSD A and special B with all diagonal entries equal and all entries above the main diagonal equal).",
+      "fields": [
+        "matrix analysis",
+        "inequalities"
+      ],
+      "dossier": "research/candidates/CJ-0004-liang-so-zhang-per-tensor.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Listed as open in Zhang's 2016 survey; a 2020 search snippet describes only the small special cases as proved. No later confirmation was found.",
+        "url": "https://arxiv.org/abs/1608.02844"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "1 web queries by a scout subagent; sources checked: General web search (1 dedicated query); F. Zhang survey arXiv:1608.02844 (PDF pages 1–13 read)",
+        "limitations": "Only one targeted query; no arXiv listing search, no citation trawl of the 1992 paper or of Pate 1984, no check of the Cheon–Wanless / Wanless open-problem updates. 2026 saw many unrefereed computer-assisted preprints on neighbouring permanent conjectures (Chollet, Lieb, a Pate–Wanless question per a snippet about preprints.org 202609.2464), so this one may have been attacked without my search surfacing it. Treat 'open' as probable, not established."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 3,
+          "why": "Unambiguous statement quoted from a survey; primary papers not accessed."
+        },
+        "open_evidence": {
+          "score": 1,
+          "why": "The newest evidence of openness is from 2016-2020; a citation search is required before any work."
+        },
+        "tractability": {
+          "score": 3,
+          "why": "The survey names the next small cases and reports little prior effort."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "Permanents of Kronecker products up to order 25 are exactly computable."
+        },
+        "counterexample_search": {
+          "score": 3,
+          "why": "A low-rank numerical search for the 3x3 cases is cheap and apparently not reported."
+        },
+        "supporting_literature": {
+          "score": 2,
+          "why": "Sparse literature beyond the survey."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "Permanents, Kronecker products and positive semidefiniteness are in Mathlib."
+        },
+        "partial_results_potential": {
+          "score": 3,
+          "why": "A new small case or a counterexample would be a real result."
+        },
+        "significance": {
+          "score": 2,
+          "why": "A specialised conjecture."
+        },
+        "low_computational_cost": {
+          "score": 3,
+          "why": "Cheap for the small cases."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches permanents and tensor products."
+        },
+        "director_alignment": {
+          "score": 4,
+          "why": "Matrix analysis."
+        }
+      }
+    },
+    {
+      "id": "CJ-0005",
+      "slug": "wowii-199",
+      "name": "Written on the Wall II, Conjecture 199",
+      "authors": [
+        "Graffiti.pc (program by Ermelinda DeLaViña)"
+      ],
+      "source": {
+        "citation": "E. DeLaViña, Written on the Wall II (Conjectures of Graffiti.pc), entry 199, dated 12 January 2006; read from the Internet Archive snapshot of 2026-07-23.",
+        "url": "https://web.archive.org/web/20260723161800id_/http://cms.uhd.edu/faculty/delavinae/research/wowII/all.html",
+        "statement_number": "199",
+        "published": "2006",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "primary-source",
+        "note": "Read from an archived copy because the live host timed out."
+      },
+      "statement": "Verbatim from the WOWII list: \"If G is a simple connected graph with n > 1 such that tree(G) - 2 ≤ κ(G), then G has a Hamiltonian path.\" Definitions, verbatim from the list's definitions script (wowIIdefs.js): tree(G) = \"The number of vertices of a largest induced tree of the graph.\"; κ(G) (connectivity number) = \"is the fewest number of vertices whose removal disconnects the graph.\"; Hamiltonian path = \"A graph is said to have a Hamiltonian path if there exist two vertices with a path between them which visits each vertex of the graph exactly once.\" n is the number of vertices.",
+      "fields": [
+        "graph theory"
+      ],
+      "dossier": "research/candidates/CJ-0005-wowii-199.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Tagged as an open research problem in google-deepmind/formal-conjectures (GraphConjecture199.lean, main branch, fetched 2026-11-26); DeLaViña's list marks it open.",
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/WrittenOnTheWallII/GraphConjecture199.lean"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "3 web queries by a scout subagent; sources checked: google-deepmind/formal-conjectures (main branch, all 64 WOWII Lean files); DeLaViña WOWII all.html + wowIIdefs.js (Internet Archive snapshot 2026-07-23); 1337isnot1337/solved-conjectures README; one general web search (returned arXiv 2608.01396 on WOWII 141-143 and arXiv 2609.19195 on WOWII 194, nothing on 199)",
+        "limitations": "No arXiv full-text search, MathOverflow search, or scan of open pull requests / issues in formal-conjectures was done; a proof or counterexample could exist in an unmerged PR or a 2026 preprint. WOWII conjectures are being resolved quickly in 2026 by AI-assisted contributors, so this target can disappear at short notice. The live WOWII site was unreachable (timeout); only the archived copy was read."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 4,
+          "why": "Verbatim from the list together with its definitions of tree(G) and connectivity."
+        },
+        "open_evidence": {
+          "score": 3,
+          "why": "Tagged open in a maintained formal repository on the search date; the search for resolutions was shallow."
+        },
+        "tractability": {
+          "score": 3,
+          "why": "Small connectivity cases and hereditary classes look approachable; a structured counterexample is plausible."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "All three invariants are computable by brute force for graphs up to order 10-11."
+        },
+        "counterexample_search": {
+          "score": 4,
+          "why": "Exhaustive enumeration of connected graphs to order 10 is routine; a neighbouring conjecture fell to a small construction."
+        },
+        "supporting_literature": {
+          "score": 1,
+          "why": "Almost no literature."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "A Lean statement already exists in formal-conjectures."
+        },
+        "partial_results_potential": {
+          "score": 3,
+          "why": "A proof for a class or a counterexample would both be genuine results, though of limited reach."
+        },
+        "significance": {
+          "score": 1,
+          "why": "A machine-generated conjecture of low prominence."
+        },
+        "low_computational_cost": {
+          "score": 3,
+          "why": "Needs a graph generator and compiled code beyond order 10."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches Hamiltonicity, connectivity and induced subgraphs."
+        },
+        "director_alignment": {
+          "score": 3,
+          "why": "Graph theory and exhaustive computation."
+        }
+      }
+    },
+    {
+      "id": "CJ-0006",
+      "slug": "wowii-40",
+      "name": "Written on the Wall II, Conjecture 40",
+      "authors": [
+        "Graffiti.pc (program by Ermelinda DeLaViña)"
+      ],
+      "source": {
+        "citation": "E. DeLaViña, Written on the Wall II (Conjectures of Graffiti.pc), entry 40, dated 5 March 2004; read from the Internet Archive snapshot of 2026-07-23.",
+        "url": "https://web.archive.org/web/20260723161800id_/http://cms.uhd.edu/faculty/delavinae/research/wowII/all.html",
+        "statement_number": "40",
+        "published": "2004",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "primary-source",
+        "note": "Read from an archived copy."
+      },
+      "statement": "Verbatim from the WOWII list: \"If G is a simple connected graph on more than one vertex, then f(G) ≥ CEIL[(p(G)+b(G)+1)/2]\". Definitions, verbatim from wowIIdefs.js: f(G) (forest number) = \"The number of vertices of a largest induced forest of the graph.\"; p(G) (path covering number) = \"The minimum number of vertex disjoint paths needed to cover the vertices of the graph.\"; b(G) (bipartite number) = \"The maximum number of vertices of an induced bipartite subgraph of the graph.\" In LaTeX: $f(G) \\ge \\lceil (p(G)+b(G)+1)/2 \\rceil$.",
+      "fields": [
+        "graph theory"
+      ],
+      "dossier": "research/candidates/CJ-0006-wowii-40.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Tagged as an open research problem in google-deepmind/formal-conjectures (GraphConjecture40.lean, main branch, fetched 2026-11-26).",
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/WrittenOnTheWallII/GraphConjecture40.lean"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "3 web queries by a scout subagent; sources checked: google-deepmind/formal-conjectures (main branch); DeLaViña WOWII all.html + wowIIdefs.js (Internet Archive snapshot 2026-07-23); 1337isnot1337/solved-conjectures README; one general web search (no hit for conjecture 40)",
+        "limitations": "Same as for conjecture 199: no arXiv full-text, MathOverflow or open-PR scan. The WOWII page has not obviously been updated in years, so its 'O' is weak evidence; the Lean tag is the only current signal. One search with no hit does not establish openness."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 4,
+          "why": "Verbatim from the list together with its definitions of the three invariants."
+        },
+        "open_evidence": {
+          "score": 3,
+          "why": "Tagged open in a maintained formal repository on the search date; the search for resolutions was shallow."
+        },
+        "tractability": {
+          "score": 3,
+          "why": "The path-cover-number-one case is proved; the next rungs (trees, bipartite graphs) are concrete."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "All invariants are computable by subset enumeration for graphs up to order 12."
+        },
+        "counterexample_search": {
+          "score": 4,
+          "why": "Exhaustive search to order 10 is routine and a sibling conjecture of the same shape is false."
+        },
+        "supporting_literature": {
+          "score": 2,
+          "why": "One proved special case and little else."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "A Lean statement already exists in formal-conjectures."
+        },
+        "partial_results_potential": {
+          "score": 3,
+          "why": "A new class or a counterexample would be a genuine result of limited reach."
+        },
+        "significance": {
+          "score": 1,
+          "why": "A machine-generated conjecture of low prominence."
+        },
+        "low_computational_cost": {
+          "score": 3,
+          "why": "Needs a graph generator and compiled code beyond order 10."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches induced forests, path covers and bipartite subgraphs."
+        },
+        "director_alignment": {
+          "score": 3,
+          "why": "Graph theory and exhaustive computation."
+        }
+      }
+    },
+    {
+      "id": "CJ-0007",
+      "slug": "ellis-filmus-friedgut-spectral",
+      "name": "Ellis–Filmus–Friedgut spectral conjectures H and I for Kneser graphs of downsets",
+      "authors": [
+        "D. Ellis",
+        "Y. Filmus",
+        "E. Friedgut"
+      ],
+      "source": {
+        "citation": "D. Ellis, Y. Filmus, E. Friedgut, Chvátal's conjecture: a proof from The Book, arXiv:2609.28404 (v3, 22 October 2026), Section 5, Conjectures H and I.",
+        "url": "https://arxiv.org/abs/2609.28404",
+        "statement_number": "Conjecture H and Conjecture I",
+        "published": "2026",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "not-checked",
+        "note": "The two conjecture sentences were quoted through a summarising fetch and the surrounding definitions are a paraphrase. The PDF must be re-read before any work starts."
+      },
+      "statement": "Quoted sentences: Conjecture H: \"The weighted Hoffman bound is tight for any downset.\" Conjecture I: \"The inertia bound is tight for any downset.\" Setting (as reported from the paper; wording of the definitions is a close paraphrase obtained through a summarising fetch, not a verbatim copy): a downset is a family $\\mathcal{D}\\subseteq 2^{[n]}$ with $A\\in\\mathcal{D},\\ B\\subseteq A \\Rightarrow B\\in\\mathcal{D}$. $\\mathrm{Kn}(\\mathcal{D})$ is the graph on vertex set $\\mathcal{D}$ in which two sets are adjacent iff they are disjoint (so $\\emptyset$ carries a loop). Weighted Hoffman bound: if $M$ is a real symmetric $V\\times V$ matrix with $M(x,y)=0$ whenever $xy\\notin E(G)$ and $M\\mathbf{1}=\\mathbf{1}$, then $\\alpha(G)\\le \\frac{-\\lambda_{\\min}(M)}{1-\\lambda_{\\min}(M)}|V(G)|$. Inertia bound: if $M$ is real symmetric with $M(x,y)=0$ whenever $xy\\notin E(G)$, then $\\alpha(G)\\le \\#\\{\\text{nonnegative eigenvalues of } M\\}$. 'Tight' is to be read as: for $G=\\mathrm{Kn}(\\mathcal{D})$ there is an admissible $M$ for which the bound equals the maximum size of an intersecting subfamily of $\\mathcal{D}$, which by the (now proved) Chvátal conjecture is the size of the largest star $\\max_i |\\{A\\in\\mathcal{D}: i\\in A\\}|$.",
+      "fields": [
+        "spectral graph theory",
+        "combinatorics",
+        "discrete optimization"
+      ],
+      "dossier": "research/candidates/CJ-0007-ellis-filmus-friedgut-spectral.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Stated as new conjectures in arXiv:2609.28404 (v3, 22 October 2026), supported there by numerical experiments only.",
+        "url": "https://arxiv.org/abs/2609.28404"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "2 web queries by a scout subagent; sources checked: arXiv abstract page and HTML v3 of 2609.28404; two general web searches; 1337isnot1337/solved-conjectures README (no matching entry)",
+        "limitations": "The conjectures are two months old; follow-up preprints may not be indexed yet. arXiv listing/citation search (papers citing 2609.28404 or 2609.19123), MathOverflow and the authors' pages were not checked. The Chang–Liu–Liu paper and Keevash's paper on Kahn's flow conjecture (arXiv 2609.23595, seen only in a snippet) were not read and may already contain or imply a certifying matrix. Statement details were obtained through a summarising fetch and must be re-read from the PDF before any formal work."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 2,
+          "why": "Conjecture sentences quoted, but the definitions (loops, normalisation) are a paraphrase and must be re-read."
+        },
+        "open_evidence": {
+          "score": 4,
+          "why": "Stated two months before the search date by the authors as open."
+        },
+        "tractability": {
+          "score": 2,
+          "why": "Strong authors report only numerical evidence; a proof likely needs a new construction of weight matrices."
+        },
+        "computational_experiments": {
+          "score": 3,
+          "why": "Each downset gives a semidefinite program; exact certificates need rational reconstruction."
+        },
+        "counterexample_search": {
+          "score": 3,
+          "why": "Small ground sets can be enumerated; the fractional variant already fails at n = 7."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "The source paper and the Hoffman/inertia-bound literature."
+        },
+        "lean_coverage": {
+          "score": 1,
+          "why": "Weighted Hoffman and inertia bounds are not in Mathlib."
+        },
+        "partial_results_potential": {
+          "score": 4,
+          "why": "First exhaustive verification, a proved family or a counterexample would each be new."
+        },
+        "significance": {
+          "score": 3,
+          "why": "Fresh conjectures attached to the resolution of Chvátal's conjecture."
+        },
+        "low_computational_cost": {
+          "score": 3,
+          "why": "Small semidefinite programs."
+        },
+        "educational_value": {
+          "score": 4,
+          "why": "Teaches spectral bounds, semidefinite duality and extremal set theory."
+        },
+        "director_alignment": {
+          "score": 4,
+          "why": "Spectral graph theory and optimisation."
+        }
+      }
+    },
+    {
+      "id": "CJ-0008",
+      "slug": "tree-independence-unimodality",
+      "name": "Unimodality of the independence polynomial of trees",
+      "authors": [
+        "Y. Alavi",
+        "P. J. Malde",
+        "A. J. Schwenk",
+        "P. Erdős"
+      ],
+      "source": {
+        "citation": "Y. Alavi, P. J. Malde, A. J. Schwenk, P. Erdős, The vertex independence sequence of a graph is not constrained, Congr. Numer. 58 (1987) 15-23, Problem 3; quoted via D. Galvin, arXiv:2502.10654.",
+        "url": "https://arxiv.org/abs/2502.10654",
+        "statement_number": "Problem 3",
+        "published": "1987",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "secondary-source",
+        "note": "Posed as a question in the original; quoted from Galvin's paper. The 1987 paper was not accessed."
+      },
+      "statement": "As quoted in Galvin (arXiv:2502.10654v2) from Alavi–Malde–Schwenk–Erdős, Problem 3: \"For trees (or perhaps forests), is the vertex independence sequence unimodal?\" Definitions: for a graph G let $i_k(G)$ be the number of independent sets of size k, $0\\le k\\le \\alpha(G)$; the sequence $(i_0,\\dots,i_{\\alpha(G)})$ (coefficients of the independence polynomial $I(G;x)=\\sum_k i_k(G)x^k$) is unimodal if there is m with $i_0\\le i_1\\le\\dots\\le i_m\\ge i_{m+1}\\ge\\dots\\ge i_{\\alpha(G)}$. Conjecture form: the independence polynomial of every tree (resp. forest) is unimodal.",
+      "fields": [
+        "graph theory",
+        "combinatorics"
+      ],
+      "dossier": "research/candidates/CJ-0008-tree-independence-unimodality.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "G. M. X. Li, arXiv:2603.03025 (3 March 2026) treats tree unimodality as a standing conjecture and proves it for two families.",
+        "url": "https://arxiv.org/abs/2603.03025"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "2 web queries by a scout subagent; sources checked: arXiv:2502.10654v2 (HTML, read); arXiv:2603.03025 (abstract page); two general web searches; 1337isnot1337/solved-conjectures README (no matching entry)",
+        "limitations": "The 1987 primary source was not accessible. No explicit 2026 sentence 'the conjecture is open' was fetched; openness is inferred from 2026 papers that prove special cases. MathOverflow, Wikipedia and OEIS were not checked. Whether anyone has exhaustively checked unimodality beyond 26 vertices is unknown to the scout (the PatternBoost search to 101 vertices was heuristic, for log-concavity)."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 3,
+          "why": "Clear statement quoted through a recent paper; the original poses it as a question."
+        },
+        "open_evidence": {
+          "score": 4,
+          "why": "A March 2026 paper treats it as a standing conjecture."
+        },
+        "tractability": {
+          "score": 1,
+          "why": "Open since 1987 and heavily studied; the general statement is out of reach."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "Independence polynomials of trees are computed by a simple exact recursion."
+        },
+        "counterexample_search": {
+          "score": 2,
+          "why": "Checked exhaustively to 26 vertices; each further vertex multiplies the work by about 2.7."
+        },
+        "supporting_literature": {
+          "score": 4,
+          "why": "A substantial and active literature."
+        },
+        "lean_coverage": {
+          "score": 2,
+          "why": "Independent sets exist in Mathlib; independence polynomials of trees are not developed."
+        },
+        "partial_results_potential": {
+          "score": 2,
+          "why": "Families are being settled by an active community."
+        },
+        "significance": {
+          "score": 4,
+          "why": "A well-known conjecture."
+        },
+        "low_computational_cost": {
+          "score": 1,
+          "why": "Extending the exhaustive range needs hundreds of millions of trees."
+        },
+        "educational_value": {
+          "score": 4,
+          "why": "Teaches graph polynomials, unimodality and log-concavity."
+        },
+        "director_alignment": {
+          "score": 3,
+          "why": "Graph theory with heavy computation."
+        }
+      }
+    },
+    {
+      "id": "CJ-0009",
+      "slug": "erdos-gyarfas",
+      "name": "Erdős–Gyárfás conjecture (Erdős Problem 64)",
+      "authors": [
+        "P. Erdős",
+        "A. Gyárfás"
+      ],
+      "source": {
+        "citation": "Erdős Problem 64; statement read from google-deepmind/formal-conjectures (FormalConjectures/ErdosProblems/64.lean) and from Wikipedia. The original printed source was not accessed.",
+        "url": "https://www.erdosproblems.com/64",
+        "statement_number": "Erdős Problem 64",
+        "published": "1995",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "secondary-source",
+        "note": "erdosproblems.com returned HTTP 403 to the fetch tool; its status and comment thread are unchecked."
+      },
+      "statement": "Docstring of formal-conjectures `Erdos64` (verbatim): \"Does every finite graph with minimum degree at least $3$ contain a cycle of length $2^k$ for some $k \\geq 2$?\" Wikipedia's wording: the conjecture \"states that every graph with minimum degree 3 contains a simple cycle whose length is a power of two.\" Lean form: for every finite simple graph G with G.minDegree ≥ 3 there exist k ≥ 2, a vertex v and a closed walk c at v that is a cycle with c.length = 2^k.",
+      "fields": [
+        "graph theory"
+      ],
+      "dossier": "research/candidates/CJ-0009-erdos-gyarfas.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Tagged open in google-deepmind/formal-conjectures (fetched 2026-11-26); a May 2026 preprint (arXiv:2605.22844) proves partial results.",
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/64.lean"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "1 web queries by a scout subagent; sources checked: Wikipedia article; arXiv:2605.22844 abstract page; formal-conjectures ErdosProblems/64.lean; erdosproblems.com/64 (HTTP 403, NOT read); 1337isnot1337/solved-conjectures README (no matching entry)",
+        "limitations": "The erdosproblems.com page and its comment thread could not be read (403), so the site's current status flag and any recent comments (including AI attempts) are unchecked. Only one web search was run. The Wikipedia article's references stop at 2013."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 4,
+          "why": "A short unambiguous statement with an existing Lean formulation."
+        },
+        "open_evidence": {
+          "score": 3,
+          "why": "Tagged open on the search date; the problem's own page could not be read."
+        },
+        "tractability": {
+          "score": 1,
+          "why": "A famous problem attacked by many people and large AI systems."
+        },
+        "computational_experiments": {
+          "score": 3,
+          "why": "Cubic graphs of girth at least five can be generated and filtered."
+        },
+        "counterexample_search": {
+          "score": 2,
+          "why": "Cubic graphs are settled to 30 vertices; going further is expensive."
+        },
+        "supporting_literature": {
+          "score": 4,
+          "why": "A substantial literature."
+        },
+        "lean_coverage": {
+          "score": 4,
+          "why": "The statement exists in Lean."
+        },
+        "partial_results_potential": {
+          "score": 2,
+          "why": "Only expensive computational extensions or new reducible configurations."
+        },
+        "significance": {
+          "score": 4,
+          "why": "A famous Erdős problem."
+        },
+        "low_computational_cost": {
+          "score": 1,
+          "why": "Generation beyond 30 vertices is costly."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches cycle structure and graph generation."
+        },
+        "director_alignment": {
+          "score": 3,
+          "why": "Graph theory with heavy computation."
+        }
+      }
+    },
+    {
+      "id": "CJ-0010",
+      "slug": "bala-a333561-supercongruence",
+      "name": "Bala's supercongruence conjecture for OEIS A333561",
+      "authors": [
+        "Peter Bala"
+      ],
+      "source": {
+        "citation": "P. Bala, comment in OEIS entry A333561 (entry created 27 March 2020; revision 33 of 29 October 2026 read).",
+        "url": "https://oeis.org/A333561",
+        "statement_number": "unnumbered (second comment)",
+        "published": "2020",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "primary-source",
+        "note": "Quoted verbatim from the OEIS entry."
+      },
+      "statement": "OEIS A333561, verbatim: 'a(n) = Sum_{j = 0..2*n} binomial(n+j-1,j)*2^j.' ... 'We conjecture that this sequence satisfies the supercongruences a(n*p^k) == a(n*p^(k-1)) ( mod p^(3*k) ) for prime p >= 5 and positive integers n and k. Some examples are given below.'\nIn LaTeX: with $a(n)=\\sum_{j=0}^{2n}\\binom{n+j-1}{j}2^j$ ($a(0)=1$; 1, 7, 129, 2815, 65537, 1579007, ...), for every prime $p\\ge 5$ and all integers $n,k\\ge 1$: $a(np^k)\\equiv a(np^{k-1}) \\pmod{p^{3k}}$.\nSibling (OEIS A333565, verbatim): 'O.g.f.: (1 + 4*x)/((1 + x)*sqrt(1 - 8*x)).' ... 'We conjecture that this sequence satisfies the stronger congruences a(n*p^k) == a(n*p^(k-1)) ( mod p^(3*k) ) for prime p >= 3 and positive integers n and k. The particular case when n = k = 1 follows from the corresponding result for A333564.'\nFurther unproved claims in the A333561 entry (easier side targets): 'Conjectural o.g.f.: 1/(1 + x) + 8*x*f'(4*x)/(2*f(4*x) - 1), where f(x) = 1 + x + 3*x^2 + 12*x^3 + 55*x^4 + ... is the o.g.f. of A001764.' and 'exp( Sum_{n >= 1} a(n)*x^n/n ) = 1 + 7*x + 89*x^2 + 1447*x^3 + ... appears to be the o.g.f. of A062747.'",
+      "fields": [
+        "elementary number theory",
+        "combinatorics"
+      ],
+      "dossier": "research/candidates/CJ-0010-bala-a333561-supercongruence.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "The OEIS entry revised on 29 October 2026 still shows the conjecture without proof; the OEIS Open benchmark data of 16 September 2026 record four unsuccessful attempts.",
+        "url": "https://oeis.org/A333561"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "3 web queries by a scout subagent; sources checked: OEIS entry text, fetched 2026-11-26 via https://oeis.org/search?q=id:<A-number>&fmt=text; OEIS Open results explorer data https://tadamcz.com/oeis-open/results.json (generatedAt 2026-09-16; 3468 attempts by 2026 frontier models on 492 Lean-formalized OEIS conjectures, 170 resolved) and paper abstract https://arxiv.org/abs/2608.11941 (Adamczewski, 12-13 Aug 2026); GitHub epoch-research/LeanOpenProblems-results (README, metadata/oeis/conjectures.json, Submission/Spec.lean of the relevant sample); GitHub 1337isnot1337/solved-conjectures: README.md and CONTENTS.md (451 lines, fetched 2026-11-26) s",
+        "limitations": "Budget-limited search (about 35 web operations for all candidates together). WebSearch is US-only and returns summaries; MathOverflow, MathSciNet, zbMATH, Google Scholar citation lists and the seqfan mailing list were NOT searched. An unsuccessful search does not establish that the statement is open or that partial results below are the only ones. Warning from this session: the OEIS Open 'open conjecture' list itself contains stale items (A001818, A053175, A296056, A277060 were already proved), so benchmark membership alone is not evidence of openness. General theorems on supercongruences for coefficients [x^{rn}]G(x)^n or for constant terms of powers of Laurent polynomials may already imply this conjecture; that literature was not searched systematically."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 4,
+          "why": "Verbatim from the OEIS entry; fully explicit."
+        },
+        "open_evidence": {
+          "score": 3,
+          "why": "The entry was revised a month before the search date and shows no proof; benchmark membership alone is not evidence."
+        },
+        "tractability": {
+          "score": 3,
+          "why": "The technique family for such supercongruences is well developed, but four frontier-model attempts failed."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "Exact integer arithmetic for all small primes and exponents."
+        },
+        "counterexample_search": {
+          "score": 3,
+          "why": "Cheap to test widely; a counterexample is unlikely."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "A developed literature on Gauss congruences and supercongruences."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "Binomial sums and p-adic valuations are in Mathlib; a Lean statement exists in the OEIS Open benchmark."
+        },
+        "partial_results_potential": {
+          "score": 3,
+          "why": "The case k = 1 and the sibling sequence are natural partial results."
+        },
+        "significance": {
+          "score": 1,
+          "why": "An individual OEIS conjecture."
+        },
+        "low_computational_cost": {
+          "score": 4,
+          "why": "Seconds on a desktop."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches p-adic valuations and congruences for binomial sums."
+        },
+        "director_alignment": {
+          "score": 2,
+          "why": "Number theory rather than the director's core areas."
+        }
+      }
+    },
+    {
+      "id": "CJ-0011",
+      "slug": "sun-a275027-supercongruence",
+      "name": "Sun's supercongruence conjecture for OEIS A275027",
+      "authors": [
+        "Zhi-Wei Sun"
+      ],
+      "source": {
+        "citation": "Z.-W. Sun, comment in OEIS entry A275027 (12 November 2016; revision 37 of 7 November 2026 read); companion: Conjecture 5.6 of arXiv:1610.03384v8.",
+        "url": "https://oeis.org/A275027",
+        "statement_number": "unnumbered (first comment); Conjecture 5.6 of arXiv:1610.03384",
+        "published": "2016",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "primary-source",
+        "note": "The OEIS statement is quoted verbatim. The companion conjecture concerns a different sequence and was reconstructed from PDF text."
+      },
+      "statement": "(A) OEIS A275027, verbatim: 'a(n) = Sum_{k=0..n} C(n,k)^2*C(n-k,k), where C(n,k) denotes the binomial coefficient n!/(k!*(n-k)!).' 'Conjecture: For any prime p > 5 and positive integer n, the number (a(p*n)-a(n))/(p*n)^3 is always a p-adic integer.'\n(B) arXiv:1610.03384v8, Conjecture 5.6 (reconstructed from the PDF text): 'For any prime p > 5 and n in Z^+, we have (g_{pn}(-1) - g_n(-1))/(pn)^3 in Z_p', where (eq. (1.16)) $g_n(x):=\\sum_{k=0}^n\\binom nk^2\\binom{2k}{k}x^k$.\nEquivalent integer form of both: $p^{3(1+v_p(n))}$ divides $a(pn)-a(n)$ (resp. $g_{pn}(-1)-g_n(-1)$). Note (checked numerically in this session): the two sequences are different (A275027 = 1, 1, 5, 19, 85, 401, ...; g_n(-1) = 1, -1, -1, 17, -65, 49, 881, ...), so (A) and (B) are two distinct conjectures of the same shape.",
+      "fields": [
+        "elementary number theory"
+      ],
+      "dossier": "research/candidates/CJ-0011-sun-a275027-supercongruence.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "The OEIS entry revised on 7 November 2026 still shows the conjecture with only Sun's partial result.",
+        "url": "https://oeis.org/A275027"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "3 web queries by a scout subagent; sources checked: OEIS entry text, fetched 2026-11-26 via https://oeis.org/search?q=id:<A-number>&fmt=text; OEIS Open results explorer data https://tadamcz.com/oeis-open/results.json (generatedAt 2026-09-16; 3468 attempts by 2026 frontier models on 492 Lean-formalized OEIS conjectures, 170 resolved) and paper abstract https://arxiv.org/abs/2608.11941 (Adamczewski, 12-13 Aug 2026); GitHub epoch-research/LeanOpenProblems-results (README, metadata/oeis/conjectures.json, Submission/Spec.lean of the relevant sample); GitHub 1337isnot1337/solved-conjectures: README.md and CONTENTS.md (451 lines, fetched 2026-11-26) s",
+        "limitations": "Budget-limited search (about 35 web operations for all candidates together). WebSearch is US-only and returns summaries; MathOverflow, MathSciNet, zbMATH, Google Scholar citation lists and the seqfan mailing list were NOT searched. An unsuccessful search does not establish that the statement is open or that partial results below are the only ones. Warning from this session: the OEIS Open 'open conjecture' list itself contains stale items (A001818, A053175, A296056, A277060 were already proved), so benchmark membership alone is not evidence of openness. Citations of arXiv:1610.03384 were not enumerated; Sun's own later lists of open conjectures were not consulted; similar Sun conjectures for Apery-like numbers were proved by others in 2019-2022 (not verified here), so a proof of this one may exist under a title not containing these keywords."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 4,
+          "why": "Verbatim from the OEIS entry."
+        },
+        "open_evidence": {
+          "score": 3,
+          "why": "The entry was revised weeks before the search date; the literature check was shallow."
+        },
+        "tractability": {
+          "score": 3,
+          "why": "Sun proved all but one factor; the gap concerns only n divisible by p."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "Exact integer arithmetic."
+        },
+        "counterexample_search": {
+          "score": 3,
+          "why": "Cheap to test; a counterexample is unlikely."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "Sun's paper and the supercongruence literature."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "Binomial sums and p-adic valuations are in Mathlib."
+        },
+        "partial_results_potential": {
+          "score": 2,
+          "why": "The remaining gap is narrow."
+        },
+        "significance": {
+          "score": 1,
+          "why": "An individual OEIS conjecture."
+        },
+        "low_computational_cost": {
+          "score": 4,
+          "why": "Seconds on a desktop."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches p-adic methods for binomial sums."
+        },
+        "director_alignment": {
+          "score": 2,
+          "why": "Number theory rather than the director's core areas."
+        }
+      }
+    },
+    {
+      "id": "CJ-0012",
+      "slug": "kellner-bernoulli-denominators",
+      "name": "Kellner's conjectures on denominators of Bernoulli polynomials",
+      "authors": [
+        "B. C. Kellner"
+      ],
+      "source": {
+        "citation": "B. C. Kellner, On the finiteness of Bernoulli polynomials whose derivative has only integral coefficients, J. Integer Seq. 27 (2024), Article 24.2.8, arXiv:2310.01325v2, Conjectures 1(ii), 2(i) and 11; Conjecture 2 originates in B. C. Kellner, J. Number Theory 179 (2017) 126-141.",
+        "url": "https://arxiv.org/abs/2310.01325",
+        "statement_number": "Conjecture 1(ii), Conjecture 2(i), Conjecture 11",
+        "published": "2017",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "primary-source",
+        "note": "Quoted from the fetched arXiv version of the 2024 paper."
+      },
+      "statement": "Notation: s_p(n) = sum of the base-p digits of n; rad = radical. Let $D_n^+ := \\prod_{p>\\sqrt n,\\ s_p(n)\\ge p} p$ (p prime, n >= 1).\nConjecture 2(i) (Kellner 2017, as restated in 2023): 'We have D_n^+ > 1, respectively, omega(D_n^+) > 0 for n > 192.'\nConjecture 1: with S := {1, 2, 4, 6, 10, 12, 28, 30, 36, 60} and $\\bar S := \\{n\\ge 1 : B_n'(x)\\in\\mathbb Z[x]\\}$ (B_n(x) the Bernoulli polynomials): '(i) The set \\bar S is finite. (ii) We have \\bar S = S.' Part (i) is now a theorem; part (ii) is open.\nConjecture 11: with $\\bar R := \\{n\\ge 1 : \\mathrm{denom}(B_n(x)-B_n) = \\mathrm{rad}(n+1)\\}$ and R := {3, 5, 8, 9, 11, 27, 29, 35, 59}: 'We have \\bar R = R.' (This is the form recorded in OEIS A195441: 'It is conjectured that S = {3, 5, 8, 9, 11, 27, 29, 35, 59} is the full set of all such solutions' of a(n-1) = rad(n+1).)\nLogical relations proved in the paper: Conjecture 2(i) implies Conjecture 1(ii) (Theorem 3); Conjecture 11 restricted to odd n implies Conjecture 1 (Theorem 12).",
+      "fields": [
+        "elementary number theory"
+      ],
+      "dossier": "research/candidates/CJ-0012-kellner-bernoulli-denominators.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Kellner's 2024 paper proves finiteness only; OEIS A195441 (revision of 9 November 2026) still describes the set as conjectural.",
+        "url": "https://arxiv.org/abs/2310.01325"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "2 web queries by a scout subagent; sources checked: OEIS entry text, fetched 2026-11-26 via https://oeis.org/search?q=id:<A-number>&fmt=text; OEIS Open results explorer data https://tadamcz.com/oeis-open/results.json (generatedAt 2026-09-16; 3468 attempts by 2026 frontier models on 492 Lean-formalized OEIS conjectures, 170 resolved) and paper abstract https://arxiv.org/abs/2608.11941 (Adamczewski, 12-13 Aug 2026); GitHub epoch-research/LeanOpenProblems-results (README, metadata/oeis/conjectures.json, Submission/Spec.lean of the relevant sample); GitHub 1337isnot1337/solved-conjectures: README.md and CONTENTS.md (451 lines, fetched 2026-11-26) s",
+        "limitations": "Budget-limited search (about 35 web operations for all candidates together). WebSearch is US-only and returns summaries; MathOverflow, MathSciNet, zbMATH, Google Scholar citation lists and the seqfan mailing list were NOT searched. An unsuccessful search does not establish that the statement is open or that partial results below are the only ones. Warning from this session: the OEIS Open 'open conjecture' list itself contains stale items (A001818, A053175, A296056, A277060 were already proved), so benchmark membership alone is not evidence of openness. The 2017 J. Number Theory paper and the Bordelles-Luca-Moree-Shparlinski paper were not read; OEIS A094960 was seen only through a search-result summary."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 4,
+          "why": "Quoted from the fetched paper."
+        },
+        "open_evidence": {
+          "score": 3,
+          "why": "OEIS entry revised in November 2026 still says conjectured."
+        },
+        "tractability": {
+          "score": 1,
+          "why": "A proof seems to need effective results of Baker type."
+        },
+        "computational_experiments": {
+          "score": 4,
+          "why": "Everything is computable from base-p digit sums."
+        },
+        "counterexample_search": {
+          "score": 4,
+          "why": "Verification can be extended by orders of magnitude with a sieve."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "Kellner's papers."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "Bernoulli polynomials and digit sums are in Mathlib."
+        },
+        "partial_results_potential": {
+          "score": 2,
+          "why": "Extended verification and proofs for classes of n."
+        },
+        "significance": {
+          "score": 2,
+          "why": "A natural question about Bernoulli polynomials."
+        },
+        "low_computational_cost": {
+          "score": 3,
+          "why": "Hours for a large sieve."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches Bernoulli polynomials and digit sums."
+        },
+        "director_alignment": {
+          "score": 2,
+          "why": "Number theory rather than the director's core areas."
+        }
+      }
+    },
+    {
+      "id": "CJ-0013",
+      "slug": "growth-factor-5x5",
+      "name": "Chen–Edelman–Urschel conjecture on the 5x5 growth factor under complete pivoting",
+      "authors": [
+        "James Chen",
+        "Alan Edelman",
+        "John Urschel"
+      ],
+      "source": {
+        "citation": "J. Chen, A. Edelman, J. Urschel, The largest 5th pivot may be the root of a 61st degree polynomial, arXiv:2602.20390v2 (15 March 2026), Conjecture 2.1.",
+        "url": "https://arxiv.org/abs/2602.20390",
+        "statement_number": "Conjecture 2.1",
+        "published": "2026",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "primary-source",
+        "note": "Quoted from the fetched arXiv page."
+      },
+      "statement": "Verbatim (arXiv HTML v2): 'Conjecture 2.1. The largest possible growth factor for a $5\\times 5$ real matrix under complete pivoting is exactly the lower bound proven in this paper, i.e., the unique real root $g$ in the interval $[4,5]$ of the $61^{st}$ degree polynomial $P_{5}(g)$ in Equation (2.15).' Definitions from the same paper: Gaussian elimination writes $A=LU$; the growth factor is $g(A)=\\max\\{\\|L\\|_{\\max},\\ \\|U\\|_{\\max}/\\|A\\|_{\\max}\\}$ where $\\|\\cdot\\|_{\\max}$ is the largest magnitude entry. With $A^{(k)}:=A_{k:n,k:n}-A_{k:n,1:k-1}[A_{1:k-1,1:k-1}]^{-1}A_{1:k-1,k:n}$, a matrix is 'completely pivoted' if $|A^{(k)}_{i,j}|\\le |A^{(k)}_{k,k}|$ for all $i,j=k,\\ldots,n$, $k=1,\\ldots,n-1$. For a completely pivoted matrix $g(A)=\\max_k |U_{kk}|$, and for the maximum over $n\\times n$ completely pivoted matrices it suffices to maximise $|U_{nn}|$. $P_5$ is an explicit integer polynomial of degree 61 printed in Eq. (2.15) of the paper; its relevant root is $g=4.1325170786\\,3247285422\\,3346853277\\,3712699527\\ldots$ (200 digits are printed in Eq. (2.16)). Companion statements in the paper, called suppositions rather than numbered conjectures: the lower bounds $5$ for $n=6$, the real root $6.0569534737\\ldots$ of $P_7(g)=3g^6-86g^5+688g^4-1136g^3-5888g^2+12032g+22528$ for $n=7$, and $8$ for $n=8$ 'which we suppose are maximums as well'.",
+      "fields": [
+        "numerical analysis",
+        "matrix analysis"
+      ],
+      "dossier": "research/candidates/CJ-0013-growth-factor-5x5.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "Stated as a conjecture in arXiv:2602.20390v2 (March 2026); an arXiv listing check on 2026-11-26 found no resolution.",
+        "url": "https://arxiv.org/abs/2602.20390"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "3 web queries by a scout subagent; sources checked: arXiv abs + HTML of 2602.20390v2; arXiv API listing; general web search",
+        "limitations": "Session date 2026-11-26. About 30 outbound requests in total across all candidates: 13 model-summarised web searches (US-only index), 4 model-summarised page fetches, 13 direct downloads of arXiv abs/HTML pages and arXiv API listings (sorted by submission date). NOT checked: MathOverflow, Open Problem Garden, MathSciNet/zbMATH, Google Scholar citation trails, journal sites, conference proceedings, non-arXiv preprint servers (several 2026 AI-assisted proofs of other conjectures appeared first on preprints.org or GitHub, which this search does not cover). An unsuccessful search does not establish that the problem is open or that a planned partial result is new. The GitHub repository cited by the paper (github.com/jamiecjx/growth-5x5) was not opened, so I do not know whether it has been updated with stronger bounds since March 2026."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 4,
+          "why": "Quoted from the fetched primary paper."
+        },
+        "open_evidence": {
+          "score": 4,
+          "why": "Stated in 2026 and unresolved in a listing check on the search date."
+        },
+        "tractability": {
+          "score": 1,
+          "why": "The authors, leading experts, consider a full proof out of current reach."
+        },
+        "computational_experiments": {
+          "score": 3,
+          "why": "Polynomial optimisation over a semi-algebraic set; exact work needs computer algebra."
+        },
+        "counterexample_search": {
+          "score": 2,
+          "why": "The conjectured value is a maximum; beating it means finding a better matrix, which the authors searched for."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "A focused recent literature."
+        },
+        "lean_coverage": {
+          "score": 1,
+          "why": "Gaussian elimination with pivoting is not in Mathlib."
+        },
+        "partial_results_potential": {
+          "score": 3,
+          "why": "A certified improvement of the 4.84 upper bound or an independent re-verification would stand alone."
+        },
+        "significance": {
+          "score": 3,
+          "why": "A long-standing question of Wilkinson's in numerical linear algebra."
+        },
+        "low_computational_cost": {
+          "score": 1,
+          "why": "Global certificates are expensive."
+        },
+        "educational_value": {
+          "score": 4,
+          "why": "Teaches Gaussian elimination, pivoting and certified optimisation."
+        },
+        "director_alignment": {
+          "score": 4,
+          "why": "Numerical linear algebra."
+        }
+      }
+    },
+    {
+      "id": "CJ-0014",
+      "slug": "casas-alvero-degree-20",
+      "name": "Casas-Alvero conjecture (smallest open degree 20)",
+      "authors": [
+        "E. Casas-Alvero"
+      ],
+      "source": {
+        "citation": "E. Casas-Alvero, Higher order polar germs, J. Algebra 240 (2001) 326-337; statement quoted from M. F. Marashdeh, arXiv:2608.14726v1 (12 August 2026), Conjecture 1.1.",
+        "url": "https://arxiv.org/abs/2608.14726",
+        "statement_number": "Conjecture 1.1 of arXiv:2608.14726 (restatement)",
+        "published": "2001",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "secondary-source",
+        "note": "Quoted from a 2026 restatement; the 2001 paper was not accessed."
+      },
+      "statement": "Verbatim from arXiv:2608.14726v1: 'Conjecture 1.1 (Casas-Alvero). Let $K$ be a field of characteristic $0$. Then there is no $\\mathrm{CA}$-polynomial over $K$; equivalently, if $f\\in K[x]$ is monic of degree $d$ and $\\gcd(f,f^{(i)})\\neq 1$ for $i=1,\\dots,d-1$, then $f=(x-\\alpha)^{d}$ for some $\\alpha\\in K$.' Definition there: for $f(x)=x^{d}+a_{1}x^{d-1}+\\cdots+a_{d}\\in K[x]$, '$f$ is a Casas-Alvero polynomial (or CA-polynomial) if for every $i\\in\\{1,\\dots,d-1\\}$ the polynomial $f$ has a non-constant common factor with its $i$-th Hasse derivative $H_{i}(f)$, and $f$ is not the $d$-th power of a linear polynomial. In characteristic zero $H_{i}(f)=f^{(i)}/i!$'. Target small case: $\\mathrm{CA}_{20,0}$, i.e. the statement for $d=20$ ('The smallest degree for which the conjecture is open is $d=20$').",
+      "fields": [
+        "inequalities",
+        "algebra"
+      ],
+      "dossier": "research/candidates/CJ-0014-casas-alvero-degree-20.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "arXiv:2608.14726v1 (August 2026) states that the smallest open degree is 20; a claimed general proof (arXiv:2501.09272) was retitled as conditional in its revision of 10 November 2026.",
+        "url": "https://arxiv.org/abs/2608.14726"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "3 web queries by a scout subagent; sources checked: arXiv abs page of 2501.09272 (v3); arXiv HTML of 2608.14726v1; arXiv API listing; general web search (Wikipedia page surfaced, not opened)",
+        "limitations": "Session date 2026-11-26. About 30 outbound requests in total across all candidates: 13 model-summarised web searches (US-only index), 4 model-summarised page fetches, 13 direct downloads of arXiv abs/HTML pages and arXiv API listings (sorted by submission date). NOT checked: MathOverflow, Open Problem Garden, MathSciNet/zbMATH, Google Scholar citation trails, journal sites, conference proceedings, non-arXiv preprint servers (several 2026 AI-assisted proofs of other conjectures appeared first on preprints.org or GitHub, which this search does not cover). An unsuccessful search does not establish that the problem is open or that a planned partial result is new. I did not read the body of Ghosh's v3, so I cannot say how strong or checkable the remaining Lojasiewicz-type hypothesis is; if that hypothesis is proved the whole conjecture falls and degree-20 work becomes moot. Section 8 of arXiv:2608.14726 ('questions left open') was not read in detail."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 3,
+          "why": "Clear statement quoted from a recent restatement."
+        },
+        "open_evidence": {
+          "score": 4,
+          "why": "An August 2026 paper states the smallest open degree; a claimed proof became conditional in November 2026."
+        },
+        "tractability": {
+          "score": 1,
+          "why": "Degree 20 has resisted specialists for over fifteen years."
+        },
+        "computational_experiments": {
+          "score": 3,
+          "why": "Gröbner-basis computations over finite fields; heavy."
+        },
+        "counterexample_search": {
+          "score": 2,
+          "why": "A counterexample would need exact algebraic computation at degree 20."
+        },
+        "supporting_literature": {
+          "score": 4,
+          "why": "A substantial literature."
+        },
+        "lean_coverage": {
+          "score": 3,
+          "why": "Polynomials and derivatives are well developed in Mathlib."
+        },
+        "partial_results_potential": {
+          "score": 2,
+          "why": "Restricted sub-cases of degree 20."
+        },
+        "significance": {
+          "score": 3,
+          "why": "A well-known problem in the geometry of polynomials."
+        },
+        "low_computational_cost": {
+          "score": 1,
+          "why": "Gröbner computations at degree 20 are expensive."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches resultants and Gröbner bases."
+        },
+        "director_alignment": {
+          "score": 2,
+          "why": "Commutative algebra rather than the director's core areas."
+        }
+      }
+    },
+    {
+      "id": "CJ-0015",
+      "slug": "kalai-3d",
+      "name": "Kalai's 3^d conjecture",
+      "authors": [
+        "G. Kalai"
+      ],
+      "source": {
+        "citation": "G. Kalai, The number of faces of centrally-symmetric polytopes, Graphs Combin. 5 (1989) 389-391; statement quoted from R. Sanyal, M. Winter, arXiv:2308.02909v3 (21 April 2024), Conjecture 1.",
+        "url": "https://arxiv.org/abs/2308.02909",
+        "statement_number": "Conjecture 1 of arXiv:2308.02909 (restatement)",
+        "published": "1989",
+        "accessed": "2026-11-26",
+        "statement_checked_against": "secondary-source",
+        "note": "Quoted from a 2024 restatement; the 1989 paper was not accessed."
+      },
+      "statement": "Verbatim from arXiv:2308.02909v3: 'We write $s(P)$ for the number of non-empty faces of $P$ and we denote by $C_{d}=[-1,+1]^{d}$ the $d$-dimensional cube. Conjecture 1 ($3^{d}$ conjecture). Every $d$-dimensional centrally-symmetric polytope $P$ satisfies $s(P)\\ \\geq\\ s(C_{d})\\ =\\ 3^{d}$.' Here 'A convex polytope $P\\subset\\mathbb{R}^{d}$ is centrally-symmetric if $-P=P$.' Related open statement in the same paper: 'Conjecture 25. Every $d$-dimensional centrally-symmetric polytope $P$ has at least as many flags as the $d$-dimensional cube, i.e., $\\#\\mathrm{flags}(P)\\ \\geq\\ \\#\\mathrm{flags}(C_{d})\\ =\\ 2^{d}d!$.'",
+      "fields": [
+        "discrete optimization",
+        "combinatorics"
+      ],
+      "dossier": "research/candidates/CJ-0015-kalai-3d.md",
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "open_status": {
+        "as_of": "2026-11-26",
+        "evidence": "arXiv:2308.02909v3 (April 2024) states that the conjecture is known only in dimensions at most 4; an arXiv listing check on 2026-11-26 found nothing newer.",
+        "url": "https://arxiv.org/abs/2308.02909"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "2 web queries by a scout subagent; sources checked: arXiv abs + HTML of 2308.02909v3; arXiv API listing (abstracts of 0708.3661, 1201.5790, 2211.09215, 2610.09990); general web search (Wikipedia page surfaced, not opened)",
+        "limitations": "Session date 2026-11-26. About 30 outbound requests in total across all candidates: 13 model-summarised web searches (US-only index), 4 model-summarised page fetches, 13 direct downloads of arXiv abs/HTML pages and arXiv API listings (sorted by submission date). NOT checked: MathOverflow, Open Problem Garden, MathSciNet/zbMATH, Google Scholar citation trails, journal sites, conference proceedings, non-arXiv preprint servers (several 2026 AI-assisted proofs of other conjectures appeared first on preprints.org or GitHub, which this search does not cover). An unsuccessful search does not establish that the problem is open or that a planned partial result is new. The arXiv query was narrow (it requires the words 'Kalai' and 'centrally symmetric'); a paper phrased differently (e.g. '3^d conjecture' with 'centrally-symmetric' hyphenated, or a result on a new polytope class) could be missed. Wikipedia's page on the conjecture was not opened."
+      },
+      "scores": {
+        "statement_precision": {
+          "score": 3,
+          "why": "Clear statement quoted from a recent restatement."
+        },
+        "open_evidence": {
+          "score": 3,
+          "why": "Explicitly open in 2024; nothing newer found in a listing check."
+        },
+        "tractability": {
+          "score": 1,
+          "why": "Dimension 5 looks hard; stronger conjectures that could give induction are false."
+        },
+        "computational_experiments": {
+          "score": 3,
+          "why": "Face numbers of centrally symmetric polytopes are exactly computable."
+        },
+        "counterexample_search": {
+          "score": 3,
+          "why": "Counterexample searches over small polytopes are cheap and exact."
+        },
+        "supporting_literature": {
+          "score": 3,
+          "why": "A focused literature with several class results."
+        },
+        "lean_coverage": {
+          "score": 1,
+          "why": "Face lattices of polytopes are barely developed in Mathlib."
+        },
+        "partial_results_potential": {
+          "score": 3,
+          "why": "New classes of polytopes have been publishable."
+        },
+        "significance": {
+          "score": 4,
+          "why": "A well-known conjecture in polyhedral combinatorics."
+        },
+        "low_computational_cost": {
+          "score": 2,
+          "why": "Enumeration in dimension 5 is moderately expensive."
+        },
+        "educational_value": {
+          "score": 3,
+          "why": "Teaches polytopes and face numbers."
+        },
+        "director_alignment": {
+          "score": 2,
+          "why": "Discrete geometry rather than the director's core areas."
+        }
+      }
+    }
+  ]
+}

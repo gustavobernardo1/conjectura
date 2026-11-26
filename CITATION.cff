@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below."
+title: "Conjectura: AI-driven mathematical discovery"
+abstract: >-
+  Research infrastructure and ongoing investigations for AI-driven mathematical
+  discovery through computational experimentation, autonomous research agents,
+  symbolic reasoning, and formal verification. The repository documents the
+  respective contributions of AI systems and human researchers; see
+  docs/attribution-policy.md.
+type: software
+authors:
+  - family-names: Brito
+    given-names: Gustavo Bernardo
+    affiliation: "Universidade Federal de Goiás (UFG)"
+repository-code: "https://github.com/gustavobernardo1/conjectura"
+license: Apache-2.0
+version: 0.1.0
+date-released: "2026-11-26"
+keywords:
+  - mathematics
+  - open conjectures
+  - formal verification
+  - Lean 4
+  - Mathlib
+  - AI for mathematics
+  - experimental mathematics

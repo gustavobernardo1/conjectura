@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/gustavobernardo1/conjectura/research/schema/catalogue.schema.json",
+  "title": "Conjectura research catalogue",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "updated", "problems"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "updated": { "type": "string", "format": "date" },
+    "problems": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/problem" }
+    }
+  },
+  "$defs": {
+    "score": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["score", "why"],
+      "properties": {
+        "score": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "why": { "type": "string", "minLength": 10 }
+      }
+    },
+    "problem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "slug", "name", "authors", "source", "statement", "fields",
+        "dossier", "status", "open_status", "novelty_search", "scores"
+      ],
+      "properties": {
+        "id": {
+          "description": "Stable internal identifier. Never reused, never renumbered.",
+          "type": "string",
+          "pattern": "^CJ-[0-9]{4}$"
+        },
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+        "name": { "description": "Original conjecture name as used in the literature.", "type": "string", "minLength": 3 },
+        "authors": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["citation", "url", "statement_number", "published", "accessed", "statement_checked_against"],
+          "properties": {
+            "citation": { "type": "string", "minLength": 10 },
+            "url": { "type": "string", "pattern": "^https?://" },
+            "statement_number": { "description": "Conjecture/problem number in the source, or 'unnumbered'.", "type": "string" },
+            "published": { "description": "Year or ISO date of first publication of the conjecture.", "type": "string", "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$" },
+            "accessed": { "type": "string", "format": "date" },
+            "statement_checked_against": {
+              "description": "Which document the catalogue statement was actually compared with.",
+              "enum": ["primary-source", "secondary-source", "not-checked"]
+            },
+            "note": { "type": "string" }
+          }
+        },
+        "statement": { "description": "Exact mathematical statement, self-contained, LaTeX allowed.", "type": "string", "minLength": 20 },
+        "fields": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "dossier": { "description": "Repository path of the prose dossier.", "type": "string", "pattern": "^research/candidates/.+\\.md$" },
+        "status": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mathematical", "formal", "novelty", "external_review"],
+          "properties": {
+            "mathematical": {
+              "enum": [
+                "candidate", "active-investigation", "partial-result", "candidate-proof",
+                "candidate-counterexample", "proved", "disproved", "previously-resolved",
+                "rejected", "superseded"
+              ]
+            },
+            "formal": { "enum": ["not-started", "partial", "failed", "complete", "not-applicable"] },
+            "novelty": {
+              "enum": [
+                "unknown", "preliminary-search-completed",
+                "no-prior-resolution-found", "prior-resolution-identified"
+              ]
+            },
+            "external_review": { "enum": ["not-reviewed", "ai-reviewed", "human-reviewed", "submitted", "peer-reviewed"] }
+          }
+        },
+        "open_status": {
+          "description": "Evidence that the exact statement is open. Evidence, not proof: absence of a known resolution is recorded under novelty_search.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["as_of", "evidence", "url"],
+          "properties": {
+            "as_of": { "type": "string", "format": "date" },
+            "evidence": { "type": "string", "minLength": 10 },
+            "url": { "type": "string", "pattern": "^https?://" }
+          }
+        },
+        "novelty_search": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["as_of", "coverage", "limitations"],
+          "properties": {
+            "as_of": { "type": "string", "format": "date" },
+            "coverage": { "type": "string", "minLength": 10 },
+            "limitations": { "type": "string", "minLength": 10 }
+          }
+        },
+        "scores": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/score" }
+        },
+        "priority_override": {
+          "description": "Optional director decision that departs from the computed ranking.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision", "reason", "date"],
+          "properties": {
+            "decision": { "enum": ["promote", "defer", "exclude"] },
+            "reason": { "type": "string", "minLength": 10 },
+            "date": { "type": "string", "format": "date" }
+          }
+        },
+        "resolution_source": {
+          "description": "Required when a prior resolution has been identified.",
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["citation", "url"],
+          "properties": {
+            "citation": { "type": "string" },
+            "url": { "type": "string", "pattern": "^https?://" }
+          }
+        },
+        "formal_receipt": { "description": "Path of the verification receipt backing formal status 'complete'.", "type": "string", "pattern": "^verification/receipts/.+\\.json$" },
+        "result": { "description": "Path of the reviewed result package.", "type": "string", "pattern": "^results/.+/README\\.md$" }
+      }
+    }
+  }
+}

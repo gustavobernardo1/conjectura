@@ -1,0 +1,20 @@
+name = "conjectura"
+version = "0.1.0"
+defaultTargets = ["Conjectura"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.36.0"
+
+[[lean_lib]]
+name = "Conjectura"
+
+# Deliberately failing or deficient files used by the verification test suite.
+# Never a default target; never imported by `Conjectura`.
+[[lean_lib]]
+name = "NegativeTests"

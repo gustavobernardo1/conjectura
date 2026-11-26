@@ -1,0 +1,5 @@
+# Normalise line endings to LF on every platform. Verification receipts record
+# SHA-256 hashes of source files; the hashes must not depend on the checkout OS.
+* text=auto eol=lf
+*.png binary
+*.pdf binary

@@ -1,0 +1,92 @@
+{
+  "model_version": 1,
+  "description": "Weighted-sum attention-allocation heuristic. Scores are ordinal judgements made by the scout and reviewed by the director. The resulting number is NOT a calibrated probability of solving anything; it only orders the queue and must be read together with the written justification of each score.",
+  "scale": {
+    "min": 0,
+    "max": 4,
+    "meaning": "0 = absent or blocking, 1 = weak, 2 = moderate, 3 = good, 4 = excellent"
+  },
+  "gates": [
+    {
+      "criterion": "open_evidence",
+      "minimum": 2,
+      "effect": "A problem below the minimum is ineligible for selection regardless of its total score."
+    },
+    {
+      "criterion": "statement_precision",
+      "minimum": 2,
+      "effect": "A problem below the minimum is ineligible for selection regardless of its total score."
+    }
+  ],
+  "criteria": [
+    {
+      "key": "statement_precision",
+      "weight": 2,
+      "question": "Is the exact statement available from the primary source, unambiguous, and accessible?"
+    },
+    {
+      "key": "open_evidence",
+      "weight": 3,
+      "question": "How strong and how recent is the documented evidence that this exact statement is still open?"
+    },
+    {
+      "key": "tractability",
+      "weight": 3,
+      "question": "Is there a credible mathematical line of attack that has not already been exhausted in the literature?"
+    },
+    {
+      "key": "computational_experiments",
+      "weight": 2,
+      "question": "Can informative exact experiments be run on the available hardware?"
+    },
+    {
+      "key": "counterexample_search",
+      "weight": 2,
+      "question": "Is a systematic counterexample search feasible beyond what the literature already covers?"
+    },
+    {
+      "key": "supporting_literature",
+      "weight": 1,
+      "question": "Is there accessible literature with partial results and techniques to build on?"
+    },
+    {
+      "key": "lean_coverage",
+      "weight": 1,
+      "question": "Does Mathlib already provide the definitions needed to state the problem and its partial results?"
+    },
+    {
+      "key": "partial_results_potential",
+      "weight": 3,
+      "question": "Would intermediate results (a new case, class, bound, or corrected statement) be meaningful on their own?"
+    },
+    {
+      "key": "significance",
+      "weight": 2,
+      "question": "Would specialists regard progress on this problem as a real contribution?"
+    },
+    {
+      "key": "low_computational_cost",
+      "weight": 1,
+      "question": "Is the expected computational cost low? (4 = minutes on a desktop, 0 = cluster-scale)"
+    },
+    {
+      "key": "educational_value",
+      "weight": 2,
+      "question": "Does working on the problem teach broadly useful mathematics?"
+    },
+    {
+      "key": "director_alignment",
+      "weight": 2,
+      "question": "Does the problem match the project director's background in applied and computational mathematics?"
+    }
+  ],
+  "shortlist": {
+    "decided": "2026-11-26",
+    "problems": [
+      "CJ-0001",
+      "CJ-0002",
+      "CJ-0007"
+    ],
+    "rationale": "The three highest scores under model version 1 (80.2, 79.2, 78.1). The differences are within the noise of the model. CJ-0001 was opened first because its exact statement could be read from the primary source on the same day and its experiments are exact and cheap. CJ-0002 and CJ-0007 need their statements checked against the primary sources before they can become active; CJ-0007 in particular is recorded as not-checked."
+  }
+}
