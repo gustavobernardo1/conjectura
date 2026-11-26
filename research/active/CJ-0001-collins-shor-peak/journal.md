@@ -1235,3 +1235,45 @@ MD-0013 and MD-0014 are candidates.
 
 Next step: objective O7 in `STATE.md` — prove (E) through (E″).
 
+## Session 8 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2` (main context, Claude
+  Code). Human: G. B. Brito, director, by written instructions at the start
+  (approval of the classifications of MD-0011 to MD-0014 as they stand;
+  priorities, quoted under Objective; authorization to push verified commits
+  to `research` only).
+- **Mode:** focused work on O7 and statement (S), with an exploration inside
+  it (is there an induction that closes, or a structural argument that avoids
+  the hierarchy of auxiliary inequalities).
+- **Role(s):** research director; mathematical researcher for O7. Subagents
+  started at 20:36 UTC, each in its own context: `literature-auditor`
+  (first originality search for MD-0013 and MD-0014), `formalization-agent`
+  (L4 in `s` variables; foundations of the cone `C_d`),
+  `computational-experimenter` (the scratch computations of session 7 as a
+  stored script; regression test for `component_form.py`).
+- **Repository revision at start:** `9069d88` (branch `research`, clean tree).
+- **Objective (exact), O7 as left by session 7 and the director's
+  instructions:** decide whether statement (S) of `STATE.md` — for every tree
+  `T` on `j ≥ 1` vertices, all vertices `u, v` and every integer weight
+  `ν ≥ 0`, `x[F(T, ν + e_v, u) − 2x³ adj(M(T, ν))_{uv}] ∈ C_{j+3}` — can be
+  proved by an induction over a family indexed by a multiset of vertices, or
+  whether another structural argument avoids the growing family of auxiliary
+  inequalities; write down the exact chain from (S) to Conjecture Γ and look
+  for a weaker sufficient condition.
+- **Approach:** (1) instead of removing a leaf anywhere in the tree (which
+  forces several marked vertices), generate rooted weighted trees by three
+  operations at the root — raise the root weight, put a new root above, merge
+  two trees at the root — and look for a finite list of polynomials attached
+  to a rooted tree whose cone memberships are preserved by the three
+  operations; (2) the forest expansion of `Φ` and of the adjugate.
+- **Falsification test:** every identity and every cone membership against
+  exact computation on all small rooted weighted trees before it is written.
+- **Stopping conditions:** mathematics stops at 21:05 UTC; a failure of (S)
+  or of (E″) reported by the stored computation takes precedence.
+- **Budget (binding, director's standing decision):** 60 minutes of agent
+  work, 20:28 to 21:28 UTC, verification, records and push included.
+  Computation: at most 30 minutes of wall-clock time in total, of which 15
+  are given to the experimenter.
+- **Deferred obligations:** 1 (except MD-0013 and MD-0014), 2, 3 (the
+  revisions of notes owed after the reviews), 4 to 6, 8.
+

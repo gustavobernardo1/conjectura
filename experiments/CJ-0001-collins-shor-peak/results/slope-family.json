@@ -1,0 +1,1083 @@
+{
+ "E2": {
+  "cases_nu_zero": 65,
+  "failures_nu_zero": 0,
+  "cases_nu_nonzero": 614740,
+  "failures_nu_nonzero": 1,
+  "failure_examples": [
+   {
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "u": 0,
+    "F": [
+     1,
+     36,
+     554,
+     4744,
+     24505,
+     76600,
+     134500,
+     102500
+    ],
+    "half_gamma": [
+     1,
+     28,
+     358,
+     2836,
+     16055,
+     71856,
+     133946,
+     102464,
+     -1
+    ]
+   }
+  ],
+  "smallest_failure": {
+   "order": 6,
+   "edges": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     5
+    ]
+   ],
+   "nu": [
+    0,
+    4,
+    4,
+    4,
+    4,
+    4
+   ],
+   "u": 0,
+   "F": [
+    1,
+    36,
+    554,
+    4744,
+    24505,
+    76600,
+    134500,
+    102500
+   ],
+   "half_gamma": [
+    1,
+    28,
+    358,
+    2836,
+    16055,
+    71856,
+    133946,
+    102464,
+    -1
+   ]
+  }
+ },
+ "leaf": {
+  "leaf_cases": 1763050,
+  "cases_v_ne_u": 1403375,
+  "identity_failures_v_ne_u": 0,
+  "cases_v_eq_u": 359675,
+  "identity_failures_v_eq_u": 0,
+  "slope_cases": 1410440,
+  "slope_identity_failures": 0,
+  "failure_examples": []
+ },
+ "S": {
+  "cases": 3630605,
+  "cases_u_eq_v": 614805,
+  "cases_nu_zero": 337,
+  "failures": 7225,
+  "failures_u_eq_v": 3165,
+  "failures_nu_zero": 0,
+  "failure_examples": [
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     3,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     0,
+     1,
+     22,
+     221,
+     1400,
+     6581,
+     12737,
+     9823,
+     -5
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     3,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     0,
+     1,
+     22,
+     221,
+     1400,
+     6581,
+     12737,
+     9823,
+     -5
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     3
+    ],
+    "u": 0,
+    "v": 0,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     0,
+     1,
+     22,
+     221,
+     1400,
+     6581,
+     12737,
+     9823,
+     -5
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "S": [
+     0,
+     1,
+     29,
+     348,
+     2223,
+     7997,
+     15369,
+     12290,
+     -25
+    ],
+    "half_gamma": [
+     0,
+     1,
+     23,
+     241,
+     1583,
+     7649,
+     15340,
+     12289,
+     -25
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     3,
+     2,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     0,
+     1,
+     22,
+     221,
+     1400,
+     6581,
+     12737,
+     9823,
+     -5
+    ]
+   }
+  ],
+  "smallest_failure": {
+   "order": 5,
+   "edges": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     4
+    ]
+   ],
+   "nu": [
+    0,
+    2,
+    3,
+    4,
+    4
+   ],
+   "u": 0,
+   "v": 0,
+   "S": [
+    0,
+    1,
+    28,
+    324,
+    1994,
+    6905,
+    12765,
+    9824,
+    -5
+   ],
+   "half_gamma": [
+    0,
+    1,
+    22,
+    221,
+    1400,
+    6581,
+    12737,
+    9823,
+    -5
+   ]
+  },
+  "failures_by_tree": [
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "cases": 78125,
+    "failures": 31
+   },
+   {
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      4,
+      5
+     ]
+    ],
+    "cases": 562500,
+    "failures": 83
+   },
+   {
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "cases": 562500,
+    "failures": 582
+   },
+   {
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      3,
+      4
+     ]
+    ],
+    "cases": 562500,
+    "failures": 479
+   },
+   {
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "cases": 562500,
+    "failures": 1772
+   },
+   {
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "cases": 562500,
+    "failures": 4278
+   }
+  ],
+  "bracket_not_in_C_j_plus_2": 7655,
+  "bracket_not_in_C_j_plus_2_examples": [
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     3,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     1,
+     21,
+     198,
+     1155,
+     4911,
+     12441,
+     9796,
+     -6
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     3,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     1,
+     21,
+     198,
+     1155,
+     4911,
+     12441,
+     9796,
+     -6
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     3
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     1,
+     21,
+     198,
+     1155,
+     4911,
+     12441,
+     9796,
+     -6
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     29,
+     348,
+     2223,
+     7997,
+     15369,
+     12290,
+     -25
+    ],
+    "half_gamma": [
+     1,
+     22,
+     217,
+     1317,
+     5774,
+     15021,
+     12261,
+     -26
+    ]
+   },
+   {
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     3,
+     2,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "half_gamma": [
+     1,
+     21,
+     198,
+     1155,
+     4911,
+     12441,
+     9796,
+     -6
+    ]
+   }
+  ],
+  "bracket_not_in_C_j_plus_3": 3630605,
+  "bracket_not_in_C_j_plus_3_examples": [
+   {
+    "order": 1,
+    "edges": [],
+    "nu": [
+     0
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     7,
+     14,
+     3
+    ],
+    "half_gamma": [
+     1,
+     3,
+     2,
+     -4,
+     -1
+    ]
+   },
+   {
+    "order": 1,
+    "edges": [],
+    "nu": [
+     1
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     8,
+     19,
+     4
+    ],
+    "half_gamma": [
+     1,
+     4,
+     5,
+     -4,
+     -1
+    ]
+   },
+   {
+    "order": 1,
+    "edges": [],
+    "nu": [
+     2
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     9,
+     24,
+     5
+    ],
+    "half_gamma": [
+     1,
+     5,
+     8,
+     -4,
+     -1
+    ]
+   },
+   {
+    "order": 1,
+    "edges": [],
+    "nu": [
+     3
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     10,
+     29,
+     6
+    ],
+    "half_gamma": [
+     1,
+     6,
+     11,
+     -4,
+     -1
+    ]
+   },
+   {
+    "order": 1,
+    "edges": [],
+    "nu": [
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "bracket": [
+     1,
+     11,
+     34,
+     7
+    ],
+    "half_gamma": [
+     1,
+     7,
+     14,
+     -4,
+     -1
+    ]
+   }
+  ]
+ },
+ "trees": 14,
+ "weighted_trees": 104530,
+ "by_order": {
+  "1": {
+   "trees": 1,
+   "weighted_trees": 5,
+   "E2_cases": 5,
+   "E2_failures": 0,
+   "leaf_cases": 0,
+   "leaf_identity_failures": 0,
+   "slope_cases": 0,
+   "slope_identity_failures": 0,
+   "S_cases": 5,
+   "S_failures": 0,
+   "bracket_not_in_C_j_plus_2": 0,
+   "bracket_not_in_C_j_plus_3": 5
+  },
+  "2": {
+   "trees": 1,
+   "weighted_trees": 25,
+   "E2_cases": 50,
+   "E2_failures": 0,
+   "leaf_cases": 50,
+   "leaf_identity_failures": 0,
+   "slope_cases": 40,
+   "slope_identity_failures": 0,
+   "S_cases": 100,
+   "S_failures": 0,
+   "bracket_not_in_C_j_plus_2": 0,
+   "bracket_not_in_C_j_plus_3": 100
+  },
+  "3": {
+   "trees": 1,
+   "weighted_trees": 125,
+   "E2_cases": 375,
+   "E2_failures": 0,
+   "leaf_cases": 500,
+   "leaf_identity_failures": 0,
+   "slope_cases": 400,
+   "slope_identity_failures": 0,
+   "S_cases": 1125,
+   "S_failures": 0,
+   "bracket_not_in_C_j_plus_2": 0,
+   "bracket_not_in_C_j_plus_3": 1125
+  },
+  "4": {
+   "trees": 2,
+   "weighted_trees": 1250,
+   "E2_cases": 5000,
+   "E2_failures": 0,
+   "leaf_cases": 9375,
+   "leaf_identity_failures": 0,
+   "slope_cases": 7500,
+   "slope_identity_failures": 0,
+   "S_cases": 20000,
+   "S_failures": 0,
+   "bracket_not_in_C_j_plus_2": 0,
+   "bracket_not_in_C_j_plus_3": 20000
+  },
+  "5": {
+   "trees": 3,
+   "weighted_trees": 9375,
+   "E2_cases": 46875,
+   "E2_failures": 0,
+   "leaf_cases": 112500,
+   "leaf_identity_failures": 0,
+   "slope_cases": 90000,
+   "slope_identity_failures": 0,
+   "S_cases": 234375,
+   "S_failures": 31,
+   "bracket_not_in_C_j_plus_2": 32,
+   "bracket_not_in_C_j_plus_3": 234375
+  },
+  "6": {
+   "trees": 6,
+   "weighted_trees": 93750,
+   "E2_cases": 562500,
+   "E2_failures": 1,
+   "leaf_cases": 1640625,
+   "leaf_identity_failures": 0,
+   "slope_cases": 1312500,
+   "slope_identity_failures": 0,
+   "S_cases": 3375000,
+   "S_failures": 7194,
+   "bracket_not_in_C_j_plus_2": 7623,
+   "bracket_not_in_C_j_plus_3": 3375000
+  }
+ },
+ "complete": true,
+ "stopped_at": null,
+ "search_space": "one tree per isomorphism class with 1..max_order vertices (networkx.nonisomorphic_trees; the single vertex for order 1), every weight in {0..max_weight}^j on its labelled vertices (zero included; weightings equivalent under automorphisms counted separately), every vertex u; for (2) every leaf w != u; for (3) every ordered pair (u, v), u = v included",
+ "provenance": {
+  "command": "experiments/CJ-0001-collins-shor-peak/slope_family.py --max-order 6 --max-weight 4 --out experiments/CJ-0001-collins-shor-peak/results/slope-family.json",
+  "revision": "9069d88145ce99d3df248841394d74da88e46fbd",
+  "dirty_tree": true,
+  "python": "3.12.4",
+  "networkx": "3.7",
+  "seconds": 330.1,
+  "arguments": {
+   "max_order": 6,
+   "max_weight": 4,
+   "time_limit": 600.0,
+   "out": "experiments/CJ-0001-collins-shor-peak/results/slope-family.json"
+  }
+ }
+}

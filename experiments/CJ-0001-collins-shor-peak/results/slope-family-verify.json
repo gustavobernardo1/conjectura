@@ -1,0 +1,1185 @@
+{
+ "summary": {
+  "S_instances": 5,
+  "S_confirmed": 5,
+  "E2_instances": 6,
+  "E2_confirmed": 6,
+  "E_instances": 6,
+  "E_agreeing": 6,
+  "E_in_cone": 6
+ },
+ "checked": {
+  "S": [
+   {
+    "kind": "S",
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     3,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "hypotheses_hold": true,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      0,
+      1,
+      22,
+      221,
+      1400,
+      6581,
+      12737,
+      9823,
+      -5
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": true
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "S",
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     3,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "hypotheses_hold": true,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      0,
+      1,
+      22,
+      221,
+      1400,
+      6581,
+      12737,
+      9823,
+      -5
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": true
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "S",
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     3
+    ],
+    "u": 0,
+    "v": 0,
+    "hypotheses_hold": true,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      0,
+      1,
+      22,
+      221,
+      1400,
+      6581,
+      12737,
+      9823,
+      -5
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": true
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "S",
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "hypotheses_hold": true,
+    "S": [
+     0,
+     1,
+     29,
+     348,
+     2223,
+     7997,
+     15369,
+     12290,
+     -25
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      0,
+      1,
+      23,
+      241,
+      1583,
+      7649,
+      15340,
+      12289,
+      -25
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": true
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "S",
+    "order": 5,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     3,
+     2,
+     4,
+     4
+    ],
+    "u": 0,
+    "v": 0,
+    "hypotheses_hold": true,
+    "S": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      0,
+      1,
+      22,
+      221,
+      1400,
+      6581,
+      12737,
+      9823,
+      -5
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": true
+    },
+    "violation_confirmed": true
+   }
+  ],
+  "E2": [
+   {
+    "kind": "E''",
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     4,
+     4,
+     4,
+     4,
+     4
+    ],
+    "u": 0,
+    "hypotheses_hold": true,
+    "nu_nonzero": true,
+    "F": [
+     1,
+     36,
+     554,
+     4744,
+     24505,
+     76600,
+     134500,
+     102500
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      1,
+      28,
+      358,
+      2836,
+      16055,
+      71856,
+      133946,
+      102464,
+      -1
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": false
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "E''",
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     3,
+     4,
+     4,
+     59
+    ],
+    "u": 0,
+    "hypotheses_hold": true,
+    "nu_nonzero": true,
+    "F": [
+     1,
+     88,
+     2003,
+     21416,
+     126422,
+     426680,
+     775236,
+     589430
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      1,
+      80,
+      1495,
+      14180,
+      87422,
+      405264,
+      773233,
+      589342,
+      -1
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": false
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "E''",
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     3,
+     4,
+     59
+    ],
+    "u": 0,
+    "hypotheses_hold": true,
+    "nu_nonzero": true,
+    "F": [
+     1,
+     88,
+     2003,
+     21416,
+     126422,
+     426680,
+     775236,
+     589430
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      1,
+      80,
+      1495,
+      14180,
+      87422,
+      405264,
+      773233,
+      589342,
+      -1
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": false
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "E''",
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     3,
+     59
+    ],
+    "u": 0,
+    "hypotheses_hold": true,
+    "nu_nonzero": true,
+    "F": [
+     1,
+     88,
+     2003,
+     21416,
+     126422,
+     426680,
+     775236,
+     589430
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      1,
+      80,
+      1495,
+      14180,
+      87422,
+      405264,
+      773233,
+      589342,
+      -1
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": false
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "E''",
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     4,
+     14
+    ],
+    "u": 0,
+    "hypotheses_hold": true,
+    "nu_nonzero": true,
+    "F": [
+     1,
+     44,
+     782,
+     7424,
+     41205,
+     134872,
+     242220,
+     184300
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      1,
+      36,
+      538,
+      4676,
+      27835,
+      127448,
+      241438,
+      184256,
+      -1
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": false
+    },
+    "violation_confirmed": true
+   },
+   {
+    "kind": "E''",
+    "order": 6,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     3,
+     2,
+     4,
+     4,
+     59
+    ],
+    "u": 0,
+    "hypotheses_hold": true,
+    "nu_nonzero": true,
+    "F": [
+     1,
+     88,
+     2003,
+     21416,
+     126422,
+     426680,
+     775236,
+     589430
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": false,
+     "expansion": [
+      1,
+      80,
+      1495,
+      14180,
+      87422,
+      405264,
+      773233,
+      589342,
+      -1
+     ],
+     "negative_positions": [
+      8
+     ],
+     "has_negative_coefficient": false
+    },
+    "violation_confirmed": true
+   }
+  ],
+  "E": [
+   {
+    "kind": "E",
+    "order": 7,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     3,
+     4,
+     4,
+     59,
+     1
+    ],
+    "w": 6,
+    "hypotheses_hold": true,
+    "E": [
+     1,
+     160,
+     8272,
+     145937,
+     1210201,
+     5201945,
+     11283392,
+     9990560,
+     648000
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": true,
+     "expansion": [
+      1,
+      152,
+      7332,
+      114273,
+      934553,
+      5056008,
+      11275120,
+      9990400,
+      647999
+     ],
+     "negative_positions": [],
+     "has_negative_coefficient": false
+    },
+    "agrees_with_reported_membership": true
+   },
+   {
+    "kind": "E",
+    "order": 7,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     3,
+     4,
+     59,
+     1
+    ],
+    "w": 6,
+    "hypotheses_hold": true,
+    "E": [
+     1,
+     160,
+     8272,
+     145937,
+     1210201,
+     5201945,
+     11283392,
+     9990560,
+     648000
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": true,
+     "expansion": [
+      1,
+      152,
+      7332,
+      114273,
+      934553,
+      5056008,
+      11275120,
+      9990400,
+      647999
+     ],
+     "negative_positions": [],
+     "has_negative_coefficient": false
+    },
+    "agrees_with_reported_membership": true
+   },
+   {
+    "kind": "E",
+    "order": 7,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     3,
+     59,
+     1
+    ],
+    "w": 6,
+    "hypotheses_hold": true,
+    "E": [
+     1,
+     160,
+     8272,
+     145937,
+     1210201,
+     5201945,
+     11283392,
+     9990560,
+     648000
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": true,
+     "expansion": [
+      1,
+      152,
+      7332,
+      114273,
+      934553,
+      5056008,
+      11275120,
+      9990400,
+      647999
+     ],
+     "negative_positions": [],
+     "has_negative_coefficient": false
+    },
+    "agrees_with_reported_membership": true
+   },
+   {
+    "kind": "E",
+    "order": 7,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     4,
+     4,
+     4,
+     14,
+     1
+    ],
+    "w": 6,
+    "hypotheses_hold": true,
+    "E": [
+     1,
+     72,
+     1991,
+     27401,
+     207287,
+     879154,
+     1972365,
+     1883725,
+     202500
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": true,
+     "expansion": [
+      1,
+      64,
+      1579,
+      20069,
+      156325,
+      851753,
+      1970374,
+      1883653,
+      202499
+     ],
+     "negative_positions": [],
+     "has_negative_coefficient": false
+    },
+    "agrees_with_reported_membership": true
+   },
+   {
+    "kind": "E",
+    "order": 7,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "nu": [
+     0,
+     3,
+     2,
+     4,
+     4,
+     59,
+     1
+    ],
+    "w": 6,
+    "hypotheses_hold": true,
+    "E": [
+     1,
+     160,
+     8272,
+     145937,
+     1210201,
+     5201945,
+     11283392,
+     9990560,
+     648000
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": true,
+     "expansion": [
+      1,
+      152,
+      7332,
+      114273,
+      934553,
+      5056008,
+      11275120,
+      9990400,
+      647999
+     ],
+     "negative_positions": [],
+     "has_negative_coefficient": false
+    },
+    "agrees_with_reported_membership": true
+   },
+   {
+    "kind": "E",
+    "order": 7,
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "nu": [
+     0,
+     4,
+     4,
+     4,
+     4,
+     4,
+     1
+    ],
+    "w": 6,
+    "hypotheses_hold": true,
+    "E": [
+     1,
+     56,
+     1259,
+     15009,
+     103735,
+     419950,
+     934625,
+     920625,
+     112500
+    ],
+    "agrees_with_reported_polynomial": true,
+    "cone": {
+     "degree": 8,
+     "in_cone": true,
+     "expansion": [
+      1,
+      48,
+      943,
+      10461,
+      76125,
+      404941,
+      933366,
+      920569,
+      112499
+     ],
+     "negative_positions": [],
+     "has_negative_coefficient": false
+    },
+    "agrees_with_reported_membership": true
+   }
+  ]
+ },
+ "provenance": {
+  "command": "experiments/CJ-0001-collins-shor-peak/slope_family_verify.py --out experiments/CJ-0001-collins-shor-peak/results/slope-family-verify.json",
+  "revision": "9069d88145ce99d3df248841394d74da88e46fbd",
+  "dirty_tree": true,
+  "python": "3.12.4",
+  "seconds": 0.5,
+  "arguments": {
+   "result": "D:\\conjectura\\experiments\\CJ-0001-collins-shor-peak\\results\\slope-family.json",
+   "extension": "D:\\conjectura\\experiments\\CJ-0001-collins-shor-peak\\results\\slope-family-extension.json",
+   "out": "experiments/CJ-0001-collins-shor-peak/results/slope-family-verify.json"
+  }
+ }
+}

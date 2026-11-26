@@ -1064,3 +1064,361 @@ from titles and listing abstracts only.
 
 Neither search supports `no-prior-resolution-found`. An unsuccessful search
 does not establish originality.
+
+## Literature audit 2026-11-26 (session 8): MD-0013 and MD-0014
+
+Auditor: Claude (`claude-fable-5-2`), literature-auditor subagent. Budget set
+by the launching session: about 15 minutes and about 40 tool calls (the
+environment does not report elapsed time; the work was stopped at 38 tool
+calls). Requests made: 8 web searches, 19 fetches (1 returned HTTP 429 and
+succeeded on a later retry, 1 returned HTTP 404, 2 returned undecoded PDF
+bytes whose first pages were then read as page images). All accesses on
+2026-11-26. This is the first search made for the statements of MD-0013
+(Propositions S12, S13) and MD-0014 (Proposition S14, Lemma G, Propositions
+S15, S16, Corollary S17, Theorem S18), all in
+`research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md`. It
+builds on the session-7 audit above and does not repeat it.
+
+**Result in one sentence.** A prior source was found that implies part of
+MD-0013: the identity `(κ − 4) · 1ᵀadj(P_A)1 = 2 det P_A` (S13(e), item (iv))
+is a restatement of Theorems A, 2.4 and 4.4 of Richman–Shokrieh–Wu
+(arXiv:2411.11488, item R1 of session 7) once `τ_Bᵀ adj(L_B) τ_B` is expanded
+by the all-minors matrix-tree theorem, and with it the bound `κ ≥ 4`, equality
+exactly for `|A| = 1` (S13(c), item (ii)) follows from their Theorem 4.6(b),
+which gives more; the bridging step is the auditor's own derivation and is
+unreviewed. No source read states the third form S12, the real-rootedness of
+`r_A` (S13(d)), the component form S14, the recurrences S15 to S17 or the
+induction S18. Lemma G1 and the spectral identity S13(b) are classical linear
+algebra. The coverage is small and supports no statement of novelty.
+
+### Queries (verbatim)
+
+General web search tool (all in standard mode):
+
+1. `Richman Shokrieh Wu "principal minors of tree distance matrices" det D[S] cof D[S] rooted spanning forests monotonicity`
+2. `adjugate rank-one update "adj(A + uv^T)" formula principal submatrix diagonal perturbation "adjugate" multilinear determinant reference`
+3. `"Laplacian matching polynomial" tree "principal submatrix" Laplacian weighted tree recurrence pendant vertex Mohammadian real roots "subdivision"`
+4. `"sum of entries" inverse of principal submatrix distance matrix tree "Steiner" OR "subtree spanned" cof det ratio "effective resistance" OR "magnitude" tree subset formula Laplacian Schur complement`
+5. `"definite pencil" OR "secular equation" real roots det(A + xB) positive definite bordered matrix "rank-one" interlacing polynomial "Φ(x)(a+bx) − x^2" OR "adjugate" quadratic form real-rooted Laplacian principal submatrix tree`
+6. `Mohar "On the Laplacian coefficients of acyclic graphs" pendant vertex recurrence Laplacian characteristic polynomial tree "L_v" principal submatrix leaf deletion formula`
+7. `tree Laplacian "rooted spanning forests" adjugate "I + xL" quadratic form recurrence leaf removal "vertex weights" OR "Dirichlet" polynomial "gamma-positive" OR "real-rooted" forests two-rooted "doubly rooted"`
+8. `"gamma-positivity" OR "γ-positive" "Laplacian" polynomial tree "det(I + xL)" OR "forest polynomial" OR "Laplacian characteristic polynomial" trees non-symmetric expansion "x^i(1+x)" peak location coefficients`
+
+The answers of the search tool are summaries and were used only to locate
+sources. For queries 5, 7 and 8 the tool reported that it found nothing on the
+specific part of the query (bordered/adjugate quadratic forms; leaf-removal
+recurrences for the adjugate; gamma-type expansions of Laplacian polynomials).
+
+arXiv listing search (`arxiv.org/search`, all fields, newest first):
+
+9. `"distance matrix" tree "principal minors" OR "principal submatrix"` — the
+   page reports 115 results; the first 49 were returned (listing abstracts
+   only). Relevant entries: arXiv:2411.11488 (R1), 2407.01966, 2407.01227,
+   2504.05337, 2309.08691, 2404.06684, 2407.03309. No entry among the 49
+   concerns a polynomial of the form of `r_A`, nor the inverse of a principal
+   submatrix of a tree distance matrix. Results 50 to 115 were not seen.
+
+Citation index (Semantic Scholar API):
+
+10. Citations of arXiv:2411.11488 — 2 papers: arXiv:2606.21902 and
+    arXiv:2606.18061 (both opened at abstract level, see below).
+
+### Sources opened, and what was read
+
+**(R1, again) H. Richman, F. Shokrieh, C. Wu, Principal minors of tree
+distance matrices, arXiv:2411.11488v2.** Access: HTML rendering through the
+fetch tool's text extraction, two passes with questions aimed at Sections 4
+and 5 (characters 0 to 100,000, and 55,000 to the end). Statements as returned
+by the tool; not read as page images; proofs not read. In addition to the
+statements recorded in session 7:
+
+- Section 1.3: `det D[S]/cof D[S]` is called the *normalized principal minor*;
+  `cof A = det A · 1ᵀA^{−1}1` for invertible `A`.
+- Lemma 3.4: for `|S| ≥ 2`, `D[S]` has one positive and `|S| − 1` negative
+  eigenvalues; in particular `det D[S] ≠ 0`.
+- Proposition 4.1 and Corollary 4.3:
+  `det D[S]/cof D[S] = max { uᵀDu : 1ᵀu = 1, u_v = 0 for v ∉ S }`.
+- Theorem D: for non-empty `A ⊆ B ⊆ V`,
+  `det D[A]/cof D[A] ≤ det D[B]/cof D[B]`.
+- Proposition 4.5: `det D/cof D = ½ Σ_e α_e`.
+- **Theorem 4.6** (inequalities not strict): (a)
+  `det D[S]/cof D[S] ≤ ½ Σ_{e ∈ E(conv(S, G))} α_e`, `conv(S, G)` the subtree
+  spanned by `S`; (b) for `s_0, s_1 ∈ S` joined by the path `γ`,
+  `½ Σ_{e ∈ γ} α_e ≤ det D[S]/cof D[S]`.
+- Definition 5.1, Proposition 5.2, **Theorem 5.3**: the *equilibrium vector*
+  `m(G; S)`, `m_v = Σ_{T ∈ F_1(G;S)} w(T)(2 − outdeg(T, v))`, satisfies
+  `1ᵀm = 2 Σ_T w(T)` and `D[S] m = λ 1` with
+  `λ = Σ_e α_e Σ_{T ∈ F_1} w(T) − Σ_{F ∈ F_2} w(F)(2 − outdeg(F, ∗))²`.
+- Per the tool: the paper does **not** express the ratio through
+  `L[S̄]^{−1}` or as a quadratic form `mᵀ adj(L[S̄]) m`, and does not state
+  `Σ_F (outdeg(F, ∗) − 2)² = mᵀ adj(L[S̄]) m`. A search summary (query 4) says
+  the paper lists the inverse of `D[S]` as an open question; that sentence was
+  not located in the text by the auditor.
+- References of R1 relevant here (as listed by the tool): [4] R. B. Bapat,
+  S. Sivasubramanian, Identities for minors of the Laplacian, resistance and
+  distance matrices, Linear Algebra Appl. 435 (2011) 1479–1489, DOI
+  `10.1016/j.laa.2011.03.028` (cited for `cof D[S]`); [10] K. Devriendt, Graph
+  geometry from effective resistances, Ph.D. thesis, Oxford, 2022; [15]
+  Gutiérrez–Lillo, arXiv:2407.01966. **None of the three was opened.**
+
+**(R5) K. Castillo, I. Zaballa, On a formula of Thompson and McEnteggert for
+the adjugate matrix, arXiv:2103.13739v1 (25 Mar 2021).** Access: abstract
+page, and pages 1–2 of the PDF read as page images. Theorem 2.1, equation (1):
+for a matrix `A` over a commutative ring, an eigenvalue `λ_0` and right and
+left eigenvectors `v`, `w`, `wᵀv · Adj(λ_0 I − A) = p_A′(λ_0) · v wᵀ`; the
+introduction attributes the Hermitian case to Thompson and McEnteggert
+("[33, pp. 212–213]"; the reference list was not read, so the bibliographic
+entry of [33] is not verified here).
+
+**(R6) J.-C. Wan, Y. Wang, Z.-Y. Wang, Subdivision method in the Laplacian
+matching polynomial, arXiv:2410.14112v1 (18 Oct 2024).** Access: HTML
+rendering through the fetch tool's extraction; statements as returned by the
+tool. Equation (1.4): the *principal Laplacian matching polynomial* of `G`
+with respect to an induced subgraph `H`,
+`β(G, x)_{[H]} = Σ_{M ∈ M(H)} (−1)^{|M|} Π_{v ∈ V(H) ∖ V(M)} (x − d_G(v))`.
+Theorem 1.2 (attributed there to its reference [17]): for `W ⊆ V(G)`,
+`α(S_G − W, x) = x^{|E(G)| − |V(G)| + |W|} β(G, x²)_{[G − W]}`, `α` the
+matching polynomial and `S_G` the subdivision graph. Theorem 3.1: the zeros of
+`β(G, x)_{[H − v]}` interlace those of `β(G, x)_{[H]}`. Reference [20] there:
+B. Zhou, I. Gutman, A connection between ordinary and Laplacian spectra of
+bipartite graphs, Linear Multilinear Algebra 56 (2008) 305–310. Per the tool:
+no pendant-vertex or leaf-removal recurrence, nothing on vertex-weighted
+trees, on the adjugate or on quadratic forms `pᵀ adj(·) p`, nothing on
+expansions in `x^i(1+x)^j`; Mohar is not cited.
+
+**(R7) B. Mohar, On the Laplacian coefficients of acyclic graphs, preprint
+version (Univ. of Ljubljana Preprint series 44 (2006), no. 1023; the journal
+version is cited elsewhere as Linear Algebra Appl. 422 (2007), not opened).**
+Access: `https://users.fmf.uni-lj.si/mohar/Reprints/2007/BM07_LAA422_Mohar_LaplacianCoefficient.pdf`,
+pages 1–4 of the PDF (cover, and pp. 1–3 of the text) read as page images.
+Content read: equation (1), the Zhou–Gutman identity `c_k(T) = m_k(S(T))` for
+acyclic `T`; the transformations `π` (merging two pendant paths) and `σ`;
+Proposition 2.1; Theorem 2.2 (`c_k(T) ≤ c_k(T′) − Σ_d n_d C(n−3−d, k−1−d)`).
+On the pages read there is no recurrence for `det(λI − L)` or its adjugate
+under removal of a leaf, no principal submatrix of `L`, no vertex weights.
+The rest of the paper was not read.
+
+**(R8) Wikipedia, "Matrix determinant lemma"** (fetch tool's extraction):
+`det(A + uvᵀ) = det A + vᵀ adj(A) u`, valid whether or not `A` is invertible;
+references listed there: D. A. Harville, *Matrix Algebra From a Statistician's
+Perspective*, Springer, 1997; J. Ding, A. Zhou, Eigenvalues of rank-one
+updated matrices with some applications, Appl. Math. Lett. 20 (2007)
+1223–1226 (neither opened). **Wikipedia, "Dodgson condensation"**: the
+Desnanot–Jacobi identity
+`det(M) det(M_{1,k}^{1,k}) = det(M_1^1) det(M_k^k) − det(M_1^k) det(M_k^1)`;
+references listed there include Bressoud, *Proofs and Confirmations* (1999),
+and Zeilberger, Electron. J. Combin. (1997) (not opened). **Wikipedia,
+"Adjugate matrix"**: per the tool it states no rank-one update formula for the
+adjugate and no Jacobi complementary-minor identity.
+
+**Abstract pages only (nothing claimed about the papers' contents):**
+
+- Á. Gutiérrez, A. Lillo, Principal minors of the distance matrix of a tree,
+  arXiv:2407.01966 (2 Jul 2024): a combinatorial proof of a formula for
+  `det D[S]` generalizing Graham–Pollak (tool's summary of the abstract).
+- G. Wang, Principal minors of effective-resistance matrices and local
+  resistance radii, arXiv:2606.18061 (v1 16 Jun 2026, v2 22 Jun 2026). As
+  summarized by the tool: for a connected weighted graph with resistance
+  matrix `R` and non-empty `S`, `cof R[S] = (−2)^{|S|−1} κ_G(S)/τ(G)` and
+  `det R[S]/cof R[S] = (2/|S|) tr Q + ½ qᵀKq` after Kron reduction to `S`
+  (`K` the reduced Laplacian, `Q = K⁺`, `q = diag Q`); the ratio is the
+  maximum of `uᵀR[S]u` over `1ᵀu = 1`; monotonicity in `S`, a one-point update
+  formula. The formula is reproduced from the tool's rendering and **was not
+  verified against the paper**. For a tree `R = D`, so this concerns the same
+  quantity `2/(1ᵀP_A^{−1}1)` as S13(e), through the Kron reduction onto `A`
+  rather than through `L_B^{−1}` on the complement.
+- H. Richman, F. Shokrieh, C. Wu, On determinants of resistance matrices,
+  arXiv:2606.21902 (20 Jun 2026; the citation index gives DOI
+  `10.1016/j.laa.2026.10.003`, not verified): an identity for the determinant
+  of the resistance matrix of a graph through spanning trees and forests,
+  generalizing Graham–Pollak, using "Bapat's expression" of that determinant.
+- P. Chebotarev, E. Shamis, Matrix-forest theorems, arXiv:math/0602575
+  (manuscript of 1994–1997): the `(i, j)` cofactor of `I + L(G)` is the number
+  of spanning rooted forests in which `i` and `j` lie in the same tree rooted
+  at `i`; `det(I + L)` counts all spanning rooted forests.
+- R. Balaji, R. B. Bapat, S. Goel, On resistance matrices of weighted balanced
+  digraphs, arXiv:2111.02051: the abstract quotes a formula for the inverse of
+  the resistance matrix through the Laplacian and a vector `τ`, without
+  attribution.
+- P. N. Choudhury, A. Khare, arXiv:1903.11566, ar5iv rendering, first 100,000
+  of 197,657 characters through the tool: Theorem A (minors of `D_T + xJ`
+  depend only on edge data), Theorem B (inverse of the full matrix), Remark
+  2.5 (`cof/det = eᵀD^{−1}e`). Per the tool: no inverse of a submatrix, no
+  one-variable polynomial or real-rootedness statement, no
+  `(2 − deg)ᵀ L[B]^{−1} (2 − deg)`. The second half was not read.
+
+**Search-result snippets only, not opened:** Y. Liu, W. Yan (as named by the
+search tool), Appl. Math. Comput. 457 (2023), weighted enumeration of rooted
+forests and `det[L + diag(x_1, …, x_n)]`; Wan–Wang–Mohammadian, On the
+location of zeros of the Laplacian matching polynomials of graphs,
+arXiv:2103.10580; arXiv:2310.00360; a 2025 Open Mathematics paper
+(`10.1515/math-2025-0185`); arXiv:1912.03101; arXiv:2501.12055
+(bi-gamma-positivity of `1/k`-Eulerian polynomials); arXiv:2504.05337
+(recurrences for determinants of tree distance matrices); arXiv:2404.06684
+(Doust–Weston: determinant, `M`-constant and cofactor sum for subsets of
+weighted Hamming cubes); a statement attributed to Doust and Wolf that the sum
+of the entries of `D^{−1}` of an unweighted tree on `n + 1` points is `2/n`;
+sources on definite matrix pencils (Manchester eprint 826; a Georgia Tech
+preprint).
+
+### Findings per item
+
+**(a) S13(e), item (iv) of MD-0013: `(κ − 4) · 1ᵀadj(P_A)1 = 2 det P_A`.**
+*An implying statement was found: R1, Theorems A, 2.4 and 4.4, together with
+the all-minors matrix-tree theorem.* Derivation (the auditor's, unreviewed;
+it assumes that `outdeg(F, ∗)` in R1 is the number of edges leaving the
+floating component). For unit lengths, Theorems A and 4.4 give
+
+`2 det D[A]/cof D[A] = (s − 1) − Σ_{F ∈ F_2(S; A)} (2 − outdeg(F, ∗))² / κ(S; A)`,
+`κ(S; A) = det L_B` (Theorem 2.4).
+
+For `v, w ∈ B`, `adj(L_B)_{vw}` is the number of spanning forests with
+`|A| + 1` components in which every component but one contains exactly one
+vertex of `A` and the remaining one contains `v` and `w` (all-minors
+matrix-tree theorem): these are the forests of `F_2(S; A)` whose floating
+component contains `v` and `w`. So
+`τ_Bᵀ adj(L_B) τ_B = Σ_F (Σ_{v ∈ ∗(F)} (2 − g_v))² = Σ_F (2 − outdeg(F, ∗))²`,
+since the degrees over a connected set `C` add up to `2(|C| − 1) + outdeg(C)`.
+Hence `2 det P_A/cof P_A = s − 1 − τ_Bᵀ L_B^{−1} τ_B = κ − 4`, which is
+S13(e). Checked by hand on two examples (the path on 3 vertices with `A` its
+two ends: both sides 2; the star `K_{1,3}` with `A` two leaves:
+`τ_Bᵀ adj(L_B) τ_B = 2 = Σ_F (2 − outdeg)²`, `det L_B = 2`, `κ = 6`). The
+vector `ω` of the project's proof (`P_A ω = (κ − 4)1`, `1ᵀω = 2`) is, up to
+the factor `det L_B`, the equilibrium vector of R1 (Definition 5.1, Theorem
+5.3). Relation: **S13(e) is R1's Theorem A in the notation `L_B^{−1}`; the
+form with the quadratic form `τ_Bᵀ L_B^{−1} τ_B` was not found stated, but it
+is a direct translation.** arXiv:2606.18061 (abstract only) gives a further
+closed form of the same ratio for resistance matrices.
+
+**(b) S13(c), item (ii) of MD-0013: degree, leading coefficient, `κ ≥ 4` with
+equality if and only if `|A| = 1`.** The degree and the leading coefficient
+`κ det L_B` are specific to `r_A` and were not found. *The bound is implied by
+(a) and R1, Theorem 4.6(b):* for `|A| ≥ 2` and `u, v ∈ A`,
+`κ − 4 = 2 det P_A/cof P_A ≥ dist(u, v) ≥ 1`; for `|A| = 1`, `det D[A] = 0`
+in Theorem A gives `κ = 4`. R1 gives more than S13(c):
+`max_{u,v ∈ A} dist(u, v) ≤ κ − 4 ≤ |E(conv(A))|` (Theorem 4.6) and `κ` is
+non-decreasing in `A` (Theorem D). This agrees with the computed minimum
+`κ − 4 = 1` over `|A| ≥ 2` in `component-form.json`. The project's proof (a
+variational argument on `B`) is different from R1's (optimization on `A`).
+
+**(c) S12, item (i) of MD-0013 (third form), and S13(d), item (iii) (all
+roots of `r_A` real and negative).** *Not found within this coverage.* No
+source read or seen in a snippet considers `r_A` or a polynomial
+`(linear) · det(I + xL_B) − pᵀ adj(I + xL_B) p`. The technique of S13(d)
+(partial fractions of a rational function with positive residues, one zero
+between consecutive poles) is the standard secular-equation argument for a
+bordered or rank-one modified symmetric matrix; no source for it was opened in
+this audit. Auditor's remark (unreviewed, a derivation and not a literature
+finding): S12 says `r_A = det(A_0 + x A_1)` with the symmetric
+`(t+1) × (t+1)` matrices `A_0 = [[I, 1], [1ᵀ, s]]` and
+`A_1 = [[L_B, τ_B], [τ_Bᵀ, s + 3]]` (Schur complement of the block
+`I + xL_B`). `A_0` is positive definite because `s − t = a ≥ 1`, and `A_1` is
+positive definite because `L_B` is and its Schur complement is `κ > 0`. For a
+positive definite `A_0` and a symmetric `A_1`,
+`det(A_0 + xA_1) = det(A_0) Π_i (1 + θ_i x)` with `θ_i` the eigenvalues of
+`A_0^{−1/2} A_1 A_0^{−1/2}`, which is the textbook fact on definite pencils.
+So S13(d) follows from S12, S13(a) and `κ > 0` in one line, and S13(d) should
+be regarded as an application of a classical fact to a formula (S12) that was
+not found. Consistency check by hand on the path with 3 vertices, `A` its two
+ends: `det(A_0 + xA_1) = (1 + 2x)(3 + 6x) − 1 = 2 + 12x + 12x²`, with
+`r_A(0) = a = 2` and leading coefficient `κ det L_B = 12`.
+
+**(d) S13(b) (the spectral identity for `zᵀ adj(I + xL_B) z`).** *Classical.*
+It is the spectral decomposition of the adjugate of a symmetric matrix,
+`adj(I + xL) = Σ_i Π_{l ≠ i}(1 + λ_l x) u_i u_iᵀ`; its value at
+`x = −1/λ_i` for a simple eigenvalue is the Thompson–McEnteggert formula (R5,
+Theorem 2.1, equation (1), read). The record already attributes the identity
+to the director and does not present it as new.
+
+**(e) Lemma G.** (G1), `adj(Z + c e_u e_uᵀ) = adj(Z) + c · adj(Z[u deleted])^ext`:
+*classical; no source stating it in this form was found.* It holds for every
+square matrix over a commutative ring, because each cofactor is an affine
+function of the entry `z_uu` whose coefficient is the corresponding cofactor
+of the matrix with row and column `u` removed (cofactor expansion; auditor's
+remark, elementary). The determinant case is the matrix determinant lemma in
+adjugate form (R8). The identity
+`ψ adj(Z)_{vv′} − α_v α_{v′} = det(Z) adj(Y_0)_{vv′}` used in the note's proof
+is, for `v = v′`, the Desnanot–Jacobi identity (R8) after a permutation of
+indices, and in general Jacobi's theorem on the minors of the adjugate; for
+the latter no opened source is available (Horn–Johnson, *Matrix Analysis*, is
+the usual reference; not consulted, section number not verified). (G2), the
+adjugate of `M(T, ν)` in terms of `T − w`: *not found*; it is a Schur
+complement computation combined with (G1). Its determinant part is the
+recurrence of Lemma F (MD-0012).
+
+**(f) S14 (component form), S15, S16, S17 (recurrences for `R(T, ν)`), S18
+(conditional induction) — MD-0014.** *Not found within this coverage.* The
+polynomial `R(T, ν) = (N + j − 1)(1 + x)Φ − pᵀ adj(M) p` is defined in terms
+of the project's `r_A`, for which no prior source is known, so a prior
+statement in these terms is unlikely to be found by keyword search; an
+equivalent statement in other terms cannot be excluded. Related published
+material, none of which contains the statements:
+
+- `Φ(T, ν)`, up to the substitution `x → −1/x`, is the characteristic
+  polynomial of a principal submatrix of the Laplacian of a tree, which for a
+  forest is the principal Laplacian matching polynomial of R6, equation (1.4)
+  (auditor's identification: for an acyclic induced subgraph the permutation
+  expansion of the determinant has only fixed points and transpositions). R6,
+  Theorem 1.2, then gives `det(I + xL_B) = Σ_k m_k(S_S − A) x^k`, the matching
+  generating polynomial of the subdivision graph of `S` with the vertices of
+  `A` deleted. This is the published form of the "lead not followed" of the
+  session-7 audit, item (b); it concerns MD-0012 and is background for
+  MD-0014. R6, Theorem 3.1 (interlacing under vertex deletion) is the
+  published counterpart of the real-rootedness of `Φ`.
+- The cofactors of `I + L` count rooted spanning forests (Chebotarev–Shamis,
+  abstract), so `pᵀ adj(I + xL_B) p` has a forest expansion; R1's sums over
+  forests with a floating component are of this kind. No source read gives a
+  recurrence for such a quadratic form at a leaf.
+- Mohar (R7, pp. 1–3) and R6 contain no leaf-removal recurrence for the
+  determinant or the adjugate on the parts read.
+- Nothing was found on gamma-type or half-gamma expansions of Laplacian-type
+  polynomials (query 8; the surveys of Athanasiadis and Brändén were again not
+  read).
+
+### Not searched or not accessible
+
+- MathSciNet, zbMATH, Google Scholar: not available to the tool; not searched.
+  MathOverflow, OEIS, erdosproblems.com: not searched. Formal libraries
+  (Mathlib, formal-conjectures): not searched.
+- Books: Horn–Johnson, *Matrix Analysis*; Bapat, *Graphs and Matrices*;
+  Fiedler, *Matrices and Graphs in Geometry*; Parlett, *The Symmetric
+  Eigenvalue Problem*; Godsil, *Algebraic Combinatorics*. None consulted. In
+  particular no textbook source was opened for the definite-pencil fact, for
+  the secular equation, or for Jacobi's theorem on minors of the adjugate.
+- Not read although located: the proofs of R1 and its definition of
+  `outdeg(F, ∗)` as page images; Bapat–Sivasubramanian (2011); Devriendt's
+  thesis (2022) and the literature on resistance curvature and resistance
+  radius; arXiv:2606.18061 and arXiv:2606.21902 beyond their abstracts;
+  Gutiérrez–Lillo beyond the abstract; the second half of Choudhury–Khare;
+  R6 as page images; R7 after page 3 and the journal version; the reference
+  list of R5 (Thompson–McEnteggert's bibliographic entry); Liu–Yan (2023);
+  Wan–Wang–Mohammadian; Zhou–Gutman (2008); Chebotarev–Shamis beyond the
+  abstract; the surveys on gamma-positivity; results 50 to 115 of query 9.
+- Not searched at all: Leinster's magnitude of metric spaces (for a tree the
+  quantity `1ᵀP_A^{−1}1` is not the magnitude, which uses `e^{−d}`, but the
+  literature may treat the limit); Fiedler's simplex geometry of resistance
+  matrices; Graham–Hoffman–Hosoya; Steiner-distance literature beyond the
+  listing titles of query 9; papers citing Bapat–Kirkland–Neumann (2005) or
+  Bapat–Sivasubramanian (2011).
+- Languages: English only.
+- The citation list of R1 has two entries in the index used; a second index
+  was not consulted.
+
+### Recommendation for the registry (the auditor did not edit it)
+
+- MD-0013: as the record stands (items (i) to (iv) together), novelty
+  `preliminary-search-completed`, with the prior result recorded in the
+  record: item (iv) and the bound of item (ii) are implied by R1 (Theorems A,
+  2.4, 4.4 and 4.6(b)) through the derivation of item (a) above, which should
+  be reviewed. If the record is split, the part "item (iv) and `κ ≥ 4` with
+  its equality case" should carry `prior-resolution-identified` (source: R1)
+  once that derivation is reviewed, and the part "third form, degree and
+  leading coefficient, real negative roots" `preliminary-search-completed`.
+  The record should also cite the classical basis of item (iii).
+- MD-0014: novelty `preliminary-search-completed`. Nothing identical or
+  implying was found; (G1) is classical; the literature on Laplacian matching
+  polynomials and forest polynomials was only sampled.
+
+Neither record supports `no-prior-resolution-found`: the databases and books
+most likely to contain these facts were not searched. An unsuccessful search
+does not establish originality.

@@ -1,0 +1,437 @@
+{
+ "part_A_B": {
+  "identities": {
+   "rooted": 4395,
+   "A1_G_negative": 0,
+   "A1_Omega_negative": 0,
+   "A2_failures": 0,
+   "A3_failures": 0,
+   "A4_failures": 0,
+   "A5_failures": 0,
+   "A6_failures": 0,
+   "A7_pairs": 10404,
+   "A7_failures": 0
+  },
+  "cone": {
+   "B1_F_cases": 4395,
+   "B1_F_failures": 0,
+   "B2_S_cases": 21099,
+   "B2_S_failures": 0,
+   "B3_Lambda_cases": 4395,
+   "B3_Lambda_failures": 0,
+   "B4_monotone_cases": 4366,
+   "B4_monotone_failures": 0,
+   "B5_R_cases": 4366,
+   "B5_R_failures": 0
+  },
+  "first_failures": {}
+ },
+ "part_C": {
+  "counts": {
+   "stars": 2769,
+   "rooted": 11085,
+   "C1_failures": 0
+  },
+  "cone": {
+   "B1_F_cases": 11085,
+   "B1_F_failures": 185,
+   "B2_S_cases": 69297,
+   "B2_S_failures": 3354,
+   "B3_Lambda_cases": 11085,
+   "B3_Lambda_failures": 0,
+   "B4_monotone_cases": 11073,
+   "B4_monotone_failures": 0,
+   "B5_R_cases": 11073,
+   "B5_R_failures": 0
+  },
+  "first_failures": {
+   "B2_S": {
+    "where": "part C (stars)",
+    "edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     3,
+     4,
+     4
+    ],
+    "root": 0,
+    "polynomial": [
+     0,
+     1,
+     28,
+     324,
+     1994,
+     6905,
+     12765,
+     9824,
+     -5
+    ],
+    "degree": 8,
+    "half_gamma": [
+     0,
+     1,
+     22,
+     221,
+     1400,
+     6581,
+     12737,
+     9823,
+     -5
+    ],
+    "v": 0
+   },
+   "B1_F": {
+    "where": "part C (stars)",
+    "edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     5,
+     5,
+     5,
+     5
+    ],
+    "root": 0,
+    "polynomial": [
+     1,
+     38,
+     614,
+     5484,
+     29318,
+     93996,
+     167400,
+     127440
+    ],
+    "degree": 8,
+    "half_gamma": [
+     1,
+     30,
+     406,
+     3354,
+     19504,
+     88512,
+     166786,
+     127402,
+     -1
+    ]
+   }
+  }
+ },
+ "part_D": {
+  "trees": 600,
+  "rooted": 3269,
+  "cone": {
+   "B1_F_cases": 3269,
+   "B1_F_failures": 37,
+   "B2_S_cases": 21109,
+   "B2_S_failures": 411,
+   "B3_Lambda_cases": 3269,
+   "B3_Lambda_failures": 0,
+   "B4_monotone_cases": 3213,
+   "B4_monotone_failures": 0,
+   "B5_R_cases": 3213,
+   "B5_R_failures": 0
+  },
+  "first_failures": {
+   "B2_S": {
+    "where": "part D (random)",
+    "edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      1,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      2,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      3,
+      7
+     ],
+     [
+      7,
+      8
+     ]
+    ],
+    "nu": [
+     0,
+     1,
+     0,
+     1,
+     2,
+     2,
+     0,
+     2,
+     2
+    ],
+    "root": 0,
+    "polynomial": [
+     0,
+     1,
+     33,
+     479,
+     4019,
+     21531,
+     76704,
+     183216,
+     287959,
+     282367,
+     153532,
+     33908,
+     -262
+    ],
+    "degree": 12,
+    "half_gamma": [
+     0,
+     1,
+     23,
+     250,
+     1755,
+     9263,
+     40786,
+     161685,
+     283940,
+     281888,
+     153499,
+     33907,
+     -262
+    ],
+    "v": 0
+   },
+   "B1_F": {
+    "where": "part D (random)",
+    "edges": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      0,
+      7
+     ],
+     [
+      0,
+      8
+     ]
+    ],
+    "nu": [
+     0,
+     2,
+     1,
+     4,
+     4,
+     1,
+     4,
+     2,
+     3
+    ],
+    "root": 0,
+    "polynomial": [
+     1,
+     43,
+     812,
+     8891,
+     62620,
+     296688,
+     957741,
+     2078537,
+     2897128,
+     2331063,
+     805256,
+     -20604
+    ],
+    "degree": 11,
+    "half_gamma": [
+     1,
+     32,
+     469,
+     4291,
+     28298,
+     147975,
+     661053,
+     2015917,
+     2888237,
+     2330251,
+     805213,
+     -20605
+    ]
+   }
+  }
+ },
+ "named_examples": {
+  "E2_star_5_leaves_weight_4": {
+   "F": [
+    1,
+    36,
+    554,
+    4744,
+    24505,
+    76600,
+    134500,
+    102500
+   ],
+   "half_gamma_F_degree_8": [
+    1,
+    28,
+    358,
+    2836,
+    16055,
+    71856,
+    133946,
+    102464,
+    -1
+   ],
+   "F_in_cone": false,
+   "E": [
+    1,
+    56,
+    1259,
+    15009,
+    103735,
+    419950,
+    934625,
+    920625,
+    112500
+   ],
+   "E_in_cone": true,
+   "Lambda_in_cone": true,
+   "R_in_cone": true
+  },
+  "E2_star_6_leaves_weight_3": {
+   "F": [
+    1,
+    36,
+    561,
+    4968,
+    27438,
+    96984,
+    214464,
+    271104,
+    148992,
+    -2048
+   ],
+   "leading_coefficient": -2048,
+   "F_in_cone": false,
+   "Lambda_in_cone": true
+  },
+  "S_star_4_leaves_weight_4_u_v_centre": {
+   "S": [
+    0,
+    1,
+    31,
+    400,
+    2765,
+    10849,
+    22985,
+    20550,
+    -125
+   ],
+   "half_gamma_degree_8": [
+    0,
+    1,
+    25,
+    285,
+    2025,
+    10449,
+    22954,
+    20549,
+    -125
+   ],
+   "S_in_cone": false
+  }
+ },
+ "provenance": {
+  "command": "experiments/CJ-0001-collins-shor-peak/rooted_state.py --star-weight 5 --random-trials 600 --out experiments/CJ-0001-collins-shor-peak/results/rooted-state.json",
+  "revision": "9069d88145ce99d3df248841394d74da88e46fbd",
+  "dirty_tree": true,
+  "python": "3.12.4",
+  "networkx": "3.7",
+  "seconds": 146.4,
+  "arguments": {
+   "max_order": 5,
+   "max_weight": 2,
+   "max_merge": 3,
+   "star_leaves": 6,
+   "star_weight": 5,
+   "random_trials": 600,
+   "random_order": 9,
+   "seed": 20261126,
+   "out": "experiments/CJ-0001-collins-shor-peak/results/rooted-state.json"
+  }
+ }
+}
