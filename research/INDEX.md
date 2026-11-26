@@ -44,4 +44,10 @@ derived from them: `candidate` (not promoted), `established` (reviewed and packa
 `results/`), `rediscovered` (found in the literature after it was derived here) or
 `withdrawn`.
 
-No contribution is registered.
+| ID | Type | Contribution | Origin | Mathematical | Formal | Novelty | External review | Standing |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| MD-0001 | computational-finding | The Collins–Shor peak location holds for every tree of order 21, 22 and 23 | CJ-0001 (E2) | partial-result | not-started | unknown | not-reviewed | candidate |
+| MD-0002 | identity | Laplacian formula for the normalized distance characteristic polynomial of a tree | CJ-0001 (L1) | candidate-proof | not-started | unknown | ai-reviewed | candidate |
+| MD-0003 | lemma | Distance characteristic polynomial of a caterpillar through a quotient matrix | CJ-0001 (L3) | candidate-proof | not-started | unknown | ai-reviewed | candidate |
+| MD-0004 | counterexample | The star does not minimize the coefficient ratios up to the middle index: the double star S(9,9) | CJ-0001 (A(i)) | candidate-proof | not-started | unknown | ai-reviewed | candidate |
+| MD-0005 | conjecture | The path maximizes the coefficient ratios up to its own peak | CJ-0001 (A(ii)) | candidate | not-started | unknown | not-reviewed | candidate |

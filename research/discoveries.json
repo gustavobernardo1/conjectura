@@ -1,5 +1,374 @@
 {
   "schema_version": 1,
   "updated": "2026-11-26",
-  "discoveries": []
+  "discoveries": [
+    {
+      "id": "MD-0001",
+      "type": "computational-finding",
+      "title": "The Collins–Shor peak location holds for every tree of order 21, 22 and 23",
+      "statement": "For a tree T of order n, D(T) is its distance matrix, δ_k(T) is the coefficient of x^k in det(D(T) − xI), and d_k(T) = 2^{k−(n−2)} |δ_k(T)| for 0 ≤ k ≤ n − 2 are the normalized coefficients of the distance characteristic polynomial. For every tree T of order n with 3 ≤ n ≤ 23, every index k at which d_0(T), …, d_{n−2}(T) attains its maximum satisfies ⌊n/2⌋ ≤ k ≤ ⌈n − n/√5⌉. The range 3 ≤ n ≤ 20 (1,346,022 trees) reproduces the verification reported in arXiv:1507.02341; the range 21 ≤ n ≤ 23 (22,596,335 trees) is the contribution.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "wrote and ran the exhaustive computation and its checks"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (started the project and the session); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/exhaustive-03-20.json",
+          "summary": "Orders 3 to 20: 1,346,022 trees, 0 violations, 0 guard failures, counts equal to OEIS A000055. Exact integer arithmetic. Regenerated with a provenance block.",
+          "revision": "ed232ec",
+          "sha256": "bfb41569cac798508590184d3795bfd97428667cd08b85417fa1366bc2a8da94"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/exhaustive-21-23.json",
+          "summary": "Orders 21 to 23: 22,596,335 trees, 0 violations, 0 guard failures, counts equal to OEIS A000055. Produced before the first commit of the repository by the code later committed at e34acfc; the file has no provenance block and has not been rerun.",
+          "sha256": "b438cee72aca4a39b7083505b1dc8cdf0d68c5a497889d8701fca681deb62302"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "Validation of the code: tree counts, pairwise non-isomorphism up to order 10, agreement with an independent Laplacian-based method on every tree of order 3 to 9, Graham–Pollak on every tree of order 3 to 11."
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2.md",
+          "summary": "The AI review of e34acfc compared the stated counts with the result files. It did not repeat the exhaustive runs, so it is not recorded as a review of this statement."
+        }
+      ],
+      "status": {
+        "mathematical": "partial-result",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "Established with recorded provenance for orders 3 to 20 only, which is the published range. Orders 21 to 23 were computed once, by one implementation, without a recorded command and revision; an independent recomputation exists only up to order 9. Completeness of the enumeration above order 10 rests on the tree count and on the tree generator of networkx 3.7. Moving to 'candidate-proof' needs a rerun of orders 21 to 23 at a committed revision (about 34 minutes, above the default computation budget). The tie convention is the strong reading (every maximizing index). Whether a verification beyond order 20 has been published is unknown.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "E2",
+          "note": "Also covers E1 (the published range) and uses the guards recorded as E3."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "Finite evidence for the conjecture; it proves nothing beyond order 23."
+        }
+      ]
+    },
+    {
+      "id": "MD-0002",
+      "type": "identity",
+      "title": "Laplacian formula for the normalized distance characteristic polynomial of a tree",
+      "statement": "Let T be a tree of order n ≥ 3 with distance matrix D and Laplacian matrix L, and let τ be the vector with entries τ_v = 2 − deg(v). Then, as polynomials in x, −2^{−(n−2)} det(2xI − D) = (n − 1) det(I + xL) − x τᵀ adj(I + xL) τ.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statement, proof and exact checks"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (started the project and the session); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md",
+        "note": "The reviewing context re-derived the inverse formula on which the proof rests."
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/lemmas.md#l1-a-laplacian-formula-for-the-normalized-coefficients",
+          "summary": "Written proof (L1). Statement and proof are identical to the reviewed revision e34acfc; only the caveat paragraph after the proof was edited.",
+          "sha256": "a225898814df1ae584d9c58cb2c983d89bcbbd83121458c8058e9bfc4ca03c6e"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "Exact agreement with the direct computation of det(D − xI) on every tree of order 3 to 9 and on two trees of order 20."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2.md",
+          "summary": "L1: no gap found within stated scope. Each algebraic step reconstructed; the Graham–Lovász inverse formula re-derived; tested exactly on 1,440 labelled trees of order 3 to 6 and 90 further trees.",
+          "by": "claude-fable-5-2 (fresh context; same model family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "e34acfc0bf363fc5c340a7f1611ad0b67c53788d",
+          "sha256": "aa4fb2ffdc64cbf1acebf6f194369cfe101b1ef8b6a7e50f6da9c58805c91324",
+          "statement_fingerprint": "3143470c6876787f6d01e6c0cddbfb6b69762246361c68f84fe5934dd10294c3"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "The coefficient of x^k on the left-hand side is d_k(T) for 0 ≤ k ≤ n − 2 by Observation 3.1 of arXiv:1507.02341. The identity follows in a few lines from two classical results and may well be in the literature in this or an equivalent form: Graham and Lovász (1978) has not been read by the project. Novelty is unknown, not presumed.",
+      "depends_on": [
+        {
+          "citation": "R. L. Graham, H. O. Pollak (1971): det D = (−1)^{n−1} (n − 1) 2^{n−2} for the distance matrix of a tree of order n.",
+          "note": "Cited, not re-proved."
+        },
+        {
+          "citation": "R. L. Graham, L. Lovász, Distance matrix polynomials of trees, Adv. Math. 29 (1978): D^{-1} = −L/2 + ττᵀ/(2(n − 1)).",
+          "note": "Quoted from memory by the author; the paper was not accessed. Re-derived independently by the reviewer of e34acfc."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "L1"
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "Gives d_1 at once (L2, a known formula) and is the route to a formula for d_2; it is also the independent method used to check the main computation."
+        }
+      ]
+    },
+    {
+      "id": "MD-0003",
+      "type": "lemma",
+      "title": "Distance characteristic polynomial of a caterpillar through a quotient matrix",
+      "statement": "Let T be a caterpillar of order n whose spine v_1, …, v_s is a path and whose spine vertex v_i carries c_i ≥ 1 pendant leaves, so that n = s + c_1 + … + c_s, and let D be its distance matrix. Let Q be the 2s × 2s matrix indexed by the s spine vertices and the s classes of leaves, with entries, for 1 ≤ i, j ≤ s: from spine vertex i to spine vertex j, |i − j|; from spine vertex i to leaf class j, (|i − j| + 1) c_j; from leaf class i to spine vertex j, |i − j| + 1; from leaf class i to leaf class j, (|i − j| + 2) c_j if i ≠ j and 2(c_i − 1) if i = j. Then det(xI − D) = (x + 2)^{n−2s} det(xI − Q).",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statement, proof and exact checks"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (started the project and the session); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/lemmas.md#l3-caterpillars-through-a-quotient-matrix",
+          "summary": "Written proof (L3) by an equitable partition. Statement and proof are identical to the reviewed revision e34acfc; only the paragraph describing the checks was edited.",
+          "sha256": "a225898814df1ae584d9c58cb2c983d89bcbbd83121458c8058e9bfc4ca03c6e"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_caterpillar_quotient_formula_matches_direct_computation: every coefficient against the direct n × n computation on ten caterpillars."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/near-star-families.json",
+          "summary": "Uses the formula to compute exact coefficient ratios of balanced caterpillars up to order 10^6, after validating it against the direct computation.",
+          "revision": "ed232ec",
+          "sha256": "fe6a25923e28dd3667d8ad4218d0a2680e29f5ccf9e0ae23c2dbbcf7ceeb3efa"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2.md",
+          "summary": "L3: no gap found within stated scope. Equitable partition and the −2 eigenspace reconstructed; the full identity tested coefficient by coefficient on 29 caterpillars with spine length 1 to 7.",
+          "by": "claude-fable-5-2 (fresh context; same model family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "e34acfc0bf363fc5c340a7f1611ad0b67c53788d",
+          "sha256": "aa4fb2ffdc64cbf1acebf6f194369cfe101b1ef8b6a7e50f6da9c58805c91324",
+          "statement_fingerprint": "7be89ac89f3b88b62612e752f3f6e54446b593aa0a80b4078561eaa83507b724"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "The hypothesis c_i ≥ 1 is sufficient and, by the reviewer's tests, not necessary. The technique (equitable partitions of distance matrices) is standard; whether this statement for caterpillars is in the literature has not been searched. Consequence used by the investigation: each d_k(T) is a combination of at most 2s + 1 binomial coefficients C(n − 2s, k − j).",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "L3"
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "Makes the lower bound for double stars (s = 2) and for near-star families a question about explicit polynomials."
+        }
+      ]
+    },
+    {
+      "id": "MD-0004",
+      "type": "counterexample",
+      "title": "The star does not minimize the coefficient ratios up to the middle index: the double star S(9,9)",
+      "statement": "For a tree T of order n, D(T) is its distance matrix, δ_k(T) is the coefficient of x^k in det(D(T) − xI), and d_k(T) = 2^{k−(n−2)} |δ_k(T)| for 0 ≤ k ≤ n − 2 are the normalized coefficients of the distance characteristic polynomial. Let ρ_k(T) = d_{k+1}(T)/d_k(T), and let S_n be the star of order n. The statement 'ρ_k(T) ≥ ρ_k(S_n) for every tree T of order n and every 0 ≤ k ≤ ⌊n/2⌋ − 1' is false. It fails at n = 20 and k = 9 for the double star S(9,9) (two adjacent vertices, each with 9 pendant leaves): the quotient d_9/d_10 equals 10255/10791 for S(9,9) and 94/99 for S_20, and 10255/10791 > 94/99, hence ρ_9(S(9,9)) < ρ_9(S_20).",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "formulated the hypothesis from exhaustive data, designed the falsification test and found the counterexample"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (started the project and the session); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md",
+        "note": "The refuted statement is Hypothesis A(i) of the investigation. It is kept there as a failed approach."
+      },
+      "evidence": [
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_refutation_of_star_minimality_at_order_20_by_both_methods: the two quotients computed by two implementations that share no code."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/ratio-extremality-18-20.json",
+          "summary": "At order 20 the hypothesis fails for exactly 10 of the 823,065 trees, all at k = 9: the nine double stars S(a, 18 − a) and one spider.",
+          "revision": "ed232ec",
+          "sha256": "e47f7ddc889a92ca95c308adaaefc754f75d548eee5d50a17d81d03f4d1aae3d"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/ratio-extremality-04-17.json",
+          "summary": "With the file above: the hypothesis holds for all 522,956 trees of order 4 to 19, which is why it looked plausible.",
+          "revision": "ed232ec",
+          "sha256": "c3f7c34bbb936fb70999e21a37cade98dce68478c61039e3f265d64a28d7ba98"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/near-star-families.json",
+          "summary": "Double stars against the star for every order 6 to 41: some double star has the larger quotient at every even order 20 to 40 and every odd order 29 to 41.",
+          "revision": "ed232ec",
+          "sha256": "fe6a25923e28dd3667d8ad4218d0a2680e29f5ccf9e0ae23c2dbbcf7ceeb3efa"
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/STATE.md#failed-approaches-and-refuted-hypotheses",
+          "summary": "The refuted hypothesis, its motivation and what the refutation teaches."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2.md",
+          "summary": "Counterexample confirmed by the reviewer's own exact computation, by a direct 20 × 20 determinant and through an independent implementation of the caterpillar formula.",
+          "by": "claude-fable-5-2 (fresh context; same model family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "e34acfc0bf363fc5c340a7f1611ad0b67c53788d",
+          "sha256": "aa4fb2ffdc64cbf1acebf6f194369cfe101b1ef8b6a7e50f6da9c58805c91324",
+          "statement_fingerprint": "d1e11302627caf2c6081ef4c437f93dfa1ac45f658cea72fad05c47650ca500f"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "The status describes this record's statement (the hypothesis is false, with this witness), not the Collins–Shor conjecture, which the counterexample does not affect: both quotients are below 1. The review confirmed the witness; it took the count of exactly 10 violating trees from the result file. Whether the comparison of ratios with the star has been studied in the literature is unknown.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "A(i)",
+          "note": "Refutes Hypothesis A(i), a statement of the investigation that has no record of its own."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "Rules out proving the lower bound by comparison with the star at the index ⌊n/2⌋ − 1."
+        }
+      ]
+    },
+    {
+      "id": "MD-0005",
+      "type": "conjecture",
+      "title": "The path maximizes the coefficient ratios up to its own peak",
+      "statement": "For a tree T of order n, D(T) is its distance matrix, δ_k(T) is the coefficient of x^k in det(D(T) − xI), and d_k(T) = 2^{k−(n−2)} |δ_k(T)| for 0 ≤ k ≤ n − 2 are the normalized coefficients of the distance characteristic polynomial. Let ρ_k(T) = d_{k+1}(T)/d_k(T) for 0 ≤ k ≤ n − 3, let P_n be the path of order n, and let p_n be the largest index at which d_0(P_n), …, d_{n−2}(P_n) attains its maximum. Conjecture: for every tree T of order n ≥ 3 and every integer k with 0 ≤ k ≤ min(p_n, n − 3), ρ_k(T) ≤ ρ_k(P_n).",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "formulated the conjecture from exhaustive data and tested it on sampled trees"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (started the project and the session); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/ratio-extremality-04-17.json",
+          "summary": "Holds for every tree of order 4 to 17 (exact). Order 3 is trivial: the only tree is the path.",
+          "revision": "ed232ec",
+          "sha256": "c3f7c34bbb936fb70999e21a37cade98dce68478c61039e3f265d64a28d7ba98"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/ratio-extremality-18-20.json",
+          "summary": "Holds for every tree of order 18 to 20 (exact). In total 1,346,021 trees of order 4 to 20.",
+          "revision": "ed232ec",
+          "sha256": "e47f7ddc889a92ca95c308adaaefc754f75d548eee5d50a17d81d03f4d1aae3d"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/ratio-extremality-sampled.json",
+          "summary": "No violation among 10,000 pseudo-random trees of orders 24, 30, 40, 60 and 90 from five random models (exact arithmetic, seed 20261126). Evidence about those trees only.",
+          "revision": "ed232ec",
+          "sha256": "f31cb629a9a9ca2d55d21cb5a015cb079eae73602cf3bbc9c13047c9e2717208"
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/STATE.md#conjectures-and-hypotheses-of-this-investigation",
+          "summary": "Statement as Hypothesis A(ii), with the consequence for the conjecture."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "A conjecture supported by finite evidence, not a result. The case k = 0 follows from the known formula for d_1 (L2). There is no proof idea for k ≥ 1. The index range matters: the path does not maximize ρ_k at every index. Whether the statement appears in the literature has not been searched.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "A(ii)"
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "If true, then with R1 and Collins's theorem on the peak of the path (Collins 1989, as reported in arXiv:1507.02341; not read by the project) the peak of every tree with p_n ≤ n − 3 is at most ⌈n − n/√5⌉, the upper half of the conjecture."
+        }
+      ]
+    }
+  ]
 }

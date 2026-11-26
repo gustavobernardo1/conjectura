@@ -52,8 +52,12 @@ observation below is **unknown**, except where it is marked as known.
 An independent AI review of the notes at revision `e34acfc` is in
 [`reviews/2026-11-26-claude-fable-5-2.md`](reviews/2026-11-26-claude-fable-5-2.md).
 It is a review by the same model family in a fresh context, not a human
-review, and the catalogue status stays `not-reviewed` because the notes were
-edited afterwards.
+review, and the catalogue status of CJ-0001 stays `not-reviewed` because the
+notes were edited afterwards. Three registry records carry `ai-reviewed`
+(MD-0002, MD-0003, MD-0004): the statement and proof of L1 and of L3 are
+identical to the reviewed revision (compared on 2026-11-26), and the reviewer
+recomputed the counterexample to A(i) with its own code. That is AI review by
+the same model family and nothing more.
 
 ## Established results
 
@@ -69,6 +73,29 @@ edited afterwards.
 | L3 | Caterpillar with spine length `s` and all `c_i ≥ 1`: `det(xI − D) = (x+2)^{n−2s} det(xI − Q)` for an explicit `2s × 2s` matrix `Q`. | Proved here (equitable partition); every coefficient checked exactly against the direct computation on ten caterpillars. AI review of `e34acfc`: no gap found. | `notes/lemmas.md`, `near_star_families.py` |
 
 Result files are under `experiments/CJ-0001-collins-shor-peak/results/`.
+
+### Global identifiers
+
+Five findings are registered as contributions in
+[`research/discoveries.json`](../../discoveries.json). The local identifiers
+keep their meaning. An `MD` identifier establishes identity only: the status of
+each record (mathematical, formal, novelty, review) is in the registry and in
+[`research/INDEX.md`](../../INDEX.md), not here.
+
+| Local | Global | Type |
+| --- | --- | --- |
+| E2 (with E1 and the guards E3) | MD-0001 | computational finding |
+| L1 | MD-0002 | identity |
+| L3 | MD-0003 | lemma |
+| Refutation of A(i) | MD-0004 | counterexample |
+| A(ii) | MD-0005 | conjecture |
+
+Not registered, and why: E1 alone reproduces a published verification; E4 is a
+pattern of small orders that supports MD-0001; R1 is a routine consequence of
+log-concavity; L2 is known (its formula is in the source); Q1 is an observed
+limit that has not been examined; Q2 is the lower half of the conjecture
+itself, not a separate statement. Hypothesis A(i) has no record of its own:
+the contribution is its refutation.
 
 ## Conjectures and hypotheses of this investigation
 
