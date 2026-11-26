@@ -605,6 +605,167 @@
         "coverage": "The coverage recorded for MD-0006 (literature audit of session 2: arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász 1978 pages 60 to 67 and 80 to 86; nine web queries on the location of the peak for double stars, caterpillars and trees of small diameter), and four further web queries by the reviewer of T2 on the peak for caterpillars and trees of diameter 4, with arXiv:2206.07561 sections 4.2 and 5 reread. In these sources the peak is located only for stars and paths (Collins, as cited) and for some block graphs; none treats K(a,b,c), a caterpillar family or a family of diameter 4.",
         "limitations": "No search was made for this statement by a literature auditor; the queries are those of the session-2 audit and of the reviewer. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method (quotient matrix of a twin partition, then comparison of binomial ratios) is standard, so an earlier appearance is plausible."
       }
+    },
+    {
+      "id": "MD-0008",
+      "type": "theorem",
+      "title": "The peak of the normalized distance coefficients of the caterpillar K(a,0,c), a, c ≥ 1, a + c ≥ 3, is at ⌊n/2⌋",
+      "statement": "For a tree T of order n, D(T) is its distance matrix, δ_k(T) is the coefficient of x^k in det(D(T) − xI), and d_k(T) = 2^{k−(n−2)} |δ_k(T)| for 0 ≤ k ≤ n − 2 are the normalized coefficients of the distance characteristic polynomial. For integers a, c ≥ 1 with a + c ≥ 3 let K(a,0,c) be the tree with a path v_1 v_2 v_3 in which v_1 carries a pendant leaves, v_3 carries c pendant leaves and v_2 none; its order is n = a + c + 3 ≥ 6. Let m = ⌊n/2⌋. Then d_{m−1}(K(a,0,c)) < d_m(K(a,0,c)) and d_{m+1}(K(a,0,c)) < d_m(K(a,0,c)). Consequently m is the only index at which d_0(K(a,0,c)), …, d_{n−2}(K(a,0,c)) attains its maximum, and since ⌊n/2⌋ ≤ ⌈n − n/√5⌉, Conjecture 1.2 of arXiv:1507.02341 (Collins–Shor) holds for K(a,0,c).",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statement, proof strategy, proof and exact checks (session 4)"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review, with its own recomputation of the lemma and of the identities at b = 0"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (asked for the session and for the exploration of a general framework); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/diameter4-caterpillars.md",
+          "summary": "Theorem T3 with a written proof: Lemma C1′ (the formula of Lemma C1 of notes/spine3.md remains valid at b = 0 for n ≥ 6, by an equitable partition into five classes and a cofactor expansion), the identities of Lemma C2 of notes/spine3.md at u = n − 3, positivity of K* and H*, and the conclusion by log-concavity. Also a corollary, conditional on Theorem T2: every caterpillar of diameter 4.",
+          "revision": "d2eb9ac",
+          "sha256": "8690400541274ba3ec87b3f636374e78d81ca2b75054f90f808903efb7acc049"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/diameter4.json",
+          "summary": "Exact check, not a proof: K* and H* against the polynomials of Lemma C2; their signs for 3 ≤ m ≤ 2000; the formula at b = 0 against the direct n × n determinant for all 399 trees with 3 ≤ a + c ≤ 40 and three larger ones; the identities and both inequalities for all 89,999 trees with a + c ≤ 600 (d_k from the formula); P_5 by the direct determinant. 0 failures. Clean tree.",
+          "revision": "d1d6d7c",
+          "sha256": "520ac19857d446708d1831450a399d42e4871153a863e243663a339f83769d01"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_diameter4_caterpillars_without_central_leaf: the symbolic check, the sign conditions for m < 200, orders 6 to 23 against the direct determinant, four trees and P_5 against the independent Laplacian method."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T3.md",
+          "summary": "Independent adversarial review of Theorem T3, Lemma C1′ and the corollary. Verdict: no gap found within stated scope. Lemma C1′ reconstructed by hand and confirmed symbolically in two ways; the formula compared with coefficients computed from the full distance matrix for 1,769 ordered pairs with 3 ≤ a + c ≤ 60 and five larger trees; the identities of Lemma C2 re-derived at b = 0; every factor of Step 3 checked for m ≥ 3; the description of the caterpillars of diameter 4 confirmed by enumeration of the trees of orders 5 to 8; no counterexample among 6,391 caterpillars of diameter 4 of orders 5 to 45. Six defects of record and presentation (E1 to E6), none mathematical. Not covered: the proof of T2, novelty.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "d2eb9ac9c849a63072d25242eb2d47c0f7363311",
+          "sha256": "b3ead02d5a426509bcfe420960270bcb1355f56a97640fb346caa3a46c27431a",
+          "statement_fingerprint": "8d9cc46ec6438ef4d75dd4832a9d55ed2e2bd6a0caea6b5c4e47742bc7024761"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. It relies on the two computer-assisted polynomial identities of notes/spine3.md (Lemmas C1 and C2), which were recomputed by two reviewers and not derived by hand, on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, and on the general form of R1. The registered statement is T3 alone; the corollary of the notes (every caterpillar of diameter 4) depends in addition on MD-0007, which is itself a candidate. The path on five vertices, K(1,0,1), is outside T3 and is covered by direct computation. The review listed six defects of record and presentation (STATE.md, obligation 9); the notes are unchanged since the review. Novelty holds only within the documented search, which is small.",
+      "depends_on": [
+        {
+          "citation": "Lemmas C1 and C2 of research/active/CJ-0001-collins-shor-peak/notes/spine3.md: the expansion of the 6 × 6 quotient determinant as an identity between polynomials in a, b, c, x, and the four identities for the differences d_m − d_{m∓1}.",
+          "note": "Internal, computer-assisted lemmas that are part of the evidence of MD-0007; T3 uses these two lemmas and not the statement of MD-0007."
+        },
+        {
+          "citation": "G. Aalipour et al., arXiv:1507.02341: Fact 1.1 (the sign of δ_k, hence positivity of the normalized coefficients), Theorem 2.1 (log-concavity) and Observation 3.1 (the normalized coefficients are the coefficients of −2^{−(n−2)} det(2xI − D)).",
+          "note": "Cited; none of the three proofs was checked by the project. The reviewer compared the three statements with the paper."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "T3",
+          "note": "Objective O3 of the investigation."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "The conjecture for the caterpillars K(a,0,c) with a, c ≥ 1 and a + c ≥ 3. With MD-0007 (a, b, c ≥ 1) and the path on five vertices it would cover every caterpillar of diameter 4."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "The coverage recorded for MD-0007, and three further web queries by the reviewer of T3 on the peak for caterpillars and trees of diameter 4 (2024 to 2026). None of the sources seen locates the peak for a caterpillar family or a family of diameter 4.",
+        "limitations": "No search was made for this statement by a literature auditor. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method is standard, so an earlier appearance is plausible."
+      }
+    },
+    {
+      "id": "MD-0009",
+      "type": "conjecture",
+      "title": "Hypothesis V: the mixed second partials of d_m − d_{m−1} are non-negative for caterpillars with any number of spine vertices",
+      "statement": "Let s ≥ 2 be an integer and c = (c_1, …, c_s) real variables. Let Q(c) be the 2s × 2s matrix with blocks, for 1 ≤ i, j ≤ s: |i − j| (rows 1 to s, columns 1 to s); (|i − j| + 1) c_j (rows 1 to s, columns s + 1 to 2s); |i − j| + 1 (rows s + 1 to 2s, columns 1 to s); and, for rows s + 1 to 2s and columns s + 1 to 2s, (|i − j| + 2) c_j if i ≠ j and 2(c_i − 1) if i = j. Define the polynomials g_0(c), …, g_{2s}(c) by −det(2xI − Q(c)) / 4^{s−1} = Σ_{j=0}^{2s} g_j(c) x^j. For an integer n ≥ 2s let m = ⌊n/2⌋ and D_n(c) = Σ_{j=0}^{2s} g_j(c) [C(n − 2s, m − j) − C(n − 2s, m − 1 − j)], where C(N, i) is the binomial coefficient, equal to 0 when i < 0 or i > N. Hypothesis V: for every s ≥ 2, every integer n ≥ 2s and all 1 ≤ i < k ≤ s, the mixed partial derivative ∂²D_n/∂c_i∂c_k is non-negative at every real point c with c_1 ≥ 1, c_s ≥ 1 and c_j ≥ 0 for 1 < j < s. (On the points c with non-negative integer coordinates and c_1 + … + c_s = n − s, D_n(c) is d_m − d_{m−1} for the caterpillar with spine v_1 … v_s and c_i pendant leaves at v_i.)",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "formulation, the vertex principle (Lemma L4) and the exact computations (session 4, exploration)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (asked for the session and for the exploration of a general framework); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/vertex-principle.md",
+          "summary": "Exploration note: the setting, Lemma L4 (a multi-affine function with non-negative mixed partials attains its minimum over an integer slice at a point with a single coordinate above its lower bound, with proof), Hypothesis V, the conditional reduction of the lower inequality to one-parameter families, the case of three spine vertices as explicit polynomials, and what does not follow. Unreviewed.",
+          "revision": "d1d6d7c"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/mixed-partials.json",
+          "summary": "Exact evidence, not a proof: for 2 ≤ s ≤ 8 and every order from 2s to 200, a certificate (every coefficient of each mixed partial, written in the variables shifted to the lower bounds, is non-negative) holds for every pair i < k, with 0 failures; the closed form was validated against the direct determinant on small caterpillars, empty inner classes included. For the upper difference d_m − d_{m+1} the same certificate fails from s = 4 on. Clean tree.",
+          "revision": "d1d6d7c",
+          "sha256": "97e6c8839b78a915da30dfd3317235dce5a728650b13e311ee5cf330c43a48ac"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/mixed_partials_s3.py",
+          "summary": "For s = 3: the three mixed partials as polynomials in m, a, b, c, derived symbolically and positive for every m ≥ 3 (the hypothesis for s = 3 and every order n ≥ 6), computer-assisted and unreviewed. The script prints its findings and has no result file.",
+          "revision": "d1d6d7c"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_mixed_partial_certificate_on_small_spines (s = 2, 3, 4, orders below 40) and test_top_coefficient_of_the_caterpillar_polynomials (s = 2 to 6)."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "A conjecture formulated by the project from exact finite computation. It holds for s = 2 (from the candidate proof T1) and, by a computer-assisted identity that no one has reviewed, for s = 3; for 4 ≤ s ≤ 8 only a sufficient certificate was checked, for orders up to 200. Nothing is known for larger s or larger orders. Its consequence for trees uses, in addition, the extension of Lemma L3 to empty leaf classes, which is written out only for s = 3 with one empty class. No literature search was made. It concerns the lower inequality only: the analogous statement for d_m − d_{m+1} is false.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "V",
+          "note": "Exploration of session 4, from the reductions used in T1, T2 and T3."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "With Lemma L4 it would reduce the lower half of the conjecture, for the caterpillars with s spine vertices and at least s leaves, to at most ⌈s/2⌉ one-parameter families."
+        }
+      ]
     }
   ]
 }

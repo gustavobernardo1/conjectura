@@ -1,0 +1,54 @@
+{
+  "experiment": "CJ-0001 caterpillars K(a,0,c) of diameter 4: closed forms around the middle index",
+  "arithmetic": "exact integers",
+  "run": {
+    "command": [
+      "python",
+      "experiments/CJ-0001-collins-shor-peak/diameter4.py",
+      "--out",
+      "C:/Users/bezze/AppData/Local/Temp/claude/150e3719c412ed18/7b0a0d46-923f-4f04-ae71-5a9e832991c4/scratchpad/diameter4.json"
+    ],
+    "git_revision": "d1d6d7c0a09e7f376e5f0ee9d48306064104cad5",
+    "tree_clean": true,
+    "started_utc": "2026-11-26T10:29:03Z",
+    "versions": {
+      "python": "3.12.4",
+      "python-flint": "0.9.0",
+      "networkx": "3.7"
+    }
+  },
+  "symbolic": {
+    "even-lower": "K(m, n-3) and (n-4) K + R at u = n-3 equal the factorizations stated in the notes",
+    "even-upper": "K(m, n-3) and (n-4) K + R at u = n-3 equal the factorizations stated in the notes",
+    "odd-lower": "K(m, n-3) and (n-4) K + R at u = n-3 equal the factorizations stated in the notes",
+    "odd-upper": "K(m, n-3) and (n-4) K + R at u = n-3 equal the factorizations stated in the notes"
+  },
+  "sign_conditions": {
+    "range": "3 <= m <= 2000",
+    "checked": "K* > 0 and H* > 0 in the four cases",
+    "failures": 0
+  },
+  "caterpillars": {
+    "range": "1 <= a <= c, 3 <= a + c <= 600 (orders 6 to 603)",
+    "trees_checked": 89999,
+    "closed_form_failures": 0,
+    "inequality_failures": 0,
+    "whole_sequence_examined": 2499,
+    "whole_sequence_range": "a + c <= 100: positive, maximum at floor(n/2) only",
+    "compared_with_direct_determinant": 402,
+    "direct_range": "a + c <= 40, and [(1, 70), (35, 36), (10, 55)]"
+  },
+  "path_on_five_vertices": {
+    "normalized_coefficients": [
+      4,
+      30,
+      70,
+      50
+    ],
+    "maximizing_indices": [
+      2
+    ],
+    "floor_n_over_2": 2
+  },
+  "seconds": 31.0
+}
