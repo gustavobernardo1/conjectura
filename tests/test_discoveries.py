@@ -341,6 +341,7 @@ def test_public_block_counts_only_promoted_original_records_and_each_once(data):
         record(id="MD-9009", type="conjecture"),
     ]
     catalogue = copy.deepcopy(data[0])
+    catalogue["problems"][0]["status"]["mathematical"] = "active-investigation"  # on every branch
     settled = {"result": "results/README.md", "resolved_on": "2026-11-22"}
     first, second, third, fourth = catalogue["problems"][1:5]
     first |= settled | {"status": promoted()["status"]}

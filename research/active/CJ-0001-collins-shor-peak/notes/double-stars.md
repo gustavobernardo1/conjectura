@@ -3,7 +3,8 @@
 Status of this file: written by an AI agent (Claude, model `claude-fable-5-2`)
 on 2026-11-26, session 2. Review status and novelty are recorded in
 `research/discoveries.json` (record MD-0006) and in `../STATE.md`, not here.
-Nothing in this file is a claim of novelty.
+Nothing in this file is a claim of novelty. The file was revised after its
+review; what changed is listed under *Revision history* at the end.
 
 Notation is that of [`lemmas.md`](lemmas.md). `T` is a tree of order `n ≥ 3`,
 `D` its distance matrix, `δ_k` the coefficient of `x^k` in `det(D − xI)`,
@@ -17,6 +18,13 @@ carrying `a` and `b` pendant leaves; its order is `n = a + b + 2 ≥ 4`.
 Throughout, `s = a + b = n − 2`, `t = ab ≥ 1`, `N = n − 4 = s − 2 ≥ 0` and
 `m = ⌊n/2⌋`.
 
+Two symbols have another meaning in `lemmas.md`. There `s` is the number of
+spine vertices of a caterpillar (here 2) and `c_1, …, c_s` are the numbers of
+leaves; in this file `s` is always `a + b`, the numbers of leaves are `a` and
+`b`, and from Step 2 on `c_i` denotes a binomial coefficient. The only place
+where `c_1, c_2` are numbers of leaves is the first sentence of the proof of
+Lemma D1, which quotes Lemma L3.
+
 ## T1. Statement
 
 **Theorem T1.** Let `a, b ≥ 1`, `T = S(a,b)`, `n = a + b + 2`, `m = ⌊n/2⌋`. Then
@@ -26,12 +34,16 @@ Throughout, `s = a + b = n − 2`, `t = ab ≥ 1`, `N = n − 4 = s − 2 ≥ 0`
 
 Consequently `m = ⌊n/2⌋` is the only index at which `d_0(T), …, d_{n−2}(T)`
 attains its maximum, and since `⌊n/2⌋ ≤ ⌈n − n/√5⌉` the Collins–Shor conjecture
-(Conjecture 1.2 of arXiv:1507.02341, in the strong reading of ties) holds for
-every double star.
+(Conjecture 1.2 of arXiv:1507.02341) holds for every double star, also in the
+strong reading of ties, in which every maximizing index must lie in the
+interval (the source does not say how a tie is to be read).
 
-The proof uses: Lemma L3 of `lemmas.md` with spine length 2; Theorem 2.1 of
-arXiv:1507.02341 (the sequence `d_0, …, d_{n−2}` is positive and log-concave),
-only in Step 4; and the general form of R1 in `lemmas.md`, only in Step 4.
+The proof uses: in Step 1, Lemma L3 of `lemmas.md` with spine length 2,
+together with Fact 1.1 and Observation 3.1 of arXiv:1507.02341 for the
+passage from the characteristic polynomial to the `d_k`; in Step 4, Fact 1.1
+again (`(−1)^{n−1} δ_k > 0`, so the `d_k` are positive), Theorem 2.1 of the
+same paper (the sequence `d_0, …, d_{n−2}` is log-concave), and the general
+form of R1 in `lemmas.md`.
 
 ## Step 1. The coefficients of a double star
 
@@ -62,8 +74,11 @@ so `−det(2xI − Q)/4 = g_0 + g_1 x + g_2 x² + g_3 x³ + g_4 x⁴`, and the
 coefficient of `x^k` in `(x+1)^N (g_0 + … + g_4 x⁴)` is `Σ_j g_j C(N, k−j)`. ∎
 
 The determinant is affine in `a` (which occurs only in the third column) and
-in `b` (only in the fourth), which is why it depends on `a, b` only through
-`s`, `t` and is affine in `t`. The expansion was obtained symbolically
+in `b` (only in the fourth), and it is symmetric under `a ↔ b` (exchanging
+the two centres is an automorphism of the family); a polynomial that is
+affine in each of `a, b` and symmetric is of the form `α + β(a + b) + γab`,
+which is why the determinant depends on `a, b` only through `s`, `t` and is
+affine in `t`. The expansion was obtained symbolically
 (`double_stars.py`, function `symbolic_4g`) and can be confirmed by hand by
 evaluating both sides at `(a,b) ∈ {(0,0), (1,0), (0,1), (1,1)}`.
 
@@ -168,8 +183,9 @@ Here `e_1 − e_2 ≥ 0` and `e_0 − e_1 = 2e_0/m > 0`. Therefore
 
 ## Step 4. The peak
 
-The sequence `d_0, …, d_{n−2}` is positive and log-concave (Theorem 2.1 of
-arXiv:1507.02341). By the general form of R1 with `j = m`, part 1 says that
+The sequence `d_0, …, d_{n−2}` is positive (Fact 1.1 of arXiv:1507.02341) and
+log-concave (Theorem 2.1 of the same paper). By the general form of R1 with
+`j = m`, part 1 says that
 every maximizing index is `≥ m`. If `m = n − 2` (this happens only for
 `n = 4`) there is no larger index. Otherwise apply the general form of R1 to
 the reversed sequence `a_i = d_{n−2−i}` with `j = n − 2 − m ≥ 1`: since
@@ -197,13 +213,16 @@ a result: putting `t = 0` in the even formula of Step 2 gives exactly the star
 formula, because `C(2m−2, m−1) (m−1) = 2(2m−3) C(2m−4, m−2)`.
 
 **Trees of diameter at most 3.** A tree of order `n ≥ 3` has diameter 2 (a
-star) or, if its diameter is 3, is a double star. With Collins's theorem for
-stars, T1 gives the Collins–Shor conjecture for all trees of diameter at most 3.
+star) or, if its diameter is 3, is a double star. T1 covers the trees of
+diameter 3. For stars the project relies on Collins's theorem as reported in
+arXiv:1507.02341; that report does not say how ties are treated, and the
+formulas above prove only `d_{m−1} < d_m` for stars, that is, the lower
+bound. So "the conjecture for all trees of diameter at most 3" holds on the
+strength of T1 and of a theorem the project has not read.
 
-**What T1 does not say.** Nothing about trees of diameter 4 or more. The
-relative margin `1 − d_{m−1}/d_m` of a double star tends to `0` as `n → ∞`
-(it is of order `1/n`), so T1 is an exact statement, not a consequence of a
-crude bound.
+**What T1 does not say.** Nothing about trees of diameter 4 or more. In the
+exact values computed, the relative margin `1 − d_{m−1}/d_m` of a double star
+decreases roughly like `1/n`; this is an observation, not proved here.
 
 ## Checks
 
@@ -212,11 +231,13 @@ crude bound.
 - the polynomials `g_0, …, g_4` agree with the symbolic expansion of the
   `4 × 4` determinant;
 - for all 10,000 double stars with `a + b ≤ 200`: the two closed forms of
-  Step 2, both inequalities, uniqueness of the peak, and agreement of the whole
-  sequence `d_0, …, d_{n−2}` with the numeric quotient-matrix computation of
-  `near_star_families.py`;
+  Step 2, both inequalities, uniqueness of the peak, and proportionality of the
+  whole sequence `d_0, …, d_{n−2}` to the numeric quotient-matrix computation of
+  `near_star_families.py` (which shares Lemma L3 with the closed form and is
+  not independent evidence for Lemma D1);
 - for all 400 double stars with `a + b ≤ 40` and four larger ones: agreement of
-  the whole sequence with the direct `n × n` determinant;
+  the whole sequence with the direct `n × n` determinant (the comparison is
+  made on `|δ_k|`, so it does not test the sign asserted by Fact 1.1);
 - the star formulas for orders 3 to 202 (direct determinant up to order 42).
 
 Result file: `results/double-stars.json`. Tests:
@@ -224,3 +245,22 @@ Result file: `results/double-stars.json`. Tests:
 which also compares with the independent Laplacian method.
 
 A finite check is not a proof. The proof is Steps 1 to 4.
+
+## Revision history
+
+- `241dc03` (2026-11-26): first version, unchanged at `5e5ef14`. This is the
+  text covered by the review `../reviews/2026-11-26-claude-fable-5-2-T1.md`.
+- Revision after that review (2026-11-26), at the director's request. No
+  statement, formula or step of the proof was changed. Changed, following the
+  defects the review listed: (a) the list of what the proof uses now names
+  Fact 1.1 and Observation 3.1 of the source, and Step 4 takes positivity from
+  Fact 1.1, not from Theorem 2.1; (b) the remark on trees of diameter at most 3
+  now says what rests on Collins's theorem as reported; (c) the unproved
+  assertions that the relative margin tends to `0` and is of order `1/n` are
+  replaced by a statement of what was observed; (d) the checks say
+  "proportionality" where they said "agreement", and say what they do not
+  test; (e) a paragraph on the two meanings of `s` and `c_i`; (f) the sentence
+  after Lemma D1 now mentions the symmetry in `a, b`; (g) the strong reading of
+  ties is defined where it is first used. The review was made on the first
+  version and has not been repeated on this one; whether the changes are
+  immaterial is recorded in `research/discoveries.json` (MD-0006).

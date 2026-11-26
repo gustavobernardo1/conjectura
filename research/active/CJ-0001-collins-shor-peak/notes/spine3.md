@@ -1,9 +1,10 @@
-# CJ-0001 — caterpillars with spine length 3: the peak is at ⌊n/2⌋
+# CJ-0001 — the caterpillars K(a,b,c) with a, b, c ≥ 1: the peak is at ⌊n/2⌋
 
 Status of this file: written by an AI agent (Claude, model `claude-fable-5-2`)
 on 2026-11-26, session 3. Review status and novelty are recorded in
 `research/discoveries.json` (record MD-0007) and in `../STATE.md`, not here.
-Nothing in this file is a claim of novelty.
+Nothing in this file is a claim of novelty. The file was revised after its
+review; what changed is listed under *Revision history* at the end.
 
 Notation is that of [`lemmas.md`](lemmas.md) and
 [`double-stars.md`](double-stars.md). `T` is a tree of order `n`, `D` its
@@ -21,6 +22,10 @@ order is `n = a + b + c + 3 ≥ 6`. Throughout,
 
 `K(a,b,c)` and `K(c,b,a)` are isomorphic. These trees are exactly the
 caterpillars of diameter 4 whose central vertex carries at least one leaf.
+In `lemmas.md` and in the file names of the project this family is said to
+have "spine length 3": the spine has three vertices (and two edges). The
+condition `a, b, c ≥ 1` is part of every statement below; the caterpillars
+with three spine vertices and `b = 0` are not treated in this file.
 
 ## T2. Statement
 
@@ -36,12 +41,13 @@ maximum, and since `⌊n/2⌋ ≤ ⌈n − n/√5⌉` the Collins–Shor conject
 (Conjecture 1.2 of arXiv:1507.02341) holds for `T`, also in the reading in
 which every maximizing index must lie in the interval.
 
-The proof uses: Lemma L3 of `lemmas.md` with spine length 3 (which rests on
-Fact 1.1 and Observation 3.1 of the source for the passage from the
-characteristic polynomial to the `d_k`); Theorem 2.1 of arXiv:1507.02341 (the
-sequence `d_0, …, d_{n−2}` is log-concave) and Fact 1.1 of the same paper
-(`(−1)^{n−1} δ_k > 0`, so the `d_k` are positive), both only in Step 4; and the general form of R1 in `lemmas.md`, only in
-Step 4.
+The proof uses: in Step 1, Lemma L3 of `lemmas.md` with three spine vertices,
+together with Fact 1.1 and Observation 3.1 of arXiv:1507.02341 for the
+passage from the characteristic polynomial to the `d_k`; in Step 4, Fact 1.1
+again (`(−1)^{n−1} δ_k > 0`, so the `d_k` are positive), Theorem 2.1 of the
+same paper (the sequence `d_0, …, d_{n−2}` is log-concave), and the general
+form of R1 in `lemmas.md`, of which only the direction "if `a_{j−1} < a_j`
+then every maximizing index is `≥ j`" is used.
 
 Two steps are **computer-assisted**: the expansion of a `6 × 6` determinant
 with polynomial entries (Lemma C1) and the simplification of four polynomial
@@ -174,7 +180,7 @@ is `2 ≤ u ≤ 2m − 4` for even order and `2 ≤ u ≤ 2m − 3` for odd orde
 `(a − 1)(c − 1) ≥ 0`: `v ≥ u − 1`. Recall `m ≥ 3`.
 
 **(i) `K > 0` in each case.** `K` decreases in `u`, so it suffices to bound it
-at the largest `u`, and in fact at a larger value:
+at the largest `u`:
 
 - EL: for `u ≤ 2m − 4`, `3(m−1)u ≤ 6m² − 18m + 12`, so the bracket is at least
   `43m − 103 > 0`.
@@ -270,15 +276,37 @@ file `results/spine3.json`:
 - the sign conditions of Step 3 for `3 ≤ m ≤ 2000` (a finite check of what
   Step 3 proves for all `m ≥ 3`);
 - for every `K(a,b,c)` with `a + b + c ≤ 300`: the four identities of Lemma C2
-  between integers, and `d_{m−1} < d_m > d_{m+1}`;
+  between integers, and `d_{m−1} < d_m > d_{m+1}`. Here and in the next item
+  the `d_k` are taken from the formula of Lemma C1, not computed from the
+  tree: these two items test Lemma C2 and Step 3 given Lemma C1, and say
+  nothing about Lemma C1 itself;
 - for `a + b + c ≤ 60`: positivity of the whole sequence, `m` as the only
   maximizing index, and proportionality of the whole sequence to the numeric
   quotient-matrix computation of `near_star_families.py` (this shares Lemma L3
   with the closed form and is not independent evidence for it);
-- for `a + b + c ≤ 20` and six larger caterpillars: equality of the whole
-  sequence with the direct `n × n` determinant, which does not use Lemma L3.
+- for `a + b + c ≤ 20` and six larger caterpillars (621 trees): equality of
+  the whole sequence with the direct `n × n` determinant, which does not use
+  Lemma L3. This is the only item, with the test below, that tests Lemma C1
+  against the tree.
 
 Tests: `test_spine3_closed_forms_and_peak` in `tests/test_cj0001_distpoly.py`.
 
 A finite check is not a proof. The proof is Steps 1 to 4, of which Lemma C1
 and Lemma C2 are computer-assisted polynomial identities.
+
+## Revision history
+
+- `74cb5bb` (2026-11-26): first version. This is the text covered by the review
+  `../reviews/2026-11-26-claude-opus-5-5-T2.md`.
+- Revision after that review (2026-11-26), at the director's request. No
+  statement, formula or step of the proof was changed. Changed: the title,
+  which said "caterpillars with spine length 3" and now names the family with
+  its condition `a, b, c ≥ 1` (defect D4 of the review), with a sentence on
+  the meaning of "spine length"; the list of what the proof uses, which now
+  says that Fact 1.1 and Observation 3.1 enter in Step 1 and which direction
+  of R1 is used (D6, D7); the words "and in fact at a larger value" in
+  Step 3(i), which were wrong and are removed (D5); the description of the
+  finite checks, which now says which of them take the `d_k` from Lemma C1
+  (D3). The review was made on the first version and has not been repeated on
+  this one; whether the changes are immaterial is recorded in
+  `research/discoveries.json` (MD-0007).

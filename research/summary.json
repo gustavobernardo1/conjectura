@@ -208,11 +208,11 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "1ef55b8188154bd31945c2efa943ca5250ef0026",
-    "sources_committed": true,
+    "revision": "2b302da156862dc6a796d81f8a4a2fec730b6810",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "23afc1f259224590e5f0eea346418241bc68a497",
-      "research/discoveries.json": "3d8953c163bca39ea132f6d479c6122df839331c",
+      "research/discoveries.json": "7b6860491ac2a9791f71e5b2d4732d2ed3e569c2",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "fc4c60c169c8a99eadb96fd631d6ac3c0a96b22f"
     }

@@ -4,7 +4,7 @@
 presentation outside the repository — in the first place on the director's
 GitHub profile (`gustavobernardo1/gustavobernardo1`). This page is the contract
 between that block and whatever reads it. It was requested by the director on
-2026-11-26.
+2026-11-26 and approved by him, with its counting rules, on the same day.
 
 The block is produced by the existing generator
 (`scripts/catalogue.py render`, function `public_summary`) from the same
@@ -24,16 +24,17 @@ identifier or status: it selects from `research/catalogue.json` and
 The repository is public, so the file is read without credentials. GitHub
 serves raw files through a cache; a change may take a few minutes to appear.
 
-**Why `research`.** Investigations, the registry of contributions and the
-summary itself live on `research`; `main` holds stable infrastructure and
-promoted results and at present contains neither the registry nor the summary.
-`research` is ahead of `main` and contains everything `main` does, so one file
-on `research` describes both the work in progress and the established results.
-The separation of the two kinds of information is made by the counting rules,
-not by the branch: an investigation is listed because the catalogue says it is
-active, and a result is counted only after it has been promoted under
-`AGENTS.md` section 4. Should the registry tooling be promoted to `main`, the
-same path on `main` will hold the summary of the last promoted state; this
+**Why `research`.** Investigations and the records of candidate results live
+on `research`. `main` holds the stable infrastructure and the promoted
+results: its registry of contributions contains only what has been promoted
+(nothing yet), and its catalogue reflects the last promoted state.
+`research` is ahead of `main` and contains everything `main` does, so one
+file on `research` describes both the work in progress and the established
+results. The separation of the two kinds of information is made by the
+counting rules, not by the branch: an investigation is listed because the
+catalogue says it is active, and a result is counted only after it has been
+promoted under `AGENTS.md` section 4. The same path on `main` holds the
+summary of the promoted state, with no investigation in progress; this
 contract does not depend on it.
 
 ## What a reader should use
@@ -104,7 +105,8 @@ A **resolved conjecture** is a problem of the catalogue (`CJ-XXXX`) that
 satisfies the same two rules, counted under `proved` or `disproved`. A problem
 that the project formulated itself (catalogue field `discovery`) is not counted
 here: its resolution is a contribution, not the resolution of a published
-conjecture. Resolved conjectures and discoveries are separate dimensions. A
+conjecture. The theorem or counterexample that settles such a conjecture is
+registered and counted as a discovery like any other. Resolved conjectures and discoveries are separate dimensions. A
 theorem that settles a catalogued conjecture has its own `MD-XXXX` record and
 is counted once as a theorem, and the conjecture is counted once as resolved.
 

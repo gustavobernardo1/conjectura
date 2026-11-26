@@ -20,7 +20,7 @@ decide an inequality.
 | `ratio_extremality.py` | Tests Hypotheses A(i) and A(ii): comparison of consecutive-coefficient ratios with the star and the path; exhaustive and sampled modes. |
 | `near_star_families.py` | Double stars (orders 6–41) and balanced caterpillars up to order 10⁶ through a quotient-matrix formula. |
 | `double_stars.py` | Closed forms for the coefficients of double stars and stars around the middle index (Theorem T1 of `notes/double-stars.md`): symbolic quotient determinant, all double stars with `a + b ≤ 200`, direct determinants up to `a + b ≤ 40`. |
-| `spine3.py` | Closed forms for caterpillars with spine length 3 around the middle index (Theorem T2 of `notes/spine3.md`): symbolic quotient determinant and symbolic reduction of the two differences, the sign conditions of the proof for `m ≤ 2000`, all `K(a,b,c)` with `a + b + c ≤ 300`, whole sequences up to `a + b + c ≤ 60`, direct determinants up to `a + b + c ≤ 20`. |
+| `spine3.py` | Closed forms around the middle index for the caterpillars `K(a,b,c)` with three spine vertices carrying `a, b, c ≥ 1` leaves (Theorem T2 of `notes/spine3.md`; `b = 0` is not covered): symbolic quotient determinant and symbolic reduction of the two differences, the sign conditions of the proof for `m ≤ 2000`, all `K(a,b,c)` with `a + b + c ≤ 300`, whole sequences up to `a + b + c ≤ 60`, direct determinants up to `a + b + c ≤ 20`. |
 | `results/*.json` | Outputs of the runs below. |
 
 Validation: `uv run pytest tests/test_cj0001_distpoly.py` (97 tests).

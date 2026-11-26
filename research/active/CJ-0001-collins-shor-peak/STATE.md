@@ -251,10 +251,18 @@ Collins–Shor, lower half
   remain tools of the investigation and are not results of the project.
 - 2026-11-26 (session 2). The rerun of orders 21 to 23 was deferred: it needs
   about 34 minutes of computation and the director's approval.
+- 2026-11-26 (director). MD-0006 (T1) and MD-0007 (T2) stay candidate theorems
+  until their mathematical validity and their originality have been
+  adequately assessed; an AI review is not that assessment. The presentation
+  defects found by the two reviews are to be corrected, with the provenance
+  of the reviews preserved. Every description of T2 states the condition
+  `a, b, c ≥ 1`. Lean formalization is to accompany the investigation
+  progressively (`autoresearch.md`, step 9).
 - 2026-11-26 (session 3). The open obligations were deferred in favour of O2
   (recorded in the journal). T2 was reviewed by a model other than the
-  author's (`claude-opus-5-5`). `notes/spine3.md` is left unchanged after the
-  review so that the review still applies; its defects are obligation 8.
+  author's (`claude-opus-5-5`). `notes/spine3.md` was at first left unchanged
+  after the review; it and `notes/double-stars.md` were then revised in
+  presentation at the director's request (obligations 2 and 8).
 
 ## Open obligations
 
@@ -265,23 +273,15 @@ Collins–Shor, lower half
    distance matrix of caterpillar", which bears on L3 and possibly on T1; the
    journal versions; MathSciNet, zbMATH, Google Scholar and MathOverflow were
    not searched. For MD-0004 and MD-0005 only one query was made.
-2. **Review of T1.** AI review of `5e5ef14` (same model family, fresh context): no gap found within stated scope; eight minor discrepancies of presentation. No mathematician has read it. Before T1 is
-   promoted it needs a human reader or a review by a different model, and the
-   reading of Collins (1989). `notes/double-stars.md` is unchanged since the
-   review, so that the review still applies; the defects the review found are
-   to be corrected in one revision, which then needs a new review:
-   (a) the list "The proof uses" omits Fact 1.1 and Observation 3.1 of the
-   source, and Step 4 attributes positivity to Theorem 2.1, which gives
-   log-concavity only; (b) the remark on trees of diameter at most 3 rests,
-   for stars, on Collins's theorem as reported, and that report says nothing
-   about ties; the notes prove only `d_{m−1} < d_m` for stars; (c) "the margin
-   is of order `1/n`" is asserted without proof; (d) the agreement with
-   `near_star_families.py` is proportionality and is not independent evidence
-   for Lemma D1, and the repository check uses `|δ_k|`, so it never tests the
-   sign in Fact 1.1 (the reviewer's own computation did); (e) `c_1, c_2` and
-   `s` are each used with two meanings; (f) the sentence after Lemma D1
-   explaining the dependence on `s, t` omits the symmetry in `a, b`; (g) the
-   "strong reading of ties" is not defined in the notes.
+2. **Review of T1.** AI review of `5e5ef14` (same model family, fresh context):
+   no gap found within stated scope; eight minor discrepancies of
+   presentation. No mathematician has read it. Before T1 is promoted it needs
+   a human reader or a review by a different model, and the reading of
+   Collins (1989). The defects (a) to (g) listed by the review were corrected
+   in `notes/double-stars.md` on 2026-11-26 (its *Revision history* says
+   what changed); no statement, formula or step of the proof was changed. The
+   review was made on the earlier text. Whether an independent check of the
+   revision exists is recorded in the registry (MD-0006), not here.
 3. **Review of the audit's identifications.** That L1 is a rewriting of
    Graham–Lovász (10)–(12), and that L3 is a special case of Hogben–Reinhart
    Theorem 3.3, are the auditor's own short computations, unreviewed. They only
@@ -300,23 +300,17 @@ Collins–Shor, lower half
 8. **Review of T2.** AI review of `74cb5bb` by `claude-opus-5-5`: no gap found
    within stated scope. No mathematician has read it, and no literature
    auditor searched for this statement (do Nascimento, Del-Vecchio and de
-   Freitas 2019 on caterpillars is the first thing to read). Defects found by
-   the review, to be corrected in one revision of `notes/spine3.md`, which
-   then needs a new review: (D3) the checks for `a+b+c ≤ 300` and `≤ 60` take
-   `d_k` from the formula of Lemma C1, not from the tree, and the notes do not
-   say so; only the 621 direct determinants test C1; (D4) the title
-   "caterpillars with spine length 3" is broader than the theorem, which
-   excludes `b = 0`, and "length 3" counts vertices here, not edges; (D5)
-   Step 3(i) says "in fact at a larger value" although the bounds are taken
-   exactly at the largest `u`; (D6) Fact 1.1 is said to be used only in
-   Step 4 but is also needed in Step 1; (D7) T2 depends on the general form
-   of R1, restated after its own review (obligation 6); the reviewer checked
-   the direction T2 uses. D1 and D2 (the registry record and the result file
-   did not exist at the reviewed revision) are met by the commit that
-   follows the review. D8 concerns the brief given to the reviewer, which
-   misquoted the title of arXiv:1507.02341; the notes are not affected. The
-   commit subject of `74cb5bb` says "every spine-3 caterpillar", which is
-   broader than T2; the history is not rewritten.
+   Freitas 2019 on caterpillars is the first thing to read). The review
+   listed eight defects of record and presentation. D1 and D2 (no registry
+   record and no result file at the reviewed revision) were met by `1ef55b8`.
+   D3 to D7 were corrected in `notes/spine3.md` on 2026-11-26 (its *Revision
+   history* says what changed); no statement, formula or step of the proof
+   was changed, and the review was made on the earlier text. D8 concerns the
+   brief given to the reviewer, which misquoted the title of
+   arXiv:1507.02341. The commit subject of `74cb5bb` says "every spine-3
+   caterpillar", which is broader than T2 (`a, b, c ≥ 1`); the history is not
+   rewritten. Whether an independent check of the revision exists is
+   recorded in the registry (MD-0007), not here.
 
 ## Remaining obstacles
 

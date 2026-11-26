@@ -1,4 +1,4 @@
-"""Caterpillars with spine length 3: closed forms around the middle index.
+"""The caterpillars K(a,b,c) with a, b, c >= 1: closed forms around the middle index.
 
 The caterpillar K(a,b,c) has a spine v1 - v2 - v3 carrying a, b, c >= 1 pendant
 leaves (order n = a + b + c + 3 >= 6). By the caterpillar formula (Lemma L3,

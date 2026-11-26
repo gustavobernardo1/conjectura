@@ -168,7 +168,7 @@ def test_double_star_closed_forms_and_peak():
 
 
 def test_spine3_closed_forms_and_peak():
-    # Theorem T2 (notes/spine3.md): caterpillars K(a,b,c) with spine length 3. The symbolic
+    # Theorem T2 (notes/spine3.md): the caterpillars K(a,b,c) with a, b, c >= 1. The symbolic
     # derivation of Lemmas C1 and C2, the sign conditions of Step 3 for small m, and every
     # K(a,b,c) of order 6 to 17 against the direct determinant; a few against the
     # independent Laplacian method, which uses neither the determinant code nor Lemma L3.

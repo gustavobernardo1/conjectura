@@ -153,6 +153,17 @@ reusable code in `experiments/<id>-<slug>/` with a README giving inputs,
 algorithm, command, seeds, dependency versions and expected output. Never alter
 the mathematical statement to make a computation easier.
 
+**Formalize progressively** (director's instruction, 2026-11-26). Lean is not
+kept for the end of an investigation. When the statement of a lemma has
+stabilised and it is within reach of Mathlib — an inequality, an identity, a
+combinatorial lemma that several results use — state it in Lean and prove it
+while the mathematics around it is still moving, within the session's budget.
+A lemma formalized this way gives its record the formal status `partial`,
+with the scope stated; it is registered in `formalization/registry.json` only
+after its Lean statement has been compared with the written one, and it
+changes nothing about the mathematical, novelty or review status of the
+result that uses it.
+
 ### 10. Verify
 
 - Re-derive each new lemma from its statement; check boundary cases explicitly.
