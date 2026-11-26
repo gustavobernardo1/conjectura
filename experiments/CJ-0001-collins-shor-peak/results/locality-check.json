@@ -1,0 +1,85 @@
+{
+ "experiment": "CJ-0001 reduction of r_A to the Laplacian block (S6 to S10); Collins 1993 Corollary 6",
+ "arithmetic": "exact rationals (python-flint fmpq); polynomial identities compared at more points than the degree",
+ "run": {
+  "command": [
+   "experiments/CJ-0001-collins-shor-peak/locality_check.py",
+   "--max-skeleton",
+   "8",
+   "--out",
+   "experiments/CJ-0001-collins-shor-peak/results/locality-check.json"
+  ],
+  "git_revision_at_run": "2c1cff1fce4fa7e0bc205a8297bda7ca1edac32d",
+  "python": "3.12.4",
+  "networkx": "3.7"
+ },
+ "trees_per_order": {
+  "2": 1,
+  "3": 1,
+  "4": 2,
+  "5": 3,
+  "6": 6,
+  "7": 11,
+  "8": 23
+ },
+ "totals": {
+  "trees": 47,
+  "subsets": 7820,
+  "S6_failures": 0,
+  "S7_failures": 0,
+  "S7prime_failures": 0,
+  "S10_cases": 2263,
+  "S10_failures": 0,
+  "S10_min_a_minus_H": 1,
+  "S8_cases": 325,
+  "S8_failures": 0,
+  "S9_cases": 1011,
+  "S9_failures": 0,
+  "S9_min_coefficients_when_A_has_at_least_2_elements": [
+   2,
+   3,
+   3,
+   3
+  ],
+  "points_per_subset": 14
+ },
+ "collins_1993_corollary_6": [
+  {
+   "n": 1,
+   "order": 4,
+   "printed_formula_matches": false,
+   "formula_with_factors_l2+(n+3)l+2_and_l2-(5n-1)l-4n-2_matches": true
+  },
+  {
+   "n": 2,
+   "order": 6,
+   "printed_formula_matches": false,
+   "formula_with_factors_l2+(n+3)l+2_and_l2-(5n-1)l-4n-2_matches": true
+  },
+  {
+   "n": 3,
+   "order": 8,
+   "printed_formula_matches": false,
+   "formula_with_factors_l2+(n+3)l+2_and_l2-(5n-1)l-4n-2_matches": true
+  },
+  {
+   "n": 4,
+   "order": 10,
+   "printed_formula_matches": false,
+   "formula_with_factors_l2+(n+3)l+2_and_l2-(5n-1)l-4n-2_matches": true
+  },
+  {
+   "n": 5,
+   "order": 12,
+   "printed_formula_matches": false,
+   "formula_with_factors_l2+(n+3)l+2_and_l2-(5n-1)l-4n-2_matches": true
+  },
+  {
+   "n": 6,
+   "order": 14,
+   "printed_formula_matches": false,
+   "formula_with_factors_l2+(n+3)l+2_and_l2-(5n-1)l-4n-2_matches": true
+  }
+ ],
+ "seconds": 34.3
+}

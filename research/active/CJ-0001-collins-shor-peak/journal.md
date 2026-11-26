@@ -762,3 +762,47 @@ literature audit that places the formulas of T1 to T3 in print. Nothing was
 promoted; MD-0006 to MD-0008 remain candidate theorems. Next: objective O5 in
 `STATE.md` (Property Γ for subsets missing one vertex, by hand), after or with
 obligations 1 to 3.
+
+## Session 6 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2` (research director; the
+  same model wrote session 5, in another context). Director's instructions for
+  the session, in order: (1) independent adversarial review of Lemma S1 and
+  Propositions S2, S3, S4 of `notes/skeleton-identity.md` at revision
+  `1bb2bbe`, a gap taking precedence over everything else; (2) literature:
+  Collins 1993 from a local PDF supplied by the director (not to be copied
+  into the repository), then the Discrete Appl. Math. 2019 paper of do
+  Nascimento, Del-Vecchio and de Freitas and pages 16 to 37 of the 2018
+  thesis; (3) objective O5 only if time remains. MD-0006 to MD-0008 stay
+  candidates; nothing is promoted. Push of this session's verified commits to
+  `research` only is authorized; CI is dispatched by hand.
+- **Mode:** focused work (review and literature audit first; O5 is the one
+  exact mathematical objective, conditional on time).
+- **Role(s):** research director; literature auditor for Collins 1993;
+  mathematical researcher for O5 if reached. Subagents: one
+  `adversarial-reviewer` (fresh context, model `claude-opus-5-5`, given the
+  primary source reference, the file paths, the revision and the review
+  template only); one `literature-auditor` for the 2019 paper and the thesis.
+- **Repository revision at start:** `2c1cff1` (branch `research`, clean tree).
+  `git diff 1bb2bbe 2c1cff1` is empty: the files reviewed are those of
+  `1bb2bbe`.
+- **Objective (exact), O5:** for every tree `S` on `s >= 3` vertices and every
+  vertex `w` of degree `g`, with `A = V \ {w}`:
+  `r_A(x) = (s-1)(1+x)^2 + [(g-1)s + 2g + 1] x + [(g-1)(s+6-g) + 3] x^2`,
+  proved by hand from `P^{-1} = -L/2 + tau tau^T/(2(s-1))`, in a form that
+  extends to more missing vertices.
+- **Approach:** as in Proposition S3: `N_A` is `2x I_Abar` minus a
+  perturbation of `P` of rank at most 2; reduce `det N_A` to `det P`,
+  `P^{-1}1` and entries of `P^{-1}` on `Abar`.
+- **Falsification test:** the closed form against the stored exact expansions
+  for the 47 trees with 2 to 8 vertices, and against a fresh direct
+  computation of `det N_A` before any proof is written.
+- **Stopping conditions:** a gap reported by the reviewer stops O5 and the
+  repair takes over. The mathematics stops at 16:08 UTC whatever its state.
+  Subagents are told to return by 15:55 UTC; a report that has not arrived by
+  16:10 UTC is recorded as not obtained.
+- **Budget (binding, set by the director):** 60 minutes of agent work from
+  15:26 UTC to 16:26 UTC, review, verification, records, push and CI dispatch
+  included. Computation at most 5 minutes of wall-clock time.
+- **Deferred obligations:** 2 (revision of the notes of T1 to T3) unless time
+  remains; 4 to 8 untouched.
