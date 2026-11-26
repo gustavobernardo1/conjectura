@@ -1,0 +1,248 @@
+{
+ "full_checks": [
+  {
+   "order": 2,
+   "trees": 1,
+   "pairs": 1,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": null,
+   "seconds": 0.0
+  },
+  {
+   "order": 3,
+   "trees": 1,
+   "pairs": 3,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 9,
+   "seconds": 0.0
+  },
+  {
+   "order": 4,
+   "trees": 2,
+   "pairs": 12,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 41,
+   "seconds": 0.0
+  },
+  {
+   "order": 5,
+   "trees": 3,
+   "pairs": 30,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 125,
+   "seconds": 0.0
+  },
+  {
+   "order": 6,
+   "trees": 6,
+   "pairs": 90,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 446,
+   "seconds": 0.0
+  },
+  {
+   "order": 7,
+   "trees": 11,
+   "pairs": 231,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 1029,
+   "seconds": 0.0
+  },
+  {
+   "order": 8,
+   "trees": 23,
+   "pairs": 644,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 3381,
+   "seconds": 0.1
+  },
+  {
+   "order": 9,
+   "trees": 47,
+   "pairs": 1692,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 6804,
+   "seconds": 0.5
+  },
+  {
+   "order": 10,
+   "trees": 106,
+   "pairs": 4770,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 21534,
+   "seconds": 1.9
+  },
+  {
+   "order": 11,
+   "trees": 235,
+   "pairs": 12925,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 39930,
+   "seconds": 6.9
+  },
+  {
+   "order": 12,
+   "trees": 551,
+   "pairs": 36366,
+   "failures": {
+    "W1_wiener_form": 0,
+    "W2_adjugate_product": 0,
+    "W3_cones": 0,
+    "W4_pair_terms": 0,
+    "W5_main_term": 0,
+    "W6_peak_inequality": 0,
+    "W7_decomposition": 0,
+    "W8_wiener_bound": 0
+   },
+   "least_lam_of_main_term": 123882,
+   "seconds": 22.3
+  }
+ ],
+ "peak_only": [
+  {
+   "order": 13,
+   "trees": 1301,
+   "W6_failures": 0,
+   "seconds": 0.1
+  },
+  {
+   "order": 14,
+   "trees": 3159,
+   "W6_failures": 0,
+   "seconds": 0.3
+  },
+  {
+   "order": 15,
+   "trees": 7741,
+   "W6_failures": 0,
+   "seconds": 0.7
+  },
+  {
+   "order": 16,
+   "trees": 19320,
+   "W6_failures": 0,
+   "seconds": 2.5
+  },
+  {
+   "order": 17,
+   "trees": 48629,
+   "W6_failures": 0,
+   "seconds": 7.1
+  },
+  {
+   "order": 18,
+   "trees": 123867,
+   "W6_failures": 0,
+   "seconds": 19.9
+  },
+  {
+   "order": 19,
+   "trees": 317955,
+   "W6_failures": 0,
+   "seconds": 57.2
+  }
+ ],
+ "provenance": {
+  "command": "wiener_form.py --max-order 12 --peak-order 19 --out results/wiener-form.json",
+  "revision": "f414cd824f6918210ec6a3c35dcdb7deae7e166d",
+  "dirty_tree_at_start": false,
+  "python": "3.12.4",
+  "networkx": "3.7",
+  "seconds": 119.7,
+  "arguments": {
+   "max_order": 12,
+   "peak_order": 19,
+   "out": "results/wiener-form.json"
+  }
+ }
+}
