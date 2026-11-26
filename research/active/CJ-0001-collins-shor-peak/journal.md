@@ -806,3 +806,198 @@ obligations 1 to 3.
   included. Computation at most 5 minutes of wall-clock time.
 - **Deferred obligations:** 2 (revision of the notes of T1 to T3) unless time
   remains; 4 to 8 untouched.
+
+### What was done
+
+All computations are exact (integers and rationals). Times are UTC, from
+`date -u` in the session's shell.
+
+1. 15:26 start; `STATE.md` read; the header of this entry written before any
+   other work.
+2. **Review of S1 to S4** (priority 1). `adversarial-reviewer` subagent, model
+   `claude-opus-5-5`, fresh context, given the file path, the revision
+   `1bb2bbe`, the primary-source references, a list of boundary cases to
+   test and the template — no reasoning of the author. Report:
+   [`reviews/2026-11-26-claude-opus-5-5-S1-S4.md`](reviews/2026-11-26-claude-opus-5-5-S1-S4.md).
+3. **Collins 1993** (priority 2) read by the main context: the PDF supplied by
+   the director, 9 pages, all read as page images. It is the author's
+   manuscript, not the journal's pages. Not copied into the repository.
+4. `literature-auditor` subagent (model `claude-fable-5-2`, separate context)
+   for the Discrete Appl. Math. 2019 paper and thesis pages 16 to 37: 2 web
+   queries, the thesis PDF fetched by the route of session 5 and pages 14 to
+   38 read as images; the 2019 paper could not be opened (HTTP 403 from the
+   publisher and from CORE, HTTP 429 from one index, bot protection on a
+   catalogue). The auditor reports one mistake of its own: a first DOI was
+   guessed and belonged to another paper; nothing from it was used. Section
+   "Literature audit 2026-11-26 (session 6)" of the dossier.
+5. **Objective O5** (priority 3), while the subagents were running: the
+   identity `N_A = −P + WKWᵀ` and the reduction to a determinant of size
+   `t + 1` were derived by hand, then the Laplacian form, the one-vertex and
+   two-vertex formulas and the decomposition for independent complements.
+   Before anything was written down, `locality_check.py` (new, sharing no
+   code with `skeleton_structure.py`) compared each formula with the
+   definition of `r_A` on the 47 trees with 2 to 8 vertices: runs of 38 s,
+   35 s and 35 s (the script grew between runs; the first attempt stopped on
+   a singular matrix because negative evaluation points were used, which was
+   a defect of the script, not of a formula). Both this script and
+   `skeleton_structure.py` take their trees from the enumeration of networkx
+   (47 trees, the known count); they share no other code. Notes:
+   [`notes/skeleton-locality.md`](notes/skeleton-locality.md). Committed as
+   `1805bca` together with the first review report.
+6. **Review of S6 to S10 and Lemma C**: a second `adversarial-reviewer`
+   subagent (`claude-opus-5-5`, fresh context) on `1805bca`. Report:
+   [`reviews/2026-11-26-claude-opus-5-5-S6-S10.md`](reviews/2026-11-26-claude-opus-5-5-S6-S10.md).
+7. While it ran, an exploration of the remaining case (scratch script, then
+   `gamma_pieces.py`, 11 s): which pieces of the Laplacian form have the
+   required weight. It suggested Lemma F and the reduction S11, written in
+   [`notes/gamma-reduction.md`](notes/gamma-reduction.md); committed as
+   `5622d19` with the second review report, two regression tests and the
+   dossier section.
+8. **Review of Lemma F, Corollary F′ and S11**: a third `adversarial-reviewer`
+   subagent (`claude-opus-5-5`, fresh context) on `5622d19`. Report:
+   [`reviews/2026-11-26-claude-opus-5-5-F-S11.md`](reviews/2026-11-26-claude-opus-5-5-F-S11.md)
+   — a gap in one paragraph. The note was revised for every defect of the
+   report and committed as `7acd425` with it; a fourth fresh context
+   (`claude-opus-5-5`) rechecked the revision:
+   [`reviews/2026-11-26-claude-opus-5-5-recheck-F-S11.md`](reviews/2026-11-26-claude-opus-5-5-recheck-F-S11.md).
+   Both result files were regenerated at `5622d19`, a revision that contains
+   their scripts (the first runs were made before the scripts were
+   committed); the totals are identical. The working tree then held
+   uncommitted record files (`STATE.md`, the registry), not code or data.
+9. Registry: MD-0010 updated (evidence, limitations, novelty coverage; its
+   statement and fingerprint unchanged); MD-0011 and MD-0012 registered.
+   `STATE.md` updated. `uv run pytest`, `scripts/catalogue.py validate` and
+   `render`: results under Outcome.
+
+### Findings
+
+- **Review of session 5 (S1 to S4): no gap found within stated scope**, for
+  each statement and overall (AI review; same vendor and family as the
+  author). The reviewer reconstructed the four proofs and ran its own exact
+  checks (S1 on 293 trees with zeros among the leaf numbers; S2 for 198 leaf
+  vectors and every subset on skeletons with at most 4 vertices; S3 on 5
+  trees; the binomial lemma of S4 on 3,360 pairs and its use on 15,075
+  tuples). Defects, none mathematical: the bound `deg r_A ≤ s − a + 1` is
+  asserted with a reason that covers only the `1/x` part (a one-line cofactor
+  argument closes it; `skeleton-locality.md` now contains that argument);
+  `γ_A` is defined in the statement of S2 only for `x ≠ 0`; `M_A` names two
+  different matrices; `p_∅` is a Laurent expression. Not covered: Corollary
+  S5, Lemma L4, the Γ computation; the two classical formulas were checked by
+  computation, not against the printed papers.
+- **Literature.** Collins's manuscript contains the divisor principle for an
+  invariant subspace and for vertex orbits (Theorems 1 and 2), the lower bound
+  `p − q` for the multiplicity of `−2` (Corollary 7), the polynomial of the
+  star (Corollary 5) and of the balanced double star only (Corollary 6), and
+  the full `k`-ary trees. **It contains no statement on the coefficients or
+  their maximum, no general double star, no caterpillar, no expansion in the
+  leaf numbers.** Corollary 6 as printed in the manuscript fails against
+  direct computation for `n = 1, …, 6` (its roots sum to `−2`); the factors
+  `(λ² + (n+3)λ + 2)(λ² − (5n−1)λ − 4n − 2)` hold in those six cases. Thesis
+  pages 14 to 38: multiplicity of `−2` and number of distinct eigenvalues for
+  double brooms and caterpillars; nothing on coefficients, no expansion over
+  subsets, no `det(P + αJ)`. The 2019 paper: not read. So, within the pages
+  read in sessions 2, 5 and 6: no prior statement of the peak results
+  (MD-0006 to MD-0008), of S2 or of `r_V = (s+3)x + s` was found; this does
+  not establish novelty, and the 2019 paper, Collins 1989 and the published
+  version of Collins 1993 remain unread.
+- **O5 and beyond (MD-0011; proved by hand, AI-reviewed, exact check on the
+  47 trees).** For every tree and every `A`, with `B = V ∖ A`:
+  `r_A = Φ_B [a(1+x) + (3 + 3H − 2e_B)x] − x² zᵀ adj(I + xL_B) z` (S6, S7): the
+  dependence on the skeleton is only through `s` and the Laplacian block
+  `L_B`, which proves the observation "Locality" of session 5 in general. The
+  formula for one missing vertex follows in three lines (S8); two missing
+  vertices are done by explicit inequalities (S9); and **when `B` is
+  independent, `r_A` has an explicit decomposition into terms of weight at
+  least `t + 1`, hence Property Γ's requirement holds, for every tree** (S10).
+  The mechanism asked for: Lemma C turns Γ into membership in a cone closed
+  under products, and the negative term `−4h_w² x² Φ_w` is absorbed by
+  `a(1+x)Φ_B` at the price of the coefficient `a − H`, which is positive
+  because the edges leaving an independent set form a forest. Review of
+  `1805bca`: no gap found within stated scope for each of S6 to S10, Lemma C
+  and the degree claim; the reviewer recomputed everything on 152 labelled
+  trees (4,988 subsets). Defects: the count "1,011 cases" for S9 includes one
+  case with `s = 2`, outside the statement (1,010 within it); three of
+  wording.
+- **Reduction (MD-0012; proved by hand; exact check on the 47 trees).**
+  Lemma F: `det(I + x(L_T + diag ν))` has weight at least the number of
+  vertices, by removing a leaf. Hence the positive term of the Laplacian form
+  always has the required weight (F′), and contracting the components of
+  `S[A]` changes `r_A` by `(a − a′)(1+x)Φ_B` (S11): Γ extended to `|A| = 1`
+  follows for all trees from its case `A` independent. Review of
+  `5622d19`: no gap in the cones, Lemma F, F′ and S11 (Lemma F recomputed by
+  the reviewer on 41,276 weighted trees; integrality of the weights is
+  needed, with a counterexample for `ν = (1/2, 0)`); **gap found** in the
+  paragraph "What this gives": the case `A = V` of Γ⁺ is covered neither by
+  S11 nor by "`A` independent" and needs Proposition S3. Repaired in one
+  revision. Recheck of `7acd425`: the gap is closed, no statement or proof
+  step of the three results was changed, no new error; two trivial defects
+  of wording remain.
+- **Observations (exact, 47 trees, not proved).** Γ holds also for the 325
+  subsets with one element; `zᵀ adj(I + xL_B) z` has non-negative
+  coefficients in all 7,726 cases.
+
+### What failed
+
+- The Discrete Appl. Math. 2019 paper could not be accessed; even its
+  abstract is known only by paraphrase.
+- No induction on `|V ∖ A|` was found. When `V ∖ A` contains an edge the
+  termwise weight count of S10 fails; S9 with adjacent vertices was proved by
+  inequalities on coefficients, which do not generalize as written.
+- The notes of T1 to T3 were not revised with the citations found
+  (obligation 2 stands), and the defects listed by the three reviews of this
+  session were not corrected, by decision: the reviewed files are unchanged.
+- `locality_check.py` counts one case of S9 outside its statement (`s = 2`);
+  the result file is evidence and is left as produced.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (main context and literature auditor); `claude-opus-5-5` (three reviews, separate fresh contexts) |
+| Session wall-clock | from 15:26 UTC; this entry was completed at about 15:58 UTC, before the final test run, the last commits, the push and the CI run, whose times are in the Git history and in the commit messages |
+| Computation wall-clock | about 3.4 minutes for the research (38 s, 35 s, 35 s, 3 s, 11 s, 11 s, the two regenerations of 33 s and 12 s, and short trials), against 5 planned; the full test suite takes 6 to 7 minutes per run and is not counted here |
+| Review of S1 to S4, as reported by the environment | 72,420 subagent tokens, 16 tool calls, 6.9 minutes |
+| Literature audit, as reported by the environment | 83,526 subagent tokens, 21 tool calls, 3.2 minutes |
+| Review of S6 to S10, as reported by the environment | 75,727 subagent tokens, 11 tool calls, 5.5 minutes |
+| Review of Lemma F and S11, as reported by the environment | 75,963 subagent tokens, 17 tool calls, 6.3 minutes; its recheck: 60,165 subagent tokens, 13 tool calls, 3.1 minutes |
+| Token usage of the main session | unavailable |
+| Research iterations | 1 objective (O5), reached and extended; 1 exploration |
+| Proof attempts | S6, S7, S8, S9, Lemma C, S10: written and reviewed once; Lemma F, F′, S11: written, reviewed once, one paragraph of the note repaired, rechecked |
+| Counterexamples found | 0 to the project's statements; Corollary 6 of Collins's manuscript fails as printed for `n = 1, …, 6` |
+| Formalization attempts | 0 |
+| Successful verifications | 3 exact result runs with 0 failures (7,820 subsets; 7,726 subsets); `uv run pytest`: run after this entry was written; its result is in the message of the commit that contains this entry |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress. Priority 1: the review owed for session 5 was obtained and
+found no gap in S1 to S4. Priority 2: Collins 1993 was read (in the author's
+manuscript) and thesis pages 14 to 38; neither contains a statement of the
+peak results, the subset expansion or the identity for `r_V`; the 2019 paper
+was not accessible. Priority 3: O5 was proved, together with the mechanism
+behind it (the Laplacian form of `r_A`), Property Γ for independent
+complements, and a reduction of the conjecture to independent `A`; all of it
+has a written proof, an exact check on the 47 small trees and one AI review
+(the reduction: one review, one repair, one recheck). Nothing was promoted:
+MD-0006 to MD-0008 are unchanged; MD-0011 and MD-0012 are new records at
+`candidate-proof` with external review `ai-reviewed`; MD-0010 is still a
+conjecture. The session stopped the mathematics at about 15:45 UTC, well
+before the limit of 16:08, because the remaining case (an edge inside
+`V ∖ A`) needs a new idea and the time left was better spent on the third
+review and its repair.
+
+Not done: the revision of the notes of T1 to T3 (obligation 2); the
+corrections of wording asked by the reviews of `skeleton-identity.md` and
+`skeleton-locality.md` (obligation 3a); any literature search for MD-0011
+and MD-0012.
+
+The results of `uv run pytest`, `scripts/catalogue.py validate` and
+`render --check`, of the push to `research` and of the CI run dispatched by
+hand are produced after this entry is written; they are in the message of
+the commit that contains this entry (tests, validation) and in the report
+to the director (push, CI).
+
+Next step: objective O6 in `STATE.md` — Property Γ⁺ for `A` independent and
+`S[B]` a single edge plus isolated vertices, by an explicit grouping in the
+cones `C_d`.
+

@@ -836,6 +836,24 @@
           "kind": "note",
           "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
           "summary": "Literature audit of session 5 (a separate agent context, model claude-fable-5-2; 6 searches, 6 fetches): what was read, with page and proposition numbers, what was not accessible, and a conclusion per statement."
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S1-S4.md",
+          "summary": "Independent adversarial review (claude-opus-5-5, fresh context, 2026-11-26) of the supporting statements Lemma S1 and Propositions S2, S3, S4 of notes/skeleton-identity.md at revision 1bb2bbe: no gap found within stated scope; four defects of precision and wording, none mathematical. It is a review of those four statements, not of the conjecture, and is therefore not recorded as review evidence of this record. Not covered: Corollary S5, Lemma L4, the computation behind Property Γ for the 47 trees.",
+          "sha256": "388a059c946ccea1ac17691e9eb738dea5699fb21d19e0c4d1341a0148e48d43"
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md",
+          "summary": "Session 6: the requirement of the conjecture is proved for every tree and every A whose complement is independent or has at most two elements (MD-0011), and r_A is shown to depend only on s and on the block L[V∖A, V∖A] of the Laplacian.",
+          "sha256": "fce3faf2f32cfe70f8f0993b2aaafb3771ecaa50d96977cd236f9fad44601341"
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/gamma-reduction.md",
+          "summary": "Session 6: the conjecture, extended to subsets with one element, is reduced to the pairs (S, A) with A independent (MD-0012). Exact computation (results/gamma-pieces.json): the extension to |A| = 1 holds for the 47 trees with 2 to 8 vertices.",
+          "sha256": "49f33f738105a7733a04bb3115274c07d86f7716ea4e3c523a296e4422dff875"
         }
       ],
       "status": {
@@ -844,7 +862,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
-      "limitations": "A conjecture formulated by the project. It is proved for A = V and every tree (Proposition S3, unreviewed) and verified by exact computation for the 47 trees with at most 8 vertices; nothing is known beyond. The link to the Collins–Shor conjecture goes through Lemma S1, Proposition S4 and Lemma L4, none of which has been reviewed, and it concerns only the lower inequality, only trees with at least as many leaves as non-leaf vertices, and it leaves the trees 'skeleton plus one star' to be treated. The literature search is small; the method (quotient matrix of a twin partition) is standard and closed formulas for small cases are in print, so an earlier appearance of the expansion is plausible.",
+      "limitations": "A conjecture formulated by the project. Its requirement is proved for A = V (Proposition S3), for every A whose complement is an independent set, and for every A with at most two vertices missing (MD-0011), for every tree; these proofs have one AI review each and no human reader. It is verified by exact computation for the 47 trees with at most 8 vertices; nothing else is known. The remaining case, after the reduction MD-0012 (which needs the extension of the statement to |A| = 1, verified on the same 47 trees only): A independent and at least one edge inside V ∖ A. The link to the Collins–Shor conjecture goes through Lemma S1 and Proposition S4 (AI-reviewed in session 6) and Lemma L4 (unreviewed), and it concerns only the lower inequality, only trees with at least as many leaves as non-leaf vertices, and it leaves the trees 'skeleton plus one star' to be treated. The literature search is small; the method (quotient matrix of a twin partition) is standard and closed formulas for small cases are in print, so an earlier appearance of the expansion is plausible.",
       "relations": [
         {
           "type": "originated_from",
@@ -865,9 +883,186 @@
       ],
       "novelty_search": {
         "as_of": "2026-11-26",
-        "coverage": "Literature audit of session 5: 6 web searches and 6 fetches; Xue–Liu–Jia (2016) read in full, do Nascimento's thesis (2018) in part. The instances s = 2 and, on the diagonal, s = 3 of the identity r_V = s(1+x) + 3x can be read off the published formulas; neither source states the identity, the multi-affine structure or an expansion of this kind.",
-        "limitations": "A small search. Collins (1989, 1993), the Discrete Appl. Math. 2019 paper on caterpillars and the general theorems of the 2018 thesis were not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow; nothing was searched on gamma-positivity of related polynomials."
+        "coverage": "Literature audit of session 5: 6 web searches and 6 fetches; Xue–Liu–Jia (2016) read in full, do Nascimento's thesis (2018) in part. The instances s = 2 and, on the diagonal, s = 3 of the identity r_V = s(1+x) + 3x can be read off the published formulas; neither source states the identity, the multi-affine structure or an expansion of this kind. Session 6: the author's manuscript of Collins, 'Factoring distance matrix polynomials' (9 pages) read in full, and pages 14 to 38 of do Nascimento's thesis: neither contains the expansion over subsets, the identity for r_V or a statement of this kind.",
+        "limitations": "A small search. Collins (1989), the published version of Collins (1993), the Discrete Appl. Math. 2019 paper on caterpillars (not accessible in session 6) and pages 1–3, 6–11, 50–77 of the 2018 thesis were not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow; nothing was searched on gamma-positivity of related polynomials."
       }
+    },
+    {
+      "id": "MD-0011",
+      "type": "theorem",
+      "title": "The polynomials r_A of a tree depend only on a Laplacian block; non-negative half-gamma expansion when the complement of A is independent or has at most two vertices",
+      "statement": "Let S be a tree on s ≥ 2 vertices with vertex set V, distance matrix P and Laplacian L; g_v is the degree of v in S, J the all-ones s × s matrix and 1 the all-ones vector. For A ⊆ V let a = |A|, B = V ∖ A, t = |B|, 1_A the indicator vector of A, I_B the diagonal matrix whose diagonal is the indicator vector of B, and, for x ≠ 0, N_A(x) = 2x I_B − P − 1_A 1ᵀ − 1 1_Aᵀ − (a/(2x)) J and r_A(x) = −2^{2−s} · x · det N_A(x), a polynomial of degree at most t + 1. Let L_B = L[B, B], Φ_B(x) = det(I + x L_B), h_w = g_w − 1 and H = Σ_{w∈B} h_w, k_w the number of neighbours of w that lie in B, e_B the number of edges of S with both ends in B, and z the vector (2h_w − k_w)_{w∈B}. For an integer d ≥ 0, a polynomial has a non-negative half-gamma expansion of degree d if it equals Σ_{e≥0, 2e<d} ρ_e x^e (1+x)^{d−2e} + Σ_{d≤2e≤2d} σ_e x^e with all ρ_e ≥ 0 and σ_e ≥ 0. (i) r_A(x) = Φ_B(x) · [a(1+x) + (3 + 3H − 2e_B) x] − x² · zᵀ adj(I + x L_B) z; in particular r_A is determined by s and by the matrix L_B up to a simultaneous permutation of its rows and columns. (ii) Every non-negative combination of polynomials x^e (1+x)^j with integers e, j ≥ 0, e + j ≤ d and 2e + j ≥ d has a non-negative half-gamma expansion of degree d. (iii) If B is non-empty and no two vertices of B are adjacent in S, then a − H ≥ 1, r_A(x) = (a − H)(1+x) Φ_B + 3x Φ_B + Σ_{w∈B} [h_w (1+x)² + 3 h_w x(1+x) + h_w² x] Φ_w with Φ_B = Π_{w∈B} (1 + g_w x) and Φ_w = Π_{u∈B, u≠w} (1 + g_u x), and r_A has a non-negative half-gamma expansion of degree t + 1. (iv) If B = {w} and g = g_w, then r_A(x) = (s−1)(1+x)² + [(g−1)s + 2g + 1] x + [(g−1)(s+6−g) + 3] x², with the three coefficients positive. (v) If s ≥ 3 and B = {u, w} with u ≠ w, Σ = g_u + g_w, Π = g_u g_w, and ε = 1 if u and w are adjacent and ε = 0 otherwise, then r_A(x) = (s−2)(1+x)³ + ρ_1 x(1+x) + σ_2 x² + σ_3 x³ with ρ_1 = (s+1)Σ − 2s + 1 − 2ε, σ_2 = (s+6)(Π − ε) − Σ² + (2+2ε)Σ − s − 3, σ_3 = (s+11−2ε)Π − ΣΠ − 4(1−ε)Σ − (s+11)ε − s + 2, and ρ_1 ≥ 3, σ_2 ≥ 3, σ_3 ≥ 3.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statements, proofs and exact checks (session 6): Propositions S6 to S10 and Lemma C"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review, with its own exact recomputation on 152 labelled trees"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction: set objective O5 (the subsets missing one vertex, with the aim of a general mechanism), ordered the reviews and supplied the manuscript of Collins's paper; no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md",
+          "summary": "Written proofs: Proposition S6 (r_A = (s−1) x det(I − KG) with matrices of size t + 1 built from s and L_B), Proposition S7 (item (i)), Lemma C (item (ii)), Proposition S10 (item (iii)), Proposition S8 (item (iv)), Proposition S9 (item (v)).",
+          "revision": "1805bca",
+          "sha256": "fce3faf2f32cfe70f8f0993b2aaafb3771ecaa50d96977cd236f9fad44601341"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/locality-check.json",
+          "summary": "Exact comparison with the definition of r_A for the 47 trees with 2 to 8 vertices and all 7,820 subsets, at 14 rational points each: S6, both forms of S7, S8 (325 cases), S9 (1,011 cases, one of them with s = 2, outside the statement of item (v)), the identity of S10 (2,263 cases); 0 failures. It checks identities on these trees; the inequalities for all trees rest on the written proofs.",
+          "sha256": "830894d163d21ee0fccecb1bb2c3176922de132ba5f0e0238883b0b90bd1d808"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_reduction_of_r_A_to_the_laplacian_block: every tree with 2 to 5 vertices."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S6-S10.md",
+          "summary": "Independent adversarial review of Propositions S6 to S10 and Lemma C of notes/skeleton-locality.md, which are items (i) to (v) of this record (compared item by item after the review). Verdict for each statement and overall: no gap found within stated scope. Every proof reconstructed; the coefficients and every inequality of S9 recomputed; exact recomputation by the reviewer on 152 labelled trees and 4,988 subsets, 0 failures. Defects: one wrong count in the section on computation (1,011 for 1,010) and three of wording, none mathematical. Not covered: the two classical formulas against the printed sources, novelty.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "1805bcab1cee71c720049fd9cff85a6a3d0992a3",
+          "sha256": "25b7f1efbfa8c17979427596aac15dbc1b81b4a0ad0fe210f27f9079405c418d",
+          "statement_fingerprint": "4675ab88fe9a6d37879e4b1de30fd73088e2a84fb8e049d74c727ddfc0beff67"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "Candidate theorem: a written proof and one AI review by a fresh context of a model of the same family; no mathematician has read it. No literature search was made for these statements. The proof uses two classical facts that the project has not compared with the printed sources (see depends_on). Items (iii) to (v) settle the requirement of Conjecture Γ (MD-0010) only for the subsets they name. The notes carry four defects of wording and one wrong count (1,011 for 1,010) listed by the review; they are not corrected, so that the reviewed file stays unchanged.",
+      "depends_on": [
+        {
+          "citation": "R. L. Graham, H. O. Pollak (1971): det P = (−1)^{s−1} (s−1) 2^{s−2} for the distance matrix of a tree on s vertices; R. L. Graham, L. Lovász, Adv. Math. 29 (1978) 60–88: P^{−1} = −L/2 + ττᵀ/(2(s−1)) with τ_v = 2 − deg(v).",
+          "note": "Cited as classical. Neither statement was compared with the printed source by the project; both were confirmed by exact computation on small trees by two reviewers."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S6 to S10, Lemma C",
+          "note": "Objective O5 of session 6 and what followed from it."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0010",
+          "note": "Proves the requirement of Conjecture Γ for every tree and every subset whose complement is independent or has at most two elements, and reduces the general case to a statement about s and the block L_B."
+        }
+      ]
+    },
+    {
+      "id": "MD-0012",
+      "type": "structural-result",
+      "title": "Weight of the forest polynomial det(I + x L_B), and reduction of Conjecture Γ (extended to one-element subsets) to independent A",
+      "statement": "For an integer d ≥ 0 let C_d be the set of non-negative combinations of the polynomials x^e (1+x)^i with integers e, i ≥ 0, e + i ≤ d and 2e + i ≥ d. (i) For every tree T on j ≥ 1 vertices with Laplacian L_T and every function ν from the vertices of T to the non-negative integers that is not identically zero, det(I + x (L_T + diag(ν))) ∈ C_j. (ii) Let S be a tree on s ≥ 2 vertices with vertex set V and Laplacian L, g_v the degree of v, A ⊆ V with 1 ≤ |A| ≤ s − 1, a = |A|, B = V ∖ A, t = |B|, L_B = L[B, B], Φ_B(x) = det(I + x L_B), H = Σ_{w∈B} (g_w − 1) and e_B the number of edges of S with both ends in B. Then Φ_B ∈ C_t, 3 + 3H − 2e_B ≥ 3 and Φ_B · [a(1+x) + (3 + 3H − 2e_B) x] ∈ C_{t+1}. (iii) With S and A as in (ii), let r_A^S be the polynomial r_A of MD-0011 for the tree S, let S′ be the graph obtained from S by contracting each connected component of the subgraph induced by A to a single vertex, and let A′ be the set of the a′ contracted vertices. Then S′ is a tree on a′ + t ≥ 2 vertices, A′ is independent in S′ with complement B, and r_A^S(x) = r_{A′}^{S′}(x) + (a − a′)(1+x) Φ_B(x). Consequently, if r_{A′}^{S′} has a non-negative half-gamma expansion of degree t + 1 (as defined in MD-0011), then so has r_A^S.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statements, proofs and exact checks (session 6): Lemma F, Corollary F′, Proposition S11"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review of the first version and, in a second fresh context, recheck of the revision"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction: set objective O5 (the subsets missing one vertex, with the aim of a general mechanism), ordered the reviews and supplied the manuscript of Collins's paper; no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/gamma-reduction.md",
+          "summary": "Written proofs: Lemma F (item (i), by induction on a leaf), Corollary F′ (item (ii)), Proposition S11 (item (iii)), and the consequence that Property Γ extended to |A| ≥ 1 follows for all trees from its case A independent. Revised once after its review (the paragraph on what the reduction gives now accounts for A = V by Proposition S3; wording); the statements and proofs of the three results are unchanged.",
+          "revision": "7acd425",
+          "sha256": "49f33f738105a7733a04bb3115274c07d86f7716ea4e3c523a296e4422dff875"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json",
+          "summary": "Exact computation for the 47 trees with 2 to 8 vertices and the 7,726 subsets with 1 ≤ |A| ≤ s − 1: Φ_B and the first term of the Laplacian form have the expansions that items (i) and (ii) assert; r_A has a non-negative half-gamma expansion of degree t + 1 also for the 325 subsets with one element; zᵀ adj(I + x L_B) z has non-negative coefficients. 0 failures. The last two are observations, not part of the statement.",
+          "sha256": "318d283a61329caf29fff15c5da3a9d203d9d5a68f5c9eb2d554126e9f1ddd1f"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_pieces_of_the_laplacian_form: every tree with 2 to 5 vertices."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-F-S11.md",
+          "summary": "Independent adversarial review of the first version of notes/gamma-reduction.md. The cones, Lemma F, Corollary F′ and Proposition S11, which are items (i) to (iii) of this record (compared after the review): no gap found within stated scope; exact recomputation by the reviewer (Lemma F on 41,276 weighted trees; F′ and the identity of S11 on 1,884 subsets), 0 failures; integrality of the weights shown to be needed. Overall verdict of the report: gap found, confined to the paragraph of the note on what the reduction gives (the case A = V needs Proposition S3), which is not part of this record's statement; also imprecisions in the section on computation.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "5622d197b97485ed6d74420a9b3f53eddf638a5a",
+          "sha256": "031850728e6b68a8a0edc37ccb1dcbc5c36421e58f074b564b5f1606555157d0",
+          "statement_fingerprint": "aa52ab76c2da865560b4b632ae48dd775cfbbb6301127d4eb605a82462322af5"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-F-S11.md",
+          "summary": "Recheck, by a fresh context of the same model as the first review, of the revision of notes/gamma-reduction.md: the revision changes no statement or proof step of the cones, Lemma F, Corollary F′ or Proposition S11 (for which the recheck relies on the first review); the gap of the paragraph on what the reduction gives is closed; no new error. Verdict: no gap found within stated scope. Two trivial defects of wording remain.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "7acd425",
+          "sha256": "f33368319d5bab9929f2567677790e3d5de43c67de8645146ce7bcc9ee426efa",
+          "statement_fingerprint": "aa52ab76c2da865560b4b632ae48dd775cfbbb6301127d4eb605a82462322af5"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. No literature search was made: that det(I + x L_B) counts rooted spanning forests is classical, and a statement like item (i) may be known in the literature on gamma-positivity. Item (iii) reduces Conjecture Γ only together with its extension to subsets with one element, which is verified on the 47 trees with at most 8 vertices and is not proved.",
+      "depends_on": [
+        {
+          "ref": "MD-0011",
+          "statement_fingerprint": "4675ab88fe9a6d37879e4b1de30fd73088e2a84fb8e049d74c727ddfc0beff67",
+          "note": "Item (i) of MD-0011 (the Laplacian form of r_A) is used in item (iii); item (ii) of MD-0011 (Lemma C) in its last sentence."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "Lemma F, Corollary F′, S11",
+          "note": "Session 6, after objective O5."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0010",
+          "note": "Reduces the conjecture, extended to one-element subsets, to the pairs with A independent; with MD-0011 the remaining case is A independent and an edge inside the complement."
+        }
+      ]
     }
   ]
 }

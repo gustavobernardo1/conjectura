@@ -1,6 +1,6 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-26 (session 5). This file is the current truth about the
+Last updated: 2026-11-26 (session 6). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
 continue. It was compacted in session 5: details that were here are in the
 notes it links. Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
@@ -9,7 +9,9 @@ notes it links. Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/diameter4-caterpillars.md`](notes/diameter4-caterpillars.md) (T3),
 [`notes/vertex-principle.md`](notes/vertex-principle.md) (L4, Hypothesis V),
 [`notes/skeleton-identity.md`](notes/skeleton-identity.md) (S1 to S4,
-Property Γ). Obligations in detail: [`notes/obligations.md`](notes/obligations.md).
+Property Γ), [`notes/skeleton-locality.md`](notes/skeleton-locality.md) (S6 to
+S10, Lemma C), [`notes/gamma-reduction.md`](notes/gamma-reduction.md) (Lemma F,
+S11). Obligations in detail: [`notes/obligations.md`](notes/obligations.md).
 Computations: [`experiments/CJ-0001-collins-shor-peak/`](../../../experiments/CJ-0001-collins-shor-peak/README.md).
 Literature: the dossier
 [`research/candidates/CJ-0001-collins-shor-peak.md`](../../candidates/CJ-0001-collins-shor-peak.md).
@@ -58,8 +60,11 @@ Nothing in this file is an established result of the project. T1, T2 and T3
 are **candidate theorems** (director's decision of 2026-11-26): each has a
 written proof and one AI review by a fresh context that found no gap within
 its stated scope, none has been read by a mathematician, and their
-originality is not assessed. What was written in session 5 (S1 to S4,
-Property Γ) has been reviewed by no one. The status of every registered
+originality is not assessed. The same holds for what was written in
+sessions 5 and 6 and reviewed in session 6 (S1 to S4; S6 to S10 and Lemma C;
+Lemma F, F′ and S11): one AI review each by a fresh context of `claude-opus-5-5`, no
+human reader. Still reviewed by no one: Lemma L4, Corollary S5 and the
+computation of Property Γ for the 47 small trees. The status of every registered
 contribution is in [`research/discoveries.json`](../../discoveries.json), not
 here.
 
@@ -80,10 +85,16 @@ review of one revision, named in the registry.
 | T2 | Caterpillar `K(a,b,c)`, `a, b, c ≥ 1`: `m` is the only maximizing index. | Candidate proof (two computer-assisted identities), reviewed. The balanced case of its formula is in do Nascimento 2018, Prop. 3.2.9. |
 | T3 | Caterpillar `K(a,0,c)`, `a, c ≥ 1`, `a + c ≥ 3`: `m` is the only maximizing index. With T2 and `P_5`: every caterpillar of diameter 4. | Candidate proof, reviewed. Its formula is in do Nascimento 2018, Prop. 3.2.6. |
 | L4 | Vertex principle: a function of degree ≤ 1 in each variable with non-negative mixed second partials attains its minimum over the integer points of a slice `c ≥ λ`, `Σ c = S` at a point with one coordinate above its lower bound. | Proved, not reviewed. Its one-dimensional core is formalized in Lean (see Status). |
-| S1 | Skeleton `S` on `s` vertices with `c_v ≥ 0` leaves at `v`, order `n ≥ 2s`: `d_k = Σ_j g_j(c) C(n−2s, k−j)`, `g_j` of degree ≤ 1 in each `c_v`. | Proved, not reviewed; checked against direct determinants. |
-| S2 | `det(2xI − Q(c)) = Σ_A c^A (2x+2)^{s−a} (2x)^a det(2x I_Ā − P − 1_A1ᵀ − 11_Aᵀ − (a/2x)J)`. | Proved, not reviewed; checked exactly on the 47 trees with 2 to 8 vertices. |
-| S3 | The product of all `c_v` occurs only in `g_{s−1}` and `g_s`, with coefficients `s` and `s + 3`, for every skeleton. | Proved (Graham–Pollak, Graham–Lovász inverse), not reviewed. |
-| S4 | If the polynomial `r_A` has a non-negative half-gamma expansion, the coefficient of `c^A` in `d_m − d_{m−1}` is `≥ 0` for every order `n ≥ 2s`. | Proved, not reviewed. |
+| S1 | Skeleton `S` on `s` vertices with `c_v ≥ 0` leaves at `v`, order `n ≥ 2s`: `d_k = Σ_j g_j(c) C(n−2s, k−j)`, `g_j` of degree ≤ 1 in each `c_v`. | Proved; AI review of `1bb2bbe`, no gap found. The factor `(λ+2)^{p−q}` is in print (Collins 1993, Cor. 7). |
+| S2 | `det(2xI − Q(c)) = Σ_A c^A (2x+2)^{s−a} (2x)^a det(2x I_Ā − P − 1_A1ᵀ − 11_Aᵀ − (a/2x)J)`. | Proved; AI review of `1bb2bbe`, no gap found; checked exactly on the 47 trees with 2 to 8 vertices. |
+| S3 | The product of all `c_v` occurs only in `g_{s−1}` and `g_s`, with coefficients `s` and `s + 3`, for every skeleton. | Proved (Graham–Pollak, Graham–Lovász inverse); AI review of `1bb2bbe`, no gap found. |
+| S4 | If the polynomial `r_A` has a non-negative half-gamma expansion, the coefficient of `c^A` in `d_m − d_{m−1}` is `≥ 0` for every order `n ≥ 2s`. | Proved; AI review of `1bb2bbe`, no gap found. |
+| S6, S7 | `r_A = (s−1) x det(I − KG)` with matrices of size `|Ā| + 1`; `r_A = Φ_B [a(1+x) + (3 + 3H − 2e_B)x] − x² zᵀ adj(I + xL_B) z`, `B = Ā`, `Φ_B = det(I + xL_B)`. So `r_A` depends only on `s` and `L[Ā, Ā]` (locality, for every tree and subset). | Proved; AI review of `1805bca`, no gap found; checked exactly on the 47 trees (7,820 subsets). |
+| S8, S9 | Closed forms of `r_A` for one and for two missing vertices, with positive half-gamma coefficients: the requirement of Γ for `|Ā| ≤ 2`, every tree. | Proved; AI review of `1805bca`, no gap found. |
+| C | A non-negative combination of `x^e(1+x)^j`, `e + j ≤ d`, `2e + j ≥ d` (the cone `C_d`), has a non-negative half-gamma expansion of degree `d`. | Proved; AI review of `1805bca`, no gap found. |
+| S10 | If `Ā` is a non-empty independent set: an explicit decomposition of `r_A` in `C_{t+1}`, using `a − H ≥ 1`. **The requirement of Γ holds for every tree and every `A` with independent complement.** | Proved; AI review of `1805bca`, no gap found. |
+| F, F′ | `det(I + x(L_T + diag ν)) ∈ C_j` for a tree on `j` vertices and integer `ν ≥ 0`, `ν ≠ 0`; hence `Φ_B ∈ C_t` and the positive term of S7 is in `C_{t+1}` whenever `1 ≤ |A| ≤ s − 1`. | Proved; AI review of `5622d19` (no gap in this statement), recheck of the revision `7acd425`. |
+| S11 | Contracting the components of `S[A]`: `r_A^S = r_{A′}^{S′} + (a − a′)(1+x)Φ_B`. So Γ⁺ (Γ with `|A| ≥ 1`) for all trees follows from its case `A` independent. | Proved; AI review of `5622d19` (no gap in this statement), recheck of the revision `7acd425`. |
 | Γ, finite | Property Γ holds for the 47 trees with 2 to 8 vertices; hence Hypothesis V for those skeletons and **every** order. | Computer-assisted (S4 and exact expansions), not reviewed. |
 
 ### Global identifiers
@@ -100,9 +111,12 @@ Statuses are in the registry and in [`research/INDEX.md`](../../INDEX.md).
 | T1, T2, T3 | MD-0006, MD-0007, MD-0008 | theorems (candidates) |
 | Hypothesis V | MD-0009 | conjecture |
 | Conjecture Γ | MD-0010 | conjecture |
+| S6 to S10, Lemma C | MD-0011 | theorem (candidate) |
+| Lemma F, F′, S11 | MD-0012 | structural result (candidate) |
 
 Not registered: R1, L2, L4 and S1 to S4 are tools or steps (S3 and S4 are the
-evidence of MD-0010); E1 reproduces a published verification; Q1, Q2 are
+evidence of MD-0010); Γ⁺ (the extension of Γ to `|A| = 1`) is an observation on
+the 47 small trees, recorded under MD-0012; E1 reproduces a published verification; Q1, Q2 are
 questions.
 
 ## Conjectures and hypotheses of this investigation
@@ -116,6 +130,15 @@ non-negative combination of `x^e (1+x)^{d−2e}` (`2e < d`) and `x^e`
 
 - True for `A = V` and every tree (S3: `r_V = s(1+x) + 3x`). Verified exactly
   for every subset of the 47 trees with 2 to 8 vertices.
+- **Session 6 (MD-0011): true for every tree and every `A` whose complement
+  is independent (S10) or has at most two vertices (S8, S9).** For a star
+  skeleton this covers every `A` containing the centre.
+- **Session 6 (MD-0012): reduced to `A` independent**, provided the statement
+  is extended to `|A| = 1` (Γ⁺; exact on the 47 trees, 325 subsets with one
+  element). Remaining case: `A` independent and at least one edge inside
+  `V ∖ A`. In the form of S7 the positive term is always in `C_{t+1}` (F′);
+  the conjecture is about absorbing `−x² zᵀ adj(I + xL_B) z`, and S10 shows
+  that the absorption uses a tree inequality (`a − H ≥ 1`), not only algebra.
 - It does not depend on the order `n` nor on the leaf numbers.
 - If true for `S`: Hypothesis V for `S` and every order (S4), and by L4, for
   every tree `S(c)` with `n ≥ 2s`,
@@ -191,10 +214,12 @@ minutes.
 ```
 Collins–Shor, lower half  (⇔ d_{m−1} < d_m, by R1 [Lean])
   trees S(c) with at least as many leaves as non-leaf vertices (n ≥ 2s):
-    ⇐ S1 (closed form)                               [proved, unreviewed]
+    ⇐ S1 (closed form)                               [proved, AI-reviewed]
     ⇐ L4 (vertex principle)                          [proved, unreviewed; core in Lean]
-    ⇐ S4 + Property Γ for the skeleton S             [Γ: all 47 skeletons with s ≤ 8, computer-assisted;
-                                                      conjecture in general (MD-0010); A = V proved (S3)]
+    ⇐ S4 [AI-reviewed] + Property Γ for the skeleton S [conjecture in general (MD-0010)]
+        Γ for A with V∖A independent or |V∖A| ≤ 2     [proved for every tree, AI-reviewed (MD-0011)]
+        Γ⁺ ⇐ Γ⁺ for A independent                     [S11 (MD-0012)]
+        Γ for A independent, an edge inside V∖A       [OPEN; all 47 skeletons with s ≤ 8 by computation]
     ⇐ d_{m−1} < d_m for "skeleton plus one star"     [OPEN in general; s ≤ 3 paths done (T1 to T3)]
   trees with fewer leaves than non-leaf vertices     [OPEN; no approach]
   special cases with complete candidate proofs, both halves, peak exactly m:
@@ -227,6 +252,13 @@ Collins–Shor, upper half
   S1 to S4 are its supporting lemmas and are not registered separately. No
   adversarial review was run in session 5: the budget went to the mathematics,
   the literature audit and the formalization.
+- 2026-11-26 (session 6). The results of the session are written in two new
+  notes, so that `notes/skeleton-identity.md` and then
+  `notes/skeleton-locality.md` stay byte-identical to the revisions that were
+  reviewed; the defects listed by the reviews are left for one revision per
+  file, followed by a recheck. MD-0011 and MD-0012 are registered as
+  candidates (`candidate-proof`); nothing was promoted. The statement of
+  MD-0010 is unchanged; Γ⁺ is not registered as a conjecture of its own.
 - Earlier decisions (budget overrun of session 1, widening of O1, deferral of
   the rerun of orders 21 to 23) are in the journal.
 
@@ -236,19 +268,35 @@ Details and history: [`notes/obligations.md`](notes/obligations.md).
 
 1. **Literature.** Session 5 found the closed formulas of T1 and T3, and the
    balanced case of T2, in print (see Sources); T1 to T3 must cite them, and
-   Lemma D1 is to be recorded as known. Still unread: Collins 1989 and 1993
-   ("Factoring distance matrix polynomials", which treats double stars —
-   first priority), the Discrete Appl. Math. 2019 paper of do Nascimento,
-   Del-Vecchio and de Freitas, pages 16 to 37 and 50 to 77 of the 2018 thesis,
-   Graham–Lovász pp. 68–79; no search of MathSciNet, zbMATH, Google Scholar.
+   Lemma D1 is to be recorded as known. Session 6 read Collins 1993 in the
+   author's manuscript (no peak statement, no subset expansion; only the
+   balanced double star, with a formula that fails as printed there — see the
+   dossier) and thesis pages 14 to 38 (nothing on the peak). L3 and S1 must
+   cite Collins 1993, Corollary 7. Still unread: the Discrete Appl. Math. 2019
+   paper (the publisher refused automated access; a person can probably open
+   it: DOI `10.1016/j.dam.2018.10.018`), the published version of Collins
+   1993, Collins 1989, thesis pages 1–3, 6–11, 50–77, Graham–Lovász
+   pp. 68–79; no search of MathSciNet, zbMATH, Google Scholar; **no search at
+   all for the statements of session 6** (MD-0011, MD-0012).
 2. **T1, T2, T3: one revision of the three notes** (citations of the published
    formulas; defects E3 to E5 of the review of T3; the last wording changes of
    T1 and T2, which no one but the author has checked), followed by one
    recheck. A human reader, or a different vendor's model, before any
    promotion.
-3. **Session 5 is unreviewed**: S1 to S4, the Γ computation, and L4. An
-   independent review of `notes/skeleton-identity.md` and of
-   `skeleton_structure.py` comes before anything is built on them.
+3. **Reviews of sessions 5 and 6.** S1 to S4 (`1bb2bbe`), S6 to S10 with
+   Lemma C (`1805bca`), Lemma F, F′ and S11 (`5622d19`; one paragraph of the note had a gap, repaired and rechecked at `7acd425`): AI reviews, no gap found; reports under
+   `reviews/`. Owed: (a) one revision of `notes/skeleton-identity.md` for the
+   four defects of its review (the degree bound of `r_A` needs its one-line
+   cofactor argument; `γ_A` at `x = 0`; `M_A` used for two matrices; `p_∅`),
+   and one of `notes/skeleton-locality.md` (the count 1,011 should be 1,010
+   for S9 as stated; "Property Γ" used for one subset; the remark "has to use
+   the tree"; a redundant proviso), each followed by a recheck
+   (`notes/gamma-reduction.md` was already revised and rechecked; two trivial
+   defects of wording remain in it); (b) still
+   unreviewed: L4, Corollary S5, `skeleton_structure.py` and the Γ
+   computation; (c) a human reader, or a model of another vendor,
+   before any promotion; (d) the two classical formulas (Graham–Pollak,
+   Graham–Lovász inverse) have not been compared with the printed papers.
 4. **E2** (orders 21 to 23): independent recomputation, about 34 minutes,
    needs the director's approval of the budget. MD-0001 stays `partial-result`.
 5. Comparison of the code with Table II of Graham–Lovász (cheap, not done).
@@ -263,10 +311,12 @@ Details and history: [`notes/obligations.md`](notes/obligations.md).
 
 ## Remaining obstacles
 
-- Conjecture Γ has no proof and no conceptual explanation beyond `A = V`. The
-  reformulation through `P^{−1} = −L/2 + ττᵀ/(2(s−1))` and forest
-  polynomials (remark in `notes/skeleton-identity.md`) is a direction, not a
-  result.
+- Conjecture Γ is proved only when `V ∖ A` is independent or has at most two
+  vertices. When `V ∖ A` contains edges, `Φ_B` and `adj(I + xL_B)` are sums
+  over rooted spanning forests of `S[B]`, and the termwise weight count of
+  S10 fails (a vertex of `B` with no neighbour in `A` gives a factor of
+  weight 0 when it is an isolated root); S9 with adjacent vertices was done by
+  explicit inequalities, not by a grouping that generalizes.
 - Even with Γ, the trees "skeleton plus one star" must be handled, uniformly
   in the skeleton; and trees with few leaves are out of reach of the closed
   form.
@@ -275,29 +325,30 @@ Details and history: [`notes/obligations.md`](notes/obligations.md).
 
 ## Next step
 
-**Objective O5.** Property Γ for subsets missing one vertex. For a tree `S`
-on `s` vertices, a vertex `w` and `A = V ∖ {w}` (`d = 2`): compute
-`r_A(x) = ρ_0 (1+x)² + σ_1 x + σ_2 x²` in closed form and decide whether
-`ρ_0, σ_1, σ_2 ≥ 0` for every tree.
+**Objective O6.** Property Γ⁺ for `A` independent and `S[B]` a single edge
+plus isolated vertices of `B` (the smallest case not covered by S10), in the
+cone form: with the notation of `notes/gamma-reduction.md`, show
 
-How: `r_A = −2^{2−s} x det(2x e_w e_wᵀ − M)`, `M = P + 1_A1ᵀ + 11_Aᵀ + ((s−1)/2x)J`,
-so `det = det(−M) + 2x det(−M[V∖w])`. `M` is `P` plus a matrix of rank at most
-2 in the span of `1` and `e_w`; with `P^{−1} = −L/2 + ττᵀ/(2(s−1))`
-everything reduces to `(P^{−1})_{ww} = −deg(w)/2 + τ_w²/(2(s−1))`,
-`P^{−1}1 = τ/(s−1)` and `det P`. The expected outcome is a formula in `s`
-and `deg(w)` only; compare it with the expansions stored by
-`skeleton_structure.py` (extend its output to print `(ρ, σ)` for these
-subsets) before writing any proof. If the formula is non-negative, this is the
-second layer of Γ proved for all trees, and it shows what the induction on
-`|Ā|` would have to carry.
+`Φ_B [a(1+x) + (3 + 3H − 2e_B)x] − x² zᵀ adj(I + xL_B) z ∈ C_{t+1}`
 
-Falsification test: the stored expansions for the 47 trees with 2 to 8 vertices — the closed form
-must reproduce every one of them.
+by an explicit grouping, as in the proof of S10, and not by inequalities on
+coefficients as in S9. Data: `B = {u, w} ∪ B_0`, `u ~ w`, `B_0` independent
+and not adjacent to `u, w`; `L_B` is block diagonal, so `Φ_B` and the adjugate
+factor through the `2 × 2` block `[[1 + g_u x, −x], [−x, 1 + g_w x]]`; `A`
+independent gives `a = Σ_B ν_w − c + 1`, `c` the number of components of
+`S[B]` (S11). First step: redo S9 with `ε = 1` and `a = g_u + g_w − 2` in this
+form and find which terms of the positive part absorb `x² zᵀ adj z`; the
+identity `Φ(T, ν) = (1 + (1 + ν_w)x)Φ(T − w, ν) + x(1 + ν_w x)Ψ` of Lemma F is
+the candidate tool for an induction on the leaves of `S[B]`, which would need
+a companion identity for `adj(I + xL_B)`.
 
-In parallel, as cheap exact computations: the trees "skeleton plus one star"
-as polynomials in `m` for the 47 skeletons (a finite check that would give the
-lower half for every tree with at most 8 non-leaf vertices and at least 16
-vertices, given Γ and L4); extend Γ to `s = 9, 10`.
+Falsification test: `gamma_pieces.py` already confirms Γ⁺ on the 47 trees; a
+proposed grouping must reproduce `r_A` exactly on them before it is written
+up (extend `locality_check.py`).
+
+Cheap exact computations that remain: Γ⁺ for `s = 9, 10`; whether
+`zᵀ adj(I + xL_B) z` has non-negative coefficients in general (true on the 47
+trees); the trees "skeleton plus one star" as polynomials in `m`.
 
 Owed first by default: obligations 1 to 3.
 
@@ -308,7 +359,8 @@ Owed first by default: obligations 1 to 3.
 - L. Hogben, C. Reinhart, arXiv:2103.00647 — pp. 5–12 read.
 - A. Abiad et al., arXiv:2206.07561; R. Jana et al., arXiv:2407.03309 — read in full.
 - J. Xue, R. Liu, H. Jia, Filomat 30:6 (2016) 1559–1565 — read in full (session 5): Lemma 2.3, the distance characteristic polynomial of the double star.
-- J. S. do Nascimento, D.Sc. thesis, COPPE/UFRJ 2018 — pp. vi–ix, 4–5, 12–15, 38–49, 78–79 read (session 5): Props. 3.2.1, 3.2.6, 3.2.9.
-- J. S. do Nascimento, R. R. Del-Vecchio, M. A. A. de Freitas, Discrete Appl. Math. 266 (2019) 141–152 — not read.
-- K. L. Collins, Discrete Appl. Math. 25 (1989) 27–35 and Discrete Math. 122 (1993) 103–112 — not accessible; second-hand only.
+- J. S. do Nascimento, D.Sc. thesis, COPPE/UFRJ 2018 — pp. vi–ix, 4–5, 12–49, 78–79 read (sessions 5 and 6): Props. 3.2.1, 3.2.6, 3.2.9; Section 3.1 (multiplicity of −2, number of distinct eigenvalues).
+- J. S. do Nascimento, R. R. Del-Vecchio, M. A. A. de Freitas, Discrete Appl. Math. 266 (2019) 141–152 — not read (not accessible in session 6; DOI `10.1016/j.dam.2018.10.018`).
+- K. L. Collins, Factoring distance matrix polynomials, Discrete Math. 122 (1993) 103–112 — read in full in the author's manuscript (9 pages, supplied by the director, kept outside the repository; session 6); the published version not seen.
+- K. L. Collins, Discrete Appl. Math. 25 (1989) 27–35 — not accessible; second-hand only.
 - Full list with access notes: the dossier.
