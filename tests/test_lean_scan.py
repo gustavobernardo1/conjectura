@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import verify_lean
 
@@ -53,3 +54,25 @@ def test_latest_passing_receipt_matches_current_sources(root):
         for path in verify_lean.tracked_inputs(receipt["module"])
     }
     assert recorded == current, "verified inputs changed since the latest receipt"
+
+
+def test_receipts_contain_no_machine_specific_paths(root):
+    home = Path.home()
+    for receipt in (root / "verification" / "receipts").glob("*.json"):
+        text = receipt.read_text(encoding="utf-8")
+        for location in (home, root):
+            # Paths appear JSON-escaped inside a receipt.
+            assert str(location).replace("\\", "\\\\") not in text, f"{receipt.name} records {location}"
+            assert location.as_posix() not in text, f"{receipt.name} records {location}"
+
+
+def test_recorded_command_lines_are_portable(root):
+    lake = str(Path.home() / ".elan" / "bin" / "lake.exe")
+    audit = str(root / "formalization" / ".lake" / "conjectura-audit" / "Audit_Conjectura.lean")
+    assert verify_lean.portable([lake, "env", "lean", audit]) == [
+        "lake",
+        "env",
+        "lean",
+        "formalization/.lake/conjectura-audit/Audit_Conjectura.lean",
+    ]
+    assert str(Path.home()) not in verify_lean.portable_text(f"error in {lake}")

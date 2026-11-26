@@ -138,13 +138,35 @@ def run(argv: list[str], report: Report, timeout: int = 3600) -> subprocess.Comp
             argv, cwd=LAKE_DIR, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=timeout
         )
     except (OSError, subprocess.TimeoutExpired) as error:
-        report.commands.append(Command(argv, None, round(time.monotonic() - started, 1), repr(error)))
+        report.commands.append(Command(portable(argv), None, round(time.monotonic() - started, 1), portable_text(repr(error))))
         return None
     combined = (completed.stdout or "") + (completed.stderr or "")
     # Keep the tail without the (long) JSON audit payload.
     tail = "\n".join(line for line in combined.splitlines() if not line.startswith("[{"))[-2000:]
-    report.commands.append(Command(argv, completed.returncode, round(time.monotonic() - started, 1), tail))
+    report.commands.append(Command(portable(argv), completed.returncode, round(time.monotonic() - started, 1), portable_text(tail)))
     return completed
+
+
+def portable(argv: list[str]) -> list[str]:
+    """Command line as recorded in receipts: no machine-specific absolute paths."""
+    recorded = []
+    for argument in argv:
+        path = Path(argument)
+        if path.is_absolute():
+            try:
+                argument = path.resolve().relative_to(ROOT).as_posix()
+            except ValueError:
+                argument = path.stem if path.suffix.lower() == ".exe" else path.name
+        recorded.append(argument)
+    return recorded
+
+
+def portable_text(text: str) -> str:
+    """Remove the repository location and the home directory from captured output."""
+    home = Path.home()
+    for location, replacement in ((str(ROOT), "<repo>"), (ROOT.as_posix(), "<repo>"), (str(home), "~"), (home.as_posix(), "~")):
+        text = text.replace(location, replacement)
+    return text
 
 
 def sha256_text_file(path: Path) -> str:
