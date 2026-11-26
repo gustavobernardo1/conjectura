@@ -453,3 +453,137 @@ diameter 4), together with the corrections of obligation 8.
   `STATE.md` at the end of session 3.
 - **Deferred obligations:** obligations 1, 3, 4, 5 and 7 of `STATE.md` are not
   addressed (obligation 7, formalization, only by the one lemma above).
+
+### What was done
+
+All computations are exact (integers and integer polynomials).
+
+Before the research (same day, recorded here because it changed files of the
+investigation): the presentation defects found by the reviews of T1 and T2 were
+corrected (`1c38662`); an independent recheck of that revision by
+`claude-opus-5-5` found no change to the mathematics, both earlier verdicts
+still applicable, and several wrong or loose new sentences, which were
+corrected (`30fc1e1`); the infrastructure was promoted to `main` (`dc84a3a`,
+receipt `f7cca69`), `main` was merged back (`cda133c`), and both branches were
+pushed with the director's authorization.
+
+Focused part (O3):
+
+1. Falsification test: the formula of Lemma C1 at `b = 0` against the direct
+   determinant, with the location of the maximum, for all 399 trees with
+   `3 ≤ a + c ≤ 40`: equal, maximum at `⌊n/2⌋` only. `H(m, n−3)` computed
+   symbolically in the four cases: positive coefficients in `t = m − 3`.
+2. Proof written: `notes/diameter4-caterpillars.md` (Theorem T3, Lemma C1′,
+   corollary). Script `diameter4.py`, test
+   `test_diameter4_caterpillars_without_central_leaf`. Committed as `d2eb9ac`.
+3. `diameter4.py` on the clean tree at `d1d6d7c`: 89,999 trees with
+   `a + c ≤ 600`, 0 failures; 402 direct determinants; 31.0 s.
+4. Independent review of `d2eb9ac` by the `adversarial-reviewer` subagent on
+   `claude-opus-5-5`: `reviews/2026-11-26-claude-opus-5-5-T3.md`.
+
+Exploration part (general spine length):
+
+5. `mixed_partials.py`: the `g_j` for `2 ≤ s ≤ 8` by interpolation, validated
+   against the direct determinant (9, 35, 139, 555, 258, 753 and 2,208 small
+   caterpillars for `s = 2, …, 8`, empty inner classes included); the
+   certificate for the mixed second partials of `d_m − d_{m−1}` for every
+   order from `2s` to 200, on both domains; the values at the vertices of each
+   slice; the same for `d_m − d_{m+1}`. Clean tree at `d1d6d7c`, 45.7 s.
+6. `mixed_partials_s3.py`: for three spine vertices, the mixed partials and the
+   vertex values as polynomials in `m`.
+7. One inline computation, then added to `mixed_partials.py` and to the tests:
+   in which `g_j` the product of all leaf numbers occurs.
+8. Notes: `notes/vertex-principle.md`.
+
+Formalization:
+
+9. `formalization-agent` subagent (model `claude-fable-5-2`): the general form
+   of R1 in Lean, `Conjectura/Research/CollinsShorPeak/LogConcavePeak.lean`,
+   four theorems registered. Its report: about 14 minutes, 2 pipeline runs and
+   the Lean test suite; all proofs compiled on the first attempt.
+10. `uv run python scripts/verify_lean.py` on the clean tree at `abe4a38`:
+    all six checks passed, the new module replayed by the kernel; receipt
+    `verification/receipts/20261126T103507Z-abe4a38f30-passed.json`.
+11. `uv run pytest`, `scripts/catalogue.py validate` and `render`: results in
+    the commit that contains this entry.
+
+### Findings
+
+- **T3 (candidate proof, AI-reviewed, MD-0008).** For `a, c ≥ 1`, `a + c ≥ 3`,
+  the only maximizing index of `K(a,0,c)` is `⌊n/2⌋`. Review verdict "no gap
+  found within stated scope"; the reviewer rebuilt Lemma C1′ by hand and
+  recomputed the identities at `b = 0` with its own code. With T2 and `P_5`:
+  every caterpillar of diameter 4, conditional on T2. Not read by a
+  mathematician; no literature audit.
+- **L4 (proved here, unreviewed).** The vertex principle for multi-affine
+  functions with non-negative mixed second partials.
+- **Hypothesis V (conjecture, MD-0009).** Non-negativity of the mixed second
+  partials of `D_n`. Exact evidence: certificate with 0 failures for
+  `2 ≤ s ≤ 8`, orders up to 200. For `s = 3` and every order it is an explicit
+  computer-assisted identity (unreviewed), which with L4 reproduces the lower
+  inequalities of T2 and T3.
+- **Observation, uniform in `s`.** For `2 ≤ s ≤ 8` the product `c_1 ⋯ c_s`
+  occurs only in `g_{s−1}` and `g_s`, with coefficients `s` and `s + 3`; its
+  coefficient in `D_n` is then `3·C(2k,k)/(k+1)` (even order) or
+  `(2s+6)·C(2k+1,k+1)/(k+2)` (odd order), `k = m − s`.
+- **The upper difference does not follow the pattern**: certificate failures
+  from `s = 4`, and vertex trees with `d_{m+1} ≥ d_m` from `s = 6`.
+- **Lean.** The general form of R1 is formally proved (axioms: `propext`,
+  `Classical.choice`, `Quot.sound`). It is a lemma about sequences.
+
+### What failed
+
+- The first revision of the notes of T1 and T2 introduced new errors (a false
+  statement about where a phrase is used, a wrong count, an inaccurate
+  description of a check), found by the recheck. A revision made to correct
+  presentation needs the same care as the proof.
+- `results/diameter4.json` and `results/mixed-partials.json` were first
+  produced on an unclean tree (another agent's uncommitted files, and one of
+  the two result files itself); they were discarded and produced again at
+  `d1d6d7c`. The reviewer of T3 saw the discarded copy and recorded it (E2).
+- The first version of `mixed_partials.py` validated the closed form for
+  `s = 8` on a single tree; widened to 2,208 before the result file was made.
+- The review of T3 found six defects of record and presentation (E1 to E6),
+  listed in `STATE.md`, obligation 9. The notes are left as reviewed.
+- Push events do not start the CI workflow on this repository; the runs
+  inspected after the publication were started by hand (`workflow_dispatch`).
+- `STATE.md` is now about 480 lines, above the 400 it aims for. It needs
+  compacting (the long obligations could move to a note).
+- Not done: the hand derivation or review of the `s = 3` identities; `s = 4`;
+  any proof of the top-coefficient pattern; a literature audit; obligations 1,
+  3, 4 and 5.
+- Budget: the work of this entry, with the publication tasks before it,
+  exceeded 60 minutes of agent time by a wide margin (three review or recheck
+  subagents of about 15 minutes each, one formalization subagent of 14
+  minutes, two full Lean verifications and three full test runs); the
+  duration was not measured. Research computation stayed under 5 minutes.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author, formalization subagent); `claude-opus-5-5` (recheck and review, separate contexts) |
+| Computation wall-clock | research: about 3 minutes (45.7 s and 31.0 s for the result files, repeated once; short trial runs); Lean verification about 5 minutes per run (two runs); full test suite 6 to 7 minutes per run |
+| Recheck of T1 and T2, as reported by the environment | 199,837 subagent tokens, 48 tool calls, about 17 minutes |
+| Review of T3, as reported by the environment | 181,173 subagent tokens, 41 tool calls, about 14 minutes |
+| Formalization, as reported by the environment | 73,115 subagent tokens, 27 tool calls, about 15 minutes |
+| Token usage of the main session | unavailable |
+| Research iterations | 1 objective (O3), 1 approach; 1 exploration |
+| Proof attempts | 1 (T3), reviewed once; L4 (unreviewed) |
+| Counterexamples found | 0 |
+| Formalization attempts | 1 (general form of R1), successful |
+| Successful verifications | 100 tests in `tests/test_cj0001_distpoly.py`; 89,999 trees `K(a,0,c)` checked exactly; the certificate for 7 spine lengths and orders up to 200; independent recomputation by the reviewer; Lean pipeline passed with receipt |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable: a candidate proof for the caterpillars `K(a,0,c)` with an independent
+AI review (MD-0008), which with T2 covers every caterpillar of diameter 4; a
+mechanism that explains the three proofs obtained so far and is supported by
+exact computation for up to eight spine vertices (Lemma L4 and Hypothesis V,
+MD-0009); one statement of the same form for every spine length (the top
+coefficient, an observation); and the first Lean lemma of the investigation.
+The mathematical status of CJ-0001 is unchanged (`active-investigation`); its
+formal status is `partial`, with the scope stated in `STATE.md`. Next:
+objective O4 in `STATE.md` (four spine vertices), after or together with the
+obligations 8 to 10.

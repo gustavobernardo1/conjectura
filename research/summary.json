@@ -8,7 +8,7 @@
       "name": "Collins–Shor conjecture on the peak of the distance characteristic polynomial of a tree",
       "status": {
         "mathematical": "active-investigation",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
@@ -23,7 +23,7 @@
     "name": "Collins–Shor conjecture on the peak of the distance characteristic polynomial of a tree",
     "status": {
       "mathematical": "active-investigation",
-      "formal": "not-started",
+      "formal": "partial",
       "novelty": "preliminary-search-completed",
       "external_review": "not-reviewed"
     },
@@ -115,7 +115,7 @@
         "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0001-collins-shor-peak.md",
         "status": {
           "mathematical": "active-investigation",
-          "formal": "not-started",
+          "formal": "partial",
           "novelty": "preliminary-search-completed",
           "external_review": "not-reviewed"
         }
@@ -127,7 +127,7 @@
       "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0001-collins-shor-peak.md",
       "status": {
         "mathematical": "active-investigation",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       }
@@ -208,10 +208,10 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "d1d6d7c0a09e7f376e5f0ee9d48306064104cad5",
+    "revision": "abe4a38f30e96a7680b985258234e81d247c0204",
     "sources_committed": false,
     "sources": {
-      "research/catalogue.json": "23afc1f259224590e5f0eea346418241bc68a497",
+      "research/catalogue.json": "11b8c3027ae4079ac6e61130ac996a5c5cc4fefe",
       "research/discoveries.json": "b4c433c7445cad9b9ea3de54270ef61b7b1c18b4",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "b5f1e6fa2575acfcb93e60aad71fc8e8f4791df6"

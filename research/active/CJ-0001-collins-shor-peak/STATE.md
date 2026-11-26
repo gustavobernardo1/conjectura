@@ -1,10 +1,13 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-26 (session 3). This file is the current truth about the
+Last updated: 2026-11-26 (session 4). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
 continue. Proofs are in [`notes/lemmas.md`](notes/lemmas.md),
-[`notes/double-stars.md`](notes/double-stars.md) and
-[`notes/spine3.md`](notes/spine3.md); computations are
+[`notes/double-stars.md`](notes/double-stars.md),
+[`notes/spine3.md`](notes/spine3.md) and
+[`notes/diameter4-caterpillars.md`](notes/diameter4-caterpillars.md); the
+exploration of a general mechanism is in
+[`notes/vertex-principle.md`](notes/vertex-principle.md); computations are
 in [`experiments/CJ-0001-collins-shor-peak/`](../../../experiments/CJ-0001-collins-shor-peak/README.md);
 the literature record is the dossier
 [`research/candidates/CJ-0001-collins-shor-peak.md`](../../candidates/CJ-0001-collins-shor-peak.md).
@@ -46,7 +49,7 @@ of the source). Only the location of the peak is open.
 
 ## Status
 
-Mathematical: `active-investigation`. Formal: `not-started`. Novelty:
+Mathematical: `active-investigation`. Formal: `partial`. Novelty:
 `preliminary-search-completed`. External review: `not-reviewed`.
 
 Nothing in this file is a claimed result of the project. Novelty of every
@@ -78,6 +81,16 @@ Session 3 produced a candidate proof of the conjecture for the caterpillars
 no gap found within stated scope. It is an AI review by a model of the same
 vendor. The catalogue status is unchanged.
 
+Session 4 produced a candidate proof for the caterpillars `K(a,0,c)` (T3,
+MD-0008), reviewed at `d2eb9ac` by `claude-opus-5-5`
+([`reviews/2026-11-26-claude-opus-5-5-T3.md`](reviews/2026-11-26-claude-opus-5-5-T3.md),
+no gap found within stated scope); an exploration of a mechanism for any
+spine length (Lemma L4 and Hypothesis V, MD-0009, a conjecture); and the
+first Lean formalization for this problem (the general form of R1). The
+formal status of CJ-0001 is `partial`: only that lemma about sequences is
+formalized, nothing about trees. By the director's decision of 2026-11-26,
+T1, T2 and T3 stay candidate theorems.
+
 ## Established results
 
 | ID | Statement | Level | Evidence |
@@ -92,12 +105,15 @@ vendor. The catalogue status is unchanged.
 | L3 | Caterpillar with spine length `s` and all `c_i ≥ 1`: `det(xI − D) = (x+2)^{n−2s} det(xI − Q)` for an explicit `2s × 2s` matrix `Q`. | **Known:** a direct special case of Theorem 3.3 of Hogben–Reinhart, arXiv:2103.00647 (twin partitions), found by the literature audit of session 2. Proved here (equitable partition); every coefficient checked exactly against the direct computation on ten caterpillars. AI review of `e34acfc`: no gap found. | `notes/lemmas.md`, `near_star_families.py`, dossier |
 | T1 | Double star `S(a,b)`, `a, b ≥ 1`, `n = a+b+2`, `m = ⌊n/2⌋`: `d_{m−1} < d_m`, and `d_{m+1} < d_m` when `m+1 ≤ n−2`. Hence `m` is the only maximizing index and the conjecture holds for every tree of diameter 3. With `t = ab`: for `n = 2m`, `(m−1)m(m+1)(d_m − d_{m−1}) = C(2m−4, m−2)[3t m(m+1) + 2(2m−1)(2m−3)(3m−5)]`; for `n = 2m+1`, `m(m+1)(m+2)(d_m − d_{m−1}) = C(2m−3, m−1)[10t(m+1)(m+2) + 16m(2m−1)(2m+1)]`. | **Candidate proof**, written in session 2, from L3 with `s = 2` and Theorem 2.1 of the source. Closed forms and inequalities checked exactly on all 10,000 double stars with `a + b ≤ 200`; whole sequences against the direct determinant on 404 of them. AI review of `5e5ef14` (same model family, fresh context): no gap found within stated scope; eight minor discrepancies of presentation. Novelty: no earlier statement found within a bounded search; Collins (1989) not read. | `notes/double-stars.md`, `results/double-stars.json`, `double_stars.py`, tests |
 | T2 | Caterpillar `K(a,b,c)`: spine `v_1 v_2 v_3` carrying `a, b, c ≥ 1` leaves, `n = a+b+c+3 ≥ 6`, `m = ⌊n/2⌋`: `d_{m−1} < d_m` and `d_{m+1} < d_m`. Hence `m` is the only maximizing index and the conjecture holds for every caterpillar of diameter 4 whose central vertex carries a leaf. With `u = a+c`, `v = ac`, each of the four differences (two parities, two sides) is a positive factor times `vK(m,u) + R(m,u)` with `K > 0`; the minimum over the family is at `v = u−1` and, by concavity in `u`, at `K(1, n−5, 1)` or `K(1, 1, n−5)`. | **Candidate proof**, written in session 3, from L3 with `s = 3`, Fact 1.1 and Theorem 2.1 of the source. Two steps (the `6 × 6` determinant and the reduction to `vK + R`) are computer-assisted polynomial identities. Identities and inequalities checked exactly on all 2,238,725 such caterpillars with `a+b+c ≤ 300` (from the closed form); whole sequences against the direct determinant on 621. AI review of `74cb5bb` (`claude-opus-5-5`, fresh context): no gap found within stated scope; both computer-assisted steps recomputed with the reviewer's code from distance matrices; eight defects of record and presentation. Novelty: nothing found in a small bounded search. | `notes/spine3.md`, `results/spine3.json`, `spine3.py`, tests |
+| T3 | Caterpillar `K(a,0,c)`: spine `v_1 v_2 v_3`, `a, c ≥ 1` leaves at `v_1`, `v_3`, none at `v_2`, `a + c ≥ 3`, `n = a+c+3 ≥ 6`, `m = ⌊n/2⌋`: `d_{m−1} < d_m` and `d_{m+1} < d_m`. Corollary, conditional on T2: for every caterpillar of diameter 4 (`K(a,b,c)` with `a, c ≥ 1`, `b ≥ 0`; `P_5` by direct computation) the only maximizing index is `⌊n/2⌋`. | **Candidate proof**, written in session 4: the formula of Lemma C1 of `spine3.md` stays valid at `b = 0` for `n ≥ 6` (Lemma C1′), the identities of Lemma C2 hold with `u = n−3`, and `K > 0`, `H > 0` there. Relies on the computer-assisted identities of `spine3.md`. Formula against the direct determinant on 402 trees; identities and inequalities on all 89,999 trees with `a+c ≤ 600`. AI review of `d2eb9ac` (`claude-opus-5-5`, fresh context): no gap found within stated scope; six defects of record and presentation. Novelty: nothing found in a small bounded search. | `notes/diameter4-caterpillars.md`, `results/diameter4.json`, `diameter4.py`, tests |
+| L4 | Vertex principle: a polynomial of degree at most 1 in each variable whose mixed second partials are non-negative on `x ≥ λ` attains its minimum over the integer points `c ≥ λ` with a given coordinate sum at a point with a single coordinate above its lower bound. | Proved here (short induction; concavity along `e_i − e_k`). Not reviewed. Elementary; novelty not examined. | `notes/vertex-principle.md` |
+| R1 (general form), formal | For a positive log-concave sequence `a_0, …, a_r` and `1 ≤ j ≤ r`: every maximizing index is `≥ j` if and only if `a_{j−1} < a_j`. | **Formalized in Lean 4** (four registered theorems, a non-vacuity witness; axioms `propext`, `Classical.choice`, `Quot.sound` only). The comparison of the Lean statement with the written one was made by the formalizing agent and by the session's author, not by an independent reviewer. A lemma about sequences: positivity and log-concavity of the `d_k` are not formalized. | `formalization/Conjectura/Research/CollinsShorPeak/LogConcavePeak.lean`, `formalization/registry.json`, the latest receipt under `verification/receipts/` |
 
 Result files are under `experiments/CJ-0001-collins-shor-peak/results/`.
 
 ### Global identifiers
 
-Seven findings are registered as contributions in
+Nine findings are registered as contributions in
 [`research/discoveries.json`](../../discoveries.json). The local identifiers
 keep their meaning. An `MD` identifier establishes identity only: the status of
 each record (mathematical, formal, novelty, review) is in the registry and in
@@ -112,13 +128,18 @@ each record (mathematical, formal, novelty, review) is in the registry and in
 | A(ii) | MD-0005 | conjecture |
 | T1 | MD-0006 | theorem |
 | T2 | MD-0007 | theorem |
+| T3 | MD-0008 | theorem |
+| Hypothesis V | MD-0009 | conjecture |
 
 Not registered, and why: E1 alone reproduces a published verification; E4 is a
 pattern of small orders that supports MD-0001; R1 is a routine consequence of
 log-concavity; L2 is known (its formula is in the source); Q1 is an observed
 limit that has not been examined; Q2 is the lower half of the conjecture
 itself, not a separate statement. Hypothesis A(i) has no record of its own:
-the contribution is its refutation.
+the contribution is its refutation. L4 is an elementary lemma used as a tool; the
+corollary of T3 is a consequence of MD-0007, MD-0008 and one direct computation;
+the observation on the top coefficient (below) has not been examined enough to
+be stated as a conjecture.
 
 ## Conjectures and hypotheses of this investigation
 
@@ -139,6 +160,34 @@ which happens at `n = 4`, the upper bound on the peak is vacuous.)
 - The index range matters: the path does not maximize `ρ_k` at every index.
   The set of indices at which it does is recorded for each order in the result
   files (`indices_where_path_maximises_rho`).
+
+**Hypothesis V — open (MD-0009).** For a caterpillar with `s` spine vertices
+and leaf numbers `c = (c_1, …, c_s)`, and a fixed order `n ≥ 2s`, let
+`D_n(c) = Σ_j g_j(c)[C(n−2s, m−j) − C(n−2s, m−1−j)]`, which is multi-affine in
+`c` and equals `d_m − d_{m−1}` on the slice `Σ c_i = n − s`. Hypothesis:
+`∂²D_n/∂c_i∂c_k ≥ 0` for all `i < k` whenever `c_1, c_s ≥ 1` and the inner
+`c_j ≥ 0`. Exact statement, evidence and consequences:
+[`notes/vertex-principle.md`](notes/vertex-principle.md).
+
+- Evidence: a sufficient certificate holds for every pair, `2 ≤ s ≤ 8`, every
+  order from `2s` to 200 (`results/mixed-partials.json`). True for `s = 2`
+  (from T1) and, by a computer-assisted identity checked by
+  `mixed_partials_s3.py` and not reviewed, for `s = 3` and every order.
+- Consequence, if true for a given `s` (by L4, and given the extension of L3
+  to empty leaf classes): the lower inequality `d_{m−1} < d_m` for all
+  caterpillars with `s` spine vertices and at least `s` leaves follows from
+  its validity on the trees obtained from the path `P_{s+2}` by attaching all
+  remaining leaves to one inner vertex — at most `⌈s/2⌉` one-parameter
+  families. In the range computed all these are positive and the minimum is
+  at the middle vertex.
+- For `s = 3` this reproduces the lower inequalities of T2 and T3.
+- The analogous statement for the upper difference `d_m − d_{m+1}` is false
+  from `s = 4` on, and for `s ≥ 6` some of those trees have `d_{m+1} ≥ d_m`.
+- Observation, uniform in `s` (exact for `2 ≤ s ≤ 8`): the product
+  `c_1 ⋯ c_s` occurs only in `g_{s−1}` and `g_s`, with coefficients `s` and
+  `s + 3`; then its coefficient in `D_n` is `3·C(2k,k)/(k+1)` for even order
+  and `(2s+6)·C(2k+1,k+1)/(k+2)` for odd order, `k = m − s`. Not proved for
+  general `s`.
 
 **Question Q1 — open.** For balanced caterpillars with a fixed spine length `s`,
 exact values at `n = 10³, 10⁴, 10⁵, 10⁶` suggest `n (1 − q) → 6/(2s+3)`
@@ -200,10 +249,7 @@ minutes.
   delicate one.
 - For `10 ≤ n ≤ 19` the set of indices at which the star minimizes `ρ_k` over
   all trees is exactly `{0, …, ⌊n/2⌋ − 1}`.
-- Caterpillars of diameter 4 with no leaf at the centre, `K(a,0,c)`: for all
-  169 of them with `a + c ≤ 26` (orders 5 to 29, the path `P_5` included) the
-  only maximizing index is `⌊n/2⌋`. Exact, by the direct determinant, from a
-  one-off exploratory script of session 3 that was not kept; not part of T2.
+- Caterpillars of diameter 4 with no leaf at the centre, `K(a,0,c)`: now T3.
 - Among the `K(a,b,c)` of even order with `a+b+c ≤ 300`, the smallest relative
   margin `1 − d_{m−1}/d_m` recorded by `spine3.py` is `≈ 0.002386` at
   `K(59,180,60)` (order 302). The reviewer of T2 saw `≈ 0.00275` at
@@ -228,8 +274,16 @@ Collins–Shor, lower half
        diameter 3 (double stars): T1 [candidate proof; both halves; ⇐ L3, Theorem 2.1 of the source]
        diameter 4, caterpillars K(a,b,c) with a, b, c ≥ 1: T2 [candidate proof; both halves;
             computer-assisted; ⇐ L3, Fact 1.1 and Theorem 2.1 of the source]
-       diameter 4, caterpillars K(a,0,c): open                     ← next step (O3)
+       diameter 4, caterpillars K(a,0,c), a + c ≥ 3: T3 [candidate proof; both halves;
+            ⇐ Lemmas C1, C2 of spine3.md at b = 0]; P_5 by direct computation
        diameter 4, not caterpillars: open; unbounded number of twin classes
+       caterpillars with s spine vertices and at least s leaves, lower half only:
+            ⇐ L4 (proved here, unreviewed)
+            ⇐ Hypothesis V(s)                       [OPEN; s = 2 from T1; s = 3 computer-assisted,
+                                                     unreviewed; certificate for s ≤ 8, n ≤ 200]
+            ⇐ L3 with empty inner classes           [written out for s = 3 only]
+            ⇐ positivity on ⌈s/2⌉ one-parameter families   [s ≤ 3 done; s = 4 ← next step (O4)]
+  R1, general form: formalized in Lean (LogConcavePeak.lean)
 ```
 
 ## Decisions
@@ -258,6 +312,11 @@ Collins–Shor, lower half
   of the reviews preserved. Every description of T2 states the condition
   `a, b, c ≥ 1`. Lean formalization is to accompany the investigation
   progressively (`autoresearch.md`, step 9).
+- 2026-11-26 (session 4). O3 was recorded as a separate theorem (T3, MD-0008)
+  with its own notes, not as a change to T2: the statement of MD-0007 stays
+  fixed and its review stays bound to it. The first Lean target was the
+  general form of R1, because every result of the investigation uses it and
+  its statement is stable. The formal status of CJ-0001 was set to `partial`.
 - 2026-11-26 (session 3). The open obligations were deferred in favour of O2
   (recorded in the journal). T2 was reviewed by a model other than the
   author's (`claude-opus-5-5`). `notes/spine3.md` was at first left unchanged
@@ -305,7 +364,11 @@ Collins–Shor, lower half
    of R1 about `M` have not been re-reviewed, and the header of
    `notes/lemmas.md` still says "has not been re-reviewed" (the file is left
    unchanged because two reviews pin its hash).
-7. No Lean formalization exists for this problem.
+7. **Formalization.** Only the general form of R1 is formalized (session 4).
+   Its statement was compared with the written one by the formalizing agent
+   and by the session's author; an independent comparison is owed before the
+   formal status is relied on. Next targets, in order of usefulness: Lemma L4
+   (independent of trees); the polynomial inequalities of Step 3 of T2 and T3.
 8. **Review of T2.** AI review of `74cb5bb` by `claude-opus-5-5`: no gap found
    within stated scope. No mathematician has read it, and no literature
    auditor searched for this statement (do Nascimento, Del-Vecchio and de
@@ -326,6 +389,24 @@ Collins–Shor, lower half
    their description strings (the result file is evidence and is not
    edited).
 
+9. **Review of T3.** AI review of `d2eb9ac` by `claude-opus-5-5`: no gap found
+   within stated scope. No mathematician has read it; no literature auditor
+   searched for the statement. `notes/diameter4-caterpillars.md` is unchanged
+   since the review. Defects it listed, to be corrected in one revision that
+   then needs a recheck: (E3) the notes call "Lemma C1" the determinant
+   identity, which is a step inside its proof, and call the identities of
+   Lemma C2 "between polynomials in `m, a, c`" although `c_0`, `e_0` and the
+   `d_k` are not polynomials in `m`; (E4) the description of the caterpillars
+   of diameter 4 in the corollary is asserted without argument and
+   "caterpillar" is not defined in the notes; (E5) Step 3(ii) writes `R` for
+   `R(m, n−3)`; (E6) no script or test re-derives Lemma C2 at `b = 0` (the
+   reviewer did). E1 and E2 (no registry record and no result file at the
+   reviewed revision) are met by the commit that follows the review.
+10. **The exploration is unreviewed.** Lemma L4, the `s = 3` identities of
+    `notes/vertex-principle.md` and the extension of L3 to empty leaf classes
+    for general `s` (a sketch) have been checked by no one but their author.
+    Nothing that depends on them may be promoted.
+
 ## Remaining obstacles
 
 - Upper half: no proof idea yet for A(ii) beyond `k = 0`. A formula for every
@@ -343,44 +424,46 @@ Collins–Shor, lower half
   affine in the product of the outer leaf numbers, and positivity is no longer
   term by term: it needs a boundary reduction and concavity. The polynomials
   were found by machine; nothing in the proof of T2 is uniform in `s`.
-- The method of T1 and T2 works for a fixed number of twin classes. Trees of
+- The method of T1 to T3 works for a fixed number of twin classes. Trees of
   diameter 4 are not all caterpillars and have an unbounded number of classes.
+- Hypothesis V with L4 would make the lower half, for each fixed spine length,
+  a finite list of polynomial inequalities in `m`; it is still not uniform in
+  the spine length, it says nothing about caterpillars with fewer leaves than
+  spine vertices, and it does not apply to the upper half. The one statement
+  with the same form for every `s` is the observation on the top coefficient.
 
 ## Next step
 
-**Objective O3.** Extend T2 to `b = 0`: for all integers `a, c ≥ 1` with
-`a + c ≥ 3`, let `K(a,0,c)` be the caterpillar with spine `v_1 v_2 v_3` in
-which `v_1` and `v_3` carry `a` and `c` pendant leaves and `v_2` none
-(`n = a + c + 3 ≥ 6`, `m = ⌊n/2⌋`). Decide whether `d_{m−1} < d_m` and
-`d_{m+1} < d_m`. Together with T2 and a direct check of `P_5` this would
-settle every caterpillar of diameter 4.
+**Objective O4.** Four spine vertices. For the caterpillars with spine
+`v_1 v_2 v_3 v_4` and leaf numbers `c_1, c_4 ≥ 1`, `c_2, c_3 ≥ 0`, of order
+`n ≥ 8`: (1) write the six mixed partials `∂²D_n/∂c_i∂c_k` as polynomials in
+`m` and the two remaining variables, for each parity, and decide whether they
+are non-negative for every `m ≥ 4` (Hypothesis V for `s = 4`); (2) write
+`D_n` at the vertices of the slice — `(n−5, 0, 0, 1)` and `(1, n−6, 0, 1)` and
+their mirror images — as polynomials in `m` and decide their sign.
 
-How. (1) Lemma L3 is stated for `c_i ≥ 1`. Show that the formula of Lemma C1
-of `notes/spine3.md` remains valid at `b = 0` when `n ≥ 6`: with `b = 0` the
-fifth column of the `6 × 6` matrix `Q` vanishes except for its diagonal entry
-`−2`, so `det(2xI − Q) = (2x + 2) det(2xI − Q′)`, where `Q′` is the `5 × 5`
-quotient matrix of the equitable partition of `K(a,0,c)` into three spine
-vertices and two leaf classes; check that this gives the same `ℓ_T`, and
-confirm against the direct determinant. (2) The identities of Lemma C2 are
-polynomial identities in `m, a, c`, so they hold at `b = 0`; there `u = a + c`
-takes the single value `n − 3` (`2m − 3` for even order, `2m − 2` for odd),
-which is one more than the largest `u` of T2. (3) Check `K > 0` at that `u`
-and compute `H(m, n − 3)` in the four cases; if all four are positive for the
-relevant `m`, the proof of T2 carries over with `v ≥ u − 1`. Extend
-`spine3.py` (`stated` returns `K`, `R` for any `u`) rather than writing a new
-script, and correct the defects of obligation 8 in the same revision of the
-notes, so that one new review covers both.
+How: generalize `mixed_partials_s3.py`. The `g_j` for `s = 4` come from
+`mixed_partials.multiaffine_g(4)` (16 coefficients each); the scaled binomials
+need the recurrences for `C(n − 8, ·)` around `m − 4` up to distance 5. Write
+out Lemma L3 with empty inner classes for `s = 4` (two inner classes) as in
+Lemma C1′ of `notes/diameter4-caterpillars.md`. If (1) and (2) hold, Lemma L4
+gives `d_{m−1} < d_m` for every caterpillar of diameter 5 with at least four
+leaves; the upper inequality needs a separate argument and, for diameter 5,
+the peak is expected to be `⌊n/2⌋` or `⌊n/2⌋ + 1`.
 
-Falsification test for O3: an exploratory exact computation in session 3
-found the only maximizing index at `⌊n/2⌋` for all 169 trees `K(a,0,c)` with
-`a + c ≤ 26`. Before any proof, evaluate `H(m, n − 3)` for `3 ≤ m ≤ 2000` in
-the four cases and compare the closed form at `b = 0` with the direct
-determinant for `a + c ≤ 40`.
+Falsification test for O4: `results/mixed-partials.json` has no failure of the
+certificate and no non-positive vertex for `s = 4` up to order 200; before any
+proof, extend that run to order 2000 for `s = 4` alone.
 
-After O3: trees of diameter 4 that are not caterpillars (a centre whose
-neighbours carry `c_1, …, c_r` leaves; the twin partition has `2r + 1` classes,
-so the method needs a determinant formula uniform in `r`); and the dependence
-on the spine length, towards Q2.
+With it, or before it if cheaper: prove that the product `c_1 ⋯ c_s` occurs in
+the `g_j` only with the coefficients `s` (in `g_{s−1}`) and `s + 3` (in `g_s`),
+from the structure of the determinant; this is the first statement that would
+be uniform in the spine length.
+
+Owed first by default (obligations 8 to 10): one revision of the three sets of
+notes with a recheck; an independent review of Lemma L4 and of the `s = 3`
+identities; a literature audit for T2 and T3 (do Nascimento, Del-Vecchio and de
+Freitas 2019 first).
 
 Alternatives: Hypothesis A(ii) for `k = 1`, using the Graham–Lovász subforest
 formula; obligation 5 (comparison with Table II), which is cheap.
