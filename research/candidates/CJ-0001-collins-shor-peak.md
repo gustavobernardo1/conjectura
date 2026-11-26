@@ -635,3 +635,141 @@ in six web queries and the pages listed.
   the distance Laplacian or distance signless Laplacian of caterpillars;
   literature on "trees with many pendant vertices" as a named family: no
   dedicated query.
+
+## Literature audit 2026-11-26 (session 6)
+
+Two readers: the session's main context for Collins (model
+`claude-fable-5-2`), and a separate literature-auditor context (same model)
+for the thesis and the 2019 paper. Nothing below establishes novelty.
+
+### Collins, "Factoring distance matrix polynomials" — read in full, in the author's manuscript
+
+- **What was read.** A PDF supplied by the director from outside the
+  repository (not copied into it, not committed): 9 pages, typeset
+  manuscript, title "Factoring Distance Matrix Polynomials", author Karen L.
+  Collins, Dept. of Mathematics, Wesleyan University; abstract, Theorems 1 to
+  3, Corollaries 4 to 7, Theorem 8, Lemma 9, Remarks 10 to 12, an open
+  question attributed to L. Butler, 15 references. All nine pages were read as
+  page images.
+- **Identification.** Title, author and subject agree with K. L. Collins,
+  Discrete Math. 122 (1993) 103–112. The file carries no journal header, page
+  numbers 1 to 9 (not 103 to 112), and cites Merris's paper on the distance
+  spectrum of a tree as a preprint: it is the author's manuscript, not the
+  published version. Whether the two texts agree was not checked, and the
+  published version has not been seen.
+- **Content.** (i) Theorem 1: if `AW ⊆ W` and `B` is the matrix of `A` on a
+  basis of `W`, then `det(B − λI)` divides `det(A − λI)`. Theorem 2: the
+  vertex orbits of a graph give a factor of the distance characteristic
+  polynomial `CPD(G) = det(D(G) − λI)` ("the orbit factor") — the quotient
+  matrix of the orbit partition. (ii) Theorem 3: a vertex-centred automorphism
+  gives a further factor. (iii) "Corollary 4. Let T be a tree, and z a vertex
+  with k ≥ 2 leaf neighbors. Then −2 is an eigenvalue of CPD(T) at least k − 1
+  times." "Corollary 7. Let T be a tree, p be the number of leaves of T, and q
+  be the number of vertices that are adjacent to a leaf. Then −2 occurs as an
+  eigenvalue of D(T) at least p − q times." (described as a minor improvement
+  of a theorem of Merris). (iv) "Corollary 5. Let S_n be the star with n + 1
+  vertices. Then CPD(S_n) = (−1)^{n+1}(λ² − 2(n−1)λ − n)(λ + 2)^{n−1}."
+  (v) "Corollary 6. Let 2S_n be the tree with 2(n + 1) vertices in which there
+  are two vertices of degree n + 1 and 2n vertices of degree 1. Then
+  CPD(2S_n) = (−1)^{2(n+1)}(λ + 2)^{2(n−1)}(λ + n)(λ + 1)(λ² − (5n − 1)λ − 9n)."
+  (vi) Theorem 8 and the pages after it: the factorization of `CPD` of the
+  full `k`-ary tree `F_{r,k}` through linear recurrences; Remark 12, the
+  analogue for the adjacency matrix.
+- **Corollary 6 as printed in the manuscript does not agree with direct
+  computation.** `2S_n` is the balanced double star `S(n, n)`. The product
+  printed has the sum of its roots equal to `−2` for every `n`, whereas the
+  trace of a distance matrix is 0; for `n = 1` (the path `P_4`) it reads
+  `(λ + 1)²(λ² − 4λ − 9)`, and `det(D(P_4) − λI) = λ⁴ − 20λ² − 32λ − 12`.
+  Exact computation for `n = 1, …, 6`
+  (`experiments/CJ-0001-collins-shor-peak/locality_check.py`, result file
+  `results/locality-check.json`): the printed formula fails in all six cases,
+  and `det(D − λI) = (λ + 2)^{2(n−1)} (λ² + (n + 3)λ + 2)(λ² − (5n − 1)λ − 4n − 2)`
+  holds in all six. The reading of the printed formula was made from a page
+  image by one reader; the published version may differ. The project's Lemma
+  D1 (double stars) is not affected, and it agrees with Xue–Liu–Jia 2016,
+  Lemma 2.3, as recorded in session 5.
+- **What it does not contain.** No statement about the coefficients of the
+  distance characteristic polynomial, their normalization, unimodality or the
+  location of their maximum, for any family; no general double star (only the
+  balanced one); no caterpillar; no expansion in the numbers of pendant
+  leaves; no determinant of the form `det(P + αJ)`.
+- **Bearing on the project.** Corollary 7 is the published source of the
+  factor `(λ + 2)^{p−q}` used in Lemma L3 and Lemma S1 (there with its exact
+  cofactor, the quotient determinant); Theorems 1 and 2 are the divisor
+  principle for an invariant subspace. Both are to be cited where L3 and S1
+  are stated. The description "treats double stars" of the session 5 audit
+  (taken from the thesis) is to be read as "the balanced double star, with a
+  formula that does not check as printed in the manuscript".
+
+### do Nascimento, thesis (COPPE/UFRJ, 2018) — thesis pages 14 to 38 read
+
+Route: `https://pantheon.ufrj.br/bitstreams/e3cd68d7-684c-4218-93af-e6cb1caae541/download`
+(the fetch tool saved the PDF outside the repository; read as page images;
+PDF page = thesis page + 10). Statements, definitions, examples and
+connecting text read on every page from 14 to 38; proofs read in full for
+Lemma 3.1.4, Theorem 3.1.5, Corollary 3.1.7, Theorem 3.1.11, Lemma 3.1.15,
+Corollary 3.1.17, Theorems 3.1.19 and 3.1.23; the proofs of Theorems 3.1.9,
+3.1.16 and 3.1.18 skimmed. With session 5, pages 12 to 49 are now covered;
+pages 1–3, 6–11 and 50–77 remain unread.
+
+- Section 3.1 is about the multiplicity of `−2` and the number of distinct
+  distance eigenvalues: Theorem 3.1.5 (double brooms `V(t,s,d)`:
+  `m_D(−2) = n − d` if `d ≡ 2 mod 6`, `n − d − 1` otherwise); Theorem 3.1.9
+  and Theorem 3.1.11 (caterpillars `C(p)` with an inner pendant vertex:
+  `m_D(−2) = n − d − n_1' + 1`, `n_1'` the number of quasi-pendant vertices);
+  Theorems 3.1.16 and 3.1.18 (the eigenvalues other than `−2` are simple);
+  Corollary 3.1.17 and Theorem 3.1.19 (number of distinct eigenvalues);
+  Conjecture 3.1.22 (a lower bound on that number for trees). On p. 15 the
+  bound `m_D(−2) ≥ n_1 − n_1'` is attributed to Collins.
+- **No statement on these pages** about the coefficients of the distance
+  characteristic polynomial, their maximum, or unimodality; the polynomial is
+  not written down in Section 3.1. No expansion over subsets of spine
+  vertices, no multi-affine statement in the leaf numbers, no `det(P + αJ)`.
+- Nearest material: the block form of `D` for a caterpillar and the reduction
+  of twin rows of `D + 2I` (pp. 16, 26–27; a rank statement at `λ = −2`);
+  Lemma 3.1.15 (p. 28: an eigenvector for an eigenvalue other than `−2` is
+  constant on pendant twins); the inverse `D^{−1}` of `C(p)` from the
+  Graham–Lovász formula (p. 33).
+- Defects noticed by the auditor in the thesis, not checked by computation:
+  the base case of the induction of Theorem 3.1.9 quotes a floating-point
+  spectrum of `C(1,1,1)` from software; a misprint of the multiplicity in the
+  proof of Theorem 3.1.19.
+- The quotations were transcribed from page images in Portuguese by the
+  auditor and are in the session's journal entry.
+
+### do Nascimento, de Freitas, Del-Vecchio, Discrete Appl. Math. 266 (2019) 141–152 — not read
+
+Full text not accessed; the abstract was not read verbatim. Bibliographic
+record from Crossref: DOI `10.1016/j.dam.2018.10.018`, 11 references (as
+summarised by the fetch tool: Aalipour et al. 2016, Atik 2016, Brouwer 2011,
+Collins 1993, Graham 1978, Graham–Pollak 1971, Merris 1990, Rojo 2010, Ruzieh
+1990, Zhou 2011, and a Sage code). Failures: `sciencedirect.com` article and
+PDF pages, HTTP 403; `core.ac.uk` search, HTTP 403; a library catalogue,
+bot protection; Semantic Scholar search, HTTP 429. No preprint was located by
+two web queries. OpenAlex reports the article as "bronze" open access, so a
+person can probably open the publisher page in a browser. A paraphrase of the
+abstract (Semantic Scholar, through the fetch tool) says the paper concerns
+the multiplicity of `−2` and the number of distinct distance eigenvalues of
+caterpillars, which is the subject of Section 3.1 of the thesis; that the
+paper corresponds to that section remains an inference.
+
+Queries of this session (general web search, standard mode):
+`"The distance matrix of caterpillar" Nascimento Del-Vecchio Freitas Discrete Applied Mathematics 2019`;
+`"distance matrix of caterpillar" Nascimento Del-Vecchio Freitas pdf OR researchgate OR semanticscholar "D-eigenvalue" caterpillar -2 multiplicity`.
+
+### Per-statement conclusions after session 6 (within the coverage of sessions 2, 5 and 6 only)
+
+| Project statement | Conclusion |
+| --- | --- |
+| MD-0006, MD-0007, MD-0008 (peak at ⌊n/2⌋ for double stars and caterpillars of diameter 4) | No peak statement in Collins's manuscript nor on thesis pages 12–49. The closed formulas remain prior art (session 5). Not read: the DAM 2019 paper, Collins 1989, the published version of Collins 1993. |
+| Expansion over subsets (S2) and the multi-affine closed form (S1) | Not found. The factor `(λ + 2)^{p−q}` and the divisor principle are in Collins's manuscript (Corollary 7, Theorems 1 and 2). |
+| `r_V = (s + 3)x + s` (S3) | Not found. |
+| Lemma L3 / MD-0003 (already recorded as known) | Further prior art: Collins, Corollary 7; thesis, Theorems 3.1.5 and 3.1.11. |
+
+### Still not searched or not accessible after session 6
+
+The DAM 2019 paper; the published version of Collins 1993; Collins 1989 and
+her 1986 thesis; thesis pages 1–3, 6–11, 50–77; Graham–Lovász pp. 68–79;
+papers citing any of these; MathSciNet, zbMATH, Google Scholar, MathOverflow.
+For the statements written in session 6 (the reduction of `r_A` to a Laplacian
+block, Property Γ for independent complements) no search was made at all.

@@ -1,0 +1,32 @@
+{
+ "experiment": "CJ-0001 pieces of the Laplacian form of r_A (Lemma F, Proposition S11, extension of Property Gamma to |A| = 1)",
+ "arithmetic": "exact rationals; polynomials by interpolation at more points than the degree",
+ "run": {
+  "command": [
+   "experiments/CJ-0001-collins-shor-peak/gamma_pieces.py",
+   "--max-skeleton",
+   "8",
+   "--out",
+   "experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json"
+  ],
+  "git_revision_at_run": "1805bcab1cee71c720049fd9cff85a6a3d0992a3",
+  "python": "3.12.4",
+  "networkx": "3.7"
+ },
+ "max_skeleton": 8,
+ "totals": {
+  "r_fail_by_a": {},
+  "r_cases_by_a": {
+   "1": 325,
+   ">=2": 7401
+  },
+  "r_fail_examples": [],
+  "cases": 7726,
+  "phi_weight_t_fail": 0,
+  "T_coeff_negative": 0,
+  "pos_part_fail": 0,
+  "phi_weight_t_fail_examples": [],
+  "T_neg_examples": []
+ },
+ "seconds": 11.3
+}

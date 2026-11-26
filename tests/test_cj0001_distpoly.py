@@ -271,3 +271,28 @@ def test_skeleton_expansion_and_property_gamma():
                     if size >= 2:
                         rho, sigma = skeleton_structure.half_gamma_expansion(alpha, s, subset)
                         assert min(rho + sigma) >= 0
+
+
+def test_reduction_of_r_A_to_the_laplacian_block(monkeypatch, capsys):
+    # notes/skeleton-locality.md, for every tree with 2 to 5 vertices and every subset: Propositions S6,
+    # S7 (both forms), S8, S9 and the identity of S10 against the definition of r_A, and the comparison
+    # of Corollary 6 of Collins's manuscript with the balanced double stars. The script returns 0 only
+    # if no identity fails.
+    import locality_check
+
+    monkeypatch.setattr(sys, "argv", ["locality_check.py", "--max-skeleton", "5"])
+    assert locality_check.main() == 0
+    out = capsys.readouterr().out
+    assert '"S10_min_a_minus_H": 1' in out
+    assert '"printed_formula_matches": true' not in out
+
+
+def test_pieces_of_the_laplacian_form():
+    # notes/gamma-reduction.md, trees with 2 to 5 vertices: Lemma F and Corollary F' (weights of Phi_B and
+    # of the positive part) and Property Gamma extended to subsets with one element. Exit code 0 only
+    # if nothing fails.
+    import subprocess
+
+    script = Path(__file__).resolve().parents[1] / "experiments" / "CJ-0001-collins-shor-peak" / "gamma_pieces.py"
+    done = subprocess.run([sys.executable, str(script), "--max-skeleton", "5"], capture_output=True, text=True)
+    assert done.returncode == 0, done.stdout[-2000:] + done.stderr[-2000:]
