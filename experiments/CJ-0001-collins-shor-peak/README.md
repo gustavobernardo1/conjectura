@@ -46,7 +46,7 @@ uv run python experiments/CJ-0001-collins-shor-peak/near_star_families.py \
     --out experiments/CJ-0001-collins-shor-peak/results/near-star-families.json
 uv run python experiments/CJ-0001-collins-shor-peak/double_stars.py \
     --out experiments/CJ-0001-collins-shor-peak/results/double-stars.json                    # about 1 min
-uv run python experiments/CJ-0001-collins-shor-peak/spine3.py     --out experiments/CJ-0001-collins-shor-peak/results/spine3.json                          # about 10 min
+uv run python experiments/CJ-0001-collins-shor-peak/spine3.py     --out experiments/CJ-0001-collins-shor-peak/results/spine3.json                          # about 6 min
 ```
 
 The exhaustive runs are deterministic. The sampled run is deterministic given

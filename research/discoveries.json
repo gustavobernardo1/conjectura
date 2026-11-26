@@ -491,6 +491,100 @@
         "coverage": "arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries (peak location with double star, caterpillar, diameter, 2023 to 2026) and two citation lists. In these sources the peak is located only for stars and paths (Collins, as cited), and the only general bounds are Theorems 3.3 and 3.6 of arXiv:1507.02341; for a double star Theorem 3.6 gives ⌊(n − 2)/4⌋.",
         "limitations": "Collins (1989) and her thesis were not accessible and are known only second-hand; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars was not read; several citing papers were seen by title only; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The statement is elementary once the coefficients are explicit, so an earlier appearance is plausible."
       }
+    },
+    {
+      "id": "MD-0007",
+      "type": "theorem",
+      "title": "The peak of the normalized distance coefficients of the caterpillar K(a,b,c), a, b, c ≥ 1, is at ⌊n/2⌋",
+      "statement": "For a tree T of order n, D(T) is its distance matrix, δ_k(T) is the coefficient of x^k in det(D(T) − xI), and d_k(T) = 2^{k−(n−2)} |δ_k(T)| for 0 ≤ k ≤ n − 2 are the normalized coefficients of the distance characteristic polynomial. For integers a, b, c ≥ 1 let K(a,b,c) be the caterpillar whose spine is a path v_1 v_2 v_3 and in which v_1, v_2, v_3 carry a, b, c pendant leaves; its order is n = a + b + c + 3 ≥ 6. Let m = ⌊n/2⌋. Then d_{m−1}(K(a,b,c)) < d_m(K(a,b,c)) and d_{m+1}(K(a,b,c)) < d_m(K(a,b,c)). Consequently m is the only index at which d_0(K(a,b,c)), …, d_{n−2}(K(a,b,c)) attains its maximum, and since ⌊n/2⌋ ≤ ⌈n − n/√5⌉, Conjecture 1.2 of arXiv:1507.02341 (Collins–Shor) holds for K(a,b,c), that is, for every caterpillar of diameter 4 whose central vertex carries at least one pendant leaf.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statement, proof strategy, proof and exact checks (session 3)"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review, with its own recomputation of the two computer-assisted lemmas"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (asked for the session); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
+          "summary": "Theorem T2 with a written proof: Lemma C1 (explicit coefficients from the 6 × 6 quotient determinant) and Lemma C2 (the differences d_m − d_{m−1} and d_m − d_{m+1} as vK + R for each parity), both computer-assisted polynomial identities; Step 3 (positivity: K > 0, v ≥ u − 1, concavity in u, endpoint values) and Step 4 (the peak, by log-concavity), by hand.",
+          "revision": "74cb5bb",
+          "sha256": "5b626fb647bd8c95c88ebec2bf0e759dea982d095b1d597d353f730573f3b4b5"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/spine3.json",
+          "summary": "Exact check, not a proof: symbolic derivation of Lemmas C1 and C2; sign conditions of Step 3 for 3 ≤ m ≤ 2000; the four identities and both inequalities for all 2,238,725 caterpillars K(a,b,c) with a + b + c ≤ 300, with d_k taken from the formula of Lemma C1; whole sequences for 17,545 of them; equality with the direct n × n determinant for 621. 0 failures. Clean tree.",
+          "revision": "74cb5bb",
+          "sha256": "2066c4f1e794d221a9332235ed8e18fe889bd20eb1a9ea08f83965d4f5c9e74d"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_spine3_closed_forms_and_peak: the symbolic derivation, the sign conditions for m < 200, orders 6 to 17 against the direct determinant, five caterpillars against the independent Laplacian method."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md",
+          "summary": "Independent adversarial review of Theorem T2. Verdict: no gap found within stated scope. Every step reconstructed; Lemma C1 and the four identities of Lemma C2 recomputed symbolically with the reviewer's own code and tested against coefficients computed from the full distance matrix (9,880 and 17,545 trees); every inequality of Step 3 checked for all m ≥ 3; no counterexample among 25,350 trees up to order 221. Eight defects of record and presentation (D1 to D8), none mathematical. Not covered: novelty, the remarks, the case b = 0.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "74cb5bbba6b84b905cf09e3908292578cb891025",
+          "sha256": "6cb1a26aba3c747eca667a5e32e9497dc4b455a18e482e71d8e621683fe6a84e",
+          "statement_fingerprint": "2bfaa32cedf87d8a5e8558b3e89cd0443f24681f497b5de68e00dd3406156f58"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. Two steps (Lemmas C1 and C2) are computer-assisted polynomial identities; they were recomputed independently by the reviewer, not derived by hand. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, on the caterpillar formula MD-0003, and on the general form of R1 in notes/lemmas.md, of which the reviewer checked the direction used. It does not cover b = 0 (caterpillars of diameter 4 with no leaf at the central vertex, among them the path on five vertices), nor trees of diameter 4 that are not caterpillars. The review listed eight defects of record and presentation (STATE.md, obligation 8); the notes are unchanged since the review. Novelty holds only within the documented search, which is small.",
+      "depends_on": [
+        {
+          "ref": "MD-0003",
+          "statement_fingerprint": "7be89ac89f3b88b62612e752f3f6e54446b593aa0a80b4078561eaa83507b724",
+          "note": "Used with spine length 3 to obtain the 6 × 6 quotient matrix."
+        },
+        {
+          "citation": "G. Aalipour et al., arXiv:1507.02341: Fact 1.1 (the sign of δ_k, hence positivity of the normalized coefficients; quoted there from Graham and Lovász 1978), Theorem 2.1 (log-concavity) and Observation 3.1 (the normalized coefficients are the coefficients of −2^{−(n−2)} det(2xI − D)).",
+          "note": "Cited; none of the three proofs was checked by the project. The reviewer compared the three statements with the paper."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "T2",
+          "note": "Objective O2 of the investigation."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "The conjecture for the caterpillars of diameter 4 whose central vertex carries a leaf."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "The coverage recorded for MD-0006 (literature audit of session 2: arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász 1978 pages 60 to 67 and 80 to 86; nine web queries on the location of the peak for double stars, caterpillars and trees of small diameter), and four further web queries by the reviewer of T2 on the peak for caterpillars and trees of diameter 4, with arXiv:2206.07561 sections 4.2 and 5 reread. In these sources the peak is located only for stars and paths (Collins, as cited) and for some block graphs; none treats K(a,b,c), a caterpillar family or a family of diameter 4.",
+        "limitations": "No search was made for this statement by a literature auditor; the queries are those of the session-2 audit and of the reviewer. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method (quotient matrix of a twin partition, then comparison of binomial ratios) is standard, so an earlier appearance is plausible."
+      }
     }
   ]
 }

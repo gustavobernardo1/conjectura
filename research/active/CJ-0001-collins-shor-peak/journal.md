@@ -320,3 +320,89 @@ length 3), after or together with the open obligations listed there.
   addressed. Obligations 1, 2 and 4 need a human reader, an inaccessible paper
   or the director's approval of a budget; O2 does not depend on any of them
   except through L3 (known, Hogben–Reinhart) and Theorem 2.1 of the source.
+
+### What was done
+
+All computations are exact (integers, rationals, integer polynomials).
+
+1. Exploratory scripts (scratch directory, not kept): symbolic expansion of
+   the `6 × 6` quotient determinant with python-flint; the four differences
+   as polynomials in `m, a, c`; rewriting in `u = a + c`, `v = ac`; factoring.
+2. Falsification test, run before any proof: every `K(a,b,c)` with
+   `a + b + c ≤ 300` (`a ≤ c`), 2,238,725 trees, coefficients from the closed
+   form at the indices `m−1, …, m+2`. Result: `d_{m−1} < d_m > d_{m+1}` in every
+   case, no tie. 209.4 s.
+3. Proof written: `notes/spine3.md` (Theorem T2). Committed with
+   `experiments/CJ-0001-collins-shor-peak/spine3.py` and
+   `test_spine3_closed_forms_and_peak` as `74cb5bb`.
+4. `uv run python experiments/CJ-0001-collins-shor-peak/spine3.py --out …/results/spine3.json`
+   on the clean tree at `74cb5bb`: symbolic derivation agrees with the stated
+   forms; sign conditions for `3 ≤ m ≤ 2000`; 2,238,725 trees, 0 failures;
+   17,545 whole sequences; 621 direct determinants. 356.7 s.
+5. Independent review of `74cb5bb` by the `adversarial-reviewer` subagent run
+   on `claude-opus-5-5` (fresh context; it was given the paths, the revision,
+   the source reference and the checklist, and not the reasoning):
+   `reviews/2026-11-26-claude-opus-5-5-T2.md`.
+6. One-off exploratory check of `b = 0` (direct determinant, 169 trees with
+   `a + c ≤ 26`), to choose the next step. Script not kept.
+7. `uv run pytest`, `scripts/catalogue.py validate` and `render`: results in
+   the commit that contains this entry.
+
+### Findings
+
+- **T2 (candidate proof, AI-reviewed, registered as MD-0007).** For
+  `a, b, c ≥ 1`, the only maximizing index of `K(a,b,c)` is `⌊n/2⌋`; the
+  conjecture holds for these trees. Written proof with two computer-assisted
+  polynomial identities; exact finite checks; review verdict "no gap found
+  within stated scope", the reviewer having recomputed both identities with
+  its own code from distance matrices. Not read by a mathematician. Novelty:
+  nothing found in a small bounded search; no dedicated literature audit.
+- Structure: each difference is a positive factor times `vK + R` with `K > 0`,
+  so for fixed `m, u` the minimum is at `v = u − 1`; `(u−1)K + R` is concave
+  in `u`, so the minimum over the family is at `K(1, n−5, 1)` or `K(1, 1, n−5)`.
+- Observation (exact, exploratory, script not kept): for `K(a,0,c)` with
+  `a + c ≤ 26` the only maximizing index is `⌊n/2⌋`.
+- Observation (exact, from `results/spine3.json`): the smallest relative margin
+  among even orders with `a + b + c ≤ 300` is `≈ 0.002386` at `K(59,180,60)`.
+
+### What failed
+
+- Nothing mathematical failed. As in session 2 the proof came out in one pass,
+  which is a reason for caution, not for confidence; this time the review was
+  done by a different model, of the same vendor.
+- The review found eight defects of record and presentation (D1 to D8),
+  listed in `STATE.md`, obligation 8. Two were the author's wording errors in
+  the notes (D5, D6), one an undeclared limitation of the finite checks (D3),
+  one a title broader than the theorem (D4). The brief given to the reviewer
+  misquoted the title of arXiv:1507.02341 (D8); the commit subject of
+  `74cb5bb` overstates the scope. The notes were left unchanged so that the
+  review applies to them as they stand.
+- Not done: any literature audit for this statement; the open obligations 1
+  to 7; the extension to `b = 0`; anything uniform in the spine length.
+- Budget: the session exceeded the planned 60 minutes of agent work, mostly
+  because the review ran for about 15 minutes; the exact duration was not
+  measured. Computation stayed within the 15 minutes planned.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author); `claude-opus-5-5` (reviewer, separate context) |
+| Computation wall-clock | about 10 minutes for the research (209.4 s falsification scan, 356.7 s full run, short trial runs); the full test suite about 4 minutes per run |
+| Review, as reported by the environment | 164,439 subagent tokens, 47 tool calls, about 15 minutes |
+| Token usage of the main session | unavailable |
+| Research iterations | 1 objective, 1 approach |
+| Proof attempts | 1 (T2), reviewed once |
+| Counterexamples found | 0 |
+| Formalization attempts | 0 |
+| Successful verifications | 97 tests in `tests/test_cj0001_distpoly.py`; 2,238,725 caterpillars checked exactly; independent recomputation by the reviewer |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable: a candidate proof of the Collins–Shor conjecture for the caterpillars
+`K(a,b,c)` with `a, b, c ≥ 1`, with an exact cross-check and an independent AI
+review by a different model; registry record MD-0007. The catalogue status of
+CJ-0001 is unchanged (`active-investigation`). Next: objective O3 in
+`STATE.md` (the case `b = 0`, which would complete the caterpillars of
+diameter 4), together with the corrections of obligation 8.

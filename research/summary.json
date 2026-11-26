@@ -35,9 +35,9 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0006",
+    "id": "MD-0007",
     "type": "theorem",
-    "title": "The peak of the normalized distance coefficients of every double star is at ⌊n/2⌋",
+    "title": "The peak of the normalized distance coefficients of the caterpillar K(a,b,c), a, b, c ≥ 1, is at ⌊n/2⌋",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -48,17 +48,16 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/double-stars.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/double-stars.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T1.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-2",
+      "experiments/CJ-0001-collins-shor-peak/results/spine3.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md",
       "tests/test_cj0001_distpoly.py"
     ]
   },
   "latest_reviewed_contribution": {
-    "id": "MD-0006",
+    "id": "MD-0007",
     "type": "theorem",
-    "title": "The peak of the normalized distance coefficients of every double star is at ⌊n/2⌋",
+    "title": "The peak of the normalized distance coefficients of the caterpillar K(a,b,c), a, b, c ≥ 1, is at ⌊n/2⌋",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -69,24 +68,23 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/double-stars.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/double-stars.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T1.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-2",
+      "experiments/CJ-0001-collins-shor-peak/results/spine3.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md",
       "tests/test_cj0001_distpoly.py"
     ],
     "review": {
-      "by": "claude-fable-5-2 (fresh context; same model family as the author; AI review, not human or peer review)",
+      "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
       "date": "2026-11-26",
-      "revision": "5e5ef14ddf754d2b9e2b99c13e3285a2331c7900",
-      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T1.md"
+      "revision": "74cb5bbba6b84b905cf09e3908292578cb891025",
+      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md"
     }
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0006",
+    "id": "MD-0007",
     "type": "theorem",
-    "title": "The peak of the normalized distance coefficients of every double star is at ⌊n/2⌋",
+    "title": "The peak of the normalized distance coefficients of the caterpillar K(a,b,c), a, b, c ≥ 1, is at ⌊n/2⌋",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -97,16 +95,15 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/double-stars.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/double-stars.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T1.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-2",
+      "experiments/CJ-0001-collins-shor-peak/results/spine3.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md",
       "tests/test_cj0001_distpoly.py"
     ],
     "novelty_search": {
       "as_of": "2026-11-26",
-      "coverage": "arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries (peak location with double star, caterpillar, diameter, 2023 to 2026) and two citation lists. In these sources the peak is located only for stars and paths (Collins, as cited), and the only general bounds are Theorems 3.3 and 3.6 of arXiv:1507.02341; for a double star Theorem 3.6 gives ⌊(n − 2)/4⌋.",
-      "limitations": "Collins (1989) and her thesis were not accessible and are known only second-hand; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars was not read; several citing papers were seen by title only; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The statement is elementary once the coefficients are explicit, so an earlier appearance is plausible."
+      "coverage": "The coverage recorded for MD-0006 (literature audit of session 2: arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász 1978 pages 60 to 67 and 80 to 86; nine web queries on the location of the peak for double stars, caterpillars and trees of small diameter), and four further web queries by the reviewer of T2 on the peak for caterpillars and trees of diameter 4, with arXiv:2206.07561 sections 4.2 and 5 reread. In these sources the peak is located only for stars and paths (Collins, as cited) and for some block graphs; none treats K(a,b,c), a caterpillar family or a family of diameter 4.",
+      "limitations": "No search was made for this statement by a literature auditor; the queries are those of the session-2 audit and of the reviewer. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method (quotient matrix of a twin partition, then comparison of binomial ratios) is standard, so an earlier appearance is plausible."
     }
   },
   "public": {
@@ -161,35 +158,35 @@
       }
     },
     "contributions": {
-      "registered": 6,
+      "registered": 7,
       "by_standing": {
-        "candidate": 4,
+        "candidate": 5,
         "established": 0,
         "rediscovered": 2,
         "withdrawn": 0
       },
-      "counted": 4,
+      "counted": 5,
       "by_type": {
         "computational-finding": 1,
         "conjecture": 1,
         "counterexample": 1,
-        "theorem": 1
+        "theorem": 2
       },
       "by_status": {
         "mathematical": {
           "candidate": 1,
-          "candidate-proof": 2,
+          "candidate-proof": 3,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 4
+          "not-started": 5
         },
         "novelty": {
-          "preliminary-search-completed": 2,
+          "preliminary-search-completed": 3,
           "unknown": 2
         },
         "external_review": {
-          "ai-reviewed": 2,
+          "ai-reviewed": 3,
           "not-reviewed": 2
         }
       }
@@ -211,11 +208,11 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "0ff2fad07274eea57f3ec6ddf39e74205ba5948b",
-    "sources_committed": true,
+    "revision": "74cb5bbba6b84b905cf09e3908292578cb891025",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "23afc1f259224590e5f0eea346418241bc68a497",
-      "research/discoveries.json": "be0e5c92d8e7c24805577378e1d0fee22d57419c",
+      "research/discoveries.json": "3d8953c163bca39ea132f6d479c6122df839331c",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "fc4c60c169c8a99eadb96fd631d6ac3c0a96b22f"
     }

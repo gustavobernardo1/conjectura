@@ -1,8 +1,10 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-26 (session 2). This file is the current truth about the
+Last updated: 2026-11-26 (session 3). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
-continue. Proofs are in [`notes/lemmas.md`](notes/lemmas.md); computations are
+continue. Proofs are in [`notes/lemmas.md`](notes/lemmas.md),
+[`notes/double-stars.md`](notes/double-stars.md) and
+[`notes/spine3.md`](notes/spine3.md); computations are
 in [`experiments/CJ-0001-collins-shor-peak/`](../../../experiments/CJ-0001-collins-shor-peak/README.md);
 the literature record is the dossier
 [`research/candidates/CJ-0001-collins-shor-peak.md`](../../candidates/CJ-0001-collins-shor-peak.md).
@@ -69,6 +71,13 @@ MD-0006 (T1) rests on a second review, of revision `5e5ef14`:
 Both are AI reviews by the same model family as the author, in fresh
 contexts, and nothing more.
 
+Session 3 produced a candidate proof of the conjecture for the caterpillars
+`K(a,b,c)` with `a, b, c ≥ 1` (T2 below, MD-0007), reviewed at revision
+`74cb5bb` by a different model (`claude-opus-5-5`, fresh context):
+[`reviews/2026-11-26-claude-opus-5-5-T2.md`](reviews/2026-11-26-claude-opus-5-5-T2.md),
+no gap found within stated scope. It is an AI review by a model of the same
+vendor. The catalogue status is unchanged.
+
 ## Established results
 
 | ID | Statement | Level | Evidence |
@@ -82,12 +91,13 @@ contexts, and nothing more.
 | L2 | `d_1(T) = 2n² − 6 − Σ deg(v)²`; hence `ρ_0(S_n) ≤ ρ_0(T) ≤ ρ_0(P_n)` with equality only for the star and the path. | **Known:** the formula for `d_1` is in the source (proof of Theorem 3.3), as the review pointed out, and is eq. (6) of Graham–Lovász (1978). Re-derived here; checked exactly on all trees of order 3 to 11. AI review of `e34acfc`: no gap found. | `notes/lemmas.md`, tests |
 | L3 | Caterpillar with spine length `s` and all `c_i ≥ 1`: `det(xI − D) = (x+2)^{n−2s} det(xI − Q)` for an explicit `2s × 2s` matrix `Q`. | **Known:** a direct special case of Theorem 3.3 of Hogben–Reinhart, arXiv:2103.00647 (twin partitions), found by the literature audit of session 2. Proved here (equitable partition); every coefficient checked exactly against the direct computation on ten caterpillars. AI review of `e34acfc`: no gap found. | `notes/lemmas.md`, `near_star_families.py`, dossier |
 | T1 | Double star `S(a,b)`, `a, b ≥ 1`, `n = a+b+2`, `m = ⌊n/2⌋`: `d_{m−1} < d_m`, and `d_{m+1} < d_m` when `m+1 ≤ n−2`. Hence `m` is the only maximizing index and the conjecture holds for every tree of diameter 3. With `t = ab`: for `n = 2m`, `(m−1)m(m+1)(d_m − d_{m−1}) = C(2m−4, m−2)[3t m(m+1) + 2(2m−1)(2m−3)(3m−5)]`; for `n = 2m+1`, `m(m+1)(m+2)(d_m − d_{m−1}) = C(2m−3, m−1)[10t(m+1)(m+2) + 16m(2m−1)(2m+1)]`. | **Candidate proof**, written in session 2, from L3 with `s = 2` and Theorem 2.1 of the source. Closed forms and inequalities checked exactly on all 10,000 double stars with `a + b ≤ 200`; whole sequences against the direct determinant on 404 of them. AI review of `5e5ef14` (same model family, fresh context): no gap found within stated scope; eight minor discrepancies of presentation. Novelty: no earlier statement found within a bounded search; Collins (1989) not read. | `notes/double-stars.md`, `results/double-stars.json`, `double_stars.py`, tests |
+| T2 | Caterpillar `K(a,b,c)`: spine `v_1 v_2 v_3` carrying `a, b, c ≥ 1` leaves, `n = a+b+c+3 ≥ 6`, `m = ⌊n/2⌋`: `d_{m−1} < d_m` and `d_{m+1} < d_m`. Hence `m` is the only maximizing index and the conjecture holds for every caterpillar of diameter 4 whose central vertex carries a leaf. With `u = a+c`, `v = ac`, each of the four differences (two parities, two sides) is a positive factor times `vK(m,u) + R(m,u)` with `K > 0`; the minimum over the family is at `v = u−1` and, by concavity in `u`, at `K(1, n−5, 1)` or `K(1, 1, n−5)`. | **Candidate proof**, written in session 3, from L3 with `s = 3`, Fact 1.1 and Theorem 2.1 of the source. Two steps (the `6 × 6` determinant and the reduction to `vK + R`) are computer-assisted polynomial identities. Identities and inequalities checked exactly on all 2,238,725 such caterpillars with `a+b+c ≤ 300` (from the closed form); whole sequences against the direct determinant on 621. AI review of `74cb5bb` (`claude-opus-5-5`, fresh context): no gap found within stated scope; both computer-assisted steps recomputed with the reviewer's code from distance matrices; eight defects of record and presentation. Novelty: nothing found in a small bounded search. | `notes/spine3.md`, `results/spine3.json`, `spine3.py`, tests |
 
 Result files are under `experiments/CJ-0001-collins-shor-peak/results/`.
 
 ### Global identifiers
 
-Six findings are registered as contributions in
+Seven findings are registered as contributions in
 [`research/discoveries.json`](../../discoveries.json). The local identifiers
 keep their meaning. An `MD` identifier establishes identity only: the status of
 each record (mathematical, formal, novelty, review) is in the registry and in
@@ -101,6 +111,7 @@ each record (mathematical, formal, novelty, review) is in the registry and in
 | Refutation of A(i) | MD-0004 | counterexample |
 | A(ii) | MD-0005 | conjecture |
 | T1 | MD-0006 | theorem |
+| T2 | MD-0007 | theorem |
 
 Not registered, and why: E1 alone reproduces a published verification; E4 is a
 pattern of small orders that supports MD-0001; R1 is a routine consequence of
@@ -189,6 +200,16 @@ minutes.
   delicate one.
 - For `10 ≤ n ≤ 19` the set of indices at which the star minimizes `ρ_k` over
   all trees is exactly `{0, …, ⌊n/2⌋ − 1}`.
+- Caterpillars of diameter 4 with no leaf at the centre, `K(a,0,c)`: for all
+  169 of them with `a + c ≤ 26` (orders 5 to 29, the path `P_5` included) the
+  only maximizing index is `⌊n/2⌋`. Exact, by the direct determinant, from a
+  one-off exploratory script of session 3 that was not kept; not part of T2.
+- Among the `K(a,b,c)` of even order with `a+b+c ≤ 300`, the smallest relative
+  margin `1 − d_{m−1}/d_m` recorded by `spine3.py` is `≈ 0.002386` at
+  `K(59,180,60)` (order 302). The reviewer of T2 saw `≈ 0.00275` at
+  `K(109,1,108)` (order 221). Which shape minimizes the relative margin at a
+  given order was not analysed; it is not the same question as the minimum of
+  `vK + R` in T2.
 
 ## Dependency map
 
@@ -205,7 +226,10 @@ Collins–Shor, lower half
        even n: margin → 0 along near-star caterpillars (Q2)
        diameter ≤ 2 (stars): Collins 1989, Theorem 1 [cited via arXiv:1507.02341]
        diameter 3 (double stars): T1 [candidate proof; both halves; ⇐ L3, Theorem 2.1 of the source]
-       caterpillars with spine length 3: L3 with s = 3            ← next step
+       diameter 4, caterpillars K(a,b,c) with a, b, c ≥ 1: T2 [candidate proof; both halves;
+            computer-assisted; ⇐ L3, Fact 1.1 and Theorem 2.1 of the source]
+       diameter 4, caterpillars K(a,0,c): open                     ← next step (O3)
+       diameter 4, not caterpillars: open; unbounded number of twin classes
 ```
 
 ## Decisions
@@ -227,6 +251,10 @@ Collins–Shor, lower half
   remain tools of the investigation and are not results of the project.
 - 2026-11-26 (session 2). The rerun of orders 21 to 23 was deferred: it needs
   about 34 minutes of computation and the director's approval.
+- 2026-11-26 (session 3). The open obligations were deferred in favour of O2
+  (recorded in the journal). T2 was reviewed by a model other than the
+  author's (`claude-opus-5-5`). `notes/spine3.md` is left unchanged after the
+  review so that the review still applies; its defects are obligation 8.
 
 ## Open obligations
 
@@ -269,6 +297,26 @@ Collins–Shor, lower half
    vertices. The project's code has not been compared with it.
 6. R1 was restated after the review of `e34acfc` and has not been re-reviewed.
 7. No Lean formalization exists for this problem.
+8. **Review of T2.** AI review of `74cb5bb` by `claude-opus-5-5`: no gap found
+   within stated scope. No mathematician has read it, and no literature
+   auditor searched for this statement (do Nascimento, Del-Vecchio and de
+   Freitas 2019 on caterpillars is the first thing to read). Defects found by
+   the review, to be corrected in one revision of `notes/spine3.md`, which
+   then needs a new review: (D3) the checks for `a+b+c ≤ 300` and `≤ 60` take
+   `d_k` from the formula of Lemma C1, not from the tree, and the notes do not
+   say so; only the 621 direct determinants test C1; (D4) the title
+   "caterpillars with spine length 3" is broader than the theorem, which
+   excludes `b = 0`, and "length 3" counts vertices here, not edges; (D5)
+   Step 3(i) says "in fact at a larger value" although the bounds are taken
+   exactly at the largest `u`; (D6) Fact 1.1 is said to be used only in
+   Step 4 but is also needed in Step 1; (D7) T2 depends on the general form
+   of R1, restated after its own review (obligation 6); the reviewer checked
+   the direction T2 uses. D1 and D2 (the registry record and the result file
+   did not exist at the reviewed revision) are met by the commit that
+   follows the review. D8 concerns the brief given to the reviewer, which
+   misquoted the title of arXiv:1507.02341; the notes are not affected. The
+   commit subject of `74cb5bb` says "every spine-3 caterpillar", which is
+   broader than T2; the history is not rewritten.
 
 ## Remaining obstacles
 
@@ -282,37 +330,49 @@ Collins–Shor, lower half
   smaller still when the spine of a balanced caterpillar grows with `n` (Q2),
   so the method of T1 must be made uniform in the spine length to say anything
   about the trees that come closest to violating the bound.
-- The method of T1 works for a fixed number of twin classes. Trees of diameter
-  4 are not all caterpillars and have an unbounded number of classes.
+- What T2 teaches about the dependence on the spine length: from `s = 2` to
+  `s = 3` the number of binomial terms grows from 5 to 7, the differences stay
+  affine in the product of the outer leaf numbers, and positivity is no longer
+  term by term: it needs a boundary reduction and concavity. The polynomials
+  were found by machine; nothing in the proof of T2 is uniform in `s`.
+- The method of T1 and T2 works for a fixed number of twin classes. Trees of
+  diameter 4 are not all caterpillars and have an unbounded number of classes.
 
 ## Next step
 
-**Objective O2.** Locate the peak for caterpillars with spine length 3: for
-all integers `c_1, c_2, c_3 ≥ 1`, with `n = 3 + c_1 + c_2 + c_3` and
-`m = ⌊n/2⌋`, decide whether `d_{m−1} < d_m` and `d_{m+1} < d_m`.
+**Objective O3.** Extend T2 to `b = 0`: for all integers `a, c ≥ 1` with
+`a + c ≥ 3`, let `K(a,0,c)` be the caterpillar with spine `v_1 v_2 v_3` in
+which `v_1` and `v_3` carry `a` and `c` pendant leaves and `v_2` none
+(`n = a + c + 3 ≥ 6`, `m = ⌊n/2⌋`). Decide whether `d_{m−1} < d_m` and
+`d_{m+1} < d_m`. Together with T2 and a direct check of `P_5` this would
+settle every caterpillar of diameter 4.
 
-How: L3 with `s = 3` gives `d_k = Σ_{j=0}^{6} g_j C(n−6, k−j)`, where the `g_j`
-are the coefficients of `−det(2xI − Q)/16` for the `6 × 6` matrix `Q` and are
-affine in each `c_i`. (1) Compute the `g_j` symbolically, as `symbolic_4g` does
-in `double_stars.py` (python-flint multivariate polynomials; a Laplace
-expansion over 720 permutations is enough). (2) For each parity of `n`, reduce
-`d_m − d_{m−1}` to a polynomial in `m, c_1, c_2, c_3` times a positive
-binomial, as in Step 2 of `notes/double-stars.md`. (3) Prove positivity on
-`c_i ≥ 1`, `c_1 + c_2 + c_3 = n − 3`, using that the polynomial is affine in
-each `c_i`, so that it suffices to control it at the vertices of the domain.
-(4) Check the sign pattern of the `g_j` to see whether Step 3 of the notes
-(the upper inequality by signs alone) carries over. (5) Cross-check against the
-direct determinant for all `c_1 + c_2 + c_3 ≤ 60`.
+How. (1) Lemma L3 is stated for `c_i ≥ 1`. Show that the formula of Lemma C1
+of `notes/spine3.md` remains valid at `b = 0` when `n ≥ 6`: with `b = 0` the
+fifth column of the `6 × 6` matrix `Q` vanishes except for its diagonal entry
+`−2`, so `det(2xI − Q) = (2x + 2) det(2xI − Q′)`, where `Q′` is the `5 × 5`
+quotient matrix of the equitable partition of `K(a,0,c)` into three spine
+vertices and two leaf classes; check that this gives the same `ℓ_T`, and
+confirm against the direct determinant. (2) The identities of Lemma C2 are
+polynomial identities in `m, a, c`, so they hold at `b = 0`; there `u = a + c`
+takes the single value `n − 3` (`2m − 3` for even order, `2m − 2` for odd),
+which is one more than the largest `u` of T2. (3) Check `K > 0` at that `u`
+and compute `H(m, n − 3)` in the four cases; if all four are positive for the
+relevant `m`, the proof of T2 carries over with `v ≥ u − 1`. Extend
+`spine3.py` (`stated` returns `K`, `R` for any `u`) rather than writing a new
+script, and correct the defects of obligation 8 in the same revision of the
+notes, so that one new review covers both.
 
-Falsification test for O2: the statement holds for all caterpillars of order
-at most 23 (E1, E2); before any proof, evaluate the closed form on every
-`(c_1, c_2, c_3)` with sum at most 300 and look for a non-positive value. The
-peak need not be `m` for every such caterpillar: if `d_{m+1} ≥ d_m` occurs,
-record where.
+Falsification test for O3: an exploratory exact computation in session 3
+found the only maximizing index at `⌊n/2⌋` for all 169 trees `K(a,0,c)` with
+`a + c ≤ 26`. Before any proof, evaluate `H(m, n − 3)` for `3 ≤ m ≤ 2000` in
+the four cases and compare the closed form at `b = 0` with the direct
+determinant for `a + c ≤ 40`.
 
-Why this and not the general spine length: the aim is to learn how the
-polynomial depends on `s`, in order to attack Q2 (spine length growing with
-`n`), where the lower bound is tightest.
+After O3: trees of diameter 4 that are not caterpillars (a centre whose
+neighbours carry `c_1, …, c_r` leaves; the twin partition has `2r + 1` classes,
+so the method needs a determinant formula uniform in `r`); and the dependence
+on the spine length, towards Q2.
 
 Alternatives: Hypothesis A(ii) for `k = 1`, using the Graham–Lovász subforest
 formula; obligation 5 (comparison with Table II), which is cheap.

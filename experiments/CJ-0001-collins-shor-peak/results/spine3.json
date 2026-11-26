@@ -1,0 +1,49 @@
+{
+  "experiment": "CJ-0001 caterpillars with spine length 3: closed forms around the middle index",
+  "arithmetic": "exact integers and rationals",
+  "run": {
+    "command": [
+      "python",
+      "experiments/CJ-0001-collins-shor-peak/spine3.py",
+      "--out",
+      "experiments/CJ-0001-collins-shor-peak/results/spine3.json"
+    ],
+    "git_revision": "74cb5bbba6b84b905cf09e3908292578cb891025",
+    "tree_clean": true,
+    "started_utc": "2026-11-26T09:11:58Z",
+    "versions": {
+      "python": "3.12.4",
+      "python-flint": "0.9.0",
+      "networkx": "3.7"
+    }
+  },
+  "symbolic": {
+    "even-lower": "derived from the g_j; equals v K + R as stated; H has the stated leading coefficient and endpoint values",
+    "even-upper": "derived from the g_j; equals v K + R as stated; H has the stated leading coefficient and endpoint values",
+    "odd-lower": "derived from the g_j; equals v K + R as stated; H has the stated leading coefficient and endpoint values",
+    "odd-upper": "derived from the g_j; equals v K + R as stated; H has the stated leading coefficient and endpoint values"
+  },
+  "sign_conditions": {
+    "range": "3 <= m <= 2000",
+    "checked": "for each of the four cases: K > 0 for every integer u in [2, largest u]; leading coefficient of H negative; H > 0 at u = 2 and at the largest u",
+    "failures": 0
+  },
+  "caterpillars": {
+    "range": "1 <= a <= c, b >= 1, a + b + c <= 300 (orders 6 to 303)",
+    "trees_checked": 2238725,
+    "closed_form_failures": 0,
+    "inequality_failures": 0,
+    "whole_sequence_examined": 17545,
+    "whole_sequence_range": "a + b + c <= 60: positive, maximum at floor(n/2) only, proportional to the numeric quotient-matrix computation",
+    "compared_with_direct_determinant": 621,
+    "direct_range": "a + b + c <= 20, and [(1, 1, 1), (20, 20, 20), (1, 58, 1), (30, 1, 29), (7, 3, 50), (2, 40, 19)]",
+    "smallest_relative_margin_even_order": {
+      "a": 59,
+      "b": 180,
+      "c": 60,
+      "one_minus_q": "91918634270058861928691853980854653799518798224905894976969197365714641890429083161526148872/38516609046910605488146922843166637552055887759292976845096876709359569326589652641655754676896",
+      "decimal": 0.0023864674628576005
+    }
+  },
+  "seconds": 356.7
+}

@@ -52,3 +52,4 @@ derived from them: `candidate` (not promoted), `established` (reviewed and packa
 | MD-0004 | counterexample | The star does not minimize the coefficient ratios up to the middle index: the double star S(9,9) | CJ-0001 (A(i)) | candidate-proof | not-started | unknown | ai-reviewed | candidate |
 | MD-0005 | conjecture | The path maximizes the coefficient ratios up to its own peak | CJ-0001 (A(ii)) | candidate | not-started | unknown | not-reviewed | candidate |
 | MD-0006 | theorem | The peak of the normalized distance coefficients of every double star is at ⌊n/2⌋ | CJ-0001 (T1) | candidate-proof | not-started | preliminary-search-completed | ai-reviewed | candidate |
+| MD-0007 | theorem | The peak of the normalized distance coefficients of the caterpillar K(a,b,c), a, b, c ≥ 1, is at ⌊n/2⌋ | CJ-0001 (T2) | candidate-proof | not-started | preliminary-search-completed | ai-reviewed | candidate |
