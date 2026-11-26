@@ -1,0 +1,495 @@
+{
+ "experiment": "CJ-0001 ratio extremality (Conjecture A)",
+ "mode": "exhaustive",
+ "arithmetic": "exact integers",
+ "orders": [
+  {
+   "order": 4,
+   "trees": 2,
+   "path_peak": 2,
+   "range_i": [
+    0,
+    1
+   ],
+   "range_ii": [
+    0,
+    1
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 5,
+   "trees": 3,
+   "path_peak": 2,
+   "range_i": [
+    0,
+    1
+   ],
+   "range_ii": [
+    0,
+    2
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 6,
+   "trees": 6,
+   "path_peak": 3,
+   "range_i": [
+    0,
+    2
+   ],
+   "range_ii": [
+    0,
+    3
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 7,
+   "trees": 11,
+   "path_peak": 3,
+   "range_i": [
+    0,
+    2
+   ],
+   "range_ii": [
+    0,
+    3
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 8,
+   "trees": 23,
+   "path_peak": 4,
+   "range_i": [
+    0,
+    3
+   ],
+   "range_ii": [
+    0,
+    4
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 9,
+   "trees": 47,
+   "path_peak": 5,
+   "range_i": [
+    0,
+    3
+   ],
+   "range_ii": [
+    0,
+    5
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 10,
+   "trees": 106,
+   "path_peak": 5,
+   "range_i": [
+    0,
+    4
+   ],
+   "range_ii": [
+    0,
+    5
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 11,
+   "trees": 235,
+   "path_peak": 6,
+   "range_i": [
+    0,
+    4
+   ],
+   "range_ii": [
+    0,
+    6
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 12,
+   "trees": 551,
+   "path_peak": 6,
+   "range_i": [
+    0,
+    5
+   ],
+   "range_ii": [
+    0,
+    6
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "seconds": 0.2
+  },
+  {
+   "order": 13,
+   "trees": 1301,
+   "path_peak": 7,
+   "range_i": [
+    0,
+    5
+   ],
+   "range_ii": [
+    0,
+    7
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "seconds": 0.3
+  },
+  {
+   "order": 14,
+   "trees": 3159,
+   "path_peak": 7,
+   "range_i": [
+    0,
+    6
+   ],
+   "range_ii": [
+    0,
+    7
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+   ],
+   "seconds": 0.6
+  },
+  {
+   "order": 15,
+   "trees": 7741,
+   "path_peak": 8,
+   "range_i": [
+    0,
+    6
+   ],
+   "range_ii": [
+    0,
+    8
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "seconds": 2.2
+  },
+  {
+   "order": 16,
+   "trees": 19320,
+   "path_peak": 8,
+   "range_i": [
+    0,
+    7
+   ],
+   "range_ii": [
+    0,
+    8
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "seconds": 6.8
+  },
+  {
+   "order": 17,
+   "trees": 48629,
+   "path_peak": 9,
+   "range_i": [
+    0,
+    7
+   ],
+   "range_ii": [
+    0,
+    9
+   ],
+   "violations_i": 0,
+   "violations_ii": 0,
+   "violations_collins_shor": 0,
+   "violating_layouts_i": [],
+   "violating_layouts_ii": [],
+   "indices_where_star_minimises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "indices_where_path_maximises_rho": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "seconds": 18.1
+  }
+ ]
+}

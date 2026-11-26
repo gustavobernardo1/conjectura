@@ -1,0 +1,1904 @@
+{
+ "experiment": "CJ-0001 exhaustive peak location",
+ "statement_tested": "every maximizing index k of d_0..d_{n-2} satisfies floor(n/2) <= k <= ceil(n - n/sqrt(5))",
+ "arithmetic": "exact integers (python-flint characteristic polynomial)",
+ "versions": {
+  "python": "3.12.4",
+  "python-flint": "0.9.0",
+  "networkx": "3.7"
+ },
+ "workers": 7,
+ "orders": [
+  {
+   "order": 3,
+   "trees": 1,
+   "trees_expected_A000055": 1,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    1,
+    2
+   ],
+   "min_peak": 1,
+   "max_peak": 1,
+   "peak_histogram": {
+    "1": 1
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    1
+   ],
+   "star_peak": [
+    1
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     1
+    ]
+   ],
+   "seconds": 1.4
+  },
+  {
+   "order": 4,
+   "trees": 2,
+   "trees_expected_A000055": 2,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    2,
+    3
+   ],
+   "min_peak": 2,
+   "max_peak": 2,
+   "peak_histogram": {
+    "2": 2
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    2
+   ],
+   "star_peak": [
+    2
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     1
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 5,
+   "trees": 3,
+   "trees_expected_A000055": 3,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    2,
+    3
+   ],
+   "min_peak": 2,
+   "max_peak": 2,
+   "peak_histogram": {
+    "2": 3
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    2
+   ],
+   "star_peak": [
+    2
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     1,
+     2
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     1,
+     2
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 6,
+   "trees": 6,
+   "trees_expected_A000055": 6,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    3,
+    4
+   ],
+   "min_peak": 3,
+   "max_peak": 3,
+   "peak_histogram": {
+    "3": 6
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    3
+   ],
+   "star_peak": [
+    3
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     1,
+     2
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     1,
+     2
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 7,
+   "trees": 11,
+   "trees_expected_A000055": 11,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    3,
+    4
+   ],
+   "min_peak": 3,
+   "max_peak": 3,
+   "peak_histogram": {
+    "3": 11
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    3
+   ],
+   "star_peak": [
+    3
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     1,
+     2,
+     3
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     1,
+     2,
+     3
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 8,
+   "trees": 23,
+   "trees_expected_A000055": 23,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    4,
+    5
+   ],
+   "min_peak": 4,
+   "max_peak": 4,
+   "peak_histogram": {
+    "4": 23
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    4
+   ],
+   "star_peak": [
+    4
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     1,
+     2,
+     3
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     1,
+     2,
+     3
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 9,
+   "trees": 47,
+   "trees_expected_A000055": 47,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    4,
+    5
+   ],
+   "min_peak": 4,
+   "max_peak": 5,
+   "peak_histogram": {
+    "4": 45,
+    "5": 2
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    5
+   ],
+   "star_peak": [
+    4
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     1,
+     2,
+     3,
+     2
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     1,
+     2,
+     3,
+     4
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 10,
+   "trees": 106,
+   "trees_expected_A000055": 106,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    5,
+    6
+   ],
+   "min_peak": 5,
+   "max_peak": 5,
+   "peak_histogram": {
+    "5": 106
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    5
+   ],
+   "star_peak": [
+    5
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     1,
+     2,
+     3,
+     4
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     1,
+     2,
+     3,
+     4
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 11,
+   "trees": 235,
+   "trees_expected_A000055": 235,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    5,
+    7
+   ],
+   "min_peak": 5,
+   "max_peak": 6,
+   "peak_histogram": {
+    "5": 194,
+    "6": 41
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    6
+   ],
+   "star_peak": [
+    5
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     1,
+     2,
+     3,
+     2,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   ],
+   "seconds": 0.0
+  },
+  {
+   "order": 12,
+   "trees": 551,
+   "trees_expected_A000055": 551,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    6,
+    7
+   ],
+   "min_peak": 6,
+   "max_peak": 6,
+   "peak_histogram": {
+    "6": 551
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    6
+   ],
+   "star_peak": [
+    6
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     1,
+     2,
+     3,
+     4,
+     5
+    ]
+   ],
+   "seconds": 0.1
+  },
+  {
+   "order": 13,
+   "trees": 1301,
+   "trees_expected_A000055": 1301,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    6,
+    8
+   ],
+   "min_peak": 6,
+   "max_peak": 7,
+   "peak_histogram": {
+    "6": 778,
+    "6,7": 1,
+    "7": 522
+   },
+   "trees_with_tied_maximum": 1,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    7
+   ],
+   "star_peak": [
+    6
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     1,
+     2,
+     3,
+     2,
+     2,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   ],
+   "seconds": 0.1
+  },
+  {
+   "order": 14,
+   "trees": 3159,
+   "trees_expected_A000055": 3159,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    7,
+    8
+   ],
+   "min_peak": 7,
+   "max_peak": 7,
+   "peak_histogram": {
+    "7": 3159
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    7
+   ],
+   "star_peak": [
+    7
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1,
+     2,
+     3,
+     2,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     3,
+     3,
+     3,
+     3,
+     3,
+     1,
+     2,
+     3,
+     2,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ]
+   ],
+   "seconds": 0.5
+  },
+  {
+   "order": 15,
+   "trees": 7741,
+   "trees_expected_A000055": 7741,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    7,
+    9
+   ],
+   "min_peak": 7,
+   "max_peak": 8,
+   "peak_histogram": {
+    "7": 2890,
+    "8": 4851
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    8
+   ],
+   "star_peak": [
+    7
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     3,
+     3,
+     2,
+     3,
+     3,
+     1,
+     2,
+     3,
+     1,
+     2,
+     2
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     1,
+     2,
+     3,
+     2,
+     2,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     3,
+     1,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     3,
+     3,
+     2,
+     1,
+     2,
+     3,
+     4,
+     2,
+     2,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     3,
+     3,
+     2,
+     3,
+     2,
+     1,
+     2,
+     3,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     3,
+     2,
+     1,
+     2,
+     3,
+     4,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     3,
+     3,
+     2,
+     1,
+     2,
+     3,
+     4,
+     3,
+     1,
+     2
+    ]
+   ],
+   "seconds": 0.6
+  },
+  {
+   "order": 16,
+   "trees": 19320,
+   "trees_expected_A000055": 19320,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    8,
+    9
+   ],
+   "min_peak": 8,
+   "max_peak": 8,
+   "peak_histogram": {
+    "8": 19320
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    8
+   ],
+   "star_peak": [
+    8
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     5,
+     2,
+     1,
+     2,
+     3,
+     4,
+     5,
+     3,
+     3,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     3,
+     4,
+     1,
+     2,
+     3,
+     4,
+     5,
+     2,
+     3,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     1,
+     2,
+     3,
+     4,
+     3,
+     4,
+     2,
+     3,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     3,
+     3,
+     1,
+     2,
+     3,
+     4,
+     3,
+     3,
+     1,
+     2,
+     3
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     5,
+     2,
+     1,
+     2,
+     3,
+     4,
+     5,
+     3,
+     3,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     3,
+     4,
+     1,
+     2,
+     3,
+     4,
+     5,
+     2,
+     3,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     1,
+     2,
+     3,
+     4,
+     3,
+     4,
+     2,
+     3,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     3,
+     3,
+     1,
+     2,
+     3,
+     4,
+     3,
+     3,
+     1,
+     2,
+     3
+    ]
+   ],
+   "seconds": 0.8
+  },
+  {
+   "order": 17,
+   "trees": 48629,
+   "trees_expected_A000055": 48629,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    8,
+    10
+   ],
+   "min_peak": 8,
+   "max_peak": 9,
+   "peak_histogram": {
+    "8": 9946,
+    "9": 38683
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    9
+   ],
+   "star_peak": [
+    8
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     4,
+     1,
+     2,
+     3,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     3,
+     4,
+     3,
+     1,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     3,
+     3,
+     1,
+     2,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     3,
+     1,
+     2,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     3,
+     1,
+     2,
+     3,
+     3,
+     3,
+     2,
+     2,
+     1,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     5,
+     5,
+     5,
+     1,
+     2,
+     3,
+     4,
+     5,
+     4,
+     4,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     5,
+     2,
+     3,
+     1,
+     2,
+     3,
+     4,
+     4,
+     1,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     4,
+     5,
+     1,
+     2,
+     3,
+     4,
+     5,
+     4,
+     3,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     5,
+     4,
+     3,
+     2,
+     1,
+     2,
+     3,
+     4,
+     5,
+     5,
+     2
+    ]
+   ],
+   "seconds": 3.7
+  },
+  {
+   "order": 18,
+   "trees": 123867,
+   "trees_expected_A000055": 123867,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    9,
+    10
+   ],
+   "min_peak": 9,
+   "max_peak": 10,
+   "peak_histogram": {
+    "9": 123833,
+    "10": 34
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    10
+   ],
+   "star_peak": [
+    9
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     6,
+     6,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     3,
+     2,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     5,
+     4,
+     4,
+     1,
+     2,
+     3,
+     4,
+     5,
+     5,
+     5,
+     5
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     4,
+     5,
+     4,
+     3,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     6,
+     2,
+     1,
+     2,
+     3,
+     4,
+     5,
+     4,
+     5,
+     4,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     2,
+     3,
+     4,
+     1,
+     2,
+     3,
+     4,
+     5,
+     4,
+     4,
+     4
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8
+    ]
+   ],
+   "seconds": 9.1
+  },
+  {
+   "order": 19,
+   "trees": 317955,
+   "trees_expected_A000055": 317955,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    9,
+    11
+   ],
+   "min_peak": 9,
+   "max_peak": 10,
+   "peak_histogram": {
+    "9": 31979,
+    "10": 285976
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    10
+   ],
+   "star_peak": [
+    9
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     4,
+     4,
+     1,
+     2,
+     3,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     4,
+     3,
+     1,
+     2,
+     3,
+     3,
+     2,
+     2,
+     2,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     3,
+     4,
+     1,
+     2,
+     3,
+     2,
+     2,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     2,
+     3,
+     1,
+     2,
+     3,
+     2,
+     2,
+     2,
+     1,
+     1,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     4,
+     4,
+     4,
+     2,
+     1,
+     2,
+     3,
+     3,
+     3,
+     2,
+     2,
+     2,
+     1,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     2,
+     2,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     3,
+     4,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     6,
+     7,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     5,
+     6,
+     4
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     5,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     6,
+     6,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     6,
+     6,
+     5,
+     5,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     2,
+     3
+    ]
+   ],
+   "seconds": 19.0
+  },
+  {
+   "order": 20,
+   "trees": 823065,
+   "trees_expected_A000055": 823065,
+   "enumeration_count_matches": true,
+   "conjectured_interval": [
+    10,
+    12
+   ],
+   "min_peak": 10,
+   "max_peak": 11,
+   "peak_histogram": {
+    "10": 820068,
+    "11": 2997
+   },
+   "trees_with_tied_maximum": 0,
+   "violations": 0,
+   "violating_layouts": [],
+   "guard_failures": 0,
+   "path_peak": [
+    11
+   ],
+   "star_peak": [
+    10
+   ],
+   "examples_min_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     7,
+     6,
+     2,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     6,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     6,
+     6,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     3,
+     4,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     8,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     4,
+     4,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     7,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     5,
+     6,
+     3,
+     4,
+     2
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     7,
+     4,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     4,
+     2,
+     1,
+     1
+    ]
+   ],
+   "examples_max_peak_layouts": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     7,
+     6,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     7,
+     5,
+     6
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     6,
+     6,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     7,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     5,
+     6,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     7,
+     4,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     3,
+     4,
+     5,
+     6
+    ]
+   ],
+   "seconds": 54.8
+  }
+ ],
+ "total_trees": 1346022,
+ "total_violations": 0
+}
