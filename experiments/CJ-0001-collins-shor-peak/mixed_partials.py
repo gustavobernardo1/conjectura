@@ -29,6 +29,8 @@ What is computed, for each s and each order n in the range:
    >= 0. This is sufficient, not necessary, for non-negativity on the domain,
    and it ignores the constraint on the sum;
 3. the value of D_n at each vertex of the slice, and which vertex minimizes it;
+   also, for each s, in which g_j the product c_1 ... c_s occurs and with what
+   coefficient;
 4. the same for the upper difference d_m - d_{m+1} (reported separately: the
    peak of a caterpillar with a long spine need not be at m).
 
@@ -155,7 +157,7 @@ def main() -> int:
     }
     for s in range(2, args.max_spine + 1):
         alpha = multiaffine_g(s)
-        box = 3 if s <= 5 else (2 if s <= 7 else 1)
+        box = 3 if s <= 5 else 2
         validated = 0
         for leaves in product(range(box + 1), repeat=s):
             if leaves[0] >= 1 and leaves[-1] >= 1 and sum(leaves) >= s:
@@ -164,6 +166,10 @@ def main() -> int:
         entry: dict = {
             "spine_vertices": s,
             "closed_form_validated": f"{validated} caterpillars with leaf numbers in 0..{box} (ends >= 1, n >= 2s) against the direct determinant",
+            # The observation of notes/vertex-principle.md: only g_{s-1} and g_s, with coefficients s and s + 3.
+            "coefficient_of_the_product_of_all_leaf_numbers_in_g_j": {
+                str(j): polynomial[frozenset(range(s))] for j, polynomial in enumerate(alpha) if frozenset(range(s)) in polynomial
+            },
             "domains": [],
         }
         for name, lows in (("all c_i >= 1", [1] * s), ("c_1, c_s >= 1 and c_i >= 0 inside", [1] + [0] * (s - 2) + [1])):

@@ -236,3 +236,14 @@ def test_mixed_partial_certificate_on_small_spines():
             beta = mixed_partials.difference(alpha, s, n, -1)
             for i, k in combinations(range(s), 2):
                 assert mixed_partials.smallest_certificate_coefficient(beta, s, i, k, lows) >= 0
+
+
+def test_top_coefficient_of_the_caterpillar_polynomials():
+    # Observation of notes/vertex-principle.md, for 2 to 6 spine vertices: the product of all
+    # leaf numbers occurs only in g_{s-1} and g_s, with coefficients s and s + 3.
+    import mixed_partials
+
+    for s in range(2, 7):
+        full = frozenset(range(s))
+        found = {j: polynomial[full] for j, polynomial in enumerate(mixed_partials.multiaffine_g(s)) if full in polynomial}
+        assert found == {s - 1: s, s: s + 3}

@@ -17,6 +17,38 @@
       "source_statement": "Classical fact: every prime number greater than 2 is odd.",
       "nonvacuity": { "witness": "Conjectura.Calibration.odd_of_prime_of_two_lt_nonvacuous" },
       "statement_fingerprint": "7442df9b4e92c66c540115834f4395c3513390c9bd1ffb3295514dad8f5b0b38"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.maxIndex_ge_iff_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "research/active/CJ-0001-collins-shor-peak/notes/lemmas.md, R1, 'General form': Let a_0, ..., a_r be positive and log-concave (a_k^2 >= a_{k-1} a_{k+1} for 1 <= k <= r-1) and let 1 <= j <= r. Then every maximizing index of the sequence (an index i <= r with a_i >= a_k for all k <= r) is >= j if and only if a_{j-1} < a_j. Encoding: a : N -> R, only indices <= r constrained; log-concavity written with the middle index shifted by one (equivalent to the literal form by logConcave_shift_iff); a_{j-1} is a (j - 1) under the hypothesis 1 <= j. A supporting lemma of the investigation about finite sequences; it does not mention trees or distance matrices.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.hypotheses_nonvacuous" },
+      "statement_fingerprint": "90882e69cf45e1fbe296e963badbbf88b0d536f473ab7530f01962124e99a768"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.maxIndex_ge_of_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "One direction of research/active/CJ-0001-collins-shor-peak/notes/lemmas.md, R1, 'General form' (the direction used by the later results): for a_0, ..., a_r positive and log-concave and 1 <= j <= r, if a_{j-1} < a_j then every maximizing index of the sequence is >= j. Same encoding as maxIndex_ge_iff_pred_lt.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.hypotheses_nonvacuous" },
+      "statement_fingerprint": "a2947a9877d1d28f01a7d6dbc0717a83582928523457d708cf759d3d70323467"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.lt_of_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Step of the proof of R1, 'General form', in research/active/CJ-0001-collins-shor-peak/notes/lemmas.md ('the sequence is strictly increasing up to j'), in the weaker form that is needed: for a_0, ..., a_r positive and log-concave and 1 <= j <= r, if a_{j-1} < a_j then a_i < a_j for every i < j. Not the 'General form' itself. Same encoding as maxIndex_ge_iff_pred_lt.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.hypotheses_nonvacuous" },
+      "statement_fingerprint": "3a8280538be38029bb8e547dcc33f810b5b797d78d7fb1a14905b569c598359e"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.logConcave_shift_iff",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Encoding lemma with no counterpart in the notes: for a : N -> R and r, the literal log-concavity condition of R1 'General form' (a_{k-1} a_{k+1} <= a_k^2 for all k with 1 <= k and k + 1 <= r) is equivalent to the shifted condition used as hypothesis in this module (a_k a_{k+2} <= a_{k+1}^2 for all k with k + 2 <= r).",
+      "nonvacuity": { "not_needed": "The statement is an equivalence with no hypotheses." },
+      "statement_fingerprint": "e04f58dc9a3d22f039fe87c37b0ef628226b627ff624902de42b5017c7b983c0"
     }
   ]
 }

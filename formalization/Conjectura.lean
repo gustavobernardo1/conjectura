@@ -7,8 +7,10 @@ whose module name starts with `Conjectura`.
 
 * `Conjectura.Calibration.*` — known results, used only to exercise the
   verification pipeline. They are not research results of this project.
-* `Conjectura.Research.*`    — (none yet) formal statements and proofs attached
-  to catalogue problems.
+* `Conjectura.Research.*`    — formal statements and proofs attached to
+  catalogue problems. A theorem here is what its own statement says; whether
+  it matches a written statement is recorded in `registry.json`.
 -/
 import Conjectura.Calibration.SumOdd
 import Conjectura.Calibration.OddPrime
+import Conjectura.Research.CollinsShorPeak.LogConcavePeak

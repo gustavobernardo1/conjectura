@@ -102,10 +102,51 @@ orders proves nothing about all `n`.
 **Known cases.** `V(2)` holds for every `n ≥ 4`: in Lemma D1 of
 `double-stars.md` the product `ab` occurs only in `g_1` and `g_2`, and Step 2
 there shows that its coefficient in `d_m − d_{m−1}` is `3c_0/(m−1)` for even
-order and `10e_0/m` for odd order, both positive (candidate proof T1). For
-`s = 3` the three mixed partials have not been
-written out as polynomials in `m`; T2 and T3 were proved by a different
-reduction (in the variables `u = a + c`, `v = ac`).
+order and `10e_0/m` for odd order, both positive (candidate proof T1).
+
+**`V(3)` for every order (computer-assisted, not reviewed).** Write the leaf
+numbers as `(a, b, c)` and let `σ_E, c_0, σ_O, e_0` be the positive quantities
+of Lemma C2 of `spine3.md`. For every `n ≥ 6`, as polynomials in `m, a, b, c`:
+
+| | even order, times `σ_E/c_0` | odd order, times `σ_O/e_0` |
+| --- | --- | --- |
+| `∂²D_n/∂a∂c` | `20m(m+1)(2m−5) + 3m(m−1)(m+1)·b` | `4(m+1)(m+2)(23m−36) + 12m(m+1)(m+2)·b` |
+| `∂²D_n/∂a∂b` | `3m(m+1)(5m−11) + 3m(m−1)(m+1)·(c−1)` | `4(m+1)(m+2)(13m−15) + 12m(m+1)(m+2)·(c−1)` |
+| `∂²D_n/∂b∂c` | `3m(m+1)(5m−11) + 3m(m−1)(m+1)·(a−1)` | `4(m+1)(m+2)(13m−15) + 12m(m+1)(m+2)·(a−1)` |
+
+All six are positive for `m ≥ 3`, `a, c ≥ 1`, `b ≥ 0`. The identities were
+obtained symbolically from the `g_j` of Lemma C1 of `spine3.md` and the
+binomial recurrences, and are checked by `mixed_partials_s3.py`; they have not
+been derived by hand. The values of `D_n` at the vertices of the slice are, up
+to the same factors, the polynomial `H*` of `diameter4-caterpillars.md` at
+`(n−4, 0, 1)` and `(1, 0, n−4)`, and `H(m, 2)` of `spine3.md` at `(1, n−5, 1)`;
+all are positive for `m ≥ 3`. With Lemma L4 this is a second derivation of
+part 1 of T2 and of T3 (the lower inequality for every `K(a,b,c)` with
+`a, c ≥ 1`, `b ≥ 0`, `n ≥ 6`), in which the reduction in the variables
+`u = a + c`, `v = ac` used there is replaced by the vertex principle. It is
+recorded here as a consistency check of the method; T2 and T3 remain the
+statements that were written out and reviewed.
+
+**The top coefficient, uniformly in `s` (observation).** For every
+`2 ≤ s ≤ 8` the product `c_1 c_2 ⋯ c_s` occurs in exactly two of the `g_j`:
+in `g_{s−1}` with coefficient `s` and in `g_s` with coefficient `s + 3`
+(exact, from the interpolated polynomials of `mixed_partials.py`; for `s = 2`
+and `s = 3` this can be read off Lemma D1 and Lemma C1). If that holds for a
+given `s`, the coefficient of `c_1 ⋯ c_s` in `D_n` — the mixed partial of
+order `s` — follows by a two-line computation with `k = m − s`:
+
+- even order (`n − 2s = 2k`): `s·[C(2k, k+1) − C(2k, k)] + (s+3)·[C(2k, k) − C(2k, k−1)] = 3·C(2k, k)/(k+1)`,
+  three times a Catalan number, whatever `s` is;
+- odd order (`n − 2s = 2k + 1`): the first bracket vanishes and the coefficient
+  is `(s+3)·[C(2k+1, k) − C(2k+1, k−1)] = (2s + 6)·C(2k+1, k+1)/(k+2)`.
+
+Both are positive. The values `3c_0/(m−1)` and `10e_0/m` of T1 and the
+coefficients of `b`, `c − 1`, `a − 1` in the table above are the cases
+`s = 2` and `s = 3`. This is the first statement of the investigation that has
+the same form for every spine length. It concerns only the highest mixed
+partial; the mixed partials of order 2 in Hypothesis V involve all the lower
+coefficients, for which no uniform description is known. Why the two
+coefficients are `s` and `s + 3` has not been examined.
 
 ## What would follow
 
@@ -126,7 +167,8 @@ about one polynomial in `m` per parity. In the range computed the minimum is
 attained at the middle position `p = ⌈s/2⌉`, and all vertex values are
 positive.
 
-**What this does not give.** (1) `V(s)` is not proved for any `s ≥ 3`, and the
+**What this does not give.** (1) `V(s)` is not proved for any `s ≥ 4`; for
+`s = 3` it is a computer-assisted identity that no one has reviewed. The
 vertex families are not proved positive for any `s ≥ 4`. (2) Nothing here is
 uniform in `s`: for each `s` there is a finite list of polynomials in `m`, but
 their number and degree grow with `s`. (3) Caterpillars with fewer leaves than
@@ -149,8 +191,8 @@ mixed partials.
 
 ## Next
 
-1. Prove `V(3)` for all `n` (three polynomials in `m` per parity) and re-derive
-   the lower halves of T2 and T3 from L4, as a test of the method.
+1. Have the `s = 3` case above reviewed, or derive its six polynomials by
+   hand.
 2. `s = 4`: write the six mixed partials and the two vertex families as
    polynomials in `m`; this would give the lower half for all caterpillars of
    diameter 5 with at least four leaves.
