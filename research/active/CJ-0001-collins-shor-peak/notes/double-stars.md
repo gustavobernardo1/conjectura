@@ -74,8 +74,8 @@ so `−det(2xI − Q)/4 = g_0 + g_1 x + g_2 x² + g_3 x³ + g_4 x⁴`, and the
 coefficient of `x^k` in `(x+1)^N (g_0 + … + g_4 x⁴)` is `Σ_j g_j C(N, k−j)`. ∎
 
 The determinant is affine in `a` (which occurs only in the third column) and
-in `b` (only in the fourth), and it is symmetric under `a ↔ b` (exchanging
-the two centres is an automorphism of the family); a polynomial that is
+in `b` (only in the fourth), and it is symmetric under `a ↔ b` (the trees
+`S(a,b)` and `S(b,a)` are isomorphic); a polynomial that is
 affine in each of `a, b` and symmetric is of the form `α + β(a + b) + γab`,
 which is why the determinant depends on `a, b` only through `s`, `t` and is
 affine in `t`. The expansion was obtained symbolically
@@ -217,12 +217,17 @@ star) or, if its diameter is 3, is a double star. T1 covers the trees of
 diameter 3. For stars the project relies on Collins's theorem as reported in
 arXiv:1507.02341; that report does not say how ties are treated, and the
 formulas above prove only `d_{m−1} < d_m` for stars, that is, the lower
-bound. So "the conjecture for all trees of diameter at most 3" holds on the
-strength of T1 and of a theorem the project has not read.
+bound. So "the conjecture for all trees of diameter at most 3" rests on T1
+and on a theorem the project has not read, and for stars what the project
+can state does not settle the strong reading of ties.
 
-**What T1 does not say.** Nothing about trees of diameter 4 or more. In the
-exact values computed, the relative margin `1 − d_{m−1}/d_m` of a double star
-decreases roughly like `1/n`; this is an observation, not proved here.
+**What T1 does not say.** Nothing about trees of diameter 4 or more. The
+relative margin `1 − d_{m−1}/d_m` of a double star appears to decrease like
+`1/n`, with a constant that depends on the parity of `n`: in an exact
+computation made by the reviewer who rechecked this file (not reproduced in
+the repository), `n` times the margin stayed between 0.84 and 1.11 for even
+`n` and between 2.68 and 3.11 for odd `n`, up to `n = 2001`. This is an
+observation, not proved here.
 
 ## Checks
 
@@ -261,6 +266,18 @@ A finite check is not a proof. The proof is Steps 1 to 4.
   "proportionality" where they said "agreement", and say what they do not
   test; (e) a paragraph on the two meanings of `s` and `c_i`; (f) the sentence
   after Lemma D1 now mentions the symmetry in `a, b`; (g) the strong reading of
-  ties is defined where it is first used. The review was made on the first
-  version and has not been repeated on this one; whether the changes are
-  immaterial is recorded in `research/discoveries.json` (MD-0006).
+  ties is defined where it is first used. With (c), the sentence "so T1 is an
+  exact statement, not a consequence of a crude bound" was deleted. A
+  sentence in the header points to this history. That revision is commit
+  `1c38662`.
+- Second revision (2026-11-26), after an independent recheck of `1c38662`
+  (`../reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md`), which found that
+  the first revision changed no mathematics and that some of its new
+  sentences were loose. Corrected: the symmetry of the determinant is now
+  attributed to the isomorphism `S(a,b) ≅ S(b,a)`; the remark on trees of
+  diameter at most 3 no longer says that the conjecture "holds" for them and
+  names the reading of ties; the observation about the margin now says
+  where its numbers come from. No statement, formula or step of the proof
+  was changed. The full review was made on the first version and the recheck
+  on the first revision; this second revision has not been checked by anyone
+  but its author.

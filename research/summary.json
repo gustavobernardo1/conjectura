@@ -51,6 +51,7 @@
       "experiments/CJ-0001-collins-shor-peak/results/spine3.json",
       "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md",
       "tests/test_cj0001_distpoly.py"
     ]
   },
@@ -71,6 +72,7 @@
       "experiments/CJ-0001-collins-shor-peak/results/spine3.json",
       "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md",
       "tests/test_cj0001_distpoly.py"
     ],
     "review": {
@@ -98,6 +100,7 @@
       "experiments/CJ-0001-collins-shor-peak/results/spine3.json",
       "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T2.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md",
       "tests/test_cj0001_distpoly.py"
     ],
     "novelty_search": {
@@ -208,11 +211,11 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "2b302da156862dc6a796d81f8a4a2fec730b6810",
+    "revision": "1c386621bbf5083e89259a9e6ff9cae341c3b4a7",
     "sources_committed": false,
     "sources": {
       "research/catalogue.json": "23afc1f259224590e5f0eea346418241bc68a497",
-      "research/discoveries.json": "7b6860491ac2a9791f71e5b2d4732d2ed3e569c2",
+      "research/discoveries.json": "3dd2480c11ca7271ef3d9c35943b3fa4789ec68f",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "fc4c60c169c8a99eadb96fd631d6ac3c0a96b22f"
     }

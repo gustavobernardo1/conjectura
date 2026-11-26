@@ -280,8 +280,12 @@ Collins–Shor, lower half
    Collins (1989). The defects (a) to (g) listed by the review were corrected
    in `notes/double-stars.md` on 2026-11-26 (its *Revision history* says
    what changed); no statement, formula or step of the proof was changed. The
-   review was made on the earlier text. Whether an independent check of the
-   revision exists is recorded in the registry (MD-0006), not here.
+   review was made on the earlier text. A recheck of that revision (`1c38662`)
+   by `claude-opus-5-5`,
+   [`reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md`](reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md),
+   found no change to the mathematics and that the first verdict still
+   applies; the loose sentences it found were corrected in a second revision,
+   which no one but the author has checked.
 3. **Review of the audit's identifications.** That L1 is a rewriting of
    Graham–Lovász (10)–(12), and that L3 is a special case of Hogben–Reinhart
    Theorem 3.3, are the auditor's own short computations, unreviewed. They only
@@ -295,7 +299,12 @@ Collins–Shor, lower half
 5. **A published data set to compare with.** Table II of Graham–Lovász (1978,
    pp. 85–86) lists the normalized coefficients of all trees on at most eight
    vertices. The project's code has not been compared with it.
-6. R1 was restated after the review of `e34acfc` and has not been re-reviewed.
+6. R1 was restated after the review of `e34acfc`. Its general form was since
+   reconstructed in both directions by the review of T1 (`5e5ef14`), and the
+   direction used by T2 by the review of T2; the two specialised statements
+   of R1 about `M` have not been re-reviewed, and the header of
+   `notes/lemmas.md` still says "has not been re-reviewed" (the file is left
+   unchanged because two reviews pin its hash).
 7. No Lean formalization exists for this problem.
 8. **Review of T2.** AI review of `74cb5bb` by `claude-opus-5-5`: no gap found
    within stated scope. No mathematician has read it, and no literature
@@ -309,8 +318,13 @@ Collins–Shor, lower half
    brief given to the reviewer, which misquoted the title of
    arXiv:1507.02341. The commit subject of `74cb5bb` says "every spine-3
    caterpillar", which is broader than T2 (`a, b, c ≥ 1`); the history is not
-   rewritten. Whether an independent check of the revision exists is
-   recorded in the registry (MD-0007), not here.
+   rewritten. The recheck of `1c38662` named under obligation 2 found no
+   change to the mathematics of T2 and that the first verdict still applies;
+   it found three wrong sentences in the revision, corrected in a second
+   revision that no one but the author has checked. Still open from it:
+   `spine3.py` and `results/spine3.json` keep the words "spine length 3" in
+   their description strings (the result file is evidence and is not
+   edited).
 
 ## Remaining obstacles
 

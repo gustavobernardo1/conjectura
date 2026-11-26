@@ -22,8 +22,9 @@ order is `n = a + b + c + 3 ≥ 6`. Throughout,
 
 `K(a,b,c)` and `K(c,b,a)` are isomorphic. These trees are exactly the
 caterpillars of diameter 4 whose central vertex carries at least one leaf.
-In `lemmas.md` and in the file names of the project this family is said to
-have "spine length 3": the spine has three vertices (and two edges). The
+Elsewhere in the project (the name of this file, `spine3.py`, `STATE.md`)
+this family is said to have "spine length 3": the spine has three vertices
+(and two edges). The
 condition `a, b, c ≥ 1` is part of every statement below; the caterpillars
 with three spine vertices and `b = 0` are not treated in this file.
 
@@ -278,13 +279,16 @@ file `results/spine3.json`:
 - for every `K(a,b,c)` with `a + b + c ≤ 300`: the four identities of Lemma C2
   between integers, and `d_{m−1} < d_m > d_{m+1}`. Here and in the next item
   the `d_k` are taken from the formula of Lemma C1, not computed from the
-  tree: these two items test Lemma C2 and Step 3 given Lemma C1, and say
-  nothing about Lemma C1 itself;
+  tree, so neither item tests Lemma C1 against the tree. This item tests
+  Lemma C2 and Step 3 given Lemma C1;
 - for `a + b + c ≤ 60`: positivity of the whole sequence, `m` as the only
   maximizing index, and proportionality of the whole sequence to the numeric
-  quotient-matrix computation of `near_star_families.py` (this shares Lemma L3
-  with the closed form and is not independent evidence for it);
-- for `a + b + c ≤ 20` and six larger caterpillars (621 trees): equality of
+  quotient-matrix computation of `near_star_families.py`. That computation
+  takes the exact characteristic polynomial of the quotient matrix, so this
+  item tests the expansion of the determinant in Lemma C1 given Lemma L3; it
+  shares Lemma L3 with the closed form and is not evidence for that lemma;
+- for `a + b + c ≤ 20` and six further triples, one of which, `(1,1,1)`, is
+  already in that range (621 comparisons, 620 distinct trees): equality of
   the whole sequence with the direct `n × n` determinant, which does not use
   Lemma L3. This is the only item, with the test below, that tests Lemma C1
   against the tree.
@@ -307,6 +311,18 @@ and Lemma C2 are computer-assisted polynomial identities.
   of R1 is used (D6, D7); the words "and in fact at a larger value" in
   Step 3(i), which were wrong and are removed (D5); the description of the
   finite checks, which now says which of them take the `d_k` from Lemma C1
-  (D3). The review was made on the first version and has not been repeated on
-  this one; whether the changes are immaterial is recorded in
-  `research/discoveries.json` (MD-0007).
+  (D3), with the number of direct comparisons; a sentence after the
+  definition of `K(a,b,c)` saying that `a, b, c ≥ 1` is part of every
+  statement and that `b = 0` is not treated; and a sentence in the header
+  pointing to this history. That revision is commit `1c38662`.
+- Second revision (2026-11-26), after an independent recheck of `1c38662`
+  (`../reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md`), which found that
+  the first revision changed no mathematics and that three of its new
+  sentences were wrong. Corrected: the sentence on where the words "spine
+  length 3" are used (`lemmas.md` does not use them); the count of direct
+  comparisons (621 comparisons of 620 distinct trees, and only five of the
+  six further triples are larger); and the description of what the checks for
+  `a + b + c ≤ 300` and `≤ 60` test. No statement, formula or step of the
+  proof was changed. The full review was made on the first version and the
+  recheck on the first revision; this second revision has not been checked
+  by anyone but its author.

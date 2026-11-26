@@ -423,9 +423,9 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/double-stars.md",
-          "summary": "Theorem T1 with a complete written proof: Lemma D1 (explicit coefficients from the 4 × 4 quotient determinant), two closed forms for d_m − d_{m−1}, a sign argument for d_{m+1} − d_m, and the conclusion by log-concavity. Revised in presentation on 2026-11-26, after the review; no statement, formula or step of the proof was changed (revision history at the end of the file).",
+          "summary": "Theorem T1 with a complete written proof: Lemma D1 (explicit coefficients from the 4 × 4 quotient determinant), two closed forms for d_m − d_{m−1}, a sign argument for d_{m+1} − d_m, and the conclusion by log-concavity. Revised twice on 2026-11-26 after the review, without change to any statement, formula or step of the proof: at 1c38662 (the defects the review listed), and once more after the recheck of 1c38662 (sentences the first revision had got wrong). The revision history at the end of the file lists both; the sha256 is that of the current text.",
           "revision": "241dc03",
-          "sha256": "c7b0db848586a293d8e26d18fc36e7a81c4a0dbac4eb1089e67f1c56900c951a"
+          "sha256": "12bd90ea909356460345a50c49f73e22cb6c0f3b368b875feb7685ddd02b23b2"
         },
         {
           "kind": "computation",
@@ -453,6 +453,16 @@
           "revision": "5e5ef14ddf754d2b9e2b99c13e3285a2331c7900",
           "sha256": "1df5139af81b5e8c6a595f0b0e505284cd1cb8a2823f62cb719d0334f698c6dc",
           "statement_fingerprint": "dca51974c95c725e081420c31ccd09fb495448a76f5c0625f444a4ad974050b1"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md",
+          "summary": "Recheck of one revision, not a full review: do the changes made after the first review alter the mathematics, and does the first verdict still apply? Verdict: earlier review still applies to the revised text. T1: eight hunks, none changing the mathematics; two change what the proof cites, to the dependencies the first review had identified, and were checked against arXiv:1507.02341v3. Four loose or incomplete new sentences were found and have since been corrected. The corrections made after this recheck are not covered by it.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI recheck of a diff, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "1c386621bbf5083e89259a9e6ff9cae341c3b4a7",
+          "sha256": "27c544f5264f09e7be8c1503dc932c43ae130578f5f5f861920feadeb7ebaf33",
+          "statement_fingerprint": "dca51974c95c725e081420c31ccd09fb495448a76f5c0625f444a4ad974050b1"
         }
       ],
       "status": {
@@ -461,7 +471,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by the same model family as the author. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, and on the caterpillar formula MD-0003. It says nothing about trees of diameter 4 or more, and nothing about stars. The review found no gap and listed eight minor defects of presentation in the notes (an incomplete list of dependencies, two unproved asides in the remarks, notation used twice); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, and the review was made on the earlier text. Novelty holds only within the documented search.",
+      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by the same model family as the author. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, and on the caterpillar formula MD-0003. It says nothing about trees of diameter 4 or more, and nothing about stars. The review found no gap and listed eight minor defects of presentation in the notes (an incomplete list of dependencies, two unproved asides in the remarks, notation used twice); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, the review was made on the earlier text, an independent recheck of the first revision found no change to the mathematics, and the last corrections (wording only) have been checked by no one but their author. Novelty holds only within the documented search.",
       "depends_on": [
         {
           "ref": "MD-0003",
@@ -522,9 +532,9 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/spine3.md",
-          "summary": "Theorem T2 with a written proof: Lemma C1 (explicit coefficients from the 6 × 6 quotient determinant) and Lemma C2 (the differences d_m − d_{m−1} and d_m − d_{m+1} as vK + R for each parity), both computer-assisted polynomial identities; Step 3 (positivity: K > 0, v ≥ u − 1, concavity in u, endpoint values) and Step 4 (the peak, by log-concavity), by hand. Revised in presentation on 2026-11-26, after the review; no statement, formula or step of the proof was changed (revision history at the end of the file).",
+          "summary": "Theorem T2 with a written proof: Lemma C1 (explicit coefficients from the 6 × 6 quotient determinant) and Lemma C2 (the differences d_m − d_{m−1} and d_m − d_{m+1} as vK + R for each parity), both computer-assisted polynomial identities; Step 3 (positivity: K > 0, v ≥ u − 1, concavity in u, endpoint values) and Step 4 (the peak, by log-concavity), by hand. Revised twice on 2026-11-26 after the review, without change to any statement, formula or step of the proof: at 1c38662 (the defects the review listed), and once more after the recheck of 1c38662 (sentences the first revision had got wrong). The revision history at the end of the file lists both; the sha256 is that of the current text.",
           "revision": "74cb5bb",
-          "sha256": "3584da55306486b2ee3478c23aa56849597ffdbfb68a5ec4c8c90b8adcccf1d5"
+          "sha256": "57d09bfdc5981abe72e8af7500d26e12d4a8e9bf463600b405cc4c8928766369"
         },
         {
           "kind": "computation",
@@ -547,6 +557,16 @@
           "revision": "74cb5bbba6b84b905cf09e3908292578cb891025",
           "sha256": "6cb1a26aba3c747eca667a5e32e9497dc4b455a18e482e71d8e621683fe6a84e",
           "statement_fingerprint": "2bfaa32cedf87d8a5e8558b3e89cd0443f24681f497b5de68e00dd3406156f58"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-T1-T2.md",
+          "summary": "Recheck of one revision, not a full review: do the changes made after the first review alter the mathematics, and does the first verdict still apply? Verdict: earlier review still applies to the revised text. T2: five hunks, none changing the mathematics; the bounds of Step 3(i) re-verified as exact at the largest u. Three false or inaccurate new sentences and an incomplete revision history were found and have since been corrected; spine3.py changed only in the first line of its docstring. The corrections made after this recheck are not covered by it.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI recheck of a diff, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "1c386621bbf5083e89259a9e6ff9cae341c3b4a7",
+          "sha256": "27c544f5264f09e7be8c1503dc932c43ae130578f5f5f861920feadeb7ebaf33",
+          "statement_fingerprint": "2bfaa32cedf87d8a5e8558b3e89cd0443f24681f497b5de68e00dd3406156f58"
         }
       ],
       "status": {
@@ -555,7 +575,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. Two steps (Lemmas C1 and C2) are computer-assisted polynomial identities; they were recomputed independently by the reviewer, not derived by hand. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, on the caterpillar formula MD-0003, and on the general form of R1 in notes/lemmas.md, of which the reviewer checked the direction used. It does not cover b = 0 (caterpillars of diameter 4 with no leaf at the central vertex, among them the path on five vertices), nor trees of diameter 4 that are not caterpillars. The review listed eight defects of record and presentation (STATE.md, obligation 8); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, and the review was made on the earlier text. Novelty holds only within the documented search, which is small.",
+      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. Two steps (Lemmas C1 and C2) are computer-assisted polynomial identities; they were recomputed independently by the reviewer, not derived by hand. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, on the caterpillar formula MD-0003, and on the general form of R1 in notes/lemmas.md, of which the reviewer checked the direction used. It does not cover b = 0 (caterpillars of diameter 4 with no leaf at the central vertex, among them the path on five vertices), nor trees of diameter 4 that are not caterpillars. The review listed eight defects of record and presentation (STATE.md, obligation 8); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, the review was made on the earlier text, an independent recheck of the first revision found no change to the mathematics, and the last corrections (wording only) have been checked by no one but their author. Novelty holds only within the documented search, which is small.",
       "depends_on": [
         {
           "ref": "MD-0003",
