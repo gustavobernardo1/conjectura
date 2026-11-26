@@ -214,8 +214,8 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "f1e33649ee1e2bd4641c3a16364c55dbefa8906b",
-    "sources_committed": false,
+    "revision": "291737f22718932e4ae6a9b538abb62c20022698",
+    "sources_committed": true,
     "sources": {
       "research/catalogue.json": "11b8c3027ae4079ac6e61130ac996a5c5cc4fefe",
       "research/discoveries.json": "2781cb4a0c682d31f0d919abcaf9802b0b4bbeab",
