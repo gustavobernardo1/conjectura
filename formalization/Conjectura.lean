@@ -14,3 +14,4 @@ whose module name starts with `Conjectura`.
 import Conjectura.Calibration.SumOdd
 import Conjectura.Calibration.OddPrime
 import Conjectura.Research.CollinsShorPeak.LogConcavePeak
+import Conjectura.Research.CollinsShorPeak.ExtremalReduction

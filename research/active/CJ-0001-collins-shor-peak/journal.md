@@ -587,3 +587,43 @@ The mathematical status of CJ-0001 is unchanged (`active-investigation`); its
 formal status is `partial`, with the scope stated in `STATE.md`. Next:
 objective O4 in `STATE.md` (four spine vertices), after or together with the
 obligations 8 to 10.
+
+## Session 5 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2`. Director's instructions
+  for the session: prioritize Hypothesis V (MD-0009) and what it could give for
+  every spine length — validity of the extremal reduction under the fixed-order
+  constraint, a general positivity argument for the mixed second partials, the
+  coefficient of the product of all leaf counts, the standalone value of the
+  reduction, a mechanism for the upper bound; use O4 as a tool, not as a goal;
+  formalize the reduction when it stabilizes; check the literature for T1 to T3
+  and for the framework; keep MD-0006 to MD-0008 as candidates; compact
+  `STATE.md`; the CI question only if the budget permits. Publication of
+  `research` (not `main`) authorized for the commits up to `ef98710` and for
+  the verified commits of this session.
+- **Mode:** exploration aimed at a general mechanism, with focused work on any
+  statement that becomes exact during the session.
+- **Role(s):** research director, mathematical researcher, computational
+  experimenter; one literature-auditor subagent and one formalization
+  subagent. No adversarial review is planned inside this budget: what the
+  session proves is recorded as unreviewed.
+- **Repository revision at start:** `ef98710` (branch `research`, clean tree,
+  pushed at the start of the session).
+- **What is explored:** the structure of the polynomials `g_j` for a tree made
+  of a skeleton with pendant leaves — why the product of all leaf counts has
+  the coefficients `s` and `s + 3`, and whether the same computation describes
+  the other coefficients and applies to skeletons that are not paths.
+- **Falsification tests:** every identity derived by hand is compared with
+  exact computation on all skeleton trees with few vertices before it is
+  written down; Hypothesis V is tested on skeletons that are not paths.
+- **Stopping conditions:** stop the mathematics at 11:42 UTC whatever its
+  state, to leave time for records, verification and the compaction of
+  `STATE.md`.
+- **Budget (binding, set by the director):** 60 minutes of wall-clock time
+  from 11:04 UTC to the last commit, subagents, verification and records
+  included; the subagents are limited to 12 and 14 minutes and run
+  concurrently. Computation at most 5 minutes.
+- **Deferred obligations:** obligations 8 to 10 of `STATE.md` (revision and
+  recheck of the notes, review of L4 and of the `s = 3` identities) are not
+  addressed, except that the literature audit bears on obligations 1, 8 and 9
+  and the formalization on obligation 10.

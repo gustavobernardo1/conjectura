@@ -49,6 +49,22 @@
       "source_statement": "Encoding lemma with no counterpart in the notes: for a : N -> R and r, the literal log-concavity condition of R1 'General form' (a_{k-1} a_{k+1} <= a_k^2 for all k with 1 <= k and k + 1 <= r) is equivalent to the shifted condition used as hypothesis in this module (a_k a_{k+2} <= a_{k+1}^2 for all k with k + 2 <= r).",
       "nonvacuity": { "not_needed": "The statement is an equivalence with no hypotheses." },
       "statement_fingerprint": "e04f58dc9a3d22f039fe87c37b0ef628226b627ff624902de42b5017c7b983c0"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.min_endpoints_le_of_concave",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "One step of the proof of Lemma L4 ('vertex principle') in research/active/CJ-0001-collins-shor-peak/notes/vertex-principle.md: 'On the interval -(c_i - lambda_i) <= t <= c_k - lambda_k a concave function is at least the smaller of its values at the two ends.' NOT Lemma L4 itself, and a discrete reformulation of that step: for phi : N -> R and N, if phi(t) + phi(t+2) <= 2 phi(t+1) for every t with t + 2 <= N, then min(phi(0), phi(N)) <= phi(t) for every t <= N. Differences from the written step: the function is a real sequence on the integer points 0..N of the interval (the interval is translated so that its left end is 0), and concavity is the non-positivity of second differences at integer points, in place of the concavity of the real quadratic phi(t) = f(c + t(e_i - e_k)), which L4 derives from the non-negativity of the mixed partial derivative d^2 f / dx_i dx_k. No polynomial, no derivative and no multi-affinity appear in the formal statement; that the hypotheses of L4 imply the second-difference hypothesis is not formalized. Encoding: only phi(0..N) is constrained; the middle index is shifted by one to avoid subtraction in N.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.concave_nonvacuous" },
+      "statement_fingerprint": "fcc3accff966346f96387ea6abcad297aa8d0a21269e2d1fed6571b14f88c84a"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.min_vertices_le_of_exchange",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "The exchange step of the proof of Lemma L4 ('vertex principle') in research/active/CJ-0001-collins-shor-peak/notes/vertex-principle.md, for the two coordinates (i, k) that are moved, all other coordinates being fixed: f(c) >= min(f(c'), f(c'')), where c' and c'' are the two ends of the segment c + t(e_i - e_k) inside {x >= lambda}. NOT Lemma L4 itself (no s variables, no induction on the number of coordinates above their lower bound, no conclusion about the vertices lambda + (S - sum lambda) e_p for s > 2), and a discrete reformulation: for f : Z -> Z -> R and integers a0, b0, S, if f(a+1, b-1) + f(a-1, b+1) <= 2 f(a, b) for all integers a > a0, b > b0 with a + b = S, then min(f(a0, S - a0), f(S - b0, b0)) <= f(a, b) for all integers a >= a0, b >= b0 with a + b = S. Differences from the written lemma: the hypothesis is a second-difference inequality at the integer points of the line a + b = S that are strictly above both lower bounds, in place of 'f is a polynomial of degree at most 1 in each variable whose mixed partial derivative is non-negative at every real point x >= lambda'; for such an f the second difference equals -2 d^2 f / dx_i dx_k <= 0, but that implication is not formalized. The written hypothesis S > sum lambda_i is not assumed (when no point satisfies a >= a0, b >= b0, a + b = S the conclusion is empty; when S = a0 + b0 it is an equality). For s = 2 the conclusion coincides with that of L4 with lambda = (a0, b0).",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.exchange_nonvacuous" },
+      "statement_fingerprint": "06cb50af133c00f55c0538f48c27ea17b31ef49186aba7dcb9aa69a8776f8568"
     }
   ]
 }

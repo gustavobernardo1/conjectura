@@ -424,3 +424,214 @@ this dossier; the scout's text is left as written and corrected here.
   own (its Section 3).
 - *Journal.* That the paper appeared in Electron. J. Linear Algebra in 2018 is
   reported by a search result and was not verified from the journal.
+
+## Literature audit 2026-11-26 (session 5)
+
+Auditor: Claude (`claude-fable-5-2`), literature-auditor subagent. Budget set by
+the director's session: 12 minutes and at most 14 web requests. Used: 12 web
+requests (6 searches, 6 fetches; 2 of the fetches failed). Wall-clock time is
+not reported by the environment; the work was stopped at an estimated 12
+minutes, with the budget of requests not exhausted. All accesses on 2026-11-26.
+
+**No prior proof or refutation of the Collins–Shor conjecture, and no prior
+statement locating the peak of the normalized coefficients for double stars or
+caterpillars, was found within the coverage below. Closed formulas for the
+distance characteristic polynomials of double stars, of the trees K(a,0,c) and
+of the balanced caterpillars K(t,t,t) were found in prior work** (first two
+items under "Sources"). The project's results on these families must cite them
+for the formulas. The coverage is small; see "Not searched or not accessible".
+
+### Search queries (verbatim, general web search tool, standard mode)
+
+1. `Nascimento Del-Vecchio de Freitas "The distance matrix of caterpillar"`
+2. `"distance characteristic polynomial" coefficients peak "double star" OR caterpillar OR broom tree Graham Lovász Collins unimodal 2024 OR 2025 OR 2026`
+3. `"The distance matrix of caterpillar" Discrete Applied Mathematics OR "Proceeding Series" OR arXiv distance eigenvalue -2 multiplicity caterpillar Nascimento`
+4. `distance characteristic polynomial tree pendant twins "quotient matrix" OR "equitable partition" "number of pendant vertices" distance spectrum double star caterpillar closed formula`
+5. `Collins "On a conjecture of Graham and Lovász about distance matrices" 1989 star path coefficients peak "Shor" theorem summary`
+6. `distance matrix tree "pendant vertices" twins distance characteristic polynomial "multilinear" OR "multiaffine" OR "linear in" number of leaves quotient matrix "distance spectrum" caterpillar OR "double broom" OR "double star" formula`
+
+### URLs fetched
+
+| URL | Result |
+| --- | --- |
+| `https://pep.ufrj.br/index.php/en/academic-information/doutorado/2018/683--605/file` | 404 |
+| `https://web1.pmf.ni.ac.rs/filomat-content/2016/30-6/30-6-16-1282.pdf` | PDF downloaded; all 7 pages read |
+| `https://pantheon.ufrj.br/handle/11422/12254` | record page read (title, author, date, bitstream link) |
+| `https://pantheon.ufrj.br/bitstreams/e3cd68d7-684c-4218-93af-e6cb1caae541/download` | PDF of the thesis downloaded; pages listed below read |
+| `https://api.semanticscholar.org/graph/v1/paper/arXiv:1507.02341/citations?fields=title,year,externalIds,authors&limit=100` | 5 citing papers, the same 5 as in the session 2 audit |
+| `https://api.semanticscholar.org/graph/v1/paper/arXiv:2407.03309/citations?fields=title,year,externalIds,authors&limit=100` | 429, nothing retrieved |
+
+### Sources and what they contain
+
+**(S1) J. Xue, R. Liu, H. Jia, On the distance spectrum of trees, Filomat 30:6
+(2016) 1559–1565, DOI `10.2298/FIL1606559X`. Read in full (7 pages).**
+
+- Definition (p. 1560): the double star S(a,b) is two stars K_{1,a} and K_{1,b}
+  with an edge joining their centres, a, b ≥ 1, a + b = n − 2. This is the
+  project's S(a,b).
+- Lemma 2.3 (p. 1560, proof on p. 1561): with P_D(λ) = det(λI − D(G)),
+  `P_D(λ) = (λ+2)^{n−4} [λ⁴ − (2a+2b−4)λ³ − (9a+9b+5ab−3)λ² − (12a+12b+4ab+4)λ − (4a+4b+4)]`.
+  The proof writes D in four blocks (two centres, two classes of leaves) and
+  reduces det(λI − D) to (λ+2)^{a+b−2} times a 4 × 4 determinant, which is the
+  characteristic determinant of the quotient matrix of that partition (the
+  paper does not use the words "quotient" or "equitable").
+- Theorems 3.2 and 3.5: P_n and S(a,b) are determined by their distance
+  spectra. On p. 1562 the balanced case is factored:
+  `(λ+2)^{n'−4} [λ² + (c+3)λ + 2][λ² − (5c−1)λ − (4c+2)]` for S(c,c).
+- The paper contains nothing on the sequence of coefficients, on normalized
+  coefficients, on unimodality or a peak, and cites neither Graham–Lovász nor
+  Collins (reference list, p. 1565, read).
+
+**(S2) J. S. do Nascimento, Um estudo sobre a matriz distância de grafos
+(A study about the distance matrix of graph), D.Sc. thesis, COPPE/UFRJ, April
+2018; advisors M. A. A. de Freitas and R. R. Del-Vecchio; in Portuguese;
+<https://pantheon.ufrj.br/handle/11422/12254>. Read in part: thesis pages
+vi–ix (abstracts, contents, list of figures), 4–5, 12–15, 38–49, 78–79
+(bibliography). Not read: pages 1–3, 6–11, 16–37, 50–77.**
+
+- Definition 3.1.1 (p. 13): the caterpillar C(p), p = (p_1, …, p_{d−1}),
+  p_1, p_{d−1} ≥ 1, p_i ≥ 0, is the path P_{d−1} with p_i pendant leaves at its
+  i-th vertex; diameter d, order n = p_1 + … + p_{d−1} + d − 1. The "double
+  broom" V(t,s,d) is the case p_1 = t, p_{d−1} = s, all other p_i = 0. So
+  V(t,s,3) is the project's S(t,s), V(t,s,4) is the project's K(t,0,s), and
+  C(a,b,c) is the project's K(a,b,c).
+- Theorem 2.1.4 (p. 5, cited from Brouwer–Haemers): for an equitable partition
+  of a square matrix, the non-zero eigenvalues of the quotient matrix belong to
+  the spectrum of the matrix. This is the tool used throughout Section 3.2.
+- Theorem 2.3.11 (p. 12), attributed to Collins, "Factoring distance matrix
+  polynomials", Discrete Math. 122 (1993) 103–112: for a tree with n_1 leaves
+  and n_1' quasi-pendant vertices, −2 is a distance eigenvalue of multiplicity
+  at least n_1 − n_1'.
+- Theorem 3.1.5 (p. 15): for V(t,s,d), d ≥ 3, the multiplicity of −2 is n − d
+  if d ≡ 2 (mod 6) and n − d − 1 otherwise.
+- Proposition 3.2.1 (pp. 39–40): for V(t,s,3), n = t + s + 2, the 4 × 4
+  reduced matrix M is written out and its characteristic polynomial is
+  `p(λ) = λ⁴ − 2(n−4)λ³ − (5ts+9n−21)λ² − (4ts+12n−20)λ − 4n + 4`;
+  the statement of the proposition itself is a list of intervals for the
+  eigenvalues. This agrees with Lemma 2.3 of (S1) after a + b = n − 2. The
+  thesis does not cite (S1) (bibliography read).
+- Corollary 3.2.2 and the text around it (pp. 40–41): the thesis says that
+  Collins (the 1993 paper) stated a factorization of the distance
+  characteristic polynomial of V(t,t,3), namely
+  `(λ+2)^{n−4}(λ+1)(λ+t)(λ² − (5t−1)λ − 9t)`, says that it is wrong (example
+  V(3,3,3)), and replaces it by Proposition 3.2.3:
+  `(λ+2)^{n−4}(λ² + (t+3)λ + 2)(λ² − (5t−1)λ − 4t − 2)`, n = 2t + 2 (the same
+  factorization as on p. 1562 of (S1)). Whether Collins's paper says what the
+  thesis reports was not checked: Collins (1993) was not accessed.
+- Proposition 3.2.6 (pp. 44–45): for V(t,s,4), n = t + s + 3, the distance
+  eigenvalues other than −2 are the roots of
+  `p(λ) = λ⁵ − (2n−10)λ⁴ − (12ts+18n−52)λ³ − (24ts+44n−104)λ² − (8ts+36n−68)λ − 8n + 8`,
+  the characteristic polynomial of an explicit 5 × 5 reduced matrix D*; −2 has
+  multiplicity n − 5.
+- Proposition 3.2.7 (pp. 45–46): for V(t,t,4), t > 1, the reduced polynomial
+  factors as `(λ² + (2t+4)λ + 4)(λ³ − 6tλ² − (12t+6)λ − 4t − 4)`.
+- Proposition 3.2.9 (pp. 47–49): for C(t,t,t), t ≥ 1, the 6 × 6 reduced matrix
+  is written out and its characteristic polynomial is
+  `(λ² + (2t+4)λ + 4) · q_2(λ)`,
+  `q_2(λ) = λ⁴ − (8t−2)λ³ − (6t²+33t+6)λ² − (6t²+40t+16)λ − 12t − 8`; −2 has
+  multiplicity 3t − 3.
+- Section 3.2 treats, for diameter 4, only V(t,s,4) and C(t,t,t) (stated on
+  p. 39). No formula for C(a,b,c) with three independent parameters appears on
+  the pages read.
+- On the pages read there is no statement about the sequence of coefficients,
+  normalized coefficients, unimodality or a peak. Graham–Lovász 1978 is item
+  [2] of the bibliography; Collins (1989) and arXiv:1507.02341 are not in the
+  bibliography (pp. 78–79 read; the Aalipour et al. item listed is "On the
+  distance spectra of graphs", Linear Algebra Appl. 497 (2016)). The stated aim
+  (abstract, p. vii) is the multiplicity of distance eigenvalues and the number
+  of distinct distance eigenvalues. Since pages 16–37 were not read, this is
+  not a statement about the whole thesis.
+
+**(S3) J. S. do Nascimento, R. R. Del-Vecchio, M. A. A. de Freitas, The
+distance matrix of caterpillar, Discrete Appl. Math. 266 (2019) 141–152. Not
+read.** Bibliographic data and a one-sentence description (multiplicity of −2
+and number of distinct distance eigenvalues of caterpillars) come from a
+library-catalogue record shown in a search result
+(`katalog.lib.cas.cz/KNAV/EdsRecord/edsair,…`, not opened). No arXiv or
+proceedings version was found by queries 1 and 3. The first author's initials
+are J. S., not C. M. That the paper corresponds to Chapter 3 of (S2) is an
+inference from the common title subject, author and advisors; it was not
+verified.
+
+**(S4) Collins (1989).** Not accessed (query 5 returned only the secondary
+sources already recorded in the session 2 audit). No new information.
+
+**(S5) Citation index.** Semantic Scholar still lists 5 papers citing
+arXiv:1507.02341, the same as in session 2. The list for arXiv:2407.03309 could
+not be retrieved (429).
+
+**Search-result snippets, not opened:** R. Merris, The distance spectrum of a
+tree (J. Graph Theory 14 (1990) 365–369; a scan is at
+`math.ucdavis.edu/~saito/data/distmat/merris-distspect-tree.pdf`): multiplicity
+of a distance eigenvalue of a tree is at most the number of pendant vertices.
+"On the spectra of reduced distance matrix of the generalized Bethe trees"
+(Iranian J. Math. Chem.), arXiv:2112.10375 (graphs with three distinct distance
+eigenvalues), arXiv:1907.02851 (graft transformations, distance (signless)
+Laplacian). None was read.
+
+### Auditor's consistency checks (by hand, not machine-verified)
+
+- The quartics of (S1) Lemma 2.3 and (S2) Proposition 3.2.1 coincide. At
+  a = b = 1 both give λ⁴ − 20λ² − 32λ − 12, whose constant term and λ²
+  coefficient agree with det D(P_4) = −12 and Σ_{i<j} d_{ij}² = 20.
+- (S2) Proposition 3.2.6 at t = s = 1 gives λ⁵ − 50λ³ − 140λ² − 120λ − 32;
+  the constant term and the λ³ coefficient agree with det D(P_5) = 32 and
+  Σ_{i<j} d_{ij}² = 50. The other coefficients were not checked.
+- In the quartic of (S1) the coefficient of ab is −5λ² − 4λ. With λ = 2x,
+  negated and divided by 4^{s−1} = 4, this is 5x² + 2x = (s+3)x^s + s x^{s−1}
+  for s = 2. In (S2) Proposition 3.2.9 the coefficient of t³ in the product is
+  −12λ³ − 12λ²; with λ = 2x, negated and divided by 16, this is 6x³ + 3x², the
+  value of (s+3)x^s + s x^{s−1} for s = 3. So the published formulas are
+  consistent with the project's identity for s = 2 and, on the diagonal
+  a = b = c, for s = 3. Neither source states the identity, isolates that
+  coefficient, or treats general s.
+- The published reduced polynomials have coefficients of degree at most 1 in
+  each of the two leaf counts ((S1) Lemma 2.3; (S2) Propositions 3.2.1 and
+  3.2.6). Neither source remarks on this or states it as a general property.
+
+### Per-statement conclusions (within this coverage only)
+
+| Project statement | Conclusion |
+| --- | --- |
+| MD-0006 (T1): peak of every double star at ⌊n/2⌋, unique | **Closely related prior work identified.** The distance characteristic polynomial of S(a,b) is in Xue–Liu–Jia 2016, Lemma 2.3, and in Nascimento 2018, Proposition 3.2.1; per the thesis, Collins (1993) also treats the balanced double star (not verified). None of the sources read states anything about the coefficients' maximum. The closed formula is prior art and must be cited; a prior statement of the peak was not found. |
+| MD-0007 (T2): peak of K(a,b,c), a, b, c ≥ 1, at ⌊n/2⌋, unique | **Closely related prior work identified.** Nascimento 2018, Proposition 3.2.9, gives the reduced matrix and the factored polynomial for the balanced case C(t,t,t) only. No formula for three independent parameters and no peak statement was found. |
+| MD-0008 (T3): peak of K(a,0,c) at ⌊n/2⌋, unique | **Closely related prior work identified.** Nascimento 2018, Proposition 3.2.6, gives the reduced 5 × 5 matrix and the quintic for V(t,s,4) = K(t,0,s) for all t, s. No peak statement was found. |
+| MD-0009 (Hypothesis V, a conjecture of the project) | **Nothing found within this coverage.** |
+| Framework: normalized coefficients as binomial coefficients times a polynomial of degree ≤ 1 in each c_v | **Closely related prior work identified** for the method only: reduction of the distance matrix of a tree with pendant twins to the quotient matrix of the twin partition ((S1) proof of Lemma 2.3; (S2) Theorem 2.1.4 and Section 3.2; Hogben–Reinhart, already recorded). The general multi-affine statement and the binomial form of the normalized coefficients: nothing found within this coverage. |
+| Framework: reduction of the lower bound to trees with all extra leaves at one vertex | **Nothing found within this coverage.** |
+| Framework: coefficient of ∏ c_v in −det(2xI − Q)/4^{s−1} equals (s+3)x^s + s x^{s−1} | **Nothing found within this coverage.** The cases s = 2 and (diagonal) s = 3 can be read off the published formulas, as checked by hand above; the identity is not stated in the sources read. |
+
+None of these conclusions establishes novelty. "Nothing found" means nothing
+in six web queries and the pages listed.
+
+### Not searched or not accessible
+
+- **Nascimento–Del-Vecchio–de Freitas, Discrete Appl. Math. 266 (2019)
+  141–152**: not read (no open copy located; ScienceDirect was not tried again
+  after the refusals of session 2). It may contain results that the thesis does
+  not, including formulas for more general caterpillars.
+- **Thesis (S2), pages 1–3, 6–11, 16–37, 50–77**: not read. Pages 16–37 contain
+  the general results on caterpillars (Theorems 3.1.11 and 3.1.16 on the
+  multiplicity of −2 and the number of distinct eigenvalues are cited on
+  pp. 44 and 48 but were not read).
+- **Collins, Factoring distance matrix polynomials, Discrete Math. 122 (1993)
+  103–112** (DOI `10.1016/0012-365X(93)90289-6` per the session 2 list): not
+  accessed. According to (S2) it treats double stars and the eigenvalue −2. It
+  is by the author of the conjecture and is the most likely place, among the
+  items now known, for a prior statement about coefficients of double stars.
+  **This is the main open item of the audit.**
+- **Collins (1989)** and **Collins's 1986 thesis**: still not accessed.
+- Papers citing arXiv:2206.07561, arXiv:2407.03309, Collins (1989), Collins
+  (1993), Xue–Liu–Jia (2016) or the DAM 2019 paper: not listed (one request
+  failed with 429; the others were not made).
+- Journal versions of arXiv:2407.03309 and arXiv:2206.07561; Merris (1990);
+  Edelberg–Garey–Graham (1976); Aouchiche–Hansen (2014): not read.
+- MathSciNet, zbMATH, Google Scholar, MathOverflow, the arXiv listing
+  interface, OEIS, erdosproblems.com: not searched.
+- Mathlib, formal-conjectures and other formal libraries: not searched;
+  the formalization question (item 5 of the auditor's task) was not addressed
+  in this session.
+- Non-English literature other than the one Portuguese thesis; literature on
+  the distance Laplacian or distance signless Laplacian of caterpillars;
+  literature on "trees with many pendant vertices" as a named family: no
+  dedicated query.

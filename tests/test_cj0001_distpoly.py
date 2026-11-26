@@ -247,3 +247,27 @@ def test_top_coefficient_of_the_caterpillar_polynomials():
         full = frozenset(range(s))
         found = {j: polynomial[full] for j, polynomial in enumerate(mixed_partials.multiaffine_g(s)) if full in polynomial}
         assert found == {s - 1: s, s: s + 3}
+
+
+def test_skeleton_expansion_and_property_gamma():
+    # notes/skeleton-identity.md, for every tree with 2 to 5 vertices as skeleton: Proposition S2
+    # (expansion over subsets) at enough rational points, Proposition S3 (top coefficient), and the
+    # non-negative half-gamma expansion of r_A for every subset with at least two elements.
+    import skeleton_structure
+
+    for s in range(2, 6):
+        for layout in distpoly.layouts(s):
+            skeleton = distpoly.parents_from_layout(layout)
+            dist = skeleton_structure.skeleton_distances(skeleton)
+            alpha = skeleton_structure.multiaffine_g(dist)
+            full = frozenset(range(s))
+            assert {j: p[full] for j, p in enumerate(alpha) if full in p} == {s - 1: s, s: s + 3}
+            assert skeleton_structure.half_gamma_expansion(alpha, s, tuple(range(s))) == ([s], [3])
+            for size in range(s + 1):
+                for subset in combinations(range(s), size):
+                    for x in (Fraction(1), Fraction(2), Fraction(-3, 2), Fraction(5, 7)) + tuple(Fraction(v) for v in range(3, 2 * s + 2)):
+                        left = skeleton_structure.subset_formula_value(dist, subset, x)
+                        assert left == skeleton_structure.subset_coefficient_value(alpha, s, subset, x)
+                    if size >= 2:
+                        rho, sigma = skeleton_structure.half_gamma_expansion(alpha, s, subset)
+                        assert min(rho + sigma) >= 0

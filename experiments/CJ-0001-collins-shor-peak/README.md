@@ -24,9 +24,10 @@ decide an inequality.
 | `diameter4.py` | The caterpillars `K(a,0,c)` of diameter 4 with no leaf at the centre (Theorem T3 of `notes/diameter4-caterpillars.md`): the formula of `spine3.py` at `b = 0` against the direct determinant for `a + c ≤ 40`, the closed forms for `a + c ≤ 600`, the sign conditions for `m ≤ 2000`, and the path `P_5`. |
 | `mixed_partials.py` | Exploration for Hypothesis V of `notes/vertex-principle.md`: for caterpillars with 2 to 8 spine vertices and orders up to 200, the closed form by interpolation, a certificate for the sign of the mixed second partials of `d_m − d_{m−1}`, and the values at the vertices of each slice. Evidence for a hypothesis, not a proof. |
 | `mixed_partials_s3.py` | The same mixed partials for three spine vertices as polynomials in `m`, valid for every order: symbolic derivation, comparison with the forms stated in `notes/vertex-principle.md`, and the values at the vertices. Prints its findings; no result file. |
+| `skeleton_structure.py` | Trees made of a skeleton with pendant leaves (`notes/skeleton-identity.md`): for every tree with 2 to 8 vertices as skeleton, the closed form against direct determinants, the expansion over subsets (Proposition S2), the top coefficient (S3), the order-independent Property Γ for every subset with at least two elements, and, in a range of orders, the certificate of `mixed_partials.py`. |
 | `results/*.json` | Outputs of the runs below. |
 
-Validation: `uv run pytest tests/test_cj0001_distpoly.py` (100 tests).
+Validation: `uv run pytest tests/test_cj0001_distpoly.py` (101 tests).
 
 ## Reproduction
 
@@ -53,6 +54,7 @@ uv run python experiments/CJ-0001-collins-shor-peak/spine3.py     --out experime
 uv run python experiments/CJ-0001-collins-shor-peak/diameter4.py     --out experiments/CJ-0001-collins-shor-peak/results/diameter4.json                       # under 2 min
 uv run python experiments/CJ-0001-collins-shor-peak/mixed_partials.py --max-spine 8 --max-order 200     --out experiments/CJ-0001-collins-shor-peak/results/mixed-partials.json                  # under 1 min
 uv run python experiments/CJ-0001-collins-shor-peak/mixed_partials_s3.py                     # seconds
+uv run python experiments/CJ-0001-collins-shor-peak/skeleton_structure.py --max-skeleton 8 --max-order 40     --out experiments/CJ-0001-collins-shor-peak/results/skeleton-structure.json              # about 1 min (about 3 min with --max-order 100)
 ```
 
 The exhaustive runs are deterministic. The sampled run is deterministic given
