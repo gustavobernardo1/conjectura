@@ -19,5 +19,9 @@ description: Obtain an independent adversarial review of a claimed proof, counte
    obligations*; the status stays or returns to `active-investigation`.
    If `no gap found within stated scope`: the director may set
    `external_review` to `ai-reviewed`. This is AI review, not human or peer
-   review, and it covers only the reviewed revision.
+   review, and it covers only the reviewed revision. For a registered
+   contribution, add the report to the record's `evidence` with the reviewer,
+   the date, the revision and the statement fingerprint
+   (`uv run python scripts/catalogue.py fingerprint MD-XXXX`), after comparing
+   the registered statement with the statement that was reviewed.
 6. Any later material change to the statement or proof requires a new review.

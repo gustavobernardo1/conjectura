@@ -394,7 +394,7 @@ def check_registry(report: Report, declarations: list[dict] | None, registry: di
             if in_calibration:
                 check.details.append(f"{name}: registered as research but defined in a calibration module")
             if entry.get("catalogue_id") not in catalogue_ids:
-                check.details.append(f"{name}: catalogue_id {entry.get('catalogue_id')!r} is not in research/catalogue.json")
+                check.details.append(f"{name}: catalogue_id {entry.get('catalogue_id')!r} is neither a problem of research/catalogue.json nor a contribution of research/discoveries.json")
             if not entry.get("source_statement"):
                 check.details.append(f"{name}: research theorems must cite the source statement they formalize")
         else:
@@ -470,8 +470,11 @@ def verify(
 
     if registry is None:
         registry = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    # A research theorem backs a catalogued problem (CJ-XXXX) or a registered contribution (MD-XXXX).
     catalogue = json.loads((ROOT / "research" / "catalogue.json").read_text(encoding="utf-8"))
-    check_registry(report, declarations, registry, {problem["id"] for problem in catalogue["problems"]})
+    discoveries = json.loads((ROOT / "research" / "discoveries.json").read_text(encoding="utf-8"))
+    record_ids = {problem["id"] for problem in catalogue["problems"]} | {record["id"] for record in discoveries["discoveries"]}
+    check_registry(report, declarations, registry, record_ids)
 
     if replay and built:
         check_replay(report, lake, declarations)

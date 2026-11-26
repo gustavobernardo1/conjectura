@@ -18,6 +18,10 @@ Mathematical / formal / novelty / external review, as in the catalogue.
 | ID | Statement | Level (proved here, cited, verified computationally up to …, sampled) | Evidence (file, command, receipt, review) |
 | --- | --- | --- | --- |
 
+Local identifiers are permanent. A result registered in
+`research/discoveries.json` is marked with its `MD-XXXX` identifier next to its
+local one; most rows never need one.
+
 ## Conjectures and hypotheses of this investigation
 
 Sharper statements suggested by the work, each with its evidence and status

@@ -27,8 +27,10 @@ Every result package and every manuscript carries an attribution record
    identifier is unknown, write "unknown model" — do not guess.
 2. **Record at the time of work.** Each journal entry names the model that did
    the session's work; each commit made with AI assistance carries a
-   `Co-Authored-By:` trailer. The attribution record of a result is assembled
-   from these, not reconstructed from memory.
+   `Co-Authored-By:` trailer. Each registered contribution names its
+   contributors, people and exact models, with what each did
+   (`provenance.contributors` in `research/discoveries.json`). The attribution
+   record of a result is assembled from these, not reconstructed from memory.
 3. **Authorship is earned by contribution and responsibility.** Operating an AI
    model does not by itself confer scientific authorship of a mathematical
    result. Authorship of a manuscript requires a substantive intellectual

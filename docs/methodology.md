@@ -59,10 +59,10 @@ adopted as ideas, with credit.
 | --- | --- |
 | Review is performed exclusively by AI agents, and the policy states that no human mathematical review is required (erdos-99 `REVIEW_POLICY.md`). | External review is a separate status dimension with distinct values for AI and human review. AI review can never be reported as human or peer review, and `proved`/`disproved` always states which review it had. |
 | A standing instruction assumes an external, unverified result as a premise for all research (solved-conjectures `AGENTS.md`, "Standing research assumption"). | No result is assumed by policy. A result that depends on an unverified claim is recorded as conditional, with the dependency named. |
-| Very large instruction and status files (verification and Lean-status documents above 100 KiB, a 270 KiB history file), and more than 200 one-off scripts. | One authoritative JSON catalogue with generated views; one compact `STATE.md` per investigation; two infrastructure scripts. |
+| Very large instruction and status files (verification and Lean-status documents above 100 KiB, a 270 KiB history file), and more than 200 one-off scripts. | One authoritative JSON record for problems and one for contributions, with generated views; one compact `STATE.md` per investigation; two infrastructure scripts. |
 | Hand-maintained lists of modules and theorem names inside the verification script and the audit file. | The audit enumerates every declaration owned by the project automatically; a small registry lists only the theorems that back claims. |
 | Substantial rules about README layout, ranking tables and website synchronization. | None. Administrative structure is added only when a result needs it. |
-| Counts of "solved conjectures" as a headline. | No counts. A repository with zero results is an acceptable state and is described as such. |
+| Counts of "solved conjectures" as a headline. | No headline count. The generated summary (`research/summary.json`, requested by the director on 2026-11-26) reports counts only broken down by type and by each status dimension, leaves out rediscovered results and calibration theorems, and writes an explicit null where nothing qualifies. A repository with zero results is an acceptable state and is described as such. |
 | Novelty and open status are asserted in prose. | Open-status evidence and novelty-search coverage are separate structured fields with dates and stated limitations. |
 | Formal statements are trusted to match the published conjectures. | Each registered theorem carries a statement fingerprint that is set only after comparison with the source and invalidated by any change, and a non-vacuity witness. |
 
@@ -71,7 +71,12 @@ adopted as ideas, with credit.
 1. **Single source of truth.** `research/catalogue.json` holds every structured
    fact about a problem. Prose that does not fit a structured field lives in
    one dossier per problem. No fact is stored in both places. `research/INDEX.md`
-   is generated.
+   is generated. `research/discoveries.json` (added 2026-11-26) does the same
+   for mathematical contributions: one record each, pointing to the files that
+   hold the proof, the computation, the review and the receipt. It reuses the
+   status definitions of the catalogue schema by reference, and both files are
+   validated and rendered by the same script. `research/summary.json` is
+   generated from the two.
 2. **Deviations from the proposed directory layout.** `benchmarks/` is not
    created: calibration material lives with the tool it calibrates
    (`formalization/Conjectura/Calibration/`, `formalization/NegativeTests/`,
@@ -98,7 +103,7 @@ adopted as ideas, with credit.
 
 | Role | Responsibility | Implementation |
 | --- | --- | --- |
-| Research Director | Chooses objectives, sets budgets, keeps priorities, judges progress. | The main agent session, following `autoresearch.md` (skill `research-session`), under the human director. |
+| Research Director | Chooses the mode of a session (exploration or focused work), objectives and budgets; keeps priorities; judges progress; decides what deserves a registry record. | The main agent session, following `autoresearch.md` (skill `research-session`), under the human director. |
 | Problem Scout | Finds published open problems and drafts candidate records. | `.claude/agents/problem-scout.md` |
 | Literature Auditor | Verifies sources, statements, prior resolutions and prior formalizations. | `.claude/agents/literature-auditor.md` |
 | Mathematical Researcher | Proof strategies, lemmas, reformulations. | `.claude/agents/mathematical-researcher.md` |
@@ -113,8 +118,11 @@ reviewed by the context that produced it.
 
 ## Discovery protocol
 
-For every active problem, in roughly this order, returning to earlier steps as
-needed:
+A guide for focused work on a problem, in roughly this order, returning to
+earlier steps as needed. It does not constrain exploration, which may start
+anywhere, and a step that produces something of independent value (a lemma, a
+counterexample to a sharper hypothesis, a new conjecture) produces a
+contribution whatever happens to the problem itself:
 
 - **A. Exact statement.** Establish the original statement from the primary source.
 - **B. Anatomy.** List definitions, quantifiers, domains, boundary cases and

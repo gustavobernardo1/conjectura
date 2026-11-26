@@ -1,4 +1,8 @@
-# CJ-NNNN — Result title
+# CJ-NNNN or MD-NNNN — Result title
+
+Contributions covered: every `MD-XXXX` identifier presented here, each with its
+type and its standing (original candidate, established, rediscovered). The
+table below is repeated for each when their statuses differ.
 
 | Dimension | Status |
 | --- | --- |

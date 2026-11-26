@@ -103,6 +103,30 @@ that has never been seen to fail is not trusted.
   hypotheses of the original statement and the violation of its exact
   conclusion.
 
+## Evidence bound to statements
+
+A registered contribution (`research/discoveries.json`) carries a statement
+fingerprint, the SHA-256 of its statement. Three bindings use it, and
+`scripts/catalogue.py validate` enforces them:
+
+- **Reviews.** A review recorded as evidence names the Git revision reviewed
+  and the fingerprint of the statement it covers. A review status other than
+  `not-reviewed` requires such a review for the statement as it reads now.
+- **Proof dependencies.** A dependency on another contribution is pinned to the
+  fingerprint of the statement relied on. If that statement changes, validation
+  fails for the dependent until it is reassessed.
+- **Files.** An evidence entry may pin the SHA-256 of its file; validation
+  fails when the file changes.
+
+Formal verification keeps its own, stronger binding: the fingerprint of the
+elaborated Lean statement in `formalization/registry.json` and the receipt. A
+research theorem is registered there for a problem (`CJ-XXXX`) or for a
+contribution (`MD-XXXX`).
+
+The fingerprint detects a change of statement. It does not detect a change to
+a proof whose statement is unchanged: that is covered by the revision named in
+the review and by the rule that a material change invalidates the review.
+
 ## Independent adversarial review
 
 Review is stronger than asking another model whether a proof looks correct.
