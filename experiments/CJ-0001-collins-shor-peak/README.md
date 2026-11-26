@@ -20,9 +20,10 @@ decide an inequality.
 | `ratio_extremality.py` | Tests Hypotheses A(i) and A(ii): comparison of consecutive-coefficient ratios with the star and the path; exhaustive and sampled modes. |
 | `near_star_families.py` | Double stars (orders 6–41) and balanced caterpillars up to order 10⁶ through a quotient-matrix formula. |
 | `double_stars.py` | Closed forms for the coefficients of double stars and stars around the middle index (Theorem T1 of `notes/double-stars.md`): symbolic quotient determinant, all double stars with `a + b ≤ 200`, direct determinants up to `a + b ≤ 40`. |
+| `spine3.py` | Closed forms for caterpillars with spine length 3 around the middle index (Theorem T2 of `notes/spine3.md`): symbolic quotient determinant and symbolic reduction of the two differences, the sign conditions of the proof for `m ≤ 2000`, all `K(a,b,c)` with `a + b + c ≤ 300`, whole sequences up to `a + b + c ≤ 60`, direct determinants up to `a + b + c ≤ 20`. |
 | `results/*.json` | Outputs of the runs below. |
 
-Validation: `uv run pytest tests/test_cj0001_distpoly.py` (96 tests).
+Validation: `uv run pytest tests/test_cj0001_distpoly.py` (97 tests).
 
 ## Reproduction
 
@@ -45,6 +46,7 @@ uv run python experiments/CJ-0001-collins-shor-peak/near_star_families.py \
     --out experiments/CJ-0001-collins-shor-peak/results/near-star-families.json
 uv run python experiments/CJ-0001-collins-shor-peak/double_stars.py \
     --out experiments/CJ-0001-collins-shor-peak/results/double-stars.json                    # about 1 min
+uv run python experiments/CJ-0001-collins-shor-peak/spine3.py     --out experiments/CJ-0001-collins-shor-peak/results/spine3.json                          # about 10 min
 ```
 
 The exhaustive runs are deterministic. The sampled run is deterministic given

@@ -165,3 +165,28 @@ def test_double_star_closed_forms_and_peak():
         d = double_stars.star_coefficients(n)
         assert double_stars.matches_direct(distpoly.star_parents(n), d)
         assert double_stars.star_closed_form_holds(n, d) and double_stars.middle_is_the_only_peak(d)
+
+
+def test_spine3_closed_forms_and_peak():
+    # Theorem T2 (notes/spine3.md): caterpillars K(a,b,c) with spine length 3. The symbolic
+    # derivation of Lemmas C1 and C2, the sign conditions of Step 3 for small m, and every
+    # K(a,b,c) of order 6 to 17 against the direct determinant; a few against the
+    # independent Laplacian method, which uses neither the determinant code nor Lemma L3.
+    import spine3
+
+    assert set(spine3.symbolic_differences()) == set(spine3.CASES)
+    assert all(spine3.sign_conditions_hold(m) for m in range(3, 200))
+    for total in range(3, 15):
+        n, m = total + 3, (total + 3) // 2
+        for a in range(1, total - 1):
+            for c in range(a, total - a):
+                b = total - a - c
+                d = spine3.coefficients(a, b, c)
+                assert spine3.matches_direct(a, b, c)
+                assert spine3.closed_forms_hold(a, b, c, d)
+                assert distpoly.peak_indices([d[k] for k in range(n - 1)]) == [m]
+    for a, b, c in [(1, 1, 1), (1, 2, 1), (2, 1, 3), (4, 4, 4), (1, 9, 2)]:
+        parents = spine3.parents(a, b, c)
+        independent = independent_check.normalized_coefficients(len(parents), edges_of(parents))
+        d = spine3.coefficients(a, b, c)
+        assert independent == [Fraction(d[k]) for k in range(len(parents) - 1)]

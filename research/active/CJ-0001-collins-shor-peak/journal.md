@@ -282,3 +282,41 @@ reclassified two tools as known. The catalogue status of CJ-0001 is unchanged
 (`active-investigation`): promotion is not decided in the session that
 produced the claim. Next: objective O2 in `STATE.md` (caterpillars with spine
 length 3), after or together with the open obligations listed there.
+
+## Session 3 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2`. Director's instruction
+  for the session: after the profile-integration task (commit `98ab52d`),
+  "return to mathematical research".
+- **Mode:** focused work.
+- **Role(s):** research director, mathematical researcher, computational
+  experimenter. Review, if a claim results, by a fresh context.
+- **Repository revision at start:** `98ab52d` (branch `research`, clean tree).
+- **Objective (exact):** O2 of `STATE.md`. For all integers
+  `c_1, c_2, c_3 ≥ 1`, let `T` be the caterpillar whose spine is a path on
+  three vertices carrying `c_1, c_2, c_3` pendant leaves, `n = 3 + c_1 + c_2 + c_3`,
+  `m = ⌊n/2⌋`. Decide whether `d_{m−1}(T) < d_m(T)`, and whether
+  `d_{m+1}(T) < d_m(T)`; in every case locate all maximizing indices and
+  compare them with `[⌊n/2⌋, ⌈n − n/√5⌉]`.
+- **Approach:** as for T1. L3 with `s = 3` gives
+  `d_k = Σ_{j=0}^{6} g_j C(n−6, k−j)` with `g_j` polynomial in the `c_i`
+  (affine in each). Compute the `g_j` symbolically; reduce `d_m − d_{m−1}` for
+  each parity to a positive binomial times a polynomial in `m` and the `c_i`;
+  prove positivity on `c_i ≥ 1`. Then the same for `d_{m+1} − d_m`.
+- **Falsification test (run first):** exact evaluation of the whole sequence
+  for every `(c_1, c_2, c_3)` with sum at most 300; a non-positive
+  `d_m − d_{m−1}` would refute the conjecture, and a peak other than `m`
+  changes the statement to be proved.
+- **Stopping conditions:** done when both differences are reduced to explicit
+  polynomials whose signs are settled by a written argument and cross-checked
+  exactly, or when the peak is shown to depend on the `c_i` in a way that is
+  then described exactly. Stop without a claim if positivity does not follow
+  from a short argument within the budget; record the polynomial.
+- **Budget:** about 60 minutes of agent work; computation at most 15 minutes
+  of wall-clock time, largest instance `c_1 + c_2 + c_3 = 300` (closed form)
+  and order 63 (direct determinant); one review subagent if a candidate proof
+  results.
+- **Deferred obligations:** the open obligations 1 to 7 of `STATE.md` are not
+  addressed. Obligations 1, 2 and 4 need a human reader, an inaccessible paper
+  or the director's approval of a budget; O2 does not depend on any of them
+  except through L3 (known, Hogben–Reinhart) and Theorem 2.1 of the source.
