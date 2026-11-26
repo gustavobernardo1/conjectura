@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-26T10:03:56Z",
+  "verdict": "passed",
+  "module": "Conjectura",
+  "git": {
+    "commit": "b3d4ec5ab0d0bfe4bbf50f3f7cb9954ecb2b48b7",
+    "branch": "main",
+    "tree_clean": true
+  },
+  "platform": {
+    "system": "Windows",
+    "machine": "AMD64",
+    "python": "3.12.4"
+  },
+  "toolchain": {
+    "lean_toolchain_file": "leanprover/lean4:v4.36.0",
+    "lean_version": "Lean (version 4.36.0, x86_64-w64-windows-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "mathlib_input_rev": "v4.36.0",
+    "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "sources": [
+    {
+      "path": "formalization/lean-toolchain",
+      "sha256_lf": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+    },
+    {
+      "path": "formalization/lakefile.toml",
+      "sha256_lf": "b7fbefcb04442109e831ccbd79e5df186fa48c581559e6334b64a4d8f649d449"
+    },
+    {
+      "path": "formalization/lake-manifest.json",
+      "sha256_lf": "825ee8fb47b986d15e60db98c704af6b99b2484db66126cd1f682b178d8f7748"
+    },
+    {
+      "path": "formalization/registry.json",
+      "sha256_lf": "761258e5db3f8beac9ce1d6803bb53cfed4ca9bb37f1b3b3ae79985d99781ccb"
+    },
+    {
+      "path": "formalization/Conjectura.lean",
+      "sha256_lf": "44f599be4b0cf196114d7b166cd3b45933c6dc168f5bf78031e89235f2a18814"
+    },
+    {
+      "path": "formalization/Conjectura/Calibration/OddPrime.lean",
+      "sha256_lf": "c541bb66934b9578fcda14836164b425ecc285854c1dbc42e591aefc94939b50"
+    },
+    {
+      "path": "formalization/Conjectura/Calibration/SumOdd.lean",
+      "sha256_lf": "f362a75fbc551166822cc6a1a3b54e846f4042a07859c1fa33d85d3228083327"
+    },
+    {
+      "path": "scripts/lean_audit_template.lean",
+      "sha256_lf": "b33d29d36ebd69fadfd531258612b41fccf0aebd61546b44f1906b738c092b90"
+    },
+    {
+      "path": "scripts/verify_lean.py",
+      "sha256_lf": "045f5279f3d195af65a842b74d0423c7f2a27b09fee743688c41782c1ee060f2"
+    }
+  ],
+  "checks": [
+    {
+      "name": "toolchain",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "build",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "sources",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "axioms",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "registry",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "replay",
+      "status": "passed",
+      "details": [
+        "replayed Conjectura.Calibration.OddPrime",
+        "replayed Conjectura.Calibration.SumOdd"
+      ]
+    }
+  ],
+  "declarations": {
+    "total": 3,
+    "theorems": 3,
+    "named": [
+      "Conjectura.Calibration.odd_of_prime_of_two_lt",
+      "Conjectura.Calibration.odd_of_prime_of_two_lt_nonvacuous",
+      "Conjectura.Calibration.sum_range_odd"
+    ],
+    "axioms_used": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "registry": [
+    {
+      "name": "Conjectura.Calibration.sum_range_odd",
+      "kind": "calibration",
+      "catalogue_id": null,
+      "module": "Conjectura.Calibration.SumOdd",
+      "statement": "∀ (n : ℕ), ∑ i ∈ Finset.range n, (2 * i + 1) = n ^ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "8320cda75136feed42b1a64c57aa5f77c6e1d43b4535ea50ac651c511e6c55fc"
+    },
+    {
+      "name": "Conjectura.Calibration.odd_of_prime_of_two_lt",
+      "kind": "calibration",
+      "catalogue_id": null,
+      "module": "Conjectura.Calibration.OddPrime",
+      "statement": "∀ (p : ℕ), Nat.Prime p → 2 < p → Odd p",
+      "axioms": [
+        "propext"
+      ],
+      "statement_fingerprint": "7442df9b4e92c66c540115834f4395c3513390c9bd1ffb3295514dad8f5b0b38"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 2.4,
+      "output_tail": "Lean (version 4.36.0, x86_64-w64-windows-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "Conjectura"
+      ],
+      "returncode": 0,
+      "seconds": 3.3,
+      "output_tail": "⚠ [2012/2030] Replayed Conjectura.Calibration.SumOdd\nwarning: Conjectura\\Calibration\\SumOdd.lean: imports `Mathlib.Algebra.BigOperators.Intervals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Calibration\\SumOdd.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\n⚠ [2013/2030] Ran Conjectura.Calibration.SumOdd:irArts\nwarning: Conjectura\\Calibration\\SumOdd.lean: imports `Mathlib.Algebra.BigOperators.Intervals` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Calibration\\SumOdd.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\n⚠ [2026/2030] Replayed Conjectura.Calibration.OddPrime\nwarning: Conjectura\\Calibration\\OddPrime.lean: imports `Mathlib.Data.Nat.Prime.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Calibration\\OddPrime.lean: imports `Mathlib.Tactic.NormNum.Prime` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\n⚠ [2027/2030] Ran Conjectura.Calibration.OddPrime:irArts\nwarning: Conjectura\\Calibration\\OddPrime.lean: imports `Mathlib.Data.Nat.Prime.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Calibration\\OddPrime.lean: imports `Mathlib.Tactic.NormNum.Prime` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nBuild completed successfully (2030 jobs)."
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "formalization/.lake/conjectura-audit/Audit_Conjectura.lean"
+      ],
+      "returncode": 0,
+      "seconds": 7.6,
+      "output_tail": "CONJECTURA_AUDIT_BEGIN\nCONJECTURA_AUDIT_END"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Calibration.OddPrime"
+      ],
+      "returncode": 0,
+      "seconds": 40.8,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Calibration.SumOdd"
+      ],
+      "returncode": 0,
+      "seconds": 41.2,
+      "output_tail": ""
+    }
+  ]
+}
