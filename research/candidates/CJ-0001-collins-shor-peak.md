@@ -6,7 +6,7 @@
 
 Let $T$ be a tree of order $n \ge 3$ with distance matrix $\mathcal{D}(T)$ (the $(i,j)$ entry is the length of the path from $v_i$ to $v_j$). Let $\delta_k(T)$ be the coefficient of $x^k$ in $\det(\mathcal{D}(T) - xI)$ and, for $0 \le k \le n-2$, let $d_k(T) = 2^{k-(n-2)}\,|\delta_k(T)|$ be the normalized coefficients. Conjecture 1.2 (Collins–Shor), verbatim: "The [normalized] coefficients of the distance characteristic polynomial for any tree $T$ with $n$ vertices are unimodal with peak between $\lfloor n/2 \rfloor$ and $\lceil n - n/\sqrt{5} \rceil$." Unimodality (indeed log-concavity) is Theorem 2.1 of the same paper. The open part is the location: every index $k$ at which $d_0(T),\dots,d_{n-2}(T)$ attains its maximum satisfies $\lfloor n/2 \rfloor \le k \le \lceil n - n/\sqrt{5} \rceil$. (The source does not say how a tie between two maximal coefficients is to be read; the project uses the strong reading 'every maximizing index' and records ties explicitly.)
 
-**Source.** G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341 (journal version: Electron. J. Linear Algebra, 2018), Conjecture 1.2; originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor. <https://arxiv.org/abs/1507.02341>
+**Source.** G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341, Conjecture 1.2 (a search result reports the journal version as Electron. J. Linear Algebra, 2018; not verified from the journal); originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor. <https://arxiv.org/abs/1507.02341>
 
 **Statement checked against:** primary-source. The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) was not accessed; according to arXiv:1507.02341 it states the bounds without floor and ceiling.
 
@@ -24,7 +24,7 @@ T is a tree (connected acyclic simple graph) on n vertices; D(T) is the n x n ma
 
 ## Relevant literature
 
-- G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341 (journal version: Electron. J. Linear Algebra, 2018), Conjecture 1.2; originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor. <https://arxiv.org/abs/1507.02341>
+- G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341, Conjecture 1.2 (a search result reports the journal version as Electron. J. Linear Algebra, 2018; not verified from the journal); originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor. <https://arxiv.org/abs/1507.02341>
 - Aalipour, Abiad, Berikkyzy, Hogben, Kenter, Lin, Tait, arXiv:1507.02341 <https://arxiv.org/abs/1507.02341>
 - Aalipour et al., arXiv:1507.02341 <https://arxiv.org/abs/1507.02341>
 - As reported in arXiv:1507.02341 (Collins's own paper not fetched) <https://arxiv.org/abs/1507.02341>
@@ -100,3 +100,20 @@ Linear algebra (characteristic polynomial, eigenvalue interlacing, inertia), bas
   arXiv:2103.00647, which has not been read.
 - The scout's remark about Wagner (arXiv:2104.14516) concerns a different
   conjecture of Collins and remains unverified.
+
+### Corrections to the scout record above (2026-11-26)
+
+An independent review of revision `e34acfc` pointed out two inconsistencies in
+this dossier; the scout's text is left as written and corrected here.
+
+- *Statement.* The item under "Unverified items" saying that the statement text
+  is a tool rendering and not character-exact is superseded: the statement in
+  the "Statement" section was compared with the TeX source of arXiv:1507.02341
+  on 2026-11-26 (first project note above).
+- *Quotation.* Under "Open-status evidence", the sentence "No more results are
+  known about that conjecture." is attributed to arXiv:1507.02341. It is a
+  quotation that arXiv:1507.02341 takes from Aouchiche and Hansen's 2014
+  survey. The statement that the peak location "remains open" is the paper's
+  own (its Section 3).
+- *Journal.* That the paper appeared in Electron. J. Linear Algebra in 2018 is
+  reported by a search result and was not verified from the journal.
