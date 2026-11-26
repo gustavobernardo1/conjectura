@@ -1,7 +1,30 @@
 {
- "experiment": "CJ-0001 ratio extremality (Conjecture A)",
+ "experiment": "CJ-0001 ratio extremality (Hypotheses A(i) and A(ii))",
  "mode": "exhaustive",
  "arithmetic": "exact integers",
+ "run": {
+  "command": [
+   "python",
+   "experiments/CJ-0001-collins-shor-peak/ratio_extremality.py",
+   "exhaustive",
+   "--min-order",
+   "4",
+   "--max-order",
+   "17",
+   "--workers",
+   "7",
+   "--out",
+   "experiments/CJ-0001-collins-shor-peak/results/ratio-extremality-04-17.json"
+  ],
+  "git_revision": "ed232ecb168387b6718e6873b3c8207dd6273df4",
+  "tree_clean": false,
+  "started_utc": "2026-11-26T07:10:12Z",
+  "versions": {
+   "python": "3.12.4",
+   "python-flint": "0.9.0",
+   "networkx": "3.7"
+  }
+ },
  "orders": [
   {
    "order": 4,
@@ -28,7 +51,7 @@
     0,
     1
    ],
-   "seconds": 0.0
+   "seconds": 0.9
   },
   {
    "order": 5,
@@ -290,7 +313,7 @@
     6,
     7
    ],
-   "seconds": 0.2
+   "seconds": 0.0
   },
   {
    "order": 13,
@@ -327,7 +350,7 @@
     6,
     7
    ],
-   "seconds": 0.3
+   "seconds": 0.1
   },
   {
    "order": 14,
@@ -366,7 +389,7 @@
     7,
     8
    ],
-   "seconds": 0.6
+   "seconds": 0.2
   },
   {
    "order": 15,
@@ -406,7 +429,7 @@
     8,
     9
    ],
-   "seconds": 2.2
+   "seconds": 0.3
   },
   {
    "order": 16,
@@ -447,7 +470,7 @@
     8,
     9
    ],
-   "seconds": 6.8
+   "seconds": 0.8
   },
   {
    "order": 17,
@@ -489,7 +512,7 @@
     9,
     10
    ],
-   "seconds": 18.1
+   "seconds": 1.8
   }
  ]
 }

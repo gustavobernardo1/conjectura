@@ -18,10 +18,10 @@ decide an inequality.
 | `independent_check.py` | Independent method (Laplacian formula, pure-Python rationals); shares no code with `distpoly.py`. |
 | `exhaustive.py` | Tests the conjecture on every tree of given orders. |
 | `ratio_extremality.py` | Tests Hypotheses A(i) and A(ii): comparison of consecutive-coefficient ratios with the star and the path; exhaustive and sampled modes. |
-| `near_star_families.py` | Double stars and balanced caterpillars up to order 10⁶ through a quotient-matrix formula. |
+| `near_star_families.py` | Double stars (orders 6–41) and balanced caterpillars up to order 10⁶ through a quotient-matrix formula. |
 | `results/*.json` | Outputs of the runs below. |
 
-Validation: `uv run pytest tests/test_cj0001_distpoly.py` (87 tests).
+Validation: `uv run pytest tests/test_cj0001_distpoly.py` (95 tests).
 
 ## Reproduction
 
@@ -46,6 +46,19 @@ uv run python experiments/CJ-0001-collins-shor-peak/near_star_families.py \
 
 The exhaustive runs are deterministic. The sampled run is deterministic given
 the seed. Timing fields in the result files vary between runs.
+
+## Provenance of the stored result files
+
+Each result file has a `run` block with the command line, the Git revision, the
+state of the working tree and the dependency versions. Two caveats:
+
+- `results/exhaustive-21-23.json` was produced on 2026-11-26 before the first
+  commit of the repository, by the version of `exhaustive.py` and `distpoly.py`
+  committed at `e34acfc`, and has no `run` block. It has not been rerun since.
+- The other five files were regenerated in one batch at revision `ed232ec`.
+  The first of them records a clean tree; the later ones record
+  `tree_clean: false` only because the earlier runs of the same batch had just
+  rewritten result files. All numbers were identical to the first run.
 
 ## What the exhaustive search covers
 

@@ -132,8 +132,9 @@ Answers can be checked with the code in `experiments/CJ-0001-collins-shor-peak/`
   explain the upper bound.
 - *Did not work:* the mirror-image idea for the lower bound — that the star has
   the smallest ratio at every index up to its peak. It holds for all trees of
-  order at most 19 and fails at order 20: from there on, the balanced double star
-  is closer to violating the lower bound than the star is. The lesson is the
+  order at most 19 and fails at order 20: at every even order from 20 to 40 (and
+  every odd order from 29 to 41) some double star is closer to violating the
+  lower bound than the star is. The lesson is the
   standard one: a pattern verified on all small cases is still only a
   hypothesis, and the falsification test on larger structured examples is what
   exposed it.

@@ -92,3 +92,62 @@ a refuted natural hypothesis with an explicit counterexample; an open sharper
 hypothesis for the upper bound; a concrete provable-looking objective (O1 in
 `STATE.md`: the lower bound for double stars), to be preceded by a literature
 audit of Collins (1989) and arXiv:2206.07561.
+
+## Session 1, addendum — 2026-11-26 — independent review and corrections
+
+- **Agent / model:** reviewer: Claude, model `claude-fable-5-2`, launched as a
+  fresh context that received the file paths and a checklist but not the
+  reasoning of the author; corrections: the author agent (same model).
+- **Objective:** obtain an adversarial review of `notes/lemmas.md` and of the
+  claims in `STATE.md` at revision `e34acfc`, and correct what it finds.
+
+### What was done
+
+1. Review report: `reviews/2026-11-26-claude-fable-5-2.md`. Verdict for R1, L1,
+   L2, L3: no gap found within stated scope. The reviewer re-derived the
+   Graham–Lovász inverse formula, recomputed the order-20 counterexample with
+   its own code, and matched every number in `STATE.md` against the result
+   files. It did not rerun the exhaustive experiments, did not check Collins
+   (1989) or Graham–Lovász (1978), and did not assess novelty.
+2. Discrepancies reported and the response to each:
+   - L3 was validated on one ratio only → now validated on every coefficient,
+     ten caterpillars, with a test.
+   - "The star is not extremal once n ≥ 20" overstated the evidence → double
+     stars now compared with the star at every order 6–41; wording corrected
+     (even orders 20–40 and odd orders 29–41).
+   - Result files lacked command, revision and versions → a `run` block is now
+     written by every script; five files regenerated at `ed232ec` with
+     identical numbers. `exhaustive-21-23.json` was not regenerated (34
+     minutes) and is flagged as an open obligation.
+   - Hypothesis A(ii) had an undefined index at n = 4 → range stated as
+     `0 ≤ k ≤ min(p_n, n−3)`.
+   - Two statements had no result file behind them → reworded to what the
+     files show.
+   - The budget overrun had no recorded approval → stated as the decision of
+     the agent, for review by the director.
+   - The OEIS reference values had not been checked against OEIS → compared
+     with the OEIS b-file of A000055 on 2026-11-26 (identical for n = 0..25).
+   - The journal reference of the source was unverified → marked as such in
+     the catalogue, the dossier and `STATE.md`.
+   - The dossier contradicted itself about the statement check and
+     misattributed a quotation → corrections added to the dossier.
+   - `AGENTS.md` named directories that did not exist → wording corrected.
+   - The formula of L2 is already in the source → L2 marked as known.
+   - R1 was restated in a general form, as the reviewer suggested. The restated
+     version has not been re-reviewed.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author and reviewer) |
+| Reviewer usage reported by the environment | 208,254 subagent tokens, 30 tool calls, about 13 minutes |
+| Computation wall-clock for the regenerated files | about 6 minutes |
+| Token usage of the main session | unavailable |
+
+### Outcome
+
+No mathematical error was found. Several statements were more confident than
+their evidence and have been corrected. The catalogue status remains
+`not-reviewed`: one same-model AI review of an earlier revision does not meet
+the bar for `ai-reviewed` on a revision that was edited afterwards.

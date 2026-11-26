@@ -1,10 +1,13 @@
 # CJ-0001 — lemmas and their proofs
 
 Status of everything in this file: written by an AI agent (Claude, model
-`claude-fable-5-2`) on 2026-11-26; **not independently reviewed**; novelty
-**unknown** (these are elementary consequences of classical results and are
-very likely known, at least implicitly). They are tools for the investigation,
-not claimed results.
+`claude-fable-5-2`) on 2026-11-26. An AI review of revision `e34acfc`
+(`../reviews/2026-11-26-claude-fable-5-2.md`; same model family, fresh context)
+found no gap within its stated scope; R1 was restated afterwards in response
+to that review and has not been re-reviewed. No human review. Novelty
+**unknown**, except L2, whose formula is in the source. These are elementary
+consequences of classical results and are tools for the investigation, not
+claimed results.
 
 Notation. `T` is a tree of order `n ≥ 3`, `D` its distance matrix, `L` its
 Laplacian, `τ = (2 − deg(v))_v`, `δ_k` the coefficient of `x^k` in
@@ -21,14 +24,24 @@ arXiv:1507.02341 (Graham–Lovász), `(−1)^{n−1} δ_k > 0` for `0 ≤ k ≤ 
 - every maximizing index of `d_0, …, d_{n−2}` is `≥ m` if and only if `d_{m−1} < d_m`;
 - every maximizing index is `≤ M` if and only if `M ≥ n−2` or `d_{M+1} < d_M`.
 
-**Proof.** The sequence is positive and log-concave (Theorem 2.1 of
-arXiv:1507.02341). For a positive log-concave sequence the ratios
-`d_{k+1}/d_k` are non-increasing in `k`. If `d_{m−1} < d_m`, the ratios are
-`> 1` at every index `≤ m−1`, so the sequence is strictly increasing up to `m`
-and no index below `m` is maximizing. If `d_{m−1} ≥ d_m`, the ratios are `≤ 1`
-at every index `≥ m−1`, so the sequence is non-increasing from `m−1` on and its
-maximum is attained at some index `≤ m−1`. The second claim is the first one
-applied to the reversed sequence, which is also positive and log-concave. ∎
+**General form.** Let `a_0, …, a_r` be positive and log-concave and let
+`1 ≤ j ≤ r`. Then every maximizing index of the sequence is `≥ j` if and only
+if `a_{j−1} < a_j`.
+
+*Proof.* For a positive log-concave sequence the ratios `a_{k+1}/a_k` are
+non-increasing in `k`. If `a_{j−1} < a_j`, the ratios are `> 1` at every index
+`≤ j−1`, so the sequence is strictly increasing up to `j` and no index below
+`j` is maximizing. If `a_{j−1} ≥ a_j`, the ratios are `≤ 1` at every index
+`≥ j−1`, so the sequence is non-increasing from `j−1` on and its maximum is
+attained at some index `≤ j−1`. ∎
+
+**Proof of R1.** The sequence `d_0, …, d_{n−2}` is positive and log-concave
+(Theorem 2.1 of arXiv:1507.02341). The first claim is the general form with
+`j = m`. For the second, apply the general form to the reversed sequence
+`a_i = d_{n−2−i}`, which is also positive and log-concave, with
+`j = n − 2 − M`: when `j ≥ 1` (that is, `M ≤ n−3`) it says that every maximizing
+index of `d` is `≤ M` if and only if `d_{M+1} < d_M`; when `M ≥ n−2` there is
+nothing to prove. ∎
 
 Note `m − 1 ≥ 0` and `m ≤ n − 2` for `n ≥ 3`, so the first inequality always
 makes sense.
@@ -51,7 +64,9 @@ to `A = −(I + xL)` (so `det A = (−1)^n det(I + xL)` and
 Multiplying by `det D` and by `−2^{−(n−2)}` gives the statement. ∎
 
 *Caveat on sources.* The inverse formula is quoted from memory of Graham and
-Lovász (1978), which was not accessed in this session. As a safeguard, L1 was
+Lovász (1978), which was not accessed in this session; the reviewer of
+revision `e34acfc` re-derived it independently. Graham–Pollak is cited, not
+re-proved. As a safeguard, L1 was
 checked exactly against the direct computation of `det(D − xI)` on every tree
 of order 3 to 9 and on the two order-20 trees of the refutation below
 (`tests/test_cj0001_distpoly.py`).
@@ -86,9 +101,10 @@ holds iff a single `e_v` is non-zero, i.e. `T` is a star. So
 `4n − 6 ≤ Σ deg² ≤ n² − n`, and the claim follows. ∎
 
 *Check.* Exact agreement on every tree of order 3 to 11
-(`test_d1_formula_first_zagreb_index`). *Relation to the literature.* Theorem
-3.3 of arXiv:1507.02341 bounds the peak through the number of paths of length 2,
-which is `Σ_v C(deg v, 2)`; L2 is the same information in another form.
+(`test_d1_formula_first_zagreb_index`). *Relation to the literature.* The formula
+for `d_1` is **known**: it appears, in terms of the number of paths of length
+2 (`Σ_v C(deg v, 2)`), in the proof of Theorem 3.3 of arXiv:1507.02341, as the
+review of `e34acfc` pointed out. L2 is a re-derivation, not a new result.
 
 ## L3. Caterpillars through a quotient matrix
 
@@ -115,5 +131,9 @@ the same class are at distance 2 and have equal distances to every other
 vertex, so `D` acts on such a vector as `2(J − I)`, i.e. as multiplication by
 `−2`. The complement has dimension `Σ (c_i − 1) = n − 2s`. ∎
 
-*Check.* Exact agreement with the direct `n × n` computation on six caterpillars
-(`near_star_families.py`, validation step).
+*Check.* Every coefficient `d_0, …, d_{n−2}` agrees (up to the common positive
+factor) with the direct `n × n` computation on ten caterpillars
+(`near_star_families.py`, validation step, and
+`test_caterpillar_quotient_formula_matches_direct_computation`). The first
+version of this check compared only the critical ratio; the review of
+`e34acfc` pointed that out.
