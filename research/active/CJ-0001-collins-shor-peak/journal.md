@@ -1499,3 +1499,217 @@ Lemma C.
 
 Next step: objective O8 in `STATE.md` — test statement (Λ⁰) and (Λ) on wider
 families, then prove (Λ) or refute it.
+
+## Session 9 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2` (main context, Claude
+  Code). Human: G. B. Brito, director, by written instructions at the start:
+  maximize valid, original and meaningful discoveries; allocate effort by
+  independent judgment; earlier directions and suggestions are revisable;
+  do not optimize the number of registered contributions; MD-0013 keeps its
+  identifier and review provenance, with known consequences of prior
+  literature distinguished from potentially original statements; the current
+  classifications are approved; verified commits may be pushed to `research`
+  only.
+- **Mode:** exploration (21:31 to about 21:45 UTC), then focused work on the
+  statement found (Theorem T4). The switch is recorded here.
+- **Role(s):** research director; mathematical researcher. Subagents, each in
+  its own context: `literature-auditor` (first prior-art search for the leaf
+  recursion and star minimality), `adversarial-reviewer` (model
+  `claude-opus-5-5` requested; review of `notes/wiener-form.md` at `b5d9294`).
+- **Repository revision at start:** `61085bc` (branch `research`, clean tree).
+- **What was explored (written before starting):** whether the distance
+  polynomial `ℓ_T` of the whole tree — not the coefficient polynomials `r_A`
+  of a skeleton — already has a non-negative lower-half gamma expansion, so
+  that the chain Γ, L4, "skeleton plus one star" could be bypassed.
+- **Objective (exact, from 21:45):** for every tree of order `n ≥ 3`,
+  `d_{μ−1} < d_μ` with `μ = ⌊(n−1)/2⌋` (Theorem T4 of `notes/wiener-form.md`).
+- **Approach:** an exact identity for `n²ℓ_T` with a single negative term (the
+  Wiener form), and the linear functional `λ_μ = [x^μ] − [x^{μ−1}]` on the
+  cones `K_d` of non-negative combinations of `x^e(1+x)^i`, `2e + i ≥ d`.
+- **Falsification test:** every identity and every sign in the proof against
+  exact computation on all small trees before it is written
+  (`wiener_form.py`), with `ℓ_T` taken from the distance matrix.
+- **Stopping conditions:** mathematics stops at about 22:00 UTC; a failure
+  reported by the computation or a gap reported by the reviewer takes
+  precedence over everything else.
+- **Budget (binding, director's standing decision):** 60 minutes of agent
+  work, 21:31 to 22:31 UTC, review, records and push included. Computation:
+  at most 30 minutes of wall-clock time in total.
+- **Deferred obligations:** 1 to 8 of `STATE.md`, and objective O8 (statement
+  (Λ)), deferred for a more promising idea as `AGENTS.md` section 3 allows.
+  No claim that depends on them is promoted.
+
+### What was done
+
+All computations are exact (Python integers; python-flint for characteristic
+polynomials). Times are UTC, from `date -u` in the session's shell.
+
+1. 21:31 start; `AGENTS.md`, `autoresearch.md`, `STATE.md`,
+   `notes/rooted-calculus.md`, `notes/gamma-components.md` and the journal
+   entry of session 8 read.
+2. Scratch (not stored, each under 30 s): the lower-half gamma vector of
+   `ℓ_T` with centre `n − 2`, `n − 1`, `n`, `n + 1` for all trees of order 3 to
+   15; the leaf recursion and the one-element polynomials on all rooted trees
+   of order at most 9; `ℓ_T + 4x(1+x)^{n−1} ∈ C_{n−1}` for orders 3 to 15;
+   `ℓ_T − ℓ_star ∈ C_{n−1}` for orders 3 to 18; `R(B, e_c)/x` for small rooted
+   paths and stars.
+3. `leaf_telescoping.py` written and committed alone (`6c23eea`) so that its
+   stored run starts on a clean tree; stored run 365.5 s
+   (`results/leaf-telescoping.json`).
+4. `literature-auditor` started at about 21:39 (9-minute budget): section
+   "Audit for session 9" of the dossier.
+5. The Wiener form and Theorem T4 found by hand (about 21:42 to 21:45);
+   `wiener_form.py` written; trial run to order 10 (0 failures); notes
+   `wiener-form.md` and `leaf-telescoping.md` written; commit `f414cd8`;
+   stored run of `wiener_form.py` on the clean tree at `f414cd8`, 119.7 s
+   (`results/wiener-form.json`), committed as `b5d9294`.
+6. `adversarial-reviewer` started at about 21:51 on `b5d9294` (fresh context;
+   given the catalogue id, the source reference, the path and hash of the
+   note, the statement to be registered and the template; not given the
+   author's reasoning). Outcome: under Findings.
+7. `tests/test_cj0001_wiener_form.py` added (6 tests). Registry: MD-0016 and
+   MD-0017 registered; MD-0013 classified item by item in its `limitations`
+   (statement, fingerprint and review evidence unchanged; the schema does not
+   allow a new key under `novelty_search`, so no key was added). `STATE.md`
+   updated; the text of objective O8 and the list of sources read were moved
+   to `notes/obligations.md` (verbatim except for the target of one link).
+
+### Findings
+
+- **The Wiener form (Proposition S25; MD-0016, item (i)).** For every tree of
+  order `n ≥ 2`: `n²ℓ_T = 4(W − nx)Φ + Σ_{u<v} (t_u − t_v)² x^{dist(u,v)−1} Π_{uv}`,
+  with `t = D1`, `W` the Wiener index, `Φ = det(I + xL)` and
+  `Π_{uv} = det (I + xL)[V ∖ path(u, v)]`. Written proof (from `Lt = nτ − 2·1`
+  and L1). Exact check: 987 trees of order 2 to 12, 56,764 pairs, `ℓ_T` from
+  the distance matrix; 0 failures.
+- **Theorem T4 (candidate; MD-0016, item (ii)).** For every tree of order
+  `n ≥ 3`, `d_{μ−1} < d_μ` with `μ = ⌊(n−1)/2⌋`; so every maximizing index is
+  at least `⌊(n−1)/2⌋`. **For odd `n` this is the lower bound of the
+  Collins–Shor conjecture; for even `n` it is one less, and the conjectured
+  bound is not proved.** Written proof; every sign in it checked on the 987
+  trees; the inequality alone on the 499,372 trees of order 13 to 19;
+  0 failures. Finite checks are not the proof.
+- **Leaf recursion (Proposition S23).** `ℓ_{T+leaf at u} = (1+x)ℓ_T + r_u(T)`,
+  `R(T, 0) = xℓ_T − (1+4x)Φ_T`, and the telescoped formula
+  `ℓ_T = −4x(1+x)^{n−1} + Σ_k (1+x)^{n−1−k} r_{u_k}(T_k)`. Written proof;
+  0 failures on the 4,394 rooted trees of order at most 11.
+- **Statement (SM) (new conjecture; MD-0017).** `ℓ_T − ℓ_{S_n} ∈ C_{n−1}` for
+  every tree: 0 failures on the 1,346,023 trees of order 3 to 20, equality
+  only for the star. It implies the lower bound for every tree, and follows
+  from (Γ_c¹), the case of Γ_c with one unit of weight (Proposition S27,
+  written proof, unreviewed). (Γ_c¹): 0 failures on the 4,394 rooted trees.
+- **Scratch observations, not stored:** the lower-half gamma vector of `ℓ_T`
+  with centre `n − 1` and `n − 2` is non-negative for all trees of order 3 to
+  15, and fails with centre `n` (already at order 4);
+  `ℓ_T + 4x(1+x)^{n−1} ∈ C_{n−1}` for orders 3 to 15; for the star rooted at
+  its centre `R(B, e_c) = (j−1) x (1+x)^{j−1}` (orders 2 to 6).
+- **Hand computations, not checked by machine and not reviewed:** the rooted
+  form `ℓ_T = (1/x) Σ_{u<v} (δ_u − δ_v)² adj_{uv} + 4 Σ_v δ_v adj_{cv} − 4x adj_{cc}`
+  (`δ` the distances from any vertex `c`); the formula for `R(B, e_c)` at the
+  end of `leaf-telescoping.md`; the edge decomposition in step 2 of the new
+  "Next step".
+- **Literature audit of session 9 (first search; novelty not established).**
+  Nothing found on the leaf recursion, on a coefficientwise or cone-order
+  extremality of the star for the distance polynomial, on gamma-type
+  expansions for it, or on progress on the lower bound of the peak (arXiv
+  listing: 5 entries, the latest of June 2022; 5 citing papers). One unread
+  lead: `core.ac.uk/download/10129286.pdf` (HTTP 403), which a search snippet
+  describes as building the polynomial leaf by leaf. **No search was made
+  for the Wiener form.** Not searched: MathSciNet, zbMATH, Google Scholar,
+  MathOverflow, books.
+- **MD-0013.** Known consequences of prior literature: `κ ≥ 4` with its
+  equality case and item (iv) (Richman–Shokrieh–Wu, through an unreviewed
+  bridging step), positive definiteness of `L_B`, and the spectral identity
+  used in the proof. Potentially original (no source found within the
+  session-8 coverage): the third form, the degree and leading coefficient,
+  the real roots.
+- **Review of `notes/wiener-form.md` (AI, `claude-opus-5-5`, revision
+  `b5d9294`, fresh context):** no gap found within stated scope for Lemma
+  S24, Propositions S25, S26, Lemma A, Theorem T4 and its corollary, each
+  reconstructed by hand; the registered wording of MD-0016 matches what is
+  proved; the note is plain about the even case. Reviewer's own exact code:
+  5,450 trees of orders 2 to 14 and special trees up to order 40, 50,262
+  adjugate entries, 10,882 cases of Lemma A; no counterexample. Three
+  defects of wording, none mathematical (owed: one revision, then a
+  recheck). Of `leaf-telescoping.md` it checked S23(d), S27(a), (b) and the
+  algebra of S27(c); **S23(a) to (c) are unreviewed**. Not covered: the
+  literature, the external facts, the dependencies L1, Lemma F, Lemma C.
+  This is one AI review by a model of the same vendor; it is not human
+  review, and T4 stays a candidate theorem.
+- **Scratch runs made while the review was running (exact, not stored):**
+  the two hand formulas (the rooted form of `ℓ_T`; the pair formula for
+  `R(B, e_c)`) hold on the 326 rooted trees of order at most 8; the right
+  side of inequality (3) of `wiener-form.md` is positive for every tree of
+  even order 4 to 14 and is at least 72% of `n²(d_m − d_{m−1})`.
+- **A family of identities (hand computation at the end of the session, not
+  checked by machine except in the two cases named, not reviewed).** For
+  every real vector `π` on the vertices with `1ᵀπ = 1` and `f = Dπ`:
+  `ℓ_T = −2(πᵀDπ)Φ + (1/x) Σ_{u<v} (f_u − f_v)² adj_{uv} + 4 πᵀ adj f − 4x πᵀ adj π`
+  (from `Lf = τ − 2π`). The uniform `π` gives the Wiener form (S25, checked);
+  `π = e_c` gives the rooted form (checked in scratch). Other choices of `π`
+  have not been examined; they are a possible tool for the even orders.
+
+### What failed
+
+- A lower-half gamma expansion of `ℓ_T` with centre `n` (what the even case
+  would need) fails already at order 4.
+- A proof of (Γ_c¹), hence of (SM), was not found: removing a leaf that is
+  not adjacent to the root leaves the family of unit weights.
+- The even case of the lower half is not reached by the Wiener form as it
+  stands (the edge polynomials are in `K_{n−2}` only).
+- `STATE.md` has 418 lines, above the aim of 400.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author); `claude-fable-5-2` (literature auditor); reviewer: see its report |
+| Computation wall-clock | stored runs 365.5 s + 119.7 s; scratch and trial runs about 90 s; test suite: see "Outcome" |
+| Token usage | main context unavailable; subagents as reported by the environment: literature auditor 50,431 tokens, 23 tool uses, 146 s; reviewer 83,268 tokens, 21 tool uses, 360 s |
+| Research iterations | 1 exploration, 1 focused objective |
+| Proof attempts | 2 (T4: complete written proof; (Γ_c¹): not found) |
+| Counterexamples found | 0 |
+| Formalization attempts | 0 |
+| Successful verifications | stored runs of `leaf_telescoping.py` and `wiener_form.py` (0 failures); `catalogue.py validate`; the test suite (under Outcome); one independent AI review of T4 (no gap found) |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress. **Theorem T4 (candidate, one AI review, no gap found):
+for every tree of order `n ≥ 3` the peak of the normalized coefficients is at
+least `⌊(n−1)/2⌋` — the lower bound of the Collins–Shor conjecture for trees
+of odd order.** It rests on the Wiener form of `ℓ_T` (Proposition S25). It is
+not an established result of the project: no human reader, originality
+unknown, and for even order the conjectured bound is not proved. New
+conjecture (SM) (MD-0017), exact to order 20, which would give the lower
+bound for every tree. Records: `notes/wiener-form.md`,
+`notes/leaf-telescoping.md`, MD-0016, MD-0017, the classification of MD-0013.
+
+Verification commands (revision of the commit that contains this entry,
+except where a revision is named): `wiener_form.py` at `f414cd8` and
+`leaf_telescoping.py` at `6c23eea`, clean tree at start, 0 failures;
+`uv run python scripts/catalogue.py validate`: 15 problems, 17 contributions,
+0 errors; `render --check`: up to date. Test suite: a first full run,
+started before the session's records were complete, gave 2 failed, 176 passed in 425 s.
+`test_committed_registry_is_valid_and_summary_is_current` failed because it
+read the registry while this session was still writing it, before the views
+were regenerated. The link
+check `test_relative_markdown_links_resolve` failed for two reasons — a link
+moved with the text of O8 into `notes/obligations.md` (target corrected), and
+the formula `[x^μ](xg)` inside inline code in `wiener-form.md`, which the
+check read as a link (the check now ignores inline code, as Markdown does;
+the reviewed note was not touched). Second full run on the final tree:
+178 passed in 388 s. `verify_lean.py` was not run: no Lean source changed.
+
+A tooling change of this session, with its reason: `tests/test_repository.py`
+(the link check, above). Budget: 21:31 to about 22:12 UTC of the 60 minutes;
+computation about 10 minutes of wall-clock time in stored and scratch runs,
+plus the test suite.
+
+Next step: objective O9 in `STATE.md` (the even orders, from inequality (3)
+of `wiener-form.md`), after obligation 9 (the revision of `wiener-form.md`
+for the three defects of wording and its recheck; a review of
+`leaf-telescoping.md`; a literature search for the Wiener form). Decisions
+left to the director: whether CJ-0001 moves to `partial-result` once T4 has
+had a human reader; whether T4 should be shown to a specialist.

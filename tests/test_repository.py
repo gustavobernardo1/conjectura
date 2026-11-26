@@ -162,6 +162,9 @@ def test_relative_markdown_links_resolve():
         if skip_parts & set(path.parts) or "templates" in path.parts:
             continue
         text = re.sub(r"```.*?```", "", path.read_text(encoding="utf-8"), flags=re.S)
+        # Inline code is not parsed for links: `[x^k](xg)` is a formula. A link whose text is
+        # code, [`a.md`](a.md), keeps its target after this substitution and is still checked.
+        text = re.sub(r"`[^`\n]*`", "", text)
         # Only targets that look like paths; formulas such as "](1+x" are not links.
         for target in re.findall(r"\]\(([A-Za-z0-9_.~/#%-]+)\)", text):
             if re.match(r"^(https?:|mailto:|#)", target):

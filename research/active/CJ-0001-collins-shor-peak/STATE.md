@@ -1,9 +1,12 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-26 (session 8). This file is the current truth about the
+Last updated: 2026-11-26 (session 9). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
-continue. It was compacted in sessions 5 and 8: details are in the notes it
-links. Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
+continue. It was compacted in sessions 5, 8 and 9: details are in the notes it
+links. **Session 9:** [`notes/wiener-form.md`](notes/wiener-form.md) (S24 to
+S26, Theorem T4: the lower bound for odd order) and
+[`notes/leaf-telescoping.md`](notes/leaf-telescoping.md) (S23, S27, statement
+(SM)). Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/double-stars.md`](notes/double-stars.md) (T1),
 [`notes/spine3.md`](notes/spine3.md) (T2),
 [`notes/diameter4-caterpillars.md`](notes/diameter4-caterpillars.md) (T3),
@@ -68,11 +71,13 @@ Nothing in this file is an established result of the project. Every statement
 below marked "reviewed" had one AI review of one revision by a fresh context
 (named in the registry); none has been read by a mathematician, and
 originality is not established for any of them. T1, T2, T3 are **candidate
-theorems** (director's decision of 2026-11-26). The status of every
+theorems** (director's decision of 2026-11-26), and so is **T4** (session 9:
+`d_{μ−1} < d_μ`, `μ = ⌊(n−1)/2⌋`, for every tree — the conjectured lower
+bound for odd order, one less for even order). The status of every
 registered contribution is in
 [`research/discoveries.json`](../../discoveries.json), not here.
 
-Formal (Lean, `formalization/Conjectura/Research/CollinsShorPeak/`): 14 registered theorems; the latest receipt is under `verification/receipts/`. In Lean: the general form of R1; the discrete core of L4, since session 8 **in any finite number of variables** (`vertex_principle_discrete`: a function on integer points with the exchange inequality `f(c+e_i−e_k) + f(c+e_k−e_i) ≤ 2f(c)` on the slice is, at every point of the slice, at least its value at some vertex `λ + (S−Σλ)e_p`); the cone `C_d` over real polynomials (`HalfGammaCone`) with `C_d·C_e ⊆ C_{d+e}`, `x·C_d ⊆ C_{d+1}`, `x·C_d ⊆ C_{d+2}`, `(1+x)·C_d ⊆ C_{d+1}`, `x(1+x)·C_d ⊆ C_{d+3}`, and Lemma C. **Not formalized:** the step from a multi-affine polynomial with non-negative mixed partials to the exchange inequality (so L4 as written is not formalized); the equality of the inductive cone with the explicit non-negative sums; anything about trees, determinants or `r_A`. The Lean statements were compared with the written ones by the formalizing agent and the author of the session only.
+Formal (Lean, `formalization/Conjectura/Research/CollinsShorPeak/`): 14 registered theorems (nothing of session 9 is formalized); the latest receipt is under `verification/receipts/`. In Lean: the general form of R1; the discrete core of L4, since session 8 **in any finite number of variables** (`vertex_principle_discrete`: a function on integer points with the exchange inequality `f(c+e_i−e_k) + f(c+e_k−e_i) ≤ 2f(c)` on the slice is, at every point of the slice, at least its value at some vertex `λ + (S−Σλ)e_p`); the cone `C_d` over real polynomials (`HalfGammaCone`) with `C_d·C_e ⊆ C_{d+e}`, `x·C_d ⊆ C_{d+1}`, `x·C_d ⊆ C_{d+2}`, `(1+x)·C_d ⊆ C_{d+1}`, `x(1+x)·C_d ⊆ C_{d+3}`, and Lemma C. **Not formalized:** the step from a multi-affine polynomial with non-negative mixed partials to the exchange inequality (so L4 as written is not formalized); the equality of the inductive cone with the explicit non-negative sums; anything about trees, determinants or `r_A`. The Lean statements were compared with the written ones by the formalizing agent and the author of the session only.
 
 ## Established results
 
@@ -94,11 +99,15 @@ review of one revision, named in the registry.
 | Γ, finite | Property Γ holds for the 47 trees with 2 to 8 vertices; hence (S4) Hypothesis V for those skeletons and every order `n ≥ 2s`. | Computer-assisted; reviewed with an independent recomputation (`9499572`). |
 | S6 to S10, C | `r_A` depends only on `s` and `L[Ā, Ā]` (two Laplacian forms, S6, S7); closed forms for `|Ā| ≤ 2` (S8, S9); the cone `C_d` lies in the half-gamma cone (Lemma C); **Γ holds for every tree and every `A` with independent complement** (S10). | Proved; reviewed (`1805bca`). |
 | F, F′, S11 | `det(I + x(L_T + diag ν)) ∈ C_j` for integer `ν ≥ 0`, `ν ≠ 0`; contracting the components of `S[A]`: Γ⁺ (Γ with `|A| ≥ 1`) for all trees follows from its case `A` independent. | Proved; reviewed (`5622d19`, recheck of `7acd425`). |
-| S12, S13 | `r_A = r_V Φ_B − pᵀ adj(I + xL_B) p`; degree `t + 1`, leading coefficient `κ det L_B`, `κ = s + 3 − τ_BᵀL_B^{−1}τ_B ≥ 4` (equality iff `a = 1`; `κ = 4 + 2/(1ᵀP_A^{−1}1)`); **all roots of `r_A` are real and negative**. | Proved; reviewed (`b0a4dbe`). The bound on `κ` and the identity with `P_A` are **implied by Richman–Shokrieh–Wu, arXiv:2411.11488** (session 8 audit; bridging step unreviewed). |
+| S12, S13 | `r_A = r_V Φ_B − pᵀ adj(I + xL_B) p`; degree `t + 1`, leading coefficient `κ det L_B`, `κ = s + 3 − τ_BᵀL_B^{−1}τ_B ≥ 4` (equality iff `a = 1`; `κ = 4 + 2/(1ᵀP_A^{−1}1)`); **all roots of `r_A` are real and negative**. | Proved; reviewed (`b0a4dbe`). **Known consequences of prior literature:** `κ ≥ 4` with its equality case and the identity with `P_A` (Richman–Shokrieh–Wu, arXiv:2411.11488; bridging step unreviewed); `L_B` positive definite (standard). **Potentially original** (no source found within the session-8 coverage; originality not established): the form S12, the degree and leading coefficient, the real roots. Item by item: MD-0013, `limitations`. |
 | S14 to S18, G | Component form `r_A = [(1+4x) + e_A(1+x)]Φ_B + Σ_i R(T_i, ν) Π_{l≠i} Φ(T_l, ν)`, so Γ⁺ follows from **Γ_c** (`R(T, ν) ∈ C_{j+1}`, `ν ≠ 0`); the adjugate when a leaf is removed or a weight raised (Lemma G); recurrences for `R` (S15 to S17); Γ_c follows from statement **(E)** by induction on a leaf (S18). | Proved (S18 conditional); reviewed (`b0a4dbe`). |
 | S19, S20 | Rooted state `(Ψ, H, G, Ω, R)` of `(T, ν, u)`: `ΨR = Φ[ν_u(1+x)Ψ + Ω] − π_u²` (★); rules for raising the root weight, a new root, and merging two rooted trees — in the merge the only negative term of `R` is `−2G_1G_2`, and `G = (1+2x)Ψ − π_u` has non-negative coefficients; the increment of `R` at any vertex, `Δ_u = [(1+2x)² + 2xν_u]Ψ + Σ_c Λ(T_c, ν, c)P_c`; at a new leaf, `E = (1+2x)²Φ(T, ν+e_u) + Λ = xR(T, ν+e_u) + F`. | Proved; reviewed (`59c47f7`), no gap found. |
 | S21 | **(E″) and (S) of session 7 are false.** On the star with centre `u` of weight `n_0` and leaf weights `n_i`: `[x^{q+3}]F = Π(1+n_i)(4 + n_0 − Σ n_i/(1+n_i))`. Smallest failures found: (E″) at 6 vertices (five leaves of weight 4), (S) at 5 vertices (leaf weights 2, 3, 4, 4). | Proved (leading coefficients) and exact computation with an independent checker; reviewed (`59c47f7`), counterexamples confirmed by the reviewer's own code. |
 | S22 | If **(Λ)** (`Λ(T, ν, u) ∈ C_{j+2}` for every rooted weighted tree, `ν ≥ 0` arbitrary) holds, then `R` is non-decreasing in every weight at every vertex in the cone order; in particular (E) for every leaf, Γ_c, Γ⁺ and Γ. | Proved (conditional); reviewed (`59c47f7`), no gap found. |
+| S24, S25, S26 | For every tree: `adj(I+xL)_{uv} = x^{dist(u,v)} Π_{uv}`, `Π_{uv} = det (I+xL)[V ∖ path(u,v)] ∈ C_{n−d−1}` (S24); **the Wiener form** `n² ℓ_T = 4(W − nx)Φ + Σ_{u<v} (t_u − t_v)² x^{dist(u,v)−1} Π_{uv}`, `t = D1`, `W` the Wiener index, `Φ = det(I+xL)` (S25); `Φ ∈ K_{n−1}` (S26). `K_d`: non-negative combinations of `x^e(1+x)^i`, `2e + i ≥ d`. | Proved; reviewed (`b5d9294`), no gap found. Exact on all trees of order ≤ 12 (`results/wiener-form.json`). |
+| **T4** | **For every tree of order `n ≥ 3`: `d_{μ−1} < d_μ`, `μ = ⌊(n−1)/2⌋`; every maximizing index is `≥ ⌊(n−1)/2⌋`. For odd `n` this is the lower bound `⌊n/2⌋` of the conjecture; for even `n` it is one less.** Proof: in S25 the pair terms are in `K_{n−2}`, where `[x^μ] − [x^{μ−1}] ≥ 0`, and `(W − nx)Φ` is handled with `W ≥ (n−1)² ≥ 3n`. | Candidate proof; reviewed (`b5d9294`), no gap found. Checked on all trees of order ≤ 19. |
+| S23 | `R(T, 0) = xℓ_T − (1+4x)Φ_T`; **leaf recursion** `ℓ_{T+leaf at u} = (1+x)ℓ_T + r_u(T)`, `r_u = (1+4x)Ψ_u + Ω_u` (the polynomial `r_{{u}}`); telescoped: `ℓ_T = −4x(1+x)^{n−1} + Σ_k (1+x)^{n−1−k} r_{u_k}(T_k)` along any construction leaf by leaf; `ℓ_{S_n} = (1+x)^{n−2}[(n−1) + 4(n−2)x − 4x²]`. | Proved; (d) checked by the reviewer of `b5d9294`, (a) to (c) **not reviewed**. Exact on all rooted trees of order ≤ 11. |
+| S27 | (SM) implies `d_m − d_{m−1} ≥` that of the star `> 0`, `m = ⌊n/2⌋`, for every tree; `Φ(B, e_c) − (1+x)^j ∈ C_j`; (Γ_c¹) ⇒ `r_u(T) − (1+4x)(1+x)^{n−1} ∈ C_n` ⇒ (SM). | Proved (conditional); (a), (b) and the algebra of (c) checked by the reviewer of `b5d9294`, which is not a review of the note. |
 
 ### Global identifiers
 
@@ -119,6 +128,8 @@ Statuses are in the registry and in [`research/INDEX.md`](../../INDEX.md).
 | S12, S13 | MD-0013 | structural result (candidate) |
 | S14, Lemma G, S15 to S18 | MD-0014 | structural result (candidate) |
 | (★), S19 to S22, refutation of (E″) and (S) | MD-0015 | structural result (candidate) |
+| S24 to S26, T4 | MD-0016 | theorem (candidate) |
+| (SM), with S23 and S27 as evidence | MD-0017 | conjecture |
 
 Not registered: R1, L2, L4 and S1 to S4 are tools or steps (S3 and S4 are the
 evidence of MD-0010); Γ⁺ is an observation on the 47 small trees, recorded
@@ -127,6 +138,14 @@ not registered as conjectures of their own; E1 reproduces a published
 verification; Q1, Q2 are questions.
 
 ## Conjectures and hypotheses of this investigation
+
+**Statement (SM), star minimality — open (MD-0017, session 9).** For every
+tree of order `n ≥ 3`: `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`. Exact for all 1,346,023
+trees of order 3 to 20 (equality only for the star). It implies the lower
+bound `⌊n/2⌋` for **every** tree (S27), with no condition on the number of
+leaves, and it follows from **(Γ_c¹)**: `R(B, e_c) ∈ C_{j+1}` for every rooted
+tree — Γ_c for one unit of weight, no parameters (exact for the 4,394 rooted
+trees of order ≤ 11). Only the even orders still need it (T4).
 
 **Conjecture Γ — open (MD-0010).** For every tree `S` on `s ≥ 2` vertices and
 every `A ⊆ V(S)` with `|A| ≥ 2`, the polynomial
@@ -228,7 +247,12 @@ Full text of each: [`notes/dead-ends.md`](notes/dead-ends.md).
 ## Dependency map
 
 ```
-Collins–Shor, lower half  (⇔ d_{m−1} < d_m, by R1 [Lean])
+Collins–Shor, lower half  (⇔ d_{m−1} < d_m, m = ⌊n/2⌋, by R1 [Lean])
+  ODD ORDER, every tree:  T4  ⇐ S25 (Wiener form) ⇐ L1, S24 ⇐ Lemma F   [candidate proof, session 9 (MD-0016)]
+  EVEN ORDER, every tree: T4 gives d_{m−2} < d_{m−1} only.               [OPEN]
+    ⇐ (SM) (S27)  ⇐ (Γ_c¹)  ⇐ Γ_c  ⇐ (E)  ⇐ (Λ)                        [(SM) exact to order 20 (MD-0017); all OPEN]
+    ⇐ λ_m(4(W − nx)Φ + Σ_edges (n − 2n_e)² Π_uv) > 0                     [inequality (3) of wiener-form.md; OPEN]
+  --- the route of sessions 4 to 8 (leafy trees only; superseded for the lower half by the two lines above) ---
   trees S(c) with at least as many leaves as non-leaf vertices (n ≥ 2s):
     ⇐ S1 (closed form)                               [proved, AI-reviewed]
     ⇐ L4 (vertex principle)                          [proved, AI-reviewed; Lean: see Status]
@@ -274,6 +298,16 @@ Collins–Shor, upper half
   a conjecture of its own, like Γ_c and (E). MD-0013 is not split: its items
   (ii) (bound) and (iv) are recorded as implied by Richman–Shokrieh–Wu in its
   novelty search; splitting it is a decision for the director.
+- 2026-11-26 (director, session 9). The AI investigator allocates effort by
+  its own judgment; earlier directions are revisable. MD-0013 keeps its
+  identifier and review; its items are classified as known or potentially
+  original in the record. The current classifications are approved; verified
+  commits may be pushed to `research` only.
+- 2026-11-26 (session 9). Direction changed: the lower half is attacked for
+  the whole tree (Wiener form, leaf recursion), not through Γ, L4 and
+  "skeleton plus one star". O8 ((Λ)) is deferred, not abandoned: (Λ) still
+  implies (Γ_c¹). (SM) is registered as a conjecture of its own (MD-0017)
+  because it implies the lower half for every tree; (Γ_c¹) is not.
 - Earlier decisions (budget overrun of session 1, widening of O1, deferral of
   the rerun of orders 21 to 23, the notes of sessions 5 and 6) are in the
   journal.
@@ -321,68 +355,65 @@ full text of items 1 to 8 as of session 7 is there).
    the generators of `C_d`), then Lemma F.
 8. `spine3.py` and `results/spine3.json` still say "spine length 3" in their
    description strings (the result file is evidence and is not edited).
+9. **Session 9.** T4 (MD-0016): one AI review (`b5d9294`, no gap; three defects of wording in `wiener-form.md` to correct in one revision, then a recheck);
+   a human reader, or a model
+   of another vendor, before any promotion; a literature search for the
+   Wiener form S25 (none made) and a deeper one for the lower bound; compare
+   with the subforest formula of Graham–Lovász 1978 (unread).
+   `leaf-telescoping.md` (S23, S27) is **unreviewed**. The document at
+   `core.ac.uk/download/10129286.pdf` (HTTP 403) may contain a leaf-by-leaf
+   recursion: read it before any claim about S23. Lean: Lemma A of
+   `wiener-form.md` (two binomial inequalities) and the cones `K_d` are
+   within reach of Mathlib; not started.
 
 ## Remaining obstacles
 
-- Γ is reduced to (E), and (E) to (Λ); both are open. In every form the
-  obstruction is the same: one negative term built from
-  `G = (1+2x)Ψ − π_u ≥ 0` — `−4x²G` in `E` (S20(b)), `−2G_1G_2` in the merge
-  rule (S19(d)), `−(1−g)²` in `Λ/(xΨ)` (S20(d)) — to be absorbed by `R`,
-  which grows quadratically in the weights but is negative at `ν = 0`.
-- Even with Γ, the trees "skeleton plus one star" must be handled, uniformly
-  in the skeleton; and trees with few leaves are out of reach of the closed
-  form.
+- **Even order.** The Wiener form leaves the edge polynomials `Π_{uv}` in
+  `K_{n−2}`, one short of `K_{n−1}`; at the star the margin is of relative
+  size `1/n`, so the even case needs a quantitative argument (O9) or (SM).
+- (SM) ⇐ (Γ_c¹) ⇐ Γ_c ⇐ (E) ⇐ (Λ): all open. In the weighted calculus the
+  obstruction is one negative term built from `G = (1+2x)Ψ − π_u ≥ 0`
+  (`−4x²G` in `E`, `−2G_1G_2` in the merge rule), to be absorbed by `R`.
 - The upper half has no mechanism: A(ii) is unproved beyond `k = 0`.
 
 ## Next step
 
-**Objective O8.** Prove statement (Λ) of
-[`notes/rooted-calculus.md`](notes/rooted-calculus.md), or find a
-counterexample. Start from the recursion over the branches at `u`
-(`rooted-calculus.md`, "Where the difficulty is"):
+**Objective O9.** Prove `d_{m−1} < d_m` for every tree of **even** order
+`n = 2m` (the remaining part of the lower half), or find the obstruction.
+Start from inequality (3) of [`notes/wiener-form.md`](notes/wiener-form.md):
 
-`Λ(T, ν, u) = x[R(T, ν) + (1−x)Φ − 2xG + ((1+2x)² + 2x(1+ν_u))Ψ] + x Σ_c Λ(T_c, ν, c) P_c`.
+`n²(d_m − d_{m−1}) ≥ λ_m(4(W − nx)Φ + Σ_{e=uv ∈ E} (n − 2n_e)² Π_{uv})`.
 
-1. The first bracket `Λ⁰ := R(T, ν) + (1−x)Φ − 2xG + ((1+2x)² + 2x(1+ν_u))Ψ`
-   was tested in a scratch run of session 8 (not stored): `xΛ⁰ ∈ C_{j+2}`
-   failed in 8 of the 4,395 rooted weighted trees with `j ≤ 5`, weights 0 to
-   2, and in 7 of 18,009 rooted stars with at most 5 leaves and weights up to
-   8 — **in every failing case `ν = 0`** (smallest: the path on 2 vertices,
-   `xΛ⁰ = x + 3x²`). So on that range (Λ) splits into two statements:
-   **(Λ⁰)** `xΛ⁰ ∈ C_{j+2}` for every rooted weighted tree with `ν ≠ 0`, which
-   contains no `Λ` and no `Ω`; and (Λ) for trees with zero weights, a family
-   with no parameters besides the rooted tree. First action: add the check
-   of (Λ⁰) next to `B3` in `cone_checks` of `rooted_state.py`, store the
-   run, and test it on stars, brooms, spiders and double stars with weights
-   up to 50.
-2. Then expand `Λ⁰` with the merge rule S19(d) for `R` over the branches at
-   `u`: the cross terms are `−2G_cG_{c′}` between two branches. Look for the
-   inequality between `G_c` and `(R_c, Ω_c, Φ_c)` of one branch that absorbs
-   them (on stars: `G^ = 2nx²`, `Ω^ = n(1+5x+4x²) + n²x` for a leaf of weight
-   `n`; the cross term `8n n′x⁴` must come from the terms `n²x`).
-3. Search wider for a counterexample to (Λ) before investing in a proof:
-   weights up to 50 on stars, brooms, spiders and double stars with up to 12
-   vertices (minutes of exact computation).
+1. The right side is **positive for every tree of even order 4 to 14**, and
+   at least 72% of `n²(d_m − d_{m−1})` (scratch run of session 9, exact, not
+   stored; the least ratio is on the path at orders 6 and 8 and on a spider
+   with three long legs at orders 10 to 14, and decreases slowly with `n`;
+   for the star the ratio is 1). So the even case is reduced, on that
+   range, to an inequality between `Φ` and the `n − 1` edge polynomials.
+   First action: add this check to `wiener_form.py` and store it to order 16.
+2. Per edge, `4n_e(n − n_e)Φ + (n − 2n_e)² Π_{uv} = [n² + 8n_e(n − n_e)x] Π_{uv} + (terms in K_n)`
+   (from `Φ = (1+2x)Π_{uv} + x(1+x)(H_uΨ_v + Ψ_uH_v) + x²H_uH_v`, hand
+   computation of session 9, **not checked**): on the worst generators of
+   `K_{n−2}` the bracket has `λ_m ≥ 0` exactly when `8n_e(n − n_e) ≥ n²`. So
+   balanced edges are harmless and the difficulty is the **pendant edges**,
+   for which `Π_{uv} = Ψ_u(T − v)`; use the leaf expansion of `Φ` and the
+   term `−4nxΦ` there.
+3. In parallel, (SM) through (Γ_c¹): the formula at the end of
+   [`notes/leaf-telescoping.md`](notes/leaf-telescoping.md) for `R(B, e_c)`
+   (sum over pairs of `(δ_u − δ_v)² adj(M¹)_{uv}`; exact on the 326 rooted
+   trees of order ≤ 8 in a scratch run, not stored, no written proof) puts
+   every term in `C_{j+1}` except the edges not at the root, which are in
+   `C_j` only.
 
-Cheap exact computations that remain: Γ_c for `j = 8`; the trees "skeleton
-plus one star" as polynomials in `m`.
+Deferred: O8 (statement (Λ)); its text is in
+[`notes/obligations.md`](notes/obligations.md). The upper half has no
+mechanism; a Wiener-type form with `λ` at the index `M + 1` has not been
+tried.
 
-Owed first by default: obligations 1 to 3.
+Owed first by default: obligation 9 (reviews and a human reader for T4),
+then 1 to 3.
 
 ## Sources
 
 - G. Aalipour et al., arXiv:1507.02341 — read in full (TeX source; twice by reviewers).
-- R. L. Graham, L. Lovász, Adv. Math. 29 (1978) 60–88 — pp. 60–67, 80–86 read.
-- L. Hogben, C. Reinhart, arXiv:2103.00647 — pp. 5–12 read.
-- A. Abiad et al., arXiv:2206.07561; R. Jana et al., arXiv:2407.03309 — read in full.
-- J. Xue, R. Liu, H. Jia, Filomat 30:6 (2016) 1559–1565 — read in full: Lemma 2.3.
-- J. S. do Nascimento, D.Sc. thesis, COPPE/UFRJ 2018 — pp. vi–ix, 4–5, 12–49, 78–79 read: Props. 3.2.1, 3.2.6, 3.2.9; Section 3.1.
-- J. S. do Nascimento, R. R. Del-Vecchio, M. A. A. de Freitas, Discrete Appl. Math. 266 (2019) 141–152 — not read (DOI `10.1016/j.dam.2018.10.018`).
-- K. L. Collins, Discrete Math. 122 (1993) 103–112 — read in full in the author's manuscript (supplied by the director, kept outside the repository); the published version not seen.
-- K. L. Collins, Discrete Appl. Math. 25 (1989) 27–35 — not accessible; second-hand only.
-- R. Bapat, S. J. Kirkland, M. Neumann, Linear Algebra Appl. 401 (2005) 193–209 — read in full by the auditor: Thm 2.1, Thm 2.4.
-- H. Richman, F. Shokrieh, C. Wu, arXiv:2411.11488v2 — read by text extraction, proofs not read (sessions 7 and 8): Thms A, 2.4, 4.4, 4.6, D.
-- R. Merris, J. Graph Theory 14 (1990) 365–369 — read in full by the auditor.
-- Wan, Wang, Wang (surnames as given by the auditor), arXiv:2410.14112 — read by text extraction (session 8): eq. (1.4), Thms 1.2, 3.1.
-- K. Castillo, I. Zaballa, arXiv:2103.13739 — pp. 1–2 read by the auditor (session 8): Thm 2.1.
-- Full list with access notes: the dossier.
+- Every other source, with what was read of each: [`notes/obligations.md`](notes/obligations.md), last section, and the dossier. None was added in session 9 (its audit read listing and abstract pages only).

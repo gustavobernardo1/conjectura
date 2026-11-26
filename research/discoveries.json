@@ -1178,7 +1178,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A written proof by its author; see the evidence for whether a review exists. Originality: a first literature search exists (see novelty_search); item (iv) and the bound of item (ii) are implied by Richman–Shokrieh–Wu, arXiv:2411.11488, up to a bridging step that is not reviewed, and must cite it; item (iii) is a short consequence of item (i) and a textbook fact about definite pencils; nothing is claimed as new. If the record is split, the part 'item (iv) and κ ≥ 4' is to be classified as previously known. Real negative roots do not imply the non-negative half-gamma expansion of Conjecture Γ (MD-0010): 1 + 5x/2 + x²/2 is a counterexample to that implication. The classical formulas of Graham–Pollak and Graham–Lovász, used through MD-0011, have not been compared with the printed papers.",
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. Originality: a first literature search exists (see novelty_search); item (iv) and the bound of item (ii) are implied by Richman–Shokrieh–Wu, arXiv:2411.11488, up to a bridging step that is not reviewed, and must cite it; item (iii) is a short consequence of item (i) and a textbook fact about definite pencils; nothing is claimed as new. If the record is split, the part 'item (iv) and κ ≥ 4' is to be classified as previously known. Real negative roots do not imply the non-negative half-gamma expansion of Conjecture Γ (MD-0010): 1 + 5x/2 + x²/2 is a counterexample to that implication. The classical formulas of Graham–Pollak and Graham–Lovász, used through MD-0011, have not been compared with the printed papers. CLASSIFICATION BY ITEM (requested by the director on 2026-11-26, session 9; identifier, statement and review evidence unchanged; basis: the literature audit of session 8 recorded under novelty_search). KNOWN CONSEQUENCES OF PRIOR LITERATURE: (K-a) item (ii), the inequality κ ≥ 4 with equality if and only if |A| = 1 — implied by Richman–Shokrieh–Wu, arXiv:2411.11488v2 (Theorems A, 2.4, 4.4, 4.6(b)), through the auditor's bridging step (the all-minors matrix-tree theorem for adj(L_B)), which is not reviewed; (K-b) item (iv), (κ − 4) · 1ᵀ adj(P_A) 1 = 2 det P_A — implied by the same source through the same bridging step; (K-c) item (ii), positive definiteness of L_B — a standard fact about a proper principal submatrix of the Laplacian of a connected graph; (K-d) the spectral identity used in the proof of item (iii) (the director's input) — the spectral decomposition of the adjugate (compare Castillo–Zaballa, arXiv:2103.13739, Theorem 2.1); it is a tool of the proof, not an item of the statement. POTENTIALLY ORIGINAL STATEMENTS, meaning only that no source considering r_A was found within the documented coverage (originality is not established for any of them): (O-a) item (i), the third form r_A = (s + (s + 3)x) Φ_B − pᵀ adj(I + x L_B) p; (O-b) item (ii), the degree t + 1 of r_A and its leading coefficient κ · det L_B with κ = s + 3 − τ_Bᵀ L_B^{−1} τ_B; (O-c) item (iii), all roots of r_A are real and negative, hence positive log-concave coefficients; its proof is short once item (i) is known (the auditor's remark on definite pencils, unreviewed), so it is new at most as a statement about the polynomials r_A.",
       "depends_on": [
         {
           "ref": "MD-0011",
@@ -1422,6 +1422,173 @@
           "note": "Closes the route to the conjecture through the statements (E″) and (S); gives a sufficient condition, (Λ), that involves one polynomial of a rooted weighted tree and no hypothesis on the weights."
         }
       ]
+    },
+    {
+      "id": "MD-0016",
+      "type": "theorem",
+      "title": "The Wiener form of the distance polynomial of a tree, and the bound ⌊(n−1)/2⌋ on the peak of its normalized coefficients",
+      "statement": "Let T be a tree of order n ≥ 2 with vertex set V, distance matrix D, Laplacian L, transmissions t_v = Σ_u dist(u, v) and Wiener index W = ½ Σ_v t_v. Put ℓ_T(x) = −2^{−(n−2)} det(2xI − D) and Φ(x) = det(I + xL), and for distinct u, v ∈ V let Π_{uv}(x) = det((I + xL)[Q, Q]), where Q is the set of vertices not on the path from u to v (Π_{uv} = 1 if Q is empty). (i) n² ℓ_T(x) = 4 (W − n x) Φ(x) + Σ_{{u,v}} (t_u − t_v)² x^{dist(u,v)−1} Π_{uv}(x), the sum over the unordered pairs of distinct vertices. (ii) If n ≥ 3, d_k = 2^{k−(n−2)} |δ_k| (0 ≤ k ≤ n − 2) are the normalized coefficients, δ_k being the coefficient of x^k in det(D − xI), and μ = ⌊(n−1)/2⌋, then d_{μ−1} < d_μ; consequently every index at which d_0, …, d_{n−2} attains its maximum is at least ⌊(n−1)/2⌋. In particular, for odd n every such index is at least ⌊n/2⌋.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "the identity, the statement and the proof (session 9): the Wiener form from L t = nτ − 2·1, the adjugate lemma, the cones K_d, Lemma A and Theorem T4; the exact checks"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (instructions for session 9: independent choice of strategy by the AI investigator; no mathematical input to this contribution)"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review (fresh context), where a review is listed in the evidence"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/wiener-form.md",
+          "summary": "Written proofs: Lemma S24 (off-diagonal entries of adj(I + xL) of a tree), Proposition S25 (item (i)), Proposition S26 (det(I + xL) is in the cone K_{n−1}), Lemma A (two binomial inequalities) and Theorem T4 with its corollary (item (ii)). The note states that for even n the bound is one less than the conjectured ⌊n/2⌋.",
+          "revision": "f414cd824f6918210ec6a3c35dcdb7deae7e166d",
+          "sha256": "6fc6fbe330c3e3e0f520a1e0243eea6503bf15abd70080d43d96a4d510789dbb"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/wiener-form.json",
+          "summary": "Exact check (integers; ℓ_T from the characteristic polynomial of the distance matrix, not from the Laplacian formula) for every tree of order 2 to 12 (987 trees, 56,764 pairs of vertices): item (i), Lemma S24 entry by entry, the cone memberships, the sign of every term in the proof of item (ii), the decomposition of n²(d_μ − d_{μ−1}); and d_{μ−1} < d_μ alone for every tree of order 13 to 19 (499,372 trees). 0 failures. Clean tree.",
+          "revision": "f414cd824f6918210ec6a3c35dcdb7deae7e166d",
+          "sha256": "6282c323248f4029ffaa2f6272c827f0f4eacee4ac30e0371cd0eb688e3896ae"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T4-wiener-form.md",
+          "summary": "Independent adversarial review of notes/wiener-form.md: Lemma S24, Propositions S25 and S26, Lemma A, Theorem T4 and its corollary, each step reconstructed by hand — no gap found within stated scope; the registered wording compared with the proof (item (i) is S25, item (ii) is what T4 proves); the note says plainly that the conjectured bound for even order is not proved. Reviewer's own exact code, sharing none with the experiments: item (i) with each Π_{uv} computed as a determinant, item (ii), log-concavity and all maximizers for the 5,450 trees of orders 2 to 14 and for paths, stars, double stars, brooms, caterpillars and a spider of orders 11 to 40; the adjugate formula on 50,262 entries; Lemma A on a grid of 10,882 cases; no counterexample. Three defects of wording (the sign fact for the coefficients of ℓ_T is cited only in lemmas.md; the product rule of the cones is credited to Lemma C but stated in gamma-reduction.md; the two descriptions of C_d should be said to agree by Lemma C). Not covered: the literature, the external facts (Graham–Pollak, Graham–Lovász, Fact 1.1, Theorem 2.1 of the source) and the dependencies L1, Lemma F and Lemma C, which were read as statements only.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "b5d9294df21b5ff0af2230ce5403a372483f5060",
+          "sha256": "3a647ffa02bfdfd8cde152875e0f67726b175c56396d06804cf90815248ac182",
+          "statement_fingerprint": "dc1297093f8028e017991fc9d6ba6f5b159987e7f3229b3e7ba5f03fa2db9e7d"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_wiener_form.py",
+          "summary": "Regression test of wiener_form.py and leaf_telescoping.py with small parameters, and hand-computed values for the path on 3 vertices and the star."
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-9-2026-11-26-leaf-recursion-and-star-minimality",
+          "summary": "Literature audit of session 9 (a separate agent context, model claude-fable-5-2; 9 web searches, 9 fetches of which 5 unreadable). It was commissioned for the leaf recursion and star minimality (MD-0017); its part (c) looked for progress on the lower bound of the peak and found none in the arXiv listing for 'distance characteristic polynomial' (5 entries, latest June 2022) and among the 5 papers citing arXiv:1507.02341. Nothing was searched for the identity of item (i)."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A candidate theorem: a written proof by its author; see the evidence for whether a review exists; no human reader. Originality is unknown: no search was made for item (i) (a formula of this shape may follow from the subforest formula of Graham and Lovász 1978, which the project has not read in full), and for item (ii) only the shallow search described in the evidence. Item (ii) proves the lower bound of Conjecture 1.2 of arXiv:1507.02341 for trees of odd order only (strong reading of ties); for even order n = 2m it gives the peak at least m − 1, one less than conjectured, and the conjectured inequality d_{m−1} < d_m is not proved. The upper bound of the conjecture is not addressed. The proof relies on the Laplacian formula L1 (MD-0002, from the Graham–Lovász inverse formula, not compared with the printed paper), on Lemma F (item (i) of MD-0012, AI-reviewed only), on L2 for orders 3 and 4, on R1 (formalized in Lean), and on Theorem 2.1 of arXiv:1507.02341 (positivity and log-concavity).",
+      "depends_on": [
+        {
+          "ref": "MD-0002",
+          "statement_fingerprint": "3143470c6876787f6d01e6c0cddbfb6b69762246361c68f84fe5934dd10294c3",
+          "note": "L1, the Laplacian formula for ℓ_T, is the starting point of Proposition S25."
+        },
+        {
+          "ref": "MD-0012",
+          "statement_fingerprint": "aa52ab76c2da865560b4b632ae48dd775cfbbb6301127d4eb605a82462322af5",
+          "note": "Lemma F (item (i) of MD-0012) gives the cone membership of the factors of Π_{uv}; the expansion at a leaf in its proof is used in Proposition S26."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S24, S25, S26, T4",
+          "note": "Session 9, exploration: a direct statement about the whole tree instead of the coefficient polynomials of a skeleton."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "Proves the lower bound of the conjecture for trees of odd order, and the lower bound minus one for even order (candidate proof)."
+        }
+      ]
+    },
+    {
+      "id": "MD-0017",
+      "type": "conjecture",
+      "title": "Star minimality of the distance polynomial of a tree in the half-gamma cone order",
+      "statement": "For a tree T of order n with distance matrix D put ℓ_T(x) = −2^{−(n−2)} det(2xI − D), and let S_n be the star of order n. Conjecture (SM): for every tree T of order n ≥ 3 there are real numbers ρ_e ≥ 0 (for integers e ≥ 0 with 2e < n − 1) and σ_e ≥ 0 (for integers e with n − 1 ≤ 2e ≤ 2n − 2) such that ℓ_T(x) − ℓ_{S_n}(x) = Σ_{2e<n−1} ρ_e x^e (1+x)^{n−1−2e} + Σ_{n−1≤2e≤2n−2} σ_e x^e.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "the leaf recursion and its telescoping, the formulation of the conjecture, Propositions S23 and S27, and the exact computations (session 9)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (instructions for session 9: independent choice of strategy by the AI investigator; no mathematical input to this contribution)"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/leaf-telescoping.md",
+          "summary": "Proposition S23: ℓ of a tree with a new pendant vertex at u equals (1+x)ℓ_T + r_u(T), the telescoped formula along any construction of the tree leaf by leaf, and the closed form for the star. Proposition S27: the conjecture implies d_m − d_{m−1} of T is at least that of the star (m = ⌊n/2⌋), hence the lower bound ⌊n/2⌋ of the Collins–Shor conjecture for every tree; and the conjecture follows from the statement (Γ_c¹) that R(B, e_c) is in C_{j+1} for every rooted tree, a parameter-free special case of Γ_c. Written proofs, unreviewed unless a review is listed.",
+          "sha256": "66c64a0f250f2dd0420cce99cdfff3d81de3d1fd8fe0f0446ebd96f8df88d06e"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/leaf-telescoping.json",
+          "summary": "Exact check: the conjecture holds for every tree of order 3 to 20 (1,346,023 trees, equality only for the star); for every tree of order 1 to 11 and every vertex (4,394 rooted trees): the leaf recursion, the telescoped formula, (Γ_c¹), and the inequality r_u(T) − (1+4x)(1+x)^{n−1} ∈ C_n. 0 failures. Clean tree.",
+          "revision": "6c23eea24a79acffd58c3274787570cfe56f0833",
+          "sha256": "0a6d45971ef5032bd922b6084fcb3eb23c6cb04c6dd2fb31c4b4331fe50d730f"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_wiener_form.py",
+          "summary": "Regression test of leaf_telescoping.py with small parameters."
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-9-2026-11-26-leaf-recursion-and-star-minimality",
+          "summary": "Literature audit of session 9 (a separate agent context, model claude-fable-5-2; 9 web searches, 9 fetches of which 5 unreadable): no coefficientwise extremal result for the distance characteristic polynomial of trees and no gamma-type expansion for it was found; an unread document (core.ac.uk/download/10129286.pdf, HTTP 403) may contain a leaf-by-leaf recursion."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "A conjecture formulated by the project, supported by exact computation for trees of order at most 20 and nothing else. Its consequence for the Collins–Shor conjecture (Proposition S27(a)) and its reduction to (Γ_c¹) (Proposition S27(c)) have written proofs that are not reviewed. It concerns the lower bound only. For odd order the lower bound has a candidate proof that does not use it (MD-0016). The literature search is shallow; the leaf recursion may be known. The review of MD-0016 (claude-opus-5-5, revision b5d9294) covered Proposition S23(d), S27(a), S27(b) and the algebra of S27(c) with no gap, and did not assess S23(a) to (c); it is not a review of this record.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "(SM), S23, S27, (Γ_c¹)",
+          "note": "Session 9, exploration."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "Would give the lower bound ⌊n/2⌋ of the conjecture for every tree, by Proposition S27(a) of the notes (unreviewed)."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Literature audit of session 9 (first search): 9 web searches (verbatim in the dossier) and 9 fetches; the arXiv listing for 'distance characteristic polynomial' (5 entries) and the 5 papers citing arXiv:1507.02341 on Semantic Scholar; abstract pages of arXiv:2206.07561 and arXiv:2407.03309 in paraphrase. Nothing found on a coefficientwise or cone-order extremality of the star for the distance characteristic polynomial of trees, nor on gamma-type expansions for it. Analogues for other polynomials seen as snippets only: Zhou–Gutman and Mohar (Laplacian coefficients), Csikvári (generalized tree shift).",
+        "limitations": "Shallow. Not read: Graham–Lovász 1978 (scan without text layer), Edelberg–Garey–Graham 1976, Collins 1989, the document at core.ac.uk/download/10129286.pdf (HTTP 403), the PDFs of arXiv:2206.07561 and arXiv:2407.03309 in this session. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, OEIS, books, papers citing arXiv:2206.07561 and arXiv:2407.03309. English only."
+      }
     }
   ]
 }

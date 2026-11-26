@@ -35,32 +35,29 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0015",
-    "type": "structural-result",
-    "title": "The rooted state of a weighted tree: increments of R at a vertex, the merge rule, and the failure of the statements (E″) and (S)",
+    "id": "MD-0017",
+    "type": "conjecture",
+    "title": "Star minimality of the distance polynomial of a tree in the half-gamma cone order",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
-      "mathematical": "candidate-proof",
+      "mathematical": "candidate",
       "formal": "not-started",
-      "novelty": "unknown",
-      "external_review": "ai-reviewed"
+      "novelty": "preliminary-search-completed",
+      "external_review": "not-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/rooted-state.json",
-      "experiments/CJ-0001-collins-shor-peak/results/slope-family-verify.json",
-      "experiments/CJ-0001-collins-shor-peak/results/slope-family.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S19-S22.md",
-      "tests/test_cj0001_component_form.py",
-      "tests/test_cj0001_rooted_state.py"
+      "experiments/CJ-0001-collins-shor-peak/results/leaf-telescoping.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/leaf-telescoping.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-9-2026-11-26-leaf-recursion-and-star-minimality",
+      "tests/test_cj0001_wiener_form.py"
     ]
   },
   "latest_reviewed_contribution": {
-    "id": "MD-0015",
-    "type": "structural-result",
-    "title": "The rooted state of a weighted tree: increments of R at a vertex, the merge rule, and the failure of the statements (E″) and (S)",
+    "id": "MD-0016",
+    "type": "theorem",
+    "title": "The Wiener form of the distance polynomial of a tree, and the bound ⌊(n−1)/2⌋ on the peak of its normalized coefficients",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -71,47 +68,43 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/rooted-state.json",
-      "experiments/CJ-0001-collins-shor-peak/results/slope-family-verify.json",
-      "experiments/CJ-0001-collins-shor-peak/results/slope-family.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S19-S22.md",
-      "tests/test_cj0001_component_form.py",
-      "tests/test_cj0001_rooted_state.py"
+      "experiments/CJ-0001-collins-shor-peak/results/wiener-form.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/wiener-form.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T4-wiener-form.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-9-2026-11-26-leaf-recursion-and-star-minimality",
+      "tests/test_cj0001_wiener_form.py"
     ],
     "review": {
       "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
       "date": "2026-11-26",
-      "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
-      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S19-S22.md"
+      "revision": "b5d9294df21b5ff0af2230ce5403a372483f5060",
+      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T4-wiener-form.md"
     }
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0014",
-    "type": "structural-result",
-    "title": "Component form of r_A, recurrences for the adjugate quadratic form, and a conditional induction for Conjecture Γ",
+    "id": "MD-0017",
+    "type": "conjecture",
+    "title": "Star minimality of the distance polynomial of a tree in the half-gamma cone order",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
-      "mathematical": "candidate-proof",
+      "mathematical": "candidate",
       "formal": "not-started",
       "novelty": "preliminary-search-completed",
-      "external_review": "ai-reviewed"
+      "external_review": "not-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
-      "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-8-md-0013-and-md-0014",
-      "tests/test_cj0001_component_form.py"
+      "experiments/CJ-0001-collins-shor-peak/results/leaf-telescoping.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/leaf-telescoping.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-9-2026-11-26-leaf-recursion-and-star-minimality",
+      "tests/test_cj0001_wiener_form.py"
     ],
     "novelty_search": {
       "as_of": "2026-11-26",
-      "coverage": "Literature audit of session 8 (first search for this record). No identical or implying statement was found for items (i) to (v). Classical ingredients to cite: the rank-one update of the adjugate behind Lemma G1 (matrix determinant lemma in adjugate form; Desnanot–Jacobi and Jacobi's theorem on minors of the adjugate for the identity used in its proof; verified in secondary sources only); Φ(T, ν) is, after x → −1/x, the principal Laplacian matching polynomial of Wan–Wang–Wang, arXiv:2410.14112, eq. (1.4), whose Theorem 1.2 gives det(I + x L_B) as a matching generating polynomial of a subdivision graph (the identification is the auditor's; that paper has no leaf recurrence, no adjugate and no expansion in x^i (1+x)^j, according to the text extraction); the forest meaning of adj(I + L) (Chebotarev–Shamis, arXiv:math/0602575, abstract only).",
-      "limitations": "A first search; it does not establish originality. R(T, ν) is defined through the project's own polynomial r_A, so a keyword search is unlikely to find an equivalent statement in other terms. The literature on Laplacian matching polynomials and forest polynomials was only sampled (Mohar's preprint pp. 1–3; arXiv:2410.14112 by text extraction). Not opened: Liu–Yan 2023 on det[L + diag(x_i)], arXiv:2103.10580, the gamma-positivity surveys. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, books. English only."
+      "coverage": "Literature audit of session 9 (first search): 9 web searches (verbatim in the dossier) and 9 fetches; the arXiv listing for 'distance characteristic polynomial' (5 entries) and the 5 papers citing arXiv:1507.02341 on Semantic Scholar; abstract pages of arXiv:2206.07561 and arXiv:2407.03309 in paraphrase. Nothing found on a coefficientwise or cone-order extremality of the star for the distance characteristic polynomial of trees, nor on gamma-type expansions for it. Analogues for other polynomials seen as snippets only: Zhou–Gutman and Mohar (Laplacian coefficients), Csikvári (generalized tree shift).",
+      "limitations": "Shallow. Not read: Graham–Lovász 1978 (scan without text layer), Edelberg–Garey–Graham 1976, Collins 1989, the document at core.ac.uk/download/10129286.pdf (HTTP 403), the PDFs of arXiv:2206.07561 and arXiv:2407.03309 in this session. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, OEIS, books, papers citing arXiv:2206.07561 and arXiv:2407.03309. English only."
     }
   },
   "public": {
@@ -166,38 +159,38 @@
       }
     },
     "contributions": {
-      "registered": 15,
+      "registered": 17,
       "by_standing": {
-        "candidate": 13,
+        "candidate": 15,
         "established": 0,
         "rediscovered": 2,
         "withdrawn": 0
       },
-      "counted": 13,
+      "counted": 15,
       "by_type": {
         "computational-finding": 1,
-        "conjecture": 3,
+        "conjecture": 4,
         "counterexample": 1,
         "structural-result": 4,
-        "theorem": 4
+        "theorem": 5
       },
       "by_status": {
         "mathematical": {
-          "candidate": 3,
-          "candidate-proof": 9,
+          "candidate": 4,
+          "candidate-proof": 10,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 12,
+          "not-started": 14,
           "partial": 1
         },
         "novelty": {
-          "preliminary-search-completed": 10,
-          "unknown": 3
+          "preliminary-search-completed": 11,
+          "unknown": 4
         },
         "external_review": {
-          "ai-reviewed": 9,
-          "not-reviewed": 4
+          "ai-reviewed": 10,
+          "not-reviewed": 5
         }
       }
     },
@@ -218,11 +211,11 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "ed5a47c72cebfa43c371e8cff427df56314b79ca",
-    "sources_committed": true,
+    "revision": "b5d9294df21b5ff0af2230ce5403a372483f5060",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "11b8c3027ae4079ac6e61130ac996a5c5cc4fefe",
-      "research/discoveries.json": "657eaecf245c6a731ba6c3744d5a821f26e9ac69",
+      "research/discoveries.json": "6ff3f3db9a2a317e74a2a90dae3411f203bcf57d",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "456eae13467baf593b317899b0c43e6bfeb3bdd9"
     }

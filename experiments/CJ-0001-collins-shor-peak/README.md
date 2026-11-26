@@ -212,6 +212,44 @@ confirmed here on the range computed; for (Λ), monotonicity and Γ_c the
 absence of failures is evidence on that range, not a proof. Regression test:
 `tests/test_cj0001_rooted_state.py`.
 
+## The Wiener form and the leaf recursion (session 9): `wiener_form.py`, `leaf_telescoping.py`
+
+Notes: `research/active/CJ-0001-collins-shor-peak/notes/wiener-form.md`
+(Lemma S24, Propositions S25 and S26, Theorem T4) and
+`notes/leaf-telescoping.md` (Propositions S23 and S27, statement (SM)). Both
+scripts use exact integers, import `distpoly.py` and `rooted_state.py`, and
+read the revision and the state of the tree before the computation starts.
+
+`wiener_form.py`, for every tree of order 2 to `--max-order`: the identity
+`n^2 l_T = 4(W - nx) Phi + sum_{u<v} (t_u - t_v)^2 x^(d-1) Pi_uv` with `l_T`
+from the characteristic polynomial of the distance matrix (W1); the adjugate
+of `I + xL` entry by entry against the product over the components off the
+path (W2); the cone memberships (W3); the sign of every pair term (W4) and of
+the main term (W5) in the proof of Theorem T4; the inequality
+`d_{mu-1} < d_mu`, `mu = floor((n-1)/2)` (W6); the decomposition (W7);
+`W >= (n-1)^2` (W8). Then W6 alone up to `--peak-order`.
+
+`leaf_telescoping.py`, part A (every tree of order 1 to `--max-rooted`, every
+vertex): the Laplacian formula against the distance matrix, `R(T, 0)`, the
+leaf recursion, the telescoped formula, `r_u in C_n`, its lower bound,
+`R(T, e_u) in C_{n+1}` and `Phi(T, e_u) - (1+x)^n in C_n`. Part B (every tree
+of order 3 to `--max-order`, from the distance matrix only): the closed form
+of the star, `l_T - l_star in C_{n-1}` (statement (SM)),
+`l_T + 4x(1+x)^(n-1) in C_{n-1}`, and the smallest gap.
+
+```sh
+cd experiments/CJ-0001-collins-shor-peak
+uv run python wiener_form.py --max-order 12 --peak-order 19 --out results/wiener-form.json          # about 2 min
+uv run python leaf_telescoping.py --max-rooted 11 --max-order 20 --out results/leaf-telescoping.json   # about 6 min
+```
+
+Stored runs (clean tree at start): `results/wiener-form.json` at `f414cd8`
+(987 trees and 56,764 pairs for W1 to W8; 499,372 trees of order 13 to 19 for
+W6; 0 failures), `results/leaf-telescoping.json` at `6c23eea` (4,394 rooted
+trees in part A; 1,346,023 trees of order 3 to 20 in part B; 0 failures).
+Regression test: `tests/test_cj0001_wiener_form.py`. These are finite checks;
+Theorem T4 rests on its written proof, and (SM) is a conjecture.
+
 ## Limits
 
 - Orders 21–23 were computed by one implementation (with the guards above). The

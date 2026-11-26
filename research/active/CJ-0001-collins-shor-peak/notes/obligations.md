@@ -157,3 +157,56 @@ met in session 8 (regression test `tests/test_cj0001_component_form.py`;
 9. This file is above its target of 400 lines since session 7: compact it
    (the dead ends and the details of O7 belong in a note), and add a
    regression test for `component_form.py` (none exists).
+
+## Deferred objective O8 (text of the section "Next step" of STATE.md as left by session 8, moved here in session 9; verbatim except for the target of one link)
+
+**Objective O8.** Prove statement (Λ) of
+[`notes/rooted-calculus.md`](rooted-calculus.md), or find a
+counterexample. Start from the recursion over the branches at `u`
+(`rooted-calculus.md`, "Where the difficulty is"):
+
+`Λ(T, ν, u) = x[R(T, ν) + (1−x)Φ − 2xG + ((1+2x)² + 2x(1+ν_u))Ψ] + x Σ_c Λ(T_c, ν, c) P_c`.
+
+1. The first bracket `Λ⁰ := R(T, ν) + (1−x)Φ − 2xG + ((1+2x)² + 2x(1+ν_u))Ψ`
+   was tested in a scratch run of session 8 (not stored): `xΛ⁰ ∈ C_{j+2}`
+   failed in 8 of the 4,395 rooted weighted trees with `j ≤ 5`, weights 0 to
+   2, and in 7 of 18,009 rooted stars with at most 5 leaves and weights up to
+   8 — **in every failing case `ν = 0`** (smallest: the path on 2 vertices,
+   `xΛ⁰ = x + 3x²`). So on that range (Λ) splits into two statements:
+   **(Λ⁰)** `xΛ⁰ ∈ C_{j+2}` for every rooted weighted tree with `ν ≠ 0`, which
+   contains no `Λ` and no `Ω`; and (Λ) for trees with zero weights, a family
+   with no parameters besides the rooted tree. First action: add the check
+   of (Λ⁰) next to `B3` in `cone_checks` of `rooted_state.py`, store the
+   run, and test it on stars, brooms, spiders and double stars with weights
+   up to 50.
+2. Then expand `Λ⁰` with the merge rule S19(d) for `R` over the branches at
+   `u`: the cross terms are `−2G_cG_{c′}` between two branches. Look for the
+   inequality between `G_c` and `(R_c, Ω_c, Φ_c)` of one branch that absorbs
+   them (on stars: `G^ = 2nx²`, `Ω^ = n(1+5x+4x²) + n²x` for a leaf of weight
+   `n`; the cross term `8n n′x⁴` must come from the terms `n²x`).
+3. Search wider for a counterexample to (Λ) before investing in a proof:
+   weights up to 50 on stars, brooms, spiders and double stars with up to 12
+   vertices (minutes of exact computation).
+
+Cheap exact computations that remain: Γ_c for `j = 8`; the trees "skeleton
+plus one star" as polynomials in `m`.
+
+Owed first by default: obligations 1 to 3.
+
+## Sources read (the list of the section "Sources" of STATE.md as of session 8, moved here verbatim in session 9)
+
+- G. Aalipour et al., arXiv:1507.02341 — read in full (TeX source; twice by reviewers).
+- R. L. Graham, L. Lovász, Adv. Math. 29 (1978) 60–88 — pp. 60–67, 80–86 read.
+- L. Hogben, C. Reinhart, arXiv:2103.00647 — pp. 5–12 read.
+- A. Abiad et al., arXiv:2206.07561; R. Jana et al., arXiv:2407.03309 — read in full.
+- J. Xue, R. Liu, H. Jia, Filomat 30:6 (2016) 1559–1565 — read in full: Lemma 2.3.
+- J. S. do Nascimento, D.Sc. thesis, COPPE/UFRJ 2018 — pp. vi–ix, 4–5, 12–49, 78–79 read: Props. 3.2.1, 3.2.6, 3.2.9; Section 3.1.
+- J. S. do Nascimento, R. R. Del-Vecchio, M. A. A. de Freitas, Discrete Appl. Math. 266 (2019) 141–152 — not read (DOI `10.1016/j.dam.2018.10.018`).
+- K. L. Collins, Discrete Math. 122 (1993) 103–112 — read in full in the author's manuscript (supplied by the director, kept outside the repository); the published version not seen.
+- K. L. Collins, Discrete Appl. Math. 25 (1989) 27–35 — not accessible; second-hand only.
+- R. Bapat, S. J. Kirkland, M. Neumann, Linear Algebra Appl. 401 (2005) 193–209 — read in full by the auditor: Thm 2.1, Thm 2.4.
+- H. Richman, F. Shokrieh, C. Wu, arXiv:2411.11488v2 — read by text extraction, proofs not read (sessions 7 and 8): Thms A, 2.4, 4.4, 4.6, D.
+- R. Merris, J. Graph Theory 14 (1990) 365–369 — read in full by the auditor.
+- Wan, Wang, Wang (surnames as given by the auditor), arXiv:2410.14112 — read by text extraction (session 8): eq. (1.4), Thms 1.2, 3.1.
+- K. Castillo, I. Zaballa, arXiv:2103.13739 — pp. 1–2 read by the auditor (session 8): Thm 2.1.
+- Full list with access notes: the dossier.
