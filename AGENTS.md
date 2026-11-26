@@ -54,14 +54,14 @@ submitted outside the repository.
 | `research/priorities.json` | The scoring model and the current shortlist. |
 | `research/INDEX.md` | Generated ranking view. Never edited by hand. |
 | `research/candidates/` | One prose dossier per catalogued problem (literature, open-status evidence, approaches). |
-| `research/active/<id>-<slug>/` | Working memory of an investigation: `STATE.md`, `journal.md`, `reviews/`, notes. |
-| `research/archive/` | Closed investigations, moved here intact. |
+| `research/active/<id>-<slug>/` | Working memory of an investigation: `STATE.md`, `journal.md`, notes, and `reviews/` once a review exists. Lives on the `research` branch. |
+| `research/archive/` | Closed investigations, moved here intact (created when the first investigation is closed). |
 | `research/templates/` | Templates for dossiers, state files, journal entries, reviews, result packages. |
-| `experiments/<id>-<slug>/` | Reproducible computations for a problem. |
+| `experiments/<id>-<slug>/` | Reproducible computations for a problem (with the investigation, on `research`). |
 | `formalization/` | The Lean 4 + Mathlib project (`lake`), including calibration proofs and negative tests. |
 | `verification/receipts/` | Machine-written verification receipts. Never edited by hand. |
 | `results/` | Reviewed result packages only. Empty until a result passes review. |
-| `learning/` | Problem-driven learning guides for the project director. |
+| `learning/` | Problem-driven learning guides for the project director (with the investigation, on `research`). |
 | `manuscripts/` | LaTeX sources for write-ups. |
 | `docs/` | Policies: methodology, research, verification, attribution, publication, learning. |
 | `scripts/`, `tests/` | Tooling and its tests. |
