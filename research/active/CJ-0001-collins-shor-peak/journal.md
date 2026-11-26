@@ -1713,3 +1713,238 @@ for the three defects of wording and its recheck; a review of
 `leaf-telescoping.md`; a literature search for the Wiener form). Decisions
 left to the director: whether CJ-0001 moves to `partial-result` once T4 has
 had a human reader; whether T4 should be shown to a specialist.
+
+## Session 10 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2` (main context, Claude
+  Code). Human: G. B. Brito, director, by written instructions at the start:
+  continue under the existing harness; MD-0016 is a significant candidate
+  result and is to receive independent validation and an originality
+  assessment before promotion (a preliminary reading by GPT-6.2 found no
+  apparent gap in the principal steps, and is not a complete proof audit);
+  CJ-0001 keeps its status until the validation requirements are met; the
+  AI investigator chooses the next direction by its own judgment; verified
+  commits may be pushed to `research` only.
+- **Mode:** focused work on two objectives (below), with a short exploration
+  inside the second, recorded as such.
+- **Role(s):** research director; mathematical researcher. Subagents, each in
+  its own context: `literature-auditor` (model `claude-fable-5-2`;
+  originality of MD-0016), `formalization-agent` (model `claude-fable-5-2`;
+  Lemma A and the cones `K_d` in Lean), `adversarial-reviewer` (model
+  `claude-opus-5-5`; complete proof audit of Theorem T4 at `a3e5179`).
+- **Repository revision at start:** `b217dcc` (branch `research`, clean tree).
+- **Objective 1 (obligation 9, owed first):** validation of MD-0016 — the one
+  revision of `notes/wiener-form.md` for the three defects of the review of
+  `b5d9294`, a recheck by a fresh context in the form of a complete proof
+  audit, a literature audit for the Wiener form and the bound on the peak,
+  and Lean for Lemma A and the cones.
+- **Objective 2 (O9, exact):** for every tree of even order `n = 2m`,
+  `d_{m−1} < d_m`; or find the obstruction. Start from inequality (3) of
+  `wiener-form.md`.
+- **Approach (objective 2):** split `Φ = (1+x)^{n−1} + xΘ` (the first part is
+  invisible to `λ_m`) and compare `Θ` with the edge polynomials in the cone
+  `K_{n−2}`; if that fails, find where the Wiener form loses the even case.
+- **Falsification test:** the cone inequality on all small trees and then on
+  large members of the worst family, before any attempt at a proof.
+- **Stopping conditions:** mathematics stops at about 23:10 UTC; a gap
+  reported by the audit takes precedence over everything else.
+- **Budget (binding, director's standing decision):** 60 minutes of agent
+  work, 22:39 to 23:39 UTC, reviews, records and push included.
+  Computation: at most 30 minutes of wall-clock time in total. Subagents:
+  12 minutes (literature), 22 minutes (Lean), 14 minutes (audit).
+- **Deferred obligations:** 1 to 8 of `STATE.md`; the review of
+  `leaf-telescoping.md`. No claim that depends on them is promoted.
+
+### What was done
+
+All computations are exact (Python integers; python-flint for characteristic
+polynomials). Times are UTC, from `date -u` in the session's shell.
+
+1. 22:39 start; `AGENTS.md`, `autoresearch.md`, `STATE.md`,
+   `notes/wiener-form.md`, `notes/leaf-telescoping.md`, the journal entry of
+   session 9 and the findings of the review of `b5d9294` read.
+2. 22:41, in parallel: `literature-auditor` (originality of MD-0016; it wrote
+   the dossier section "Audit for session 10") and `formalization-agent`
+   (`WienerCone.lean`).
+3. Scratch (not stored, each under 1 minute): the cone inequality
+   `Θ_T − w Σ_e Π_e ∈ C_{n−2}` (largest `w` per tree; it decreases from `1/2`
+   at order 4 to `49/192` at order 15, on spiders with legs of length 2);
+   the refined statement `4(W − 3n)Θ_T − 16n(1+x)^{n−2} − Σ_e (n − 2n_e)² Π_e ∈ C_{n−2}`,
+   which would imply that the right side of inequality (3) is positive: no
+   failure on the trees of order 7 to 15, **failure** on spiders with legs of
+   length 2 at `n = 30, 40, 60, 80`; then inequality (3) itself on large
+   paths, stars, brooms and spiders: **negative at `n = 100`** for the spider
+   with 49 legs of length 2 and one pendant vertex.
+4. `notes/wiener-form.md` revised once (the three defects; Lemma K; a section
+   on prior literature; no statement changed) and committed with the dossier
+   section as `a3e5179`. `adversarial-reviewer` started on `a3e5179` (fresh
+   context; given the source reference, the two note paths with their
+   hashes, the registered statement and the template; told not to read the
+   journal, `STATE.md` or the earlier review; not given the author's
+   reasoning).
+5. The rooted form, the explicit leaf polynomial and the remainder `Ω_T`
+   derived by hand; `even_order.py` written with a second determinant routine
+   that uses no characteristic polynomial; trial run; `notes/even-order.md`
+   written; `tests/test_cj0001_even_order.py` (6 tests).
+6. The seven Lean statements compared with the note by the author of the
+   session and registered; commit `5db7165`; stored run of `even_order.py` on
+   the clean tree at `5db7165`, 39.6 s (`results/even-order.json`, commit
+   `f1e3364`); `scripts/verify_lean.py` on the clean tree (under Outcome).
+7. Scratch (not stored): the "vertical groups" of the leaf polynomial (for a
+   vertex `b` at depth at least 2, the terms of `Ω_c` indexed by `b` and its
+   ancestors) are **not** all in the cone `C_k`: no failure up to order 7,
+   5 failures of 966 at order 8, 56 of 7,632 at order 10.
+8. Registry: MD-0016 updated (evidence, formal `partial`, novelty
+   `preliminary-search-completed` with its search record), MD-0017 ((SM⁺)
+   recorded), MD-0018 registered. `STATE.md` updated.
+
+### Findings
+
+- **Complete audit of Theorem T4 (AI, `claude-opus-5-5`, revision `a3e5179`,
+  fresh context, independent of the first review): no gap found within
+  stated scope.** Re-proved by hand: Lemma K, (K1), (K2), Lemma S24,
+  Propositions S25 and S26, Lemma A, Theorem T4, the corollary, and the
+  dependencies L1 (from the Graham–Pollak determinant and the Graham–Lovász
+  inverse, the inverse itself re-proved), L2 and R1. The registered statement
+  of MD-0016 is what is proved; the note is plain about even order.
+  Reviewer's own exact code: 533 trees of orders 2 to 11 (20,398 pairs) for
+  every identity; 285 weighted trees for Lemma K; 237,471 grid points for
+  Lemma A; 32,413 trees of orders 10 to 16 for T4; families to order 40; no
+  counterexample. Not re-proved: the Graham–Pollak determinant; Theorem 2.1
+  of the source (log-concavity). **Five defects of citation and wording,
+  none mathematical** (D1: S26 and the tools list still cite Lemma F; D2: the
+  edge formula for `W` is uncited; D3: L1 is stated for `n ≥ 3` and used at
+  `n = 2`; D4: the `C`-clause of S24 rests on Lemma F, disclosed; D5: Lemma K
+  is a strong induction). Owed: one revision, then a recheck. This is a
+  second AI review by a model of the author's vendor. It is not human
+  review; T4 stays a candidate theorem and CJ-0001 keeps its status.
+- **Originality of MD-0016 (first search; not established).** Known, through
+  bridging steps written by the auditor and not reviewed: the first equality
+  of Lemma S24 (path expansion of a cofactor, Maybee–Olesky–van den
+  Driessche–Wiener 1989, read only as quoted in Chebotarev–Shamis) and
+  `Lt = nτ − 2·1` (from the Graham–Lovász inverse). **No source found, within
+  a thin coverage, for the Wiener form (S25) or for the bound of T4.** The
+  2014 survey of Aouchiche and Hansen (read directly, p. 307) says of the
+  conjecture: "No more results are known about that conjecture"; the two
+  follow-up papers (machine summaries only) prove nothing on the peak for
+  trees. Unread: Collins 1989, Collins's thesis (HTTP 403 and 429), Merris
+  1990, Graham–Lovász pp. 72–88, Bapat's book. Not searched: MathSciNet,
+  zbMATH, Google Scholar. The Wiener form is a few lines from known
+  ingredients, so a prior statement in an unread source is plausible.
+- **Lean (`WienerCone.lean`, no `sorry`):** the cones `K_d` as an inductive
+  predicate with (K1) and (K2); Lemma A(a) and A(b) on the cone, with the
+  strict form of A(b) under `f(0) > 0`, which is the form the proof of T4
+  uses. Nothing about trees or determinants. Seven theorems registered.
+- **Inequality (3) of `wiener-form.md` is false in general (Finding S31).**
+  For the spiders with `(n−2)/2` legs of length 2 and one pendant vertex its
+  right side is positive for even `n` from 80 to 98 and negative from 100 to
+  110 (two implementations agree at every order); `d_{m−1} < d_m` holds on
+  all of them. Step 1 of the "Next step" of session 9 is refuted as a route.
+- **Rooted form (Proposition S28), leaf polynomial (S29), remainder (S30);
+  MD-0018, candidate, unreviewed.** `ℓ_T = (1+4x)Θ_T − 4x(1+x)^{n−1} + Ω_T`
+  with `xΘ_T = Φ − (1+x)^{n−1}` and `Ω_T` a polynomial with non-negative
+  coefficients, equal to `Σ_k (1+x)^{n−1−k} Ω_{u_k}(T_k)` for every
+  construction of the tree leaf by leaf, each `Ω_c` given by an explicit
+  formula. **For even `n = 2m ≥ 4`:
+  `d_m − d_{m−1} ≥ (n−1)(3m−5)/(m+1)·Cat_{m−1} + λ_m(Ω_T)`**, with equality
+  for the star. So the lower bound for even order follows from
+  `λ_m(Ω_T) ≥ 0`, and only the "deep edge" terms of `Ω_T` can be negative
+  under `λ_m`. Exact checks: S28 and S29 on 748 rooted trees (orders 2 to
+  9); `Ω_T ≥ 0` on the 13,186 trees of order 3 to 15; 0 failures. This
+  proves the non-negativity of `Ω` in the unweighted case, which `STATE.md`
+  listed as observed and unproved.
+- **Statement (SM⁺):** `Ω_T ∈ C_{n−1}` for every tree: 0 failures on the
+  13,186 trees of order 3 to 15, `Ω_T = 0` only for the star.
+  `(Γ_c¹) ⇒ (SM⁺) ⇒ (SM)`. Recorded under MD-0017.
+- **The leaf remainder as a quadratic form (hand computation; exact scratch
+  check, not stored, not reviewed).** For a rooted tree `(B, c)` with
+  `M¹ = I + xL¹`, `L¹ = L_B + e_c e_cᵀ`, `Φ¹ = det M¹` and `δ` the distances
+  from `c`: `R(B, e_c) = δᵀ(Φ¹·I − adj M¹)δ = x δᵀ L¹ adj(M¹) δ`, that is
+  `R(B, e_c) = Σ_i (δ·w_i)² xθ_i Π_{l≠i}(1 + θ_l x)` over an orthonormal
+  eigenbasis `(θ_i, w_i)` of `L¹`. Checked on the 326 rooted trees of order
+  at most 8, with `R(B, e_c)` taken as `Ω_u` of the tree `B` plus a pendant
+  vertex `u` at `c`, computed from distance matrices. So (Γ_c¹) is a
+  statement about the spectral measure of `δ` for the grounded Laplacian.
+- **Scratch, not stored:** (SM⁺) also holds for paths, brooms, double
+  brooms and four kinds of spiders at `n = 30, 60, 100, 150`, and there
+  `λ_m(Ω_T)` is between 0.59 and 10¹⁸ times the star's margin
+  `(n−1)(3m−5)/(m+1)·Cat_{m−1}`: far from the star the remainder is
+  enormous, and the tight cases are the trees close to the star (for the
+  star with one subdivided edge, `Ω_T = (n−3)x(1+x)^{n−3}` and
+  `λ_m(Ω_T) = 0`, by hand).
+- **Hand computation, not checked by machine:** the identity
+  `xΩ_T = R(T, 0) + (1+2x)²(1+x)^{n−1}`.
+
+### What failed
+
+- A proof of the lower bound for even order: not found.
+- The route through inequality (3) (S31), and the cone statement that would
+  have implied it (item 3).
+- The vertical groups of the leaf polynomial are not in the cone (item 7).
+- A term by term comparison of one deep-edge term with the terms of `Ω_c`
+  at higher level fails when the vertices near the edge have large degree
+  (hand estimate, not written out).
+- The audit found five defects in the revision of `wiener-form.md`, so the
+  note needs a second revision (the session's rule allows one per review).
+- Collins's thesis could not be read (HTTP 403, HTTP 429).
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author, literature auditor, formalization agent); `claude-opus-5-5` (reviewer, as reported by it) |
+| Computation wall-clock | stored run 39.6 s; scratch and trial runs about 80 s; `verify_lean.py` twice and the test suite: see "Outcome" |
+| Token usage | main context unavailable; subagents as reported by the environment: literature auditor 120,001 tokens, 34 tool uses, 359 s; formalization agent 98,005 tokens, 24 tool uses, 748 s; reviewer 79,578 tokens, 21 tool uses, 451 s |
+| Research iterations | 2 focused objectives, 1 exploration inside the second |
+| Proof attempts | 2 (S28 to S30: complete written proofs; the even case: not found) |
+| Counterexamples found | 1 (to the positivity of the right side of inequality (3), order 100; not to the conjecture) |
+| Formalization attempts | 1 (complete for its scope) |
+| Successful verifications | one independent AI audit of T4 (no gap found); stored run of `even_order.py` (0 failures); `lake build` and `verify_lean.py`; `catalogue.py validate`; the test suite (under Outcome) |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress on validation, and a reduction — not a proof — for the even
+orders.
+
+**MD-0016 (Theorem T4) stays a candidate and CJ-0001 keeps its status.** It
+now has two independent AI reviews with no gap found (the second a complete
+proof audit of the revised, self-contained note), a first literature audit
+that found no prior statement of the Wiener form or of the bound within a
+thin coverage (novelty `preliminary-search-completed`), and Lean for Lemma A
+and the cones (formal `partial`). What promotion still needs is in
+obligation 9 of `STATE.md`: one more revision of the note for the five
+defects of wording and its recheck; a reader outside the author's vendor or
+a human reader; the unread sources (Collins 1989 and thesis first); a result
+package. None of this session's reviews is human review.
+
+**Even orders.** Not proved. New: the decomposition
+`ℓ_T = (1+4x)Θ_T − 4x(1+x)^{n−1} + Ω_T` with `Ω_T ≥ 0` coefficientwise and the
+bound `d_m − d_{m−1} ≥ (n−1)(3m−5)/(m+1)·Cat_{m−1} + λ_m(Ω_T)` (MD-0018,
+candidate, unreviewed); the conjecture (SM⁺); and the negative result that
+inequality (3) of `wiener-form.md` fails at order 100.
+
+Verification commands: `uv run python even_order.py --max-a 9 --max-b 15 --max-c 14 --family 80 110 --out results/even-order.json`
+at `5db7165`, clean tree at start, 0 failures, 39.6 s.
+`lake build` (formalization agent, tree `a3e5179` plus the new file):
+"Build completed successfully (2738 jobs)". `uv run python scripts/verify_lean.py`
+at `f1e3364`, clean tree: VERDICT passed, receipt
+`verification/receipts/20261126T230958Z-f1e33649ee-passed.json` (an earlier
+run with `--show-fingerprints --no-receipt`, made to obtain the fingerprints
+of the seven new entries, reported "failed" as it must while they were
+unset). `uv run python scripts/catalogue.py validate`: 15 problems,
+18 contributions, 0 errors; `render --check`: up to date at the commit that
+contains this entry. Test suite (`uv run pytest`): 184 passed in 642.76 s, on the
+tree of the commit that contains this entry except for this sentence and the
+end time below, which were filled in after the run.
+
+Budget: 22:39 to about 23:26 UTC of the 60 minutes. Computation: about
+2 minutes of stored, trial and scratch runs; `verify_lean.py` twice (about
+5 minutes each) and the test suite are in addition. `STATE.md` has 434 lines,
+above the aim of 400, after moving the chain of sufficient conditions for
+Conjecture Γ to `notes/gamma-chain.md` (verbatim).
+
+Next step: objective O10 in `STATE.md` (a lower bound for `λ_m(Ω_T)`, or
+(SM⁺)), after obligation 9. Decisions left to the director: who reads T4
+outside the author's vendor, and whether Collins's thesis can be obtained
+(the copies reachable from this environment refused automated access).

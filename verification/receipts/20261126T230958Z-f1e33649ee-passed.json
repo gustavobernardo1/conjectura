@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-26T23:09:58Z",
+  "verdict": "passed",
+  "module": "Conjectura",
+  "git": {
+    "commit": "f1e33649ee1e2bd4641c3a16364c55dbefa8906b",
+    "branch": "research",
+    "tree_clean": true
+  },
+  "platform": {
+    "system": "Windows",
+    "machine": "AMD64",
+    "python": "3.12.4"
+  },
+  "toolchain": {
+    "lean_toolchain_file": "leanprover/lean4:v4.36.0",
+    "lean_version": "Lean (version 4.36.0, x86_64-w64-windows-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "mathlib_input_rev": "v4.36.0",
+    "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "sources": [
+    {
+      "path": "formalization/lean-toolchain",
+      "sha256_lf": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+    },
+    {
+      "path": "formalization/lakefile.toml",
+      "sha256_lf": "b7fbefcb04442109e831ccbd79e5df186fa48c581559e6334b64a4d8f649d449"
+    },
+    {
+      "path": "formalization/lake-manifest.json",
+      "sha256_lf": "825ee8fb47b986d15e60db98c704af6b99b2484db66126cd1f682b178d8f7748"
+    },
+    {
+      "path": "formalization/registry.json",
+      "sha256_lf": "22baf598879896f96bfaad98cb62dcade392608b6a66bb0b7cb76b619895566b"
+    },
+    {
+      "path": "formalization/Conjectura.lean",
+      "sha256_lf": "a0e4f88c916a3b6af0d75327cbf548dd8fd07c4b5db62e1046a04d9854999b19"
+    },
+    {
+      "path": "formalization/Conjectura/Calibration/OddPrime.lean",
+      "sha256_lf": "c541bb66934b9578fcda14836164b425ecc285854c1dbc42e591aefc94939b50"
+    },
+    {
+      "path": "formalization/Conjectura/Calibration/SumOdd.lean",
+      "sha256_lf": "f362a75fbc551166822cc6a1a3b54e846f4042a07859c1fa33d85d3228083327"
+    },
+    {
+      "path": "formalization/Conjectura/Research/CollinsShorPeak/ExtremalReduction.lean",
+      "sha256_lf": "6b35f59ac1de6c667d2745a6426e0131aeef37df694ec51da4fe9d307815309a"
+    },
+    {
+      "path": "formalization/Conjectura/Research/CollinsShorPeak/HalfGammaCone.lean",
+      "sha256_lf": "49d27e6a7fc251ac0f7b5bff99f00f71a1cfc4e13f7a76bcdb0b3a25b89bd76a"
+    },
+    {
+      "path": "formalization/Conjectura/Research/CollinsShorPeak/LogConcavePeak.lean",
+      "sha256_lf": "dff9e368c731b2e246b798fffac297a9eb98151b8a9f743bc4d33f14b6866060"
+    },
+    {
+      "path": "formalization/Conjectura/Research/CollinsShorPeak/VertexPrinciple.lean",
+      "sha256_lf": "618e70c2f89c9187d617bef1b63764fa8e44af18fb60def5a1af32cb75af3292"
+    },
+    {
+      "path": "formalization/Conjectura/Research/CollinsShorPeak/WienerCone.lean",
+      "sha256_lf": "f55366189d9ce317b2eae358e4ed8b9afe084e3102c83511c51ed5eb074e3ba1"
+    },
+    {
+      "path": "scripts/lean_audit_template.lean",
+      "sha256_lf": "b33d29d36ebd69fadfd531258612b41fccf0aebd61546b44f1906b738c092b90"
+    },
+    {
+      "path": "scripts/verify_lean.py",
+      "sha256_lf": "045f5279f3d195af65a842b74d0423c7f2a27b09fee743688c41782c1ee060f2"
+    }
+  ],
+  "checks": [
+    {
+      "name": "toolchain",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "build",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "sources",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "axioms",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "registry",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "replay",
+      "status": "passed",
+      "details": [
+        "replayed Conjectura.Calibration.OddPrime",
+        "replayed Conjectura.Calibration.SumOdd",
+        "replayed Conjectura.Research.CollinsShorPeak.ExtremalReduction",
+        "replayed Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+        "replayed Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+        "replayed Conjectura.Research.CollinsShorPeak.VertexPrinciple",
+        "replayed Conjectura.Research.CollinsShorPeak.WienerCone"
+      ]
+    }
+  ],
+  "declarations": {
+    "total": 238,
+    "theorems": 205,
+    "named": [
+      "Conjectura.Calibration.odd_of_prime_of_two_lt",
+      "Conjectura.Calibration.odd_of_prime_of_two_lt_nonvacuous",
+      "Conjectura.Calibration.sum_range_odd",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mem_one",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mem_two",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_cubic_mem_four",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_mem_add_two",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_mem_succ",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_one_add_X_mem_three",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_one_add_X_mul_mem_add_three",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.add",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.below",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.below.add",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.below.casesOn",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.below.gen",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.below.rec",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.below.smul",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.below.zero",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.brecOn",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.casesOn",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.gen",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.mul",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_X_mem_one",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_X_mul_mem_succ",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_four_X_mem_one",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_mem_zero",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.rec",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.recOn",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.smul",
+      "Conjectura.Research.CollinsShorPeak.HalfGammaCone.zero",
+      "Conjectura.Research.CollinsShorPeak.HasNonnegHalfGamma",
+      "Conjectura.Research.CollinsShorPeak.HasNonnegHalfGamma.add",
+      "Conjectura.Research.CollinsShorPeak.HasNonnegHalfGamma.basis",
+      "Conjectura.Research.CollinsShorPeak.HasNonnegHalfGamma.gen",
+      "Conjectura.Research.CollinsShorPeak.HasNonnegHalfGamma.smul",
+      "Conjectura.Research.CollinsShorPeak.HasNonnegHalfGamma.zero",
+      "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.X_mem_two",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.X_mul_mem_add_two",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.add",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.below",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.below.add",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.below.casesOn",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.below.gen",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.below.rec",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.below.smul",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.below.zero",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.brecOn",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.casesOn",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_le_coeff_succ",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_pred_le_coeff",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_sub_mul_le_coeff_succ",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_sub_mul_lt_coeff_succ",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_sub_mul_pred_le_coeff",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_sub_mul_pred_lt_coeff",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.gen",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.lemmaA_hypotheses_witness",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.mono",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.mul",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.of_halfGammaCone",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.of_succ",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.one_add_X_mem_one",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.one_add_X_mul_mem_succ",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.one_add_X_pow_mem",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.one_mem_zero",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.rec",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.recOn",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.smul",
+      "Conjectura.Research.CollinsShorPeak.WienerCone.zero",
+      "Conjectura.Research.CollinsShorPeak.choose_pred_le_choose",
+      "Conjectura.Research.CollinsShorPeak.coeff_X_pow_mul_one_add_X_pow",
+      "Conjectura.Research.CollinsShorPeak.concave_nonvacuous",
+      "Conjectura.Research.CollinsShorPeak.exchange_nonvacuous",
+      "Conjectura.Research.CollinsShorPeak.exists_maxIndex",
+      "Conjectura.Research.CollinsShorPeak.halfGammaBasis",
+      "Conjectura.Research.CollinsShorPeak.halfGammaBasis.eq_1",
+      "Conjectura.Research.CollinsShorPeak.hasNonnegHalfGamma_of_halfGammaCone",
+      "Conjectura.Research.CollinsShorPeak.hypotheses_nonvacuous",
+      "Conjectura.Research.CollinsShorPeak.hypotheses_nonvacuous_not_lt",
+      "Conjectura.Research.CollinsShorPeak.le_of_succ_le",
+      "Conjectura.Research.CollinsShorPeak.lineShift",
+      "Conjectura.Research.CollinsShorPeak.lineShift.congr_simp",
+      "Conjectura.Research.CollinsShorPeak.lineShift.eq_1",
+      "Conjectura.Research.CollinsShorPeak.lineShift_apply",
+      "Conjectura.Research.CollinsShorPeak.lineShift_ge",
+      "Conjectura.Research.CollinsShorPeak.lineShift_lineShift",
+      "Conjectura.Research.CollinsShorPeak.lineShift_ne",
+      "Conjectura.Research.CollinsShorPeak.lineShift_other",
+      "Conjectura.Research.CollinsShorPeak.lineShift_self",
+      "Conjectura.Research.CollinsShorPeak.lineShift_swap",
+      "Conjectura.Research.CollinsShorPeak.lineShift_zero",
+      "Conjectura.Research.CollinsShorPeak.logConcave_shift_iff",
+      "Conjectura.Research.CollinsShorPeak.lt_of_pred_lt",
+      "Conjectura.Research.CollinsShorPeak.lt_succ_of_le",
+      "Conjectura.Research.CollinsShorPeak.lt_succ_of_succ_lt",
+      "Conjectura.Research.CollinsShorPeak.maxIndex_ge_iff_pred_lt",
+      "Conjectura.Research.CollinsShorPeak.maxIndex_ge_of_pred_lt",
+      "Conjectura.Research.CollinsShorPeak.min_endpoints_le_of_concave",
+      "Conjectura.Research.CollinsShorPeak.min_lineEnds_le",
+      "Conjectura.Research.CollinsShorPeak.min_vertices_le_of_exchange",
+      "Conjectura.Research.CollinsShorPeak.sum_lineShift",
+      "Conjectura.Research.CollinsShorPeak.vertex_principle_discrete",
+      "Conjectura.Research.CollinsShorPeak.vertex_principle_discrete_aux",
+      "Conjectura.Research.CollinsShorPeak.vertex_principle_discrete_min",
+      "Conjectura.Research.CollinsShorPeak.vertex_principle_nonvacuous",
+      "Conjectura.Research.CollinsShorPeak.wiener_choose_data",
+      "Conjectura.Research.CollinsShorPeak.wiener_choose_step",
+      "Conjectura.Research.CollinsShorPeak.wiener_choose_step_add_two",
+      "Conjectura.Research.CollinsShorPeak.wiener_choose_step_one",
+      "Conjectura.Research.CollinsShorPeak.wiener_choose_step_strict",
+      "Conjectura.Research.CollinsShorPeak.wiener_real_identity",
+      "Conjectura.Research.CollinsShorPeak.wiener_real_step",
+      "Conjectura.Research.CollinsShorPeak.wiener_real_step_strict"
+    ],
+    "axioms_used": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "registry": [
+    {
+      "name": "Conjectura.Calibration.sum_range_odd",
+      "kind": "calibration",
+      "catalogue_id": null,
+      "module": "Conjectura.Calibration.SumOdd",
+      "statement": "∀ (n : ℕ), ∑ i ∈ Finset.range n, (2 * i + 1) = n ^ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "8320cda75136feed42b1a64c57aa5f77c6e1d43b4535ea50ac651c511e6c55fc"
+    },
+    {
+      "name": "Conjectura.Calibration.odd_of_prime_of_two_lt",
+      "kind": "calibration",
+      "catalogue_id": null,
+      "module": "Conjectura.Calibration.OddPrime",
+      "statement": "∀ (p : ℕ), Nat.Prime p → 2 < p → Odd p",
+      "axioms": [
+        "propext"
+      ],
+      "statement_fingerprint": "7442df9b4e92c66c540115834f4395c3513390c9bd1ffb3295514dad8f5b0b38"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.maxIndex_ge_iff_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r j : ℕ),\n  (∀ k ≤ r, 0 < a k) →\n    (∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2) →\n      1 ≤ j → j ≤ r → ((∀ i ≤ r, (∀ k ≤ r, a k ≤ a i) → j ≤ i) ↔ a (j - 1) < a j)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "90882e69cf45e1fbe296e963badbbf88b0d536f473ab7530f01962124e99a768"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.maxIndex_ge_of_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r j : ℕ),\n  (∀ k ≤ r, 0 < a k) →\n    (∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2) →\n      1 ≤ j → j ≤ r → a (j - 1) < a j → ∀ i ≤ r, (∀ k ≤ r, a k ≤ a i) → j ≤ i",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "a2947a9877d1d28f01a7d6dbc0717a83582928523457d708cf759d3d70323467"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.lt_of_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r j : ℕ),\n  (∀ k ≤ r, 0 < a k) →\n    (∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2) → 1 ≤ j → j ≤ r → a (j - 1) < a j → ∀ i < j, a i < a j",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "3a8280538be38029bb8e547dcc33f810b5b797d78d7fb1a14905b569c598359e"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.logConcave_shift_iff",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r : ℕ),\n  (∀ (k : ℕ), 1 ≤ k → k + 1 ≤ r → a (k - 1) * a (k + 1) ≤ a k ^ 2) ↔\n    ∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "e04f58dc9a3d22f039fe87c37b0ef628226b627ff624902de42b5017c7b983c0"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.min_endpoints_le_of_concave",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.ExtremalReduction",
+      "statement": "∀ (φ : ℕ → ℝ) (N : ℕ), (∀ (t : ℕ), t + 2 ≤ N → φ t + φ (t + 2) ≤ 2 * φ (t + 1)) → ∀ t ≤ N, min (φ 0) (φ N) ≤ φ t",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "fcc3accff966346f96387ea6abcad297aa8d0a21269e2d1fed6571b14f88c84a"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.min_vertices_le_of_exchange",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.ExtremalReduction",
+      "statement": "∀ (f : ℤ → ℤ → ℝ) (a₀ b₀ S : ℤ),\n  (∀ (a b : ℤ), a₀ < a → b₀ < b → a + b = S → f (a + 1) (b - 1) + f (a - 1) (b + 1) ≤ 2 * f a b) →\n    ∀ (a b : ℤ), a₀ ≤ a → b₀ ≤ b → a + b = S → min (f a₀ (S - a₀)) (f (S - b₀) b₀) ≤ f a b",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "06cb50af133c00f55c0538f48c27ea17b31ef49186aba7dcb9aa69a8776f8568"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.vertex_principle_discrete",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.VertexPrinciple",
+      "statement": "∀ {ι : Type u_1} [inst : DecidableEq ι] [inst_1 : Fintype ι] (f : (ι → ℤ) → ℝ) (lam : ι → ℤ) (S : ℤ),\n  ∑ j, lam j < S →\n    (∀ (c : ι → ℤ) (i k : ι),\n        i ≠ k →\n          (∀ (j : ι), lam j ≤ c j) →\n            ∑ j, c j = S →\n              lam i < c i →\n                lam k < c k → f (c + Pi.single i 1 - Pi.single k 1) + f (c + Pi.single k 1 - Pi.single i 1) ≤ 2 * f c) →\n      ∀ (c : ι → ℤ), (∀ (j : ι), lam j ≤ c j) → ∑ j, c j = S → ∃ p, f (lam + Pi.single p (S - ∑ j, lam j)) ≤ f c",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "f106e95a814482391c5689662095f805fb8bf78ccd6e33b5a0af4056b6c17281"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.vertex_principle_discrete_min",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.VertexPrinciple",
+      "statement": "∀ {ι : Type u_1} [inst : DecidableEq ι] [inst_1 : Fintype ι] [inst_2 : Nonempty ι] (f : (ι → ℤ) → ℝ) (lam : ι → ℤ)\n  (S : ℤ),\n  ∑ j, lam j < S →\n    (∀ (c : ι → ℤ) (i k : ι),\n        i ≠ k →\n          (∀ (j : ι), lam j ≤ c j) →\n            ∑ j, c j = S →\n              lam i < c i →\n                lam k < c k → f (c + Pi.single i 1 - Pi.single k 1) + f (c + Pi.single k 1 - Pi.single i 1) ≤ 2 * f c) →\n      ∀ (c : ι → ℤ),\n        (∀ (j : ι), lam j ≤ c j) →\n          ∑ j, c j = S → (Finset.univ.inf' ⋯ fun p => f (lam + Pi.single p (S - ∑ j, lam j))) ≤ f c",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "790a9088c6c088112d30fd6d1a2bbca597546331377aaf54fe3c444deb7114ba"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.mul",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+      "statement": "∀ {d d' : ℕ} {p q : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.HalfGammaCone d p →\n    Conjectura.Research.CollinsShorPeak.HalfGammaCone d' q →\n      Conjectura.Research.CollinsShorPeak.HalfGammaCone (d + d') (p * q)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "5db4f195437efdfee191f005dea60fc48f5ea4c39482380ded189e58c7e75e37"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_mem_succ",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.HalfGammaCone d p →\n    Conjectura.Research.CollinsShorPeak.HalfGammaCone (d + 1) (Polynomial.X * p)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "4a5909f4abd66a306dc7f958598dbce593fd61e6d6213fe90424ab10664df75c"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_mem_add_two",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.HalfGammaCone d p →\n    Conjectura.Research.CollinsShorPeak.HalfGammaCone (d + 2) (Polynomial.X * p)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "e79b48a31fa0a4baf0a12c385f8f7487c0dea0c4404c5dfb4ef066012dcf81fd"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_X_mul_mem_succ",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.HalfGammaCone d p →\n    Conjectura.Research.CollinsShorPeak.HalfGammaCone (d + 1) ((1 + Polynomial.X) * p)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "951f557b68b1ea5b5a9fe2c53e37b52ebe9fe60ccd74c44ee6dabfad8f29d8f6"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_one_add_X_mul_mem_add_three",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.HalfGammaCone d p →\n    Conjectura.Research.CollinsShorPeak.HalfGammaCone (d + 3) (Polynomial.X * (1 + Polynomial.X) * p)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "fafcda782dfec01ae33764d291340d87fbd26cfd82990f34a7c8671feddc977f"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.hasNonnegHalfGamma_of_halfGammaCone",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.HalfGammaCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.HalfGammaCone d p → Conjectura.Research.CollinsShorPeak.HasNonnegHalfGamma d p",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "3ae5b7ddd257413ff6109816c7d5873b84d070ad6f41c83be01abdcb122eb174"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.WienerCone.mul",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "statement": "∀ {d d' : ℕ} {p q : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.WienerCone d p →\n    Conjectura.Research.CollinsShorPeak.WienerCone d' q →\n      Conjectura.Research.CollinsShorPeak.WienerCone (d + d') (p * q)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "8b9fc1e469239f667ca13f7ab6f430414d85a89f47dbc2aef81b8f34d7476ac6"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.WienerCone.one_add_X_mul_mem_succ",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.WienerCone d p →\n    Conjectura.Research.CollinsShorPeak.WienerCone (d + 1) ((1 + Polynomial.X) * p)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "2daf3e874437a5dc8ce3747447f533a46e029c0e0dcc60a6cced9e6b5ffcba11"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.WienerCone.X_mul_mem_add_two",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.WienerCone d p →\n    Conjectura.Research.CollinsShorPeak.WienerCone (d + 2) (Polynomial.X * p)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "a7a8af68f43c30ed1bf18c754d2870b047167ee3d677eeb84d9111efe2b8aa03"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.WienerCone.of_halfGammaCone",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "statement": "∀ {d : ℕ} {p : Polynomial ℝ},\n  Conjectura.Research.CollinsShorPeak.HalfGammaCone d p → Conjectura.Research.CollinsShorPeak.WienerCone d p",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "69638b80525c8aaf0d7756169b1dbcf083cc5ad3314eb907a5a0534a61de94ad"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_pred_le_coeff",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "statement": "∀ {μ : ℕ},\n  1 ≤ μ →\n    ∀ {f : Polynomial ℝ}, Conjectura.Research.CollinsShorPeak.WienerCone (2 * μ - 1) f → f.coeff (μ - 1) ≤ f.coeff μ",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "9efa7967007907238d7101b2b0d860cf6f659776004b8155269083ae387edbfe"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_sub_mul_pred_le_coeff",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "statement": "∀ {μ : ℕ},\n  1 ≤ μ →\n    ∀ {f : Polynomial ℝ},\n      Conjectura.Research.CollinsShorPeak.WienerCone (2 * μ) f →\n        ∀ {W n : ℝ},\n          0 ≤ n →\n            3 * n ≤ W →\n              ((Polynomial.C W - Polynomial.C n * Polynomial.X) * f).coeff (μ - 1) ≤\n                ((Polynomial.C W - Polynomial.C n * Polynomial.X) * f).coeff μ",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "51d7b040e05c6b7b0f4f940ec1d35e4f8b1261df27f8025124858fa3d919fb08"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.WienerCone.coeff_sub_mul_pred_lt_coeff",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.WienerCone",
+      "statement": "∀ {μ : ℕ},\n  1 ≤ μ →\n    ∀ {f : Polynomial ℝ},\n      Conjectura.Research.CollinsShorPeak.WienerCone (2 * μ) f →\n        ∀ {W n : ℝ},\n          0 < n →\n            3 * n ≤ W →\n              0 < f.coeff 0 →\n                ((Polynomial.C W - Polynomial.C n * Polynomial.X) * f).coeff (μ - 1) <\n                  ((Polynomial.C W - Polynomial.C n * Polynomial.X) * f).coeff μ",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "d690eabe8d945b8c533fe4167223f241d7dceb2cdd4cfe78f8a8c30e355e0cd9"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 2.3,
+      "output_tail": "Lean (version 4.36.0, x86_64-w64-windows-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "Conjectura"
+      ],
+      "returncode": 0,
+      "seconds": 3.6,
+      "output_tail": " is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\n⚠ [2735/2738] Ran Conjectura.Research.CollinsShorPeak.WienerCone:irArts\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Data.Nat.Choose.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Algebra.Polynomial.Coeff` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Tactic.LinearCombination` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\WienerCone.lean: imports `Mathlib.Tactic.Positivity` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nBuild completed successfully (2738 jobs)."
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "formalization/.lake/conjectura-audit/Audit_Conjectura.lean"
+      ],
+      "returncode": 0,
+      "seconds": 8.8,
+      "output_tail": "CONJECTURA_AUDIT_BEGIN\nCONJECTURA_AUDIT_END"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Calibration.OddPrime"
+      ],
+      "returncode": 0,
+      "seconds": 41.3,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Calibration.SumOdd"
+      ],
+      "returncode": 0,
+      "seconds": 42.5,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Research.CollinsShorPeak.ExtremalReduction"
+      ],
+      "returncode": 0,
+      "seconds": 43.0,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Research.CollinsShorPeak.HalfGammaCone"
+      ],
+      "returncode": 0,
+      "seconds": 41.8,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Research.CollinsShorPeak.LogConcavePeak"
+      ],
+      "returncode": 0,
+      "seconds": 41.4,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Research.CollinsShorPeak.VertexPrinciple"
+      ],
+      "returncode": 0,
+      "seconds": 43.4,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Research.CollinsShorPeak.WienerCone"
+      ],
+      "returncode": 0,
+      "seconds": 44.1,
+      "output_tail": ""
+    }
+  ]
+}
