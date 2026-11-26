@@ -15,3 +15,5 @@ import Conjectura.Calibration.SumOdd
 import Conjectura.Calibration.OddPrime
 import Conjectura.Research.CollinsShorPeak.LogConcavePeak
 import Conjectura.Research.CollinsShorPeak.ExtremalReduction
+import Conjectura.Research.CollinsShorPeak.VertexPrinciple
+import Conjectura.Research.CollinsShorPeak.HalfGammaCone

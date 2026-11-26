@@ -35,9 +35,9 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0014",
+    "id": "MD-0015",
     "type": "structural-result",
-    "title": "Component form of r_A, recurrences for the adjugate quadratic form, and a conditional induction for Conjecture Γ",
+    "title": "The rooted state of a weighted tree: increments of R at a vertex, the merge rule, and the failure of the statements (E″) and (S)",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -48,15 +48,19 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md"
+      "experiments/CJ-0001-collins-shor-peak/results/rooted-state.json",
+      "experiments/CJ-0001-collins-shor-peak/results/slope-family-verify.json",
+      "experiments/CJ-0001-collins-shor-peak/results/slope-family.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S19-S22.md",
+      "tests/test_cj0001_component_form.py",
+      "tests/test_cj0001_rooted_state.py"
     ]
   },
   "latest_reviewed_contribution": {
-    "id": "MD-0014",
+    "id": "MD-0015",
     "type": "structural-result",
-    "title": "Component form of r_A, recurrences for the adjugate quadratic form, and a conditional induction for Conjecture Γ",
+    "title": "The rooted state of a weighted tree: increments of R at a vertex, the merge rule, and the failure of the statements (E″) and (S)",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -67,22 +71,26 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md"
+      "experiments/CJ-0001-collins-shor-peak/results/rooted-state.json",
+      "experiments/CJ-0001-collins-shor-peak/results/slope-family-verify.json",
+      "experiments/CJ-0001-collins-shor-peak/results/slope-family.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S19-S22.md",
+      "tests/test_cj0001_component_form.py",
+      "tests/test_cj0001_rooted_state.py"
     ],
     "review": {
       "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
       "date": "2026-11-26",
-      "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
-      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md"
+      "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
+      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S19-S22.md"
     }
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0012",
+    "id": "MD-0014",
     "type": "structural-result",
-    "title": "Weight of the forest polynomial det(I + x L_B), and reduction of Conjecture Γ (extended to one-element subsets) to independent A",
+    "title": "Component form of r_A, recurrences for the adjugate quadratic form, and a conditional induction for Conjecture Γ",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -93,18 +101,17 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json",
+      "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
       "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
-      "research/active/CJ-0001-collins-shor-peak/notes/gamma-reduction.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-F-S11.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-F-S11.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-7-md-0011-and-md-0012",
-      "tests/test_cj0001_distpoly.py"
+      "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-8-md-0013-and-md-0014",
+      "tests/test_cj0001_component_form.py"
     ],
     "novelty_search": {
       "as_of": "2026-11-26",
-      "coverage": "Literature audit of session 7 (same searches as MD-0011). Nothing on an expansion of det(I + x(L_T + diag ν)) in the polynomials x^e (1+x)^i, on the leaf recurrence of Lemma F, or on the contraction identity of Proposition S11 was found in the sources read (Bapat–Kirkland–Neumann 2005 and Merris 1990 in full; Richman–Shokrieh–Wu, arXiv:2411.11488v2, by text extraction; Brändén–Solus, arXiv:1808.04141v3, pp. 1–4).",
-      "limitations": "A first search; it does not establish originality. The literature most likely to contain Lemma F or its recurrence was identified and NOT read: matching polynomials of forests and Laplacian coefficients of trees (Mohar 2007; Zhou–Gutman; arXiv:2410.14112), the matrix-forest theorem (Chebotarev–Shamis), and the papers on bi-gamma-positivity. The remark that Φ_B is a matching generating polynomial (by Cauchy–Binet) is the auditor's own and unreviewed. One query only for Proposition S11, which is phrased in the project's own notation. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, books."
+      "coverage": "Literature audit of session 8 (first search for this record). No identical or implying statement was found for items (i) to (v). Classical ingredients to cite: the rank-one update of the adjugate behind Lemma G1 (matrix determinant lemma in adjugate form; Desnanot–Jacobi and Jacobi's theorem on minors of the adjugate for the identity used in its proof; verified in secondary sources only); Φ(T, ν) is, after x → −1/x, the principal Laplacian matching polynomial of Wan–Wang–Wang, arXiv:2410.14112, eq. (1.4), whose Theorem 1.2 gives det(I + x L_B) as a matching generating polynomial of a subdivision graph (the identification is the auditor's; that paper has no leaf recurrence, no adjugate and no expansion in x^i (1+x)^j, according to the text extraction); the forest meaning of adj(I + L) (Chebotarev–Shamis, arXiv:math/0602575, abstract only).",
+      "limitations": "A first search; it does not establish originality. R(T, ν) is defined through the project's own polynomial r_A, so a keyword search is unlikely to find an equivalent statement in other terms. The literature on Laplacian matching polynomials and forest polynomials was only sampled (Mohar's preprint pp. 1–3; arXiv:2410.14112 by text extraction). Not opened: Liu–Yan 2023 on det[L + diag(x_i)], arXiv:2103.10580, the gamma-positivity surveys. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, books. English only."
     }
   },
   "public": {
@@ -159,36 +166,37 @@
       }
     },
     "contributions": {
-      "registered": 14,
+      "registered": 15,
       "by_standing": {
-        "candidate": 12,
+        "candidate": 13,
         "established": 0,
         "rediscovered": 2,
         "withdrawn": 0
       },
-      "counted": 12,
+      "counted": 13,
       "by_type": {
         "computational-finding": 1,
         "conjecture": 3,
         "counterexample": 1,
-        "structural-result": 3,
+        "structural-result": 4,
         "theorem": 4
       },
       "by_status": {
         "mathematical": {
           "candidate": 3,
-          "candidate-proof": 8,
+          "candidate-proof": 9,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 12
+          "not-started": 12,
+          "partial": 1
         },
         "novelty": {
-          "preliminary-search-completed": 8,
-          "unknown": 4
+          "preliminary-search-completed": 10,
+          "unknown": 3
         },
         "external_review": {
-          "ai-reviewed": 8,
+          "ai-reviewed": 9,
           "not-reviewed": 4
         }
       }
@@ -210,13 +218,13 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "a07d51552afdd733d0c6a41d8a8d7b1094fb1b40",
-    "sources_committed": true,
+    "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "11b8c3027ae4079ac6e61130ac996a5c5cc4fefe",
-      "research/discoveries.json": "000725c0ee8e08a5052186e2d8b7f384c5191edf",
+      "research/discoveries.json": "657eaecf245c6a731ba6c3744d5a821f26e9ac69",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
-      "formalization/registry.json": "0050fd69f0a5814ea9dc24892be7988143ebae63"
+      "formalization/registry.json": "456eae13467baf593b317899b0c43e6bfeb3bdd9"
     }
   }
 }

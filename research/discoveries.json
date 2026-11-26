@@ -963,11 +963,16 @@
           "kind": "note",
           "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-7-md-0011-and-md-0012",
           "summary": "Literature audit of session 7 (a separate agent context, model claude-fable-5-2; 14 web searches, 2 arXiv listing queries, 3 citation queries, 15 fetches): queries verbatim, what was read and how, a conclusion per statement, and what was not searched."
+        },
+        {
+          "kind": "note",
+          "path": "formalization/Conjectura/Research/CollinsShorPeak/HalfGammaCone.lean",
+          "summary": "Session 8, Lean 4 with Mathlib: item (ii) only (Lemma C), as hasNonnegHalfGamma_of_halfGammaCone, with the cone C_d as an inductive predicate over real polynomials and its closure under products. Formal status 'partial': items (i), (iii), (iv) are not formalized; that the inductive predicate equals the set of explicit non-negative sums is not formalized; the Lean statement was compared with the written one by the formalizing agent and the author of the session only. Receipts under verification/receipts/."
         }
       ],
       "status": {
         "mathematical": "candidate-proof",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
@@ -1155,15 +1160,25 @@
           "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
           "sha256": "ff36cc3e2f2a983772fd692a901037dbe258645baffed95a75e1187930c18944",
           "statement_fingerprint": "e99df20c4700024ef6cb1455a1e53806cae28a72f43a484c38b0dbb28b155a33"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-8-md-0013-and-md-0014",
+          "summary": "Literature audit of session 8 (a separate agent context, model claude-fable-5-2; 8 web searches, 19 fetches): queries verbatim, what was read and how, a conclusion per item, and what was not searched."
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_component_form.py",
+          "summary": "Regression test of component_form.py with small parameters (session 8): the failure counters that are zero in the stored run, and pinned case counts."
         }
       ],
       "status": {
         "mathematical": "candidate-proof",
         "formal": "not-started",
-        "novelty": "unknown",
+        "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A written proof by its author; see the evidence for whether a review exists. No literature search was made for this statement: real-rootedness and interlacing of such determinantal expressions are standard techniques, and the statement may be known in another form (compare Richman–Shokrieh–Wu, arXiv:2411.11488, on principal minors of tree distance matrices, which the project read only by text extraction). Real negative roots do not imply the non-negative half-gamma expansion of Conjecture Γ (MD-0010): 1 + 5x/2 + x²/2 is a counterexample to that implication. The classical formulas of Graham–Pollak and Graham–Lovász, used through MD-0011, have not been compared with the printed papers.",
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. Originality: a first literature search exists (see novelty_search); item (iv) and the bound of item (ii) are implied by Richman–Shokrieh–Wu, arXiv:2411.11488, up to a bridging step that is not reviewed, and must cite it; item (iii) is a short consequence of item (i) and a textbook fact about definite pencils; nothing is claimed as new. If the record is split, the part 'item (iv) and κ ≥ 4' is to be classified as previously known. Real negative roots do not imply the non-negative half-gamma expansion of Conjecture Γ (MD-0010): 1 + 5x/2 + x²/2 is a counterexample to that implication. The classical formulas of Graham–Pollak and Graham–Lovász, used through MD-0011, have not been compared with the printed papers.",
       "depends_on": [
         {
           "ref": "MD-0011",
@@ -1183,7 +1198,12 @@
           "target": "MD-0010",
           "note": "A structural property of the polynomials of the conjecture; it proves the positivity of their coefficients but not the half-gamma expansion."
         }
-      ]
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Literature audit of session 8 (first search for this record). PRIOR ART FOR PART OF THE RECORD: item (iv) and the bound κ ≥ 4 with its equality case in item (ii) follow from Richman–Shokrieh–Wu, arXiv:2411.11488v2 (Theorems A, 2.4, 4.4 and 4.6(b): the normalized principal minor det D[A]/cof D[A] of a tree distance matrix as a sum over 2-forests, and its bounds), through a short bridging step (the all-minors matrix-tree theorem for adj(L_B)) that is the auditor's own derivation, checked by hand on two examples and not reviewed. That source gives more: max dist(u, v) over A ≤ κ − 4 ≤ number of edges of the convex hull of A, and monotonicity in A. Item (iii) (real negative roots) follows from item (i) by the standard fact that det(A_0 + x A_1) has only real negative roots when A_0 and A_1 are positive definite, with A_0 = [[I, 1], [1ᵀ, s]] and A_1 = [[L_B, τ_B], [τ_Bᵀ, s + 3]] (the auditor's remark, not reviewed; it needs only κ > 0). The director's spectral identity is the spectral decomposition of the adjugate (compare the Thompson–McEnteggert formula; Castillo–Zaballa, arXiv:2103.13739, Theorem 2.1). No source considering r_A, the third form of item (i), its degree and leading coefficient, or its roots was found.",
+        "limitations": "A first search; it does not establish originality of any item. Richman–Shokrieh–Wu and arXiv:2410.14112 were read by text extraction only, proofs not read; G. Wang, arXiv:2606.18061 (the same quantity for resistance matrices) in abstract only. Not opened: Bapat–Sivasubramanian 2011, Devriendt's thesis, Choudhury–Khare beyond its first half. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, books (Horn–Johnson, Bapat, Fiedler, Parlett, Godsil), Leinster's magnitude, papers citing Bapat–Kirkland–Neumann. English only."
+      }
     },
     {
       "id": "MD-0014",
@@ -1234,15 +1254,30 @@
           "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
           "sha256": "ff36cc3e2f2a983772fd692a901037dbe258645baffed95a75e1187930c18944",
           "statement_fingerprint": "0b8e7948e26fbd36b9439c022136729b52f95074ff9bccbc3d3effba894add8a"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-8-md-0013-and-md-0014",
+          "summary": "Literature audit of session 8 (a separate agent context, model claude-fable-5-2; 8 web searches, 19 fetches): queries verbatim, what was read and how, a conclusion per item, and what was not searched."
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_component_form.py",
+          "summary": "Regression test of component_form.py with small parameters (session 8): the failure counters that are zero in the stored run, and pinned case counts."
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
+          "summary": "Session 8: the two statements through which session 7 planned to prove (E) — (E″) and the slope statement (S), neither of them part of this record — are false (Proposition S21, MD-0015). Statement (E) of item (v) is not affected: E is in the cone in every counterexample."
         }
       ],
       "status": {
         "mathematical": "candidate-proof",
         "formal": "not-started",
-        "novelty": "unknown",
+        "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A written proof by its author; see the evidence for whether a review exists. The record proves identities and a conditional statement; Γ_c and (E) are not proved, and Γ_c is a sufficient condition for Conjecture Γ that is not shown to be equivalent to it. No literature search was made: recurrences for determinants and adjugates of tree matrices under removal of a leaf are standard, and the literature on Laplacian coefficients and matching polynomials of trees, where such recurrences would appear, has not been read by the project.",
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. The record proves identities and a conditional statement; Γ_c and (E) are not proved, and Γ_c is a sufficient condition for Conjecture Γ that is not shown to be equivalent to it. Session 8: the route to (E) through the statements (E″) and (S) of session 7 is closed (both are false, MD-0015); (E) itself has no known counterexample. Originality: a first literature search exists (see novelty_search); Lemma G1 is classical linear algebra, and nothing is claimed as new.",
       "depends_on": [
         {
           "ref": "MD-0011",
@@ -1271,6 +1306,120 @@
           "type": "contributes_to",
           "target": "MD-0010",
           "note": "Reduces the conjecture (extended to one-element subsets) to the statement Γ_c about one weighted tree, and Γ_c to the statement (E) about raising the weight of a leaf from 0 to 1."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Literature audit of session 8 (first search for this record). No identical or implying statement was found for items (i) to (v). Classical ingredients to cite: the rank-one update of the adjugate behind Lemma G1 (matrix determinant lemma in adjugate form; Desnanot–Jacobi and Jacobi's theorem on minors of the adjugate for the identity used in its proof; verified in secondary sources only); Φ(T, ν) is, after x → −1/x, the principal Laplacian matching polynomial of Wan–Wang–Wang, arXiv:2410.14112, eq. (1.4), whose Theorem 1.2 gives det(I + x L_B) as a matching generating polynomial of a subdivision graph (the identification is the auditor's; that paper has no leaf recurrence, no adjugate and no expansion in x^i (1+x)^j, according to the text extraction); the forest meaning of adj(I + L) (Chebotarev–Shamis, arXiv:math/0602575, abstract only).",
+        "limitations": "A first search; it does not establish originality. R(T, ν) is defined through the project's own polynomial r_A, so a keyword search is unlikely to find an equivalent statement in other terms. The literature on Laplacian matching polynomials and forest polynomials was only sampled (Mohar's preprint pp. 1–3; arXiv:2410.14112 by text extraction). Not opened: Liu–Yan 2023 on det[L + diag(x_i)], arXiv:2103.10580, the gamma-positivity surveys. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, books. English only."
+      }
+    },
+    {
+      "id": "MD-0015",
+      "type": "structural-result",
+      "title": "The rooted state of a weighted tree: increments of R at a vertex, the merge rule, and the failure of the statements (E″) and (S)",
+      "statement": "Notation of MD-0014: for a tree T on j ≥ 1 vertices with degrees k_v and a function ν from its vertices to the non-negative integers (the zero function included unless excluded), M(T, ν) = I + x(L_T + diag ν), Φ(T, ν) = det M(T, ν), p the vector with entries 1 + (2 − k_v − ν_v)x, R(T, ν) = (N + j − 1)(1 + x) Φ(T, ν) − pᵀ adj(M(T, ν)) p with N = Σ_v ν_v; C_d is the cone of MD-0012. For a vertex u of T let π_u = e_uᵀ adj(M(T, ν)) p, let T_1, …, T_q be the components of T − u, u_i the neighbour of u in T_i, Φ_i = Φ(T_i, ν + e_{u_i}), and put Ψ = adj(M(T, ν))_{uu} = Π_i Φ_i, H = (Φ(T, ν) − Ψ)/x, G = (1 + 2x)Ψ − π_u, Ω = Σ_i R(T_i, ν + e_{u_i}) Π_{l ≠ i} Φ_l, F(T, ν, u) = (1 + 5x + 3x²) Φ(T, ν) + (x + 4x²) Ψ + 2x² π_u and Λ(T, ν, u) = x [(1 − x) Φ(T, ν) + 2x Ψ + R(T, ν + e_u) − 2x G]. (i) Ψ · R(T, ν) = Φ(T, ν) [ν_u (1 + x) Ψ + Ω] − π_u²; H and G are polynomials with non-negative coefficients. (ii) R(T, ν + e_u) − R(T, ν) = [(1 + 2x)² + ν_u x(1 + x)] Ψ + x(1 + x) H + x Ω − 2x G = [(1 + 2x)² + 2x ν_u] Ψ + Σ_i Λ(T_i, ν, u_i) Π_{l ≠ i} Φ_l. (iii) If (T, ν, u) is obtained from two weighted trees (T_1, ν^1), (T_2, ν^2) on disjoint vertex sets with chosen vertices u_1, u_2 by identifying u_1 with u_2 and giving the identified vertex u the weight ν^1(u_1) + ν^2(u_2), then, writing Ψ_k, H_k, G_k, Ω_k, R_k for the quantities of (T_k, ν^k, u_k) and ν_k = ν^k(u_k): Ψ = Ψ_1 Ψ_2; X = X_1 Ψ_2 + X_2 Ψ_1 for X = H, G, Ω; and R(T, ν) = R_1 Ψ_2 + R_2 Ψ_1 + x (H_1 Ω_2 + H_2 Ω_1) + x(1 + x)(ν_2 H_1 Ψ_2 + ν_1 H_2 Ψ_1) + (1 + 2x)² Ψ_1 Ψ_2 − 2 G_1 G_2. (iv) If T^ is the tree obtained from T by adding a vertex r adjacent to u, with ν_r = 0, then R(T^, ν + e_r) − R(T^, ν) = (1 + 2x)² Φ(T, ν + e_u) + Λ(T, ν, u) = x R(T, ν + e_u) + F(T, ν, u). (v) The statement 'F(T, ν, u) ∈ C_{j+2} for every tree T on j ≥ 1 vertices, every vertex u and every ν that is not identically zero' is false: for the star with a centre u of weight 0 and five leaves of weight 4, F = 1 + 36x + 554x² + 4744x³ + 24505x⁴ + 76600x⁵ + 134500x⁶ + 102500x⁷, which is not in C_8; for the star with a centre u of weight 0 and six leaves of weight 3, the coefficient of x⁹ in F is −2048. The statement 'x [F(T, ν + e_v, u) − 2x³ adj(M(T, ν))_{uv}] ∈ C_{j+3} for every tree T on j ≥ 1 vertices, all vertices u and v and every ν' is false: for the star with a centre of weight 0 and four leaves of weight 4, with u = v the centre, the coefficient of x⁸ is −125. (vi) Let j ≥ 1 and suppose Λ(T″, μ, c) ∈ C_{j″+2} for every tree T″ on j″ < j vertices, every vertex c of T″ and every μ. Then R(T, ν + e_u) − R(T, ν) ∈ C_{j+1} for every tree T on j vertices, every vertex u and every ν. Consequently, if Λ(T, ν, u) ∈ C_{j+2} for every tree T on j ≥ 1 vertices, every vertex u and every ν (statement (Λ)), then the polynomial E of item (iv) of MD-0014 is in C_{j+1} for every tree on j ≥ 2 vertices, every leaf and every ν, and the statements Γ_c of MD-0014 and Conjecture Γ (MD-0010) hold.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statements, proofs, counterexamples and exact checks (session 8): Lemma (★), Propositions S19 to S22, statement (Λ); in a separate context (computational experimenter), the stored search for failures of (E″) and (S) and an independent checker of the counterexamples"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review (fresh context), where a review is listed in the evidence"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction: asked whether the family indexed by multisets gives a closed induction for the slope statement (S) or whether another structural argument avoids the growing family of auxiliary inequalities (instructions for session 8); no mathematical input to the statements of this record"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/rooted-calculus.md",
+          "summary": "Written proofs: Lemma (★) and Proposition S19 (items (i), (iii) and the rules for raising the root weight and for a new root), Proposition S20 (items (ii), (iv)), Proposition S21 (item (v), with the leading coefficients on stars), Proposition S22 (item (vi)); statement (Λ) and the chain from (Λ) to Conjecture Γ.",
+          "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
+          "sha256": "5080ea4888af2498dd8c2db4e8cfa79741cd3768b5752949b774ce830140bc92"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/rooted-state.json",
+          "summary": "Exact integer computation (rooted_state.py). Items (i) (non-negativity of G), (ii), (iii), (iv) as identities on all 4,395 rooted weighted trees with at most 5 vertices and weights 0 to 2 (item (iii): 10,404 ordered pairs of rooted trees with at most 3 vertices): 0 failures. The leading coefficient of F on 2,769 stars: 0 failures of the formula. Statement (Λ), the increment of R at every vertex and Γ_c: 0 failures on that range, on 11,085 rooted stars with at most 6 leaves and leaf weights up to 5, and on 3,269 rooted random trees with up to 9 vertices and weights up to 20; on the stars and the random trees the statements of item (v) fail (185 and 37 cases; 3,354 and 411 cases). The identity of item (i) for R was checked on the 750 rooted weighted trees with at most 4 vertices by a script that is not stored. (Λ) is an observation on this range, not proved.",
+          "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
+          "sha256": "129dc565ddcd8894e29b0d677e8f55dfb90ad69266a0e892e82c3d1e3c8d99bf"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/slope-family.json",
+          "summary": "Exact integer computation (slope_family.py, computational experimenter in a separate context): all 104,530 weighted trees with at most 6 vertices and weights 0 to 4. The first statement of item (v) fails once (the star with five leaves of weight 4) in 614,805 cases; the second fails in 7,225 of 3,630,605 cases, first at 5 vertices (the star with leaf weights 2, 3, 4, 4). The three leaf identities for F found in session 7: 0 failures.",
+          "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
+          "sha256": "62428e5cd31aaf30d825ae14c17dd07939856d083c4bf6b31a174abf48db3cb7"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/slope-family-verify.json",
+          "summary": "Checker independent of the search code (slope_family_verify.py: standard library only, evaluation at integer points, elimination over rationals, interpolation): hypotheses and violation confirmed for 5 stored failures of the second statement of item (v) and 6 failures of the first; in the 6 corresponding cases the polynomial E of MD-0014 is in its cone.",
+          "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
+          "sha256": "21015466a2428862f7c6a53d89d56bf63f77c581c7f7dc93246e70150ff03623"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_rooted_state.py",
+          "summary": "The state of one vertex by hand; the identities on a small range; the leading coefficients −2048 and −125; the counterexamples of item (v) and the membership of E, Λ and R in their cones there."
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_component_form.py",
+          "summary": "The counterexamples of item (v) by the search code, by the independent checker and by a hand factorisation of F for the star with five leaves of weight 4."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S19-S22.md",
+          "summary": "Independent adversarial review of notes/rooted-calculus.md. Lemma (★), Proposition S19 (a) to (e), S20 (a) to (d), S21 (a) to (c), S22 and the paragraph on Γ_w: no gap found within stated scope for each (compared with items (i) to (vi) of this record after the review: (i) is (★) with S19(e); (ii) is S19(b) with S20(c); (iii) is S19(d); (iv) is S20(b); (v) is S21(c) with the three stars; (vi) is S22). The counterexamples of item (v) were confirmed against the statements (E″) and (S) as they read in STATE.md at the reviewed revision, with the reviewer's own exact code; the identities were recomputed on the 102 rooted weighted trees with at most 3 vertices and weights 0 to 2 and on 3,843 merges. The reviewer's search for a counterexample to (Λ) and to monotonicity covered only stars with all leaves of one weight (at most 6 leaves, weights up to about 30; 2,462 rooted cases): no failure. Seven defects of wording in the note, none affecting a result. Not covered: a rerun of the repository scripts, the earlier results the note depends on, novelty; (Λ) remains open.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "59c47f7bc28c53287c0568644215345a6f22c50a",
+          "sha256": "f883af96f84fcab1569decaa3498b3240faafb7419e48da7d5d0ed37385ae481",
+          "statement_fingerprint": "e07c2df1c1c76722a7e2a94488c1762dff9d2f852452e5d1ae110d262b6a4e93"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. Items (i) to (iv) are identities and item (v) is a refutation of two auxiliary statements of this investigation (they were never registered, and the published conjecture is not concerned); statement (Λ) of item (vi) is NOT proved — it is supported by exact finite computation only — and it is a sufficient condition for Conjecture Γ that is not shown to be necessary. No literature search was made for this record: the block-matrix identities are standard linear algebra and nothing is claimed as new.",
+      "depends_on": [
+        {
+          "ref": "MD-0014",
+          "statement_fingerprint": "0b8e7948e26fbd36b9439c022136729b52f95074ff9bccbc3d3effba894add8a",
+          "note": "Lemma G and items (ii), (iii), (iv) of MD-0014 are used in items (i) to (iv); item (v) of MD-0014 (Theorem S18) in the last sentence of item (vi)."
+        },
+        {
+          "ref": "MD-0012",
+          "statement_fingerprint": "aa52ab76c2da865560b4b632ae48dd775cfbbb6301127d4eb605a82462322af5",
+          "note": "Lemma F (item (i) of MD-0012) is used for the cone memberships in item (vi)."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "Lemma (★), S19, S20, S21, S22, statement (Λ)",
+          "note": "Session 8, objective O7."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0010",
+          "note": "Closes the route to the conjecture through the statements (E″) and (S); gives a sufficient condition, (Λ), that involves one polynomial of a rooted weighted tree and no hypothesis on the weights."
         }
       ]
     }

@@ -1246,7 +1246,7 @@ Next step: objective O7 in `STATE.md` — prove (E) through (E″).
   it (is there an induction that closes, or a structural argument that avoids
   the hierarchy of auxiliary inequalities).
 - **Role(s):** research director; mathematical researcher for O7. Subagents
-  started at 20:36 UTC, each in its own context: `literature-auditor`
+  started at about 20:30 UTC, each in its own context: `literature-auditor`
   (first originality search for MD-0013 and MD-0014), `formalization-agent`
   (L4 in `s` variables; foundations of the cone `C_d`),
   `computational-experimenter` (the scratch computations of session 7 as a
@@ -1277,3 +1277,225 @@ Next step: objective O7 in `STATE.md` — prove (E) through (E″).
 - **Deferred obligations:** 1 (except MD-0013 and MD-0014), 2, 3 (the
   revisions of notes owed after the reviews), 4 to 6, 8.
 
+
+### What was done
+
+All computations are exact (Python integers and rationals). Times are UTC,
+from `date -u` in the session's shell.
+
+1. 20:28 start; `AGENTS.md`, `autoresearch.md`, `STATE.md`,
+   `notes/gamma-components.md`, the last journal entry and
+   `component_form.py` read. Three subagents started at about 20:30 on
+   `9069d88` (roles above).
+2. O7 by hand: the rooted state `(Ψ, H, G, Ω, R)`, its rules, and from them
+   the leading coefficient of `F` on a star, which is negative for many heavy
+   leaves. Scratch computations (not stored; 29 s, 4 s, 38 s, 2 s, 100 s,
+   35 s, about 20 s): the leading-coefficient formula on stars; (E″), (E) and
+   Γ_c on 11,658 stars; Γ_c and (E) on 2,945 random weighted trees; the rooted
+   identities; (Λ) and monotonicity on 29,295 rooted stars (up to 7 leaves,
+   weights up to 8) and 8,198 rooted random trees; Lemma (★) and S20(d) on 750
+   rooted trees; the bracket `Λ⁰` (under Findings).
+3. `rooted_state.py` written (importable); trial run 40.7 s; stored run
+   146.4 s on a dirty tree at `9069d88` (`results/rooted-state.json`).
+4. The experimenter's report (separate context, 15 minutes, 50 tool calls):
+   `slope_family.py` (stored run 330 s), `slope_family_extension.py`,
+   `slope_family_verify.py`, their result files, the README section and
+   `tests/test_cj0001_component_form.py`.
+5. Note [`notes/rooted-calculus.md`](notes/rooted-calculus.md) written;
+   `tests/test_cj0001_rooted_state.py` added; both test files run (17
+   passed); commit `59c47f7` (note, scripts, results, tests, the dossier
+   section written by the literature auditor, this entry's header).
+6. Review of the new note: an `adversarial-reviewer` context (fresh, model
+   `claude-opus-5-5` requested) on `59c47f7`, given the catalogue id, the
+   primary source reference, the file paths, the revision and the template.
+   Outcome: under Findings.
+7. Registry: MD-0013 and MD-0014 (novelty search recorded), MD-0015
+   registered. `STATE.md` compacted (467 → 369 lines before the last edits);
+   the text removed from it was moved verbatim to
+   [`notes/dead-ends.md`](notes/dead-ends.md) (new) and
+   [`notes/obligations.md`](notes/obligations.md).
+8. Lean: under Findings.
+
+### Findings
+
+- **(E″) and (S) are false (Proposition S21; MD-0015).** For the star with
+  centre `u` of weight `n_0` and leaves of weights `n_i`, the coefficient of
+  `x^{q+3}` in `F(T, ν, u)` is `Π(1+n_i) · (4 + n_0 − Σ n_i/(1+n_i))` (proved
+  from the rooted rules; 0 mismatches on 2,769 stars). Six leaves of weight 3:
+  `−2048`. The smallest failure found is at 6 vertices (five leaves of weight
+  4: `F` has degree 7, its expansion of degree 8 ends in `−1`); it is the
+  only failure of (E″) among the 614,805 rooted cases with `j ≤ 6`, weights 0
+  to 4 (`slope-family.json`). (S) fails in 7,225 of 3,630,605 cases there,
+  first at 5 vertices (star, leaf weights 2, 3, 4, 4, `u = v` the centre:
+  leading coefficient `−5`); four leaves of weight 4: `−125`. Confirmed by a
+  checker that shares no code with the search (5 + 6 failures). The three
+  leaf identities for `F` that session 7 had found in a scratch run are
+  correct (0 failures in 1,403,375, 359,675 and 1,410,440 cases); the count
+  10,089 of session 7 is reproduced. **Answer to the director's question:**
+  the family indexed by multisets of vertices does not give a closed
+  induction, because its first two members are false; no family built on
+  (E″) can.
+- **(E), Γ_c and Conjecture Γ are not affected.** In every counterexample
+  `E`, `R` and `Λ` are in their cones; `E = xR(T′, ν+e_u) + F`, and on stars
+  the leading coefficient of `E` is `Π(4 + 8σ) > 0` (hand computation for
+  `n_0 = 0`, equal leaf weights; `112500` for five leaves of weight 4,
+  computed). (E) holds in the experimenter's 1,000 extension cases (leaf
+  weights up to 200).
+- **A structural description without marked multisets (S19, S20; MD-0015).**
+  `ΨR = Φ[ν_u(1+x)Ψ + Ω] − π_u²` (★); `G = (1+2x)Ψ − π_u` has non-negative
+  coefficients; rules for raising the root weight, a new root, and merging
+  two rooted trees. In the merge rule every term is a product of quantities
+  that are in cones under an induction hypothesis, except `−2G_1G_2`. The
+  increment of `R` at any vertex is
+  `Δ_u = [(1+2x)² + 2xν_u]Ψ + Σ_c Λ(T_c, ν, c)P_c`, and at a new leaf
+  `E = (1+2x)²Φ(T, ν+e_u) + Λ(T, ν, u)`, with one negative term `−4x²G`.
+  Identities: 0 failures on 4,395 rooted trees and 10,404 merges.
+- **Statement (Λ) (new; conjecture inside MD-0015).** `Λ(T, ν, u) ∈ C_{j+2}`
+  for every rooted weighted tree, zero weight included. It implies that `R`
+  is non-decreasing in every weight at every vertex, hence (E) at every
+  leaf, Γ_c, Γ⁺ and Γ (S22). No failure: 4,395 + 11,085 + 3,269 rooted trees
+  stored; 29,295 + 8,198 in scratch runs. It is not proved.
+- **The bracket `Λ⁰` alone fails** (scratch): `xΛ⁰ ∈ C_{j+2}` fails in 8 of
+  4,395 and 7 of 18,009 cases (smallest: two vertices, zero weights). So the
+  branch terms of the recursion for `Λ` are needed at least for small
+  weights. Not classified.
+- **Dependency chain and weaker conditions** (`rooted-calculus.md`, last
+  section): `Γ ⇐ Γ⁺ ⇐ Γ⁺ for A independent ⇐ Γ_c ⇐ (E) ⇐ (Λ)`; only S11 is an
+  equivalence. The requirement of S4 (Γ_w) is strictly weaker than Γ
+  (`1 + x + x² ∉ C_2` satisfies it; checked for `1 ≤ L < 60` and by the
+  argument on palindromic unimodal polynomials), but the larger cone is not
+  known to be closed under products. No weaker condition that is easier to
+  establish was found.
+- **Literature audit for MD-0013 and MD-0014 (first search; novelty not
+  established).** MD-0013: item (iv) and the bound `κ ≥ 4` with its equality
+  case are **implied by Richman–Shokrieh–Wu, arXiv:2411.11488v2** (Theorems
+  A, 2.4, 4.4, 4.6(b)) through a bridging step that is the auditor's own and
+  unreviewed; that paper gives sharper bounds on `κ − 4`. The auditor also
+  remarks that the real roots follow from S12 by a definite pencil
+  (`r_A = det(A_0 + xA_1)`, both positive definite; unreviewed), and that
+  the director's identity is the spectral decomposition of the adjugate
+  (Castillo–Zaballa, arXiv:2103.13739, Thm 2.1). Nothing found on `r_A`, S12,
+  its degree or its roots. MD-0014: nothing identical or implying found;
+  Lemma G1 is classical; `Φ(T, ν)` is the principal Laplacian matching
+  polynomial of arXiv:2410.14112. Not searched: MathSciNet, zbMATH, Google
+  Scholar, books. Both records: `preliminary-search-completed`.
+- **After the note was committed (scratch, not in the note, not reviewed):**
+  in every case where `xΛ⁰ ∈ C_{j+2}` fails, `ν = 0`. So on the range tested
+  (Λ) splits into (Λ⁰) for `ν ≠ 0` — a statement with no `Λ` and no `Ω` — and
+  (Λ) for trees with zero weights. Hand computation, not checked by machine:
+  `ΨΛ⁰ = Φ[(1 − x + ν_u(1+x))Ψ + Ω] + 2(1+x)ΨG + 2x(1+ν_u)Ψ² − G²`.
+- **Review of `notes/rooted-calculus.md` (AI, `claude-opus-5-5`, revision
+  `59c47f7`): no gap found within stated scope**, for Lemma (★), S19 (a) to
+  (e), S20 (a) to (d), S21 (a) to (c), S22 and the paragraph on Γ_w. Every
+  step rebuilt by hand; the counterexamples checked against (E″) and (S) as
+  they read in `STATE.md` at `59c47f7`, with the reviewer's own exact code
+  (six leaves of weight 3: `−2048`; five leaves of weight 4: `F` as quoted,
+  expansion ending in `−1`, and `E`, `Λ`, `R` in their cones; four leaves of
+  weight 4: `−125`); identities recomputed on the 102 rooted weighted trees
+  with at most 3 vertices and on 3,843 merges; the counts of the note match
+  the result files. The reviewer's search for a counterexample to (Λ) and
+  to monotonicity covered **only stars with equal leaf weights** (at most 6
+  leaves, weights up to about 30; 2,462 rooted cases; no failure); its other
+  planned families were not reached, and one of its runs timed out (it
+  reports about 6.5 minutes of computation against the 4 allowed). Seven
+  defects of wording, none affecting a result: the degrees of `H` and `G` in
+  the proof of S21 when all weights are 0; "strictly larger" for Γ_w argued
+  only for `d ≥ 2` (true for `d = 1` by another example); Remark 2 after S19
+  ignores parts of zero weight; "in every counterexample `E`, `R`, `Λ` are
+  in their cones" is shown example by example for two stars only, and the
+  sentence on the leading coefficient does not fit the five-leaf example;
+  "(S) fails first at `j = 5`" refers to `j` only; the result files record a
+  dirty tree at `9069d88`; (★) and S20(d) were checked by an unstored
+  script. Not checked by the reviewer: a rerun of the repository scripts,
+  the earlier results the note depends on, novelty. The note is left
+  byte-identical to `59c47f7`; the defects are owed one revision.
+- **Lean (formalization agent, separate context; 37 minutes, 41 tool
+  calls).** Two new modules, eight theorems registered (14 for CJ-0001 in
+  all). `VertexPrinciple.lean`: `vertex_principle_discrete` and
+  `vertex_principle_discrete_min` — for any finite index type, a function on
+  integer points that satisfies the exchange inequality
+  `f(c+e_i−e_k) + f(c+e_k−e_i) ≤ 2f(c)` at the slice points with both
+  coordinates above their bounds is, at every point of the slice, at least
+  its value at some vertex `λ + (S−Σλ)e_p`; with a non-vacuity witness in
+  three variables. **This is the discrete core of L4 in `s` variables, not
+  L4 as written**: the step from a multi-affine polynomial with non-negative
+  mixed partials to the exchange inequality is not formalized.
+  `HalfGammaCone.lean` (real polynomials): the cone `C_d` as an inductive
+  predicate; `C_d·C_e ⊆ C_{d+e}`; `x·C_d ⊆ C_{d+1}`, `x·C_d ⊆ C_{d+2}`,
+  `(1+x)·C_d ⊆ C_{d+1}`, `x(1+x)·C_d ⊆ C_{d+3}`; **Lemma C** (every element
+  of `C_d` has a non-negative half-gamma expansion of degree `d`); some
+  memberships (`1+4x ∈ C_1`, `x(1+5x+3x²) ∈ C_4`). Not formalized: that the
+  inductive predicate equals the explicit non-negative sums; a
+  non-membership example; uniqueness of the expansion. Verification as
+  reported by the agent: `uv run python scripts/verify_lean.py`, verdict
+  passed (six checks, six modules replayed), receipt
+  `20261126T210612Z-59c47f7bc2-dirty-passed.json` — on a dirty tree, so not
+  evidence for a commit; an earlier run of the same script while the
+  registry held placeholder fingerprints wrote
+  `20261126T205121Z-59c47f7bc2-dirty-failed.json` (registry check only).
+  The run on a clean tree after the commit, and its receipt, are in the Git
+  history after this entry. The main context read the registered statements
+  (`vertex_principle_discrete`, `HalfGammaCone`, `HasNonnegHalfGamma`,
+  Lemma C) against the notes and found the differences to be those the
+  docstrings state; that is not an independent comparison. MD-0011 (whose
+  item (ii) is Lemma C) gets the formal status `partial`.
+
+### What failed
+
+- **Γ is not proved, and neither is (E).** The plan of session 7 for (E) is
+  closed by counterexamples; its replacement (Λ) is a conjecture.
+- No induction for (Λ) was found: the branch recursion leaves `−x²Φ` and
+  `−2x²G`, and the merge rule leaves `−2G_1G_2`.
+- No weaker sufficient condition that is easier to prove was found; Γ_w is
+  weaker but lacks the product structure.
+- The session-7 computations had been run on too small a range of weights
+  (0 to 2) to see the failure of (E″); the same caution applies to (Λ),
+  tested here with weights up to 20 on random trees and up to 8 on stars.
+- `results/rooted-state.json` was produced on a dirty tree at `9069d88`, by
+  the script as committed in `59c47f7`; it was not rerun on a clean tree.
+- Not done: the revisions of notes owed after earlier reviews (obligation 3);
+  obligation 2; a literature search for MD-0015.
+- **Lean:** L4 as written is not formalized (the bridge from multi-affine
+  polynomials was not attempted); the formalization agent used 37 minutes
+  against the 35 allowed, two verification runs taking about 20 of them.
+- **Budget.** The reviewer exceeded its computation allowance (about 6.5
+  minutes against 4) and reached only one of its planned families of trees.
+  Whether the session as a whole stayed within 60 minutes is recorded under
+  Telemetry and in the Git history.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (main context, literature auditor, computational experimenter, formalization agent, as far as the environment states); reviewer: see its report |
+| Session wall-clock | from 20:28 UTC; this entry was completed at about 21:10 UTC; later steps (verification of the Lean library on a clean tree, the full test suite, push) are in the Git history |
+| Computation wall-clock | main context: about 7.5 minutes (scratch runs listed above, trial 41 s, stored run 146 s, later scratch runs about 1 minute); experimenter: about 6.2 minutes as reported by it; tests not counted |
+| Literature audit, as reported by the environment | 127,336 subagent tokens, 38 tool calls, 8.6 minutes |
+| Computational experimenter, as reported by the environment | 173,199 subagent tokens, 50 tool calls, 15.0 minutes |
+| Review of S19 to S22, as reported by the environment | 136,952 subagent tokens, 28 tool calls, 14.8 minutes |
+| Formalization agent, as reported by the environment | 129,731 subagent tokens, 41 tool calls, 37.0 minutes |
+| Formalization attempts | 2 modules, 8 theorems registered; 1 verification run passed on a dirty tree, 1 failed (placeholder fingerprints); the clean run is after this entry |
+| Successful verifications | tests and validation: in the message of the commit that contains this entry and of those after it |
+| Token usage of the main session | unavailable |
+| Research iterations | 1 objective (O7): the plan through (E″) and (S) refuted; replaced by (Λ) |
+| Proof attempts | (★), S19, S20, S21, S22: written once; (Λ): not proved |
+| Counterexamples found | to (E″) and (S), statements of this investigation (smallest at 6 and 5 vertices); 0 to the published conjecture, to Γ, Γ_c, (E) or (Λ) |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress, of a mostly negative kind on the main objective. The route
+that session 7 proposed for (E) is closed: (E″) and (S) are false, with
+explicit counterexamples confirmed by an independent checker and by the
+reviewer. What replaces it is a description of `R(T, ν)` by a rooted state
+with three rules, in which the obstruction is one explicit negative term, and
+a new sufficient condition, (Λ), that survives every test made — on ranges
+that are still modest, and with the lesson of this session that such ranges
+can mislead. Nothing was promoted: MD-0015 is a candidate with one AI review;
+the novelty of MD-0013 and MD-0014 is `preliminary-search-completed`, with
+part of MD-0013 identified as implied by a published paper. Lean now has the
+discrete vertex principle in any number of variables and the cone `C_d` with
+Lemma C.
+
+Next step: objective O8 in `STATE.md` — test statement (Λ⁰) and (Λ) on wider
+families, then prove (Λ) or refute it.

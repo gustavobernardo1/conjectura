@@ -88,3 +88,72 @@ since. Numbers are those used in the journal and in the registry.
     `notes/vertex-principle.md` and the extension of L3 to empty leaf classes
     for general `s` (a sketch) have been checked by no one but their author.
     Nothing that depends on them may be promoted.
+
+## The obligations as they read in `STATE.md` at the end of session 7
+
+Moved here verbatim in session 8, when `STATE.md` was compacted. Item 9 was
+met in session 8 (regression test `tests/test_cj0001_component_form.py`;
+`STATE.md` compacted). The current short list is in `STATE.md`.
+
+1. **Literature.** Session 5 found the closed formulas of T1 and T3, and the
+   balanced case of T2, in print (see Sources); T1 to T3 must cite them, and
+   Lemma D1 is to be recorded as known. Session 6 read Collins 1993 in the
+   author's manuscript (no peak statement, no subset expansion; only the
+   balanced double star, with a formula that fails as printed there — see the
+   dossier) and thesis pages 14 to 38 (nothing on the peak). L3 and S1 must
+   cite Collins 1993, Corollary 7. Still unread: the Discrete Appl. Math. 2019
+   paper (the publisher refused automated access; a person can probably open
+   it: DOI `10.1016/j.dam.2018.10.018`), the published version of Collins
+   1993, Collins 1989, thesis pages 1–3, 6–11, 50–77, Graham–Lovász
+   pp. 68–79; no search of MathSciNet, zbMATH, Google Scholar. Session 7: a
+   first audit for MD-0011 and MD-0012 found no identical statement and
+   three sources to cite — Bapat–Kirkland–Neumann 2005, Thm 2.4 (**the
+   determinant behind S3 is in print**: `det(D + xJ)` for weighted trees) and
+   Thm 2.1; Richman–Shokrieh–Wu, arXiv:2411.11488, Thms A and 4.4 (principal
+   minors of `D` through a Laplacian minor on the complement). Unread and
+   most likely to contain Lemma F: matching polynomials of forests, Laplacian
+   coefficients of trees (Mohar 2007, Zhou–Gutman, arXiv:2410.14112),
+   Chebotarev–Shamis. **No search at all for MD-0013 and MD-0014.**
+2. **T1, T2, T3: one revision of the three notes** (citations of the published
+   formulas; defects E3 to E5 of the review of T3; the last wording changes of
+   T1 and T2, which no one but the author has checked), followed by one
+   recheck. A human reader, or a different vendor's model, before any
+   promotion.
+3. **Reviews of sessions 5 and 6.** S1 to S4 (`1bb2bbe`), S6 to S10 with
+   Lemma C (`1805bca`), Lemma F, F′ and S11 (`5622d19`; one paragraph of the note had a gap, repaired and rechecked at `7acd425`): AI reviews, no gap found; reports under
+   `reviews/`. Owed: (a) one revision of `notes/skeleton-identity.md` for the
+   four defects of its review (the degree bound of `r_A` needs its one-line
+   cofactor argument; `γ_A` at `x = 0`; `M_A` used for two matrices; `p_∅`),
+   and one of `notes/skeleton-locality.md` (the count 1,011 should be 1,010
+   for S9 as stated; "Property Γ" used for one subset; the remark "has to use
+   the tree"; a redundant proviso), each followed by a recheck
+   (`notes/gamma-reduction.md` was already revised and rechecked; two trivial
+   defects of wording remain in it); (b) L4, S5 and
+   the Γ computation were reviewed in session 7 (no gap); their defects are
+   owed one revision: `vertex-principle.md` (L3′ is superseded by S1; "V(s)
+   not proved for any s ≥ 4" is stale), `skeleton-identity.md` (S1 was checked
+   with zero leaf numbers only for `s ≤ 5`; "orders up to 100" has no
+   committed evidence; "at least two non-leaf vertices"; stale review status),
+   the result file's provenance, test coverage (`s ≤ 5` only); (b′) S12 to
+   S18 were reviewed at `b0a4dbe` (no gap); `notes/gamma-components.md` is
+   left byte-identical to that revision and is owed one revision for three
+   defects of wording ("two elementary facts" lists three; statement (E)
+   must say "there is a leaf `w`" and quantify `ν`; the opening paragraph
+   calls a sufficient condition a reduction and a family of polynomials "one
+   polynomial") and for the observation (E″) below, then a recheck; (c) a human reader, or a model of another vendor,
+   before any promotion; (d) the two classical formulas (Graham–Pollak,
+   Graham–Lovász inverse) have not been compared with the printed papers.
+4. **E2** (orders 21 to 23): independent recomputation, about 34 minutes,
+   needs the director's approval of the budget. MD-0001 stays `partial-result`.
+5. Comparison of the code with Table II of Graham–Lovász (cheap, not done).
+6. The audit's identifications of L1 and L3 as known, and the two specialised
+   statements of R1 about `M`, are unreviewed.
+7. **Formalization.** In Lean: the general form of R1 and the one-dimensional
+   core of L4. An independent comparison of the Lean statements with the
+   written ones is owed. Next: L4 in `s` variables; Proposition S4 (binomial
+   inequalities only).
+8. `spine3.py` and `results/spine3.json` still say "spine length 3" in their
+   description strings (the result file is evidence and is not edited).
+9. This file is above its target of 400 lines since session 7: compact it
+   (the dead ends and the details of O7 belong in a note), and add a
+   regression test for `component_form.py` (none exists).

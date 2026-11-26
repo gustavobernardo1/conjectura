@@ -65,6 +65,70 @@
       "source_statement": "The exchange step of the proof of Lemma L4 ('vertex principle') in research/active/CJ-0001-collins-shor-peak/notes/vertex-principle.md, for the two coordinates (i, k) that are moved, all other coordinates being fixed: f(c) >= min(f(c'), f(c'')), where c' and c'' are the two ends of the segment c + t(e_i - e_k) inside {x >= lambda}. NOT Lemma L4 itself (no s variables, no induction on the number of coordinates above their lower bound, no conclusion about the vertices lambda + (S - sum lambda) e_p for s > 2), and a discrete reformulation: for f : Z -> Z -> R and integers a0, b0, S, if f(a+1, b-1) + f(a-1, b+1) <= 2 f(a, b) for all integers a > a0, b > b0 with a + b = S, then min(f(a0, S - a0), f(S - b0, b0)) <= f(a, b) for all integers a >= a0, b >= b0 with a + b = S. Differences from the written lemma: the hypothesis is a second-difference inequality at the integer points of the line a + b = S that are strictly above both lower bounds, in place of 'f is a polynomial of degree at most 1 in each variable whose mixed partial derivative is non-negative at every real point x >= lambda'; for such an f the second difference equals -2 d^2 f / dx_i dx_k <= 0, but that implication is not formalized. The written hypothesis S > sum lambda_i is not assumed (when no point satisfies a >= a0, b >= b0, a + b = S the conclusion is empty; when S = a0 + b0 it is an equality). For s = 2 the conclusion coincides with that of L4 with lambda = (a0, b0).",
       "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.exchange_nonvacuous" },
       "statement_fingerprint": "06cb50af133c00f55c0538f48c27ea17b31ef49186aba7dcb9aa69a8776f8568"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.vertex_principle_discrete",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Discrete core, in s variables, of Lemma L4 ('vertex principle') in research/active/CJ-0001-collins-shor-peak/notes/vertex-principle.md. NOT Lemma L4 as written. Written lemma: f : R^s -> R a polynomial of degree at most 1 in each variable, lambda in Z^s, S > sum lambda_i an integer, all mixed partial derivatives d^2 f / dx_i dx_k (i != k) non-negative at every real x >= lambda; then f(c) >= min_p f(lambda + (S - sum lambda_i) e_p) for every integer c >= lambda with sum c_i = S. Lean statement: for a finite index type iota with decidable equality (Fin s is the written case), ANY function f : (iota -> Z) -> R, lam : iota -> Z, S : Z with sum lam < S; hypothesis: for all i != k and every integer point c >= lam with sum c = S, lam i < c i and lam k < c k, f(c + e_i - e_k) + f(c + e_k - e_i) <= 2 f(c); conclusion: for every integer c >= lam with sum c = S there exists p with f(lam + (S - sum lam) e_p) <= f(c) (the same as 'f(c) >= min over p' for a finite non-empty index set). Same domain, slice, quantifiers and conclusion as L4; the difference is the hypothesis: the exchange (second-difference) inequality at integer points of the slice replaces 'multi-affine polynomial with non-negative mixed partials at real points'. For a multi-affine f the second difference equals -2 d^2 f / dx_i dx_k (c), so the hypothesis of L4 implies the one used here, but that bridge from multi-affine polynomials is NOT formalized. The proof contains the induction of L4 (on the set of coordinates above their lower bound) and uses min_endpoints_le_of_concave. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.vertex_principle_nonvacuous" },
+      "statement_fingerprint": "f106e95a814482391c5689662095f805fb8bf78ccd6e33b5a0af4056b6c17281"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.vertex_principle_discrete_min",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "The theorem vertex_principle_discrete (discrete core of Lemma L4 of research/active/CJ-0001-collins-shor-peak/notes/vertex-principle.md; NOT Lemma L4 as written, see that entry for the difference in hypotheses) with the conclusion written as in the note, as a minimum over the index set: (Finset.univ.inf' over p of f(lam + (S - sum lam) e_p)) <= f(c). The extra instance argument Nonempty iota is needed to state the minimum; it also follows from sum lam < S. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.vertex_principle_nonvacuous" },
+      "statement_fingerprint": "790a9088c6c088112d30fd6d1a2bbca597546331377aaf54fe3c444deb7114ba"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.mul",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Cone C_d of research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md, section 'Lemma C (the cone of Property Gamma)': the non-negative combinations of x^e (1+x)^i with e + i <= d and 2e + i >= d. Encoding: real coefficients (Polynomial R); 'p in C_d' is the inductive predicate HalfGammaCone d p (smallest set containing 0 and the generators X^e (1+X)^i, e + i <= d, d <= 2e + i, closed under addition and under multiplication by C a with a >= 0); that this predicate coincides with the set of explicit non-negative sums is not formalized, and no non-membership example is proved. Statement: if p in C_d and q in C_d' then p q in C_{d+d'}. Source: the remark after Lemma C ('The weight condition is additive: a product of polynomials of weights at least d_1 and d_2, taken term by term, has weight at least d_1 + d_2, provided the degree condition holds for the terms of the product'). Difference: in the Lean statement both conditions of the product generator hold in C_{d+d'} without proviso, because the degree bound used is e + i <= d + d' (the sum of the two bounds), not a bound by a smaller d. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_four_X_mem_one" },
+      "statement_fingerprint": "5db4f195437efdfee191f005dea60fc48f5ea4c39482380ded189e58c7e75e37"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_mem_succ",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Cone C_d of research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md, section 'Lemma C (the cone of Property Gamma)': the non-negative combinations of x^e (1+x)^i with e + i <= d and 2e + i >= d. Encoding: real coefficients (Polynomial R); 'p in C_d' is the inductive predicate HalfGammaCone d p (smallest set containing 0 and the generators X^e (1+X)^i, e + i <= d, d <= 2e + i, closed under addition and under multiplication by C a with a >= 0); that this predicate coincides with the set of explicit non-negative sums is not formalized, and no non-membership example is proved. Statement: x C_d is contained in C_{d+1} (if p in C_d then X * p in C_{d+1}). Source: head of research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md, 'Two elementary facts about the cones'. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_four_X_mem_one" },
+      "statement_fingerprint": "4a5909f4abd66a306dc7f958598dbce593fd61e6d6213fe90424ab10664df75c"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_mem_add_two",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Cone C_d of research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md, section 'Lemma C (the cone of Property Gamma)': the non-negative combinations of x^e (1+x)^i with e + i <= d and 2e + i >= d. Encoding: real coefficients (Polynomial R); 'p in C_d' is the inductive predicate HalfGammaCone d p (smallest set containing 0 and the generators X^e (1+X)^i, e + i <= d, d <= 2e + i, closed under addition and under multiplication by C a with a >= 0); that this predicate coincides with the set of explicit non-negative sums is not formalized, and no non-membership example is proved. Statement: x C_d is contained in C_{d+2} (if p in C_d then X * p in C_{d+2}). Source: head of research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md, 'Two elementary facts about the cones'. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_four_X_mem_one" },
+      "statement_fingerprint": "e79b48a31fa0a4baf0a12c385f8f7487c0dea0c4404c5dfb4ef066012dcf81fd"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_X_mul_mem_succ",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Cone C_d of research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md, section 'Lemma C (the cone of Property Gamma)': the non-negative combinations of x^e (1+x)^i with e + i <= d and 2e + i >= d. Encoding: real coefficients (Polynomial R); 'p in C_d' is the inductive predicate HalfGammaCone d p (smallest set containing 0 and the generators X^e (1+X)^i, e + i <= d, d <= 2e + i, closed under addition and under multiplication by C a with a >= 0); that this predicate coincides with the set of explicit non-negative sums is not formalized, and no non-membership example is proved. Statement: (1 + x) C_d is contained in C_{d+1} (if p in C_d then (1 + X) * p in C_{d+1}). Not stated as a displayed fact in the notes; requested by the Research Director as one of the inclusions used there; it is read off the conditions e + i <= d, 2e + i >= d in the same way. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_four_X_mem_one" },
+      "statement_fingerprint": "951f557b68b1ea5b5a9fe2c53e37b52ebe9fe60ccd74c44ee6dabfad8f29d8f6"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.X_mul_one_add_X_mul_mem_add_three",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Cone C_d of research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md, section 'Lemma C (the cone of Property Gamma)': the non-negative combinations of x^e (1+x)^i with e + i <= d and 2e + i >= d. Encoding: real coefficients (Polynomial R); 'p in C_d' is the inductive predicate HalfGammaCone d p (smallest set containing 0 and the generators X^e (1+X)^i, e + i <= d, d <= 2e + i, closed under addition and under multiplication by C a with a >= 0); that this predicate coincides with the set of explicit non-negative sums is not formalized, and no non-membership example is proved. Statement: x (1 + x) C_d is contained in C_{d+3} (if p in C_d then X * (1 + X) * p in C_{d+3}). Source: head of research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md, 'Two elementary facts about the cones'. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_four_X_mem_one" },
+      "statement_fingerprint": "fafcda782dfec01ae33764d291340d87fbd26cfd82990f34a7c8671feddc977f"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.hasNonnegHalfGamma_of_halfGammaCone",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "Cone C_d of research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md, section 'Lemma C (the cone of Property Gamma)': the non-negative combinations of x^e (1+x)^i with e + i <= d and 2e + i >= d. Encoding: real coefficients (Polynomial R); 'p in C_d' is the inductive predicate HalfGammaCone d p (smallest set containing 0 and the generators X^e (1+X)^i, e + i <= d, d <= 2e + i, closed under addition and under multiplication by C a with a >= 0); that this predicate coincides with the set of explicit non-negative sums is not formalized, and no non-membership example is proved. Statement (Lemma C of skeleton-locality.md): every element of C_d has a non-negative half-gamma expansion of degree d. Encoding of the expansion: HasNonnegHalfGamma d p means p = sum_{e=0}^{d} C(c_e) * b_{d,e} with all c_e >= 0, where b_{d,e} = X^e (1+X)^(d-2e) if 2e < d and b_{d,e} = X^e otherwise (halfGammaBasis); this is the written form sum_{2e<d} rho_e x^e (1+x)^{d-2e} + sum_{d <= 2e <= 2d} sigma_e x^e with rho, sigma >= 0, the two coefficient families being indexed by the single index e <= d; the natural-number subtraction d - 2e is used only when 2e < d. The uniqueness of the expansion, which the note invokes for its last sentence, is not needed for this statement (existence is proved directly by closure under sums and non-negative multiples) and is not formalized. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-fable-5-2, 2026-11-26) only; not independently reviewed.",
+      "nonvacuity": { "witness": "Conjectura.Research.CollinsShorPeak.HalfGammaCone.one_add_four_X_mem_one" },
+      "statement_fingerprint": "3ae5b7ddd257413ff6109816c7d5873b84d070ad6f41c83be01abdcb122eb174"
     }
   ]
 }
