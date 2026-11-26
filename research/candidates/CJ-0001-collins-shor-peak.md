@@ -1560,3 +1560,299 @@ Any record created for (S23) or (SM) should carry novelty `unknown` or at most
 an open obligation for (S23). Nothing here supports
 `no-prior-resolution-found`. An unsuccessful search does not establish
 originality.
+
+## Audit for session 10 (2026-11-26): originality of MD-0016 (Wiener form, peak at least ⌊(n−1)/2⌋)
+
+Auditor: literature-auditor subagent, model `claude-fable-5-2`. Budget stated
+by the director: 12 minutes of wall-clock time and at most 35 tool calls. Used:
+35 tool calls (7 web searches; 18 page fetches, of which 5 returned HTTP 403 or
+429 or a redirect notice and 4 returned undecoded PDF bytes that were then read
+as page images from the saved copy; 8 local reads, 5 of them of those saved
+PDFs; 1 edit of this dossier; 1 hand-back). Wall-clock time was not measured by
+the auditor. The search stopped because the call budget was spent, not because
+the leads were exhausted. Novelty of MD-0016 is not established by this audit.
+
+The statements audited are those of
+`research/active/CJ-0001-collins-shor-peak/notes/wiener-form.md` (read in
+full): Lemma S24, identity (1) in the proof of Proposition S25, Proposition S25
+and Theorem T4. Notation as there: `T` a tree on `n` vertices, `L` its
+Laplacian, `D` its distance matrix, `M = I + xL`, `Φ = det M`,
+`τ_v = 2 − deg v`, `t = D1`, `W` the Wiener index. The queries of the session-9
+audit were not repeated.
+
+### Items
+
+- (a) Lemma S24: `adj(I + xL)_{uv} = x^{dist(u,v)} det (I + xL)[V ∖ path(u,v)]`.
+- (b) `L t = nτ − 2·1`, equivalently `LD + 2I = τ1ᵀ`.
+- (c) Proposition S25 (the Wiener form):
+  `n² l_T(x) = 4(W − nx)Φ(x) + Σ_{u<v} (t_u − t_v)² x^{dist(u,v)−1} Π_{uv}(x)`.
+- (d) Theorem T4: `d_{μ−1} < d_μ` for `μ = ⌊(n−1)/2⌋` and every tree of order
+  `n ≥ 3` (peak at least `⌊(n−1)/2⌋`).
+- (e) The unread document at `core.ac.uk/download/10129286.pdf`.
+
+### Queries (verbatim, general web search tool, standard mode)
+
+1. `"matrix forest theorem" (I + L)^{-1} tree entries "path" off-diagonal entry product forests Chebotarev Shamis "spanning rooted forests" tree accessibility`
+2. `Graham Lovász distance matrix tree inverse "LD" "2I" identity Laplacian "τ" "D^{-1} = -L/2 + ττ^T/(2(n-1))" Bapat "Graphs and Matrices" "LD + 2I"`
+3. `"distance characteristic polynomial" tree "Wiener index" "Laplacian" formula "transmission" determinant identity "det(I + xL)" OR "Laplacian characteristic polynomial" Graham Lovász subforest`
+4. `Graham Lovász conjecture distance characteristic polynomial tree coefficients peak "lower bound" "n/2" proof 2025 OR 2026 arXiv unimodal peak location trees`
+5. `Collins thesis "distance matrices of trees" MIT 1986 characteristic polynomial leaf "one leaf at a time" dspace`
+6. `tree "distance matrix" "characteristic polynomial" identity "Wiener index" "(I + xL)" OR "resolvent of the Laplacian" OR "forest matrix" "transmission" "(t_u - t_v)^2" OR "Tr(u) - Tr(v)" Graham Lovász coefficients formula`
+7. `thesis OR dissertation "Graham" "Lovász" conjecture "distance characteristic polynomial" tree unimodal peak "lower bound" Nascimento OR "peak location" "every tree" coefficients "⌊n/2⌋"`
+
+Each query returned about ten links and a machine-written summary. Text taken
+from those summaries is called a "snippet" below and is not a quotation from a
+paper.
+
+### URLs fetched and what was actually read
+
+"Page images" means that the fetch tool saved the PDF and the auditor read the
+named pages as images, directly. "Tool summary" means that the auditor saw only
+the fetch tool's machine-written answer about the page, not the page itself.
+
+| URL | Outcome |
+| --- | --- |
+| `https://arxiv.org/pdf/math/0602575` (Chebotarev, Shamis, "Matrix-Forest Theorems", arXiv:math/0602575v2) | Page images, pages 1 to 11 of 11 (the whole paper). |
+| `https://mathweb.ucsd.edu/~ronspubs/78_12_matrix_polynomials.pdf` (Graham, Lovász, "Distance matrix polynomials of trees", Adv. Math. 29 (1978) 60–88) | Page images of the scan, journal pages 60 to 71. Pages 72 to 88 NOT read. |
+| `https://www.math.ucdavis.edu/~saito/data/distmat/bapat-kirkland-neumann-distmat-lap.pdf` (Bapat, Kirkland, Neumann, "On distance matrices and Laplacians", Linear Algebra Appl. 401 (2005) 193–209) | Page images, journal pages 193 to 198. Pages 199 to 209 NOT read. |
+| `https://math.ucdavis.edu/~saito/data/distmat/aouchiche-hansen_dist-spec-graphs-survey.pdf` (Aouchiche, Hansen, "Distance spectra of graphs: A survey", Linear Algebra Appl. 458 (2014) 301–386) | Page images, journal pages 301 to 308. Pages 309 to 386 NOT read. |
+| `https://ar5iv.labs.arxiv.org/abs/2206.07561` (full text of arXiv:2206.07561) | Tool summary of the full text. |
+| `https://arxiv.org/abs/2206.07561` | Tool summary of the abstract page (the tool declined to reproduce the abstract verbatim). Authors: Abiad, Brimkov, Hayat, Khramova, Koolen. One version, 15 June 2022. |
+| `https://arxiv.org/html/2407.03309` (full text of arXiv:2407.03309) | Tool summary of the full text; the tool reported that parts (the path subsection, the bi-star result) were not in the text it was given. |
+| `https://arxiv.org/abs/2407.03309` | Tool summary of the abstract page. Authors: Jana, Mahato, Sivasubramanian. 3 July 2024. |
+| `https://arxiv.org/html/2411.11488` (Richman, Shokrieh, Wu, "Principal minors of tree distance matrices", arXiv:2411.11488v2, stamp 10 Dec 2025) | Tool summary of the first 100000 of 108982 characters; the last 8982 (reference list, per the tool) not read. |
+| `https://api.semanticscholar.org/graph/v1/paper/arXiv:2206.07561/citations?fields=title,year,externalIds&limit=100` | Read (tool's listing): 8 citing papers, titles only. |
+| `https://api.semanticscholar.org/graph/v1/paper/arXiv:2407.03309/citations?fields=title,year,externalIds&limit=100` | Read: empty list. |
+| `https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/0166-218X(89)90044-9/citations?fields=title,year,externalIds&limit=200` (Collins 1989) | Read (tool's listing): 14 citing papers in total; the 6 dated 2019 or later were listed by title. |
+| `https://dspace.mit.edu/handle/1721.1/77687` | Tool summary of the record page: "Distance matrices of trees", Karen L. Collins, Ph.D. thesis, MIT Department of Mathematics, 1986, advisor Richard P. Stanley; "Bibliography: leaf 56"; one file `15748263-MIT.pdf` (2.26 MB). No abstract or table of contents on the record page. |
+| `https://dspace.mit.edu/bitstreams/ffd29595-5770-4d22-936c-16bab6d1daf5/download` | HTTP 429 (Retry-After 900). NOT read. |
+| `https://core.ac.uk/outputs/10129286`, `https://core.ac.uk/reader/10129286`, `https://core.ac.uk/download/10129286.pdf` | HTTP 403, all three. NOT read. |
+| `https://ar5iv.org/abs/2206.07561` | Redirect notice only; replaced by the `ar5iv.labs.arxiv.org` row. |
+
+### Findings per item (within this coverage only)
+
+**(a) Lemma S24 — known consequence of Maybee–Olesky–van den Driessche–Wiener
+(1989), as quoted in Chebotarev–Shamis, via a one-path specialization
+(bridging step — unreviewed).** Read directly in arXiv:math/0602575v2:
+
+- Theorem 5 and Theorem 6 (p. 5): for a weighted multigraph `G` and
+  `W = I + L(G)`, `det W` is the total weight of the spanning rooted forests of
+  `G`, and the cofactor `W^{ij}` is the total weight of the spanning rooted
+  forests in which `i` and `j` belong to the same tree rooted at `i`. Theorem 7:
+  `(W^{−1})_{ij}` is the quotient of the two. The weight of a forest is the
+  product of the weights of its edges, so taking every edge weight equal to `x`
+  gives `I + xL`. The paper states that Theorems 3 and 4 (the directed
+  versions) can be derived from Chaiken's all-minors theorem (its reference
+  [2], SIAM J. Alg. Disc. Meth. 3 (1982) 319–329, NOT opened).
+- Equation (4) (p. 8), attributed there to "a theorem by Maybee (see [16])",
+  [16] being Maybee, Olesky, van den Driessche, Wiener, "Matrices, digraphs,
+  and determinants", SIAM J. Matrix Anal. Appl. 10 (1989) 500–519 (NOT opened):
+  for any `n × n` matrix `U` and `i ≠ j`, the cofactor `U^{ij}` equals the sum,
+  over the paths `P_k` from `i` to `j` in the weighted digraph of `U` (arc
+  weights `−u_{ij}`), of the weight of `P_k` times `det U_{−ψ_k}`, where `ψ_k`
+  is the vertex set of `P_k` and `U_{−ψ}` is `U` with those rows and columns
+  deleted.
+
+Bridging step, written by the auditor and not reviewed: for `U = I + xL` of a
+tree the off-diagonal entries are `−x` on the edges, the digraph has one path
+from `u` to `v`, of weight `x^{dist(u,v)}`, and (4) reads
+`adj(I + xL)_{uv} = x^{dist(u,v)} det (I + xL)[V ∖ V(P)]`, which is the first
+equality of Lemma S24. No source was found that states this tree
+specialization in these words. The remaining parts of Lemma S24 (the product
+over the components off the path, and the membership in the cone `C_{n−d−1}`)
+rest on the project's Lemma F and cones; no source was searched for them. Not
+opened: Chebotarev–Shamis, Automat. Remote Control 58 (1997) 1505–1514
+(arXiv:math/0602070), which is reference [4] of the paper read; Chaiken (1982);
+Maybee et al. (1989); Moon, "On the adjoint of a matrix associated with trees",
+Lin. Multilin. Alg. 39 (1995) 191–194 (reference [20] there; by its title a
+possible direct source, title only).
+
+**(b) `L t = nτ − 2·1`, `LD + 2I = τ1ᵀ` — known consequence of Graham–Lovász
+(1978), Lemma 1, via a two-line step (bridging step — unreviewed).** Read
+directly:
+
+- Graham–Lovász (1978), Lemma 1, p. 66: the entries of `D^{−1}` for a tree, in
+  terms of the degrees and the adjacency matrix. Some minus signs are faint in
+  the scan; the same formula is legible in Aouchiche–Hansen (2014), Theorem 2.8,
+  p. 308 ("See [63]", their [63] being Graham–Lovász):
+  `(D^{−1})_{ij} = (2 − d_i)(2 − d_j)/(2(n−1)) + (−d_i/2 if i = j, a_{ij}/2 if i ≠ j)`,
+  and, on the same page, in matrix form `D^{−1} = −½L + δδᵀ/(2(n−1))` with
+  `δ_i = 2 − d_i`.
+- Bapat–Kirkland–Neumann (2005), Theorem 2.1, p. 195: the weighted version
+  `D^{−1} = −½L + δδᵀ/(2 Σ α_i)`, attributed in the unweighted case to Graham
+  and Lovász; and in its proof, p. 196: `Dδ = σ_{n−1} 1` (for unit weights,
+  `Dτ = (n−1)1`).
+
+Bridging step (auditor, unreviewed): multiplying `D^{−1} = −½L + ττᵀ/(2(n−1))`
+on the right by `D` and using `τᵀD = (n−1)1ᵀ` gives `I = −½LD + ½τ1ᵀ`, that is
+`LD + 2I = τ1ᵀ`; applied to `1` it gives `Lt = nτ − 2·1`, and column `c` gives
+`Lδ_c = τ − 2e_c`. The relation `tᵀτ = n(n−1)` used in the proof of S25 follows
+from `Dτ = (n−1)1`. The identity in the exact form `LD + 2I = τ1ᵀ` was NOT
+seen in any page read; the summary of query 2 reports that it found no source
+stating it. The auditor recalls it as a lemma of Bapat's book *Graphs and
+Matrices* (chapter on the distance matrix of a tree); the book was not opened,
+so this recollection is unverified and must not be cited as read.
+
+**(c) Proposition S25, the Wiener form — no source found within this coverage
+(originality NOT established).** No formula expressing the distance
+characteristic polynomial of a tree through `det(I + xL)`, the Wiener index and
+squared differences of transmissions was seen. What was read, and how close it
+comes:
+
+- Graham–Lovász (1978), pp. 64–67, read directly: formula (7), the coefficients
+  as `Σ_F A_F^{(k)} N_F(T)` over forests; and (10)–(13): the bordered
+  `(n+1) × (n+1)` matrix `D′(λ)` with corner `−(n−1)`, border `2 − d_i`,
+  diagonal `−2λ − d_i` and off-diagonal `a_{ij}` (that is, `−(2λI + L)` bordered
+  by `τ`), with Fact 4 `det D′(λ) = −(n−1) 2^n det(D^{−1} − λI)` and
+  `δ_k(T) = ¼ δ′_{n−k}(T)`. This is the place where the Laplacian pencil enters;
+  it is the source of the project's L1. Neither the Wiener index nor the
+  transmissions appear on pp. 60–71. Pages 72–88 were not read.
+- Aouchiche–Hansen (2014), pp. 301–308, read directly: Theorem 2.4
+  (Edelberg–Garey–Graham: the signs, `a_{n−2} = (−1)^{n−1} Σ_{i<j} d_{ij}²`,
+  `a_0` to `a_3` as subtree counts), Theorem 2.5 (Graham–Lovász subforest
+  form), Theorems 2.8 and 2.9 (the inverse). The Wiener index and the
+  transmission are defined on p. 304; in the pages read they are not connected
+  to the distance characteristic polynomial of a tree. The rest of the survey
+  (78 pages, including the sections on transmission-regular graphs) was not
+  read.
+- Richman–Shokrieh–Wu, arXiv:2411.11488v2 (tool summary only; found through
+  query 6): Theorem C gives the coefficient of `λ^{n−k}` of `det(D − λI)` as
+  `(−1)^{n−1} 2^{k−2}` times `(n−1) Σ_{F ∈ F_k} π(F) − Σ_{F ∈ F_{k+1}} π(F) Σ_j (outdeg(C_j) − 2)²/|V(C_j)|`,
+  over spanning forests with `k` and `k+1` components, `π(F)` the product of
+  the component orders. Per the tool: no Wiener index, no transmissions, no
+  `det(I + xL)`, nothing on unimodality or the peak. Auditor's remark, not
+  checked beyond this line: since `Σ_{v ∈ C} (2 − deg v) = 2 − outdeg(C)` for a
+  component `C` of a spanning forest of a tree, Theorem C reads as the
+  forest-by-forest expansion of L1, `(n−1)Φ − x τᵀ adj(I + xL) τ`. It is the
+  closest published formula found, and it is a different formula: S25 is
+  obtained from L1 by the substitution `τ = (Lt + 2·1)/n`, which that paper (per
+  the tool summary) does not make. If the project cites L1, this preprint
+  should be cited next to Graham–Lovász.
+
+Assessment of what the originality of (c) amounts to, for whoever classifies
+the record: the proof of S25 in the note is a short computation from L1
+(Graham–Lovász), identity (b) (a consequence of the Graham–Lovász inverse) and
+(a) (a consequence of the path expansion of a cofactor). If the identity is
+unpublished, what would be new is the form, not a new ingredient. Snippets
+only, not opened, and possible places for a formula of this kind: Merris, "The
+distance spectrum of a tree" (J. Graph Theory, 1990; a PDF was located at
+`math.ucdavis.edu/~saito/data/distmat/merris-distspect-tree.pdf`); the
+Merris/McKay formula for the Wiener index of a tree through the Laplacian
+eigenvalues (arXiv:1304.0873 and a 2003 paper, snippets); arXiv:1609.06911
+("On the Wiener index, distance cospectrality and transmission regular
+graphs"); arXiv:2008.06068 ("Bilinear matrix equation characterizes Laplacian
+and distance matrices of weighted trees"). Not opened at all:
+Edelberg–Garey–Graham (1976); Collins (1989) and her thesis; Bapat's book; the
+Bapat–Sivasubramanian papers; Zhou–Trinajstić; the literature on the distance
+Laplacian `Diag(t) − D`.
+
+**(d) Theorem T4 — no source found within this coverage (originality NOT
+established).** No statement that the peak of the normalized coefficients is at
+least `⌊(n−1)/2⌋`, or at least `⌊n/2⌋` for odd `n`, for every tree was seen.
+
+- Aouchiche–Hansen (2014), p. 307, read directly: after Conjecture 2.6 ("The
+  coefficients of the distance characteristic polynomial of any tree `T` with
+  `n` vertices are unimodal with peak between `n/2` and `(1 − 1/√5)n`",
+  attributed to Collins): "No more results are known about that conjecture."
+  This describes the state in 2014, before arXiv:1507.02341.
+- arXiv:2206.07561 (tool summary of the ar5iv full text; journal version DOI
+  `10.1016/j.laa.2023.03.027` per the citation index, not opened). On trees,
+  the tool quotes "Little progress on this problem is known" and reports:
+  Collins for stars and paths; Conjecture 1.1, the peak between `⌊n/2⌋` and
+  `⌈(1 − 1/√5)n⌉`; Aalipour et al. for unimodality and log-concavity. Its own
+  peak results concern block graphs: Theorem 4.3 (windmill graphs, asymptotic),
+  Corollary 4.5 (friendship graphs, `3k/4 + O(log k)`), Theorem 4.6 (a
+  universal vertex joined to two copies of `K_t`: peak at `⌊n/2⌋`), Theorem 4.7
+  (barbell graphs), Corollary 4.8 (lollipop graphs, `⌊(n−1)/2⌋`). Open there:
+  Question 5.1, whether the coefficients of every block graph on `n` vertices
+  are unimodal with peak between `⌊n/3⌋` and `⌊n/2⌋`. No peak-location result
+  for general trees, and no formula through the Laplacian, the Wiener index or
+  transmissions, per the tool.
+- arXiv:2407.03309 (tool summary of the arXiv HTML full text; journal version
+  DOI `10.1007/s40314-025-03163-5`, not opened). It concerns two other
+  matrices of a tree: Theorem 3, for the Min-4PC matrix, peak index `t` with
+  `⌊(n−2)/3⌋ ≤ t ≤ ⌈(n+1)/3⌉`, with unimodality and log-concavity; Theorem 5,
+  unimodality and log-concavity for the 2-Steiner distance matrix; Theorem 18,
+  the star for the 2-Steiner matrix, `⌊(n−2)/2⌋ ≤ t ≤ ⌈n/2⌉`; a conjecture on
+  the peak for the path (value not in the text the tool was given). Per the
+  tool it proves nothing about the peak of the ordinary distance matrix and
+  says only that bounds for it are known.
+- Citation indexes (Semantic Scholar, titles only). Citing arXiv:2206.07561:
+  8 papers, of which only arXiv:2407.03309 concerns this question by its title;
+  the others are arXiv:2309.08691 ("The additive-multiplicative distance matrix
+  of a graph, and a novel third invariant") and six papers on unrelated
+  subjects. Citing arXiv:2407.03309: none listed. Citing Collins (1989): 14 in
+  total; the six dated 2019 or later are arXiv:2407.03309, arXiv:2306.07956,
+  arXiv:2207.03343 (two papers on Monte Carlo search for refuting conjectures,
+  not opened), arXiv:2206.07561, arXiv:2104.14516 and arXiv:2103.00647. The
+  eight older ones were not listed by the tool. Together with session 9
+  (citations of arXiv:1507.02341), no paper citing any of the four concerns the
+  peak of trees other than those already in this dossier.
+- Queries 4 and 7 returned no paper dated 2025 or 2026 and no thesis; nothing
+  under the name Nascimento. Their summaries repeat what this dossier already
+  records from arXiv:1507.02341 (upper and lower bounds on the peak, the remark
+  that `⌊n/2⌋` is the intended lower bound); that paper was not re-read in this
+  session, and the comparison of T4 with its lower bound should be made against
+  the reading recorded earlier in this dossier.
+
+**(e) The document at `core.ac.uk/download/10129286.pdf` — NOT read; the
+obligation of session 9 stays open.** The three core.ac.uk addresses returned
+HTTP 403. Query 5 lists that address in the result list for Karen L. Collins's
+thesis, and the DSpace@MIT record `1721.1/77687` (tool summary) confirms that
+such a thesis exists: "Distance matrices of trees", Ph.D., MIT, 1986, advisor
+Richard P. Stanley, bibliography on leaf 56. That the core.ac.uk document is
+this thesis rests on the search result list only. The summary of query 5 says
+that the thesis has "a section on the actual contribution of a leaf" and a
+section on cospectral trees (snippet; not verified). The full text on DSpace
+returned HTTP 429 with a retry delay of 900 seconds. Whether the thesis
+contains a leaf-by-leaf recursion for the distance polynomial of a tree, and
+whether it coincides with (S23), is therefore still unknown. Next access path
+to try: the DSpace bitstream address in the table above.
+
+### What would threaten the originality of (c) or (d)
+
+- For (c): nothing read states it. The identity is a few lines from known
+  ingredients, so a statement of it may exist in a place this audit did not
+  reach (Merris 1990, Collins's thesis and 1989 paper, Bapat's book, pages
+  72–88 of Graham–Lovász, the distance-Laplacian literature), none of which
+  was read.
+- For (d): nothing read states it or a stronger bound for all trees. The
+  sources that would be expected to mention such a bound (the two follow-up
+  papers and the 2014 survey) report no general result of this kind, on the
+  evidence of tool summaries for the two papers and of a direct reading for the
+  survey. A paper that does not cite arXiv:1507.02341, arXiv:2206.07561 or
+  Collins (1989), or one newer than the citation index, would have been missed.
+
+### Not searched or not accessible
+
+- MathSciNet, zbMATH, Google Scholar: not available to the tool; not searched.
+- MathOverflow, OEIS, erdosproblems.com, Open Problem Garden: not searched.
+  Formal libraries (Mathlib, formal-conjectures): not searched.
+- Located and not read: Collins's thesis (403 on core.ac.uk, 429 on DSpace);
+  Graham–Lovász (1978) pp. 72–88, which include the statement of the
+  conjecture; Bapat–Kirkland–Neumann (2005) pp. 199–209; Aouchiche–Hansen
+  (2014) pp. 309–386; Merris (1990); Chaiken (1982); Maybee et al. (1989);
+  Moon (1995); Chebotarev–Shamis (1997); Collins (1989); Edelberg–Garey–Graham
+  (1976); Bapat, *Graphs and Matrices*; arXiv:2309.08691; arXiv:2306.07956;
+  arXiv:2207.03343; arXiv:1609.06911; arXiv:2008.06068; arXiv:1304.0873; the
+  journal versions of arXiv:2206.07561 and arXiv:2407.03309; the last 8982
+  characters of arXiv:2411.11488.
+- Read only through the fetch tool's summary, not by the auditor:
+  arXiv:2206.07561, arXiv:2407.03309, arXiv:2411.11488, the DSpace record and
+  the citation listings. Theorem numbers and quotations from those three papers
+  in this section come from the summaries and should be checked against the
+  papers before they are cited.
+- Not done: the citing-paper list of arXiv:2411.11488 and of Graham–Lovász
+  (1978); a second citation index; arXiv listing searches; any search in a
+  language other than English; any search for the cone memberships used in the
+  proof of T4 (Proposition S26, Lemma A) or for Laplacian-coefficient
+  inequalities of the same shape.
+
+### Recommendation for the registry (the auditor did not edit it)
+
+For MD-0016, novelty at most `preliminary-search-completed`. Lemma S24 and
+identity (1) should be presented as known facts with the citations above (after
+the two bridging steps are reviewed), not as contributions. For Proposition S25
+and Theorem T4 nothing here supports `no-prior-resolution-found`: the reference
+databases were not searched and several of the most likely sources were not
+read. An unsuccessful search does not establish originality.
