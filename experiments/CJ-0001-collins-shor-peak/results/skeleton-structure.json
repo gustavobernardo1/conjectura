@@ -1,0 +1,2388 @@
+{
+  "experiment": "CJ-0001 trees made of a skeleton with pendant leaves: structure of the coefficient polynomials",
+  "arithmetic": "exact integers and rationals",
+  "run": {
+    "command": [
+      "python",
+      "experiments/CJ-0001-collins-shor-peak/skeleton_structure.py",
+      "--max-skeleton",
+      "8",
+      "--max-order",
+      "40",
+      "--out",
+      "C:/Users/bezze/AppData/Local/Temp/claude/150e3719c412ed18/7b0a0d46-923f-4f04-ae71-5a9e832991c4/scratchpad/skeleton-structure.json"
+    ],
+    "git_revision": "7c1a9dd51a92a9da61ceaf6df2633cfa176804a9",
+    "tree_clean": true,
+    "started_utc": "2026-11-26T11:16:01Z",
+    "versions": {
+      "python": "3.12.4",
+      "python-flint": "0.9.0",
+      "networkx": "3.7"
+    }
+  },
+  "skeletons": [
+    {
+      "vertices": 2,
+      "parents": [
+        -1,
+        0
+      ],
+      "degrees": [
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "6 trees, leaf numbers in 0..2, n >= 2s",
+      "subset_expansion_identities": 4,
+      "top_coefficient": {
+        "1": 2,
+        "2": 5
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "4 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 1,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 3,
+      "parents": [
+        -1,
+        0,
+        0
+      ],
+      "degrees": [
+        2,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "17 trees, leaf numbers in 0..2, n >= 2s",
+      "subset_expansion_identities": 8,
+      "top_coefficient": {
+        "2": 3,
+        "3": 6
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "6 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 4,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          3
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 4,
+      "parents": [
+        -1,
+        0,
+        1,
+        0
+      ],
+      "degrees": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "50 trees, leaf numbers in 0..2, n >= 2s",
+      "subset_expansion_identities": 16,
+      "top_coefficient": {
+        "3": 4,
+        "4": 7
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "8 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 11,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          4
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 4,
+      "parents": [
+        -1,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        3,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "50 trees, leaf numbers in 0..2, n >= 2s",
+      "subset_expansion_identities": 16,
+      "top_coefficient": {
+        "3": 4,
+        "4": 7
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "8 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 11,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          4
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 5,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        3
+      ],
+      "degrees": [
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "147 trees, leaf numbers in 0..2, n >= 2s",
+      "subset_expansion_identities": 32,
+      "top_coefficient": {
+        "4": 5,
+        "5": 8
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "10 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 26,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          5
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 5,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        0
+      ],
+      "degrees": [
+        3,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "147 trees, leaf numbers in 0..2, n >= 2s",
+      "subset_expansion_identities": 32,
+      "top_coefficient": {
+        "4": 5,
+        "5": 8
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "10 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 26,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          5
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 5,
+      "parents": [
+        -1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        4,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "147 trees, leaf numbers in 0..2, n >= 2s",
+      "subset_expansion_identities": 32,
+      "top_coefficient": {
+        "4": 5,
+        "5": 8
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "10 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 26,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          5
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 6,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4
+      ],
+      "degrees": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 64,
+      "top_coefficient": {
+        "5": 6,
+        "6": 9
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "12 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 57,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          6
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 6,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        4
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 64,
+      "top_coefficient": {
+        "5": 6,
+        "6": 9
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "12 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0,
+          1
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 57,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          6
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 6,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        0
+      ],
+      "degrees": [
+        3,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 64,
+      "top_coefficient": {
+        "5": 6,
+        "6": 9
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "12 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 57,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          6
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 6,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        3,
+        0
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 64,
+      "top_coefficient": {
+        "5": 6,
+        "6": 9
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "12 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 57,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          6
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 6,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        4,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 64,
+      "top_coefficient": {
+        "5": 6,
+        "6": 9
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "12 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 57,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          6
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 6,
+      "parents": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        5,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 64,
+      "top_coefficient": {
+        "5": 6,
+        "6": 9
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "12 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 57,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          6
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        5
+      ],
+      "degrees": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        4
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0,
+          4
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        0
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        5
+      ],
+      "degrees": [
+        4,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          1
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        4,
+        4
+      ],
+      "degrees": [
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        4,
+        0
+      ],
+      "degrees": [
+        3,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        4,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        3,
+        0,
+        5
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        3,
+        0,
+        0
+      ],
+      "degrees": [
+        4,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        5,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 7,
+      "parents": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        6,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 128,
+      "top_coefficient": {
+        "6": 7,
+        "7": 10
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "14 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 120,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        3,
+        0,
+        5,
+        6
+      ],
+      "degrees": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        2,
+        0,
+        5,
+        6
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          1,
+          2
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        2,
+        0,
+        5,
+        5
+      ],
+      "degrees": [
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0,
+          2
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        5,
+        6
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          1
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        5,
+        5
+      ],
+      "degrees": [
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0,
+          1
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        1,
+        0,
+        5,
+        0
+      ],
+      "degrees": [
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        5,
+        0
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        4,
+        4
+      ],
+      "degrees": [
+        4,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          4
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        4,
+        0
+      ],
+      "degrees": [
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        0,
+        6
+      ],
+      "degrees": [
+        3,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        2,
+        0,
+        4,
+        0,
+        0
+      ],
+      "degrees": [
+        4,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        6
+      ],
+      "degrees": [
+        5,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          1
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        5,
+        5
+      ],
+      "degrees": [
+        4,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0,
+          1
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        5,
+        0
+      ],
+      "degrees": [
+        4,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0,
+          1
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        4,
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        4,
+        4,
+        0
+      ],
+      "degrees": [
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        4,
+        0,
+        6
+      ],
+      "degrees": [
+        3,
+        3,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        4,
+        0,
+        0
+      ],
+      "degrees": [
+        4,
+        3,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        5,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        3,
+        0,
+        5,
+        0
+      ],
+      "degrees": [
+        4,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        5,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        6,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    },
+    {
+      "vertices": 8,
+      "parents": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "degrees": [
+        7,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "closed_form_against_direct_determinant": "1 trees, leaf numbers in 0..1, n >= 2s",
+      "subset_expansion_identities": 256,
+      "top_coefficient": {
+        "7": 8,
+        "8": 11
+      },
+      "hypothesis_V_on_c_nonnegative": {
+        "orders": "16 to 40",
+        "pairs_and_orders_where_the_certificate_fails": 0,
+        "first_failures": [],
+        "vertices_with_nonpositive_value": 0,
+        "first_nonpositive_vertices": [],
+        "minimizing_vertex_positions": [
+          0
+        ]
+      },
+      "property_gamma": {
+        "subsets_checked": 247,
+        "failures": 0,
+        "first_failures": []
+      },
+      "top_expansion": [
+        [
+          8
+        ],
+        [
+          3
+        ]
+      ]
+    }
+  ],
+  "totals": {
+    "skeletons": 47,
+    "closed_form_trees": 604,
+    "subset_identities": 7820,
+    "certificate_failures": 0,
+    "nonpositive_vertices": 0,
+    "gamma_failures": 0,
+    "gamma_subsets": 7448,
+    "one_vertex_formula_checked": 323,
+    "locality_classes": 505,
+    "locality_classes_with_more_than_one_expansion": 0
+  },
+  "seconds": 109.9
+}

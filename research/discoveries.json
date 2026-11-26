@@ -463,6 +463,11 @@
           "revision": "1c386621bbf5083e89259a9e6ff9cae341c3b4a7",
           "sha256": "27c544f5264f09e7be8c1503dc932c43ae130578f5f5f861920feadeb7ebaf33",
           "statement_fingerprint": "dca51974c95c725e081420c31ccd09fb495448a76f5c0625f444a4ad974050b1"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
+          "summary": "Literature audit of session 5 (a separate agent context, model claude-fable-5-2; 6 searches, 6 fetches): what was read, with page and proposition numbers, what was not accessible, and a conclusion per statement."
         }
       ],
       "status": {
@@ -471,7 +476,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by the same model family as the author. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, and on the caterpillar formula MD-0003. It says nothing about trees of diameter 4 or more, and nothing about stars. The review found no gap and listed eight minor defects of presentation in the notes (an incomplete list of dependencies, two unproved asides in the remarks, notation used twice); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, the review was made on the earlier text, an independent recheck of the first revision found no change to the mathematics, and the last corrections (wording only) have been checked by no one but their author. Novelty holds only within the documented search.",
+      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by the same model family as the author. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, and on the caterpillar formula MD-0003. It says nothing about trees of diameter 4 or more, and nothing about stars. The review found no gap and listed eight minor defects of presentation in the notes (an incomplete list of dependencies, two unproved asides in the remarks, notation used twice); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, the review was made on the earlier text, an independent recheck of the first revision found no change to the mathematics, and the last corrections (wording only) have been checked by no one but their author. Novelty holds only within the documented search. Literature (session 5): Lemma D1 is a known formula (Xue–Liu–Jia 2016; do Nascimento 2018) and must be cited as such; what is not found in the literature read is only the location of the peak.",
       "depends_on": [
         {
           "ref": "MD-0003",
@@ -498,8 +503,8 @@
       ],
       "novelty_search": {
         "as_of": "2026-11-26",
-        "coverage": "arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries (peak location with double star, caterpillar, diameter, 2023 to 2026) and two citation lists. In these sources the peak is located only for stars and paths (Collins, as cited), and the only general bounds are Theorems 3.3 and 3.6 of arXiv:1507.02341; for a double star Theorem 3.6 gives ⌊(n − 2)/4⌋.",
-        "limitations": "Collins (1989) and her thesis were not accessible and are known only second-hand; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars was not read; several citing papers were seen by title only; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The statement is elementary once the coefficients are explicit, so an earlier appearance is plausible."
+        "coverage": "arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries (peak location with double star, caterpillar, diameter, 2023 to 2026) and two citation lists. In these sources the peak is located only for stars and paths (Collins, as cited), and the only general bounds are Theorems 3.3 and 3.6 of arXiv:1507.02341; for a double star Theorem 3.6 gives ⌊(n − 2)/4⌋. Session 5 (2026-11-26): the closed formula of the distance characteristic polynomial of the double star, which is Lemma D1 of the notes, is in print: J. Xue, R. Liu, H. Jia, Filomat 30:6 (2016), Lemma 2.3 (read in full), and J. S. do Nascimento, D.Sc. thesis, COPPE/UFRJ 2018, Prop. 3.2.1; the project's polynomial coincides with theirs. Neither says anything about the maximum of the coefficients; no statement locating the peak for double stars was found.",
+        "limitations": "Collins (1989) and her thesis were not accessible and are known only second-hand; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars was not read; several citing papers were seen by title only; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The statement is elementary once the coefficients are explicit, so an earlier appearance is plausible. Collins, Discrete Math. 122 (1993) 103–112, which by the thesis treats double stars and is by the conjecture's author, was not accessed; it is the first thing to read."
       }
     },
     {
@@ -567,6 +572,11 @@
           "revision": "1c386621bbf5083e89259a9e6ff9cae341c3b4a7",
           "sha256": "27c544f5264f09e7be8c1503dc932c43ae130578f5f5f861920feadeb7ebaf33",
           "statement_fingerprint": "2bfaa32cedf87d8a5e8558b3e89cd0443f24681f497b5de68e00dd3406156f58"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
+          "summary": "Literature audit of session 5 (a separate agent context, model claude-fable-5-2; 6 searches, 6 fetches): what was read, with page and proposition numbers, what was not accessible, and a conclusion per statement."
         }
       ],
       "status": {
@@ -575,7 +585,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. Two steps (Lemmas C1 and C2) are computer-assisted polynomial identities; they were recomputed independently by the reviewer, not derived by hand. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, on the caterpillar formula MD-0003, and on the general form of R1 in notes/lemmas.md, of which the reviewer checked the direction used. It does not cover b = 0 (caterpillars of diameter 4 with no leaf at the central vertex, among them the path on five vertices), nor trees of diameter 4 that are not caterpillars. The review listed eight defects of record and presentation (STATE.md, obligation 8); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, the review was made on the earlier text, an independent recheck of the first revision found no change to the mathematics, and the last corrections (wording only) have been checked by no one but their author. Novelty holds only within the documented search, which is small.",
+      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. Two steps (Lemmas C1 and C2) are computer-assisted polynomial identities; they were recomputed independently by the reviewer, not derived by hand. The proof rests on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, on the caterpillar formula MD-0003, and on the general form of R1 in notes/lemmas.md, of which the reviewer checked the direction used. It does not cover b = 0 (caterpillars of diameter 4 with no leaf at the central vertex, among them the path on five vertices), nor trees of diameter 4 that are not caterpillars. The review listed eight defects of record and presentation (STATE.md, obligation 8); the notes were revised on 2026-11-26 to correct them, without change to any statement, formula or step of the proof, the review was made on the earlier text, an independent recheck of the first revision found no change to the mathematics, and the last corrections (wording only) have been checked by no one but their author. Novelty holds only within the documented search, which is small. Literature (session 5): The balanced case of the formula of Lemma C1 is in print (do Nascimento 2018, Prop. 3.2.9); the general theorems of that thesis on caterpillars have not been read.",
       "depends_on": [
         {
           "ref": "MD-0003",
@@ -602,8 +612,8 @@
       ],
       "novelty_search": {
         "as_of": "2026-11-26",
-        "coverage": "The coverage recorded for MD-0006 (literature audit of session 2: arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász 1978 pages 60 to 67 and 80 to 86; nine web queries on the location of the peak for double stars, caterpillars and trees of small diameter), and four further web queries by the reviewer of T2 on the peak for caterpillars and trees of diameter 4, with arXiv:2206.07561 sections 4.2 and 5 reread. In these sources the peak is located only for stars and paths (Collins, as cited) and for some block graphs; none treats K(a,b,c), a caterpillar family or a family of diameter 4.",
-        "limitations": "No search was made for this statement by a literature auditor; the queries are those of the session-2 audit and of the reviewer. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method (quotient matrix of a twin partition, then comparison of binomial ratios) is standard, so an earlier appearance is plausible."
+        "coverage": "The coverage recorded for MD-0006 (literature audit of session 2: arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász 1978 pages 60 to 67 and 80 to 86; nine web queries on the location of the peak for double stars, caterpillars and trees of small diameter), and four further web queries by the reviewer of T2 on the peak for caterpillars and trees of diameter 4, with arXiv:2206.07561 sections 4.2 and 5 reread. In these sources the peak is located only for stars and paths (Collins, as cited) and for some block graphs; none treats K(a,b,c), a caterpillar family or a family of diameter 4. Session 5 (2026-11-26): do Nascimento's thesis (2018), Prop. 3.2.9, gives the reduced 6 × 6 matrix and the polynomial for the balanced caterpillar C(t,t,t) only; no three-parameter formula and no peak statement were found on the pages read.",
+        "limitations": "No search was made for this statement by a literature auditor; the queries are those of the session-2 audit and of the reviewer. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method (quotient matrix of a twin partition, then comparison of binomial ratios) is standard, so an earlier appearance is plausible. Pages 16 to 37 of the thesis (its general theorems on caterpillars) and the Discrete Appl. Math. 2019 paper of do Nascimento, Del-Vecchio and de Freitas were not read; Collins (1993) was not accessed."
       }
     },
     {
@@ -661,6 +671,11 @@
           "revision": "d2eb9ac9c849a63072d25242eb2d47c0f7363311",
           "sha256": "b3ead02d5a426509bcfe420960270bcb1355f56a97640fb346caa3a46c27431a",
           "statement_fingerprint": "8d9cc46ec6438ef4d75dd4832a9d55ed2e2bd6a0caea6b5c4e47742bc7024761"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
+          "summary": "Literature audit of session 5 (a separate agent context, model claude-fable-5-2; 6 searches, 6 fetches): what was read, with page and proposition numbers, what was not accessible, and a conclusion per statement."
         }
       ],
       "status": {
@@ -669,7 +684,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. It relies on the two computer-assisted polynomial identities of notes/spine3.md (Lemmas C1 and C2), which were recomputed by two reviewers and not derived by hand, on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, and on the general form of R1. The registered statement is T3 alone; the corollary of the notes (every caterpillar of diameter 4) depends in addition on MD-0007, which is itself a candidate. The path on five vertices, K(1,0,1), is outside T3 and is covered by direct computation. The review listed six defects of record and presentation (STATE.md, obligation 9); the notes are unchanged since the review. Novelty holds only within the documented search, which is small.",
+      "limitations": "A candidate proof, not an established result: it has not been read by a mathematician, and its one review is by another AI model of the same vendor as the author. It relies on the two computer-assisted polynomial identities of notes/spine3.md (Lemmas C1 and C2), which were recomputed by two reviewers and not derived by hand, on Fact 1.1, Theorem 2.1 and Observation 3.1 of arXiv:1507.02341, whose proofs the project has not checked, and on the general form of R1. The registered statement is T3 alone; the corollary of the notes (every caterpillar of diameter 4) depends in addition on MD-0007, which is itself a candidate. The path on five vertices, K(1,0,1), is outside T3 and is covered by direct computation. The review listed six defects of record and presentation (STATE.md, obligation 9); the notes are unchanged since the review. Novelty holds only within the documented search, which is small. Literature (session 5): The closed formula behind Lemma C1′ is in print for all a, c (do Nascimento 2018, Prop. 3.2.6) and must be cited; it was not compared coefficient by coefficient with the project's.",
       "depends_on": [
         {
           "citation": "Lemmas C1 and C2 of research/active/CJ-0001-collins-shor-peak/notes/spine3.md: the expansion of the 6 × 6 quotient determinant as an identity between polynomials in a, b, c, x, and the four identities for the differences d_m − d_{m∓1}.",
@@ -695,8 +710,8 @@
       ],
       "novelty_search": {
         "as_of": "2026-11-26",
-        "coverage": "The coverage recorded for MD-0007, and three further web queries by the reviewer of T3 on the peak for caterpillars and trees of diameter 4 (2024 to 2026). None of the sources seen locates the peak for a caterpillar family or a family of diameter 4.",
-        "limitations": "No search was made for this statement by a literature auditor. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method is standard, so an earlier appearance is plausible."
+        "coverage": "The coverage recorded for MD-0007, and three further web queries by the reviewer of T3 on the peak for caterpillars and trees of diameter 4 (2024 to 2026). None of the sources seen locates the peak for a caterpillar family or a family of diameter 4. Session 5 (2026-11-26): do Nascimento's thesis (2018), Prop. 3.2.6, gives the quintic for the double broom V(t,s,4), which is K(t,0,s), for all t, s; its constant term and one further coefficient were compared by hand with P_5 by the auditor. No peak statement was found.",
+        "limitations": "No search was made for this statement by a literature auditor. Collins (1989) and her thesis were not accessible; do Nascimento, Del-Vecchio and de Freitas (2019) on the distance matrix of caterpillars, which bears directly on this family, was not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow. The method is standard, so an earlier appearance is plausible. The Discrete Appl. Math. 2019 paper and Collins (1993) were not accessed."
       }
     },
     {
@@ -744,15 +759,20 @@
           "kind": "test",
           "path": "tests/test_cj0001_distpoly.py",
           "summary": "test_mixed_partial_certificate_on_small_spines (s = 2, 3, 4, orders below 40) and test_top_coefficient_of_the_caterpillar_polynomials (s = 2 to 6)."
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
+          "summary": "Literature audit of session 5 (a separate agent context, model claude-fable-5-2; 6 searches, 6 fetches): what was read, with page and proposition numbers, what was not accessible, and a conclusion per statement."
         }
       ],
       "status": {
         "mathematical": "candidate",
         "formal": "not-started",
-        "novelty": "unknown",
+        "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
-      "limitations": "A conjecture formulated by the project from exact finite computation. It holds for s = 2 (from the candidate proof T1) and, by a computer-assisted identity that no one has reviewed, for s = 3; for 4 ≤ s ≤ 8 only a sufficient certificate was checked, for orders up to 200. Nothing is known for larger s or larger orders. Its consequence for trees uses, in addition, the extension of Lemma L3 to empty leaf classes, which is written out only for s = 3 with one empty class. No literature search was made. It concerns the lower inequality only: the analogous statement for d_m − d_{m+1} is false.",
+      "limitations": "A conjecture formulated by the project from exact finite computation. It holds for s = 2 (from the candidate proof T1) and, by a computer-assisted identity that no one has reviewed, for s = 3; for 4 ≤ s ≤ 8 only a sufficient certificate was checked, for orders up to 200. Nothing is known for larger s or larger orders. Its consequence for trees uses, in addition, the extension of Lemma L3 to empty leaf classes, which is written out only for s = 3 with one empty class. No literature search was made. It concerns the lower inequality only: the analogous statement for d_m − d_{m+1} is false. Session 5: for s ≤ 8 the hypothesis follows, for every order and on the larger domain c ≥ 0, from Property Γ (MD-0010), which was verified by exact computation for the path skeletons with at most 8 vertices; this is computer-assisted and unreviewed. A literature audit of session 5 found nothing on this statement within a small coverage.",
       "relations": [
         {
           "type": "originated_from",
@@ -765,7 +785,89 @@
           "target": "CJ-0001",
           "note": "With Lemma L4 it would reduce the lower half of the conjecture, for the caterpillars with s spine vertices and at least s leaves, to at most ⌈s/2⌉ one-parameter families."
         }
-      ]
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Literature audit of session 5: 6 web searches and 6 fetches on the distance characteristic polynomial of trees with pendant or twin vertices and on the location of the peak; Xue–Liu–Jia (2016) read in full, do Nascimento's thesis (2018) in part. Nothing on a multi-affine structure in the leaf numbers or on a reduction to trees with all extra leaves at one vertex was found.",
+        "limitations": "A small search. Collins (1989, 1993), the Discrete Appl. Math. 2019 paper on caterpillars and the general theorems of the 2018 thesis were not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow."
+      }
+    },
+    {
+      "id": "MD-0010",
+      "type": "conjecture",
+      "title": "Conjecture Γ: a non-negative half-gamma expansion for the coefficient polynomials of a tree with pendant leaves",
+      "statement": "Let S be a tree on s ≥ 2 vertices with vertex set V and distance matrix P, let J be the all-ones s × s matrix and 1 the all-ones vector. For A ⊆ V let a = |A|, let 1_A be the indicator vector of A, and let I_{V∖A} be the diagonal matrix whose diagonal is the indicator vector of V ∖ A. Put, for x ≠ 0, N_A(x) = 2x I_{V∖A} − P − 1_A 1ᵀ − 1 1_Aᵀ − (a/(2x)) J and r_A(x) = −2^{2−s} · x · det N_A(x), which is a polynomial in x of degree at most d = s − a + 1. Conjecture Γ: for every tree S on at least two vertices and every A ⊆ V with |A| ≥ 2, there are real numbers ρ_e ≥ 0 (for integers e ≥ 0 with 2e < d) and σ_e ≥ 0 (for integers e with d ≤ 2e ≤ 2d) such that r_A(x) = Σ_{2e<d} ρ_e x^e (1+x)^{d−2e} + Σ_{d≤2e≤2d} σ_e x^e.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "the expansion over subsets, the formulation of Property Γ, the proofs of Lemma S1 and Propositions S2 to S4, and the exact computations (session 5)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction: asked for a general mechanism behind Hypothesis V and for an explanation of the coefficient of the product of all leaf counts; no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/skeleton-identity.md",
+          "summary": "The setting (a skeleton with pendant leaves), Lemma S1 (closed form, empty classes included), Proposition S2 (the expansion over subsets that defines r_A), Proposition S3 (r_V = s(1+x) + 3x for every tree: the case A = V of the conjecture, proved from Graham–Pollak and the Graham–Lovász inverse), Proposition S4 (the expansion implies that the coefficient of the product of the leaf numbers of A in d_m − d_{m−1} is non-negative for every order n ≥ 2s), the consequences with Lemma L4, and what is not covered. Written proofs, unreviewed.",
+          "sha256": "747ea150c5347f33848a6ea55035746ab9ef154bf4a625fc905d08d327352ab7"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/skeleton-structure.json",
+          "summary": "Exact check for every tree with 2 to 8 vertices (47 trees): Lemma S1 against direct determinants (604 trees), Proposition S2 for every subset (7,820 identities between polynomials), Proposition S3, and the non-negative expansion for every subset with at least two elements (7,448 subsets, 0 failures). Clean tree.",
+          "revision": "7c1a9dd",
+          "sha256": "b54aed716eb41571772d68ffe5052b607a528186b15a9e9151e5278a5c1537b1"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_distpoly.py",
+          "summary": "test_skeleton_expansion_and_property_gamma: every tree with 2 to 5 vertices."
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
+          "summary": "Literature audit of session 5 (a separate agent context, model claude-fable-5-2; 6 searches, 6 fetches): what was read, with page and proposition numbers, what was not accessible, and a conclusion per statement."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "A conjecture formulated by the project. It is proved for A = V and every tree (Proposition S3, unreviewed) and verified by exact computation for the 47 trees with at most 8 vertices; nothing is known beyond. The link to the Collins–Shor conjecture goes through Lemma S1, Proposition S4 and Lemma L4, none of which has been reviewed, and it concerns only the lower inequality, only trees with at least as many leaves as non-leaf vertices, and it leaves the trees 'skeleton plus one star' to be treated. The literature search is small; the method (quotient matrix of a twin partition) is standard and closed formulas for small cases are in print, so an earlier appearance of the expansion is plausible.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "Γ",
+          "note": "Exploration of session 5, from the coefficient pattern observed in session 4."
+        },
+        {
+          "type": "implies",
+          "target": "MD-0009",
+          "note": "For path skeletons, by Proposition S4 of the notes (unreviewed)."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "With Lemma L4 it would reduce the lower half of the conjecture, for trees with at least as many leaves as non-leaf vertices, to the trees obtained from a skeleton by attaching all leaves at one vertex."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Literature audit of session 5: 6 web searches and 6 fetches; Xue–Liu–Jia (2016) read in full, do Nascimento's thesis (2018) in part. The instances s = 2 and, on the diagonal, s = 3 of the identity r_V = s(1+x) + 3x can be read off the published formulas; neither source states the identity, the multi-affine structure or an expansion of this kind.",
+        "limitations": "A small search. Collins (1989, 1993), the Discrete Appl. Math. 2019 paper on caterpillars and the general theorems of the 2018 thesis were not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow; nothing was searched on gamma-positivity of related polynomials."
+      }
     }
   ]
 }

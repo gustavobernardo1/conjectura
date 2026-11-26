@@ -627,3 +627,138 @@ obligations 8 to 10.
   recheck of the notes, review of L4 and of the `s = 3` identities) are not
   addressed, except that the literature audit bears on obligations 1, 8 and 9
   and the formalization on obligation 10.
+
+### What was done
+
+All computations are exact (integers, rationals, integer polynomials).
+
+1. `research` pushed at the start (`ef98710`), with the director's
+   authorization; CI dispatched by hand on that head.
+2. `skeleton_structure.py`, written in this session: for a skeleton tree `S`
+   and leaf numbers `c`, the polynomials `g_j` by interpolation; Lemma S1
+   against direct determinants; Proposition S2 at more rational points than
+   the degree; Proposition S3; the certificate of `mixed_partials.py` on
+   `c ≥ 0`; Property Γ; the one-vertex formula; locality. Runs: every tree
+   with at most 5, 6 and 7 vertices while the statements were being found
+   (2 s, 4 s, 28 s and 18 s); every tree with at most 8 vertices and orders up
+   to 100 (186 s, on an unclean tree, kept only as a trial); and the run of
+   the result file, on the clean tree at `7c1a9dd`, with orders up to 40.
+3. Notes: `notes/skeleton-identity.md` (Lemma S1, Propositions S2 to S4,
+   Property Γ, Corollary S5, two observations, remarks).
+4. `literature-auditor` subagent (model `claude-fable-5-2`, separate context):
+   6 searches, 6 fetches, 2 failed; section "Literature audit 2026-11-26
+   (session 5)" of the dossier.
+5. `formalization-agent` subagent (model `claude-fable-5-2`):
+   `Conjectura/Research/CollinsShorPeak/ExtremalReduction.lean`, two theorems
+   registered.
+6. `uv run python scripts/verify_lean.py` on the clean tree at `7c1a9dd`;
+   `uv run pytest`; `scripts/catalogue.py validate` and `render`: results in
+   the commit that contains this entry.
+7. `STATE.md` compacted; the obligations as they stood are in
+   `notes/obligations.md`.
+
+### Findings
+
+Answers to the director's five questions, each with its level of evidence.
+
+- **Is the extremal reduction valid under the fixed-order constraint?** Yes,
+  as stated in Lemma L4: the moves `c → c ± (e_i − e_k)` keep the sum, hence
+  the order, and the hypothesis on the mixed partials is needed only at
+  integer points of the slice. Proved by hand (session 4), unreviewed; its
+  discrete core — concavity on an integer interval and the exchange step for
+  two coordinates — is now proved in Lean. The induction over `s` coordinates
+  is not formalized. The closed form it is applied to needed empty leaf
+  classes: Lemma S1 proves that for every skeleton (unreviewed).
+- **A general positivity argument for the mixed second partials?** Partly. The
+  expansion over subsets (S2) writes the coefficient of each product of leaf
+  numbers as `x^{a−1}(1+x)^{s−a} r_A(x)`, and Proposition S4 shows that a
+  non-negative expansion of `r_A` in the basis `x^e(1+x)^{d−2e}`, `x^e`
+  (Property Γ) makes that coefficient non-negative in `d_m − d_{m−1}` for
+  every order at once. Property Γ holds, by exact computation, for all 47
+  trees with at most 8 vertices as skeleton (7,448 subsets, 0 failures). So
+  Hypothesis V is established, computer-assisted and unreviewed, for those
+  skeletons and every order — for path skeletons with `s ≤ 8` in particular —
+  and it is a conjecture in general (Conjecture Γ, MD-0010). No induction or
+  recurrence was found.
+- **The coefficient of the product of all leaf counts.** Proved for every
+  tree: `r_V = (s+3)x + s` (Proposition S3; Graham–Pollak and the
+  Graham–Lovász inverse). The pattern observed in session 4 for paths is a
+  theorem for every skeleton, pending review. Beyond it, as exact
+  observations: for a subset missing one vertex of degree `g`,
+  `r_A = (s−1)(1+x)² + [(g−1)s + 2g + 1]x + [(g−1)(s+6−g) + 3]x²`; and `r_A`
+  depends only on `s` and on the Laplacian of the skeleton restricted to the
+  missing vertices.
+- **Is the extremal reduction a useful standalone result?** L4 alone is
+  elementary. The combination L4 + S1 + S4 + Γ is a statement about all trees
+  with at least as many leaves as non-leaf vertices: for the 47 skeletons, the
+  lower inequality of every such tree is at least that of a tree "skeleton
+  plus one star". It is not yet a result about the conjecture, because those
+  trees are not treated; in the orders computed (up to 100) all are positive.
+- **The upper bound.** No mechanism. The analogue of the certificate fails for
+  `d_m − d_{m+1}`, Proposition S4 is specific to the index `⌊n/2⌋`, and the
+  upper bound involves the coefficients with `|A| ≤ 1`, which Γ does not
+  control.
+- **Literature.** The closed formula of T1 (Lemma D1) is in print:
+  Xue–Liu–Jia, Filomat 30:6 (2016), Lemma 2.3, and do Nascimento's thesis
+  (2018), Prop. 3.2.1; the project's polynomial coincides with theirs. The
+  formula behind T3 is Prop. 3.2.6 of the thesis; the balanced case of T2 is
+  Prop. 3.2.9. No statement on the location of the peak for these families was
+  found, and nothing on the multi-affine structure or the expansion, within a
+  small search. Collins (1993), which treats double stars, was not accessed.
+
+### What failed
+
+- No proof of Conjecture Γ, and no review of anything written in this
+  session. The proofs of S1 to S4 came out in one pass; they are checked
+  against exact computation, which is not a review.
+- The reformulation through forest polynomials is a remark without a careful
+  derivation.
+- The 186-second run on all trees with at most 8 vertices was made before its
+  script was committed; the result file was produced again on a clean tree
+  with a shorter range of orders (the range check is superseded by Γ, which
+  does not depend on the order).
+- The clock: the subagents were told to stop at 12 and 14 minutes and reported
+  that they could not measure time; the environment reports 4.1 and 9.7
+  minutes for them.
+- The missing push-triggered CI was looked at, read-only, while the Lean
+  verification was running, and not resolved. Facts: the workflow is `active`
+  and lists `push` for both branches; all five runs of the repository are
+  `workflow_dispatch`; the repository's event feed (`/repos/…/events`) contains
+  a single event, the creation of `main` at 07:18 UTC, and no `PushEvent` for
+  any of the day's pushes, although `pushed_at` is current; the repository was
+  created the same day. So GitHub is not emitting push events for this
+  repository, to the feed or to Actions. Whether that is a restriction on the
+  account or the repository, or a delay, cannot be determined from here; it is
+  for the director to check in the account's settings or with GitHub Support.
+  Manual dispatch works and is recorded in the agent's memory notes.
+- Not done: the revision of the notes of T1 to T3 with the citations found;
+  O4 as such.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author and both subagents, separate contexts) |
+| Session wall-clock | from 11:04 UTC to the last commit; the commit times are in the Git history |
+| Computation wall-clock | about 5.8 minutes for the research (trial runs of 2, 4, 28, 186 and 18 seconds and the result run of 110 seconds), against 5 planned; one Lean verification of about 3 minutes and one full test run in addition |
+| Literature audit, as reported by the environment | 101,841 subagent tokens, 28 tool calls, 4.1 minutes |
+| Formalization, as reported by the environment | 59,294 subagent tokens, 19 tool calls, 9.7 minutes |
+| Token usage of the main session | unavailable |
+| Research iterations | 1 exploration; 4 statements proved by hand (S1 to S4), 1 conjecture, 2 observations |
+| Proof attempts | S1, S2, S3, S4: written, unreviewed. Γ: none |
+| Counterexamples found | 0 (none to Γ among 7,448 subsets) |
+| Formalization attempts | 1 module, 2 theorems, successful |
+| Successful verifications | 101 tests in `tests/test_cj0001_distpoly.py`; 7,820 identities and 7,448 expansions; Lean pipeline with receipt |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable: a structural description of the coefficient polynomials of any tree
+with pendant leaves (S1, S2), a theorem-level explanation of the top
+coefficient (S3), an order-independent property (Γ) that turns Hypothesis V
+into a finite statement per skeleton and is verified for every skeleton with
+at most 8 vertices, the discrete core of the extremal reduction in Lean, and a
+literature audit that places the formulas of T1 to T3 in print. Nothing was
+promoted; MD-0006 to MD-0008 remain candidate theorems. Next: objective O5 in
+`STATE.md` (Property Γ for subsets missing one vertex, by hand), after or with
+obligations 1 to 3.

@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-26T11:20:35Z",
+  "verdict": "passed",
+  "module": "Conjectura",
+  "git": {
+    "commit": "7c1a9dd51a92a9da61ceaf6df2633cfa176804a9",
+    "branch": "research",
+    "tree_clean": true
+  },
+  "platform": {
+    "system": "Windows",
+    "machine": "AMD64",
+    "python": "3.12.4"
+  },
+  "toolchain": {
+    "lean_toolchain_file": "leanprover/lean4:v4.36.0",
+    "lean_version": "Lean (version 4.36.0, x86_64-w64-windows-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+    "mathlib_input_rev": "v4.36.0",
+    "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842"
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "sources": [
+    {
+      "path": "formalization/lean-toolchain",
+      "sha256_lf": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+    },
+    {
+      "path": "formalization/lakefile.toml",
+      "sha256_lf": "b7fbefcb04442109e831ccbd79e5df186fa48c581559e6334b64a4d8f649d449"
+    },
+    {
+      "path": "formalization/lake-manifest.json",
+      "sha256_lf": "825ee8fb47b986d15e60db98c704af6b99b2484db66126cd1f682b178d8f7748"
+    },
+    {
+      "path": "formalization/registry.json",
+      "sha256_lf": "2f779d7b72ab62af7b99009e9ec2877de31da5f6af911ed8ddab788b68f470cc"
+    },
+    {
+      "path": "formalization/Conjectura.lean",
+      "sha256_lf": "3584067e6c7f79a2e31b0b6f1bf2b66058877531af0ce2a4e838b4387c564050"
+    },
+    {
+      "path": "formalization/Conjectura/Calibration/OddPrime.lean",
+      "sha256_lf": "c541bb66934b9578fcda14836164b425ecc285854c1dbc42e591aefc94939b50"
+    },
+    {
+      "path": "formalization/Conjectura/Calibration/SumOdd.lean",
+      "sha256_lf": "f362a75fbc551166822cc6a1a3b54e846f4042a07859c1fa33d85d3228083327"
+    },
+    {
+      "path": "formalization/Conjectura/Research/CollinsShorPeak/ExtremalReduction.lean",
+      "sha256_lf": "6b35f59ac1de6c667d2745a6426e0131aeef37df694ec51da4fe9d307815309a"
+    },
+    {
+      "path": "formalization/Conjectura/Research/CollinsShorPeak/LogConcavePeak.lean",
+      "sha256_lf": "dff9e368c731b2e246b798fffac297a9eb98151b8a9f743bc4d33f14b6866060"
+    },
+    {
+      "path": "scripts/lean_audit_template.lean",
+      "sha256_lf": "b33d29d36ebd69fadfd531258612b41fccf0aebd61546b44f1906b738c092b90"
+    },
+    {
+      "path": "scripts/verify_lean.py",
+      "sha256_lf": "045f5279f3d195af65a842b74d0423c7f2a27b09fee743688c41782c1ee060f2"
+    }
+  ],
+  "checks": [
+    {
+      "name": "toolchain",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "build",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "sources",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "axioms",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "registry",
+      "status": "passed",
+      "details": []
+    },
+    {
+      "name": "replay",
+      "status": "passed",
+      "details": [
+        "replayed Conjectura.Calibration.OddPrime",
+        "replayed Conjectura.Calibration.SumOdd",
+        "replayed Conjectura.Research.CollinsShorPeak.ExtremalReduction",
+        "replayed Conjectura.Research.CollinsShorPeak.LogConcavePeak"
+      ]
+    }
+  ],
+  "declarations": {
+    "total": 67,
+    "theorems": 67,
+    "named": [
+      "Conjectura.Calibration.odd_of_prime_of_two_lt",
+      "Conjectura.Calibration.odd_of_prime_of_two_lt_nonvacuous",
+      "Conjectura.Calibration.sum_range_odd",
+      "Conjectura.Research.CollinsShorPeak.concave_nonvacuous",
+      "Conjectura.Research.CollinsShorPeak.exchange_nonvacuous",
+      "Conjectura.Research.CollinsShorPeak.exists_maxIndex",
+      "Conjectura.Research.CollinsShorPeak.hypotheses_nonvacuous",
+      "Conjectura.Research.CollinsShorPeak.hypotheses_nonvacuous_not_lt",
+      "Conjectura.Research.CollinsShorPeak.le_of_succ_le",
+      "Conjectura.Research.CollinsShorPeak.logConcave_shift_iff",
+      "Conjectura.Research.CollinsShorPeak.lt_of_pred_lt",
+      "Conjectura.Research.CollinsShorPeak.lt_succ_of_le",
+      "Conjectura.Research.CollinsShorPeak.lt_succ_of_succ_lt",
+      "Conjectura.Research.CollinsShorPeak.maxIndex_ge_iff_pred_lt",
+      "Conjectura.Research.CollinsShorPeak.maxIndex_ge_of_pred_lt",
+      "Conjectura.Research.CollinsShorPeak.min_endpoints_le_of_concave",
+      "Conjectura.Research.CollinsShorPeak.min_vertices_le_of_exchange"
+    ],
+    "axioms_used": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  "registry": [
+    {
+      "name": "Conjectura.Calibration.sum_range_odd",
+      "kind": "calibration",
+      "catalogue_id": null,
+      "module": "Conjectura.Calibration.SumOdd",
+      "statement": "∀ (n : ℕ), ∑ i ∈ Finset.range n, (2 * i + 1) = n ^ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "8320cda75136feed42b1a64c57aa5f77c6e1d43b4535ea50ac651c511e6c55fc"
+    },
+    {
+      "name": "Conjectura.Calibration.odd_of_prime_of_two_lt",
+      "kind": "calibration",
+      "catalogue_id": null,
+      "module": "Conjectura.Calibration.OddPrime",
+      "statement": "∀ (p : ℕ), Nat.Prime p → 2 < p → Odd p",
+      "axioms": [
+        "propext"
+      ],
+      "statement_fingerprint": "7442df9b4e92c66c540115834f4395c3513390c9bd1ffb3295514dad8f5b0b38"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.maxIndex_ge_iff_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r j : ℕ),\n  (∀ k ≤ r, 0 < a k) →\n    (∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2) →\n      1 ≤ j → j ≤ r → ((∀ i ≤ r, (∀ k ≤ r, a k ≤ a i) → j ≤ i) ↔ a (j - 1) < a j)",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "90882e69cf45e1fbe296e963badbbf88b0d536f473ab7530f01962124e99a768"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.maxIndex_ge_of_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r j : ℕ),\n  (∀ k ≤ r, 0 < a k) →\n    (∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2) →\n      1 ≤ j → j ≤ r → a (j - 1) < a j → ∀ i ≤ r, (∀ k ≤ r, a k ≤ a i) → j ≤ i",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "a2947a9877d1d28f01a7d6dbc0717a83582928523457d708cf759d3d70323467"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.lt_of_pred_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r j : ℕ),\n  (∀ k ≤ r, 0 < a k) →\n    (∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2) → 1 ≤ j → j ≤ r → a (j - 1) < a j → ∀ i < j, a i < a j",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "3a8280538be38029bb8e547dcc33f810b5b797d78d7fb1a14905b569c598359e"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.logConcave_shift_iff",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.LogConcavePeak",
+      "statement": "∀ (a : ℕ → ℝ) (r : ℕ),\n  (∀ (k : ℕ), 1 ≤ k → k + 1 ≤ r → a (k - 1) * a (k + 1) ≤ a k ^ 2) ↔\n    ∀ (k : ℕ), k + 2 ≤ r → a k * a (k + 2) ≤ a (k + 1) ^ 2",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "e04f58dc9a3d22f039fe87c37b0ef628226b627ff624902de42b5017c7b983c0"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.min_endpoints_le_of_concave",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.ExtremalReduction",
+      "statement": "∀ (φ : ℕ → ℝ) (N : ℕ), (∀ (t : ℕ), t + 2 ≤ N → φ t + φ (t + 2) ≤ 2 * φ (t + 1)) → ∀ t ≤ N, min (φ 0) (φ N) ≤ φ t",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "fcc3accff966346f96387ea6abcad297aa8d0a21269e2d1fed6571b14f88c84a"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.min_vertices_le_of_exchange",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "module": "Conjectura.Research.CollinsShorPeak.ExtremalReduction",
+      "statement": "∀ (f : ℤ → ℤ → ℝ) (a₀ b₀ S : ℤ),\n  (∀ (a b : ℤ), a₀ < a → b₀ < b → a + b = S → f (a + 1) (b - 1) + f (a - 1) (b + 1) ≤ 2 * f a b) →\n    ∀ (a b : ℤ), a₀ ≤ a → b₀ ≤ b → a + b = S → min (f a₀ (S - a₀)) (f (S - b₀) b₀) ≤ f a b",
+      "axioms": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "statement_fingerprint": "06cb50af133c00f55c0538f48c27ea17b31ef49186aba7dcb9aa69a8776f8568"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "--version"
+      ],
+      "returncode": 0,
+      "seconds": 2.1,
+      "output_tail": "Lean (version 4.36.0, x86_64-w64-windows-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)"
+    },
+    {
+      "argv": [
+        "lake",
+        "build",
+        "Conjectura"
+      ],
+      "returncode": 0,
+      "seconds": 3.0,
+      "output_tail": " Replayed Conjectura.Research.CollinsShorPeak.ExtremalReduction\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Basic.Real.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\n⚠ [2199/2202] Ran Conjectura.Research.CollinsShorPeak.ExtremalReduction:irArts\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Basic.Real.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Tactic.Linarith` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Tactic.NormNum` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nwarning: Conjectura\\Research\\CollinsShorPeak\\ExtremalReduction.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file\nBuild completed successfully (2202 jobs)."
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "lean",
+        "formalization/.lake/conjectura-audit/Audit_Conjectura.lean"
+      ],
+      "returncode": 0,
+      "seconds": 7.1,
+      "output_tail": "CONJECTURA_AUDIT_BEGIN\nCONJECTURA_AUDIT_END"
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Calibration.OddPrime"
+      ],
+      "returncode": 0,
+      "seconds": 37.6,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Calibration.SumOdd"
+      ],
+      "returncode": 0,
+      "seconds": 38.3,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Research.CollinsShorPeak.ExtremalReduction"
+      ],
+      "returncode": 0,
+      "seconds": 37.7,
+      "output_tail": ""
+    },
+    {
+      "argv": [
+        "lake",
+        "env",
+        "leanchecker",
+        "Conjectura.Research.CollinsShorPeak.LogConcavePeak"
+      ],
+      "returncode": 0,
+      "seconds": 37.9,
+      "output_tail": ""
+    }
+  ]
+}
