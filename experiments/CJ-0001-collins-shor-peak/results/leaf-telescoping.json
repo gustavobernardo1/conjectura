@@ -1,0 +1,627 @@
+{
+ "part_A": {
+  "rows": [
+   {
+    "order": 1,
+    "trees": 1,
+    "rooted": 1,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 2,
+    "trees": 1,
+    "rooted": 2,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 3,
+    "trees": 1,
+    "rooted": 3,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 4,
+    "trees": 2,
+    "rooted": 8,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 5,
+    "trees": 3,
+    "rooted": 15,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 6,
+    "trees": 6,
+    "rooted": 36,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 7,
+    "trees": 11,
+    "rooted": 77,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 8,
+    "trees": 23,
+    "rooted": 184,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 9,
+    "trees": 47,
+    "rooted": 423,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 10,
+    "trees": 106,
+    "rooted": 1060,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   },
+   {
+    "order": 11,
+    "trees": 235,
+    "rooted": 2585,
+    "failures": {
+     "A1_distance_matrix": 0,
+     "A2_R0": 0,
+     "A3_leaf_recursion": 0,
+     "A4_r_in_cone": 0,
+     "A5_r_lower_bound": 0,
+     "A6_R_unit_weight": 0,
+     "A7_Phi_lower_bound": 0,
+     "A8_telescoping": 0
+    }
+   }
+  ],
+  "first_failures": {}
+ },
+ "part_B": {
+  "rows": [
+   {
+    "order": 3,
+    "trees": 1,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": null,
+    "B4_least_gap_tree": null,
+    "star_gap_scaled": 8,
+    "seconds": 0.0
+   },
+   {
+    "order": 4,
+    "trees": 2,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 12,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0
+    ],
+    "star_gap_scaled": 4,
+    "seconds": 0.0
+   },
+   {
+    "order": 5,
+    "trees": 3,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 80,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0
+    ],
+    "star_gap_scaled": 160,
+    "seconds": 0.0
+   },
+   {
+    "order": 6,
+    "trees": 6,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 144,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 160,
+    "seconds": 0.0
+   },
+   {
+    "order": 7,
+    "trees": 11,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 1280,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 2688,
+    "seconds": 0.0
+   },
+   {
+    "order": 8,
+    "trees": 23,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 1920,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 3136,
+    "seconds": 0.0
+   },
+   {
+    "order": 9,
+    "trees": 47,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 19200,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 43008,
+    "seconds": 0.0
+   },
+   {
+    "order": 10,
+    "trees": 106,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 26880,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 53760,
+    "seconds": 0.0
+   },
+   {
+    "order": 11,
+    "trees": 235,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 286720,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 675840,
+    "seconds": 0.0
+   },
+   {
+    "order": 12,
+    "trees": 551,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 387072,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 878592,
+    "seconds": 0.1
+   },
+   {
+    "order": 13,
+    "trees": 1301,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 4300800,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 10543104,
+    "seconds": 0.1
+   },
+   {
+    "order": 14,
+    "trees": 3159,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 5677056,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 14057472,
+    "seconds": 0.4
+   },
+   {
+    "order": 15,
+    "trees": 7741,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 64880640,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 164003840,
+    "seconds": 1.0
+   },
+   {
+    "order": 16,
+    "trees": 19320,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 84344832,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 222576640,
+    "seconds": 3.1
+   },
+   {
+    "order": 17,
+    "trees": 48629,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 984023040,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 2549088256,
+    "seconds": 9.2
+   },
+   {
+    "order": 18,
+    "trees": 123867,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 1265172480,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 3504996352,
+    "seconds": 26.4
+   },
+   {
+    "order": 19,
+    "trees": 317955,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 14994636800,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 39626735616,
+    "seconds": 73.7
+   },
+   {
+    "order": 20,
+    "trees": 823065,
+    "trees_with_l_equal_to_star": 1,
+    "B1_star_formula": true,
+    "B2_failures": 0,
+    "B3_failures": 0,
+    "B4_least_gap_scaled_by_2_pow_n_minus_2": 19118161920,
+    "B4_least_gap_tree": [
+     -1,
+     0,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "star_gap_scaled": 55037132800,
+    "seconds": 205.1
+   }
+  ],
+  "first_failures": {}
+ },
+ "provenance": {
+  "command": "leaf_telescoping.py --max-rooted 11 --max-order 20 --out results/leaf-telescoping.json",
+  "revision": "6c23eea24a79acffd58c3274787570cfe56f0833",
+  "dirty_tree_at_start": false,
+  "python": "3.12.4",
+  "networkx": "3.7",
+  "seconds": 365.5,
+  "arguments": {
+   "max_rooted": 11,
+   "max_order": 20,
+   "out": "results/leaf-telescoping.json"
+  }
+ }
+}

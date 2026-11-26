@@ -1422,3 +1422,141 @@ material, none of which contains the statements:
 Neither record supports `no-prior-resolution-found`: the databases and books
 most likely to contain these facts were not searched. An unsuccessful search
 does not establish originality.
+
+## Audit for session 9 (2026-11-26): leaf recursion and star minimality
+
+Auditor: literature-auditor subagent, model `claude-fable-5-2`. Budget stated
+by the director: 9 minutes of wall-clock time and about 25 tool calls. Used: 24
+tool calls (9 web searches, 9 page fetches of which 5 returned nothing
+readable, 3 reads of this dossier, 2 edits, 1 hand-back). Wall-clock time was
+not measured by the auditor. This is a FIRST prior-art search for the two
+session-9 items below. It is shallow. Novelty of both items stays `unknown`.
+
+Items searched for (statements as given to the auditor, not re-derived):
+
+- (S23) Leaf recursion: `l_{T+}(x) = (1+x) l_T(x) + r_u(T)(x)` when a pendant
+  vertex is attached at `u`, with `r_u(T) = (1+4x) Ψ + Ω`; equivalently a
+  formula for `det(D_{T+} − 2xI)` minus a `(2+2x)`-multiple of
+  `det(D_T − 2xI)`.
+- (SM) Conjecture "star minimality in a cone order": `l_T − l_{K_{1,n−1}}` is a
+  non-negative combination of `x^e (1+x)^{n−1−2e}` (`2e < n−1`) and `x^e`
+  (`n−1 ≤ 2e ≤ 2n−2`). Weaker consequence: `d_k(T) ≥ d_k(star)` for every `k`.
+
+### Queries (verbatim, general web search tool, standard mode)
+
+1. `"distance characteristic polynomial" tree "pendant vertex" recursion coefficients`
+2. `coefficients "distance characteristic polynomial" trees star minimizes path maximizes each coefficient extremal`
+3. `Collins Shor conjecture distance matrix tree coefficients unimodal peak arXiv 2024 2025 2026`
+4. `gamma-positivity distance characteristic polynomial tree OR "Laplacian polynomial" tree gamma-positive`
+5. `"distance characteristic polynomial" tree coefficients "star" minimum "path" maximum "among all trees" coefficient ordering`
+6. `"peak location" "distance characteristic polynomial" trees lower bound "n/2" 2025`
+7. `"distance matrix" tree "pendant vertex" OR "pendent vertex" "characteristic polynomial" recurrence "D - " determinant leaf added Edelberg Garey Graham "On the distance matrix of a tree"`
+8. `"generalized tree shift" OR "Kelmans transformation" "distance characteristic polynomial" OR "distance matrix" tree coefficients star minimal path maximal`
+9. `Laplacian coefficients of trees star minimal path maximal Zhou Gutman Mohar "Laplacian coefficients of acyclic graphs" every coefficient`
+
+Each query returned about ten links and a machine-written summary. Only the
+summaries and link titles were seen; they are "snippets" below and are not
+quotations from the papers.
+
+### URLs fetched and what was actually read
+
+| URL | Outcome |
+| --- | --- |
+| `https://arxiv.org/search/?query=%22distance+characteristic+polynomial%22&searchtype=all&abstracts=hide&order=-announced_date_first&size=50` | Read (listing page, through the fetch tool's extraction). "Showing 1–5 of 5 results": 2206.07561 (15 Jun 2022), 1903.04575, 1811.03061, 1507.02341, 1505.07651. No entry later than June 2022. |
+| `https://api.semanticscholar.org/graph/v1/paper/arXiv:1507.02341/citations?fields=title,year,externalIds&limit=100` | Read. 5 citing papers: arXiv:2407.03309 (DOI `10.1007/s40314-025-03163-5`), arXiv:2206.07561 (DOI `10.1016/j.laa.2023.03.027`), arXiv:2104.14516, arXiv:2103.00647, arXiv:1812.05734. Same five as in sessions 2 and 5. |
+| `https://arxiv.org/abs/2407.03309` | Abstract page read through the fetch tool's paraphrase (not verbatim). One version, 3 July 2024. Per that paraphrase the abstract does not mention a `⌊n/2⌋` lower bound, stars, or a coefficientwise comparison of trees. |
+| `https://arxiv.org/abs/2206.07561` | Abstract page read through the fetch tool's paraphrase. One version, 15 June 2022. Peak established "for several extremal cases of uniform block graphs with small diameter"; no lower bound on the peak, no pendant-vertex recursion mentioned in the abstract. |
+| `https://arxiv.org/pdf/2407.03309` | Fetched; the tool returned undecoded PDF bytes. NOT read in this session. (Session 2 records a full reading; not re-verified here.) |
+| `https://arxiv.org/pdf/2206.07561` | Fetched; undecoded PDF bytes; only the outline was legible (section 4.2 "Peak location"). NOT read in this session. (Session 2 records a full reading; not re-verified here.) |
+| `https://mathweb.ucsd.edu/~ronspubs/78_12_matrix_polynomials.pdf` (Graham–Lovász 1978) | Fetched; scanned page images without a text layer. NOT read. |
+| `https://core.ac.uk/download/10129286.pdf` | HTTP 403 (as in session 2). NOT read. |
+| `https://arxiv.org/a/search/?query=...` | HTTP 404 (malformed URL, auditor's error); replaced by the first row. |
+
+### Findings per item (within this coverage only)
+
+**(a) Recursion for the distance characteristic polynomial under adding a
+pendant vertex.** No statement of such a recursion was read. The closest lead
+is unread: the summary of query 1 attributes to the document at
+`core.ac.uk/download/10129286.pdf` (described by the search tool as a thesis;
+session 2 recorded it, also from a search result, as Collins's thesis) the
+remark that the contribution of a leaf can be isolated and that, since a tree
+can be decomposed by removing one leaf at a time, the characteristic polynomial
+can be built up this way, "although time consuming". The document returned
+HTTP 403, so its identity, the exact formula (if any) and whether it coincides
+with (S23) are all unverified. **This is an open obligation of the audit: (S23)
+may be a known recursion in that document.** Other leads, snippets only:
+Choudhury–Khare, arXiv:1903.11566 (minors of the distance matrix under deleting
+pendant nodes and adding pendant trees; the first half was read in session 8,
+not for this question); an unattributed snippet about adding a pendant vertex
+`n+1` with edge weight `α_n` in a weighted tree (source link not identified;
+candidates in the result list were arXiv:1810.06182 and Bapat–Kirkland–Neumann).
+Graham–Lovász (1978) and Edelberg–Garey–Graham (1976) were not read.
+
+**(b) Star minimal or path maximal for each coefficient of the distance
+characteristic polynomial.** Nothing found: queries 2, 5 and 8 returned no
+source stating a coefficientwise extremal result for the distance
+characteristic polynomial of trees. Related classical results for other
+polynomials, snippets only, none opened: Zhou–Gutman (extreme values of every
+Laplacian coefficient among `n`-vertex trees attained by the path and the star,
+as reported in the snippet of Ilić, arXiv:1104.4280); Mohar, "On the Laplacian
+coefficients of acyclic graphs" (title used in the query; not returned);
+Csikvári's generalized tree shift poset, "On a poset of trees" I and II (the
+shift moves adjacency and Laplacian characteristic polynomial coefficients
+monotonically; path and star are the extreme elements); arXiv:1912.03101 and
+arXiv:2307.15979 (immanantal and generalized matrix polynomials of tree
+Laplacians along the same poset; titles and snippet only); arXiv:2306.05155
+(the shift increases the distance spectral radius of complements of trees;
+snippet only). The search summary of query 8 states that it did not find
+whether monotonicity along the generalized tree shift holds for the distance
+polynomial coefficients. Auditor's remark, not checked: the classical Laplacian
+results concern `det(I + xL)` alone; `l_T` subtracts `x τᵀ adj(I + xL) τ`, so
+they do not by themselves give `d_k(T) ≥ d_k(star)`. Whether that inequality
+follows from the Graham–Lovász subforest formula was not examined.
+
+**(c) Progress on the lower half (peak `≥ ⌊n/2⌋`).** Nothing new found. The
+arXiv listing search for the phrase "distance characteristic polynomial"
+returns five entries, the latest dated 15 June 2022; the citation index lists
+the same five papers citing arXiv:1507.02341 as in sessions 2 and 5. Snippets
+of queries 2, 3, 5 and 6 repeat what the dossier already records from
+arXiv:1507.02341 (upper bound `⌈2n/3⌉`, a diameter-dependent lower bound of
+order `n/(d+1)`, and the sentence that `⌊n/2⌋` is "clearly the intended lower
+bound" because Collins's Theorem 1 gives `⌊n/2⌋` as the peak of the star);
+these were not re-read this session. No paper dated 2025 or 2026 on the
+question surfaced. The listing search matches metadata only: it does not return
+arXiv:2407.03309, which shows that a paper phrased differently would be missed.
+
+**(d) Gamma-positivity or half-gamma expansions for distance or Laplacian
+polynomials of trees.** Nothing found (queries 4 and 8). Returned, titles and
+snippets only, none opened: González D'León, arXiv:1505.06676 (gamma
+coefficients of the tree Eulerian polynomial, a different polynomial);
+Athanasiadis's survey, arXiv:1711.05983; arXiv:2604.18824, "Symmetric and
+unimodal independence polynomials of trees" (title only); arXiv:1912.03101
+(above). No source expanding a distance or Laplacian polynomial of a tree in
+the basis `x^e (1+x)^{m−2e}` was seen.
+
+### Not searched or not accessible
+
+- MathSciNet, zbMATH, Google Scholar: not available to the tool; not searched.
+- MathOverflow, OEIS, erdosproblems.com, Open Problem Garden: not searched.
+  Formal libraries (Mathlib, formal-conjectures): not searched.
+- Not read although located: the document at `core.ac.uk/download/10129286.pdf`
+  (403; the most important gap for (a)); Graham–Lovász (1978) (scan);
+  Edelberg–Garey–Graham (1976); Collins's 1989 paper beyond what session 6
+  records; Zhou–Gutman (2008); Mohar (2007); Csikvári's two papers; Ilić,
+  arXiv:1104.4280; arXiv:1912.03101; arXiv:2307.15979; arXiv:2306.05155;
+  arXiv:2604.18824; the gamma-positivity surveys; the journal versions of
+  arXiv:2206.07561 and arXiv:2407.03309.
+- Not done: citing-paper lists of arXiv:2206.07561 and arXiv:2407.03309; a
+  second citation index; arXiv listing searches with other phrasings ("distance
+  matrix" with "tree" and "coefficients"; "Graham" with "Lovász" and "peak");
+  any search on resistance or Steiner distance analogues of (S23); books
+  (Bapat, *Graphs and Matrices*; Brouwer–Haemers; Cvetković–Doob–Sachs).
+- Languages: English only.
+
+### Recommendation for the registry (the auditor did not edit it)
+
+Any record created for (S23) or (SM) should carry novelty `unknown` or at most
+`preliminary-search-completed`, with the unread Collins-thesis lead recorded as
+an open obligation for (S23). Nothing here supports
+`no-prior-resolution-found`. An unsuccessful search does not establish
+originality.
