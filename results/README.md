@@ -1,6 +1,7 @@
 # Results
 
-This directory holds reviewed result packages only
+This directory holds reviewed result packages only — resolutions of catalogued
+problems and registered contributions that passed review on their own
 (see [`docs/publication-policy.md`](../docs/publication-policy.md)).
 
 **There are none yet.** Conjectura currently consists of research

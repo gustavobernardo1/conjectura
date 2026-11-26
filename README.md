@@ -15,8 +15,13 @@ Computational Mathematics, Universidade Federal de Goiás (UFG), Brazil.
 
 ## Aim
 
-To prove, disprove, or make rigorous partial progress on published open
-conjectures, and to leave reproducible evidence for every claim. AI systems are
+Mathematical discovery, with reproducible evidence for every claim. Proving and
+disproving published open conjectures is a central objective, and it is not the
+only one: lemmas, theorems, identities, inequalities, bounds, counterexamples,
+new conjectures, new proofs, methods, structural results and significant
+computational findings are recorded as contributions in their own right,
+whether or not the conjecture they came from is resolved. A conjecture is a
+starting point; mathematical discovery is the objective. AI systems are
 used as an active means of discovery — for literature work, conjecturing, proof
 search, computation, formalization and review — and their participation is
 documented alongside the human contribution
@@ -38,9 +43,11 @@ receipts or novelty claims — see [`AGENTS.md`](AGENTS.md).
 | | |
 | --- | --- |
 | [`AGENTS.md`](AGENTS.md) | Permanent rules for all research agents (authoritative). |
-| [`autoresearch.md`](autoresearch.md) | The twelve-step protocol for one bounded research session. |
-| [`research/INDEX.md`](research/INDEX.md) | Ranked view of the 15 catalogued candidate problems. |
-| [`research/catalogue.json`](research/catalogue.json) | The single authoritative record of problems, statuses and scores. |
+| [`autoresearch.md`](autoresearch.md) | The protocol for one bounded research session: free exploration, or focused work in twelve steps. |
+| [`research/INDEX.md`](research/INDEX.md) | Generated view: the 15 catalogued problems, ranked, and the registered contributions. |
+| [`research/catalogue.json`](research/catalogue.json) | The single authoritative record of problems (`CJ-XXXX`), statuses and scores. |
+| [`research/discoveries.json`](research/discoveries.json) | The single authoritative record of mathematical contributions (`MD-XXXX`). An identifier establishes identity, not correctness or novelty. |
+| [`research/summary.json`](research/summary.json) | Generated machine-readable summary of the project, with explicit nulls where nothing qualifies. Its block `public` is the interface for display elsewhere ([contract](docs/public-summary.md)). |
 | `research/active/` | Working state of investigations in progress (on the `research` branch). |
 | [`research/scouting-log.md`](research/scouting-log.md) | How candidates were found, what was set aside, and which conjectures were found to have reported resolutions. |
 | `experiments/` | Reproducible exact computations (on the `research` branch). |
@@ -103,9 +110,9 @@ Lean 4.36.0, Mathlib v4.36.0, Python dependencies in `uv.lock`.
 With any capable coding agent, from the repository root:
 
 > Read `AGENTS.md` and `autoresearch.md`. Run one research session on the active
-> investigation with the highest priority, following the twelve steps. Stay
-> within the default budget, verify what you claim, update `STATE.md` and the
-> journal, and stop cleanly.
+> investigation with the highest priority, in the mode that suits what you
+> find there. Stay within the default budget, verify what you claim, update
+> `STATE.md` and the journal, and stop cleanly.
 
 In Claude Code: `/research-session`.
 

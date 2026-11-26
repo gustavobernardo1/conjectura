@@ -1,6 +1,8 @@
 ## Session N — YYYY-MM-DD
 
 - **Agent / model:** (exact identifier, or "unknown model"); human participants.
+- **Mode:** exploration | focused work (for exploration, only the budget and
+  one line on what is being explored are needed before starting).
 - **Role(s):**
 - **Repository revision at start:**
 - **Objective (exact):**

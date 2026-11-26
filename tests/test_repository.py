@@ -173,10 +173,15 @@ def test_relative_markdown_links_resolve():
 
 
 def test_no_result_is_claimed_without_a_package(data):
+    """Every package backs a settled problem or contribution, and conversely.
+
+    Several contributions may share one package.
+    """
     catalogue, _ = data
-    packages = [p for p in (ROOT / "results").iterdir() if p.is_dir()]
-    settled = [p for p in catalogue["problems"] if p["status"]["mathematical"] in cat.SETTLED_STATUSES]
-    assert len(packages) == len(settled)
+    records = catalogue["problems"] + cat.load_registry()["discoveries"]
+    packages = {p.name for p in (ROOT / "results").iterdir() if p.is_dir()}
+    settled = [r for r in records if r["status"]["mathematical"] in cat.SETTLED_STATUSES]
+    assert packages == {Path(r["result"]).parent.name for r in settled}
 
 
 def test_registry_and_lean_root_are_consistent():

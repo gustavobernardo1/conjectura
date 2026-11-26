@@ -13,6 +13,15 @@ mathematics shows.
   registry, kernel replay, receipts) with seven negative tests.
 - First investigation opened: `CJ-0001`, the Collins–Shor conjecture.
 
+## Done (2026-11-26, incremental evolution)
+
+- Mission broadened from resolving published conjectures to mathematical
+  discovery in general; exploration mode added beside the twelve-step
+  procedure for focused work.
+- Registry of mathematical contributions (`research/discoveries.json`,
+  identifiers `MD-XXXX`), validated and rendered by the existing script.
+- Generated machine-readable project summary (`research/summary.json`).
+
 ## Next (research)
 
 1. `CJ-0001`: pursue the next step recorded in
@@ -45,6 +54,8 @@ mathematics shows.
 ## Not planned
 
 - A custom multi-agent orchestration framework.
-- A website, result counters or leaderboards.
+- A website or leaderboards. (The generated summary reports counts by type
+  and by status, and its block `public` counts promoted results only; see
+  `docs/methodology.md` and `docs/public-summary.md`.)
 - Formalizing results that are already established, except as calibration or
   as learning material labelled as such.
