@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "project": "Conjectura",
+  "repository": "https://github.com/gustavobernardo1/conjectura",
+  "active_investigations": [],
+  "highest_priority_investigation": null,
+  "latest_proved_conjecture": null,
+  "latest_disproved_conjecture": null,
+  "latest_registered_contribution": null,
+  "latest_reviewed_contribution": null,
+  "latest_formally_verified_contribution": null,
+  "latest_contribution_with_originality_assessment": null,
+  "counts": {
+    "problems": {
+      "catalogued": 15,
+      "by_mathematical_status": {
+        "candidate": 15
+      }
+    },
+    "contributions": {
+      "registered": 0,
+      "by_standing": {
+        "candidate": 0,
+        "established": 0,
+        "rediscovered": 0,
+        "withdrawn": 0
+      },
+      "counted": 0,
+      "by_type": {},
+      "by_status": {
+        "mathematical": {},
+        "formal": {},
+        "novelty": {},
+        "external_review": {}
+      }
+    },
+    "excluded_from_contribution_counts": {
+      "rediscovered": 0,
+      "withdrawn": 0,
+      "calibration_theorems": 2
+    }
+  },
+  "reading_notes": [
+    "An identifier (CJ-XXXX, MD-XXXX) establishes identity, not correctness or novelty.",
+    "The four status dimensions are independent; 'ai-reviewed' is not human or peer review.",
+    "Novelty values other than 'prior-resolution-identified' hold only within the documented search coverage.",
+    "A null value means that no record qualifies.",
+    "Counts and 'latest' entries cover contributions of standing 'candidate' or 'established' only."
+  ],
+  "generated": {
+    "date": "2026-11-26",
+    "branch": "work/discovery-registry",
+    "revision": "0652128d494750be6bba0bb418bac27aa17628e1",
+    "sources_committed": false,
+    "sources": {
+      "research/catalogue.json": "b789ef6ff99a00409ddc0c241070a78c44e95b2b",
+      "research/discoveries.json": "b4582ae51dcfa943e9f4ca2585f90a16e7443a69",
+      "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
+      "formalization/registry.json": "fc4c60c169c8a99eadb96fd631d6ac3c0a96b22f"
+    }
+  }
+}

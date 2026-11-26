@@ -6,9 +6,15 @@ instruction files (`CLAUDE.md`, `.claude/agents/*`, `.claude/skills/*`) refer to
 this one and must not contradict it. If they do, this file wins and the
 contradiction is a bug to fix.
 
-Conjectura is a mathematical research project: its aim is to prove, disprove or
-make rigorous partial progress on published open conjectures, and to leave
-reproducible evidence for every claim. The project director is Gustavo Bernardo
+Conjectura is an AI-driven mathematical discovery project. Proving and
+disproving published open conjectures remains a central objective, but
+discovery is not limited to resolving the problem an investigation started
+from: a lemma, theorem, proposition, corollary, identity, inequality, bound,
+counterexample, newly formulated conjecture, new proof, method, structural
+result or significant computational finding is a contribution in its own
+right, whether or not its parent conjecture is ever resolved. The project
+leaves reproducible evidence for every claim. **A conjecture is a starting
+point; mathematical discovery is the objective.** The project director is Gustavo Bernardo
 Brito (UFG). The director decides what is published and what is contacted or
 submitted outside the repository.
 
@@ -50,11 +56,13 @@ submitted outside the repository.
 | Path | Content |
 | --- | --- |
 | `autoresearch.md` | The operational session protocol. Start here for research work. |
-| `research/catalogue.json` | The single authoritative record of every problem considered, with status and scores. |
+| `research/catalogue.json` | The single authoritative record of every problem considered (`CJ-XXXX`), with status and scores. |
+| `research/discoveries.json` | The single authoritative record of every registered mathematical contribution (`MD-XXXX`): statement, status, relations, and references to the files that hold its evidence. |
 | `research/priorities.json` | The scoring model and the current shortlist. |
-| `research/INDEX.md` | Generated ranking view. Never edited by hand. |
+| `research/INDEX.md`, `research/summary.json` | Generated views (ranking of problems, list of contributions, machine-readable project summary). Never edited by hand. |
 | `research/candidates/` | One prose dossier per catalogued problem (literature, open-status evidence, approaches). |
 | `research/active/<id>-<slug>/` | Working memory of an investigation: `STATE.md`, `journal.md`, notes, and `reviews/` once a review exists. Lives on the `research` branch. |
+| `research/explorations/` | Dated notes of exploration that belongs to no catalogued problem, one file per topic (created with the first such note). |
 | `research/archive/` | Closed investigations, moved here intact (created when the first investigation is closed). |
 | `research/templates/` | Templates for dossiers, state files, journal entries, reviews, result packages. |
 | `experiments/<id>-<slug>/` | Reproducible computations for a problem (with the investigation, on `research`). |
@@ -72,13 +80,42 @@ file that restores an investigation.
 
 ## 3. How to work
 
-Follow [`autoresearch.md`](autoresearch.md) for every research session. In
-short: inspect the repository state, read the active investigation's
-`STATE.md`, pick one exact objective, write down approach, falsification test,
-stopping condition and budget, do the work, verify it, persist it, and record
-the next concrete step. A session may end with "no durable progress" — record
-that honestly in the journal and stop. Do not create commits, files or reports
-merely to look productive.
+**Freedom in exploration. Creativity in discovery. Rigor in verification.
+Transparency in publication.** Research runs in one of two modes, described in
+[`autoresearch.md`](autoresearch.md) and named in the session's record.
+
+- **Exploration** is free. An agent may pursue an unconventional idea,
+  formulate its own conjectures, follow an unexpected connection, work outside
+  the catalogue, change direction when the mathematics suggests it, develop a
+  new technique and abandon what is not working. It needs no predefined exact
+  objective, no catalogue entry, no literature review, no independent review
+  and no formalization. It needs only what section 1 requires of all work: a
+  budget stated before it starts, honesty about what was and was not checked,
+  and a short dated note of what was tried and seen.
+- **Focused work** follows the steps of `autoresearch.md`: inspect the
+  repository state, read the investigation's `STATE.md`, pick one exact
+  objective, write down approach, falsification test, stopping condition and
+  budget, do the work, verify it, persist it, and record the next concrete
+  step. It is the default for proving or refuting a specific statement.
+
+**Promotion is where the standards apply in full.** A finding gets an identity
+in `research/discoveries.json` as soon as it is worth one, with whatever status
+it honestly has. It becomes an established result only through sections 4 to 6:
+written proof or verified computation, independent review of the exact
+revision, documented novelty search, attribution, result package. Freedom in
+exploration never lowers the standard for a claim.
+
+Open obligations of an investigation (an unreviewed candidate proof, an
+unverified computation, a stale receipt) come first by default. A session may
+instead pursue a more promising idea; it records the deferral, and no claim
+that depends on an open obligation is promoted until the obligation is met.
+
+Agents may challenge the project's methodology. A change to the protocol, a
+policy or a template is made in the file concerned, with its reason recorded;
+section 1 of this file is changed only by the director.
+
+A session may end with "no durable progress" — record that honestly and stop.
+Do not create commits, files or reports merely to look productive.
 
 Research roles are described in [`docs/methodology.md`](docs/methodology.md#research-roles).
 One agent may play several roles in a session, with one exception: **the
@@ -90,7 +127,15 @@ reformulation justifies it; name what changed in the journal.
 
 ## 4. Claim classification
 
-Every problem carries four independent status fields in `research/catalogue.json`.
+Every record carries the same four independent status fields: a problem in
+`research/catalogue.json` (`CJ-XXXX`) and a mathematical contribution in
+`research/discoveries.json` (`MD-XXXX`). An identifier establishes identity,
+nothing more: registering a contribution asserts neither that it is correct,
+nor that it is new, nor that it has been verified. Those are its status. The
+type of a contribution (lemma, counterexample, conjecture, …) is stored apart
+from its identifier and may be corrected without renumbering. Local identifiers
+inside an investigation (E1, L3, A(ii), …) keep their meaning; the registry
+refers to them.
 
 | Dimension | Allowed values |
 | --- | --- |
@@ -115,6 +160,16 @@ Transition requirements (enforced where possible by `scripts/catalogue.py valida
   coverage". It is never shortened to "novel".
 - `previously-resolved`: record the resolving source; stop work on that exact
   statement; do not re-prove or formalize it as a project result.
+- For a contribution the mathematical status describes the record's own
+  statement (`active-investigation` is not used), and it is promoted under the
+  same requirements as a problem, without waiting for its parent conjecture.
+  In addition its review evidence must be bound to the statement as it reads
+  now, and every contribution its proof depends on must itself be `proved` or
+  `previously-resolved`.
+- A material change to a registered statement changes its fingerprint. Reviews
+  bound to the old fingerprint stop counting and every contribution that
+  depends on it must be reassessed before validation passes again.
+  Details: [`docs/research-policy.md`](docs/research-policy.md#mathematical-contributions).
 
 ## 5. Verification rules
 
@@ -166,8 +221,13 @@ All durable knowledge lives in the repository, not in conversation history.
   open obligations, next step. Keep it current and compact (aim for under 400
   lines; move detail to notes and link it).
 - `journal.md` is append-only: one entry per session with date, agent model,
-  objective, budget, what was run, what was found, and telemetry where it is
-  actually available (write `unavailable` otherwise).
+  mode, objective (or, for exploration, what was explored), budget, what was
+  run, what was found, and telemetry where it is actually available (write
+  `unavailable` otherwise).
+- `research/discoveries.json` holds one authoritative record per contribution.
+  It refers to proofs, computations, reviews and receipts by path and never
+  copies them. A record starts minimal and is completed as the contribution
+  matures.
 - Before ending a session, make sure a newly started agent could continue from
   `STATE.md` alone.
 

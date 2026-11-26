@@ -128,7 +128,9 @@
           }
         },
         "formal_receipt": { "description": "Path of the verification receipt backing formal status 'complete'.", "type": "string", "pattern": "^verification/receipts/.+\\.json$" },
-        "result": { "description": "Path of the reviewed result package.", "type": "string", "pattern": "^results/.+/README\\.md$" }
+        "result": { "description": "Path of the reviewed result package.", "type": "string", "pattern": "^results/.+/README\\.md$" },
+        "resolved_on": { "description": "Date on which the status became 'proved' or 'disproved'.", "type": "string", "format": "date" },
+        "discovery": { "description": "Set when the statement was formulated by the project: the registered conjecture (research/discoveries.json) that this problem investigates.", "type": "string", "pattern": "^MD-[0-9]{4}$" }
       }
     }
   }

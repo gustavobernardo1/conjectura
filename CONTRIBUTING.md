@@ -38,6 +38,9 @@ reporting.
 - **Research on an active problem:** an update to its `STATE.md`, a journal
   entry, and whatever supports the update — a proof in a note, an experiment
   with its result file, a Lean module.
+- **A mathematical contribution:** a record in `research/discoveries.json`
+  pointing to the proof, computation or note that supports it, with the status
+  it honestly has (`docs/research-policy.md`).
 - **A review:** a report from `research/templates/review.md`, bound to a
   revision.
 - **Infrastructure:** code with tests. A change to `scripts/verify_lean.py`,
