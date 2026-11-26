@@ -1,0 +1,375 @@
+{
+ "part1": {
+  "trees": 47,
+  "subsets": 7726,
+  "not_all_real_negative": 0,
+  "degree_not_t_plus_1": 0,
+  "lead_identity_failures": 0,
+  "kappa_below_4": 0,
+  "kappa_equal_4_with_a_at_least_2": 0,
+  "kappa_not_4_with_a_1": 0,
+  "magnitude_identity_failures": 0,
+  "magnitude_cases": 7401,
+  "independent_A": 2263,
+  "component_identity_failures": 0,
+  "components": 4344,
+  "component_R_not_in_cone": 0,
+  "min_kappa_minus_4_num_den": [
+   1,
+   1
+  ]
+ },
+ "part2": {
+  "weighted_trees": 29336,
+  "R_not_in_cone": 0,
+  "R_failures_examples": [],
+  "leaf_cases": 111768,
+  "recurrence_failures": 0,
+  "delta_not_in_cone": 0,
+  "trees_with_no_good_leaf": 0,
+  "trees_with_some_bad_leaf": 0,
+  "delta_failure_examples": [],
+  "by_order": {
+   "1": {
+    "weighted_trees": 2,
+    "R_not_in_cone": 0,
+    "leaf_cases": 0,
+    "delta_not_in_cone": 0
+   },
+   "2": {
+    "weighted_trees": 8,
+    "R_not_in_cone": 0,
+    "leaf_cases": 12,
+    "delta_not_in_cone": 0
+   },
+   "3": {
+    "weighted_trees": 26,
+    "R_not_in_cone": 0,
+    "leaf_cases": 48,
+    "delta_not_in_cone": 0
+   },
+   "4": {
+    "weighted_trees": 160,
+    "R_not_in_cone": 0,
+    "leaf_cases": 390,
+    "delta_not_in_cone": 0
+   },
+   "5": {
+    "weighted_trees": 726,
+    "R_not_in_cone": 0,
+    "leaf_cases": 2160,
+    "delta_not_in_cone": 0
+   },
+   "6": {
+    "weighted_trees": 4368,
+    "R_not_in_cone": 0,
+    "leaf_cases": 15246,
+    "delta_not_in_cone": 0
+   },
+   "7": {
+    "weighted_trees": 24046,
+    "R_not_in_cone": 0,
+    "leaf_cases": 93912,
+    "delta_not_in_cone": 0
+   }
+  },
+  "part3_leaf_cases": 17856,
+  "part3_weight_formula_failures": 0,
+  "part3_R0_not_in_cone": 0,
+  "part3_E_not_in_cone": 0,
+  "part3_estar_not_in_cone": 972,
+  "part3_estar_examples": [
+   {
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "vertices": [
+     1,
+     0,
+     2,
+     4,
+     5
+    ],
+    "nu": [
+     0,
+     0,
+     2,
+     2,
+     2
+    ],
+    "root": 0,
+    "estar": [
+     0,
+     3,
+     49,
+     309,
+     940,
+     1372,
+     755,
+     -12
+    ],
+    "half_gamma": [
+     0,
+     3,
+     34,
+     177,
+     631,
+     1323,
+     752,
+     -12
+    ]
+   },
+   {
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "vertices": [
+     1,
+     0,
+     2,
+     4,
+     5
+    ],
+    "nu": [
+     0,
+     0,
+     2,
+     2,
+     2
+    ],
+    "root": 0,
+    "estar": [
+     0,
+     3,
+     49,
+     309,
+     940,
+     1372,
+     755,
+     -12
+    ],
+    "half_gamma": [
+     0,
+     3,
+     34,
+     177,
+     631,
+     1323,
+     752,
+     -12
+    ]
+   },
+   {
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "vertices": [
+     1,
+     0,
+     2,
+     3,
+     5
+    ],
+    "nu": [
+     0,
+     0,
+     2,
+     2,
+     2
+    ],
+    "root": 0,
+    "estar": [
+     0,
+     3,
+     49,
+     309,
+     940,
+     1372,
+     755,
+     -12
+    ],
+    "half_gamma": [
+     0,
+     3,
+     34,
+     177,
+     631,
+     1323,
+     752,
+     -12
+    ]
+   },
+   {
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      5
+     ]
+    ],
+    "vertices": [
+     1,
+     0,
+     2,
+     3,
+     5
+    ],
+    "nu": [
+     0,
+     0,
+     2,
+     2,
+     2
+    ],
+    "root": 0,
+    "estar": [
+     0,
+     3,
+     49,
+     309,
+     940,
+     1372,
+     755,
+     -12
+    ],
+    "half_gamma": [
+     0,
+     3,
+     34,
+     177,
+     631,
+     1323,
+     752,
+     -12
+    ]
+   },
+   {
+    "edges": [
+     [
+      1,
+      0
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "vertices": [
+     1,
+     0,
+     2,
+     3,
+     4
+    ],
+    "nu": [
+     0,
+     0,
+     2,
+     2,
+     2
+    ],
+    "root": 0,
+    "estar": [
+     0,
+     3,
+     49,
+     309,
+     940,
+     1372,
+     755,
+     -12
+    ],
+    "half_gamma": [
+     0,
+     3,
+     34,
+     177,
+     631,
+     1323,
+     752,
+     -12
+    ]
+   }
+  ],
+  "part3_third_form_failures": 0
+ },
+ "provenance": {
+  "command": "experiments/CJ-0001-collins-shor-peak/component_form.py --max-skeleton 8 --max-component 7 --max-weight 2 --max-component3 6 --out experiments/CJ-0001-collins-shor-peak/results/component-form.json",
+  "revision": "9499572b80873e11ebf8b34afd583edfe1275aa0",
+  "dirty_tree": true,
+  "python": "3.12.4",
+  "networkx": "3.7",
+  "seconds": 170.4,
+  "arguments": {
+   "max_skeleton": 8,
+   "max_component": 7,
+   "max_weight": 2,
+   "max_component3": 6,
+   "out": "experiments/CJ-0001-collins-shor-peak/results/component-form.json"
+  }
+ }
+}

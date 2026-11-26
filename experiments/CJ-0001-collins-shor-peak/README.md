@@ -25,6 +25,9 @@ decide an inequality.
 | `mixed_partials.py` | Exploration for Hypothesis V of `notes/vertex-principle.md`: for caterpillars with 2 to 8 spine vertices and orders up to 200, the closed form by interpolation, a certificate for the sign of the mixed second partials of `d_m − d_{m−1}`, and the values at the vertices of each slice. Evidence for a hypothesis, not a proof. |
 | `mixed_partials_s3.py` | The same mixed partials for three spine vertices as polynomials in `m`, valid for every order: symbolic derivation, comparison with the forms stated in `notes/vertex-principle.md`, and the values at the vertices. Prints its findings; no result file. |
 | `skeleton_structure.py` | Trees made of a skeleton with pendant leaves (`notes/skeleton-identity.md`): for every tree with 2 to 8 vertices as skeleton, the closed form against direct determinants, the expansion over subsets (Proposition S2), the top coefficient (S3), the order-independent Property Γ for every subset with at least two elements, and, in a range of orders, the certificate of `mixed_partials.py`. |
+| `locality_check.py` | Session 6 (`notes/skeleton-locality.md`): the definition of `r_A` against Propositions S6 to S10 on the 47 trees with 2 to 8 vertices; shares no code with `skeleton_structure.py`. |
+| `gamma_pieces.py` | Session 6 (`notes/gamma-reduction.md`): which pieces of the Laplacian form of `r_A` have non-negative half-gamma expansions, on the same trees. |
+| `component_form.py` | Session 7 (`notes/gamma-components.md`): real negative roots of `r_A` (Sturm sequences), its leading coefficient, the component form, Lemma G entry by entry and the recurrences for `R(T, ν)` on weighted trees with at most 7 vertices and weights 0 to 2. Pure Python integers. |
 | `results/*.json` | Outputs of the runs below. |
 
 Validation: `uv run pytest tests/test_cj0001_distpoly.py` (101 tests).
@@ -55,6 +58,9 @@ uv run python experiments/CJ-0001-collins-shor-peak/diameter4.py     --out exper
 uv run python experiments/CJ-0001-collins-shor-peak/mixed_partials.py --max-spine 8 --max-order 200     --out experiments/CJ-0001-collins-shor-peak/results/mixed-partials.json                  # under 1 min
 uv run python experiments/CJ-0001-collins-shor-peak/mixed_partials_s3.py                     # seconds
 uv run python experiments/CJ-0001-collins-shor-peak/skeleton_structure.py --max-skeleton 8 --max-order 40     --out experiments/CJ-0001-collins-shor-peak/results/skeleton-structure.json              # about 1 min (about 3 min with --max-order 100)
+uv run python experiments/CJ-0001-collins-shor-peak/locality_check.py --max-skeleton 8     --out experiments/CJ-0001-collins-shor-peak/results/locality-check.json                  # about 35 s
+uv run python experiments/CJ-0001-collins-shor-peak/gamma_pieces.py --max-skeleton 8     --out experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json                    # about 12 s
+uv run python experiments/CJ-0001-collins-shor-peak/component_form.py --max-skeleton 8 --max-component 7 --max-weight 2 --max-component3 6     --out experiments/CJ-0001-collins-shor-peak/results/component-form.json                  # about 3 min
 ```
 
 The exhaustive runs are deterministic. The sampled run is deterministic given

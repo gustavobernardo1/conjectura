@@ -773,3 +773,294 @@ her 1986 thesis; thesis pages 1–3, 6–11, 50–77; Graham–Lovász pp. 68–
 papers citing any of these; MathSciNet, zbMATH, Google Scholar, MathOverflow.
 For the statements written in session 6 (the reduction of `r_A` to a Laplacian
 block, Property Γ for independent complements) no search was made at all.
+
+## Literature audit 2026-11-26 (session 7): MD-0011 and MD-0012
+
+Auditor: Claude (`claude-fable-5-2`), literature-auditor subagent. Budget set
+by the launching session: 20 minutes of wall-clock time (the environment does
+not report elapsed time; the work was stopped at an estimated 18 minutes).
+Requests made: 14 web searches, 15 fetches (3 of them returned only undecoded
+PDF bytes, which were then read as page images; 1 returned an empty list). All
+accesses on 2026-11-26. This is the first search made for the statements of
+MD-0011 (Propositions S6 to S10, Lemma C) and MD-0012 (Lemma F, Corollary F′,
+Proposition S11).
+
+**Result in one sentence.** No source read states S6, S7, S8, S9, S10, Lemma C,
+Lemma F, Corollary F′ or S11, and no proof or refutation of the Collins–Shor
+conjecture was found; three published results that are close to parts of the
+argument were identified and must be cited (items R1 to R3 below), one of which
+(R2, Theorem 2.4) is the determinant `det(D + xJ)` that an earlier audit
+recorded as "not found" for Proposition S3. The coverage is small and does not
+support any statement of novelty.
+
+### Queries (verbatim)
+
+General web search tool (S = standard mode, E = extended mode):
+
+1. (S) `distance characteristic polynomial tree pendant vertices Laplacian principal submatrix formula "distance matrix" "Graham" "Lovász" inverse low-rank update determinant`
+2. (S) `"det(I + x L)" OR "det(I+xL)" OR "det(I + tL)" rooted spanning forests tree Laplacian principal submatrix polynomial "gamma-positive" OR "real-rooted" OR "interlacing"`
+3. (E) `"distance characteristic polynomial" trees coefficients peak location Collins Shor conjecture arXiv 2025 OR 2026 unimodal "normalized coefficients"`
+4. (S) `polynomial nonnegative expansion basis "x^i(1+x)^{d-2i}" beyond symmetric "gamma-positivity" non-palindromic "alternatingly increasing" "symmetric decomposition" Brändén Solus`
+5. (S) `distance spectrum "corona" OR "thorn" tree "T∘K_1" OR "pendant vertices attached" distance characteristic polynomial in terms of Laplacian spectrum of the tree`
+6. (S) `Chebotarev Shamis "matrix-forest theorem" det(I + τL) forests polynomial coefficients tree weighted roots "Dirichlet" OR "grounded" Laplacian tree characteristic polynomial coefficients combinatorial "gamma" positivity`
+7. (S) `Laplacian characteristic polynomial of a tree "pendant vertex" recurrence "principal submatrix" deletion leaf recursion "L_v(T)" characteristic polynomial coefficients forests "Kelmans" tree`
+8. (E) `arXiv 2025 distance matrix tree characteristic polynomial coefficients "Graham" "Lovász" peak "caterpillar" OR "double star" OR "starlike" OR "broom" unimodal location of the peak`
+9. (E) `"rooted spanning forests" tree polynomial "principal submatrix" Laplacian tree "det(I + x" OR "det(xI + L" weights vertices "non-negative" expansion "(1+x)" basis forests tree gamma-vector`
+10. (S) `Indulal Stevanović "distance spectrum of corona and cluster of two graphs" tree pendant vertices distance characteristic polynomial corona G∘K_1 Laplacian`
+11. (S) `"Laplacian coefficients" trees matchings "subdivision" Zhou Gutman Mohar "principal submatrix" of Laplacian of a tree characteristic polynomial "matching polynomial" rooted forests`
+12. (S) `tree "distance matrix" contracting subtree OR "contraction" pendant vertices "quotient matrix" determinant identity "Laplacian" principal submatrix "matrix determinant lemma" Graham Lovász inverse perturbation "rank one" bordered distance matrix tree`
+13. (S) `mathoverflow polynomial "nonnegative combination" "x^i(1+x)^j" cone closed under multiplication peak binomial "gamma-nonnegative" non-symmetric generalization "left-heavy" OR "right-heavy" OR "top-heavy" gamma expansion`
+14. (S) `"grounded Laplacian" OR "Dirichlet Laplacian" tree characteristic polynomial coefficients "gamma-positive" OR "γ-positive" OR "unimodal" det(I + x L) principal submatrix tree Laplacian "rooted forests" polynomial inequality coefficients`
+
+The search tool reported for several of these that it had dropped operators or
+quoted phrases; its answers are summaries and were used only to locate sources.
+
+arXiv listing search (`arxiv.org/search`, all fields, newest first, 50 per page):
+
+15. `"distance characteristic polynomial"` — 5 results: arXiv:2206.07561,
+    1903.04575, 1811.03061, 1507.02341, 1505.07651. None later than 2022.
+16. `"Graham and Lovász" distance` — 8 results: arXiv:2604.26385 (On a
+    conjecture of distance spectral extremal problems, 29 Apr 2026),
+    2604.12404 (Steklov eigenvalues on trees, 14 Apr 2026), 2504.11706
+    (distance ideals, 15 Apr 2025), 2411.11488, 2206.07561, 2205.02133,
+    1507.02341, 1303.4517. Titles and listing abstracts only, except
+    2411.11488 (item R1). As reported by the fetch tool, none of the listing
+    abstracts concerns the location of the peak for trees. arXiv:2407.03309 is
+    not returned by either query, so these two queries do not find every
+    relevant paper.
+
+Citation index (Semantic Scholar API):
+
+17. Citations of arXiv:1507.02341 — the same 5 papers as in sessions 2 and 5.
+18. Citations of arXiv:2206.07561 — 8 papers; the only ones on distance
+    matrices are arXiv:2407.03309 (already read) and arXiv:2309.08691
+    (Choudhury–Khare, "The additive-multiplicative distance matrix of a graph,
+    and a novel third invariant", title only).
+19. Citations of arXiv:2407.03309 — the API returned an empty list.
+
+### Sources opened, and what was read
+
+**(R1) H. Richman, F. Shokrieh, C. Wu, Principal minors of tree distance
+matrices, arXiv:2411.11488 (v1 18 Nov 2024, v2 10 Dec 2025; no journal
+reference on the abstract page).** Access: abstract page, and the HTML
+rendering of v2 through the fetch tool's text extraction (characters 0 to
+100,000 of 108,982 in two passes, and 60,000 to the end in a third). The
+statements below are as returned by that tool when asked for exact quotation;
+they were **not** read as page images, and the proofs were not read.
+
+- Theorem A: for a tree `G` with `n` vertices and a non-empty `S ⊆ V`,
+  `det D[S] = (−1)^{|S|−1} 2^{|S|−2} ( (n−1) κ(G;S) − Σ_{F ∈ F_2(G;S)} (outdeg(F,∗) − 2)² )`,
+  with `κ(G;S)` the number of `S`-rooted spanning forests and `F_2(G;S)` the
+  set of `(S,∗)`-rooted spanning forests (one extra "floating" component).
+- Theorem 2.4 (all-minors matrix-tree theorem): `κ(G;S)` is, up to the edge
+  weights, `det L[S̄]`, the principal minor of the Laplacian on the complement.
+- Theorem 4.4: `cof D[S] = (−2)^{|S|−1} κ(G;S)` (`cof` = sum of all cofactors).
+- Theorem B: the version with edge lengths. Theorem C: a formula for the
+  coefficients `δ_{n−k}` of `det(D − λI)` as sums over spanning forests with
+  `k` and `k + 1` components. Theorem D: monotonicity of `det D[A]/cof D[A]`.
+- Per the tool's listing of all numbered statements: nothing on pendant
+  vertices as a family, on a quotient matrix, on `det(D[S] + ·)` with a
+  rank-two term, on unimodality, real-rootedness, gamma-positivity or the
+  location of the peak. The Graham–Lovász inverse is not a numbered statement.
+
+**(R2) R. Bapat, S. J. Kirkland, M. Neumann, On distance matrices and
+Laplacians, Linear Algebra Appl. 401 (2005) 193–209, DOI
+`10.1016/j.laa.2004.05.011` (DOI as printed on the first page).** Access: scan
+at `https://www.math.ucdavis.edu/~saito/data/distmat/bapat-kirkland-neumann-distmat-lap.pdf`;
+all 17 pages read as page images (statements read; proofs of Sections 3 and 5
+skimmed).
+
+- Theorem 2.1 (p. 195): for a weighted tree with edge weights `α_i`,
+  `D^{−1} = −L/2 + δδᵀ/(2 Σ α_i)`, `δ_i = 2 − d_i`, `L` the Laplacian for the
+  reciprocal weights. This is the weighted form of the Graham–Lovász inverse
+  used in S3 and S6.
+- Theorem 2.3 (p. 197) and **Theorem 2.4 (p. 199)**: for a weighted tree on
+  `n` vertices and every real `x`,
+  `det(D + xJ) = (−1)^{n−1} 2^{n−2} (Π α_i)(2x + Σ α_i)`; inertia `(1, 0, n−1)`.
+  For unit weights this is `det(D + xJ) = (−1)^{n−1} 2^{n−2} (2x + n − 1)`,
+  which is the determinant computed in the proof of Proposition S3
+  (`det(P + αJ) = (−1)^{s−1} 2^{s−2} (s − 1 + 2α)`).
+- Lemma 4.1 (p. 203): `LD = δ1ᵀ − 2I`, `QᵀDQ = −2I`,
+  `(D^{−1} − L)^{−1} = D/3 + (Σ α_i / 3) J`. Theorems 4.5 and 4.6: entrywise
+  positivity of `(D^{−1} − L̃)^{−1}` for the Laplacian `L̃` of any connected
+  weighted graph.
+- The paper contains no characteristic polynomial of `D`, no principal
+  submatrix of `L`, no pendant-vertex family, no quotient matrix, and no
+  polynomial positivity statement.
+
+**(R3) R. Merris, The distance spectrum of a tree, J. Graph Theory 14 (1990)
+365–369.** Access: scan at
+`https://math.ucdavis.edu/~saito/data/distmat/merris-distspect-tree.pdf`; all
+5 pages read as page images. Content: Lemma `QᵀDQ = −2I_m` (`Q` the
+vertex–edge incidence matrix; attributed to Graham–Lovász, Graham–Pollak and
+W. Watkins); Theorem: the eigenvalues of `−2K^{−1}`, `K = QᵀQ = 2I + A(T*)`,
+interlace those of `D`; "the characteristic polynomial of `DL(T)` is
+`x(x + 2)^{n−1}`"; Corollary 1 (multiplicity of a distance eigenvalue at most
+the number `p` of pendant vertices); Corollary 2 (`−2` has multiplicity at
+least `p − q − 1`); Corollaries 3 and 4 (bounds from the algebraic
+connectivity; "`I_p` is a principal submatrix of `L(T)`" is used for
+interlacing). No formula for `det(D − λI)` through `L` or a block of `L`, no
+statement on coefficients.
+
+**(R4) P. Brändén, L. Solus, Symmetric decompositions and real-rootedness,
+arXiv:1808.04141v3 (12 Jan 2020).** Access: PDF, pages 1 to 4 read as page
+images; the rest not read. Definitions (p. 1): `p = p_0 + … + p_d x^d` is
+*alternatingly increasing* if `0 ≤ p_0 ≤ p_d ≤ p_1 ≤ p_{d−1} ≤ … ≤ p_{⌊(d+1)/2⌋}`;
+every `p` of degree at most `d` is uniquely `p = a + xb` with `a` symmetric
+with respect to `d` and `b` with respect to `d − 1` (Lemma 2.1, p. 2, with
+`a = (p − x I_d(p))/(1 − x)`, `b = (I_d(p) − p)/(1 − x)`); `p` is
+alternatingly increasing if and only if `a` and `b` are unimodal with
+non-negative coefficients. On the pages read there is no basis consisting of
+`x^e(1+x)^{d−2e}` (`2e < d`) together with the monomials `x^e`
+(`d ≤ 2e ≤ 2d`), and no cone of the form `C_d`.
+
+**Abstract pages only (nothing claimed about the papers' contents):**
+arXiv:1903.11566 (P. N. Choudhury, A. Khare, Distance matrices of a tree: two
+more invariants, and in a unified framework; Eur. J. Combin. 115 (2024)
+103787 per the abstract page): minors of generalized tree distance matrices
+after deleting pendant nodes, a closed form for `D^{−1}` extending
+Graham–Lovász, and `cof(D)`. arXiv:1711.05983 (C. A. Athanasiadis,
+Gamma-positivity in combinatorics and geometry): the abstract describes
+gamma-positivity as a property of polynomials with symmetric coefficients.
+
+**Search-result snippets only, not opened:** Chebotarev–Shamis, Matrix-forest
+theorems (arXiv:math/0602575); O. Knill, Counting rooted forests in a network
+(arXiv:1307.3810: `det(1 + kL)` counts rooted edge-`k`-coloured spanning
+forests); F. R. K. Chung, a combinatorial Laplacian with vertex weights
+(Dirichlet eigenvalues and rooted forests); O. Bernardi and coauthor, Directed
+rooted forests in higher dimension (arXiv:1512.07757); P. Biane and coauthor,
+Laplacian matrices and spanning trees of tree graphs (arXiv:1505.04806);
+B. Mohar, On the Laplacian coefficients of acyclic graphs (LAA 422, 2007);
+the Zhou–Gutman identity `c_k(T) = m_k(S(T))` (Laplacian coefficients of a
+forest are the matching numbers of its subdivision), seen only as quoted in
+other papers' snippets; arXiv:2410.14112 (Subdivision method in the Laplacian
+matching polynomial); arXiv:1104.4280, 1105.5838 (ordering trees by Laplacian
+coefficients); arXiv:1306.4649 (Laplacian characteristic polynomials of
+caterpillars by recursive formulas); arXiv:1912.03101; arXiv:2102.00899 and
+arXiv:2302.00754 (bi-gamma-positivity: `a` and `b` of the symmetric
+decomposition both gamma-positive — definition taken from the search tool's
+summary); G. Indulal, D. Stevanović, The distance spectrum of corona and
+cluster of two graphs, AKCE Int. J. Graphs Comb. 12 (2015) 186–192 (per the
+catalogue snippet it assumes `G` distance regular); arXiv:1810.06182 (squared
+distance matrix of a weighted tree); the Springer page of the journal version
+of arXiv:2407.03309.
+
+### Findings per item
+
+**(a) `r_A` through the Laplacian block `L_B` (S6, S7; S8, S9, S10 as
+consequences).** *Identical statement: not found within this coverage.*
+Related prior results, to be cited:
+
+- The two ingredients are published: the inverse formula (Graham–Lovász 1978,
+  Lemma 1, recorded in session 2; weighted form in R2, Theorem 2.1) and the
+  rank-one case `det(D + xJ)` (R2, Theorem 2.4).
+- R1 is the nearest structural analogue. Its Theorem A writes a principal
+  minor of `D` as "(a linear factor) × (a principal minor of `L` on the
+  complement) − (a quadratic correction summed over forests with a floating
+  component)", and its Theorem 4.4 gives `cof D[S]`, hence
+  `det(D[S] + cJ) = det D[S] + c · cof D[S]` for every `c`. The second form of
+  S7, `Φ_B · [linear] − x² zᵀ adj(I + xL_B) z`, has the same shape. The
+  difference: the coefficient of `(2x)^{|C|}` in `det N_A`, `C ⊆ B`, is the
+  principal minor on `V ∖ C` of `−(P + 1_A 1ᵀ + 1 1_Aᵀ + (a/2x) J)`, which
+  contains the rank-two term `1_A 1ᵀ + 1 1_Aᵀ`; for `A = V` it is absorbed in
+  `J` and S3 follows from R2 Theorem 2.4 (or R1 Theorems A and 4.4 with
+  `S = V`), but for `A ≠ V` it is not covered by `det D[S]` and `cof D[S]`
+  alone. (This comparison is the auditor's own and has not been reviewed.)
+  Relation: **related technique and a parallel result for a different
+  matrix; neither a special case nor a generalization was established.**
+- No formula for the distance characteristic polynomial of a tree with
+  pendant vertices, or of a corona/thorn/cluster construction on a tree, in
+  terms of the Laplacian of the skeleton was found (queries 1, 5, 10, 12).
+  The one corona paper located (Indulal–Stevanović) was not opened.
+- Correction to the session 6 table: the row "`r_V = (s + 3)x + s` (S3): Not
+  found" should now read "the determinant `det(P + αJ)` on which S3 rests is
+  R2, Theorem 2.4; the statement `r_V = (s+3)x + s` itself was not found".
+
+**(b) Lemma F (`det(I + x(L_T + diag ν)) ∈ C_j`), Corollary F′, and the leaf
+recurrence.** *Not found within this coverage.* What was located concerns the
+combinatorial meaning of the polynomial, not its position in a cone: the
+matrix-forest theorem and its coloured/weighted versions (Chebotarev–Shamis,
+Knill, Chung; snippets only) and the all-minors matrix-tree theorem (R1,
+Theorem 2.4). No source read or seen in a snippet states a gamma-type,
+half-gamma or `x^e(1+x)^i` expansion of `det(I + xM)` for a principal
+submatrix `M` of a tree Laplacian, nor the recurrence
+`Φ(T, ν) = (1 + (1 + ν_w)x) Φ(T − w, ν) + x(1 + ν_w x) Ψ`. A lead that was
+not followed: `L_B = NNᵀ` with `N` the rows `B` of the incidence matrix, so
+by Cauchy–Binet `Φ_B` is the matching generating polynomial of the bipartite
+forest on `B` and the edges of `S` meeting `B` (auditor's remark, unreviewed;
+it is the principal-submatrix analogue of the Zhou–Gutman identity, which was
+seen only in snippets). The literature on matching polynomials of forests and
+on Laplacian coefficients of trees (Mohar; Zhou–Gutman; the 2024 "subdivision
+method" paper) is therefore the place where Lemma F or its recurrence could
+already exist, and **none of it was read**.
+
+**(c) Lemma C and the cones `C_d`.** *The half-gamma basis and the cones
+`C_d` were not found under any name within this coverage.* Standard notions
+located: gamma-positivity (symmetric polynomials only, per the abstract of
+Athanasiadis's survey); the symmetric decomposition `p = a + xb` and the
+alternatingly increasing property (R4, pp. 1–2); bi-gamma-positivity (snippet
+only). The notion of the project is different from bi-gamma-positivity:
+`x²` has a non-negative half-gamma expansion of degree 2, while its symmetric
+decomposition with respect to `d = 2` is `a = −x`, `b = 1 + x`, so `a` has a
+negative coefficient (auditor's check by hand with the formulas of R4,
+Lemma 2.1). No statement of a product-closed cone of this kind was found; that
+products of gamma-positive polynomials are gamma-positive is commonly used,
+but no source stating it was opened in this audit. Lemma C is elementary and
+may well be folklore; the search (queries 4 and 13, four pages of one paper)
+cannot decide that.
+
+**(d) Proposition S11 (contraction of the components of `S[A]` changes `r_A`
+by `(a − a′)(1 + x)Φ_B`).** *Not found within this coverage.* One query
+(number 12) addressed it; it returned only the general literature on tree
+distance matrices (R1, R2, Choudhury–Khare, Graham–Lovász). The statement is
+specific to the project's polynomials `r_A`, for which no prior source is
+known, so a prior statement in these terms is unlikely to be found by keyword
+search; an equivalent statement in other terms cannot be excluded.
+
+**(e) Location of the peak for trees, 2023 onwards.** *No new result on the
+Collins–Shor interval was found.* Beyond arXiv:2407.03309 (already recorded),
+the only new item on the distance characteristic polynomial of trees since
+2023 is R1 (coefficients as forest sums, Theorem C; nothing on the peak,
+within what was read of it). The arXiv listing queries 15 and 16 and the
+citation lists 17 to 19 show no paper announcing a proof, a refutation or a
+family result. The three 2025–2026 listing entries of query 16 were judged
+from titles and listing abstracts only.
+
+### Not searched or not accessible
+
+- MathSciNet, zbMATH, Google Scholar: not available to the tool; not searched.
+  MathOverflow: one general web query naming it (number 13), no site search.
+  OEIS, erdosproblems.com: not searched (no integer sequence was extracted
+  from Lemma F or S7).
+- Books: Bapat, *Graphs and Matrices* (chapters on the distance matrix of a
+  tree and on the Laplacian); Brouwer–Haemers; Cvetković–Doob–Sachs; Godsil,
+  *Algebraic Combinatorics* (matching polynomials). None consulted.
+- Not read although located: R1 beyond the tool's extraction (proofs, and the
+  last 8,982 characters only in the third pass); R4 after page 4; the
+  Choudhury–Khare papers; Athanasiadis's survey; every item under "snippets
+  only", in particular the matching-polynomial and Laplacian-coefficient
+  literature relevant to Lemma F; Indulal–Stevanović 2015; arXiv:2604.26385,
+  2604.12404, 2504.11706.
+- Still unread from earlier audits: Collins (1989) and her thesis; the
+  published version of Collins (1993); the DAM 2019 paper; Graham–Lovász
+  pp. 68–79; Edelberg–Garey–Graham (1976); Aouchiche–Hansen (2014).
+- Languages: English only in this session. No search in Chinese, Russian
+  (Kelmans, Chebotarev–Shamis originals) or Portuguese.
+- Formal libraries (Mathlib, formal-conjectures): not searched.
+- The citation list of arXiv:2407.03309 came back empty, which is a failure
+  of the index, not evidence that the paper is uncited. Papers citing R1, R2
+  or Merris (1990) were not listed.
+
+### Recommendation for the registry (the auditor did not edit it)
+
+- MD-0011: novelty `preliminary-search-completed`. A first search exists and
+  found no identical statement, but it found close prior results (R1, R2 and
+  Graham–Lovász) and left the most relevant databases and books unsearched.
+  The record should cite R2 (Theorems 2.1, 2.4) and R1 (Theorems A, 4.4).
+- MD-0012: novelty `preliminary-search-completed`. Nothing found, but the
+  literature in which Lemma F would most plausibly appear (matching
+  polynomials of forests, Laplacian coefficients, forest polynomials) was
+  identified and not read.
+
+Neither search supports `no-prior-resolution-found`. An unsuccessful search
+does not establish originality.
