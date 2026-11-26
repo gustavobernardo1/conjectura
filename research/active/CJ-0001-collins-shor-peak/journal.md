@@ -151,3 +151,36 @@ No mathematical error was found. Several statements were more confident than
 their evidence and have been corrected. The catalogue status remains
 `not-reviewed`: one same-model AI review of an earlier revision does not meet
 the bar for `ai-reviewed` on a revision that was edited afterwards.
+
+## Session 2 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2`, in Claude Code. The
+  session followed a request of the project director to extend the repository
+  (registry of contributions, exploration mode, project summary) and then to
+  return to research. No human mathematical input.
+- **Mode:** focused work.
+- **Role(s):** Research Director, Mathematical Researcher, Computational
+  Experimenter; Literature Auditor as a separate subagent (same model).
+- **Repository revision at start:** `c31fdb2` (branch `research`).
+- **Objective (exact):** O1 of `STATE.md`. For all integers `a, b ≥ 1`, with
+  `n = a + b + 2` and `m = ⌊n/2⌋`: `d_{m−1}(S(a,b)) < d_m(S(a,b))`, where
+  `S(a,b)` is the double star. By R1 this is the lower bound of the
+  Collins–Shor conjecture for double stars.
+- **Approach:** L3 with spine length 2 gives `d_k = Σ_j g_j(a,b) C(n−4, k−j)`
+  with `g_j` read from a `4 × 4` determinant. The determinant is affine in each
+  of `a` and `b`, so for fixed `n` the difference `d_m − d_{m−1}` is affine in
+  `t = ab`; positivity then has to be checked only at the two ends of the range
+  of `t`, where it is a statement about one-variable polynomials.
+- **Falsification test:** the closed formula must reproduce the exact
+  coefficients of the direct `n × n` computation before any proof is attempted;
+  a single double star with `d_{m−1} ≥ d_m` refutes the objective (none exists
+  for `n ≤ 23` by E1 and E2).
+- **Stopping conditions:** done when a written proof exists, the formula is
+  cross-checked exactly for all `a + b ≤ 200`, and an independent review has
+  been requested. Stop if the formula disagrees with the direct computation or
+  positivity fails on an infinite range.
+- **Budget:** 60 minutes of agent work; at most 10 minutes of computation; the
+  literature audit at most 25 minutes.
+- **Deferred obligation:** the rerun of orders 21 to 23 (obligation 3, about 34
+  minutes) exceeds the default computation budget and waits for the director's
+  approval. MD-0001 stays `partial-result` until then.

@@ -140,3 +140,28 @@ def test_caterpillar_quotient_formula_matches_direct_computation(leaves):
     import near_star_families
 
     assert near_star_families.sequences_proportional(leaves)
+
+
+def test_double_star_closed_forms_and_peak():
+    # Theorem T1 (notes/double-stars.md) on every double star of order 4 to 32, against the
+    # direct determinant, and on a few of them against the independent Laplacian method.
+    import double_stars
+
+    assert double_stars.symbolic_4g() == double_stars.EXPECTED_4G
+    for m in range(40):
+        assert 24 * m**3 - 88 * m**2 + 98 * m - 30 == 2 * (2 * m - 1) * (2 * m - 3) * (3 * m - 5)
+    for total in range(2, 31):
+        for a in range(1, total // 2 + 1):
+            b = total - a
+            d = double_stars.double_star_coefficients(a, b)
+            assert double_stars.matches_direct(double_stars.double_star_parents(a, b), d)
+            assert double_stars.double_star_closed_form_holds(a, b, d)
+            assert double_stars.middle_is_the_only_peak(d)
+    for a, b in [(1, 1), (1, 2), (3, 5), (9, 9), (2, 13)]:
+        parents = double_stars.double_star_parents(a, b)
+        independent = independent_check.normalized_coefficients(len(parents), edges_of(parents))
+        assert independent == [Fraction(value) for value in double_stars.double_star_coefficients(a, b)]
+    for n in range(3, 33):
+        d = double_stars.star_coefficients(n)
+        assert double_stars.matches_direct(distpoly.star_parents(n), d)
+        assert double_stars.star_closed_form_holds(n, d) and double_stars.middle_is_the_only_peak(d)
