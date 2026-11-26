@@ -11,13 +11,13 @@
         "Peter Shor"
       ],
       "source": {
-        "citation": "G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341, Conjecture 1.2 (a search result reports the journal version as Electron. J. Linear Algebra, 2018; not verified from the journal); originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor.",
+        "citation": "G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341, Conjecture 1.2 (journal version: Electron. J. Linear Algebra 34:373-380, 2018, according to the reference lists of arXiv:2206.07561 and arXiv:2407.03309; not checked against the journal); originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor.",
         "url": "https://arxiv.org/abs/1507.02341",
         "statement_number": "Conjecture 1.2 (Collins 1989, Conjecture 9)",
         "published": "1989",
         "accessed": "2026-11-26",
         "statement_checked_against": "primary-source",
-        "note": "The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) was not accessed; according to arXiv:1507.02341 it states the bounds without floor and ceiling."
+        "note": "The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) could not be accessed (publisher and repositories refused automated access on 2026-11-26); according to arXiv:1507.02341 it states the bounds without floor and ceiling."
       },
       "statement": "Let $T$ be a tree of order $n \\ge 3$ with distance matrix $\\mathcal{D}(T)$ (the $(i,j)$ entry is the length of the path from $v_i$ to $v_j$). Let $\\delta_k(T)$ be the coefficient of $x^k$ in $\\det(\\mathcal{D}(T) - xI)$ and, for $0 \\le k \\le n-2$, let $d_k(T) = 2^{k-(n-2)}\\,|\\delta_k(T)|$ be the normalized coefficients. Conjecture 1.2 (Collins–Shor), verbatim: \"The [normalized] coefficients of the distance characteristic polynomial for any tree $T$ with $n$ vertices are unimodal with peak between $\\lfloor n/2 \\rfloor$ and $\\lceil n - n/\\sqrt{5} \\rceil$.\" Unimodality (indeed log-concavity) is Theorem 2.1 of the same paper. The open part is the location: every index $k$ at which $d_0(T),\\dots,d_{n-2}(T)$ attains its maximum satisfies $\\lfloor n/2 \\rfloor \\le k \\le \\lceil n - n/\\sqrt{5} \\rceil$. (The source does not say how a tie between two maximal coefficients is to be read; the project uses the strong reading 'every maximizing index' and records ties explicitly.)",
       "fields": [
@@ -34,13 +34,13 @@
       },
       "open_status": {
         "as_of": "2026-11-26",
-        "evidence": "arXiv:1507.02341 (2018) states that the peak location remains open and reports verification for all trees of order at most 20; the 2022 follow-up arXiv:2206.07561 still treats peak location as unresolved; three web searches on 2026-11-26 found no later result. No source dated after 2022 was found.",
+        "evidence": "arXiv:1507.02341 (versions 2015 to 2017) states that the peak location remains open and reports verification for all trees of order at most 20. arXiv:2206.07561 (2022, read in full) says of it: 'Little progress on this problem is known.' arXiv:2407.03309 (2024, read in full) studies the peak location for two other matrices of a tree and reports no result on this conjecture. A citation index queried on 2026-11-26 lists no title announcing a resolution. No source dated after July 2024 was found.",
         "url": "https://arxiv.org/abs/2206.07561"
       },
       "novelty_search": {
         "as_of": "2026-11-26",
-        "coverage": "Two web queries by a scout subagent (general web search; ar5iv full text of arXiv:1507.02341; abstract of arXiv:2206.07561) and one further web query by the coordinating agent on 2026-11-26; the TeX source of arXiv:1507.02341 was read for the exact statement.",
-        "limitations": "No direct arXiv listing search, no Google Scholar citation trawl of the 2018 ELA paper, no MathOverflow or Open Problem Garden check. The evidence of openness is 4+ years old; an unsuccessful 2025–2026 search does not establish that nobody has settled it. Forward citations of arXiv:1507.02341 and arXiv:2206.07561 should be checked before investing."
+        "coverage": "Session 1: three web queries; the TeX source of arXiv:1507.02341 read for the exact statement. Session 2 (literature audit by a separate agent context, 2026-11-26): arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries; two citation lists (5 papers citing arXiv:1507.02341 and 14 citing Collins 1989, mostly titles only). Within this coverage no proof or refutation was found, and no proof of either half for a family other than stars and paths. Details: the dossier.",
+        "limitations": "Collins (1989) and her 1986 thesis were not accessible and are known only second-hand. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, the arXiv listing interface, non-English literature. Most citing papers were seen by title only. An unsuccessful search does not establish that nobody has settled the conjecture or the special cases treated by the project."
       },
       "scores": {
         "statement_precision": {
@@ -49,7 +49,7 @@
         },
         "open_evidence": {
           "score": 2,
-          "why": "Explicitly open in 2018 and treated as open in 2022, but no source after 2022; openness rests on unsuccessful searches."
+          "why": "Explicitly open in the 2015-2017 preprint, 'little progress' in 2022, no result reported in a 2024 paper on the same question for other matrices; openness still rests on unsuccessful searches."
         },
         "tractability": {
           "score": 3,
@@ -65,7 +65,7 @@
         },
         "supporting_literature": {
           "score": 3,
-          "why": "Graham–Lovász 1978, Collins 1989, Aalipour et al. 2018 and a 2022 extension give techniques; the literature is small."
+          "why": "Graham–Lovász 1978 (read in part), Aalipour et al. and its 2022 extension (read in full) and the Hogben–Reinhart survey give techniques; Collins 1989 is not accessible to the project."
         },
         "lean_coverage": {
           "score": 2,

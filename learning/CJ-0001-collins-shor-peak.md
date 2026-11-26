@@ -138,3 +138,17 @@ Answers can be checked with the code in `experiments/CJ-0001-collins-shor-peak/`
   standard one: a pattern verified on all small cases is still only a
   hypothesis, and the falsification test on larger structured examples is what
   exposed it.
+- *Worked (session 2):* treating one family exactly instead of bounding it.
+  For a double star the twin leaves collapse the `n × n` determinant to a
+  `4 × 4` one, the coefficients become five binomials with polynomial weights,
+  and the inequality `d_{m−1} < d_m` turns into the positivity of an explicit
+  polynomial (`notes/double-stars.md`). Two ideas carry the proof and are worth
+  learning: the determinant is affine in each leaf count, and consecutive
+  binomial coefficients differ by a simple rational factor, so that a
+  difference of sums of binomials is one central binomial times a polynomial.
+  This is a candidate proof, reviewed by an AI only.
+- *Learned from the literature (session 2):* two tools derived in session 1
+  were already published — the Laplacian formula (Graham–Lovász 1978,
+  eqs. (10)–(12)) and the quotient-matrix factorisation (Hogben–Reinhart,
+  Theorem 3.3). Reading the sources earlier would have saved the derivations,
+  not the understanding. Exercise 7 above is the smallest case of the second.

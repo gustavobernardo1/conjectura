@@ -184,3 +184,101 @@ the bar for `ai-reviewed` on a revision that was edited afterwards.
 - **Deferred obligation:** the rerun of orders 21 to 23 (obligation 3, about 34
   minutes) exceeds the default computation budget and waits for the director's
   approval. MD-0001 stays `partial-result` until then.
+
+### What was done
+
+Before the research, in the same working session and at the director's
+request: the registry of contributions, the exploration mode and the generated
+summary were added (commits `1a11982`, `48b94fe`, merged in `6e2583a`), and
+five findings of session 1 were registered as MD-0001 to MD-0005 (`c31fdb2`).
+The local identifiers were not changed.
+
+All computations are exact. Commands are run from the repository root with
+`uv run python`.
+
+1. **Literature audit** (separate agent context, `literature-auditor`). Read in
+   full: arXiv:1507.02341v3, arXiv:2206.07561v1, arXiv:2407.03309v1. Read in
+   part: arXiv:2103.00647 (pp. 5–12), Graham–Lovász 1978 (pp. 60–67, 80–86, a
+   scan). Not accessible: Collins (1989) and her thesis. Nine web queries, two
+   citation lists. The record is in the dossier.
+2. **Symbolic determinant.** The `4 × 4` quotient determinant of the double
+   star, with python-flint multivariate polynomials, gives
+   `g_0 = s+1`, `g_1 = 2t+6s+2`, `g_2 = 5t+9s−3`, `g_3 = 4s−8`, `g_4 = −4`
+   (`s = a+b`, `t = ab`).
+3. **Proof.** Written by hand in `notes/double-stars.md`: Lemma D1, two closed
+   forms for `d_m − d_{m−1}`, a sign argument for `d_{m+1} − d_m`, conclusion by
+   log-concavity.
+4. **Falsification test and cross-check.**
+   `double_stars.py --out results/double-stars.json`, at revision `241dc03` on a
+   clean tree: the symbolic determinant agrees with the stated polynomials; for
+   all 10,000 double stars with `a + b ≤ 200` the closed forms, both
+   inequalities and the uniqueness of the peak hold; the whole sequence agrees
+   with the direct `n × n` determinant on 404 double stars; the star formulas
+   hold for orders 3 to 202. 0 failures. 55.5 s.
+5. `uv run pytest tests/test_cj0001_distpoly.py`: 96 passed (one new test).
+6. **Independent review** of revision `5e5ef14` by a fresh context
+   (`adversarial-reviewer`, same model): report
+   `reviews/2026-11-26-claude-fable-5-2-T1.md`.
+
+### Findings
+
+- **T1 (candidate proof; registered as MD-0006).** For every double star
+  `S(a,b)`, `a, b ≥ 1`: `d_{m−1} < d_m`, and `d_{m+1} < d_m` when the index
+  exists, with `m = ⌊n/2⌋`. So the peak is exactly `⌊n/2⌋` and the Collins–Shor
+  conjecture holds for trees of diameter 3. The objective O1 asked only for
+  the first inequality. Review: no gap found within stated scope; the reviewer
+  recomputed the coefficients from the definition on 129 double stars with its
+  own code and found no counterexample among 562,500 double stars with
+  `a + b ≤ 1500`. This is an AI review by the same model family, not a human
+  review. Novelty: no earlier statement found within a bounded search; Collins
+  (1989) is unread.
+- **L1 is known** (registry record MD-0002 set to `previously-resolved`): it is
+  a rewriting of Graham–Lovász 1978, eqs. (10)–(12). The inverse formula quoted
+  from memory in session 1 is their Lemma 1, p. 66.
+- **L3 is known** (MD-0003 set to `previously-resolved`): a direct special case
+  of Theorem 3.3 of Hogben–Reinhart, arXiv:2103.00647.
+- A subforest formula for every `δ_k` exists (Graham–Lovász, Theorem at
+  eq. (42)); the "formula for `d_2`" that session 1 planned to derive does not
+  need deriving.
+- In the sources read, the peak is located only for stars and paths, and the
+  only published exhaustive verification is for order at most 20.
+
+### What failed
+
+- Nothing mathematical failed in this session, which is itself a reason for
+  caution: T1 came out in one pass, and its only review shares the author's
+  model.
+- The review found eight minor defects in the notes (incomplete dependency
+  list; two unproved asides; notation used with two meanings; one check
+  described as "agreement" that is only proportionality). They are listed in
+  `STATE.md`, obligation 2. The notes were left unchanged so that the review
+  still applies to the text as it stands.
+- Collins (1989) could not be obtained. The claim about trees of diameter at
+  most 3 therefore still rests on a second-hand report for stars.
+- Not done: the rerun of orders 21 to 23; any formalization; a comparison with
+  Table II of Graham–Lovász.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author, auditor and reviewer; three separate contexts) |
+| Computation wall-clock | about 2 minutes for the research (two runs of `double_stars.py`, 60 s and 55.5 s); the Lean verification for the infrastructure change took 5 minutes; the full test suite 254 s |
+| Literature audit, as reported by the environment | 165,602 subagent tokens, 48 tool calls, about 6 minutes |
+| Review, as reported by the environment | 101,892 subagent tokens, 21 tool calls, about 9 minutes |
+| Token usage of the main session | unavailable |
+| Research iterations | 1 objective, 1 approach |
+| Proof attempts | 1 (T1), reviewed once |
+| Counterexamples found | 0 |
+| Formalization attempts | 0 |
+| Successful verifications | 96 tests; 10,000 double stars and 200 stars checked exactly; independent recomputation by the reviewer |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable: a candidate proof of the Collins–Shor conjecture for double stars
+with an independent AI review and an exact cross-check; a literature audit that
+reclassified two tools as known. The catalogue status of CJ-0001 is unchanged
+(`active-investigation`): promotion is not decided in the session that
+produced the claim. Next: objective O2 in `STATE.md` (caterpillars with spine
+length 3), after or together with the open obligations listed there.
