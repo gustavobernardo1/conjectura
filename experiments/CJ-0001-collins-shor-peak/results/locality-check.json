@@ -9,7 +9,7 @@
    "--out",
    "experiments/CJ-0001-collins-shor-peak/results/locality-check.json"
   ],
-  "git_revision_at_run": "2c1cff1fce4fa7e0bc205a8297bda7ca1edac32d",
+  "git_revision_at_run": "5622d197b97485ed6d74420a9b3f53eddf638a5a",
   "python": "3.12.4",
   "networkx": "3.7"
  },
@@ -81,5 +81,5 @@
    "formula_with_factors_l2+(n+3)l+2_and_l2-(5n-1)l-4n-2_matches": true
   }
  ],
- "seconds": 34.3
+ "seconds": 33.1
 }

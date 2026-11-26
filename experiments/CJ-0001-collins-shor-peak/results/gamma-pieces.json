@@ -9,7 +9,7 @@
    "--out",
    "experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json"
   ],
-  "git_revision_at_run": "1805bcab1cee71c720049fd9cff85a6a3d0992a3",
+  "git_revision_at_run": "5622d197b97485ed6d74420a9b3f53eddf638a5a",
   "python": "3.12.4",
   "networkx": "3.7"
  },
@@ -28,5 +28,5 @@
   "phi_weight_t_fail_examples": [],
   "T_neg_examples": []
  },
- "seconds": 11.3
+ "seconds": 11.5
 }

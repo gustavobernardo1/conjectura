@@ -9,6 +9,16 @@ names this file. They use Proposition S7 and Lemma C of
 `skeleton-locality.md`. Nothing here is a claim of novelty, and Conjecture Γ
 (MD-0010) remains a conjecture.
 
+Revision history. First version: commit `5622d19`, reviewed by
+`claude-opus-5-5` ([`../reviews/2026-11-26-claude-opus-5-5-F-S11.md`](../reviews/2026-11-26-claude-opus-5-5-F-S11.md)):
+no gap in the cones, Lemma F, Corollary F′ and Proposition S11; a gap in the
+paragraph "What this gives" (the case `A = V` was not accounted for). This
+version (same day, session 6) changes: that paragraph (the case `A = V` is
+Proposition S3); "strong induction" in Lemma F and a remark that integrality
+is needed; the order of the argument that `S′` is a tree; the section on
+computation (what the script computes and does not test). No statement or
+proof step of Lemma F, Corollary F′ or Proposition S11 was changed.
+
 Notation: that of `skeleton-locality.md` (`S`, `A`, `B = V ∖ A`, `a`, `t`,
 `g_w`, `h_w`, `H`, `k_w`, `e_B`, `z`, `L_B`, `Φ_B`).
 
@@ -31,8 +41,9 @@ Laplacian `L_T`, and let `ν : W → {0, 1, 2, …}` be not identically zero. Th
 
 `Φ(T, ν) := det(I + x (L_T + diag(ν))) ∈ C_j`.
 
-*Proof.* Induction on `j`. For `j = 1`, `Φ = 1 + νx = (1 + x) + (ν − 1)x` with
-`ν ≥ 1`, which is in `C_1`.
+*Proof.* Strong induction on `j` (the statement is used below for trees with
+`j − 1` vertices and with at most `j − 2` vertices). For `j = 1`,
+`Φ = 1 + νx = (1 + x) + (ν − 1)x` with `ν ≥ 1`, which is in `C_1`.
 
 Let `j ≥ 2`. `T` has at least two leaves. Choose a leaf `w` such that `ν` is
 not identically zero on `W ∖ {w}`: if `ν` vanishes outside one leaf, take
@@ -63,6 +74,11 @@ and `Ψ = Π_i Φ(T_i, ν + e_{u_i})`. Each weight `ν + e_{u_i}` is integral an
 not identically zero on `T_i`, and `|T_i| < j`, so by induction
 `Ψ ∈ C_{j−2}` (for `q = 0`: `Ψ = 1 ∈ C_0` and `j = 2`). Then `xΨ ∈ C_j` and
 `ν_w x² Ψ ∈ C_j`. ∎
+
+Integrality is used in the base case (`ν ≥ 1` at a single vertex) and cannot
+be dropped: for the path on two vertices with `ν = (1/2, 0)`,
+`Φ = (1 + 3x/2)(1 + x) − x² = 1 + 5x/2 + x²/2 = (1+x)² + x/2 − x²/2`, which is
+not in `C_2` (example found by the reviewer of the first version).
 
 **Corollary F′.** Let `S` be a tree on `s ≥ 2` vertices and `A ⊆ V` with
 `1 ≤ a ≤ s − 1`. Then `Φ_B ∈ C_t`, the integer `3 + 3H − 2e_B` is at least 3,
@@ -97,13 +113,14 @@ independent in `S′`, its complement in `S′` is `B`, and
 Consequently, if `r_{A′}^{S′}` has a non-negative half-gamma expansion of
 degree `t + 1`, then so has `r_A^S`.
 
-*Proof.* `S[A]` is a forest with `a′` components and `a − a′` edges.
-Contracting them leaves a connected graph with `s − (a − a′)` vertices and
-`s − 1 − (a − a′)` edges, that is, a tree `S′`; two contracted vertices are
-not adjacent, since an edge between two components of `S[A]` would be an edge
-of `S[A]`. A vertex `w ∈ B` cannot have two neighbours in the same component
-of `S[A]` (that would close a cycle in `S`), so its degree in `S′` is `g_w`,
-and the adjacencies inside `B` are unchanged. Hence the matrix `L_B` is the
+*Proof.* `S[A]` is a forest with `a′` components and `a − a′` edges. A vertex
+`w ∈ B` cannot have two neighbours in the same component of `S[A]` (that
+would close a cycle in `S`), so the contraction creates no parallel edges:
+`S′` is a simple graph, the degree of `w` in `S′` is `g_w`, and the
+adjacencies inside `B` are unchanged. `S′` is connected and has
+`s − (a − a′)` vertices and `s − 1 − (a − a′)` edges, so it is a tree. Two
+contracted vertices are not adjacent, since an edge between two components of
+`S[A]` would be an edge of `S[A]`. Hence the matrix `L_B` is the
 same for `(S, A)` and `(S′, A′)`, and with it `Φ_B`, `H`, `e_B`, `z` and
 `adj(I + xL_B)`. In the second form of Proposition S7 only the factor `a` of
 `a(1 + x)` differs, which gives the identity. `(1 + x)Φ_B ∈ C_1 · C_t` by
@@ -112,10 +129,22 @@ of the expansion (the sum of two non-negative expansions of degree `t + 1` is
 the expansion of the sum). ∎
 
 **What this gives.** Let *Property Γ⁺* be Property Γ with the condition
-`|A| ≥ 2` replaced by `|A| ≥ 1`. Γ⁺ for all trees implies Conjecture Γ, and by
-S11 **Γ⁺ for all trees follows from Γ⁺ for the pairs `(S, A)` with `A`
-independent** (where `a = Σ_B ν_w − c + 1` is as small as the forest `S[B]`
-and the numbers `ν_w` allow). The extension to `|A| = 1` is needed because a
+`|A| ≥ 2` replaced by `|A| ≥ 1`: for every `A ⊆ V` with `|A| ≥ 1`, `r_A` has a
+non-negative half-gamma expansion of degree `s − |A| + 1`. Γ⁺ for all trees
+implies Conjecture Γ. In the other direction, three cases:
+
+- `A = V`: the requirement holds for every tree by Proposition S3
+  (`r_V = s(1 + x) + 3x`). This case is not covered by S11, which needs
+  `a ≤ s − 1`, and `V` is not independent.
+- `1 ≤ |A| ≤ s − 1` and `A` independent: this is the hypothesis below.
+- `1 ≤ |A| ≤ s − 1` and `A` not independent: by S11 the requirement for
+  `(S, A)` follows from the requirement for `(S′, A′)`, where `A′` is
+  independent and `1 ≤ |A′| ≤ s′ − 1`.
+
+So **Γ⁺ for all trees follows from Proposition S3 together with Γ⁺ for the
+pairs `(S, A)` with `A` independent** (for such a pair
+`a = Σ_B ν_w − c + 1`, the smallest value that the forest `S[B]` and the
+numbers `ν_w` allow). The extension to `|A| = 1` is needed because a
 connected `A` contracts to one vertex. By Proposition S10 the pairs with `B`
 independent are done; what remains is: `A` independent and `S[B]` containing
 at least one edge.
@@ -124,11 +153,15 @@ at least one edge.
 
 `experiments/CJ-0001-collins-shor-peak/gamma_pieces.py`, result file
 `results/gamma-pieces.json`: for the 47 trees with 2 to 8 vertices and the
-7726 subsets with `1 ≤ |A| ≤ s − 1`:
+7726 subsets with `1 ≤ |A| ≤ s − 1`. The script does not compute `r_A` from
+its definition: it computes `r_A` as the second form of Proposition S7, so
+what it reports about `r_A` rests on S7 (which `locality_check.py` compares
+with the definition on the same trees). It tests `Φ_B` only for the weights
+`ν` that arise from a pair `(S, A)`, not Lemma F for arbitrary weights.
 
 - `Φ_B` has a non-negative half-gamma expansion of degree `t`, and the first
-  term of S7 one of degree `t + 1`, in every case (as Lemma F and Corollary F′
-  say);
+  term of S7 one of degree `t + 1`, in every case (consistent with
+  Corollary F′);
 - **Γ⁺ holds: `r_A` has a non-negative half-gamma expansion of degree `t + 1`
   also for the 325 subsets with `|A| = 1`**, which Conjecture Γ as registered
   does not include;
