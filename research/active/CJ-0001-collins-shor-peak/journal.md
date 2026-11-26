@@ -406,3 +406,50 @@ review by a different model; registry record MD-0007. The catalogue status of
 CJ-0001 is unchanged (`active-investigation`). Next: objective O3 in
 `STATE.md` (the case `b = 0`, which would complete the caterpillars of
 diameter 4), together with the corrections of obligation 8.
+
+## Session 4 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2`. Director's instructions
+  of 2026-11-26 for this session: keep MD-0006 and MD-0007 as candidate
+  theorems; correct the presentation defects and publish (done before this
+  entry: commits `1c38662`, `30fc1e1`, promotion `dc84a3a` on `main`, merge
+  `cda133c`, both branches pushed); continue with O3; explore whether the
+  identities and positivity arguments for short spines suggest a framework for
+  arbitrary spine length; formalize progressively; respect budgets.
+- **Mode:** focused work on O3, then exploration (general spine length). The
+  two parts are recorded separately below.
+- **Role(s):** research director, mathematical researcher, computational
+  experimenter. Review of the O3 claim by a fresh context; one formalization
+  subagent.
+- **Repository revision at start:** `cda133c` (branch `research`, clean tree).
+- **Objective (exact), focused part:** O3 of `STATE.md`. For all integers
+  `a, c ≥ 1` with `a + c ≥ 3`, let `K(a,0,c)` be the caterpillar with spine
+  `v_1 v_2 v_3` in which `v_1`, `v_3` carry `a`, `c` pendant leaves and `v_2`
+  none, `n = a + c + 3`, `m = ⌊n/2⌋`. Decide whether `d_{m−1} < d_m` and
+  `d_{m+1} < d_m`.
+- **Approach:** as planned in `STATE.md`: show that the formula of Lemma C1 of
+  `notes/spine3.md` stays valid at `b = 0` for `n ≥ 6`; the identities of
+  Lemma C2 then hold with `u = n − 3`; check `K > 0` and `H > 0` there.
+- **Falsification test (run first):** closed form at `b = 0` against the direct
+  determinant for `a + c ≤ 40`, with the location of every maximizing index.
+- **Stopping conditions:** done when the four values `H(m, n−3)` are explicit
+  polynomials with a written sign argument, cross-checked exactly; stop without
+  a claim if the formula at `b = 0` disagrees with the direct determinant.
+- **What is explored, exploration part:** for a caterpillar with `s` spine
+  vertices and a fixed order, `d_m − d_{m−1}` is multi-affine in the leaf
+  numbers; is there a sign pattern in its mixed second partials that explains
+  the reductions used for `s = 2` and `s = 3` and survives for larger `s`?
+- **Budget:** about 60 minutes of agent work for the two parts together;
+  computation at most 15 minutes of wall-clock time (largest instances:
+  `a + c = 600` by closed form, order 43 by direct determinant, spines of at
+  most 8 vertices and orders at most 200 for the exploration); one review
+  subagent for the O3 claim; one formalization subagent limited to one lemma
+  (the general form of R1), about 25 minutes and 8 builds.
+- **Order of work, as it happened:** the exploratory computations for both
+  parts were made in a scratch directory while an independent recheck of the
+  revised notes was running and the working tree had to stay unchanged; this
+  header was written into the journal after those computations and before the
+  files of the session were added. The plan for O3 is the one recorded in
+  `STATE.md` at the end of session 3.
+- **Deferred obligations:** obligations 1, 3, 4, 5 and 7 of `STATE.md` are not
+  addressed (obligation 7, formalization, only by the one lemma above).

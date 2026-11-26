@@ -21,9 +21,11 @@ decide an inequality.
 | `near_star_families.py` | Double stars (orders 6–41) and balanced caterpillars up to order 10⁶ through a quotient-matrix formula. |
 | `double_stars.py` | Closed forms for the coefficients of double stars and stars around the middle index (Theorem T1 of `notes/double-stars.md`): symbolic quotient determinant, all double stars with `a + b ≤ 200`, direct determinants up to `a + b ≤ 40`. |
 | `spine3.py` | Closed forms around the middle index for the caterpillars `K(a,b,c)` with three spine vertices carrying `a, b, c ≥ 1` leaves (Theorem T2 of `notes/spine3.md`; `b = 0` is not covered): symbolic quotient determinant and symbolic reduction of the two differences, the sign conditions of the proof for `m ≤ 2000`, all `K(a,b,c)` with `a + b + c ≤ 300`, whole sequences up to `a + b + c ≤ 60`, direct determinants up to `a + b + c ≤ 20`. |
+| `diameter4.py` | The caterpillars `K(a,0,c)` of diameter 4 with no leaf at the centre (Theorem T3 of `notes/diameter4-caterpillars.md`): the formula of `spine3.py` at `b = 0` against the direct determinant for `a + c ≤ 40`, the closed forms for `a + c ≤ 600`, the sign conditions for `m ≤ 2000`, and the path `P_5`. |
+| `mixed_partials.py` | Exploration for Hypothesis V of `notes/vertex-principle.md`: for caterpillars with 2 to 8 spine vertices and orders up to 200, the closed form by interpolation, a certificate for the sign of the mixed second partials of `d_m − d_{m−1}`, and the values at the vertices of each slice. Evidence for a hypothesis, not a proof. |
 | `results/*.json` | Outputs of the runs below. |
 
-Validation: `uv run pytest tests/test_cj0001_distpoly.py` (97 tests).
+Validation: `uv run pytest tests/test_cj0001_distpoly.py` (99 tests).
 
 ## Reproduction
 
@@ -47,6 +49,8 @@ uv run python experiments/CJ-0001-collins-shor-peak/near_star_families.py \
 uv run python experiments/CJ-0001-collins-shor-peak/double_stars.py \
     --out experiments/CJ-0001-collins-shor-peak/results/double-stars.json                    # about 1 min
 uv run python experiments/CJ-0001-collins-shor-peak/spine3.py     --out experiments/CJ-0001-collins-shor-peak/results/spine3.json                          # about 6 min
+uv run python experiments/CJ-0001-collins-shor-peak/diameter4.py     --out experiments/CJ-0001-collins-shor-peak/results/diameter4.json                       # under 2 min
+uv run python experiments/CJ-0001-collins-shor-peak/mixed_partials.py --max-spine 8 --max-order 200     --out experiments/CJ-0001-collins-shor-peak/results/mixed-partials.json                  # under 1 min
 ```
 
 The exhaustive runs are deterministic. The sampled run is deterministic given

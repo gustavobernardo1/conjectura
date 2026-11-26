@@ -190,3 +190,49 @@ def test_spine3_closed_forms_and_peak():
         independent = independent_check.normalized_coefficients(len(parents), edges_of(parents))
         d = spine3.coefficients(a, b, c)
         assert independent == [Fraction(d[k]) for k in range(len(parents) - 1)]
+
+
+def test_diameter4_caterpillars_without_central_leaf():
+    # Theorem T3 (notes/diameter4-caterpillars.md): K(a,0,c) with a, c >= 1 and a + c >= 3.
+    # The formula of Lemma C1 at b = 0 against the direct determinant, the identities of
+    # Lemma C2 there, the sign conditions for small m, and the path on five vertices.
+    import diameter4
+    import spine3
+
+    assert set(diameter4.symbolic_check()) == set(spine3.CASES)
+    for m in range(3, 200):
+        for case in spine3.CASES:
+            k_star, h_star = diameter4.stated_at_centre_empty(case, m)
+            assert k_star > 0 and h_star > 0
+    for total in range(3, 21):
+        n, m = total + 3, (total + 3) // 2
+        for a in range(1, total // 2 + 1):
+            c = total - a
+            d = spine3.coefficients(a, 0, c)
+            assert diameter4.matches_direct(a, c)
+            assert spine3.closed_forms_hold(a, 0, c, d)
+            assert distpoly.peak_indices([d[k] for k in range(n - 1)]) == [m]
+    for a, c in [(1, 2), (2, 2), (1, 6), (4, 5)]:
+        parents = diameter4.parents(a, c)
+        independent = independent_check.normalized_coefficients(len(parents), edges_of(parents))
+        d = spine3.coefficients(a, 0, c)
+        assert independent == [Fraction(d[k]) for k in range(len(parents) - 1)]
+    path5 = distpoly.path_parents(5)
+    assert independent_check.normalized_coefficients(5, edges_of(path5)) == [4, 30, 70, 50]
+
+
+def test_mixed_partial_certificate_on_small_spines():
+    # Hypothesis V (notes/vertex-principle.md) for 2 to 4 spine vertices and small orders: the
+    # interpolated closed form against the direct determinant (an empty inner class included),
+    # and non-negative certificate coefficients for every pair of spine vertices.
+    import mixed_partials
+
+    for s in (2, 3, 4):
+        alpha = mixed_partials.multiaffine_g(s)
+        assert mixed_partials.matches_direct(alpha, [2] + [0] * (s - 2) + [3])
+        assert mixed_partials.matches_direct(alpha, [1] * (s - 1) + [4])
+        lows = [1] + [0] * (s - 2) + [1]
+        for n in range(max(2 * s, s + 3), 40):
+            beta = mixed_partials.difference(alpha, s, n, -1)
+            for i, k in combinations(range(s), 2):
+                assert mixed_partials.smallest_certificate_coefficient(beta, s, i, k, lows) >= 0
