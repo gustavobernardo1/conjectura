@@ -1001,3 +1001,237 @@ Next step: objective O6 in `STATE.md` — Property Γ⁺ for `A` independent and
 `S[B]` a single edge plus isolated vertices, by an explicit grouping in the
 cones `C_d`.
 
+## Session 7 — 2026-11-26
+
+- **Agent / model:** Claude, model `claude-fable-5-2` (main context, Claude
+  Code). Human: G. B. Brito, director, by written instructions at the start
+  (priorities; a mathematical observation, quoted under Findings; approval of
+  the classifications of MD-0011 and MD-0012; authorization to push verified
+  commits to `research` only; the automatic CI trigger works).
+- **Mode:** focused work (reviews owed; objective O6), with an exploration of
+  the director's observation inside it.
+- **Role(s):** research director; mathematical researcher and computational
+  experimenter for O6. Subagents: three `adversarial-reviewer` contexts
+  (`claude-opus-5-5`, fresh, given the catalogue id, the primary source
+  reference, file paths, revision and template only) and one
+  `literature-auditor` (`claude-fable-5-2`, separate context).
+- **Repository revision at start:** `9499572` (branch `research`, clean tree).
+- **Deviation from the protocol, recorded:** this header was written at about
+  17:16 UTC, after the mathematics, not before it (steps 5 to 8 ask for it
+  first). The objective, falsification test and budget below are those the
+  session actually worked under: O6 and its test are in `STATE.md` as left by
+  session 6, and the budget is the director's standing decision.
+- **Objective (exact), O6 as left by session 6, widened by the director's
+  instructions:** show that
+  `Φ_B [a(1+x) + (3 + 3H − 2e_B)x] − x² zᵀ adj(I + xL_B) z ∈ C_{t+1}` for `A`
+  independent, by a structural argument valid for arbitrary forest components
+  of `S[B]`; find a companion recurrence for the adjugate quadratic form
+  alongside Lemma F; examine what the spectral identity for
+  `zᵀ adj(I + xL_B) z` gives beyond non-negative coefficients.
+- **Approach:** (1) the spectral identity as a partial-fraction expansion of
+  `r_A/Φ_B`; (2) split `r_A` over the components of `S[B]`; (3) Schur
+  complements at a leaf for the adjugate, as in Lemma F for the determinant.
+- **Falsification test:** every identity and every cone membership against
+  exact computation on the 47 small skeletons and on all small weighted trees
+  before it is written (`component_form.py`).
+- **Stopping conditions:** mathematics stops at 17:36 UTC; a gap reported by a
+  reviewer takes precedence over new mathematics.
+- **Budget (binding, director's standing decision):** 60 minutes of agent
+  work, 16:51 to 17:51 UTC, reviews, verification, records and push included.
+  Computation: at most 30 minutes of wall-clock time (default of
+  `autoresearch.md`).
+- **Deferred obligations:** 2 (revision of the notes of T1 to T3), 3a (the
+  revisions owed after the reviews of session 6), 4 to 8.
+
+### What was done
+
+All computations are exact (Python integers and rationals). Times are UTC,
+from `date -u` in the session's shell.
+
+1. 16:51 start; `AGENTS.md`, `autoresearch.md`, `STATE.md`, the notes of
+   session 6 and the last journal entry read.
+2. Three subagents started at once on `9499572`: review of Lemma L4 and
+   Corollary S5; review of the computation of Property Γ
+   (`skeleton_structure.py` and its result file); literature audit for
+   MD-0011 and MD-0012. Reports:
+   [`reviews/2026-11-26-claude-opus-5-5-L4-S5.md`](reviews/2026-11-26-claude-opus-5-5-L4-S5.md),
+   [`reviews/2026-11-26-claude-opus-5-5-gamma-computation.md`](reviews/2026-11-26-claude-opus-5-5-gamma-computation.md),
+   and the section "Literature audit 2026-11-26 (session 7)" of the dossier.
+3. O6, by hand, while they ran: the partial-fraction form of `r_A/Φ_B`, the
+   real roots, the bound on the leading coefficient, the third form of `r_A`,
+   the component polynomial `R(T, ν)`, the recurrences at a leaf. Two
+   attempts abandoned on paper (roots, Darroch; under What failed).
+4. `component_form.py` written; trial runs on small sizes (3 s, 14 s, 20 s);
+   three full runs of 170 s each: one before Part 3 existed, one with the
+   final script on a dirty tree at `9499572`, and — after the commit
+   `b0a4dbe` — one on a clean tree at `b0a4dbe`, identical to the second
+   apart from the provenance and timing fields. After the review a fourth run
+   (180.9 s) was made with one more check in Part 3 (statement (E″), under
+   Findings); **the stored result file is that fourth run**. It records
+   revision `b0a4dbe` and a dirty tree: the script it ran is the version
+   committed together with it (it differs from `b0a4dbe` by the added check
+   only), and the record files were being edited. Every count it shares with
+   the third run is identical. A trial with weights up to 4 and `j ≤ 5` (10,772 weighted trees,
+   31,460 leaves; zero failures of Γ_c, of the identities and of `E`) was not
+   stored.
+5. Note [`notes/gamma-components.md`](notes/gamma-components.md) written and
+   committed (`b0a4dbe`) with the script, the result file, the two review
+   reports and the dossier section.
+6. Review of the new note: a fourth `adversarial-reviewer` context
+   (`claude-opus-5-5`, fresh) on `b0a4dbe`. Outcome: under Findings.
+7. Registry: MD-0009, MD-0010 (evidence), MD-0011, MD-0012 (novelty search
+   recorded), MD-0013 and MD-0014 registered. `STATE.md` updated.
+
+### Findings
+
+- **Review of L4 and S5 (AI, `claude-opus-5-5`, revision `9499572`): no gap
+  found within stated scope**, for each. L4: every step reconstructed, the
+  boundary cases checked, a second proof found (the hypothesis is equivalent
+  to non-negative coefficients of degree ≥ 2 in the shifted variables; the
+  lemma then holds at real points of the slice); 8,000 random functions, 0
+  violations. S5: tested against the distance matrix on 21,929 trees over the
+  13 skeletons with 2 to 6 vertices, 0 below the vertex minimum. The reviewer
+  states what S5 proves: an inequality `≥`, no positivity, orders `n ≥ 2s`.
+  Defects: two stale statements in `vertex-principle.md`; the remark under
+  Conjecture Γ should say "at least two non-leaf vertices". L4 itself is not
+  formalized (the Lean files hold one exchange step), as the files say.
+- **Review of the Γ computation (AI, `claude-opus-5-5`, revision `9499572`):
+  no gap found within stated scope.** Independent recomputation from the
+  definition of `r_A`, with the reviewer's own tree enumeration (two
+  methods): 7,448 pairs, 0 failures, agreement with the repository
+  coefficient by coefficient; rerun of the script identical apart from timing
+  (129 s). Seven defects of wording and provenance, none changing the claim:
+  S1 was checked with zero leaf numbers only for `s ≤ 5`; "orders up to 100"
+  has no committed evidence; the result file records `7c1a9dd` and a
+  temporary output path; stale review status in the note; "every order"
+  without `n ≥ 2s`; the test covers `s ≤ 5`; the README's timing.
+- **Literature audit for MD-0011 and MD-0012 (first search; novelty not
+  established).** No identical statement found. To be cited:
+  Bapat–Kirkland–Neumann 2005, Theorem 2.1 and Theorem 2.4 — **the
+  determinant behind Proposition S3 is in print** (`det(D + xJ)` for weighted
+  trees), which corrects the "not found" of session 6 for that determinant
+  (the statement `r_V = (s+3)x + s` itself was not found);
+  Richman–Shokrieh–Wu, arXiv:2411.11488, Theorems A and 4.4 (principal minors
+  of `D` through a Laplacian minor on the complement; same shape as S7, a
+  different determinant). The literature most likely to contain Lemma F
+  (matching polynomials of forests, Laplacian coefficients of trees) was
+  identified and not read. Not searched: MathSciNet, zbMATH, Google Scholar.
+  Novelty of both records: `preliminary-search-completed`.
+- **The director's observation** (human mathematics): since `L_B` is
+  symmetric positive semidefinite, `zᵀ adj(I + xL_B) z = Σ_i y_i² Π_{l≠i}(1 + xλ_l)`
+  with `y = Uᵀz`, `λ_l ≥ 0`, which gives coefficientwise non-negativity.
+  Checked and written as Proposition S13(b); it proves the observation that
+  session 6 had left as a computation on the 47 trees.
+- **What it yields (MD-0013; proved by hand, exact check on the 47 trees):**
+  `r_A/Φ_B = a + C + κx − Σ_l (c_l/μ_l²)/(1 + μ_l x)` is increasing between
+  its poles, so **all `t + 1` roots of `r_A` are real and negative** for
+  every tree and every `A` with `1 ≤ a ≤ s − 1`; the leading coefficient is
+  `κ det L_B` with `κ = s + 3 − τ_BᵀL_B^{−1}τ_B ≥ 4` (equality iff `a = 1`;
+  `κ = 4 + 2/(1ᵀP_A^{−1}1)`). Hence positive, log-concave coefficients. It
+  does **not** yield Γ: real negative roots do not imply the half-gamma
+  expansion.
+- **Component form and recurrences (MD-0014; proved by hand, exact checks):**
+  `r_A = r_V Φ_B − pᵀ adj(I + xL_B) p` (S12);
+  `r_A = [(1+4x) + e_A(1+x)]Φ_B + Σ_i R(T_i, ν) Π_{l≠i}Φ(T_l, ν)` (S14), so Γ⁺
+  follows from Γ_c, a statement about one weighted tree; Lemma G gives the
+  adjugate after removing a leaf and after raising a weight; for a leaf of
+  weight 0, `R(T, ν) = (1+x)R(T−w, ν) + x[ν_u(1+x)Ψ + Σ R_i P_i]` — every term
+  in the cone under the induction hypothesis (S15, S18); for a leaf of weight
+  `n`, `R(T, ν) = R(T, ν⁰) + nE + n(n−1)xΦ(T−w, ν+e_u)` (S17). **Γ_c, hence
+  Γ⁺ and Conjecture Γ, is reduced to statement (E): `E ∈ C_{j+1}`.**
+- **Exact computation (`results/component-form.json`; the counts below are
+  the same in the run on a clean tree at `b0a4dbe` and in the stored fourth
+  run):** 47 trees, 7,726 subsets: 0 polynomials with a
+  non-real or non-negative root, 0 failures of the degree, of the
+  leading-coefficient identity, of `κ ≥ 4` and its equality case, of the
+  identity with `P_A` (7,401 subsets); 2,263 independent `A`, 4,344
+  components, 0 failures of S14. Weighted trees with `j ≤ 7`, weights 0 to 2:
+  29,336; `R ∉ C_{j+1}`: 0; 111,768 leaves: Lemma G failures 0,
+  `R(T, ν) − mR(T−w, ν) ∉ C_{j+1}`: 0. Part 3 (`j ≤ 6`): 17,856 leaves; S17
+  failures 0; `R(T, ν⁰) ∉ C_{j+1}`: 0; `E ∉ C_{j+1}`: 0; `E* ∉ C_{j+1}`: 972.
+- **Review of S12 to S18 and Lemma G (AI, `claude-opus-5-5`, revision
+  `b0a4dbe`): no gap found within stated scope**, for each statement (the
+  cone inclusions, S12, S13(a) to (e), S14, G1, G2, S15, S16, S17, S18, the
+  reduction of Γ_c to (E), the example for `E*`). The reviewer checked that
+  S18 never uses Γ_c at the same size, that every use of Lemma F has a
+  non-zero integer weight, the degenerate cases, strictness in S13(c) and the
+  completeness of the root count in S13(d); and recomputed with its own code,
+  `r_A` from the determinant `N_A`: S12, S13(b) to (e), S14 on 1,884 subsets
+  of the 24 trees with `s ≤ 7`; on weighted trees with `j ≤ 4`, weights 0 to
+  3: Γ_c (591), G2 (11,328 entries), S16 (2,276), S15 (360), S17 (1,440), (E)
+  with all leaf weights `≥ 1` (702): no failure. Three defects of wording:
+  "two elementary facts" lists three; (E) does not state its quantifiers (the
+  reduction is valid for "some leaf"); the opening paragraph calls a
+  sufficient condition a "reduction" and a family "one explicit polynomial".
+  Not checked by the reviewer: the counts of the note's section on
+  computation; the attribution sentence against the director's instructions;
+  novelty. S13(e) rests on the Graham–Lovász inverse, checked in the project
+  by computation only. The note is left byte-identical to `b0a4dbe`; the
+  defects are owed one revision.
+- **After the review, an observation (exact computation, not in the note,
+  not reviewed): (E″)** — `E − xR(T′, ν + e_u) = (1+5x+3x²)Φ′ + (x+4x²)Ψ + 2x²π′`
+  is in `C_{j+1}` in all 17,856 cases of Part 3 and in the trial with weights
+  up to 4 (31,460 cases). It implies (E) and involves no `R`. The script
+  gained one field for it and the result file was regenerated (a fourth full
+  run; its revision and tree state are in the file).
+- **Scratch computation at the end of the session (not stored, not
+  reviewed):** with `F(T, ν, u) = (1+5x+3x²)Φ + (x+4x²)Ψ_u + 2x²π_u`, two leaf
+  recursions for `F` derived from Lemma G2, and the slope of `F` in a leaf
+  weight, hold in all 10,089 cases with at most 5 vertices and weights 0 to 2;
+  `F ∈ C_{j+2}` in all 4,395 rooted weighted trees, zero weight included; the
+  slope is in `C_{j+2}` in every case. The formulas and the resulting target
+  (S) are in the section *Next step* of `STATE.md`.
+
+### What failed
+
+- **Γ is not proved.** Statement (E) is open; `E*` alone leaves the cone
+  (star with three leaves of weights 2, 2, 3, centre of weight 0), so the
+  absorption must use `xR(T′, ν+e_u)` or `(1+x)Φ(T, ν⁰)`. Two hypotheses on
+  the linear form `π_u` were tried on paper and dropped because they do not
+  reproduce under the expansion at a vertex (negative terms `−2qx²Ψ` remain).
+- **Roots.** Real-rootedness does not give the cone; pairing roots cannot
+  work for long paths.
+- **Darroch's theorem** on the mode of a real-rooted polynomial, as a
+  substitute for Γ in Proposition S4: the index needed is the upper central
+  one, where a mean bound decides nothing; and real roots with mean equal to
+  half the degree are not sufficient (`(1+0.6x)²(1+3x)(1+x)²`: coefficients
+  `13.36` and `13.2` at indices 2 and 3; hand computation, not rerun).
+- The header of this entry was written after the work (above).
+- No regression test was added for `component_form.py`.
+- `STATE.md` is above its target of 400 lines.
+- Not done: the revisions of notes owed after the reviews of sessions 6 and
+  7; obligation 2; any literature search for MD-0013 and MD-0014.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (main context, literature auditor); `claude-opus-5-5` (reviews, separate fresh contexts) |
+| Session wall-clock | from 16:51 UTC; this entry was written at about 17:16 to 17:20 UTC; later times are in the Git history |
+| Computation wall-clock | about 13 minutes for the research (four full runs of about 170 s; trials of 3 s, 14 s, 20 s, 20 s); the reviewers' own computations (about 40 s, 222 s) and the test suite are not counted |
+| Review of L4 and S5, as reported by the environment | 112,403 subagent tokens, 25 tool calls, 9.5 minutes |
+| Review of the Γ computation, as reported by the environment | 116,036 subagent tokens, 34 tool calls, 10.4 minutes |
+| Literature audit, as reported by the environment | 155,420 subagent tokens, 42 tool calls, 5.5 minutes |
+| Review of S12 to S18, as reported by the environment | 103,146 subagent tokens, 16 tool calls, 8.4 minutes |
+| Token usage of the main session | unavailable |
+| Research iterations | 1 objective (O6): not reached as stated; reduced to (E) |
+| Proof attempts | S12, S13, S14, Lemma G, S15, S16, S17, S18: written once; Γ_c: not proved |
+| Counterexamples found | 0 to the project's statements; `E*` alone outside the cone (972 cases) |
+| Formalization attempts | 0 |
+| Successful verifications | 1 exact result run on a clean tree with 0 failures; tests and validation: in the message of the commit that contains this entry |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress, and the main objective not reached. The three reviews owed
+were obtained (no gap found in L4, S5 and the Γ computation; lists of defects
+recorded). The originality of MD-0011 and MD-0012 had a first audit: nothing
+identical found, three sources to cite, the most relevant literature for
+Lemma F still unread. The director's spectral identity gives a new structural
+fact — `r_A` has only real negative roots — and O6 was turned into an
+induction on a leaf that closes for leaves of weight 0 and leaves one
+explicit statement, (E), for leaves of positive weight. Nothing was promoted:
+MD-0013 and MD-0014 are candidates.
+
+Next step: objective O7 in `STATE.md` — prove (E) through (E″).
+

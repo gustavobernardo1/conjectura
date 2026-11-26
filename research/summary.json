@@ -35,9 +35,9 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0012",
+    "id": "MD-0014",
     "type": "structural-result",
-    "title": "Weight of the forest polynomial det(I + x L_B), and reduction of Conjecture Γ (extended to one-element subsets) to independent A",
+    "title": "Component form of r_A, recurrences for the adjugate quadratic form, and a conditional induction for Conjecture Γ",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -48,17 +48,15 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/gamma-reduction.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-F-S11.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-F-S11.md",
-      "tests/test_cj0001_distpoly.py"
+      "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md"
     ]
   },
   "latest_reviewed_contribution": {
-    "id": "MD-0012",
+    "id": "MD-0014",
     "type": "structural-result",
-    "title": "Weight of the forest polynomial det(I + x L_B), and reduction of Conjecture Γ (extended to one-element subsets) to independent A",
+    "title": "Component form of r_A, recurrences for the adjugate quadratic form, and a conditional induction for Conjecture Γ",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -69,46 +67,44 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/gamma-reduction.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-F-S11.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-F-S11.md",
-      "tests/test_cj0001_distpoly.py"
+      "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md"
     ],
     "review": {
       "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
       "date": "2026-11-26",
-      "revision": "5622d197b97485ed6d74420a9b3f53eddf638a5a",
-      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-F-S11.md"
+      "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
+      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md"
     }
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0010",
-    "type": "conjecture",
-    "title": "Conjecture Γ: a non-negative half-gamma expansion for the coefficient polynomials of a tree with pendant leaves",
+    "id": "MD-0012",
+    "type": "structural-result",
+    "title": "Weight of the forest polynomial det(I + x L_B), and reduction of Conjecture Γ (extended to one-element subsets) to independent A",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
-      "mathematical": "candidate",
+      "mathematical": "candidate-proof",
       "formal": "not-started",
       "novelty": "preliminary-search-completed",
-      "external_review": "not-reviewed"
+      "external_review": "ai-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/skeleton-structure.json",
+      "experiments/CJ-0001-collins-shor-peak/results/gamma-pieces.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
       "research/active/CJ-0001-collins-shor-peak/notes/gamma-reduction.md",
-      "research/active/CJ-0001-collins-shor-peak/notes/skeleton-identity.md",
-      "research/active/CJ-0001-collins-shor-peak/notes/skeleton-locality.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S1-S4.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-F-S11.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-recheck-F-S11.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-7-md-0011-and-md-0012",
       "tests/test_cj0001_distpoly.py"
     ],
     "novelty_search": {
       "as_of": "2026-11-26",
-      "coverage": "Literature audit of session 5: 6 web searches and 6 fetches; Xue–Liu–Jia (2016) read in full, do Nascimento's thesis (2018) in part. The instances s = 2 and, on the diagonal, s = 3 of the identity r_V = s(1+x) + 3x can be read off the published formulas; neither source states the identity, the multi-affine structure or an expansion of this kind. Session 6: the author's manuscript of Collins, 'Factoring distance matrix polynomials' (9 pages) read in full, and pages 14 to 38 of do Nascimento's thesis: neither contains the expansion over subsets, the identity for r_V or a statement of this kind.",
-      "limitations": "A small search. Collins (1989), the published version of Collins (1993), the Discrete Appl. Math. 2019 paper on caterpillars (not accessible in session 6) and pages 1–3, 6–11, 50–77 of the 2018 thesis were not read; no search of MathSciNet, zbMATH, Google Scholar or MathOverflow; nothing was searched on gamma-positivity of related polynomials."
+      "coverage": "Literature audit of session 7 (same searches as MD-0011). Nothing on an expansion of det(I + x(L_T + diag ν)) in the polynomials x^e (1+x)^i, on the leaf recurrence of Lemma F, or on the contraction identity of Proposition S11 was found in the sources read (Bapat–Kirkland–Neumann 2005 and Merris 1990 in full; Richman–Shokrieh–Wu, arXiv:2411.11488v2, by text extraction; Brändén–Solus, arXiv:1808.04141v3, pp. 1–4).",
+      "limitations": "A first search; it does not establish originality. The literature most likely to contain Lemma F or its recurrence was identified and NOT read: matching polynomials of forests and Laplacian coefficients of trees (Mohar 2007; Zhou–Gutman; arXiv:2410.14112), the matrix-forest theorem (Chebotarev–Shamis), and the papers on bi-gamma-positivity. The remark that Φ_B is a matching generating polynomial (by Cauchy–Binet) is the auditor's own and unreviewed. One query only for Proposition S11, which is phrased in the project's own notation. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, books."
     }
   },
   "public": {
@@ -163,36 +159,36 @@
       }
     },
     "contributions": {
-      "registered": 12,
+      "registered": 14,
       "by_standing": {
-        "candidate": 10,
+        "candidate": 12,
         "established": 0,
         "rediscovered": 2,
         "withdrawn": 0
       },
-      "counted": 10,
+      "counted": 12,
       "by_type": {
         "computational-finding": 1,
         "conjecture": 3,
         "counterexample": 1,
-        "structural-result": 1,
+        "structural-result": 3,
         "theorem": 4
       },
       "by_status": {
         "mathematical": {
           "candidate": 3,
-          "candidate-proof": 6,
+          "candidate-proof": 8,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 10
+          "not-started": 12
         },
         "novelty": {
-          "preliminary-search-completed": 6,
+          "preliminary-search-completed": 8,
           "unknown": 4
         },
         "external_review": {
-          "ai-reviewed": 6,
+          "ai-reviewed": 8,
           "not-reviewed": 4
         }
       }
@@ -214,11 +210,11 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "research",
-    "revision": "6860ad7a5fc796398519f074632c028ee03acbe9",
-    "sources_committed": true,
+    "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "11b8c3027ae4079ac6e61130ac996a5c5cc4fefe",
-      "research/discoveries.json": "c4559afa2b5079d33ee182cdd947a58706f124b1",
+      "research/discoveries.json": "000725c0ee8e08a5052186e2d8b7f384c5191edf",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "0050fd69f0a5814ea9dc24892be7988143ebae63"
     }

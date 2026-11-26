@@ -38,7 +38,8 @@ pi' = e_u^T adj(M(T', nu)) p(T', nu), p_v = 1 + (2 - g_v) x:
        R0 = (1+x) R(T', nu) + x [nu_u (1+x) Psi + sum_i R_i prod_{l != i} Phi_l],
        E  = (1+x) Phi(T, nu with nu_w = 0) + x R(T', nu + e_u) + Estar,
        Estar = 2 x^2 pi' + (3x + 2x^2) Phi(T', nu) + 3 x^2 Psi;
-  (3c) whether R0, E and Estar have non-negative half-gamma expansions of degree j + 1.
+  (3c) whether R0, E, E - x R(T', nu + e_u) and Estar have non-negative half-gamma
+       expansions of degree j + 1.
 
 Command:
 
@@ -362,7 +363,7 @@ p2 = dict(
     leaf_cases=0, recurrence_failures=0, delta_not_in_cone=0,
     trees_with_no_good_leaf=0, trees_with_some_bad_leaf=0, delta_failure_examples=[],
     by_order={},
-    part3_leaf_cases=0, part3_weight_formula_failures=0, part3_R0_not_in_cone=0, part3_E_not_in_cone=0,
+    part3_leaf_cases=0, part3_weight_formula_failures=0, part3_R0_not_in_cone=0, part3_E_not_in_cone=0, part3_E_minus_xR_not_in_cone=0,
     part3_estar_not_in_cone=0, part3_estar_examples=[], part3_third_form_failures=0,
 )
 for j in range(1, args.max_component + 1):
@@ -452,6 +453,8 @@ for j in range(1, args.max_component + 1):
                         p2["part3_weight_formula_failures"] += 1
                     if not hg_ok(E, j + 1):
                         p2["part3_E_not_in_cone"] += 1
+                    if not hg_ok(padd(pmul([1, 1], phi0), estar), j + 1):
+                        p2["part3_E_minus_xR_not_in_cone"] += 1
                     if not hg_ok(R0, j + 1):
                         p2["part3_R0_not_in_cone"] += 1
                     if not hg_ok(estar, j + 1):

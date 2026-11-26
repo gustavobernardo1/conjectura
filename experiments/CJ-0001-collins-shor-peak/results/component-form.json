@@ -77,6 +77,7 @@
   "part3_weight_formula_failures": 0,
   "part3_R0_not_in_cone": 0,
   "part3_E_not_in_cone": 0,
+  "part3_E_minus_xR_not_in_cone": 0,
   "part3_estar_not_in_cone": 972,
   "part3_estar_examples": [
    {
@@ -359,11 +360,11 @@
  },
  "provenance": {
   "command": "experiments/CJ-0001-collins-shor-peak/component_form.py --max-skeleton 8 --max-component 7 --max-weight 2 --max-component3 6 --out experiments/CJ-0001-collins-shor-peak/results/component-form.json",
-  "revision": "9499572b80873e11ebf8b34afd583edfe1275aa0",
+  "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
   "dirty_tree": true,
   "python": "3.12.4",
   "networkx": "3.7",
-  "seconds": 170.4,
+  "seconds": 180.9,
   "arguments": {
    "max_skeleton": 8,
    "max_component": 7,

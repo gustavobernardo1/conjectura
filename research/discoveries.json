@@ -764,6 +764,12 @@
           "kind": "note",
           "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-5",
           "summary": "Literature audit of session 5 (a separate agent context, model claude-fable-5-2; 6 searches, 6 fetches): what was read, with page and proposition numbers, what was not accessible, and a conclusion per statement."
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-L4-S5.md",
+          "summary": "Independent adversarial review (claude-opus-5-5, fresh context, 2026-11-26, revision 9499572) of Lemma L4 of notes/vertex-principle.md and of Corollary S5 of notes/skeleton-identity.md: no gap found within stated scope for either; exact tests by the reviewer (L4 on 8,000 random functions; S5 against the distance matrix on 21,929 trees over the 13 skeletons with 2 to 6 vertices), 0 violations. Two defects of documentation and wording. It is a review of the lemma and of the conditional corollary, not of this hypothesis, which remains open.",
+          "sha256": "cdb54ab1a5f063d1f731093effc84d993b50f379201be509cdb6de65876a1f01"
         }
       ],
       "status": {
@@ -854,6 +860,17 @@
           "path": "research/active/CJ-0001-collins-shor-peak/notes/gamma-reduction.md",
           "summary": "Session 6: the conjecture, extended to subsets with one element, is reduced to the pairs (S, A) with A independent (MD-0012). Exact computation (results/gamma-pieces.json): the extension to |A| = 1 holds for the 47 trees with 2 to 8 vertices.",
           "sha256": "49f33f738105a7733a04bb3115274c07d86f7716ea4e3c523a296e4422dff875"
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-gamma-computation.md",
+          "summary": "Independent adversarial review (claude-opus-5-5, fresh context, 2026-11-26, revision 9499572) of the computation of Property Γ on the 47 trees with 2 to 8 vertices (skeleton_structure.py and its result file): no gap found within stated scope; independent recomputation from the definition of r_A with the reviewer's own tree enumeration, 7,448 pairs, 0 failures, agreement coefficient by coefficient; rerun of the script identical apart from timing fields. Seven defects of wording and provenance (among them: Lemma S1 was checked with zero leaf numbers only for s ≤ 5; 'orders up to 100' has no committed evidence). It supports the finite statement only; the conjecture remains open.",
+          "sha256": "9e3f3f0a5ebcd07445bdc8c6c6ce80ecd3184ff0572e77bcde59c67adeb57828"
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
+          "summary": "Session 7 (MD-0013, MD-0014): all roots of r_A are real and negative; the conjecture, extended to one-element subsets, follows from a statement Γ_c about one weighted tree (R(T, ν) ∈ C_{j+1}), and Γ_c follows by induction on a leaf from the statement (E) that R does not decrease in the cone order when the weight of a leaf goes from 0 to 1. Γ_c and (E) are exact on all weighted trees with at most 7 (resp. 6) vertices and weights 0 to 2, and are not proved."
         }
       ],
       "status": {
@@ -941,12 +958,17 @@
           "revision": "1805bcab1cee71c720049fd9cff85a6a3d0992a3",
           "sha256": "25b7f1efbfa8c17979427596aac15dbc1b81b4a0ad0fe210f27f9079405c418d",
           "statement_fingerprint": "4675ab88fe9a6d37879e4b1de30fd73088e2a84fb8e049d74c727ddfc0beff67"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-7-md-0011-and-md-0012",
+          "summary": "Literature audit of session 7 (a separate agent context, model claude-fable-5-2; 14 web searches, 2 arXiv listing queries, 3 citation queries, 15 fetches): queries verbatim, what was read and how, a conclusion per statement, and what was not searched."
         }
       ],
       "status": {
         "mathematical": "candidate-proof",
         "formal": "not-started",
-        "novelty": "unknown",
+        "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
       "limitations": "Candidate theorem: a written proof and one AI review by a fresh context of a model of the same family; no mathematician has read it. No literature search was made for these statements. The proof uses two classical facts that the project has not compared with the printed sources (see depends_on). Items (iii) to (v) settle the requirement of Conjecture Γ (MD-0010) only for the subsets they name. The notes carry four defects of wording and one wrong count (1,011 for 1,010) listed by the review; they are not corrected, so that the reviewed file stays unchanged.",
@@ -968,7 +990,12 @@
           "target": "MD-0010",
           "note": "Proves the requirement of Conjecture Γ for every tree and every subset whose complement is independent or has at most two elements, and reduces the general case to a statement about s and the block L_B."
         }
-      ]
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Literature audit of session 7. Read in full: Bapat–Kirkland–Neumann, Linear Algebra Appl. 401 (2005) 193–209 (page images); Merris, J. Graph Theory 14 (1990) 365–369 (page images); Richman–Shokrieh–Wu, arXiv:2411.11488v2 (text extraction, proofs not read). Read in part: Brändén–Solus, arXiv:1808.04141v3, pp. 1–4. No statement of the Laplacian form of r_A, of the formulas for one or two missing vertices, of the decomposition for independent complements or of Lemma C was found. Close prior results that a write-up must cite: Bapat–Kirkland–Neumann, Theorem 2.1 (weighted Graham–Lovász inverse) and Theorem 2.4 (det(D + xJ) for weighted trees, which contains the determinant behind Proposition S3); Richman–Shokrieh–Wu, Theorems A and 4.4 (principal minors of the distance matrix of a tree through a Laplacian minor on the complement: the same shape as the Laplacian form, for a different determinant).",
+        "limitations": "A first search; it does not establish originality. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow (site search), books (Bapat, Brouwer–Haemers, Godsil), non-English literature, the papers citing the sources above. Lemma C may be folklore under another name (symmetric decompositions, bi-gamma-positivity: only the first pages of one paper were read). The comparison with Richman–Shokrieh–Wu is the auditor's own and unreviewed. Earlier gaps stand: Collins 1989, the published Collins 1993, the Discrete Appl. Math. 2019 paper."
+      }
     },
     {
       "id": "MD-0012",
@@ -1034,15 +1061,25 @@
           "revision": "7acd425",
           "sha256": "f33368319d5bab9929f2567677790e3d5de43c67de8645146ce7bcc9ee426efa",
           "statement_fingerprint": "aa52ab76c2da865560b4b632ae48dd775cfbbb6301127d4eb605a82462322af5"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#literature-audit-2026-11-26-session-7-md-0011-and-md-0012",
+          "summary": "Literature audit of session 7 (a separate agent context, model claude-fable-5-2; 14 web searches, 2 arXiv listing queries, 3 citation queries, 15 fetches): queries verbatim, what was read and how, a conclusion per statement, and what was not searched."
+        },
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
+          "summary": "Session 7: Proposition S13(b) (the director's spectral identity) proves the observation recorded with this contribution that zᵀ adj(I + x L_B) z has non-negative coefficients, for every tree and every A; Proposition S14 contains Proposition S11 as the dependence on the number of edges inside A."
         }
       ],
       "status": {
         "mathematical": "candidate-proof",
         "formal": "not-started",
-        "novelty": "unknown",
+        "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A written proof by its author; see the evidence for whether a review exists. No literature search was made: that det(I + x L_B) counts rooted spanning forests is classical, and a statement like item (i) may be known in the literature on gamma-positivity. Item (iii) reduces Conjecture Γ only together with its extension to subsets with one element, which is verified on the 47 trees with at most 8 vertices and is not proved.",
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. A first literature search was made in session 7 (see novelty_search); that det(I + x L_B) counts rooted spanning forests is classical, and a statement like item (i) may be known in the literature on gamma-positivity. Item (iii) reduces Conjecture Γ only together with its extension to subsets with one element, which is verified on the 47 trees with at most 8 vertices and is not proved.",
       "depends_on": [
         {
           "ref": "MD-0011",
@@ -1061,6 +1098,179 @@
           "type": "contributes_to",
           "target": "MD-0010",
           "note": "Reduces the conjecture, extended to one-element subsets, to the pairs with A independent; with MD-0011 the remaining case is A independent and an edge inside the complement."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-26",
+        "coverage": "Literature audit of session 7 (same searches as MD-0011). Nothing on an expansion of det(I + x(L_T + diag ν)) in the polynomials x^e (1+x)^i, on the leaf recurrence of Lemma F, or on the contraction identity of Proposition S11 was found in the sources read (Bapat–Kirkland–Neumann 2005 and Merris 1990 in full; Richman–Shokrieh–Wu, arXiv:2411.11488v2, by text extraction; Brändén–Solus, arXiv:1808.04141v3, pp. 1–4).",
+        "limitations": "A first search; it does not establish originality. The literature most likely to contain Lemma F or its recurrence was identified and NOT read: matching polynomials of forests and Laplacian coefficients of trees (Mohar 2007; Zhou–Gutman; arXiv:2410.14112), the matrix-forest theorem (Chebotarev–Shamis), and the papers on bi-gamma-positivity. The remark that Φ_B is a matching generating polynomial (by Cauchy–Binet) is the auditor's own and unreviewed. One query only for Proposition S11, which is phrased in the project's own notation. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, books."
+      }
+    },
+    {
+      "id": "MD-0013",
+      "type": "structural-result",
+      "title": "The polynomials r_A have only real negative roots; third form and leading coefficient",
+      "statement": "Let S be a tree on s ≥ 2 vertices with vertex set V, Laplacian L and degrees g_v, τ_v = 2 − g_v, A ⊆ V with 1 ≤ |A| ≤ s − 1, B = V ∖ A, t = |B|, L_B = L[B, B], Φ_B(x) = det(I + x L_B), p the vector indexed by B with entries 1 + τ_w x, τ_B the restriction of τ to B, and r_A the polynomial of MD-0011. (i) r_A(x) = (s + (s + 3)x) Φ_B(x) − pᵀ adj(I + x L_B) p. (ii) L_B is positive definite; r_A has degree exactly t + 1 and leading coefficient κ · det L_B, where κ = s + 3 − τ_Bᵀ L_B^{−1} τ_B; and κ ≥ 4, with equality if and only if |A| = 1. (iii) All t + 1 roots of r_A, counted with multiplicity, are real and negative; hence all coefficients of r_A are positive and form a log-concave sequence. (iv) If |A| ≥ 2 and P_A is the distance matrix of S restricted to A, then (κ − 4) · 1ᵀ adj(P_A) 1 = 2 det P_A.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "mathematical input: the spectral identity zᵀ adj(I + x L_B) z = Σ_i y_i² Π_{l≠i} (1 + x λ_l), y = Uᵀz, with the remark that it gives coefficientwise non-negativity, and the question whether it yields stronger inequalities (instructions for session 7); research direction"
+          },
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statements and proofs of items (i) to (iv) (session 7): the third form, the partial-fraction argument for the roots built on the spectral identity, the variational bound for κ, the identity with P_A; exact checks"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review (fresh context), where a review is listed in the evidence"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
+          "summary": "Written proofs: Proposition S12 (item (i)) and Proposition S13 (items (ii) to (iv); its part (b) is the director's spectral identity).",
+          "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
+          "sha256": "f2057b1fb60f65be9b073058999a076b5d2505f92e317e5049fdaa574a1d18ee"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
+          "summary": "Exact check (Sturm sequences, integer arithmetic) for the 47 trees with 2 to 8 vertices and the 7,726 subsets with 1 ≤ |A| ≤ s − 1: degree t + 1, all roots real and negative, the leading coefficient, κ ≥ 4 with equality exactly for |A| = 1, and the identity of item (iv) (7,401 subsets); 0 failures. r_A is computed from the second form of Proposition S7 (MD-0011), which locality_check.py compares with the definition.",
+          "sha256": "183309254c765856144aaa3b97970a0d707390657fef6c05add83aac3e4c12b6"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md",
+          "summary": "Independent adversarial review of notes/gamma-components.md. Propositions S12 and S13 (a) to (e), which are items (i) to (iv) of this record (compared item by item after the review; item (i) is S12 for 1 ≤ |A| ≤ s − 1): no gap found within stated scope for each; strictness of κ > 4 for |A| ≥ 2 and the completeness of the root count (repeated eigenvalues, z = 0, t = 1) checked; recomputed on the 1,884 subsets of the 24 trees with at most 7 vertices. Reviewer's own exact code, with r_A computed from the determinant N_A: no failure. Three defects of wording in the note, none affecting a proof. Not covered: the counts of the note's section on computation, novelty, the classical formulas against the printed sources.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
+          "sha256": "ff36cc3e2f2a983772fd692a901037dbe258645baffed95a75e1187930c18944",
+          "statement_fingerprint": "e99df20c4700024ef6cb1455a1e53806cae28a72f43a484c38b0dbb28b155a33"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. No literature search was made for this statement: real-rootedness and interlacing of such determinantal expressions are standard techniques, and the statement may be known in another form (compare Richman–Shokrieh–Wu, arXiv:2411.11488, on principal minors of tree distance matrices, which the project read only by text extraction). Real negative roots do not imply the non-negative half-gamma expansion of Conjecture Γ (MD-0010): 1 + 5x/2 + x²/2 is a counterexample to that implication. The classical formulas of Graham–Pollak and Graham–Lovász, used through MD-0011, have not been compared with the printed papers.",
+      "depends_on": [
+        {
+          "ref": "MD-0011",
+          "statement_fingerprint": "4675ab88fe9a6d37879e4b1de30fd73088e2a84fb8e049d74c727ddfc0beff67",
+          "note": "Item (i) of MD-0011 (both Laplacian forms of r_A, Proposition S7) is used in items (i) to (iii)."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S12, S13",
+          "note": "Session 7, from the director's spectral identity for the adjugate quadratic form."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0010",
+          "note": "A structural property of the polynomials of the conjecture; it proves the positivity of their coefficients but not the half-gamma expansion."
+        }
+      ]
+    },
+    {
+      "id": "MD-0014",
+      "type": "structural-result",
+      "title": "Component form of r_A, recurrences for the adjugate quadratic form, and a conditional induction for Conjecture Γ",
+      "statement": "For a tree T on j ≥ 1 vertices with Laplacian L_T and degrees k_v, and a function ν from its vertices to the non-negative integers, let N = Σ_v ν_v, M(T, ν) = I + x(L_T + diag ν), Φ(T, ν) = det M(T, ν), p the vector with entries 1 + (2 − k_v − ν_v)x, and R(T, ν) = (N + j − 1)(1 + x) Φ(T, ν) − pᵀ adj(M(T, ν)) p. C_d is the cone of MD-0012; Γ_c is the statement: R(T, ν) ∈ C_{j+1} for every tree T on j ≥ 1 vertices and every ν that is not identically zero. (i) Let S be a tree on s ≥ 2 vertices, A a set of vertices with 1 ≤ |A| ≤ s − 1, B its complement, T_1, …, T_c the components of the subgraph induced by B, ν_w the number of neighbours of w ∈ B in A, e_A the number of edges with both ends in A, Φ_B and r_A as in MD-0012 and MD-0011. Then r_A = [(1 + 4x) + e_A (1 + x)] Φ_B + Σ_i R(T_i, ν) Π_{l ≠ i} Φ(T_l, ν). Consequently, if Γ_c holds, then for every tree S on s ≥ 2 vertices and every non-empty set A of vertices, r_A has a non-negative half-gamma expansion of degree s − |A| + 1 (as defined in MD-0011); in particular Conjecture Γ (MD-0010) holds. (ii) Let j ≥ 2, w a leaf of T with neighbour u and ν_w = 0, T′ = T − w, T_1, …, T_q the components of T′ − u, u_i the neighbour of u in T_i, Φ_i = Φ(T_i, ν + e_{u_i}) and R_i = R(T_i, ν + e_{u_i}). Then R(T, ν) = (1 + x) R(T′, ν) + x [ν_u (1 + x) Π_i Φ_i + Σ_i R_i Π_{l ≠ i} Φ_l]. (iii) For every vertex w of T, with T_1, …, T_q the components of T − w, w_i the neighbour of w in T_i, Φ_i = Φ(T_i, ν + e_{w_i}), R_i = R(T_i, ν + e_{w_i}), Ψ_w = Π_i Φ_i and π_w = e_wᵀ adj(M(T, ν)) p: R(T, ν + e_w) = R(T, ν) + (1 + x) Φ(T, ν) + 2x π_w + [(ν_w + 1) x (1 + x) − x²] Ψ_w + x Σ_i R_i Π_{l ≠ i} Φ_l. (iv) Let j ≥ 2, w a leaf of T with neighbour u, ν⁰ the function ν with ν_w replaced by 0, and E = R(T, ν⁰ + e_w) − R(T, ν⁰). Then R(T, ν) = R(T, ν⁰) + ν_w E + ν_w (ν_w − 1) x Φ(T − w, ν + e_u). (v) Suppose j ≥ 2 and R(T″, μ) ∈ C_{j″+1} for every tree T″ on j″ < j vertices and every μ that is not identically zero. If w is a leaf of T such that ν is not identically zero on T − w, then R(T, ν⁰) ∈ C_{j+1} and x Φ(T − w, ν + e_u) ∈ C_{j+1}; hence R(T, ν) ∈ C_{j+1} if ν_w = 0 or if E ∈ C_{j+1}. Consequently Γ_c follows from the statement (E): for every tree T on j ≥ 2 vertices and every ν with ν_v ≥ 1 at every leaf v of T, there is a leaf w of T with E ∈ C_{j+1}.",
+      "registered": "2026-11-26",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "statements, proofs and exact checks (session 7): Proposition S14, Lemma G, Propositions S15 and S16, Corollary S17, Theorem S18"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "independent review (fresh context), where a review is listed in the evidence"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction: asked for a companion recurrence for the adjugate quadratic form alongside Lemma F, aimed at arbitrary forest components (instructions for session 7); no mathematical input to the statements of this record"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/gamma-components.md",
+          "summary": "Written proofs: Proposition S14 (item (i)), Lemma G (the adjugate when a weight is raised and when a leaf is removed), Proposition S15 (item (ii)), Proposition S16 (item (iii)), Corollary S17 (item (iv)), Theorem S18 and its corollary (item (v)); and an explicit example showing that the part E* of E is not in the cone by itself.",
+          "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
+          "sha256": "f2057b1fb60f65be9b073058999a076b5d2505f92e317e5049fdaa574a1d18ee"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/component-form.json",
+          "summary": "Exact integer computation. The identity of item (i) for the 2,263 pairs with A independent among the 47 trees with 2 to 8 vertices. For all 29,336 weighted trees with at most 7 vertices and weights 0 to 2: R(T, ν) ∈ C_{j+1} (Γ_c on this range), Lemma G entry by entry for the 111,768 admissible leaves, and R(T, ν) − (1 + (1 + ν_w)x) R(T − w, ν) ∈ C_{j+1}. For the 17,856 admissible leaves of trees with at most 6 vertices: item (iv) as an identity, R(T, ν⁰) ∈ C_{j+1}, E ∈ C_{j+1} in every case, and E* outside the cone in 972 cases. 0 failures of the identities. Γ_c and (E) are observations on this range, not proved.",
+          "sha256": "183309254c765856144aaa3b97970a0d707390657fef6c05add83aac3e4c12b6"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-S12-S18.md",
+          "summary": "Independent adversarial review of notes/gamma-components.md. Proposition S14, Lemma G, Propositions S15 and S16, Corollary S17, Theorem S18 and the reduction of Γ_c to (E), which are items (i) to (v) of this record (compared item by item after the review; the record states (E) with 'there is a leaf', the reading under which the reviewer validated the reduction): no gap found within stated scope for each; S18 uses its hypothesis only for smaller trees and every use of Lemma F has a non-zero integer weight; recomputed on weighted trees with at most 4 vertices and weights 0 to 3 (Γ_c 591 cases, Lemma G2 11,328 entries, S15 360, S16 2,276, S17 1,440, (E) 702). Reviewer's own exact code, with r_A computed from the determinant N_A: no failure. Three defects of wording in the note, none affecting a proof. Not covered: the counts of the note's section on computation, novelty, the classical formulas against the printed sources.",
+          "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
+          "date": "2026-11-26",
+          "revision": "b0a4dbee522829a53a85c80041f4c5ee9223a957",
+          "sha256": "ff36cc3e2f2a983772fd692a901037dbe258645baffed95a75e1187930c18944",
+          "statement_fingerprint": "0b8e7948e26fbd36b9439c022136729b52f95074ff9bccbc3d3effba894add8a"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A written proof by its author; see the evidence for whether a review exists. The record proves identities and a conditional statement; Γ_c and (E) are not proved, and Γ_c is a sufficient condition for Conjecture Γ that is not shown to be equivalent to it. No literature search was made: recurrences for determinants and adjugates of tree matrices under removal of a leaf are standard, and the literature on Laplacian coefficients and matching polynomials of trees, where such recurrences would appear, has not been read by the project.",
+      "depends_on": [
+        {
+          "ref": "MD-0011",
+          "statement_fingerprint": "4675ab88fe9a6d37879e4b1de30fd73088e2a84fb8e049d74c727ddfc0beff67",
+          "note": "Lemma C and the Laplacian form of r_A."
+        },
+        {
+          "ref": "MD-0012",
+          "statement_fingerprint": "aa52ab76c2da865560b4b632ae48dd775cfbbb6301127d4eb605a82462322af5",
+          "note": "Lemma F (item (i) of MD-0012) is used for the cone memberships in item (v) and in the consequence of item (i)."
+        },
+        {
+          "ref": "MD-0013",
+          "statement_fingerprint": "e99df20c4700024ef6cb1455a1e53806cae28a72f43a484c38b0dbb28b155a33",
+          "note": "Item (i) of MD-0013 (the third form of r_A) is used in item (i)."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S14, Lemma G, S15, S16, S17, S18",
+          "note": "Session 7, objective O6."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0010",
+          "note": "Reduces the conjecture (extended to one-element subsets) to the statement Γ_c about one weighted tree, and Γ_c to the statement (E) about raising the weight of a leaf from 0 to 1."
         }
       ]
     }
