@@ -50,8 +50,8 @@
   "generated": {
     "date": "2026-11-26",
     "branch": "work/discovery-registry",
-    "revision": "0652128d494750be6bba0bb418bac27aa17628e1",
-    "sources_committed": false,
+    "revision": "1a11982e8d1dcc9f724bc4ca0357624557519187",
+    "sources_committed": true,
     "sources": {
       "research/catalogue.json": "b789ef6ff99a00409ddc0c241070a78c44e95b2b",
       "research/discoveries.json": "b4582ae51dcfa943e9f4ca2585f90a16e7443a69",
