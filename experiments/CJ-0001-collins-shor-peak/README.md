@@ -250,6 +250,34 @@ trees in part A; 1,346,023 trees of order 3 to 20 in part B; 0 failures).
 Regression test: `tests/test_cj0001_wiener_form.py`. These are finite checks;
 Theorem T4 rests on its written proof, and (SM) is a conjecture.
 
+## The even orders (session 10): `even_order.py`
+
+Note: `research/active/CJ-0001-collins-shor-peak/notes/even-order.md`
+(Propositions S28 to S30, statement (SM⁺), Finding S31). Exact integers;
+`ℓ_T` from the characteristic polynomial of the distance matrix
+(python-flint); determinants `det (I + xL)[V ∖ S]` by python-flint and, for
+part C2, also by a recursion over the forest in pure Python integers.
+
+- Part A, every tree of order 2 to `--max-a` and every root: the rooted form
+  (S28) and the explicit leaf polynomial (S29).
+- Part B, every tree of order 3 to `--max-b`: `Ω_T` has non-negative
+  coefficients (S30(b)); `Ω_T ∈ C_{n−1}` (statement (SM⁺), a conjecture);
+  `Θ_T − (n−1)(1+x)^{n−2} ∈ C_{n−2}`.
+- Part C, inequality (3) of `wiener-form.md`: C1, the sign of its right side
+  for every tree of even order 6 to `--max-c`; C2, the same for the spiders
+  with `(n−2)/2` legs of length 2 and one pendant vertex, even `n` in
+  `--family lo hi`, by the two implementations, together with the sign of
+  `d_m − d_{m−1}` from the distance matrix.
+
+```sh
+uv run python even_order.py --max-a 9 --max-b 15 --max-c 14 --family 80 110 --out results/even-order.json   # about 2 min
+```
+
+Regression test: `tests/test_cj0001_even_order.py`. Finite checks: S28 to
+S30 rest on their written proofs, (SM⁺) is a conjecture, and S31 (the right
+side of inequality (3) is negative from `n = 100` in that family) is a
+computation on the stated range.
+
 ## Limits
 
 - Orders 21–23 were computed by one implementation (with the guards above). The

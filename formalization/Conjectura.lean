@@ -17,3 +17,4 @@ import Conjectura.Research.CollinsShorPeak.LogConcavePeak
 import Conjectura.Research.CollinsShorPeak.ExtremalReduction
 import Conjectura.Research.CollinsShorPeak.VertexPrinciple
 import Conjectura.Research.CollinsShorPeak.HalfGammaCone
+import Conjectura.Research.CollinsShorPeak.WienerCone
