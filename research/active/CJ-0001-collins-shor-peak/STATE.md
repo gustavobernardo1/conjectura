@@ -1,6 +1,6 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-26 (session 10). This file is the current truth about the
+Last updated: 2026-11-26 (session 11). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
 continue. It was compacted in sessions 5, 8 and 9: details are in the notes it
 links. **Session 9:** [`notes/wiener-form.md`](notes/wiener-form.md) (S24 to
@@ -9,6 +9,10 @@ with Lemma K) and
 [`notes/leaf-telescoping.md`](notes/leaf-telescoping.md) (S23, S27, statement
 (SM)). **Session 10:** [`notes/even-order.md`](notes/even-order.md) (S28 to
 S31, statement (SM⁺): the even orders reduced to one polynomial `Ω_T`).
+**Session 11:** [`notes/lower-bound.md`](notes/lower-bound.md) (S32 to S36,
+Theorems T5 and T6: statement (Γ_c¹), star minimality (SM) and **the lower
+bound `⌊n/2⌋` for every tree** — a candidate proof; contraction of an edge);
+Collins (1986) and Collins (1989) read (dossier, last section).
 Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/double-stars.md`](notes/double-stars.md) (T1),
 [`notes/spine3.md`](notes/spine3.md) (T2),
@@ -39,9 +43,11 @@ source on 2026-11-26. Verbatim:
 > `⌈n − n/√5⌉`.
 
 It originates as Conjecture 9 of K. L. Collins, Discrete Appl. Math. 25 (1989)
-27–35, attributed there to Peter Shor. According to arXiv:1507.02341, Collins
-states it without the floor and the ceiling. Collins's paper has not been read
-by the project.
+27–35, attributed there to Peter Shor. Read in session 11; verbatim: "The
+coefficients of CPD(T) for any tree T with n vertices are unimodal with peak
+between `½n` and `n(1 − 1/√5)`" — no floor, no ceiling. For odd `n` the
+literal bound `½n` would contradict Theorem 1 of the same paper (the star
+peaks at `½(n−1)`), so the floor is the only consistent reading (dossier).
 
 ## Definitions and conventions
 
@@ -76,8 +82,10 @@ below marked "reviewed" had one AI review of one revision by a fresh context
 originality is not established for any of them. T1, T2, T3 are **candidate
 theorems** (director's decision of 2026-11-26), and so is **T4** (session 9:
 `d_{μ−1} < d_μ`, `μ = ⌊(n−1)/2⌋`, for every tree — the conjectured lower
-bound for odd order, one less for even order). The status of every
-registered contribution is in
+bound for odd order, one less for even order), and so are **T5 and T6**
+(session 11: `d_{m−1} < d_m`, `m = ⌊n/2⌋`, for every tree — the conjectured
+lower bound for every order; its reviews are listed in obligation 11). The
+status of every registered contribution is in
 [`research/discoveries.json`](../../discoveries.json), not here.
 
 Formal (Lean, `formalization/Conjectura/Research/CollinsShorPeak/`): 21 registered theorems for this problem; the latest receipt is under `verification/receipts/`. **Session 10** (`WienerCone.lean`): the cones `K_d` (`WienerCone`) with (K1), (K2), and Lemma A of `wiener-form.md` on the cone, strict part included — nothing about trees, `Φ`, S24 to S26 or T4. In Lean before that: the general form of R1; the discrete core of L4, since session 8 **in any finite number of variables** (`vertex_principle_discrete`: a function on integer points with the exchange inequality `f(c+e_i−e_k) + f(c+e_k−e_i) ≤ 2f(c)` on the slice is, at every point of the slice, at least its value at some vertex `λ + (S−Σλ)e_p`); the cone `C_d` over real polynomials (`HalfGammaCone`) with `C_d·C_e ⊆ C_{d+e}`, `x·C_d ⊆ C_{d+1}`, `x·C_d ⊆ C_{d+2}`, `(1+x)·C_d ⊆ C_{d+1}`, `x(1+x)·C_d ⊆ C_{d+3}`, and Lemma C. **Not formalized:** the step from a multi-affine polynomial with non-negative mixed partials to the exchange inequality (so L4 as written is not formalized); the equality of the inductive cone with the explicit non-negative sums; anything about trees, determinants or `r_A`. The Lean statements were compared with the written ones by the formalizing agent and the author of the session only.
@@ -111,7 +119,10 @@ review of one revision, named in the registry.
 | **T4** | **For every tree of order `n ≥ 3`: `d_{μ−1} < d_μ`, `μ = ⌊(n−1)/2⌋`; every maximizing index is `≥ ⌊(n−1)/2⌋`. For odd `n` this is the lower bound `⌊n/2⌋` of the conjecture; for even `n` it is one less.** Proof: in S25 the pair terms are in `K_{n−2}`, where `[x^μ] − [x^{μ−1}] ≥ 0`, and `(W − nx)Φ` is handled with `W ≥ (n−1)² ≥ 3n`. | Candidate proof; **two AI reviews, no gap found**: `b5d9294`, and a complete audit of the revised note at `a3e5179` (every step and L1, L2, R1 re-proved by hand; five defects of citation and wording, obligation 9). Since `a3e5179` the proof needs neither Lemma F nor Lemma C (Lemma K). Lean: Lemma A and the cones only. Checked on all trees of order ≤ 19. Literature (session 10): S24 and `Lt = nτ − 2·1` are **known**; no source found for S25 or T4 within a thin coverage. |
 | S28, S29, S30 | **Rooted form** (S28): for any root `c`, `ℓ_T = Σ_e Π_e + 4 Σ_{v≠c} δ_v x^{δ_v} Π_{cv} − 4xΨ_c + Σ_{dist ≥ 2} (δ_u − δ_v)² x^{dist−1} Π_{uv}`. **Leaf polynomial** (S29): an explicit formula with non-negative coefficients for `r_c(T) = ℓ_{T+leaf at c} − (1+x)ℓ_T`. **Remainder** (S30): `ℓ_T = (1+4x)Θ_T − 4x(1+x)^{n−1} + Ω_T`, `xΘ_T = Φ − (1+x)^{n−1}`; `Ω_T ≥ 0` coefficientwise, `= Σ_k (1+x)^{n−1−k} Ω_{u_k}(T_k)` for every construction, in `K_{n−1}` up to its deep-edge terms; **for even `n = 2m ≥ 4`: `d_m − d_{m−1} ≥ (n−1)(3m−5)/(m+1)·Cat_{m−1} + λ_m(Ω_T)`**, equality for the star. | Proved; **not reviewed**. Exact on all rooted trees of order ≤ 9 (S28, S29) and all trees of order ≤ 15 (`results/even-order.json`). |
 | S31 | The right side of inequality (3) of `wiener-form.md` (the Wiener form without the pairs at distance ≥ 2) is **negative** for the spider with 49 legs of length 2 and one pendant vertex (`n = 100`), positive for that family up to `n = 98` and for all trees of even order ≤ 14. The conjectured inequality holds on those trees. | Exact computation, two implementations. Not reviewed. |
-| S23 | `R(T, 0) = xℓ_T − (1+4x)Φ_T`; **leaf recursion** `ℓ_{T+leaf at u} = (1+x)ℓ_T + r_u(T)`, `r_u = (1+4x)Ψ_u + Ω_u` (the polynomial `r_{{u}}`); telescoped: `ℓ_T = −4x(1+x)^{n−1} + Σ_k (1+x)^{n−1−k} r_{u_k}(T_k)` along any construction leaf by leaf; `ℓ_{S_n} = (1+x)^{n−2}[(n−1) + 4(n−2)x − 4x²]`. | Proved; (d) checked by the reviewer of `b5d9294`, (a) to (c) **not reviewed**. Exact on all rooted trees of order ≤ 11. |
+| S23 | `R(T, 0) = xℓ_T − (1+4x)Φ_T`; **leaf recursion** `ℓ_{T+leaf at u} = (1+x)ℓ_T + r_u(T)`, `r_u = (1+4x)Ψ_u + Ω_u` (the polynomial `r_{{u}}`); telescoped: `ℓ_T = −4x(1+x)^{n−1} + Σ_k (1+x)^{n−1−k} r_{u_k}(T_k)` along any construction leaf by leaf; `ℓ_{S_n} = (1+x)^{n−2}[(n−1) + 4(n−2)x − 4x²]`. | Proved; (d) checked by the reviewer of `b5d9294`; (a) to (c): see obligation 11. Exact on all rooted trees of order ≤ 11. **Literature (session 11):** (d) is **known** (Collins 1989, Theorem 1); a leaf recursion in terms of minors of `D − λI` is Theorem 4 of Collins's thesis (1986) — a precursor to be cited; the form with `1 + x`, the Laplacian remainder and its positivity are not there. |
+| S32 to S35, **T5** | For a rooted tree `(A, u)` of order `a`, weight zero, `δ` the distances from `u`, `a_v = x^{δ_v−1}Π_{uv}`: `H = Σ a_v`, `G = xΣ(δ_v−1)a_v`, `R(A, e_u) = Q¹ + x²Σδ_v²a_v` with `Q¹ ∈ K_a` (S33); `E := R − Ω + (1+2x)²Ψ − 2xG = R(A, e_u) − (1+x)(Ω + xH)`, with the plant rule `E^ = x[E + Ω + 2G + x(3+2x)H]` and the merge rule `E = E_1Ψ_2 + E_2Ψ_1 + x(H_1Ω_2 + H_2Ω_1) − 2G_1G_2` (S34); for two planted trees the last two terms equal `x(Ψ_1R¹_2 + Ψ_2R¹_1) + x²(H_1Q¹_2 + H_2Q¹_1) + x⁴Σ(δ_v − δ_{v′})²a_va_{v′}` (S35). **T5: `Ω ∈ K_a`, `E ∈ K_{a+1}`, `R(A, e_u) ∈ C_{a+1}` for every rooted tree — statement (Γ_c¹).** | Candidate proof (induction on rooted trees); reviews: obligation 11. Exact on all rooted trees of order ≤ 9 and (Γ_c¹) to order 11. |
+| **T6** | **For every tree: `r_u(T) − (1+4x)(1+x)^{n−1} ∈ K_n`; (SM) `ℓ_T − ℓ_{S_n} ∈ C_{n−1}` (so `d_k(T) ≥ d_k(S_n)` for every `k`); and for `n ≥ 3`, `m = ⌊n/2⌋`: `d_m − d_{m−1} ≥` that of the star `> 0` — every maximizing index is `≥ ⌊n/2⌋`, the lower half of the conjecture.** Uses T5, S23(c), Lemma A, R1. | Candidate proof; reviews: obligation 11. (SM) exact on all trees of order ≤ 20; the conjecture itself on orders ≤ 23 (E1, E2). |
+| S36 | **Contraction.** `uv` a non-pendant edge, `(A, u)`, `(B, v)` the two sides, `T′` = `A` and `B` glued at `u = v` plus a pendant vertex there: `ℓ_T − ℓ_{T′} = H_AE_B + H_BE_A + x(2+5x)H_AH_B + 2G_AG_B/x ∈ C_{n−1}`; so every `d_k` and `d_m − d_{m−1}` decrease (weakly) under the operation. A second proof of (SM). | Candidate proof; reviews: obligation 11. Formula exact on 1,064 pairs; membership on all trees of order 4 to 16 and all non-pendant edges (220,181). |
 | S27 | (SM) implies `d_m − d_{m−1} ≥` that of the star `> 0`, `m = ⌊n/2⌋`, for every tree; `Φ(B, e_c) − (1+x)^j ∈ C_j`; (Γ_c¹) ⇒ `r_u(T) − (1+4x)(1+x)^{n−1} ∈ C_n` ⇒ (SM). | Proved (conditional); (a), (b) and the algebra of (c) checked by the reviewer of `b5d9294`, which is not a review of the note. |
 
 ### Global identifiers
@@ -136,6 +147,7 @@ Statuses are in the registry and in [`research/INDEX.md`](../../INDEX.md).
 | S24 to S26, T4 | MD-0016 | theorem (candidate) |
 | (SM), with S23 and S27 as evidence; (SM⁺) | MD-0017 | conjecture |
 | S28 to S30, with S31 | MD-0018 | structural result (candidate) |
+| T5, T6, S36 (with S32 to S35) | MD-0019 | theorem (candidate) |
 
 Not registered: R1, L2, L4 and S1 to S4 are tools or steps (S3 and S4 are the
 evidence of MD-0010); Γ⁺ is an observation on the 47 small trees, recorded
@@ -145,17 +157,16 @@ verification; Q1, Q2 are questions.
 
 ## Conjectures and hypotheses of this investigation
 
-**Statement (SM), star minimality — open (MD-0017, session 9).** For every
-tree of order `n ≥ 3`: `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`. Exact for all 1,346,023
-trees of order 3 to 20 (equality only for the star). It implies the lower
-bound `⌊n/2⌋` for **every** tree (S27), with no condition on the number of
-leaves, and it follows from **(Γ_c¹)**: `R(B, e_c) ∈ C_{j+1}` for every rooted
-tree — Γ_c for one unit of weight, no parameters (exact for the 4,394 rooted
-trees of order ≤ 11). Only the even orders still need it (T4).
-**(SM⁺)** (session 10, recorded under MD-0017): `Ω_T ∈ C_{n−1}` for every
-tree, `Ω_T = ℓ_T + 4x(1+x)^{n−1} − (1+4x)Θ_T`. Exact for all trees of order
-3 to 15. `(Γ_c¹) ⇒ (SM⁺) ⇒ (SM)`, and for even order (SM⁺) is far more than
-needed: `λ_m(Ω_T) > −(n−1)(3m−5)/(m+1)·Cat_{m−1}` suffices (S30(d)).
+**Statement (SM), star minimality (MD-0017, session 9) — candidate proof
+since session 11 (Theorem T6(b), MD-0019).** For every tree of order
+`n ≥ 3`: `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`. Exact for all 1,346,023 trees of order 3
+to 20 (equality only for the star). It implies the lower bound `⌊n/2⌋` for
+**every** tree, and it follows from **(Γ_c¹)**: `R(B, e_c) ∈ C_{j+1}` for
+every rooted tree, which is Theorem T5. **(SM⁺)** (session 10): `Ω_T ∈ C_{n−1}`
+for every tree; it follows from T5(i) and the formula of S30 (unreviewed).
+**(CM)** (session 11): the same cone order is respected by the contraction
+of any non-pendant edge (S36). Still open, and no longer needed for the
+lower half: Γ_c for general weights, (E), (Λ), Conjecture Γ.
 
 **Conjecture Γ — open (MD-0010).** For every tree `S` on `s ≥ 2` vertices and
 every `A ⊆ V(S)` with `|A| ≥ 2`, the polynomial
@@ -242,11 +253,15 @@ Full text of each: [`notes/dead-ends.md`](notes/dead-ends.md).
 ```
 Collins–Shor, lower half  (⇔ d_{m−1} < d_m, m = ⌊n/2⌋, by R1 [Lean])
   ODD ORDER, every tree:  T4  ⇐ S25 (Wiener form) ⇐ L1, S24 ⇐ Lemma F   [candidate proof, session 9 (MD-0016)]
-  EVEN ORDER, every tree: T4 gives d_{m−2} < d_{m−1} only.               [OPEN]
-    ⇐ λ_m(Ω_T) > −(n−1)(3m−5)/(m+1)·Cat_{m−1}   (S30(d))                 [S30 proved, unreviewed (MD-0018); the bound on Ω_T OPEN]
-    ⇐ (SM⁺): Ω_T ∈ C_{n−1}  ⇐ (Γ_c¹)  ⇐ Γ_c  ⇐ (E)  ⇐ (Λ)               [(SM⁺) exact to order 15; all OPEN]
-    ⇐ (SM) (S27)  ⇐ (SM⁺)                                               [(SM) exact to order 20 (MD-0017)]
-    ⇐ inequality (3) of wiener-form.md                                   [FALSE in general: S31]
+  EVERY ORDER, every tree: T6(c)                                          [candidate proof, session 11 (MD-0019)]
+    ⇐ (SM): ℓ_T − ℓ_{S_n} ∈ C_{n−1}   (T6(b); also from S36)              [candidate proof]
+    ⇐ S23(c) (telescoped leaf recursion) + T6(a) ⇐ T5(i): Ω ∈ K_a          [S23(a)–(c): see obligation 11]
+    ⇐ T5: (Γ_c¹), by induction on rooted trees                            [candidate proof]
+        ⇐ S19 (plant, merge rules) [AI-reviewed, MD-0015], S33 to S35, Lemma K, Lemma S24
+    ⇐ the star: d_{m−1}(S_n) < d_m(S_n)                                   [KNOWN: Collins 1989, Theorem 1]
+    ⇐ R1 [Lean], Lemma A(a) [Lean on the cone], log-concavity [Theorem 2.1 of the source]
+  routes that are not needed any more: S30(d) and (SM⁺) (now consequences of T5); Γ_c, (E), (Λ) [OPEN];
+    inequality (3) of wiener-form.md                                     [FALSE in general: S31]
   --- the route of sessions 4 to 8 (leafy trees only; superseded for the lower half by the two lines above) ---
   trees S(c) with at least as many leaves as non-leaf vertices (n ≥ 2s):
     ⇐ S1 (closed form)                               [proved, AI-reviewed]
@@ -267,7 +282,8 @@ Collins–Shor, lower half  (⇔ d_{m−1} < d_m, m = ⌊n/2⌋, by R1 [Lean])
 Collins–Shor, upper half
   ⇐ R1
   ⇐ Hypothesis A(ii) at k = p_n                      [OPEN; k = 0 proved (L2)]
-  ⇐ Collins 1989: peak of P_n ≤ ⌈n − n/√5⌉           [cited via arXiv:1507.02341; not read]
+  ⇐ Collins 1989, Theorem 3: d_{n−k}(P_n) = C(n+k−1, 2k−1)(k−1)n/k; peak of P_n at ⌊n − n/√5⌋ or ⌈n − n/√5⌉
+                                                     [read in session 11; the last step of its proof is informal]
   no mechanism from the skeleton expansion           [Property Γ says nothing about it]
 ```
 
@@ -312,6 +328,19 @@ Collins–Shor, upper half
   and is left byte-identical to it; the five defects found by the audit of
   that revision go into one further revision. (SM⁺) is recorded under
   MD-0017, not registered. S28 to S31 are one record (MD-0018).
+- 2026-11-26 (director, session 11). Session budget 120 minutes, with
+  checkpoints (harness commit `759d93f`); this replaces the 60 minutes of the
+  decision above. For the current phase the project relies on independent AI
+  reviews, adversarial verification, exact computation and Lean; **human
+  specialist consultation is deferred until there is a mature manuscript**
+  (this replaces "a human reader, or a different vendor's model, before any
+  promotion" as the next step of obligations 2, 3 and 9; the requirement of
+  section 4 of `AGENTS.md` for promotion is unchanged). Verified commits may
+  be pushed to `research` for research contributions.
+- 2026-11-26 (session 11). T5, T6 and S36 are one record (MD-0019); MD-0017
+  keeps its identifier and its statement (the conjecture (SM)), now with a
+  candidate proof. The lower half is treated as a candidate proof to be
+  consolidated into one self-contained manuscript before promotion.
 - Earlier decisions (budget overrun of session 1, widening of O1, deferral of
   the rerun of orders 21 to 23, the notes of sessions 5 and 6) are in the
   journal.
@@ -379,17 +408,20 @@ full text of items 1 to 8 as of session 7 is there).
 
 ## Remaining obstacles
 
-- **Even order.** By S30 the whole difficulty is `λ_m(Ω_T)`, and inside
-  `Ω_T` the deep-edge terms `x(1+x)^{n−1−k} Π_{e∪u_k}(T_k)` (level `n − 2`,
-  where `λ_m` is negative). What can pay for them sits at level `n` or
-  above: pair terms with `dist ≥ 3` and the terms `x^{δ_a}Π_{path(a,c)}`,
-  `δ_a ≥ 3`. Neither a term by term comparison nor the grouping by a vertex
-  and its ancestors works (session 10, scratch). The Wiener form without
-  its far pairs is not enough either (S31).
-- (SM⁺) ⇐ (Γ_c¹) ⇐ Γ_c ⇐ (E) ⇐ (Λ): all open. In the weighted calculus the
-  obstruction is one negative term built from `G = (1+2x)Ψ − π_u ≥ 0`
-  (`−4x²G` in `E`, `−2G_1G_2` in the merge rule), to be absorbed by `R`.
-- The upper half has no mechanism: A(ii) is unproved beyond `k = 0`.
+- **Lower half.** No mathematical obstacle is known: T6 is a candidate proof
+  for every tree. What remains is validation (obligation 11) and one
+  self-contained write-up. How the difficulty of session 10 (the deep-edge
+  terms, one level short) was avoided: they are never separated from
+  `R(A_l, e_{c_l})` except where an extra factor `x` is available (Remark
+  after T5 in `lower-bound.md`).
+- **Upper half.** No mechanism: A(ii) is unproved beyond `k = 0`. The
+  contraction of an edge (S36) moves every tree towards the star; its
+  maximal elements are the trees in which no vertex of degree `≥ 3` has a
+  pendant neighbour, not only the path, so an upper-half argument along this
+  order would need the more general shift along a path with inner vertices
+  of degree 2 (not computed).
+- Γ_c for general weights, (E), (Λ), Conjecture Γ: open, and now of interest
+  only for themselves (the weighted statements), not for Collins–Shor.
 
 ## Next step
 

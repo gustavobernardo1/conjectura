@@ -2019,3 +2019,26 @@ outside the author's vendor, and whether Collins's thesis can be obtained
   `contract_test.py`, `cm_formula.py`, `system_check.py` in the session's
   scratch directory (outside the repository). *Next action:* write
   `notes/contraction.md`.
+- **+40 min (23:02 local, clock reading):** *Established since the last
+  checkpoint.* `notes/lower-bound.md` written and committed at `74d65b0`
+  (S32 to S36, Theorems T5 and T6; a candidate proof, **unreviewed**). The
+  identities it uses were checked exactly in scratch on every rooted tree of
+  order ≤ 9 before it was written (486 rooted trees, 778 pairs, no failure;
+  the count of contraction pairs of the first checkpoint is 220,181, not
+  "216,000"). The dossier has the reading of Collins (1986) and Collins
+  (1989), with exact checks of the formulas read (scratch `collins_check.py`:
+  star and path formulas for orders 3 to 30, Table 1 row 9, Theorem 4 of the
+  thesis on 142 pairs). `STATE.md` partly updated (results table, dependency
+  map, decisions, obstacles); its obligations and next step are **not yet
+  rewritten**. *Unfinished, and where.* Four delegated tasks are running in
+  fresh contexts: two adversarial reviews of `lower-bound.md` at `74d65b0`
+  (one by `claude-opus-5-5` if the environment grants it, one emphasising an
+  independent machine re-derivation), the stored computation
+  `experiments/CJ-0001-collins-shor-peak/lower_bound.py` with its test, and
+  a Lean file `LowerBoundCone.lean` for the cone arithmetic of T5 and S35.
+  None has reported. A scratch exploration for the upper half is running
+  (orders 13 to 15): along generalized tree shifts the peak never moved up
+  for orders 5 to 12 (exact, scratch, 6,809 shifts); the ratio
+  `d_{k+1}/d_k` is *not* monotone along them for `k` above about `n/2`.
+  *Next action:* read the reports as they arrive; then registry, obligations,
+  next step, verification.

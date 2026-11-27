@@ -8,7 +8,7 @@ Let $T$ be a tree of order $n \ge 3$ with distance matrix $\mathcal{D}(T)$ (the 
 
 **Source.** G. Aalipour, A. Abiad, Z. Berikkyzy, L. Hogben, F. H. J. Kenter, J. C.-H. Lin, M. Tait, Proof of a conjecture of Graham and Lovász concerning unimodality of coefficients of the distance characteristic polynomial of a tree, arXiv:1507.02341, Conjecture 1.2 (a search result reports the journal version as Electron. J. Linear Algebra, 2018; not verified from the journal); originally Conjecture 9 of K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27-35, attributed there to P. Shor. <https://arxiv.org/abs/1507.02341>
 
-**Statement checked against:** primary-source. The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) was not accessed; according to arXiv:1507.02341 it states the bounds without floor and ceiling.
+**Statement checked against:** primary-source. The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) was not accessible in sessions 1 to 10; according to arXiv:1507.02341 it states the bounds without floor and ceiling. **Session 11:** Collins (1989) was read in full; its Conjecture 9 reads "The coefficients of CPD(T) for any tree T with n vertices are unimodal with peak between ½n and n(1 − 1/√5)", without floor or ceiling, as reported (see the section "Primary sources read in session 11").
 
 ## Definitions and hypotheses
 
@@ -200,8 +200,8 @@ about its Theorem 1, Theorem 3 and Conjecture 9 is second-hand (items A, B, C).
 Added by the literature audit of 2026-11-26 (session 2):
 
 - R. L. Graham, L. Lovász, Distance matrix polynomials of trees, Adv. Math. 29 (1978) 60–88. Scan: <https://mathweb.ucsd.edu/~ronspubs/78_12_matrix_polynomials.pdf> (pp. 60–67, 80–86 read). DOI `10.1016/0001-8708(78)90005-1` resolves to an Elsevier record; the landing page was not readable.
-- K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1–2) (October 1989) 27–35, DOI `10.1016/0166-218X(89)90044-9` (bibliographic data confirmed from the Crossref record; full text not accessed).
-- K. L. Collins, Distance matrices of trees, Ph.D. thesis, MIT, 1986 (advisor R. P. Stanley), <https://dspace.mit.edu/handle/1721.1/77687> (record page read; PDF not accessed).
+- K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1–2) (October 1989) 27–35, DOI `10.1016/0166-218X(89)90044-9` (bibliographic data confirmed from the Crossref record; full text not accessible until session 11, when it was read in full from a copy supplied by the director).
+- K. L. Collins, Distance matrices of trees, Ph.D. thesis, MIT, 1986 (advisor R. P. Stanley), <https://dspace.mit.edu/handle/1721.1/77687> (record page read; PDF not accessible until session 11, when a copy supplied by the director was read: pp. 30–47 and 55–61 as page images, the rest through its OCR text layer).
 - L. Hogben, C. Reinhart, Spectra of variants of distance matrices of graphs and digraphs: a survey, arXiv:2103.00647; cited in arXiv:2206.07561 as La Matematica 1 (2022) 186–224 (pp. 5–12 read).
 - R. Jana, I. Mahato, S. Sivasubramanian, Unimodality and peak location of the characteristic polynomials of two distance matrices of trees, arXiv:2407.03309 (read in full); a citation index lists it in Computational and Applied Mathematics, DOI `10.1007/s40314-025-03163-5` (not verified).
 - arXiv:2206.07561 is cited in arXiv:2407.03309 as Linear Algebra Appl., DOI `10.1016/j.laa.2023.03.027` (journal version not read).
@@ -1856,3 +1856,146 @@ the two bridging steps are reviewed), not as contributions. For Proposition S25
 and Theorem T4 nothing here supports `no-prior-resolution-found`: the reference
 databases were not searched and several of the most likely sources were not
 read. An unsuccessful search does not establish originality.
+
+## Primary sources read in session 11 (2026-11-26): Collins (1986) and Collins (1989)
+
+Reader: the main session (Claude, model `claude-fable-5-2`), not a separate
+auditor. The two documents had been refused to automated access in sessions 2
+to 10; the director supplied them as local files for this session. They are
+not in the repository.
+
+| Document | File supplied | SHA-256 | What was read, and how |
+| --- | --- | --- | --- |
+| K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27–35 | `1-s2.0-0166218X89900449-main.pdf`, 9 pages | `377d4ed79989013acbbc58ecd3d84c8569c464a0d6d4e0c391db63ab9fc7b5ed` | All nine pages, as page images (and the text layer). |
+| K. L. Collins, Distance matrices of trees, Ph.D. thesis, MIT, May 1986 (supervisor R. P. Stanley) | `15748263-MIT.pdf`, 61 leaves, a scanned typescript | `bd07fb27fca80653608a8d01543e9ef3b6b9ab8c4764dcbaf924d51f6b2ade5c` | Page images: pp. 30–47 and 55–61 (the end of Section I with Theorem 2 and its examples, all of Sections II and III, the conjectures, the references, the list of notation, the conclusion). Text layer only (an OCR of the typescript, in which prose is legible and most displayed formulas are not): pp. 1–29 (front matter, Section 0, the proof of Theorems 1 and 2) and pp. 48–54 (Section IV). |
+
+Limit of this reading: the displayed formulas of the proof of Theorem 2
+(pp. 13–29) and of Section IV were not read reliably. Their statements
+(Theorems 1, 2, 10 to 13, Lemmas 1 to 9) were. Exact checks of what was read
+(scratch of session 11, exact arithmetic, a script `collins_check.py` that is
+not stored in the repository): the star formula and the path formula of the
+1989 paper against the distance matrix for orders 3 to 30; Table 1, row
+`n = 9`; Theorem 4 of the thesis with leaf weight 1, and the dictionary
+below, on the 142 pairs (tree of order 1 to 7, vertex). All agree.
+
+### Collins (1989): contents
+
+- Normalization (p. 29): `d_k = (−1)^{n−1} δ_k / 2^{n−k−2}`, `δ_k` the
+  coefficient of `λ^k`. It is the `d_k` of the project.
+- The Graham–Lovász conjecture as Collins states it (p. 29): "the sequence
+  `d_1, d_2, …, d_{n−2}` is unimodal, with peak at `k = ½n`. This is true for
+  stars, but not for paths. It is not known whether the sequence is unimodal
+  (with varying peaks) for general trees."
+- **Theorem 1** (p. 29): "The coefficients of CPD(S) where S is a star on n
+  vertices are unimodal with peak at `⌊½n⌋`." Its proof gives (p. 30)
+  `d_k = (n−k−1)(C(n−1, k) + 4 C(n−1, k−1))` and ends "the peak of
+  unimodality occurs at `k = ½n`" for even `n` and "at `½(n−1)`" for odd `n`.
+- **Theorem 3** (p. 30): "The coefficients of CPD(P) where P is a path on n
+  vertices are unimodal with peak at `n(1 − 1/√5)`." The proof takes from the
+  thesis the description of the coefficient of `λ^{n−k}` as a sum of
+  principal minors, evaluates it by the theorem of Graham, Hoffman and Hosoya
+  (Lemma 5), and obtains (p. 31) `d_{n−k} = C(n+k−1, 2k−1)(k−1) n/k`. The sign
+  of `d_{n−k−1} − d_{n−k}` is that of `kn² − 5k³ − 2k² + 4k + 2`, which
+  vanishes for `n/√5 < k + 1 < n/√5 + 1`; the proof ends (p. 33): "There must
+  be some integer in this range, say `n/√5 < M < n/√5 + 1`, and `M` will be
+  the peak of the unimodal sequence unless `M` is too close to `n/√5 + 1`. In
+  that case, the peak of the sequence will be `M − 1`." In the index of `d`
+  this places the peak of the path at `n − ⌈n/√5⌉ = ⌊n − n/√5⌋` or at
+  `⌈n − n/√5⌉`. The last step is informal; the theorem as stated says only
+  "peak at `n(1 − 1/√5)`".
+- Table 1 (p. 34): the values `d_k` of the paths of order 2 to 9.
+- Theorem 8: the analogous statement for the adjacency polynomial of a path.
+- **Conjecture 9 (Peter Shor)**, p. 35, verbatim: "The coefficients of CPD(T)
+  for any tree T with n vertices are unimodal with peak between `½n` and
+  `n(1 − 1/√5)`." There is no floor and no ceiling, as arXiv:1507.02341 says.
+- Conjecture 10 (p. 35; suggested by the referee, footnote 2): the relative
+  position of the peak is the same for the adjacency polynomial.
+- Nothing else about general trees. The paper has no formula in terms of the
+  Laplacian, no Wiener index or transmission, no recursion on a leaf, and no
+  bound on the peak of a general tree.
+
+**On the wording of the conjecture.** For odd `n` the number `½n` is not an
+integer, and the literal reading "peak `≥ n/2`" would mean peak `≥ (n+1)/2`.
+That is false for the star by Theorem 1 of the same paper (peak at
+`½(n−1)`). So the floor in the lower bound of arXiv:1507.02341 is the only
+reading of Conjecture 9 consistent with its source; the ceiling in the upper
+bound is consistent with the proof of Theorem 3. The catalogued statement
+(Conjecture 1.2 of arXiv:1507.02341) is unchanged.
+
+### Collins (1986): contents
+
+Numbering as in the body of the thesis (its table of contents numbers the
+theorems of Section III differently).
+
+- Section I (pp. 12–31). Theorem 1 is the theorem of Graham and Lovász on
+  the coefficients as counts of subforests; Theorem 2 is its extension to
+  trees with weighted edges, proved by generalizing their proof (Lemma 5: the
+  inverse of the weighted distance matrix; Lemma 6: the weighted determinant,
+  from Graham–Hoffman–Hosoya). Examples (p. 31):
+  `d_0 = (−1)^{n−1}2^{n−2}(n−1)`; `d_1 = (−1)^{n−1}2^{n−3}(4N_1 + 2N_2 + 4N_3 − 4)`
+  (`N_1` pairs of disjoint edges, `N_2` paths with two edges, `N_3` edges);
+  and for edge weights `x_i`,
+  `δ_1 = (−1)^{n−1}2^{n−3} Π x_i {2(Σ x_i)(Σ 1/x_i) − Σ_i (d_i − 2)²}`.
+- **Section II, "Isolation of a leaf" (pp. 32–38).** Its first sentence: "If
+  we could isolate the contribution of a leaf of T to CP(Δ(T)), then we
+  could inductively build up CP(Δ(T)) by peeling off one leaf of T at a
+  time." Theorem 3: with the weight `x_1` of a leaf edge set to zero,
+  `CP(Δ(T)) = −2λ CP(Δ(T_1)) − λ² CP(Δ(G_2))`, `T_1` the tree without the
+  leaf and `G_2` the graph whose distance matrix is the principal submatrix
+  without the leaf and its neighbour. **Theorem 4** (p. 34), with
+  `S = (Δ(T) − λI)(1,1)` (the leaf deleted; `v_2` its neighbour, `M(i,j)` the
+  matrix without row `i` and column `j`):
+  `CP(Δ(T)) = −2λ det(S) − λ² det(S(2,2)) − 2x_1 [det(S) + λ Σ_j (−1)^{2+j} det(S(2,j))] − x_1² cof(S)`,
+  and "From this we see exactly the contribution of `x_1`." Collins adds that
+  the determinants in it "are no longer the determinants of subtrees of T,
+  but instead can only be expressed in terms of the minors of D(T)". Theorem
+  5 applies it to decide when two trees that differ by the position of one
+  leaf are cospectral. There is no further use of Theorem 4.
+- Section III (pp. 39–47). Theorem 6 is the theorem of Graham, Hoffman and
+  Hosoya. **Theorem 7** (p. 40) is a formula for `CP(Δ(G))` when `G` is two
+  graphs joined at a vertex, in terms of determinants and cofactors of
+  `D(G_i) − λI` and of the matrices `M*`; it is stated without proof ("not
+  enlightening"), and the printed formula has what looks like a misprint in
+  one index. Theorem 8 (p. 41) is the coefficient of the path used in the
+  1989 paper. Remark (p. 42): the coefficient of `λ` is
+  `(−1)^{n−1}2^{n−3} Σ_v (−deg(v)² + deg(v)(n+3) − 4)`. Theorem 9: a formula
+  for the coefficient of `λ` of a weighted tree.
+- Section IV (pp. 48–54): factors of the characteristic polynomial coming
+  from automorphisms; the full binary tree.
+- Conjectures (p. 55). Conjecture 1: "The sequence `(1/2^{n−2})|d_0(T)|`,
+  `(1/2^{n−3})|d_1(T)|`, … is unimodal, with the peak occuring at
+  `(1/2^{n−⌊n/2⌋−2})|d_{⌊n/2⌋}(T)|` (due to R. L. Graham)." The others
+  concern cospectrality, automorphisms and rational roots. The conjecture of
+  Shor is not in the thesis.
+
+### Comparison with the statements of the project
+
+| Project item | What the two sources contain | Assessment |
+| --- | --- | --- |
+| Statement of CJ-0001 | Conjecture 9 of the 1989 paper, without floor or ceiling. | Source of the conjecture now read first-hand. The catalogued statement is unchanged. |
+| S23(d): `ℓ_{S_n} = (1+x)^{n−2}[(n−1) + 4(n−2)x − 4x²]` and `d_{m−1}(S_n) < d_m(S_n)` | 1989, Theorem 1 and the formula in its proof. The two formulas agree: `(n−k−1)C(n−1,k) = (n−1)C(n−2,k)` and `(n−k−1)C(n−1,k−1) = (n−2)C(n−2,k−1) − C(n−2,k−2)`. | **Known** (Collins 1989). To be cited wherever the star is used, including Theorem T6(c). |
+| L2: `d_1 = 2n² − 6 − Σ deg²` | Thesis, p. 31 and Remark p. 42 (each equal to L2 after `Σ deg = 2n − 2`). | **Known**, as already recorded (Graham–Lovász; the source). |
+| S23(b), (c): the leaf recursion `ℓ_{T⁺} = (1+x)ℓ_T + r_u(T)` and its telescoped form | Thesis, Theorem 4: a recursion on a leaf for the same polynomial, in terms of minors of `D(T) − λI`. With leaf weight 1 and `λ = 2x`, exact dictionary (`n′` the order of `T`, `S = D(T) − 2xI`): `r_u(T) = xℓ_T + (−1)^{n′−1}2^{1−n′}[4x² adj(S)_{uu} + 4x(adj(S)1)_u + 1ᵀadj(S)1]`. | **A precursor exists and must be cited.** The idea of isolating a leaf and building the polynomial leaf by leaf, and an exact formula for it, are due to Collins (1986). Not in the thesis: the splitting with the factor `1 + x`; the remainder written through Laplacian minors (`Ψ_u`, `Ω_u`); that the remainder has non-negative coefficients (S29); the telescoped sum; any cone statement; any use for the peak. S23(b) is to be described as a Laplacian form of a known kind of identity, not as a new recursion. Passing from Theorem 4 to S23(b) needs the Graham–Lovász inverse and the computation of S15; it was not done by hand here, only checked exactly. |
+| S19(d): the merge rule of the rooted state | Thesis, Theorem 7: a formula for two graphs joined at a vertex, in the language of the distance matrix, without proof. | **A precursor of the same kind**, to be cited for MD-0015. The printed formula was not verified (its notation is not recoverable with certainty from the scan). |
+| S24 to S26, Theorem T4 (Wiener form; peak `≥ ⌊(n−1)/2⌋`) | Nothing. Neither source has the Wiener index, the transmissions, the minors off a path, or any bound on the peak of a general tree. | No prior statement in these two sources. They were named in session 10 as the first sources to read; this removes that specific doubt and no other. |
+| Cones `C_d`, `K_d`; S28 to S30; Theorems T5, T6 and Proposition S36 of session 11 (statement (Γ_c¹), star minimality `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`, the bound `⌊n/2⌋` for every tree, contraction of an edge) | Nothing. The only statements about the place of the peak are Theorem 1 (star), Theorem 3 (path) and the conjectures. | No prior statement in these two sources. |
+| Hypothesis A(ii) and the upper half | 1989, Theorem 3 with the closed formula of the path. | The path is now first-hand: `d_{n−k}(P_n) = C(n+k−1, 2k−1)(k−1)n/k`. The last step of the proof is informal, so the exact peak of `P_n` should be taken from the formula, not from the sentence. |
+
+### What this reading does and does not establish
+
+- It establishes what these two documents contain, within the limit stated
+  above (the formulas of pp. 13–29 and 48–54 of the thesis were read through
+  OCR only).
+- It does not establish originality of anything. Still not searched:
+  MathSciNet, zbMATH, Google Scholar; still not read: Graham–Lovász (1978)
+  pp. 72–88, Merris (1990), Moon (1995), Collins (1993) beyond the manuscript
+  read in session 6, and the papers citing Collins (1989), which were seen by
+  title only. No search at all has been made for the statements of session
+  11 (Theorems T5 and T6, Proposition S36).
+
+### Recommendation for the registry
+
+Novelty stays `preliminary-search-completed` for MD-0016 and for the record
+of session 11. S23(d) is recorded as known (Collins 1989). The records that
+contain S23 (MD-0017) and S19 (MD-0015) name Theorems 4 and 7 of the thesis
+as prior related work.
