@@ -12,7 +12,7 @@ S31, statement (SM⁺): the even orders reduced to one polynomial `Ω_T`).
 **Session 11:** [`notes/lower-bound.md`](notes/lower-bound.md) (S32 to S36,
 Theorems T5 and T6: statement (Γ_c¹), star minimality (SM) and **the lower
 bound `⌊n/2⌋` for every tree** — a candidate proof; contraction of an edge);
-Collins (1986) and Collins (1989) read (dossier, last section).
+Collins (1986) and Collins (1989) read (dossier, section "Primary sources read in session 11").
 **Session 12:** [`notes/path-maximality.md`](notes/path-maximality.md) (S37 to
 S39, Theorems T7 and T8: the generalized tree shift lowers `ℓ` in the cone
 order, and the path is the coefficientwise maximum — a candidate proof;
@@ -323,49 +323,26 @@ Collins–Shor, upper half
 
 ## Decisions
 
-- Sessions 1 to 8 (verbatim in [`notes/obligations.md`](notes/obligations.md),
-  last section). Still in force: strong reading of ties; T1 to T3 stay
-  candidate theorems (director); every description of T2 states
-  `a, b, c ≥ 1`; formalization accompanies the investigation; reviews by a
-  model other than the author's; a note is left byte-identical to the
-  revision that was reviewed, its defects go into one revision that is then
-  rechecked, new results go in a new note; Γ⁺, Γ_c, (E), (Λ) are not
-  registered as conjectures of their own; MD-0013 is not split.
-- 2026-11-26 (director, session 9). The AI investigator allocates effort by
-  its own judgment; earlier directions are revisable. MD-0013 keeps its
-  identifier and review; its items are classified as known or potentially
-  original in the record. The current classifications are approved; verified
-  commits may be pushed to `research` only.
-- 2026-11-26 (session 9). Direction changed: the lower half is attacked for
-  the whole tree (Wiener form, leaf recursion), not through Γ, L4 and
-  "skeleton plus one star". O8 ((Λ)) is deferred, not abandoned: (Λ) still
-  implies (Γ_c¹). (SM) is registered as a conjecture of its own (MD-0017)
-  because it implies the lower half for every tree; (Γ_c¹) is not.
-- 2026-11-26 (director, session 10). MD-0016 is to receive independent
-  validation and an originality assessment before promotion; CJ-0001 keeps
-  its status until the validation requirements are met; the director's
-  preliminary reading with GPT-6.2 (no apparent gap) is not a proof audit.
-  Verified commits may be pushed to `research` only.
-- 2026-11-26 (session 10). `wiener-form.md` had its one revision (`a3e5179`)
-  and is left byte-identical to it; the five defects found by the audit of
-  that revision go into one further revision. (SM⁺) is recorded under
-  MD-0017, not registered. S28 to S31 are one record (MD-0018).
-- 2026-11-26 (director, session 11). Session budget 120 minutes, with
-  checkpoints (harness commit `759d93f`); this replaces the 60 minutes of the
-  decision above. For the current phase the project relies on independent AI
-  reviews, adversarial verification, exact computation and Lean; **human
-  specialist consultation is deferred until there is a mature manuscript**
-  (this replaces "a human reader, or a different vendor's model, before any
-  promotion" as the next step of obligations 2, 3 and 9; the requirement of
-  section 4 of `AGENTS.md` for promotion is unchanged). Verified commits may
-  be pushed to `research` for research contributions.
-- 2026-11-26 (session 11). T5, T6 and S36 are one record (MD-0019); MD-0017
-  keeps its identifier and its statement (the conjecture (SM)), now with a
-  candidate proof. The lower half is treated as a candidate proof to be
-  consolidated into one self-contained manuscript before promotion.
-- Earlier decisions (budget overrun of session 1, widening of O1, deferral of
-  the rerun of orders 21 to 23, the notes of sessions 5 and 6) are in the
-  journal.
+In force (full text of every decision, sessions 1 to 11:
+[`notes/obligations.md`](notes/obligations.md), section "Text moved from
+`STATE.md` in session 13"): the strong reading of ties; T1 to T3 stay
+candidate theorems; formalization accompanies the investigation; reviews by a
+model other than the author's where available; a reviewed note stays
+byte-identical, its defects go into one revision that is rechecked, new
+results go into a new note; the AI investigator allocates effort by its own
+judgment (director, session 9); CJ-0001 keeps its status until the
+validation requirements are met (director, session 10); 120-minute sessions
+with checkpoints, independent AI review, exact computation and Lean for the
+current phase, human consultation deferred until there is a mature
+manuscript (director, session 11); verified commits may be pushed to
+`research` only; the lower half is to be consolidated into one manuscript
+before promotion (session 11).
+
+- 2026-11-27 (session 13). T9 with S40 to S42 and S46 is MD-0022; T10 with
+  S43 to S45 is MD-0023 (very probably a known consequence of a published
+  theorem; registered for its proof); S47, S48 are MD-0024. CJ-0001 is left
+  at `active-investigation` under the decision of session 10; the principal
+  investigator recommends `candidate-proof`.
 
 ## Open obligations
 
@@ -373,7 +350,8 @@ Details and history: [`notes/obligations.md`](notes/obligations.md) (the
 full text of items 1 to 8 as of session 7 is there).
 
 1 to 8 (unchanged in session 11; full text:
-   [`notes/obligations.md`](notes/obligations.md), last section). In short:
+   [`notes/obligations.md`](notes/obligations.md), section "Text moved from
+   `STATE.md` in session 11"). In short:
    1 literature and citations owed (T1 to T3, L3, S1, S3, MD-0013; unread
    sources; no MathSciNet, zbMATH, Google Scholar); 2 one revision and one
    recheck of the notes of T1 to T3; 3 revisions owed after reviews
@@ -385,68 +363,25 @@ full text of items 1 to 8 as of session 7 is there).
    (independent comparison of the Lean statements; L4 as written; the
    inductive cone against explicit sums; next: S4, Lemma F); 8 description
    strings of `spine3.py`.
-9. **T4 (MD-0016), before any promotion.** Done: two AI reviews (same
-   vendor), no gap; a first literature audit; Lean for Lemma A and `K_d`.
-   Owed: (a) one revision of `wiener-form.md` for the audit's defects D1 to
-   D5 (S26 and the tools list still cite Lemma F; `W = Σ_e n_e(n − n_e)`
-   uncited; L1 at `n = 2`; the `C`-clause of S24; "strong induction"), then
-   a recheck, then drop the dependency on MD-0012; (b) **a human reader or a
-   model of another vendor** — the director's GPT-6.2 reading is not a
-   recorded audit; (c) literature: Collins 1989 and Collins's thesis were
-   **read in session 11** (neither contains S25 or T4; the thesis has a leaf
-   formula, Theorem 4, to be cited for S23 and S29, and a formula for two
-   graphs joined at a vertex, Theorem 7, to be cited for S19(d); S23(d) is
-   Collins 1989, Theorem 1). Still unread: Graham–Lovász pp. 72–88, Merris
-   1990, Moon 1995; MathSciNet, zbMATH, Google Scholar not searched; the
-   auditor's two bridging steps (S24, identity (1)) are unreviewed; (d) a
-   result package. `leaf-telescoping.md` (S23, S27) is **unreviewed**.
-10. **Session 10.** `even-order.md` (S28 to S31, MD-0018) is **unreviewed**
-   and has no literature search. The Lean statements of `WienerCone.lean`
-   were compared with the note by the formalizing agent and the author only.
-11. **Session 11: T5, T6, S36 (MD-0019), before any promotion.** Done: two
-   independent AI reviews of `lower-bound.md` at `74d65b0`, both **no gap
-   found** — `claude-opus-5-5` (every step by hand, S23(a) to (c) included;
-   its own code on all 205,002 trees of order 3 to 18 and on extreme
-   families) and `claude-fable-5-2` in a fresh context (the author's model,
-   so independent by context only; a machine re-derivation from the
-   definitions on 7,813 rooted trees of order ≤ 12, 18,048 pairs, weighted
-   trees, all trees of order ≤ 18); the stored computation `lower_bound.py`
-   (1,040,693 checks, 0 failures); Collins (1986, 1989) read. Owed:
-   (a) **one revision of `lower-bound.md`**, then a recheck, for the defects
-   the two reports list (none is a gap): the section "Exact checks" cites a
-   script that did not exist at the reviewed revision and gives "778 pairs"
-   where the described set has 1,064, and "1,064 pairs" for S36 of which 486
-   are outside its hypothesis; the proof of S32 is by reference to that of
-   S24 and should be written out; Remark 1 of S36 asserts `E ≡ 0 (mod x²)`
-   without argument; notation used twice (`E` is not the `E` of S17 and S20;
-   `a`, `a_v`, `a_i`; `Q`, `Q¹`; `X`, `X_{il}`; `n` for a weight in "S19(a)
-   with `n = 0`"); in `leaf-telescoping.md`, S23(a) uses L1 at `n = 2` while
-   `lemmas.md` states it for `n ≥ 3` (true at `n = 2`; a citation defect).
-   The note is left byte-identical to `74d65b0` until that revision.
-   (b) **One self-contained manuscript of the lower half**, from the
-   Graham–Lovász inverse to T6(c) (L1, Lemma K, S24, S19 with zero weights,
-   S23, S33 to S35, T5, T6), then a complete audit of that one document; a
-   model of another vendor when one is available (human consultation is
-   deferred by the director's decision of session 11). S19 was re-derived by
-   neither reviewer of this session (they relied on the review of `59c47f7`
-   and on exact checks). (c) Literature: see the audit of session 11 in the
-   dossier, and the limits it states. (d) A result package. (e) The Lean
-   statements of `LowerBoundCone.lean`, if registered, were compared with
-   the note by the formalizing agent and the author only.
-
-12. **Session 12: T7, T8 (MD-0020).** Done: one AI review of
-   `path-maximality.md` at `8b03309` (`claude-opus-5-5`, the author's model;
-   no gap); the stored computation `tree_shift.py` (`results/tree-shift.json`,
-   0 failures). Owed: one revision of the note for the review's defects D1 to
-   D8 (the cited code for `Δ_k = c_k` is the wrong scratch script — the check
-   is now part A of `tree_shift.py`; notation `a_j`, `ρ_k`, `C(t)`, `Q`, `T_0`;
-   a self-contradictory sentence in the equality remark; the star's unique
-   peak cited to S23(d) instead of Collins 1989; two negative claims stated
-   beyond their support; the path bound attributed to Collins's theorem
-   rather than to its informal last step; the header's dependency list), then
-   a recheck; a reviewer of another model when one is available; a
-   literature search aimed at distance-matrix versions of Csikvári's
-   results; it depends on MD-0019 and MD-0015, which are candidates.
+9. **T4 (MD-0016):** one revision of `wiener-form.md` for the audit's defects
+   D1 to D5 and a recheck; a reader of another vendor; literature still
+   unread (Graham–Lovász pp. 72–88, Moon 1995); a result package.
+   `leaf-telescoping.md` (S23, S27) has had no review of its own.
+10. **Session 10:** `even-order.md` (MD-0018) unreviewed, no literature
+   search; `WienerCone.lean` compared by its author only.
+11. **Session 11: T5, T6, S36 (MD-0019).** Two AI reviews of `74d65b0`, no
+   gap; stored computation `lower_bound.py`, 0 failures. (a) **Done in
+   session 13:** revision 1 at `e16cb62`, rechecked (`claude-sonnet-5-5`, no
+   gap; five defects of bookkeeping left: the unreviewed status of S23(a) to
+   (c), the wording of Remark 1, one notation item, part E not listed).
+   (b) **Owed: one self-contained manuscript** (L1, Lemma K, S24, S19 with
+   zero weights, S23, S33 to S35, T5, T6), audited as one document by a
+   model of another vendor when available; S19 was re-derived by neither
+   reviewer of session 11. (c) Literature (audit of session 11). (d) A result
+   package. (e) `LowerBoundCone.lean` compared by its author only.
+12. **Session 12: T7, T8 (MD-0020).** One review of `8b03309`, no gap; one
+   revision for its defects D1 to D8 and a recheck owed; a reviewer of
+   another model; literature on distance versions of Csikvári's results.
 
 13. **Session 13: T9, T10 (MD-0022, MD-0023), before any promotion.** Done
    in session 13: the note `notes/upper-bound.md` at `53421a6`; two
@@ -455,9 +390,17 @@ full text of items 1 to 8 as of session 7 is there).
    for their defects (wording, notation, citation, provenance); a literature
    audit (dossier, section of session 13); the stored computation
    `upper_bound.py` (`results/upper-bound.json`, run at `917d657` on a clean
-   checkout, 0 failures). Owed: the recheck of revision 1 (started in
-   session 13; see the journal); a first review of `notes/path-peak.md`
-   (MD-0024; started in session 13); the auditor's derivation of T10 from
+   checkout, 0 failures); the recheck of revision 1 (`claude-sonnet-5-5`,
+   no gap; four defects of bookkeeping: the citation limits not listed as
+   left open, the README (corrected), `d_k` from `lemmas.md` not under
+   Tools, the name of the provenance block); a first review of
+   `notes/path-peak.md` at `2037b18` (MD-0024; `claude-sonnet-5-5`, no gap;
+   four defects of wording: the ceiling criterion written for `n ≥ 6` only,
+   an outdated sentence about `upper-bound.md`, the reliance on Collins's
+   formula beyond `n ≤ 30`, a redundant condition); Lean for Lemma S41
+   (`UpperBoundPeak.lean`; statement compared by the formalizing agent and
+   the author only). Owed: those defects in one later revision of each note
+   (no recheck of a recheck is planned); the auditor's derivation of T10 from
    Andriantiana–Misanantenaina–Wagner (two classical steps unchecked);
    Darroch (1964) not read in the original (read through Pitman 1997 by the
    auditor and a reviewer); a reviewer of another vendor when one is
@@ -472,60 +415,38 @@ full text of items 1 to 8 as of session 7 is there).
   terms, one level short) was avoided: they are never separated from
   `R(A_l, e_{c_l})` except where an extra factor `x` is available (Remark
   after T5 in `lower-bound.md`).
-- **Upper half (session 13).** No mathematical obstacle is known: T9 is a
-  candidate proof for every tree; what remains is validation (obligation 13).
-  The text below is the obstacle as it stood before session 13.
-- **Upper half, before session 13.** Reduced to (PM) (MD-0021), with no proof mechanism: the
-  cone order controls only `μ ≤ n/2`, and ratio dominance fails at the
-  relevant index. What a proof must show is a sign: with `p = p_max(T_k)`,
-  `λ_{p+1}(ℓ_{T′_k}) = λ_{p+1}(ℓ_{T_k}) − λ_{p+1}(ℓ_{T_k} − ℓ_{T′_k}) < 0`, where
-  the second term is given by S37. A(ii) is unproved beyond `k = 0`.
+- **Upper half.** No mathematical obstacle is known: T9 is a candidate proof
+  for every tree; what remains is validation (obligation 13). (PX-peak) is
+  open for the `n` with fractional part of `n − n/√5` above `2/5`.
 - Γ_c for general weights, (E), (Λ), Conjecture Γ: open, and now of interest
   only for themselves (the weighted statements), not for Collins–Shor.
 
 ## Next step
 
 **Session 13 changes the priorities.** Both halves now have candidate
-proofs (T6(c), T9). The next steps are validation, not discovery:
-(a) obligation 13 (the reviews of `upper-bound.md` and their defects, one
-revision and a recheck; the literature: papers citing
-Andriantiana–Misanantenaina–Wagner, Darroch's original, MathSciNet/zbMATH
-when available); (b) obligation 11 (the lower half: one revision of
-`lower-bound.md`, a self-contained manuscript); (c) one manuscript of the
-whole conjecture, `manuscripts/CJ-0001-collins-shor/`, for a complete audit
-by a reviewer of another model; (d) Lean: Lemma S41 is a statement about
-sequences and is a natural first target.
+proofs (T6(c), T9), each reviewed (T9 twice, no gap, and its revision
+rechecked; T6 twice at `74d65b0`, its revision rechecked). The next steps
+are validation, not discovery: (a) **one self-contained manuscript of the
+whole conjecture**, `manuscripts/CJ-0001-collins-shor/` (lower half from the
+Graham–Lovász inverse through T5 and T6; upper half S40 to S46, T9, T10; the
+peak of the path, S47), then a complete audit of that one document by a
+reviewer of another vendor when one is available (obligations 11(b), 13);
+(b) the small defects left by the rechecks, folded into the manuscript;
+(c) literature: papers citing Andriantiana–Misanantenaina–Wagner, Darroch's
+original, MathSciNet/zbMATH when available; (d) the director's decision on
+the status of CJ-0001 (`candidate-proof` is now accurate in the sense of
+`AGENTS.md`, section 4; it was left at `active-investigation` by the
+decision of session 10); (e) open mathematics: (PX-peak) for the `n` with
+fractional part of `n − n/√5` above `2/5` needs a mode–mean inequality for
+`q` sharper than Darroch's by about `0.4` (journal, session 13).
 
-The items below are as left by session 12 (the part on (PM) is no longer on
-the route to the conjecture).
-
-**Owed first.** (a) Obligation 11: the one revision of
-`notes/lower-bound.md` for the defects listed there, and its recheck; then
-`manuscripts/CJ-0001-lower-bound/`, one self-contained proof of T6(c) from the
-Graham–Lovász inverse (L1, Lemma K, S24, S19 for zero weights, S23, S33 to
-S35, T5, T6) for a complete audit. (b) Obligation 12: the one revision of
-`notes/path-maximality.md` for the defects D1 to D8 of its review, and its
-recheck.
-
-**Objective O11 (the upper half) through (PM) (MD-0021).** First action
-(exploration, cheap, exact): for the shifts of order ≤ 14 where ratio
-dominance fails at `p = p_max(T_k)`, split `λ_{p+1}(ℓ_{T_k} − ℓ_{T′_k})` into the
-four terms of S37 and see which one is negative and how it compares with
-`λ_{p+1}(ℓ_{T_k})`; look for an inequality between `λ_{p+1}` of the terms
-`a_{k−1}(H_AE_B + E_AH_B)` and `λ_{p+1}(ℓ_{T_k})` that a proof could use. Keep
-testing (PM) on families before building on it (spiders with legs of mixed
-lengths and caterpillars near the star at orders ≥ 200).
-
-Upper cone, floating-point LP of session 11 (exploratory, not a
-certificate): for every tree of order 5 to 14 the part of `ℓ_T` of degree
-`≤ n − 2` is a non-negative combination of `x^e(1+x)^i` with `2e + i ≤ 2M + 1`
-(on which `λ_{M+1} ≤ 0`), with no margin for two near-stars at order 14.
-
-Also open and cheap: obligations 5 and 8; the rerun of orders 21 to 23
-(obligation 4) needs the director's approval of its budget.
+The items of session 12 under "Next step" (the route through (PM), the upper
+cone LP) are in `notes/obligations.md`, section "Text moved from `STATE.md`
+in session 13". Also open and cheap: obligations 5 and 8; the rerun of
+orders 21 to 23 (obligation 4) needs the director's approval of its budget.
 
 ## Sources
 
 - G. Aalipour et al., arXiv:1507.02341 — read in full (TeX source; twice by reviewers).
 - K. L. Collins, Discrete Appl. Math. 25 (1989) 27–35 — read in full (session 11). K. L. Collins, Distance matrices of trees, thesis, MIT 1986 — read (pp. 30–47, 55–61 as page images, the rest through OCR; session 11). Details: the dossier, section "Primary sources read in session 11".
-- Every other source, with what was read of each: [`notes/obligations.md`](notes/obligations.md), last section, and the dossier. None was added in session 9. Session 10: what its audit read is in the dossier, section "Audit for session 10".
+- Every other source, with what was read of each: [`notes/obligations.md`](notes/obligations.md), sections "Sources read" and "Text moved from `STATE.md` in session 11", and the dossier. None was added in session 9. Session 10: what its audit read is in the dossier, section "Audit for session 10".

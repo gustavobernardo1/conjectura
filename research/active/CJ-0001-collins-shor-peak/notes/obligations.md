@@ -277,3 +277,165 @@ Decisions of sessions 1 to 8, as they read in `STATE.md` at the end of session 1
   a conjecture of its own, like Γ_c and (E). MD-0013 is not split: its items
   (ii) (bound) and (iv) are recorded as implied by Richman–Shokrieh–Wu in its
   novelty search; splitting it is a decision for the director.
+
+## Text moved from `STATE.md` in session 13 (verbatim)
+
+Moved on 2026-11-27 to keep `STATE.md` compact; the summaries left in `STATE.md` point here.
+
+## Decisions
+
+- Sessions 1 to 8 (verbatim in [`notes/obligations.md`](notes/obligations.md),
+  last section). Still in force: strong reading of ties; T1 to T3 stay
+  candidate theorems (director); every description of T2 states
+  `a, b, c ≥ 1`; formalization accompanies the investigation; reviews by a
+  model other than the author's; a note is left byte-identical to the
+  revision that was reviewed, its defects go into one revision that is then
+  rechecked, new results go in a new note; Γ⁺, Γ_c, (E), (Λ) are not
+  registered as conjectures of their own; MD-0013 is not split.
+- 2026-11-26 (director, session 9). The AI investigator allocates effort by
+  its own judgment; earlier directions are revisable. MD-0013 keeps its
+  identifier and review; its items are classified as known or potentially
+  original in the record. The current classifications are approved; verified
+  commits may be pushed to `research` only.
+- 2026-11-26 (session 9). Direction changed: the lower half is attacked for
+  the whole tree (Wiener form, leaf recursion), not through Γ, L4 and
+  "skeleton plus one star". O8 ((Λ)) is deferred, not abandoned: (Λ) still
+  implies (Γ_c¹). (SM) is registered as a conjecture of its own (MD-0017)
+  because it implies the lower half for every tree; (Γ_c¹) is not.
+- 2026-11-26 (director, session 10). MD-0016 is to receive independent
+  validation and an originality assessment before promotion; CJ-0001 keeps
+  its status until the validation requirements are met; the director's
+  preliminary reading with GPT-6.2 (no apparent gap) is not a proof audit.
+  Verified commits may be pushed to `research` only.
+- 2026-11-26 (session 10). `wiener-form.md` had its one revision (`a3e5179`)
+  and is left byte-identical to it; the five defects found by the audit of
+  that revision go into one further revision. (SM⁺) is recorded under
+  MD-0017, not registered. S28 to S31 are one record (MD-0018).
+- 2026-11-26 (director, session 11). Session budget 120 minutes, with
+  checkpoints (harness commit `759d93f`); this replaces the 60 minutes of the
+  decision above. For the current phase the project relies on independent AI
+  reviews, adversarial verification, exact computation and Lean; **human
+  specialist consultation is deferred until there is a mature manuscript**
+  (this replaces "a human reader, or a different vendor's model, before any
+  promotion" as the next step of obligations 2, 3 and 9; the requirement of
+  section 4 of `AGENTS.md` for promotion is unchanged). Verified commits may
+  be pushed to `research` for research contributions.
+- 2026-11-26 (session 11). T5, T6 and S36 are one record (MD-0019); MD-0017
+  keeps its identifier and its statement (the conjecture (SM)), now with a
+  candidate proof. The lower half is treated as a candidate proof to be
+  consolidated into one self-contained manuscript before promotion.
+- Earlier decisions (budget overrun of session 1, widening of O1, deferral of
+  the rerun of orders 21 to 23, the notes of sessions 5 and 6) are in the
+  journal.
+
+
+9. **T4 (MD-0016), before any promotion.** Done: two AI reviews (same
+   vendor), no gap; a first literature audit; Lean for Lemma A and `K_d`.
+   Owed: (a) one revision of `wiener-form.md` for the audit's defects D1 to
+   D5 (S26 and the tools list still cite Lemma F; `W = Σ_e n_e(n − n_e)`
+   uncited; L1 at `n = 2`; the `C`-clause of S24; "strong induction"), then
+   a recheck, then drop the dependency on MD-0012; (b) **a human reader or a
+   model of another vendor** — the director's GPT-6.2 reading is not a
+   recorded audit; (c) literature: Collins 1989 and Collins's thesis were
+   **read in session 11** (neither contains S25 or T4; the thesis has a leaf
+   formula, Theorem 4, to be cited for S23 and S29, and a formula for two
+   graphs joined at a vertex, Theorem 7, to be cited for S19(d); S23(d) is
+   Collins 1989, Theorem 1). Still unread: Graham–Lovász pp. 72–88, Merris
+   1990, Moon 1995; MathSciNet, zbMATH, Google Scholar not searched; the
+   auditor's two bridging steps (S24, identity (1)) are unreviewed; (d) a
+   result package. `leaf-telescoping.md` (S23, S27) is **unreviewed**.
+10. **Session 10.** `even-order.md` (S28 to S31, MD-0018) is **unreviewed**
+   and has no literature search. The Lean statements of `WienerCone.lean`
+   were compared with the note by the formalizing agent and the author only.
+11. **Session 11: T5, T6, S36 (MD-0019), before any promotion.** Done: two
+   independent AI reviews of `lower-bound.md` at `74d65b0`, both **no gap
+   found** — `claude-opus-5-5` (every step by hand, S23(a) to (c) included;
+   its own code on all 205,002 trees of order 3 to 18 and on extreme
+   families) and `claude-fable-5-2` in a fresh context (the author's model,
+   so independent by context only; a machine re-derivation from the
+   definitions on 7,813 rooted trees of order ≤ 12, 18,048 pairs, weighted
+   trees, all trees of order ≤ 18); the stored computation `lower_bound.py`
+   (1,040,693 checks, 0 failures); Collins (1986, 1989) read. Owed:
+   (a) **one revision of `lower-bound.md`**, then a recheck, for the defects
+   the two reports list (none is a gap): the section "Exact checks" cites a
+   script that did not exist at the reviewed revision and gives "778 pairs"
+   where the described set has 1,064, and "1,064 pairs" for S36 of which 486
+   are outside its hypothesis; the proof of S32 is by reference to that of
+   S24 and should be written out; Remark 1 of S36 asserts `E ≡ 0 (mod x²)`
+   without argument; notation used twice (`E` is not the `E` of S17 and S20;
+   `a`, `a_v`, `a_i`; `Q`, `Q¹`; `X`, `X_{il}`; `n` for a weight in "S19(a)
+   with `n = 0`"); in `leaf-telescoping.md`, S23(a) uses L1 at `n = 2` while
+   `lemmas.md` states it for `n ≥ 3` (true at `n = 2`; a citation defect).
+   The note is left byte-identical to `74d65b0` until that revision.
+   **Session 13: (a) done** — revision 1 at `e16cb62` (S32 written out, L1
+   at `n = 2`, Remark 1 marked unproved, exact checks at the stored run,
+   notation list), rechecked by `claude-sonnet-5-5`: no gap; five defects of
+   bookkeeping remain (the unreviewed status of S23(a) to (c) not listed as
+   left, the wording of Remark 1, one notation item, part E not listed; the
+   README, corrected).
+   (b) **One self-contained manuscript of the lower half**, from the
+   Graham–Lovász inverse to T6(c) (L1, Lemma K, S24, S19 with zero weights,
+   S23, S33 to S35, T5, T6), then a complete audit of that one document; a
+   model of another vendor when one is available (human consultation is
+   deferred by the director's decision of session 11). S19 was re-derived by
+   neither reviewer of this session (they relied on the review of `59c47f7`
+   and on exact checks). (c) Literature: see the audit of session 11 in the
+   dossier, and the limits it states. (d) A result package. (e) The Lean
+   statements of `LowerBoundCone.lean`, if registered, were compared with
+   the note by the formalizing agent and the author only.
+
+12. **Session 12: T7, T8 (MD-0020).** Done: one AI review of
+   `path-maximality.md` at `8b03309` (`claude-opus-5-5`, the author's model;
+   no gap); the stored computation `tree_shift.py` (`results/tree-shift.json`,
+   0 failures). Owed: one revision of the note for the review's defects D1 to
+   D8 (the cited code for `Δ_k = c_k` is the wrong scratch script — the check
+   is now part A of `tree_shift.py`; notation `a_j`, `ρ_k`, `C(t)`, `Q`, `T_0`;
+   a self-contradictory sentence in the equality remark; the star's unique
+   peak cited to S23(d) instead of Collins 1989; two negative claims stated
+   beyond their support; the path bound attributed to Collins's theorem
+   rather than to its informal last step; the header's dependency list), then
+   a recheck; a reviewer of another model when one is available; a
+   literature search aimed at distance-matrix versions of Csikvári's
+   results; it depends on MD-0019 and MD-0015, which are candidates.
+
+
+(From the section "Remaining obstacles")
+
+- **Upper half (session 13).** No mathematical obstacle is known: T9 is a
+  candidate proof for every tree; what remains is validation (obligation 13).
+  The text below is the obstacle as it stood before session 13.
+- **Upper half, before session 13.** Reduced to (PM) (MD-0021), with no proof mechanism: the
+  cone order controls only `μ ≤ n/2`, and ratio dominance fails at the
+  relevant index. What a proof must show is a sign: with `p = p_max(T_k)`,
+  `λ_{p+1}(ℓ_{T′_k}) = λ_{p+1}(ℓ_{T_k}) − λ_{p+1}(ℓ_{T_k} − ℓ_{T′_k}) < 0`, where
+  the second term is given by S37. A(ii) is unproved beyond `k = 0`.
+
+(From the section "Next step")
+
+The items below are as left by session 12 (the part on (PM) is no longer on
+the route to the conjecture).
+
+**Owed first.** (a) Obligation 11: the one revision of
+`notes/lower-bound.md` for the defects listed there, and its recheck; then
+`manuscripts/CJ-0001-lower-bound/`, one self-contained proof of T6(c) from the
+Graham–Lovász inverse (L1, Lemma K, S24, S19 for zero weights, S23, S33 to
+S35, T5, T6) for a complete audit. (b) Obligation 12: the one revision of
+`notes/path-maximality.md` for the defects D1 to D8 of its review, and its
+recheck.
+
+**Objective O11 (the upper half) through (PM) (MD-0021).** First action
+(exploration, cheap, exact): for the shifts of order ≤ 14 where ratio
+dominance fails at `p = p_max(T_k)`, split `λ_{p+1}(ℓ_{T_k} − ℓ_{T′_k})` into the
+four terms of S37 and see which one is negative and how it compares with
+`λ_{p+1}(ℓ_{T_k})`; look for an inequality between `λ_{p+1}` of the terms
+`a_{k−1}(H_AE_B + E_AH_B)` and `λ_{p+1}(ℓ_{T_k})` that a proof could use. Keep
+testing (PM) on families before building on it (spiders with legs of mixed
+lengths and caterpillars near the star at orders ≥ 200).
+
+Upper cone, floating-point LP of session 11 (exploratory, not a
+certificate): for every tree of order 5 to 14 the part of `ℓ_T` of degree
+`≤ n − 2` is a non-negative combination of `x^e(1+x)^i` with `2e + i ≤ 2M + 1`
+(on which `λ_{M+1} ≤ 0`), with no margin for two near-stars at order 14.
+
+Also open and cheap: obligations 5 and 8; the rerun of orders 21 to 23
+(obligation 4) needs the director's approval of its budget.

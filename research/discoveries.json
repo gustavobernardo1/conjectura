@@ -1602,8 +1602,9 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
-          "summary": "Session 11. Theorem T6(b) of this note is the statement (SM), proved from Theorem T5 (statement (Γ_c¹), by induction on rooted trees), the telescoped leaf recursion S23(c) and Lemma K; Proposition S36 gives a second proof. A candidate proof; its reviews are recorded under MD-0019. Bound to revision 1 of the note (session 13: wording, citation and provenance repaired for the defects of the two reviews of 74d65b0; no statement or proof step changed; Lemma S32 written out); the reviews remain bound to 74d65b0 and a recheck of revision 1 is owed.",
-          "sha256": "47cd7e25a2f249e57dc0c8fb80fe677e583424bed30967cd82a512ab85da78bf"
+          "summary": "Session 11. Theorem T6(b) of this note is the statement (SM), proved from Theorem T5 (statement (Γ_c¹), by induction on rooted trees), the telescoped leaf recursion S23(c) and Lemma K; Proposition S36 gives a second proof. A candidate proof; its reviews are recorded under MD-0019. Bound to revision 1 of the note (session 13: wording, citation and provenance repaired for the defects of the two reviews of 74d65b0; no statement or proof step changed; Lemma S32 written out); the reviews remain bound to 74d65b0 and revision 1 was rechecked (below).",
+          "sha256": "47cd7e25a2f249e57dc0c8fb80fe677e583424bed30967cd82a512ab85da78bf",
+          "revision": "e16cb62"
         },
         {
           "kind": "review",
@@ -1623,6 +1624,16 @@
           "date": "2026-11-26",
           "revision": "74d65b010289e236fc3387b37010290a2d266241",
           "sha256": "bc623061b65cf2710760aef029ae384e13073aefa0d4221452e12af8c640ed1e",
+          "statement_fingerprint": "388bb3b099bd510686197131efbd272d065536a1bfc10021fb93ff196243554b"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-recheck-lower-bound.md",
+          "summary": "Recheck of revision 1 of notes/lower-bound.md (e16cb62) against the defects of the two reviews of 74d65b0: no statement or proof step changed; the written-out proof of Lemma S32 re-derived and found correct (the proof of Lemma S24 with the weights carried along); the L1 check at n = 2 correct; the new status of Remark 1 accurate; the counts and provenance of Exact checks agree with results/lower-bound.json and the git history. No gap found within stated scope. Five defects of bookkeeping (the unreviewed status of S23(a) to (c) not listed as left; wording of Remark 1; the experiments README was stale, corrected in session 13; one notation item; part E not listed).",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "e16cb62",
+          "sha256": "fc3e1dfee7059968755263c060accdcb9d80f2b44ff3457741f93a86965dfb3a",
           "statement_fingerprint": "388bb3b099bd510686197131efbd272d065536a1bfc10021fb93ff196243554b"
         }
       ],
@@ -1752,8 +1763,9 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
-          "summary": "Lemma S32, Propositions S33 to S36, Theorems T5 and T6, with complete written proofs. T5: for every rooted tree, by induction, Ω ∈ K_a, E ∈ K_{a+1} and R(A, e_u) ∈ C_{a+1} (item (i)); the negative term −2G_1G_2 of the merge rule becomes, for two planted trees, a sum of squares Σ(δ_v − δ_{v′})² a_v a_{v′}. T6: items (ii) and (iii), from T5, the telescoped leaf recursion S23(c) of notes/leaf-telescoping.md, Lemma K, Lemma A(a) and R1. S36: the formula ℓ_T − ℓ_{T′} = H_A E_B + H_B E_A + x(2+5x) H_A H_B + 2 G_A G_B / x and item (iv). A candidate proof; its reviews are listed below. Bound to revision 1 of the note (session 13: wording, citation and provenance repaired for the defects of the two reviews of 74d65b0; no statement or proof step changed; Lemma S32 written out); the reviews remain bound to 74d65b0 and a recheck of revision 1 is owed.",
-          "sha256": "47cd7e25a2f249e57dc0c8fb80fe677e583424bed30967cd82a512ab85da78bf"
+          "summary": "Lemma S32, Propositions S33 to S36, Theorems T5 and T6, with complete written proofs. T5: for every rooted tree, by induction, Ω ∈ K_a, E ∈ K_{a+1} and R(A, e_u) ∈ C_{a+1} (item (i)); the negative term −2G_1G_2 of the merge rule becomes, for two planted trees, a sum of squares Σ(δ_v − δ_{v′})² a_v a_{v′}. T6: items (ii) and (iii), from T5, the telescoped leaf recursion S23(c) of notes/leaf-telescoping.md, Lemma K, Lemma A(a) and R1. S36: the formula ℓ_T − ℓ_{T′} = H_A E_B + H_B E_A + x(2+5x) H_A H_B + 2 G_A G_B / x and item (iv). A candidate proof; its reviews are listed below. Bound to revision 1 of the note (session 13: wording, citation and provenance repaired for the defects of the two reviews of 74d65b0; no statement or proof step changed; Lemma S32 written out); the reviews remain bound to 74d65b0 and revision 1 was rechecked (below).",
+          "sha256": "47cd7e25a2f249e57dc0c8fb80fe677e583424bed30967cd82a512ab85da78bf",
+          "revision": "e16cb62"
         },
         {
           "kind": "computation",
@@ -1801,6 +1813,16 @@
           "kind": "note",
           "path": "formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean",
           "summary": "Lean 4 with Mathlib: plant_E_mem, raised_R_mem, sum_sq_identity, two_planted_identity, two_planted_mem, two_planted_lhs_mem (registered in formalization/registry.json; the receipt of the library is under verification/receipts/). Scope: the cone arithmetic in the proofs of Theorem T5 and Proposition S35 only, on the inductive cone WienerCone, for orders at least 2. Not a formalization of any item of this record."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-recheck-lower-bound.md",
+          "summary": "Recheck of revision 1 of notes/lower-bound.md (e16cb62) against the defects of the two reviews of 74d65b0: no statement or proof step changed; the written-out proof of Lemma S32 re-derived and found correct (the proof of Lemma S24 with the weights carried along); the L1 check at n = 2 correct; the new status of Remark 1 accurate; the counts and provenance of Exact checks agree with results/lower-bound.json and the git history. No gap found within stated scope. Five defects of bookkeeping (the unreviewed status of S23(a) to (c) not listed as left; wording of Remark 1; the experiments README was stale, corrected in session 13; one notation item; part E not listed).",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "e16cb62",
+          "sha256": "fc3e1dfee7059968755263c060accdcb9d80f2b44ff3457741f93a86965dfb3a",
+          "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
         }
       ],
       "status": {
@@ -2069,8 +2091,9 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
-          "summary": "Lemma S40 (ℓ_T = 4(α − x)q(x), q real-rooted, from the Graham–Lovász inverse and Weyl interlacing), S41 (if q_{k+1} < q_k then d is strictly decreasing from k on), S42 (the mean of q is at most n − tr(I+L)^{−1}), S43 (gluing formula for the trace), S44 (the path seen from one vertex, closed forms in cosh), S45 (merging two pendant paths lowers the trace), Theorem T10, S46 (the trace for the path), Theorem T9. A candidate proof. This entry is bound to revision 1 of the note (wording, notation and citation repaired after the two reviews of 53421a6; no statement or proof step changed); the reviews below are bound to 53421a6, and a recheck of revision 1 is owed.",
-          "sha256": "ad21eeb615ab3a500dd0ad8575ae15ce323a09233dde6537fee7b0f6a449e0ed"
+          "summary": "Lemma S40 (ℓ_T = 4(α − x)q(x), q real-rooted, from the Graham–Lovász inverse and Weyl interlacing), S41 (if q_{k+1} < q_k then d is strictly decreasing from k on), S42 (the mean of q is at most n − tr(I+L)^{−1}), S43 (gluing formula for the trace), S44 (the path seen from one vertex, closed forms in cosh), S45 (merging two pendant paths lowers the trace), Theorem T10, S46 (the trace for the path), Theorem T9. A candidate proof. This entry is bound to revision 1 of the note (wording, notation and citation repaired after the two reviews of 53421a6; no statement or proof step changed); the reviews below are bound to 53421a6, and revision 1 was rechecked (below).",
+          "sha256": "ad21eeb615ab3a500dd0ad8575ae15ce323a09233dde6537fee7b0f6a449e0ed",
+          "revision": "2037b18"
         },
         {
           "kind": "review",
@@ -2096,6 +2119,16 @@
           "kind": "proof",
           "path": "formalization/Conjectura/Research/CollinsShorPeak/UpperBoundPeak.lean",
           "summary": "Formal proof (Lean 4 + Mathlib) of the sequence lemma S41 only. Lean 4 + Mathlib: Lemma S41 as a statement about real sequences (upperD_succ_lt: d strictly decreasing from k on; upperD_maxIndex_le: every maximizing index is at most k), registered for CJ-0001; hypotheses positivity, strictly decreasing ratios and q_{N-1} = α q_N. Nothing about trees, Lemma S40, Darroch's rule, the trace or T9 is formalized. The Lean statement was compared with the note by the formalizing agent and the author of the session only. Receipt: verification/receipts (session 13)."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-recheck-upper-bound.md",
+          "summary": "Recheck of revision 1 of notes/upper-bound.md (2037b18) against the defects of the two reviews of 53421a6: no statement or proof step changed; every new sentence re-derived (the closed form of det(tI + L_{P_m}), the case n = 1 of S46, the reworded remark, the description of the stored computation, compared with results/upper-bound.json and its provenance). No gap found within stated scope. Four defects: the citation limits of Darroch, Graham–Lovász and Merris and the unchecked second route to T10 are not listed as left open; the experiments README was stale (corrected in session 13); the identification of d_k with the coefficients of ℓ_T (lemmas.md) is not listed under Tools; the name of the provenance block.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "2037b18",
+          "sha256": "09e2201e0e3b78e34b17ea03bc8890e9db484317bc6257231fc9208d7d0552c9",
+          "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
         }
       ],
       "status": {
@@ -2167,8 +2200,9 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
-          "summary": "Lemmas S43 to S46 and Theorem T10: a self-contained proof by merging pendant paths; the key step is the convexity of x/(φ^{2x} + 1) on [3, ∞) together with an exact identity at x = 1, 3, 5. A candidate proof. This entry is bound to revision 1 of the note (wording, notation and citation repaired after the two reviews of 53421a6; no statement or proof step changed); the reviews below are bound to 53421a6, and a recheck of revision 1 is owed.",
-          "sha256": "ad21eeb615ab3a500dd0ad8575ae15ce323a09233dde6537fee7b0f6a449e0ed"
+          "summary": "Lemmas S43 to S46 and Theorem T10: a self-contained proof by merging pendant paths; the key step is the convexity of x/(φ^{2x} + 1) on [3, ∞) together with an exact identity at x = 1, 3, 5. A candidate proof. This entry is bound to revision 1 of the note (wording, notation and citation repaired after the two reviews of 53421a6; no statement or proof step changed); the reviews below are bound to 53421a6, and revision 1 was rechecked (below).",
+          "sha256": "ad21eeb615ab3a500dd0ad8575ae15ce323a09233dde6537fee7b0f6a449e0ed",
+          "revision": "2037b18"
         },
         {
           "kind": "review",
@@ -2189,6 +2223,16 @@
           "revision": "53421a6f519c49a042f9e70836c4089dd0a1e2f8",
           "sha256": "6ff22fa2f27ae5deef92ba4aa932fa773cffc23b9dd100f120e7c3dccc4c4f8a",
           "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-recheck-upper-bound.md",
+          "summary": "Recheck of revision 1 of notes/upper-bound.md (2037b18) against the defects of the two reviews of 53421a6: no statement or proof step changed; every new sentence re-derived (the closed form of det(tI + L_{P_m}), the case n = 1 of S46, the reworded remark, the description of the stored computation, compared with results/upper-bound.json and its provenance). No gap found within stated scope. Four defects: the citation limits of Darroch, Graham–Lovász and Merris and the unchecked second route to T10 are not listed as left open; the experiments README was stale (corrected in session 13); the identification of d_k with the coefficients of ℓ_T (lemmas.md) is not listed under Tools; the name of the provenance block.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "2037b18",
+          "sha256": "09e2201e0e3b78e34b17ea03bc8890e9db484317bc6257231fc9208d7d0552c9",
+          "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
         }
       ],
       "status": {
@@ -2197,7 +2241,7 @@
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof; two independent AI reviews of revision 53421a6 (claude-opus-5-5 by context; claude-sonnet-5-5, a different model) found no gap; no human has read it. Very probably a known consequence of a published theorem: by the literature auditor's derivation (session 13, not reviewed), the subdivision S(T) satisfies avm(S(T)) = Σ_j μ_j/(1 + μ_j) (Lemma 5.1 of E. O. D. Andriantiana, V. Razanajatovo Misanantenaina, S. Wagner, Graphs Combin. 36 (2020) 539–560, arXiv:1903.09825), and their Theorem 4.4 (the path maximizes the average size of a matching among trees) gives the inequality; their Lemma 4.2 gives the value for the path. Their proof uses a computer-checked case analysis; the proof here does not. Originality of the statement is not claimed; whether the proof by merging pendant paths is new is not established.",
+      "limitations": "A candidate proof; two independent AI reviews of revision 53421a6 (claude-opus-5-5 by context; claude-sonnet-5-5, a different model) found no gap; no human has read it. Very probably a known consequence of a published theorem: by the literature auditor's derivation (session 13, not reviewed), the subdivision S(T) satisfies avm(S(T)) = Σ_j μ_j/(1 + μ_j) (Lemma 5.1 of E. O. D. Andriantiana, V. Razanajatovo Misanantenaina, S. Wagner, Graphs Combin. 36 (2020) 539–560, arXiv:1903.09825), and their Theorem 4.4 (the path maximizes the average size of a matching among trees) gives the inequality; their Lemma 4.2 gives the value for the path. The identity avm(S(T)) = Σ_j μ_j/(1 + μ_j) = n − tr(I + L_T)^{−1} on which that derivation rests was checked exactly on all 986 trees of order 2 to 12 (scratch, session 13; a finite check). Their proof uses a computer-checked case analysis; the proof here does not. Originality of the statement is not claimed; whether the proof by merging pendant paths is new is not established.",
       "relations": [
         {
           "type": "originated_from",
@@ -2242,21 +2286,33 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/path-peak.md",
-          "summary": "Lemma S47 (ratio d_{n−k}/d_{n−k−1} = 2(k²−1)(2k+1)/(k(n²−k²)) from Collins's formula; monotonicity of h_n(k)/k; no ties; location between floor and ceiling) and Corollary S48 (fractional part of n/√5 below 1/5 is necessary for the ceiling, below 1/10 with n ≥ 30 sufficient). A candidate proof, not reviewed at registration."
+          "summary": "Lemma S47 (ratio d_{n−k}/d_{n−k−1} = 2(k²−1)(2k+1)/(k(n²−k²)) from Collins's formula; monotonicity of h_n(k)/k; no ties; location between floor and ceiling) and Corollary S48 (fractional part of n/√5 below 1/5 is necessary for the ceiling, below 1/10 with n ≥ 30 sufficient). A candidate proof, not reviewed at registration.",
+          "revision": "2037b18",
+          "sha256": "b65a9931ed8497047ab00b834ae40dc37abedeabaeca6a66f3b5024996e78016"
         },
         {
           "kind": "computation",
           "path": "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
           "summary": "Part C (path): unique peak for n = 3 to 2000, equal to the ceiling in 393 cases and the floor in 1,605; the fractional part of n − n/√5 is at least 0.80128 in the ceiling cases; Collins's formula equals the distance-matrix values for n ≤ 30. The criterion of Lemma S47 itself was checked against the exact peak for n ≤ 2000 in scratch (note, section Exact checks)."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-peak.md",
+          "summary": "First review of notes/path-peak.md at 2037b18: Collins's formula checked exactly against the distance matrix for n = 3 to 20; the ratio identity, the absence of ties, k_0 ≤ n − 1, the floor/ceiling location, the small cases, S48(a) to (c) and the consistency paragraph reproduced, exact computations for 3 ≤ n ≤ 700. No gap found within stated scope. Four defects: the criterion for the ceiling is proved for n ≥ 6 only (true for n = 3, 4, 5 by direct values); an outdated sentence about upper-bound.md being byte-identical to 53421a6; the dependence on Collins's formula beyond n ≤ 30 not stated in Exact checks; a redundant condition in the consistency paragraph.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "2037b18",
+          "sha256": "40e34a730463bc599c17e8f115379869a24720edc23d41e500eaa2bffc6734ec",
+          "statement_fingerprint": "eee0b291d0f4bbe1d13373cae62a5149a6b0e3b7a9d1df77153451ee1cee717c"
         }
       ],
       "status": {
         "mathematical": "candidate-proof",
         "formal": "not-started",
         "novelty": "unknown",
-        "external_review": "not-reviewed"
+        "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, not reviewed at registration. It rests on Collins's closed formula for the coefficients of the path (Discrete Appl. Math. 25 (1989), Theorem 3), checked against the distance matrix only for n ≤ 30. That the peak of the path is at ⌊n − n/√5⌋ or ⌈n − n/√5⌉ is the statement of Collins's Theorem 3, whose last step is informal; the exact criterion and the characterization of the ceiling cases were not searched for in the literature.",
+      "limitations": "A candidate proof; one AI review (claude-sonnet-5-5, 2037b18) found no gap, with four defects of wording not yet repaired; no human has read it. It rests on Collins's closed formula for the coefficients of the path (Discrete Appl. Math. 25 (1989), Theorem 3), checked against the distance matrix only for n ≤ 30. That the peak of the path is at ⌊n − n/√5⌋ or ⌈n − n/√5⌉ is the statement of Collins's Theorem 3, whose last step is informal; the exact criterion and the characterization of the ceiling cases were not searched for in the literature.",
       "depends_on": [
         {
           "citation": "K. L. Collins, On a conjecture of Graham and Lovász about distance matrices, Discrete Appl. Math. 25 (1989) 27–35, Theorem 3 (closed formula for d_{n−k}(P_n))."

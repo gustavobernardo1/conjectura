@@ -31,7 +31,7 @@ decide an inequality.
 | `slope_family.py` | Objective O7 (`STATE.md`, "Next step"): the polynomial `F(T, ν, u)`, statement (E″) with `ν = 0` included, the three leaf identities for `F`, and the slope statement (S), on every weighted tree with at most 6 vertices and weights 0 to 4. Pure Python integers. Details below. |
 | `slope_family_extension.py` | For the failures of (S) and (E″) stored by `slope_family.py`: the tree with one more leaf (a failure of (E″) for a larger weight) and statement (E) on the corresponding trees. Imports `slope_family.py`. |
 | `slope_family_verify.py` | Independent checker of the stored failures (hypotheses, then the violation): evaluation at integer points, Gauss–Jordan elimination over `Fraction`, interpolation. Shares no code with the two scripts above. |
-| `upper_bound.py` | Session 12: exact checks around `tr(T) = trace (I+L)^{-1}` and an upper bound on the peak index: path minimality of `tr`, the path value, the peak bound `p < n - n/sqrt 5 + 3/5`, pendant-path merging, a path inequality, the merge identity. Imports `lower_bound.py`, `distpoly.py`, `tree_shift.py`. Details below. |
+| `upper_bound.py` | Session 13: exact checks around `tr(T) = trace (I+L)^{-1}` and an upper bound on the peak index: path minimality of `tr`, the path value, the peak bound `p < n - n/sqrt 5 + 3/5`, pendant-path merging, a path inequality, the merge identity. Imports `lower_bound.py`, `distpoly.py`, `tree_shift.py`. Details below. |
 | `results/*.json` | Outputs of the runs below. |
 
 Validation: `uv run pytest tests/test_cj0001_distpoly.py` (101 tests) and
@@ -338,7 +338,7 @@ uv run python experiments/CJ-0001-collins-shor-peak/lower_bound.py --max-rooted 
     --out experiments/CJ-0001-collins-shor-peak/results/lower-bound.json                      # about 1 min
 ```
 
-Stored run (`results/lower-bound.json`; 61 s; budget fixed beforehand: 5
+Stored run (`results/lower-bound.json`; 53.8 s; budget fixed beforehand: 5
 minutes; completed):
 
 | Part | Range | Objects | Checks | Failures |
@@ -349,12 +349,13 @@ minutes; completed):
 | D | trees of order 4 to 16 | 32,505 trees, 220,181 pairs (tree, non-pendant edge) | 880,724 | 0 |
 | E | trees of order 2 to 16 | 32,507 trees | 130,062 | 0 |
 
-Provenance: revision `74d65b0`, with `tree_clean: false`. At the start of the
-run the script and its test were not yet committed and a file of another
-session (`research/candidates/CJ-0001-collins-shor-peak.md`) was modified.
-The `sources` block of the result file holds the SHA-256 of `lower_bound.py`,
-`distpoly.py` and `rooted_state.py` and records that the last two were
-identical to their blobs at that revision.
+Provenance (corrected in session 13): the stored result is the run at
+revision `b1359cc` on a clean tree (`tree_clean: true`; 53.8 s), committed at
+`6e6432c`. An earlier run at `74d65b0` on a dirty tree (61 s; the script and
+its test not yet committed, and a file of another session modified), which
+this paragraph used to describe, was overwritten. The `sources` block of the
+result file holds the SHA-256 of `lower_bound.py`, `distpoly.py` and
+`rooted_state.py`.
 
 Differences from the scratch computations of session 11 that the note
 quotes: part B includes the pairs with `a_1 = 1`, `a_2 = 9`, which the
@@ -466,7 +467,7 @@ rest on the written proofs of the note, unreviewed) and say nothing about trees
 outside the ranges; part E is evidence about an open statement, and the E(ii),
 E(iii) samples are not exhaustive.
 
-## The trace of `(I+L)^{-1}` and the peak bound (session 12): `upper_bound.py`
+## The trace of `(I+L)^{-1}` and the peak bound (session 13): `upper_bound.py`
 
 Question. Finite exact checks of the ingredients of an upper bound on the peak
 index of `d_0, ..., d_{n-2}` through `tr(T) := trace (I+L)^{-1}` (`L` the
@@ -486,7 +487,7 @@ Command of the stored run (from the repository root):
 No seeds (everything is exhaustive or a closed form). Defaults: `--v-max 9 --n-a 20
 --n-c 18 --n-path 2000 --n-b1 200 --n-b2 60 --x-max 8 --pq-max 8 --n-e 60 --n-f 14
 --m-size 6 --time-limit 780`. Budget fixed before the run: 15 minutes of
-wall-clock in total; the run took 293.2 s and completed every part. Versions:
+wall-clock in total; the stored run took 298.7 s and completed every part (a first run on a dirty tree took 293.2 s, same results; it was overwritten). Versions:
 python 3.12.4, python-flint 0.9.0, networkx 3.7. `numpy` is not installed, hence
 part F takes the eigenvalues from the flint complex roots of the characteristic
 polynomial of `D` (midpoints of the enclosures, converted to floats).
@@ -541,12 +542,12 @@ overwritten; same code, same results on the overlap). The numbers of trees per
 order equal OEIS A000055 (`distpoly.layouts`, validated in
 `tests/test_cj0001_distpoly.py`).
 
-Provenance: HEAD at the time of the run was `53421a6` with `tree_clean: false`
-only because `upper_bound.py`, its test and the result file were not yet
-committed (the `dirty_files` list of the result file shows exactly those three).
-`tree_shift.py`, `lower_bound.py`, `distpoly.py`, `rooted_state.py` were identical
-to their blobs at that revision; the SHA-256 of `upper_bound.py` is in the
-`sources` block.
+Provenance: the stored result is the run at `917d657` in a temporary clean
+worktree of the repository (`tree_clean: true`, empty `dirty_files`; the main
+working tree then held another agent's uncommitted Lean files), committed in
+`2037b18`. The SHA-256 of `upper_bound.py` and of the modules it imports is in
+the `sources` block. (An earlier run at `53421a6` on a dirty tree, with the
+same code and results, was overwritten.)
 
 Regression test: `tests/test_cj0001_upper_bound.py` (about 1 s: the trace by hand
 and by three methods, small orders of A and C with the star-path difference

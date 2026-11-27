@@ -2500,7 +2500,7 @@ the manuscript of the lower half), then objective O11 through (PM).
 
 ## Session 13 — 2026-11-27
 
-- **Entry status:** in progress.
+- **Entry status:** completed; the objective was reached (15:28 to about 16:45 by the clock, about 77 of the 120 minutes; the rest of the budget was not used because the remaining items are validation work for a later session — the consolidated manuscript — and no further research step justified it).
 - **Agent / model:** Claude, model `claude-opus-5-5` (Research Director and
   principal investigator, main session). Human participant: the director
   (instructions below).
@@ -2627,3 +2627,131 @@ the manuscript of the lower half), then objective O11 through (PM).
   `path-peak.md` (review running, same reviewer). Lean formalization of S41
   running. Next: collect those results, run the test suite, finish the
   entry, commit and push.
+- Lean (formalization agent, `claude-opus-5-5`; 69,970 tokens, 25 tool
+  uses, 1,111 s): `UpperBoundPeak.lean`, Lemma S41 as a statement about real
+  sequences (`upperD_succ_lt`, `upperD_maxIndex_le`), registered for CJ-0001;
+  `verify_lean.py` passed on a dirty tree at `45fc871` (receipt
+  `20261127T191722Z-45fc87136c-dirty-passed.json`). A first receipt
+  (`20261127T190943Z-917d657c9f-dirty-passed.json`), written by mistake before
+  the theorems were registered, was untracked and was deleted. The principal
+  investigator compared the Lean statement with S41 (hypotheses and
+  conclusion match; the factor 4 and `N = n − 1` are encodings); not an
+  independent comparison.
+- Revision 1 of `notes/lower-bound.md` (obligation 11(a)) for the defects of
+  the two reviews of `74d65b0`: Lemma S32 written out, L1 at `n = 2`
+  justified, Remark 1 after S36 marked as checked but unproved, the exact
+  checks cited at the stored run with its counts (1,064 pairs, of which 486
+  degenerate for S36), the notational clashes listed. No statement or step
+  changed.
+- Exploratory (floating point): combining T9's proof with T6(c), every tree
+  with `tr(I + L)^{−1} ≥ ⌈n/2⌉` has its peak exactly at `⌊n/2⌋` (if
+  `⌊n/2⌋ ≤ n − 3`: every mode of `q` is `< n + 1 − tr ≤ ⌊n/2⌋ + 1`). For odd
+  `n ≤ 15` no tree satisfies the hypothesis; for even `n` from 6 to 16 the
+  trees that do are 6, 21, 39, 42, 45, 43 in number, of diameter at most 6,
+  including the balanced double stars `S(a, a)` checked (`a = 5, 10, 20,
+  50`; `S(30, 3)` fails the hypothesis). Not
+  registered; an observation.
+- Exploratory (floating point, paths of order 19 to 79): the peak of `d`
+  equals the mode of `q` in every case, and the mode of `q` is `⌈μ_q⌉`
+  only when the fractional part of `μ_q` is at least about `0.41`. So for
+  the path the slack of T9 is in Darroch's step (`m_q < μ_q + 1` is loose by
+  about `0.4`), not in S41 or S42. A sharper mode-mean inequality for these
+  `q` (uniform over trees) is what a proof of (PX-peak) along this route
+  would need.
+- Scratch (exact rationals; `avm.py` in the session scratchpad, not
+  stored): `avm(S(T)) = n − tr(I + L_T)^{−1}` for all 986 trees of order 2
+  to 12 — the identity on which the literature route to T10
+  (Andriantiana–Misanantenaina–Wagner) rests. A finite check, not a proof.
+
+### Findings
+
+1. **Theorem T9 (MD-0022): the upper half of the Collins–Shor conjecture
+   for every tree** — every maximizing index `p` of `d_0, …, d_{n−2}`
+   satisfies `p < n − n/√5 + 3/5`, so `p ≤ ⌈n − n/√5 − 2/5⌉ ≤ ⌈n − n/√5⌉`.
+   Level: candidate proof (`notes/upper-bound.md`); two independent AI
+   reviews of `53421a6`, no gap (`claude-opus-5-5` by context;
+   `claude-sonnet-5-5`, a different model of the same vendor); revision 1 at
+   `2037b18`, rechecked by `claude-sonnet-5-5`, no gap; exact checks by three
+   codes (stored experiment; two reviewers). Lean: Lemma S41 only. The proof
+   uses only classical results (Graham–Lovász, Weyl, Newton, Darroch, the
+   path spectrum) and none of the candidate results MD-0015 to MD-0021.
+2. **Theorem T10 (MD-0023): the path minimizes `tr(I + L)^{−1}` among
+   trees**, with a self-contained proof by merging pendant paths. Very
+   probably a known consequence of Andriantiana–Misanantenaina–Wagner (2020),
+   Theorem 4.4 (the auditor's derivation, unreviewed).
+3. **Lemma S47, Corollary S48 (MD-0024): the exact peak of the path**, and the
+   upper bound `⌈n − n/√5⌉` of the conjecture is attained for infinitely many
+   `n` (when the fractional part of `n/√5` is below `1/10`, `n ≥ 30`). One AI
+   review (`claude-sonnet-5-5`), no gap.
+4. With T6(c) of session 11 (the lower half, candidate proof, MD-0019),
+   **both halves of the conjecture now have candidate proofs**; none is
+   established. With S48: for every `n`, `max_T p_max(T)` is `⌊n − n/√5⌋` or
+   `⌈n − n/√5⌉`, and the conjectured upper bound is best possible for
+   infinitely many `n`.
+5. Validation of the lower half advanced: revision 1 of `lower-bound.md`
+   (obligation 11(a)).
+
+### What failed
+
+- A rooted invariant `t − n/√5 ≥ Γ(ε, κ)` for an induction over plant and
+  merge was explored and abandoned: the lower envelope found in the data is
+  irregular. The pendant-path merging (S45) replaced it.
+- A synthetic test of the merging inequality with the crude bound
+  `κ ≤ 1 + ε` failed (at `ε = 1.8`); the true bound `κ ≤ 1 + ε/2` (S43′)
+  is what makes it hold.
+- `Σ_{k≤n−2} d_k x^k` is not real-rooted, so Darroch's rule cannot be applied
+  to `d` directly; the gap between T9's bound and the path's peak, which is
+  what (PX-peak) needs, remains for the `n` with fractional part of
+  `n − n/√5` above `2/5`.
+- The reviewer on `claude-fable-5-2` was refused by a spend limit.
+- A slow scratch run (Fractions, `n ≤ 3000`) was stopped unfinished and is
+  not counted; a fast exact version covered `n ≤ 2000`.
+- Rechecks (`claude-sonnet-5-5`, one context for three tasks; 132,518
+  tokens, 33 tool uses, 756 s in all): revision 1 of `upper-bound.md` at
+  `2037b18`, no gap (four defects of bookkeeping); first review of
+  `path-peak.md` at `2037b18`, no gap (four defects of wording); revision 1
+  of `lower-bound.md` at `e16cb62`, no gap (five defects of bookkeeping).
+  The stale README passages on the provenance of `upper_bound.py` and
+  `lower_bound.py` that two of them found were corrected in this session.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-opus-5-5` (principal investigator, main session; literature auditor; reviewer by context; formalization agent); `claude-sonnet-5-5` (computational experimenter; reviewer of another model; rechecks); `claude-fable-5-2` requested once, refused by a spend limit before any work |
+| Subagents | 7 launched (literature auditor; experimenter; two reviewers, plus one refused at once; formalization agent; one reviewer for the three rechecks). More than the default three, because the claim settles one half of a catalogued problem: `AGENTS.md` and the session skill require two independent reviews for it |
+| Computation wall-clock (main session) | stored run 298.7 s (clean worktree); scratch: about 6 minutes of a slow run stopped unfinished, 196 s for the path criterion, about 3 minutes of floating-point exploration; verification: `verify_lean.py` about 7 minutes, `pytest` 552 s |
+| Token usage | main context unavailable; subagents as reported by the environment: auditor 108,814; experimenter 110,369; reviewer (Opus) 107,954; reviewer (Sonnet) 114,491; formalization 69,970; rechecks 132,518 |
+| Research iterations | 1 objective (the upper half), reached; 2 side results (S47, S48; revision of the lower half) |
+| Proof attempts | 1 complete (T9 with T10), reviewed twice; 1 abandoned (rooted invariant) |
+| Counterexamples found | 0 (to the conjecture, to any lemma); one refuted idea (real-rootedness of `Σ d_k x^k`) |
+| Formalization attempts | 1, complete: Lemma S41 (two registered theorems) |
+| Successful verifications | two reviews and three rechecks, no gap; stored run, 0 failures; `verify_lean.py` passed; `pytest` 217 passed; `catalogue.py validate` 0 errors; `render --check` |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress: **a candidate proof of the upper half of the Collins–Shor
+conjecture for every tree** (T9, MD-0022), short and independent of the
+machinery of sessions 4 to 12, reviewed twice with no gap; with the lower
+half of session 11, both halves of the conjecture have candidate proofs. The
+extremal step (T10, MD-0023) is very probably a known consequence of a
+published theorem; the peak of the path is now located exactly (MD-0024).
+Nothing is promoted: `proved` needs a result package, a documented novelty
+search of the final statement and, by the decisions of sessions 10 and 11, a
+consolidated manuscript and its audit. CJ-0001 keeps the status
+`active-investigation` (director's decision of session 10); the principal
+investigator recommends `candidate-proof`.
+
+Verification commands run by the main session: `uv run python
+scripts/verify_lean.py` (passed at `e16cb62` on a tree whose only changes
+were a README edit and untracked review reports; receipt
+`20261127T192616Z-e16cb626ca-dirty-passed.json`; a clean rerun after the
+closing commit is recorded below if it was made); `uv run pytest` (217 passed
+in 552.35 s, same tree); `uv run python scripts/catalogue.py validate` (15
+problems, 24 contributions, 0 errors) and `render`, after the last registry
+change.
+
+Next step: `STATE.md`, section "Next step" — the consolidated manuscript of
+the whole conjecture and its audit; `STATE.md` is 551 lines and should be
+compacted (aim under 400) at the start of the next session.
