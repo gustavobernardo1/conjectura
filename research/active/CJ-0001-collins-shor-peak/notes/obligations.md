@@ -210,3 +210,70 @@ Owed first by default: obligations 1 to 3.
 - Wan, Wang, Wang (surnames as given by the auditor), arXiv:2410.14112 — read by text extraction (session 8): eq. (1.4), Thms 1.2, 3.1.
 - K. Castillo, I. Zaballa, arXiv:2103.13739 — pp. 1–2 read by the auditor (session 8): Thm 2.1.
 - Full list with access notes: the dossier.
+
+## Text moved from `STATE.md` in session 11 (verbatim except for the targets of relative links)
+
+Obligations 1 to 8 as they read in `STATE.md` at the end of session 10 (the director's decision of session 11
+defers human consultation until there is a mature manuscript; see `STATE.md`, Decisions):
+
+1. **Literature.** T1 to T3 must cite the published formulas; L3 and S1 must
+   cite Collins 1993, Cor. 7; S3 must cite Bapat–Kirkland–Neumann 2005,
+   Thm 2.4. **Session 8:** MD-0013 items (ii) (bound) and (iv) must cite
+   Richman–Shokrieh–Wu, arXiv:2411.11488 (Thms A, 2.4, 4.4, 4.6) — the
+   auditor's bridging step is unreviewed, and that paper was read by text
+   extraction only; S13(d) has a shorter proof by a definite pencil (auditor's
+   remark, unreviewed); Lemma G1 is classical; `Φ(T, ν)` is the principal
+   Laplacian matching polynomial of arXiv:2410.14112. Still unread: the
+   sources listed in the dossier's two audit sections; no search of
+   MathSciNet, zbMATH, Google Scholar. No search for MD-0015.
+2. **T1, T2, T3: one revision of the three notes**, then one recheck. A human
+   reader, or a different vendor's model, before any promotion.
+3. **Revisions owed after reviews** (each followed by a recheck):
+   `skeleton-identity.md`, `skeleton-locality.md`, `vertex-principle.md`,
+   `gamma-components.md` (three defects of wording), two trivial defects in
+   `gamma-reduction.md`, `rooted-calculus.md` (seven defects of wording
+   listed by its review: degrees in the proof of S21 when all weights are 0;
+   "strictly larger" for Γ_w argued only for `d ≥ 2`; Remark 2 ignores parts
+   of zero weight; two sentences after S21; the result files were produced
+   on a dirty tree at `9069d88`; (★) and S20(d) checked by an unstored
+   script), the result file's provenance and
+   test coverage of `skeleton_structure.py`. A human reader, or a model of
+   another vendor, before any promotion. The two classical formulas
+   (Graham–Pollak, Graham–Lovász inverse) have not been compared with the
+   printed papers.
+4. **E2** (orders 21 to 23): independent recomputation, about 34 minutes,
+   needs the director's approval of the budget. MD-0001 stays `partial-result`.
+5. Comparison of the code with Table II of Graham–Lovász (cheap, not done).
+6. The audit's identifications of L1 and L3 as known, and the two specialised
+   statements of R1 about `M`, are unreviewed.
+7. **Formalization.** Done: see Status. Owed: an independent
+   comparison of all the registered Lean statements with the written ones;
+   the bridge from multi-affine polynomials to the exchange inequality (L4
+   as written); the inductive cone against explicit non-negative sums, and a
+   non-membership example. Next: Proposition S4 (binomial inequalities for
+   the generators of `C_d`), then Lemma F.
+8. `spine3.py` and `results/spine3.json` still say "spine length 3" in their
+   description strings (the result file is evidence and is not edited).
+
+Decisions of sessions 1 to 8, as they read in `STATE.md` at the end of session 10:
+
+- 2026-11-26. CJ-0001 selected first. Strong reading of ties.
+- 2026-11-26 (director). MD-0006 to MD-0008 stay candidate theorems until
+  their validity and originality are adequately assessed; an AI review is not
+  that assessment. Every description of T2 states `a, b, c ≥ 1`.
+  Formalization accompanies the investigation. The session budget of 60
+  minutes is binding, review and verification included.
+- 2026-11-26 (director, session 5). Priority: a general mechanism, not
+  further fixed-spine theorems.
+- 2026-11-26 (sessions 3 to 7). Reviews by a model other than the author's.
+  A note is left byte-identical to the revision that was reviewed; its
+  defects are corrected in one revision that is then rechecked; new results
+  go in a new note. Γ⁺, Γ_c and (E) are not registered as conjectures of
+  their own.
+- 2026-11-26 (director, sessions 7 and 8). The classifications of MD-0011 to
+  MD-0014 are approved as they stand. Verified commits may be pushed to
+  `research` only.
+- 2026-11-26 (session 8). (Λ) is stated inside MD-0015 and not registered as
+  a conjecture of its own, like Γ_c and (E). MD-0013 is not split: its items
+  (ii) (bound) and (iv) are recorded as implied by Richman–Shokrieh–Wu in its
+  novelty search; splitting it is a decision for the director.

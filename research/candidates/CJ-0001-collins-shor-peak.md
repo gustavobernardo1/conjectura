@@ -1990,8 +1990,9 @@ theorems of Section III differently).
   MathSciNet, zbMATH, Google Scholar; still not read: Graham–Lovász (1978)
   pp. 72–88, Merris (1990), Moon (1995), Collins (1993) beyond the manuscript
   read in session 6, and the papers citing Collins (1989), which were seen by
-  title only. No search at all has been made for the statements of session
-  11 (Theorems T5 and T6, Proposition S36).
+  title only. When this section was written no search had been made for the
+  statements of session 11 (Theorems T5 and T6, Proposition S36); the audit
+  in the next section made a first one.
 
 ### Recommendation for the registry
 
@@ -1999,3 +2000,355 @@ Novelty stays `preliminary-search-completed` for MD-0016 and for the record
 of session 11. S23(d) is recorded as known (Collins 1989). The records that
 contain S23 (MD-0017) and S19 (MD-0015) name Theorems 4 and 7 of the thesis
 as prior related work.
+
+## Audit for session 11 (2026-11-26): the lower bound for every tree, star minimality, contraction of an edge
+
+Auditor: literature-auditor subagent, model `claude-fable-5-2`. Budget stated
+by the director: about 15 minutes of wall-clock time and at most 30 web
+requests (searches and fetches together). Used: 30 web requests (11 web
+searches; 19 page fetches, of which 3 returned HTTP 400 or 503 and 2 returned
+undecoded PDF bytes that were then read as page images from the saved copy),
+plus local reads and one edit of this dossier. Wall-clock time was not measured
+by the auditor. **The search stopped because the budget of web requests was
+spent, not because the leads were exhausted.** This is the FIRST prior-art
+search for the statements of session 11. Novelty of all of them is not
+established by this audit.
+
+The statements audited are those of
+`research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md` (Theorem T5,
+Theorem T6 and Proposition S36 read; their proofs were not checked, as
+instructed). The queries of the audits for sessions 9 and 10 were not repeated
+verbatim.
+
+### Items
+
+- (a) Theorem T6(c): for every tree of order `n ≥ 3`,
+  `d_{⌊n/2⌋−1} < d_{⌊n/2⌋}` (peak at least `⌊n/2⌋`, the lower half of the
+  Collins–Shor conjecture); more generally, any proof, claim or refutation of
+  the conjecture or of one of its halves since 2015.
+- (b) Theorem T6(b): `d_k(T) ≥ d_k(S_n)` for every `k` (the star minimizes
+  every normalized coefficient), in the stronger form
+  `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`; or the path as maximizer; any extremal-tree result
+  for the coefficients of the distance characteristic polynomial.
+- (c) Proposition S36, the inequality: `d_k(T) ≥ d_k(T′)` when `T′` is obtained
+  from `T` by contracting a non-pendant edge and attaching a pendant vertex at
+  the contracted vertex.
+- (d) Proposition S36, the formula
+  `ℓ_T − ℓ_{T′} = H_A E_B + H_B E_A + x(2+5x) H_A H_B + 2 G_A G_B / x`; or any
+  gamma-positivity or half-gamma expansion for distance characteristic
+  polynomials of trees.
+
+### Queries (verbatim, general web search tool, standard mode)
+
+1. `"distance characteristic polynomial" tree coefficients peak "Collins" "Shor" conjecture proof OR proved OR "lower bound" 2025 OR 2026`
+2. `"distance matrix" tree "characteristic polynomial" coefficients "generalized tree shift" OR "Kelmans transformation" OR "KC-transformation" OR "π-transform" monotone decrease`
+3. `Csikvári "On a poset of trees" generalized tree shift theorem "characteristic polynomial" coefficients "Laplacian" star path extremal statement`
+4. `Mohar "On the Laplacian coefficients of acyclic graphs" π transformation σ transformation theorem "Laplacian coefficients" decrease star path`
+5. `"distance matrix" trees "coefficients" "characteristic polynomial" "star" minimal "path" maximal "edge contraction" OR "contracting an edge" OR "pendant" transformation coefficientwise`
+6. `Csikvári "On a poset of trees II" abstract "generalized tree shift" "distance" OR "Wiener" "characteristic polynomial" Journal of Graph Theory 2013`
+7. `"distance spectral radius" trees transformation "star" minimum "path" maximum "edge" contraction OR "grafting" Stevanović Ilić OR "Ruzieh" "Powers" distance matrix tree characteristic polynomial coefficients comparison`
+8. `"distance matrix" tree "characteristic polynomial" "gamma-positive" OR "γ-positive" OR "gamma-positivity" OR "(1+x)^" expansion coefficients unimodal "Graham" "Lovász"`
+9. `mathoverflow "distance matrix" tree "characteristic polynomial" coefficients unimodal peak "Graham" "Lovász" OR "Collins" conjecture`
+10. `"formal-conjectures" OR "Mathlib" "distance matrix" tree "Graham" "Lovász" unimodal coefficients Lean formalization`
+11. `"distance matrix" tree "characteristic polynomial" coefficients monotone "GTS" OR "tree shift" OR "poset on trees" Sivasubramanian OR Nagar OR Csikvári "Graham" "Lovász"`
+
+Each query returned about ten links and a machine-written summary. Text taken
+from those summaries is called a "snippet" below and is not a quotation from a
+paper. **Warning about two snippets.** The summaries of queries 9 and 11 say
+that Theorem 2.1 of arXiv:1507.02341 "places the peak between ⌊n/2⌋ and
+⌈n − n/√5⌉" and that the Collins–Shor statement "is the one that gets proved
+in its bounds". These are machine-written conflations of the conjecture with
+the theorem. They contradict the earlier readings recorded in this dossier
+(Theorem 2.1 there is the log-concavity theorem; the peak location is left
+open) and the abstract page fetched in this session, which per the tool says
+nothing about the location of the peak. They are not evidence of a prior
+proof. The summary of query 10 places the statement on "page 83 of Graham and
+Lovász's paper" and attributes it there to Collins and Shor, which is
+impossible for a 1978 paper; also disregarded.
+
+### URLs fetched and what was actually read
+
+"Page images" means that the fetch tool saved the PDF and the auditor read the
+named pages as images, directly. "Tool summary" means that the auditor saw only
+the fetch tool's machine-written answer about the page, not the page itself.
+
+| URL | Outcome |
+| --- | --- |
+| `https://users.fmf.uni-lj.si/mohar/Reprints/2007/BM07_LAA422_Mohar_LaplacianCoefficient.pdf` (B. Mohar, "On the Laplacian coefficients of acyclic graphs"; the file is the preprint, Univ. of Ljubljana Preprint series Vol. 44 (2006), 1023, dated 20 November 2006) | Page images, all 8 pages (cover and pp. 1–7: the whole preprint). The journal version (Linear Algebra Appl. 422 (2007) 736–741, reference as given in Csikvári's bibliography) was NOT opened; the theorem numbers below are those of the preprint. |
+| `http://real.mtak.hu/14003/1/poset_treesIIV2.pdf` (P. Csikvári, "On a poset of trees II", author's accepted version, 21 pages; journal: J. Graph Theory 74 (2013) 81–103, DOI `10.1002/jgt.21693`, per the repository record) | Page images, pp. 1–11 and 19–21 (abstract, Sections 1 to 6, Section 7 up to the proof of Lemma 7.6, the end of Section 9, Sections 10 and 11, the references). Pages 12–18 (the rest of Section 7, Sections 8 and 9: Laplacian eigenvalues, independence polynomial, edge cover polynomial) NOT read. |
+| `https://real.mtak.hu/14003/` | Tool summary of the repository record (bibliographic data; no abstract on the page). |
+| `https://arxiv.org/html/2405.09027v2` (C. Ding, "Csikvári's poset and Tutte polynomial") | Tool summary of the full text. |
+| `https://arxiv.org/abs/1711.09787` (M. K. Nagar, "Eigenvalue monotonicity of q-Laplacians of trees along a poset"; Linear Algebra Appl. 571 (2019) 110–131 per the page) | Tool summary of the abstract page. |
+| `https://arxiv.org/abs/2306.05155` (I. Mahato, M. R. Kannan, "A note on the distance and distance signless Laplacian spectral radius of complements of trees"; one version, 8 June 2023) | Tool summary of the abstract page. |
+| `https://arxiv.org/abs/1507.02341v3` | Tool summary of the abstract page: v1 9 July 2015, v2 14 July 2015, v3 20 April 2017; per the tool the abstract states unimodality and log-concavity and "does not state where the peak lies". |
+| `https://arxiv.org/search/?query=%22distance+matrix%22+tree+coefficients+unimodal+peak&searchtype=all&abstracts=show&order=-announced_date_first&size=50` | Tool listing: "Showing 1–1 of 1 results": arXiv:2407.03309. |
+| `https://arxiv.org/search/?query=%22Graham%22+%22Lov%C3%A1sz%22+distance+tree+polynomial+coefficients&searchtype=all&abstracts=show&order=-announced_date_first&size=50` | Tool listing: "Showing 1–3 of 3 results": arXiv:2411.11488, 2206.07561, 1507.02341. |
+| `https://arxiv.org/search/?query=%22distance+matrix%22+tree+%22characteristic+polynomial%22+coefficients&searchtype=all&abstracts=show&order=-announced_date_first&size=50` | Tool listing: "Showing 1–2 of 2 results": arXiv:2411.11488, 2407.03309. |
+| `https://arxiv.org/search/?query=%22generalized+tree+shift%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50` | Tool listing: "Showing 1–5 of 5 results": arXiv:2610.17078 ("Sustainable trees", Bencs, van Dijk, Guo, 12 October 2026; adjacency spectral radius only, per the tool), 2306.05155, 1912.03101, 1711.09787, 1710.02416. |
+| `https://arxiv.org/search/?query=%22GTS+poset%22+OR+%22Csikv%C3%A1ri+poset%22+OR+%22poset+of+trees%22&searchtype=all&abstracts=show&order=-announced_date_first&size=50` | Tool listing: "Showing 1–8 of 8 results"; per the tool none of the eight abstracts mentions a distance matrix, a distance polynomial or a distance spectral radius (relevant entries: arXiv:2405.09027, 1912.03101, 1710.02416; the other five are on unrelated subjects). |
+| `https://api.semanticscholar.org/graph/v1/paper/arXiv:1507.02341/citations?fields=title,year,externalIds&limit=100` | Tool listing: 5 citing papers, the same five as in sessions 2, 5 and 9. |
+| `https://api.openalex.org/works?search=Proof%20of%20a%20conjecture%20of%20Graham%20and%20Lov%C3%A1sz%20concerning%20unimodality%20of%20coefficients%20of%20the%20distance%20characteristic%20polynomial%20of%20a%20tree&select=id,doi,title,publication_year,cited_by_count&per-page=5` | Tool listing: the paper is OpenAlex `W1528479167`, DOI `10.13001/1081-3810.3493`, year 2018, cited-by count 8. |
+| `https://api.openalex.org/works?filter=cites:W1528479167&select=id,doi,title,publication_year&per-page=50` | Tool listing (a second citation index, used for the first time in this dossier): `meta.count` 7. The five papers above, with arXiv:2206.07561 counted twice (preprint and journal), and one more: "Discrete Mathematics Days 2022" (DOI `10.22429/euc2022.016`, a proceedings volume; NOT opened). |
+| `https://api.semanticscholar.org/graph/v1/paper/DOI:10.1002/jgt.21693/citations?fields=title,year,externalIds&limit=200` (papers citing Csikvári, "On a poset of trees II") | Tool listing: 24 citing papers, titles only. Two have "distance" in the title: arXiv:2306.05155 and "The 2-Steiner distance matrix of a tree" (2022, DOI `10.1016/j.laa.2022.09.007`; NOT opened). None has "Graham", "unimodal", "Wiener" or "transmission" in the title. |
+| `https://api.openalex.org/works?filter=cites:doi:10.1002/jgt.22244&per-page=100&select=title,publication_year,doi,id` | HTTP 400. The DOI was the auditor's guess and is wrong (the paper is in Electron. J. Linear Algebra, not J. Graph Theory); replaced by the two OpenAlex rows above. |
+| `https://emis.dsd.sztaki.hu/journals/ELA/ela-articles/articles/vol20_pp168-179.pdf` and `https://emis.dsd.sztaki.hu/journals/ELA/ela-articles/abstracts/abs_vol20_pp168-179.pdf` (by the snippet of query 7: Stevanović, Ilić, on the distance spectral radius of trees, Electron. J. Linear Algebra 20, pp. 168–179) | HTTP 503, both. NOT read. |
+
+### Findings per item (within this coverage only)
+
+**(a) The lower bound `⌊n/2⌋` for every tree; either half of the conjecture —
+nothing found within this coverage (originality NOT established).** No paper,
+preprint, thesis or talk was found that proves, claims or refutes the
+Collins–Shor conjecture or one of its halves for all trees or for a large class
+of trees.
+
+- Three arXiv listing searches with new phrasings return only papers already
+  in this dossier (arXiv:1507.02341, 2206.07561, 2407.03309, 2411.11488); the
+  latest is 2411.11488 (v2 of 10 December 2025), which per session 10 does not
+  concern the peak.
+- Two citation indexes for arXiv:1507.02341: Semantic Scholar lists the same
+  five citing papers as before; OpenAlex lists seven records, which are those
+  five (one counted twice) and the proceedings volume "Discrete Mathematics
+  Days 2022" (not opened; by its date it would at most contain an abstract
+  related to arXiv:2206.07561 — a guess, not checked).
+- Queries 1, 5, 8, 9 and 11 returned no source dated 2025 or 2026 on the
+  question. Their summaries restate the open status as of arXiv:1507.02341 and
+  arXiv:2407.03309. See the warning above about the two conflating snippets.
+- Statement T6(c) for the star alone is Collins (1989), Theorem 1 (read
+  first-hand in session 11, section above); T6(c) for odd `n` coincides with
+  the project's own Theorem T4 (session 10 audit).
+
+**(b) Star minimality for every coefficient — nothing found for the distance
+characteristic polynomial; exact analogues exist for the Laplacian and the
+adjacency polynomial (found closely related prior work).** No source was found
+stating that the star minimizes, or the path maximizes, every coefficient (or
+every normalized coefficient) of the distance characteristic polynomial among
+trees of order `n`, in any order (coefficientwise or in a cone). Related work,
+read directly unless marked otherwise:
+
+- Zhou–Gutman, as stated in Mohar's preprint, equation (2), p. 2:
+  `c_k(S_n) ≤ c_k(T) ≤ c_k(P_n)`, `0 ≤ k ≤ n`, "for all trees `T` of order
+  `n`", where `Λ(G, λ) = Σ_k (−1)^k c_k λ^{n−k}` is the Laplacian
+  characteristic polynomial; it rests on their identity (1),
+  `c_k(T) = m_k(S(T))` (`k`-matchings of the subdivision graph). Mohar's
+  reference [10] for it is "to appear in Lin. Multilin. Algebra"; Csikvári's
+  reference [2] gives Linear Multilinear Algebra 56 (2008) 305–310. The
+  Zhou–Gutman paper itself was NOT opened.
+- Csikvári II, Corollary 7.4 (p. 10): `a_k(P_n) ≥ a_k(T) ≥ a_k(S_n)` for any
+  tree `T` on `n` vertices and `k = 1, …, n−1`, with
+  `L(G, x) = Σ_k (−1)^{n−k} a_k(G) x^k`; Remark 7.5: "All parts of Corollary
+  7.4 are known", the coefficient statement conjectured by Gutman–Pavlović
+  (Bull. Acad. Serbe Sci. Arts 127 (2003) 31–40) and proved by Zhou–Gutman, "A
+  different proof was given by B. Mohar [20] using graph transformations."
+- Distance spectral radius (a different invariant: the largest root, not the
+  coefficients), snippet of query 7 only: among trees of order `n` the star
+  has the minimum and the path the maximum distance spectral radius
+  (attributed in the snippet to Stevanović–Ilić and to Subhi–Powers), proved
+  with "a transformation that strictly increases the distance spectral radius
+  of a tree". The paper returned HTTP 503 and was not read.
+- Auditor's remark, not checked: the project's `Φ_T = det(I + xL)` has the
+  Laplacian coefficients `c_k(T)` as its coefficients, so `Φ_T − Φ_{S_n} ≥ 0`
+  coefficientwise is the Zhou–Gutman theorem. `ℓ_T` is not `Φ_T` (L1 subtracts
+  `x τᵀ adj(I + xL) τ`), so T6(b) does not follow from it by anything read
+  here; but any write-up of T6(b) should present it as the distance analogue
+  of the Zhou–Gutman–Mohar–Csikvári theorem and cite those papers.
+
+**(c) Monotonicity under contracting a non-pendant edge and adding a pendant
+vertex — the OPERATION is known under several names (found prior work on the
+operation); its effect on the coefficients of the distance characteristic
+polynomial was not found (nothing found within this coverage).**
+
+*Identification of the operation.* Csikvári II, Definition 2.1 (p. 3),
+verbatim: "Let `T` be a tree and `x` and `y` be vertices such that all the
+interior points of the path `xPy` (if they exist) have degree 2 in `T`. The
+generalized tree shift (GTS) of `T` is the tree `T′` obtained from `T` as
+follows: let `z` be the neighbor of `y` lying on the path `xPy`, let us erase
+all the edges between `y` and `N(y)∖{z}` and add the edges between `x` and
+`N(y)∖{z}`." And: "if `x` or `y` is a leaf in `T` then `T′ ≅ T`, otherwise the
+number of leaves in `T′` is the number of leaves in `T` plus one. In this
+latter case we call the generalized tree shift proper." Bridging step, written
+by the auditor and unreviewed: for adjacent `x, y` (a path with `k = 2`
+vertices, `z = x`) the shift moves every neighbour of `y` other than `x` to
+`x` and leaves `y` as a leaf at `x`; that is the tree obtained by contracting
+the edge `xy` and attaching one pendant vertex at the contracted vertex, and
+it is proper exactly when `xy` is a non-pendant edge. **So the operation of
+Proposition S36 is the proper generalized tree shift of Csikvári with `k = 2`.**
+Section 10 of the same paper (pp. 19–20, read directly) names its relatives:
+
+- "The σ-transformation is the generalized tree shift when `H_2` is a star and
+  `k = 2` (so the path has no interior vertices)"; "the inverse of
+  π-transformation is nothing else than the generalized tree shift when `H_2`
+  itself is a path." So, among Mohar's two operations, the one that S36
+  generalizes is **σ, not π** (the task description named π).
+- J.-M. Guo's transformation "separating an edge" (his reference [12]: Linear
+  Algebra Appl. 433 (2010) 1148–1153, NOT opened) "is the generalized tree
+  shift applied to adjacent vertices `x, y`" — that is, exactly the operation
+  of S36, defined there for every graph.
+- "Originally, the author developed the generalized tree shift to overcome a
+  certain weakness of the Kelmans transformation." Auditor's recollection, not
+  read in any source this session: for adjacent vertices of a tree the Kelmans
+  transformation coincides with the `k = 2` shift. Unverified.
+- Mohar's preprint, Section 3 (p. 4–5), read directly: for `u_0` of degree
+  `p + 1` whose neighbours `u_1, …, u_p` are leaves and whose remaining
+  neighbour is `v_0`, `T′ = σ(T, u_0)` is formed "by removing the edges
+  `u_0u_1, … u_0u_p` from `T` and adding `p` new pendant edges
+  `v_0v_1, … v_0v_p` incident with `v_0`"; Proposition 3.1: "every tree can be
+  transformed into a star by a sequence of σ-transformations." This is the
+  scheme of Remark 2 after S36 (repeat the operation until the star).
+
+*Known monotonicity theorems for this operation, other matrices* (all read
+directly):
+
+- Mohar, Theorem 3.2 (preprint p. 5): for `T′ = σ(T, u_0)`, with `n_d` the
+  number of vertices of `T − u_0` at distance `d` from `u_0`,
+  `c_k(T) ≥ c_k(T′) + Σ_{d=2}^{k} n_d p C(n−2−d, k−d)` for `2 ≤ k ≤ n−2`, and
+  `c_k(T) = c_k(T′)` for `k ∈ {0, 1, n−1, n}`. Theorem 2.2 (p. 3): for a
+  π-transform `T′ = π(T, u_0, P, Q)`, with `n_d` the number of vertices of
+  `T − P − Q` at distance `d` from `u_0`,
+  `c_k(T) ≤ c_k(T′) − Σ_{d=1}^{k−1} n_d C(n−3−d, k−1−d)` for `2 ≤ k ≤ n−2`,
+  with the same equalities. Theorem 4.1 (p. 6), using `c_{n−2}(T) = W(T)`:
+  `W(T′) − W(T) = pq(n−p−q)` for π (`p = |P| − 1`, `q = |Q| − 1`) and
+  `W(T) − W(T″) = r(n−r−1)` for σ (`r = deg_T(u_0) − 1`).
+- Csikvári II, Theorem 6.1 (p. 8): "The generalized tree shift decreases the
+  coefficients of the characteristic polynomial in absolute value, i.e., if
+  the tree `T′` is obtained from the tree `T` by some generalized tree shift
+  then `φ(T, x) ≫ φ(T′, x)`" (adjacency matrix; `≫` is the coefficientwise
+  comparison of absolute values, p. 3). Theorem 7.3 (p. 10): "The generalized
+  tree shift decreases the coefficients of the Laplacian polynomial in
+  absolute value, i.e., if `T′` is obtained from `T` by a generalized tree
+  shift then `L(T, x) ≫ L(T′, x)` or in other words `a_k(T) ≥ a_k(T′)` for
+  `k = 1, …, n−1`. Furthermore, `θ(T′) ≥ θ(T)` and `a(T′) ≥ a(T)`." Theorem
+  3.1 (p. 5): "The generalized tree shift increases the spectral radius of the
+  tree." Theorem 2.5 (p. 4, attributed to Csikvári's first paper, Combinatorica
+  30 (2010) 125–137, NOT opened): "Every tree different from the path is the
+  image of some proper generalized tree shift, i.e., the only minimal element
+  of the poset is the path."
+- The table of Section 11 (p. 20) lists ten parameters monotone along the
+  shift (adjacency and Laplacian eigenvalues and coefficients, closed walks
+  and walks of fixed length, algebraic connectivity, independence polynomial,
+  edge cover polynomial). **No parameter of the distance matrix is in the
+  table**, and in the pages read the distance matrix does not occur (the
+  Wiener index is mentioned once, in the introduction, as an example of star
+  and path extremality; the `D(G)` of that paper is the degree matrix).
+
+*For the distance matrix*, what was found is about spectral radii, not about
+coefficients, and through tool summaries or snippets only:
+
+- arXiv:2306.05155 (abstract, tool summary): the generalized tree shift does
+  not decrease the distance spectral radius, the distance signless Laplacian
+  spectral radius and the `D_α`-spectral radius of **complements of trees**.
+  Snippet of query 7: Lin and Drury on the Kelmans transformation and the
+  distance spectral radius of complements of trees (not opened).
+- arXiv:1711.09787 (abstract, tool summary): eigenvalue monotonicity of
+  `q`-Laplacians of trees along the poset, with corollaries for "exponential
+  distance matrices of trees" (a different matrix).
+- Stevanović–Ilić (snippet only; HTTP 503): a transformation increasing the
+  distance spectral radius of a tree.
+- "The 2-Steiner distance matrix of a tree" (2022) cites Csikvári II (title
+  seen in the citation list only). **Unread lead**: it may contain a
+  monotonicity statement along the shift for a distance-type matrix.
+
+No statement that the coefficients of the distance characteristic polynomial
+of a tree are monotone under this operation, under the general shift, or under
+Mohar's σ or π, was found.
+
+**(d) An explicit formula for `ℓ_T − ℓ_{T′}`; gamma-positivity — nothing found
+for the distance characteristic polynomial; product formulas of the same kind
+exist for the adjacency and Laplacian polynomials (found closely related prior
+work).** Read directly in Csikvári II:
+
+- Theorem 5.1 ("General lemma", pp. 6–8): if graph polynomials `f` and `g`
+  satisfy
+  `f(M_1 : M_2) = c_1 f(M_1) f(M_2) + c_2 f(M_1) g(M_2|u_2) + c_2 g(M_1|u_1) f(M_2) + c_3 g(M_1|u_1) g(M_2|u_2)`
+  for the graph `M_1 : M_2` obtained by identifying `u_1` with `u_2`
+  (`c_1, c_2, c_3` rational functions of `x`) and
+  `c_2 f(K_2) + c_3 g(K_2|1) ≠ 0`, then
+  `f(T) − f(T′) = c_4 (c_2 f(P_k) + c_3 g(P_k|1)) (c_2 f(H_1) + c_3 g(H_1|1)) (c_2 f(H_2) + c_3 g(H_2|k))`
+  with `c_4 = (g(P_3|1) − g(P_3|2)) / (c_2 f(K_2) + c_3 g(K_2|1))²`.
+- Lemma 6.4 (p. 8), adjacency:
+  `φ(T, x) − φ(T′, x) = φ(P_{k−2}, x)(φ(H_1, x) − xφ(H_1 − {1}, x))(φ(H_2, x) − xφ(H_2 − {1}, x))`.
+- Lemma 7.6 (p. 10), Laplacian:
+  `L(T, x) − L(T′, x) = (1/x) L(P_{k−1}, x)(L(H_1, x) − xL(H_1|1, x))(L(H_2, x) − xL(H_2|k, x))`,
+  from the 1-sum formula of Lemma 7.7.
+
+Auditor's remark, not checked: the General Lemma needs a 1-sum recursion in
+one polynomial `f` and one auxiliary polynomial `g`. The project's merge rule
+(S19(d)) carries a state with five components, and the formula of S36 is a sum
+of four products, not one product; so S36 is not an instance of Theorem 5.1 as
+stated. The method of S36 (difference of two 1-sum expansions, then a
+positivity argument on the factors) is the method of Csikvári's Section 4, and
+should be described as such. For Collins's unproved 1-sum formula for the
+distance polynomial (thesis, Theorem 7) see the section above.
+
+Gamma-positivity: query 8 returned nothing on an expansion of a distance
+characteristic polynomial of a tree in a basis `x^e (1+x)^i`, as in the audit
+for session 9.
+
+### What would threaten the originality of the session-11 statements
+
+- **The operation of S36 is not new** and must not be presented as such: it is
+  the proper generalized tree shift with `k = 2` (Csikvári 2010, 2013), Guo's
+  "separating an edge" (2010), and a generalization of Mohar's σ (2007). The
+  proof scheme "each step lowers the polynomial and every tree reaches the
+  star" is Mohar's and Csikvári's. What was not found is the result for the
+  distance characteristic polynomial.
+- For (b) and (c): a statement may exist in a place this audit did not reach —
+  the 2-Steiner paper that cites Csikvári II, "On a poset of trees revisited"
+  (2021, title only), Csikvári's first paper, Guo (2010), the
+  distance-spectral-radius literature on trees (Stevanović–Ilić and its citing
+  papers), and the journals of mathematical chemistry, where extremal results
+  for tree invariants are common and which the general web search covers
+  poorly.
+- For (a): the same limits as in the audits for sessions 9 and 10. A paper
+  that cites none of arXiv:1507.02341, arXiv:2206.07561 and Collins (1989), or
+  one that neither arXiv's metadata search nor the two citation indexes list,
+  would have been missed.
+- A question this audit raises and does not answer: whether the monotonicity
+  of S36 extends to the generalized tree shift with `k ≥ 3`. With Csikvári's
+  Theorem 2.5 that would make the path the coefficientwise maximum. No source
+  was found for or against it; nothing is claimed here.
+
+### Not searched or not accessible
+
+- MathSciNet, zbMATH, Google Scholar: not available to the tool; not searched.
+- MathOverflow: one general web query naming it (query 9), which returned no
+  MathOverflow page; no search on the site itself. OEIS, erdosproblems.com,
+  Open Problem Garden: not searched.
+- Formal libraries: one general web query (query 10), which returned nothing
+  about Lean, Mathlib or formal-conjectures; the repositories themselves were
+  not searched.
+- Located and not read: Csikvári, "On a poset of trees" (Combinatorica 30
+  (2010) 125–137); Csikvári II, pp. 12–18; the journal version of Mohar
+  (2007); Zhou–Gutman (2008); Gutman–Pavlović (2003); Guo (2010);
+  Stevanović–Ilić (HTTP 503) and Subhi–Powers; Lin–Drury; "The 2-Steiner
+  distance matrix of a tree" (2022); "On a poset of trees revisited" (2021);
+  "Graph Polynomials and Graph Transformations in Algebraic Graph Theory"
+  (2011, title only); "Discrete Mathematics Days 2022"; arXiv:2610.17078 and
+  arXiv:2610.34114 (a title on the minimum distance spectral radius of trees
+  with given maximum degree, in the result list of query 7) beyond a title or
+  a tool summary; Ilić, arXiv:1104.4280.
+- Read only through the fetch tool's summary, not by the auditor:
+  arXiv:2405.09027, the abstract pages of arXiv:1711.09787, 2306.05155 and
+  1507.02341, the arXiv listings and the citation listings. Statements
+  attributed to them above should be checked against the papers before they
+  are cited. Statements attributed to Mohar's preprint and to Csikvári II
+  (pp. 1–11, 19–21) were read by the auditor on the page images.
+- Not done: citing-paper lists of Mohar (2007), of Csikvári's first paper, of
+  Zhou–Gutman and of Stevanović–Ilić; any search for the Kelmans
+  transformation literature proper; any search for the intermediate statements
+  (Lemma S32, Propositions S33 to S35, the polynomial `E`, statement (Γ_c¹));
+  theses and talks beyond what queries 1 and 9 would surface; any language
+  other than English.
+
+### Recommendation for the registry (the auditor did not edit it)
+
+For the record or records of session 11 (Theorems T5 and T6, Proposition S36):
+novelty at most `preliminary-search-completed`. Nothing here supports
+`no-prior-resolution-found`: the reference databases were not searched and
+several of the most likely sources were not read. The record should name as
+prior related work, with the statements quoted above: Collins (1989), Theorem
+1, for the star; Zhou–Gutman (2008), Mohar (2007), Theorems 2.2 and 3.2, and
+Csikvári (2013), Theorems 6.1 and 7.3 with Lemmas 6.4 and 7.6, for the
+Laplacian and adjacency analogues of T6(b) and S36; Csikvári (2010, 2013),
+Guo (2010) and Mohar (2007) for the operation itself. The operation of S36
+should be called by its published name (generalized tree shift with `k = 2`).
+An unsuccessful search does not establish originality.

@@ -168,31 +168,31 @@ for every tree; it follows from T5(i) and the formula of S30 (unreviewed).
 of any non-pendant edge (S36). Still open, and no longer needed for the
 lower half: Γ_c for general weights, (E), (Λ), Conjecture Γ.
 
-**Conjecture Γ — open (MD-0010).** For every tree `S` on `s ≥ 2` vertices and
-every `A ⊆ V(S)` with `|A| ≥ 2`, the polynomial
-`r_A(x) = −2^{2−s} x det(2x I_Ā − P − 1_A1ᵀ − 11_Aᵀ − (|A|/2x)J)` is a
-non-negative combination of `x^e (1+x)^{d−2e}` (`2e < d`) and `x^e`
-(`d ≤ 2e ≤ 2d`), `d = s − |A| + 1`. Statement and consequences:
-[`notes/skeleton-identity.md`](notes/skeleton-identity.md).
+**Statements (GS) and (PX) — open; observed in session 11, scratch only, not
+registered.** The operation of S36 is a known one: the generalized tree
+shift of Csikvári for adjacent vertices, also "separating an edge" (Guo) and,
+when one side is a star, Mohar's `σ` (audit of session 11 in the dossier);
+for the Laplacian and adjacency polynomials the coefficients are monotone
+along it (Mohar 2007; Csikvári). **(GS):** for the generalized tree shift
+along a path of any length (inner vertices of degree 2; the other neighbours
+of one end moved to the other), `ℓ_T − ℓ_{T′} ∈ C_{n−1}` — exact for every
+tree of order 5 to 13 and every shift (no failure; the case of length 1 is
+S36). **(PX), path maximality:** `ℓ_{P_n} − ℓ_T ∈ C_{n−1}` for every tree, so
+`d_k(T) ≤ d_k(P_n)` for every `k` — exact for the 81,134 trees of order 4 to
+17. (GS) implies (PX), the path being the only tree that is not the result
+of a shift (Csikvári; not checked by the project). With T6(b):
+`ℓ_{S_n} ≤ ℓ_T ≤ ℓ_{P_n}` in the cone order, the analogue of the theorem of
+Zhou and Gutman for Laplacian coefficients. Neither statement gives the upper
+half of Collins–Shor (the cone controls `λ_μ` only for `μ ≤ n/2`).
 
-- True for `A = V` (S3), for every `A` whose complement is independent (S10)
-  or has at most two vertices (S8, S9), and for every subset of the 47 trees
-  with 2 to 8 vertices (exact).
-- Every `r_A` has only real negative roots (S13); this does not give the
-  expansion.
-- It does not depend on the order `n` nor on the leaf numbers. If true for
-  `S`: Hypothesis V for `S` and every order (S4), and by L4 the lower half of
-  Collins–Shor for the trees `S(c)`, `n ≥ 2s`, is reduced to the trees
-  "skeleton plus one star".
-- **Chain of sufficient conditions** `Γ ⇐ Γ⁺ ⇐ Γ⁺ for A independent (S11) ⇐ Γ_c (S14) ⇐ (E) (S18) ⇐ (Λ) (S22)`,
-  with the exact ranges tested for Γ_c, (E), (Λ), the weaker statement (Γ_w)
-  that S4 actually needs, and what Γ does not cover:
-  [`notes/gamma-chain.md`](notes/gamma-chain.md). (E″), (S): false (S21).
-
-**Hypothesis V — open in general (MD-0009).** The mixed second partials of
-`D_n` are non-negative for caterpillars with any number `s` of spine vertices.
-A consequence of Γ for path skeletons: computer-assisted for `s ≤ 8` and
-every order. The analogue for `d_m − d_{m+1}` is false from `s = 4`.
+**Conjecture Γ (MD-0010) and Hypothesis V (MD-0009) — open; no longer on
+the route to the lower half.** Γ: for every tree `S` and every `A ⊆ V(S)`,
+`|A| ≥ 2`, the polynomial `r_A` is in the half-gamma cone `C_{s−|A|+1}`.
+Proved for `A = V`, for `A` with independent complement or complement of at
+most two vertices, and (exactly) for the 47 trees with 2 to 8 vertices; all
+roots of `r_A` are real. Chain `Γ ⇐ Γ⁺ ⇐ Γ_c ⇐ (E) ⇐ (Λ)`; (E″), (S) false.
+V: non-negative mixed partials of `D_n` for caterpillars. Full text as of
+session 10: [`notes/gamma-chain.md`](notes/gamma-chain.md), last section.
 
 **Hypothesis A(ii) — open (MD-0005).** For every tree `T` of order `n` and
 every `0 ≤ k ≤ min(p_n, n−3)`, `p_n` the largest maximizing index of the path:
@@ -262,22 +262,10 @@ Collins–Shor, lower half  (⇔ d_{m−1} < d_m, m = ⌊n/2⌋, by R1 [Lean])
     ⇐ R1 [Lean], Lemma A(a) [Lean on the cone], log-concavity [Theorem 2.1 of the source]
   routes that are not needed any more: S30(d) and (SM⁺) (now consequences of T5); Γ_c, (E), (Λ) [OPEN];
     inequality (3) of wiener-form.md                                     [FALSE in general: S31]
-  --- the route of sessions 4 to 8 (leafy trees only; superseded for the lower half by the two lines above) ---
-  trees S(c) with at least as many leaves as non-leaf vertices (n ≥ 2s):
-    ⇐ S1 (closed form)                               [proved, AI-reviewed]
-    ⇐ L4 (vertex principle)                          [proved, AI-reviewed; Lean: see Status]
-    ⇐ S4 [AI-reviewed] + Property Γ for the skeleton S [conjecture in general (MD-0010)]
-        (S4 needs only Γ_w, strictly weaker than Γ)   [observation, session 8]
-        Γ for A with V∖A independent or |V∖A| ≤ 2     [proved for every tree, AI-reviewed (MD-0011)]
-        Γ ⇐ Γ⁺ ⇐ Γ⁺ for A independent                 [S11 (MD-0012)]
-        Γ⁺ ⇐ Γ_c (one weighted tree)                  [S14 (MD-0014)]
-        Γ_c ⇐ (E): raising a leaf weight 0 → 1         [S18 (MD-0014); (E) OPEN]
-        (E) ⇐ (Λ)                                      [S22 (MD-0015); (Λ) OPEN, exact on the ranges above]
-        (E) ⇐ (E″) ⇐ (S)                               [(E″), (S) FALSE: S21 (MD-0015)]
-    ⇐ d_{m−1} < d_m for "skeleton plus one star"     [OPEN in general; s ≤ 3 paths done (T1 to T3)]
-  trees with fewer leaves than non-leaf vertices     [OPEN; no approach]
+  the route of sessions 4 to 8 (S1, L4, S4, Property Γ, "skeleton plus one star"; leafy trees only):
+    superseded for the lower half; verbatim in notes/gamma-chain.md, last section.
   special cases with complete candidate proofs, both halves, peak exactly m:
-    diameter 3: T1;  caterpillars of diameter 4: T2, T3, P_5;  stars: Collins 1989 (not read)
+    diameter 3: T1;  caterpillars of diameter 4: T2, T3, P_5;  stars: Collins 1989, Theorem 1
 
 Collins–Shor, upper half
   ⇐ R1
@@ -289,26 +277,14 @@ Collins–Shor, upper half
 
 ## Decisions
 
-- 2026-11-26. CJ-0001 selected first. Strong reading of ties.
-- 2026-11-26 (director). MD-0006 to MD-0008 stay candidate theorems until
-  their validity and originality are adequately assessed; an AI review is not
-  that assessment. Every description of T2 states `a, b, c ≥ 1`.
-  Formalization accompanies the investigation. The session budget of 60
-  minutes is binding, review and verification included.
-- 2026-11-26 (director, session 5). Priority: a general mechanism, not
-  further fixed-spine theorems.
-- 2026-11-26 (sessions 3 to 7). Reviews by a model other than the author's.
-  A note is left byte-identical to the revision that was reviewed; its
-  defects are corrected in one revision that is then rechecked; new results
-  go in a new note. Γ⁺, Γ_c and (E) are not registered as conjectures of
-  their own.
-- 2026-11-26 (director, sessions 7 and 8). The classifications of MD-0011 to
-  MD-0014 are approved as they stand. Verified commits may be pushed to
-  `research` only.
-- 2026-11-26 (session 8). (Λ) is stated inside MD-0015 and not registered as
-  a conjecture of its own, like Γ_c and (E). MD-0013 is not split: its items
-  (ii) (bound) and (iv) are recorded as implied by Richman–Shokrieh–Wu in its
-  novelty search; splitting it is a decision for the director.
+- Sessions 1 to 8 (verbatim in [`notes/obligations.md`](notes/obligations.md),
+  last section). Still in force: strong reading of ties; T1 to T3 stay
+  candidate theorems (director); every description of T2 states
+  `a, b, c ≥ 1`; formalization accompanies the investigation; reviews by a
+  model other than the author's; a note is left byte-identical to the
+  revision that was reviewed, its defects go into one revision that is then
+  rechecked, new results go in a new note; Γ⁺, Γ_c, (E), (Λ) are not
+  registered as conjectures of their own; MD-0013 is not split.
 - 2026-11-26 (director, session 9). The AI investigator allocates effort by
   its own judgment; earlier directions are revisable. MD-0013 keeps its
   identifier and review; its items are classified as known or potentially
@@ -350,44 +326,19 @@ Collins–Shor, upper half
 Details and history: [`notes/obligations.md`](notes/obligations.md) (the
 full text of items 1 to 8 as of session 7 is there).
 
-1. **Literature.** T1 to T3 must cite the published formulas; L3 and S1 must
-   cite Collins 1993, Cor. 7; S3 must cite Bapat–Kirkland–Neumann 2005,
-   Thm 2.4. **Session 8:** MD-0013 items (ii) (bound) and (iv) must cite
-   Richman–Shokrieh–Wu, arXiv:2411.11488 (Thms A, 2.4, 4.4, 4.6) — the
-   auditor's bridging step is unreviewed, and that paper was read by text
-   extraction only; S13(d) has a shorter proof by a definite pencil (auditor's
-   remark, unreviewed); Lemma G1 is classical; `Φ(T, ν)` is the principal
-   Laplacian matching polynomial of arXiv:2410.14112. Still unread: the
-   sources listed in the dossier's two audit sections; no search of
-   MathSciNet, zbMATH, Google Scholar. No search for MD-0015.
-2. **T1, T2, T3: one revision of the three notes**, then one recheck. A human
-   reader, or a different vendor's model, before any promotion.
-3. **Revisions owed after reviews** (each followed by a recheck):
-   `skeleton-identity.md`, `skeleton-locality.md`, `vertex-principle.md`,
-   `gamma-components.md` (three defects of wording), two trivial defects in
-   `gamma-reduction.md`, `rooted-calculus.md` (seven defects of wording
-   listed by its review: degrees in the proof of S21 when all weights are 0;
-   "strictly larger" for Γ_w argued only for `d ≥ 2`; Remark 2 ignores parts
-   of zero weight; two sentences after S21; the result files were produced
-   on a dirty tree at `9069d88`; (★) and S20(d) checked by an unstored
-   script), the result file's provenance and
-   test coverage of `skeleton_structure.py`. A human reader, or a model of
-   another vendor, before any promotion. The two classical formulas
-   (Graham–Pollak, Graham–Lovász inverse) have not been compared with the
-   printed papers.
-4. **E2** (orders 21 to 23): independent recomputation, about 34 minutes,
-   needs the director's approval of the budget. MD-0001 stays `partial-result`.
-5. Comparison of the code with Table II of Graham–Lovász (cheap, not done).
-6. The audit's identifications of L1 and L3 as known, and the two specialised
-   statements of R1 about `M`, are unreviewed.
-7. **Formalization.** Done: see Status. Owed: an independent
-   comparison of all the registered Lean statements with the written ones;
-   the bridge from multi-affine polynomials to the exchange inequality (L4
-   as written); the inductive cone against explicit non-negative sums, and a
-   non-membership example. Next: Proposition S4 (binomial inequalities for
-   the generators of `C_d`), then Lemma F.
-8. `spine3.py` and `results/spine3.json` still say "spine length 3" in their
-   description strings (the result file is evidence and is not edited).
+1 to 8 (unchanged in session 11; full text:
+   [`notes/obligations.md`](notes/obligations.md), last section). In short:
+   1 literature and citations owed (T1 to T3, L3, S1, S3, MD-0013; unread
+   sources; no MathSciNet, zbMATH, Google Scholar); 2 one revision and one
+   recheck of the notes of T1 to T3; 3 revisions owed after reviews
+   (`skeleton-identity.md`, `skeleton-locality.md`, `vertex-principle.md`,
+   `gamma-components.md`, `gamma-reduction.md`, `rooted-calculus.md`); 4 E2,
+   orders 21 to 23: independent recomputation (about 34 minutes; needs the
+   director's approval); 5 comparison with Table II of Graham–Lovász; 6 the
+   identifications of L1 and L3 as known are unreviewed; 7 formalization
+   (independent comparison of the Lean statements; L4 as written; the
+   inductive cone against explicit sums; next: S4, Lemma F); 8 description
+   strings of `spine3.py`.
 9. **T4 (MD-0016), before any promotion.** Done: two AI reviews (same
    vendor), no gap; a first literature audit; Lean for Lemma A and `K_d`.
    Owed: (a) one revision of `wiener-form.md` for the audit's defects D1 to
@@ -395,16 +346,47 @@ full text of items 1 to 8 as of session 7 is there).
    uncited; L1 at `n = 2`; the `C`-clause of S24; "strong induction"), then
    a recheck, then drop the dependency on MD-0012; (b) **a human reader or a
    model of another vendor** — the director's GPT-6.2 reading is not a
-   recorded audit; (c) literature: read Collins 1989 and Collins's thesis
-   (MIT 1986; `dspace.mit.edu/bitstreams/ffd29595-5770-4d22-936c-16bab6d1daf5/download`,
-   HTTP 429 in session 10; said to treat the contribution of a leaf — read
-   it before any claim about S23, S29), Graham–Lovász pp. 72–88, Merris
+   recorded audit; (c) literature: Collins 1989 and Collins's thesis were
+   **read in session 11** (neither contains S25 or T4; the thesis has a leaf
+   formula, Theorem 4, to be cited for S23 and S29, and a formula for two
+   graphs joined at a vertex, Theorem 7, to be cited for S19(d); S23(d) is
+   Collins 1989, Theorem 1). Still unread: Graham–Lovász pp. 72–88, Merris
    1990, Moon 1995; MathSciNet, zbMATH, Google Scholar not searched; the
    auditor's two bridging steps (S24, identity (1)) are unreviewed; (d) a
    result package. `leaf-telescoping.md` (S23, S27) is **unreviewed**.
 10. **Session 10.** `even-order.md` (S28 to S31, MD-0018) is **unreviewed**
    and has no literature search. The Lean statements of `WienerCone.lean`
    were compared with the note by the formalizing agent and the author only.
+11. **Session 11: T5, T6, S36 (MD-0019), before any promotion.** Done: two
+   independent AI reviews of `lower-bound.md` at `74d65b0`, both **no gap
+   found** — `claude-opus-5-5` (every step by hand, S23(a) to (c) included;
+   its own code on all 205,002 trees of order 3 to 18 and on extreme
+   families) and `claude-fable-5-2` in a fresh context (the author's model,
+   so independent by context only; a machine re-derivation from the
+   definitions on 7,813 rooted trees of order ≤ 12, 18,048 pairs, weighted
+   trees, all trees of order ≤ 18); the stored computation `lower_bound.py`
+   (1,040,693 checks, 0 failures); Collins (1986, 1989) read. Owed:
+   (a) **one revision of `lower-bound.md`**, then a recheck, for the defects
+   the two reports list (none is a gap): the section "Exact checks" cites a
+   script that did not exist at the reviewed revision and gives "778 pairs"
+   where the described set has 1,064, and "1,064 pairs" for S36 of which 486
+   are outside its hypothesis; the proof of S32 is by reference to that of
+   S24 and should be written out; Remark 1 of S36 asserts `E ≡ 0 (mod x²)`
+   without argument; notation used twice (`E` is not the `E` of S17 and S20;
+   `a`, `a_v`, `a_i`; `Q`, `Q¹`; `X`, `X_{il}`; `n` for a weight in "S19(a)
+   with `n = 0`"); in `leaf-telescoping.md`, S23(a) uses L1 at `n = 2` while
+   `lemmas.md` states it for `n ≥ 3` (true at `n = 2`; a citation defect).
+   The note is left byte-identical to `74d65b0` until that revision.
+   (b) **One self-contained manuscript of the lower half**, from the
+   Graham–Lovász inverse to T6(c) (L1, Lemma K, S24, S19 with zero weights,
+   S23, S33 to S35, T5, T6), then a complete audit of that one document; a
+   model of another vendor when one is available (human consultation is
+   deferred by the director's decision of session 11). S19 was re-derived by
+   neither reviewer of this session (they relied on the review of `59c47f7`
+   and on exact checks). (c) Literature: see the audit of session 11 in the
+   dossier, and the limits it states. (d) A result package. (e) The Lean
+   statements of `LowerBoundCone.lean`, if registered, were compared with
+   the note by the formalizing agent and the author only.
 
 ## Remaining obstacles
 
@@ -425,42 +407,45 @@ full text of items 1 to 8 as of session 7 is there).
 
 ## Next step
 
-**Objective O10.** For every tree of even order `n = 2m ≥ 4` prove
-`λ_m(Ω_T) > −(n−1)(3m−5)/(m+1)·Cat_{m−1}` (then `d_{m−1} < d_m` by S30(d) of
-[`notes/even-order.md`](notes/even-order.md)), or prove (SM⁺), or find the
-obstruction. `Ω_T = Σ_k (1+x)^{n−1−k} Ω_{u_k}(T_k)` for **any** construction,
-with `Ω_c` explicit (S29).
+**Owed first (validation of the lower half, obligation 11).** (a) The one
+revision of `notes/lower-bound.md` for the defects listed there, and its
+recheck by a fresh context. (b) Start `manuscripts/CJ-0001-lower-bound/`: one
+self-contained document that proves T6(c) from the Graham–Lovász inverse
+formula, with every lemma it uses (L1, Lemma K, S24, S19 for zero weights,
+S23, S33 to S35, T5, T6), written for a complete audit. S19 should be
+re-proved there for weight zero only, which is all the proof needs.
 
-1. First action (cheap, exact): store in `even_order.py` the quantity
-   `q(T) = λ_m(Ω_T) / [(n−1)(3m−5)/(m+1)·Cat_{m−1}]` for every tree of even
-   order up to 16 and for large families, and the same with `Ω_T` replaced
-   by its deep-edge part for the construction that minimizes it. Scratch of
-   session 10 (not stored): (SM⁺) holds and `q` lies between `0.59` and
-   `10¹⁸` on paths, brooms and spiders at `n = 30` to `150`; `q = 0` for the
-   star and for the star with one subdivided edge. So the tight trees are
-   those close to the star, and far from it the remainder is enormous: look
-   for a proof that treats the two regimes separately.
-2. The quadratic form (session 10; exact scratch check on the 326 rooted
-   trees of order ≤ 8, no written proof in a note, not reviewed):
-   `R(B, e_c) = δᵀ(Φ¹·I − adj M¹)δ = Σ_i (δ·w_i)² xθ_i Π_{l≠i}(1 + θ_l x)`,
-   `L¹ = L_B + e_c e_cᵀ` with eigenpairs `(θ_i, w_i)`, `δ` the distances from
-   `c`; equivalently `r_c(T) = Ψ_c[(1+4x) + x δ̃ᵀ L_c (I + xL_c)^{−1} δ̃]`,
-   `L_c = L[V∖c]`, `δ̃ = δ − 1`. Write its proof (two lines from S29), store
-   the check, then ask which measures `(δ·w_i)²` on the spectrum put the sum
-   in `C_{j+1}` (this is (Γ_c¹)).
-3. Always test on spiders with many legs of length 2 at `n ≥ 100` and on
-   stars with heavy leaves before building on an auxiliary statement.
+**Objective O11 (the upper half): for every tree of order `n`,
+`d_{M+1} < d_M` with `M = ⌈n − n/√5⌉` (when `M ≤ n − 3`).** Nothing is proved.
+Two observations of session 11, both scratch and neither stored:
 
-Deferred: O8 (statement (Λ)); its text is in
-[`notes/obligations.md`](notes/obligations.md). The upper half has no
-mechanism; a rooted or Wiener-type form with `λ` at the index `M + 1` has
-not been tried.
+1. *(PM), exact arithmetic.* Along Csikvári's generalized tree shift (a path
+   `x … y` whose inner vertices have degree 2; all other neighbours of `y`
+   are moved to `x`; the contraction of S36 is the case of an edge) the
+   largest and the smallest maximizing index never moved up: every tree of
+   order 5 to 15 and every shift, 127,192 shifts. Since the path is the only
+   tree that is not the result of a shift, (PM) and Collins's theorem for the
+   path would give the upper half. The ratio `d_{k+1}/d_k` is **not** monotone
+   along shifts for `k ≥ ⌊n/2⌋` (failures in every order from 6), so (PM)
+   cannot be proved through ratio dominance. First action: derive the
+   analogue of S36 for a shift along a path of length `k` (plant `k` times,
+   then merge) and look at `λ_{M+1}` of the difference; test (PM) on large
+   families (brooms, spiders with long legs, caterpillars at `n ≥ 60`)
+   before building on it.
+2. *Upper cone, floating-point LP only (exploratory, not a certificate).*
+   For every tree of order 5 to 14 the part of `ℓ_T` of degree `≤ n − 2` is a
+   non-negative combination of `x^e(1+x)^i` with `2e + i ≤ 2M + 1` (on which
+   `λ_{M+1} ≤ 0`); the least bound needed is `n + 2` or `n + 3` for trees
+   close to the star and reaches `2M + 1` at order 14, so this certificate
+   may fail for near-stars at larger even orders. Where the constant comes
+   from: `Φ(P_j, e_end) = Σ_k C(j+k, 2k) x^{j−k}` (Morgan-Voyce), whose peak is
+   at about `j(1 − 1/√5)`.
 
-Owed first by default: obligation 9 (the second revision of
-`wiener-form.md` and its recheck; a reader outside the author's vendor),
-then 10, then 1 to 3.
+Also open and cheap: obligations 5 and 8; the rerun of orders 21 to 23
+(obligation 4) needs the director's approval of its budget.
 
 ## Sources
 
 - G. Aalipour et al., arXiv:1507.02341 — read in full (TeX source; twice by reviewers).
+- K. L. Collins, Discrete Appl. Math. 25 (1989) 27–35 — read in full (session 11). K. L. Collins, Distance matrices of trees, thesis, MIT 1986 — read (pp. 30–47, 55–61 as page images, the rest through OCR; session 11). Details: the dossier, section "Primary sources read in session 11".
 - Every other source, with what was read of each: [`notes/obligations.md`](notes/obligations.md), last section, and the dossier. None was added in session 9. Session 10: what its audit read is in the dossier, section "Audit for session 10".

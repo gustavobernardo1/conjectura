@@ -33,3 +33,54 @@ It continues the list under "Conjecture Γ — open (MD-0010)" of [`../STATE.md`
 - Not covered by Γ: trees with fewer leaves than non-leaf vertices; the trees
   "skeleton plus one star" themselves (positive in all computed cases); the
   upper half.
+
+## Text moved from `STATE.md` in session 11 (verbatim except for the targets of relative links)
+
+The section "Conjectures and hypotheses" of `STATE.md`, as it read at the end of session 10:
+
+**Conjecture Γ — open (MD-0010).** For every tree `S` on `s ≥ 2` vertices and
+every `A ⊆ V(S)` with `|A| ≥ 2`, the polynomial
+`r_A(x) = −2^{2−s} x det(2x I_Ā − P − 1_A1ᵀ − 11_Aᵀ − (|A|/2x)J)` is a
+non-negative combination of `x^e (1+x)^{d−2e}` (`2e < d`) and `x^e`
+(`d ≤ 2e ≤ 2d`), `d = s − |A| + 1`. Statement and consequences:
+[`notes/skeleton-identity.md`](skeleton-identity.md).
+
+- True for `A = V` (S3), for every `A` whose complement is independent (S10)
+  or has at most two vertices (S8, S9), and for every subset of the 47 trees
+  with 2 to 8 vertices (exact).
+- Every `r_A` has only real negative roots (S13); this does not give the
+  expansion.
+- It does not depend on the order `n` nor on the leaf numbers. If true for
+  `S`: Hypothesis V for `S` and every order (S4), and by L4 the lower half of
+  Collins–Shor for the trees `S(c)`, `n ≥ 2s`, is reduced to the trees
+  "skeleton plus one star".
+- **Chain of sufficient conditions** `Γ ⇐ Γ⁺ ⇐ Γ⁺ for A independent (S11) ⇐ Γ_c (S14) ⇐ (E) (S18) ⇐ (Λ) (S22)`,
+  with the exact ranges tested for Γ_c, (E), (Λ), the weaker statement (Γ_w)
+  that S4 actually needs, and what Γ does not cover:
+  [`notes/gamma-chain.md`](gamma-chain.md). (E″), (S): false (S21).
+
+**Hypothesis V — open in general (MD-0009).** The mixed second partials of
+`D_n` are non-negative for caterpillars with any number `s` of spine vertices.
+A consequence of Γ for path skeletons: computer-assisted for `s ≤ 8` and
+every order. The analogue for `d_m − d_{m+1}` is false from `s = 4`.
+
+The part of the dependency map of `STATE.md` on the route of sessions 4 to 8, as it read at the end of session 10:
+
+```
+  --- the route of sessions 4 to 8 (leafy trees only; superseded for the lower half by the two lines above) ---
+  trees S(c) with at least as many leaves as non-leaf vertices (n ≥ 2s):
+    ⇐ S1 (closed form)                               [proved, AI-reviewed]
+    ⇐ L4 (vertex principle)                          [proved, AI-reviewed; Lean: see Status]
+    ⇐ S4 [AI-reviewed] + Property Γ for the skeleton S [conjecture in general (MD-0010)]
+        (S4 needs only Γ_w, strictly weaker than Γ)   [observation, session 8]
+        Γ for A with V∖A independent or |V∖A| ≤ 2     [proved for every tree, AI-reviewed (MD-0011)]
+        Γ ⇐ Γ⁺ ⇐ Γ⁺ for A independent                 [S11 (MD-0012)]
+        Γ⁺ ⇐ Γ_c (one weighted tree)                  [S14 (MD-0014)]
+        Γ_c ⇐ (E): raising a leaf weight 0 → 1         [S18 (MD-0014); (E) OPEN]
+        (E) ⇐ (Λ)                                      [S22 (MD-0015); (Λ) OPEN, exact on the ranges above]
+        (E) ⇐ (E″) ⇐ (S)                               [(E″), (S) FALSE: S21 (MD-0015)]
+    ⇐ d_{m−1} < d_m for "skeleton plus one star"     [OPEN in general; s ≤ 3 paths done (T1 to T3)]
+  trees with fewer leaves than non-leaf vertices     [OPEN; no approach]
+  special cases with complete candidate proofs, both halves, peak exactly m:
+    diameter 3: T1;  caterpillars of diameter 4: T2, T3, P_5;  stars: Collins 1989 (not read)
+```
