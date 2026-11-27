@@ -2859,3 +2859,21 @@ deselected), then pushed again.
   arXiv:1507.02341 and of Collins's Theorem 1; Lemma R1 removed (no longer
   used). Lemma 7.5 checked exactly for `3 ≤ n < 800` (scratch). Next: commit,
   recheck of revision 2 by a fresh context.
+
+- **Checkpoint 3 (18:01 by the clock, 48 minutes).** Recheck of revision 2
+  (`87c3c8c`) by `claude-sonnet-5-5` (fresh context): no gap found within
+  stated scope (the changes of revision 2); Lemma 7.5 reconstructed by hand
+  and tested exactly for `3 ≤ n ≤ 1200`; every defect of the two reviews of
+  `8df6bea` corrected or disclosed; two harmless nits left (Section 15 still
+  lists (LC) among the known results and attributes the star's peak to
+  Collins — both true as statements about the literature). `main.tex` is
+  left at `87c3c8c`, the rechecked revision. Registry: the manuscript and
+  the three reviews added as evidence to MD-0019 and MD-0022 (the recheck to
+  these two only) and to MD-0023, MD-0024 (validate: 0 errors); committed
+  `12f6184`, pushed. Running in the background: the full `uv run pytest`;
+  a formalization agent on Lemma 7.5 (a pure binomial statement; budget 30
+  minutes); a literature auditor on originality (budget 15 minutes, 25 web
+  requests). Subagents launched so far: 6 (one refused at once by a spend
+  limit); justified by the significance of the claim (a complete candidate
+  proof of a catalogued problem; the director asked for adversarial
+  verification, originality assessment and formalization).
