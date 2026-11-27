@@ -7,6 +7,20 @@ result**: a statement of this file counts as reviewed only where a report
 under [`../reviews/`](../reviews/) names this file and its revision. Nothing
 here is a claim of novelty.
 
+**Revision 1** (session 13, 2026-11-27, by `claude-opus-5-5`), after two
+independent AI reviews of revision `74d65b0`
+(`../reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md`,
+`../reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md`; both
+"no gap found"). Changes, of wording, citation and provenance only — no
+statement and no step of a proof changed: the proof of Lemma S32 is written
+out instead of given by reference to Lemma S24 (Fable review, D5); the use
+of L1 at `n = 2` is justified (Opus review, 2); Remark 1 after S36 is marked
+as checked but not proved here, with the missing step named (Opus review, 3);
+the section "Exact checks" now cites the stored computation at the revision
+where it was committed and run, with its actual counts (both reviews, D1 to
+D3); a paragraph lists the notational clashes instead of renaming symbols
+throughout (both reviews, 4 and D4).
+
 What this file does. Sessions 9 and 10 reduced the lower half of the
 Collins–Shor conjecture for trees of even order to statement (Γ_c¹) of
 [`leaf-telescoping.md`](leaf-telescoping.md) and left it open. This file
@@ -40,6 +54,16 @@ file **a rooted tree `(A, u)` has weight zero** unless a weight is written;
 `M¹ := M + x e_u e_uᵀ = M(A, e_u)`. `ℓ_T`, `d_k`, `λ_μ(f) = [x^μ]f − [x^{μ−1}]f`,
 the cones `K_d` and `C_d`: as in [`wiener-form.md`](wiener-form.md).
 
+*Notational clashes (revision 1).* In this file `E = E(A, u)` is the
+polynomial of Proposition S34; it is **not** the polynomial `E` of
+Corollary S17 and S20(b) of `rooted-calculus.md`. `ρ` in S36 is the `R` of
+`(B, v)`, not the ratio `ρ_k = d_{k+1}/d_k` of `STATE.md`. `a` is the order
+`|A|`, `a_v` a polynomial (above), `a_1, a_2, a_i` orders, and `a_{K′}` a
+vertex (S32); `X` in S35 is a placeholder for `H, G, Ω`, while `X_{il}` is a
+polynomial; `Q` is a vertex set in S32 and `Q¹` a polynomial (S33(e)); `M` is
+the matrix `I + xL_A` here and the bound `⌈n − n/√5⌉` in `STATE.md`. Each
+meaning is fixed by its context; no symbol changes meaning inside a proof.
+
 Results used, with their status at the time of writing:
 
 - **(K2)** `K_{d+1} ⊆ K_d`; `K_d · K_{d′} ⊆ K_{d+d′}`; `(1+x)K_d ⊆ K_{d+1}`;
@@ -60,7 +84,11 @@ Results used, with their status at the time of writing:
   **(a) to (c) not reviewed**, (d) checked by the reviewer of `b5d9294`):
   `R(T, 0) = xℓ_T − (1+4x)Φ_T` (a); the leaf recursion
   `ℓ_{T⁺} = (1+x)ℓ_T + r_u(T)`, `r_u(T) = (1+4x)Ψ + Ω` for the state of
-  `(T, 0, u)` (b); its telescoped form (c); the star (d).
+  `(T, 0, u)` (b); its telescoped form (c); the star (d). Part (a) applies
+  L1 for every `n ≥ 2`; `lemmas.md` states L1 for `n ≥ 3`, and it also holds
+  for `n = 2`: for `K_2`, `ℓ = −det(2xI − D) = 1 − 4x²`, `Φ = 1 + 2x`,
+  `τ = (1, 1)`, `adj(I + xL) = [[1+x, x], [x, 1+x]]`, so
+  `(n−1)Φ − xτᵀ adj τ = 1 + 2x − x(2 + 4x) = 1 − 4x²` (revision 1).
 - **R1** ([`lemmas.md`](lemmas.md); formalized in Lean).
 - `C_d` is the set of non-negative combinations of `x^e(1+x)^i` with
   `e + i ≤ d ≤ 2e + i` ([`gamma-reduction.md`](gamma-reduction.md)). Hence
@@ -76,15 +104,35 @@ an integer weight (the zero weight allowed), `M = M(K, ν)`, `v, v′` two
 vertices, `P` the path between them, `d = dist(v, v′)`, `Q` the set of
 vertices off `P`. Then `adj(M)_{vv′} = x^d det M[Q]`, and `det M[Q] ∈ K_{j−d−1}`.
 
-*Proof.* The proof of Lemma S24 uses of the matrix only that it is symmetric,
-positive definite for real `x > 0`, with off-diagonal entries `−x` on the
-edges of a tree and `0` elsewhere. `M(K, ν) = I + x(L_K + diag ν)` has these
-properties, so that proof gives `adj(M)_{vv′} = x^d det M[Q]`. `M[Q]` is block
-diagonal over the components `K′` of `K − V(P)`; each `K′` is joined to `P` by
-exactly one edge, with end `a_{K′}` in `K′`, and its block is
-`I + x(L_{K′} + diag(ν|_{K′} + e_{a_{K′}}))`, whose weight is not zero. By
-Lemma K each block has its determinant in `K_{|K′|}`, and by (K2) the product
-is in `K_{j−d−1}` (it is `1 ∈ K_0` if `Q = ∅`). ∎
+*Proof* (written out in revision 1; it is the proof of Lemma S24 with the
+weights carried along). Both sides are polynomials in `x`; it is enough to
+prove the identity for real `x > 0`. There `M = I + x(L_K + diag ν)` is
+positive definite (`L_K` is positive semidefinite and `ν ≥ 0`), and so are
+its principal submatrices. Since `K` is a tree, each component `K′` of
+`K − V(P)` is joined to `P` by exactly one edge (two would close a cycle);
+let `a_{K′}` be its end in `K′`. The degree in `K` of a vertex `w ∈ K′` is
+its degree in `K′` plus `1` if `w = a_{K′}`, so `M[Q]` is block diagonal
+with blocks `I + x(L_{K′} + diag(ν|_{K′} + e_{a_{K′}}))`.
+
+Write `P = (p_0 = v, p_1, …, p_d = v′)`. The off-diagonal entries of `M` are
+`−x` on the edges of `K` and `0` elsewhere. In `M[P, Q] M[Q]^{−1} M[Q, P]` the
+entry `(p_i, p_j)` is `x² Σ_{K′} [a_{K′} ∼ p_i][a_{K′} ∼ p_j] (M[K′]^{−1})_{a_{K′}a_{K′}}`,
+which vanishes for `i ≠ j` because `a_{K′}` has only one neighbour on `P`.
+So the Schur complement `S = M[P] − M[P, Q] M[Q]^{−1} M[Q, P]` differs from
+`M[P]` only on the diagonal. Two vertices `p_i, p_j` of `P` are adjacent only
+if `|i − j| = 1`, so `S` is tridiagonal with `−x` next to the diagonal. By
+the Schur complement formulas, `det M = det M[Q] · det S` and
+`(M^{−1})[P, P] = S^{−1}`. The cofactor of `S` giving `(S^{−1})_{0d}` is
+`(−1)^d` times the determinant of `S` with row `d` and column `0` deleted;
+that matrix (rows `0, …, d − 1`, columns `1, …, d`) is lower triangular with
+`−x` on its diagonal, so the cofactor is `(−1)^d(−x)^d = x^d`. Hence
+`(M^{−1})_{vv′} = x^d/det S` and `adj(M)_{vv′} = det M · x^d/det S = x^d det M[Q]`
+(for `d = 0`, `Q = K ∖ v` and this is the definition of the adjugate). The
+diagonal entries of `M` were not used beyond positive definiteness.
+
+Each block has a non-zero integer weight (it contains `e_{a_{K′}}`), so its
+determinant is in `K_{|K′|}` by Lemma K, and by (K2) the product is in
+`K_{j−d−1}` (it is `1 ∈ K_0` if `Q = ∅`). ∎
 
 ## Proposition S33 (the state of an unweighted rooted tree)
 
@@ -420,10 +468,15 @@ The difference has degree at most `n − 2` (the coefficients of `x^n` and
 The inequalities follow from the non-negativity of the coefficients and from
 Lemma A(a), as in Theorem T6(c). ∎
 
-**Remarks.** 1. The coefficient of `x` in the formula is `2 k_A(u) k_B(v)`
-(the constant terms of `H_A` and `H_B` are the degrees of the roots, and the
-other three terms are divisible by `x²`); this agrees with
-`d_1 = 2n² − 6 − Σ_v k_v²` (L2).
+**Remarks.** 1. The coefficient of `x` in the formula is `2 k_A(u) k_B(v)`;
+this agrees with `d_1 = 2n² − 6 − Σ_v k_v²` (L2). *Status (revision 1):*
+checked exactly on all 1,227 pairs examined by the reviewer of `74d65b0`, not
+proved here. The constant terms of `H_A`, `H_B` are the degrees of the roots
+and `2Gg/x` is divisible by `x³` (S33(c): `G/x` vanishes at `0`), so the
+claim is equivalent to `Hε + hE ≡ 0 (mod x²)`, which needs `E ≡ 0 (mod x²)`;
+that congruence is not proved in this file (the reviewer sketched an
+induction through S33(e), S34 and S35). Nothing else in this file uses the
+remark.
 
 2. S36 gives a second proof of (SM) that does not use the telescoped formula
 S23(c): each step `T → T′` lowers `ℓ` in the cone order and the star is the
@@ -431,18 +484,28 @@ only tree without a non-pendant edge.
 
 ## Exact checks
 
-Scratch computations of session 11, exact integer arithmetic; the stored
-version is `experiments/CJ-0001-collins-shor-peak/lower_bound.py` (see its
-entry in the experiments README for the command and the result file).
+Stored computation (cited as in revision 1):
+`experiments/CJ-0001-collins-shor-peak/lower_bound.py`, committed with its
+test and README entry at `f2a46c8`, after the reviewed revision `74d65b0`;
+its result `results/lower-bound.json` is the run at `b1359cc` on a clean tree
+(committed at `6e6432c`; 1,040,693 exact checks, 0 failures). Its counts,
+which replace those of the scratch computations of session 11 given in
+revision `74d65b0`:
 
-- Every rooted tree of order 1 to 9 (486 rooted trees): S33(b), (c), (e);
-  S34(a), (b) and the other plant rules; the cone memberships of S33 and of
-  Theorem T5 in the cones `C` (`Ψ ∈ C_{a−1}`, `H ∈ C_{a−2}`, `G/x ∈ C_{a−1}`,
-  `Ω ∈ C_a`, `E ∈ C_{a+1}`, `R(A, e_u) ∈ C_{a+1}`, `Q¹ ∈ C_a`, `a_v ∈ C_{a−2}`).
-  No failure.
-- Every pair of rooted trees whose merge has order at most 9 (778 pairs):
-  S34(c) and the identity of S35. No failure.
-- S36: the formula on 1,064 pairs of rooted trees (total order at most 10);
+- Part A, every rooted tree of order 1 to 9 (486 rooted trees): S33(b), (c),
+  (e); S34(a), (b) and the other plant rules; the cone memberships of S33 and
+  of Theorem T5 in the cones `C` (`Ψ ∈ C_{a−1}`, `H ∈ C_{a−2}`,
+  `G/x ∈ C_{a−1}`, `Ω ∈ C_a`, `E ∈ C_{a+1}`, `R(A, e_u) ∈ C_{a+1}`,
+  `Q¹ ∈ C_a`, `a_v ∈ C_{a−2}`). No failure.
+- Part B, every pair of rooted trees whose merge has order at most 9
+  (1,064 pairs, pairs of equal order counted as ordered): S34(c) and the
+  identity of S35. No failure. (Revision `74d65b0` gave "778 pairs", which is
+  the count when only rooted trees of order at most 8 are used; Fable review,
+  D2.)
+- Part C, S36: the formula on 1,064 pairs of rooted trees (total order at
+  most 10), of which 486 contain a single-vertex tree — the edge is then
+  pendant, outside the hypothesis of S36, and the identity is `0 = 0` — so
+  578 pairs are within the hypothesis (Fable review, D3). Part D:
   `ℓ_T − ℓ_{T′} ∈ C_{n−1}` for every tree of order 4 to 16 and every
   non-pendant edge (220,181 pairs). No failure.
 

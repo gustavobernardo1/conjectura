@@ -291,6 +291,26 @@
         "witness": "Conjectura.Research.CollinsShorPeak.lowerBoundCone_hypotheses_witness"
       },
       "statement_fingerprint": "ba061cf0ac68f60e7f888e6a42ce543a1b265f823ae754ffa4bd03d8d325d702"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.upperD_succ_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md, Lemma S41, first part, as a statement about real sequences: let n >= 3, q_0, ..., q_{n-1} > 0 with strictly decreasing ratios q_{j+1}/q_j, alpha > 0 with q_{n-1}/q_{n-2} = 1/alpha, and d_k = alpha q_k - q_{k-1} (q_{-1} = 0); if 0 <= k <= n-3 and q_{k+1} < q_k, then d_{j+1} < d_j for every k <= j <= n-3. Encoding: N = n - 1 (n >= 3 is 2 <= N); q : N -> R, only q 0, ..., q N constrained; positivity: for all j <= N, 0 < q j; strictly decreasing ratios q_{j+1}/q_j (0 <= j <= N-1) written as q j * q (j+2) < q (j+1)^2 for j + 2 <= N (equivalent under positivity to q (j+2)/q (j+1) < q (j+1)/q j by ratio_strictAnti_iff); t_{n-2} = q_{n-1}/q_{n-2} = 1/alpha with alpha > 0 written q (N - 1) = alpha * q N (true predecessor since 2 <= N); d_k is 4 * upperD alpha q k, where upperD alpha q 0 = alpha * q 0 and upperD alpha q k = alpha * q k - q (k-1) for k >= 1 (upperD_zero, upperD_of_pos; the factor 4 changes no inequality between the d_j); 0 <= k <= n-3 is k + 2 <= N; k <= j <= n-3 is k <= j and j + 2 <= N. The hypothesis k + 2 <= N is kept to match the note but is not used by the proof. This is the sequence lemma S41 only. Positivity of q, the strict decrease of the ratios (which the note derives from Newton's inequalities) and q_{n-1}/q_{n-2} = 1/alpha (which the note derives from alpha = sum of beta_i, Lemma S40) are hypotheses; nothing about trees, distance matrices, Lemma S40, Darroch's rule, the trace of (I + L)^{-1} or Theorem T9 is formalized. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md at revision 53421a6; this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.CollinsShorPeak.upperD_hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": "edd0bf72542527c49017118aa784449482f029ad3d4df7ae4854883adc3381a8"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.upperD_maxIndex_le",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md, Lemma S41, 'hence' part, as a statement about real sequences: under the hypotheses of the first part (same encoding as upperD_succ_lt), every maximizing index of d_0, ..., d_{n-2} is <= k. A maximizing index is encoded as p with p + 1 <= N and upperD alpha q j <= upperD alpha q p for every j with j + 1 <= N. Encoding: N = n - 1 (n >= 3 is 2 <= N); q : N -> R, only q 0, ..., q N constrained; positivity: for all j <= N, 0 < q j; strictly decreasing ratios q_{j+1}/q_j (0 <= j <= N-1) written as q j * q (j+2) < q (j+1)^2 for j + 2 <= N (equivalent under positivity to q (j+2)/q (j+1) < q (j+1)/q j by ratio_strictAnti_iff); t_{n-2} = q_{n-1}/q_{n-2} = 1/alpha with alpha > 0 written q (N - 1) = alpha * q N (true predecessor since 2 <= N); d_k is 4 * upperD alpha q k, where upperD alpha q 0 = alpha * q 0 and upperD alpha q k = alpha * q k - q (k-1) for k >= 1 (upperD_zero, upperD_of_pos; the factor 4 changes no inequality between the d_j); 0 <= k <= n-3 is k + 2 <= N; k <= j <= n-3 is k <= j and j + 2 <= N. This is the sequence lemma S41 only. Positivity of q, the strict decrease of the ratios (which the note derives from Newton's inequalities) and q_{n-1}/q_{n-2} = 1/alpha (which the note derives from alpha = sum of beta_i, Lemma S40) are hypotheses; nothing about trees, distance matrices, Lemma S40, Darroch's rule, the trace of (I + L)^{-1} or Theorem T9 is formalized. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md at revision 53421a6; this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.CollinsShorPeak.upperD_hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": "95a9fe4b33e44dadea8364651d2ec4f64482c57078b3203f3db55eedcfe18b92"
     }
   ]
 }

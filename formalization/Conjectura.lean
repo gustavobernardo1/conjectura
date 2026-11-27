@@ -19,3 +19,4 @@ import Conjectura.Research.CollinsShorPeak.VertexPrinciple
 import Conjectura.Research.CollinsShorPeak.HalfGammaCone
 import Conjectura.Research.CollinsShorPeak.WienerCone
 import Conjectura.Research.CollinsShorPeak.LowerBoundCone
+import Conjectura.Research.CollinsShorPeak.UpperBoundPeak

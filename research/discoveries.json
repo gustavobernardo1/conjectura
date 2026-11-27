@@ -1602,9 +1602,8 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
-          "summary": "Session 11. Theorem T6(b) of this note is the statement (SM), proved from Theorem T5 (statement (Γ_c¹), by induction on rooted trees), the telescoped leaf recursion S23(c) and Lemma K; Proposition S36 gives a second proof. A candidate proof; its reviews are recorded under MD-0019.",
-          "revision": "74d65b010289e236fc3387b37010290a2d266241",
-          "sha256": "d149fd5b6d3ac510f07f4aacca7f419dfbdc9d4dfb5d4bdf38719ac2b07c614d"
+          "summary": "Session 11. Theorem T6(b) of this note is the statement (SM), proved from Theorem T5 (statement (Γ_c¹), by induction on rooted trees), the telescoped leaf recursion S23(c) and Lemma K; Proposition S36 gives a second proof. A candidate proof; its reviews are recorded under MD-0019. Bound to revision 1 of the note (session 13: wording, citation and provenance repaired for the defects of the two reviews of 74d65b0; no statement or proof step changed; Lemma S32 written out); the reviews remain bound to 74d65b0 and a recheck of revision 1 is owed.",
+          "sha256": "47cd7e25a2f249e57dc0c8fb80fe677e583424bed30967cd82a512ab85da78bf"
         },
         {
           "kind": "review",
@@ -1753,9 +1752,8 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
-          "summary": "Lemma S32, Propositions S33 to S36, Theorems T5 and T6, with complete written proofs. T5: for every rooted tree, by induction, Ω ∈ K_a, E ∈ K_{a+1} and R(A, e_u) ∈ C_{a+1} (item (i)); the negative term −2G_1G_2 of the merge rule becomes, for two planted trees, a sum of squares Σ(δ_v − δ_{v′})² a_v a_{v′}. T6: items (ii) and (iii), from T5, the telescoped leaf recursion S23(c) of notes/leaf-telescoping.md, Lemma K, Lemma A(a) and R1. S36: the formula ℓ_T − ℓ_{T′} = H_A E_B + H_B E_A + x(2+5x) H_A H_B + 2 G_A G_B / x and item (iv). A candidate proof; its reviews are listed below.",
-          "revision": "74d65b010289e236fc3387b37010290a2d266241",
-          "sha256": "d149fd5b6d3ac510f07f4aacca7f419dfbdc9d4dfb5d4bdf38719ac2b07c614d"
+          "summary": "Lemma S32, Propositions S33 to S36, Theorems T5 and T6, with complete written proofs. T5: for every rooted tree, by induction, Ω ∈ K_a, E ∈ K_{a+1} and R(A, e_u) ∈ C_{a+1} (item (i)); the negative term −2G_1G_2 of the merge rule becomes, for two planted trees, a sum of squares Σ(δ_v − δ_{v′})² a_v a_{v′}. T6: items (ii) and (iii), from T5, the telescoped leaf recursion S23(c) of notes/leaf-telescoping.md, Lemma K, Lemma A(a) and R1. S36: the formula ℓ_T − ℓ_{T′} = H_A E_B + H_B E_A + x(2+5x) H_A H_B + 2 G_A G_B / x and item (iv). A candidate proof; its reviews are listed below. Bound to revision 1 of the note (session 13: wording, citation and provenance repaired for the defects of the two reviews of 74d65b0; no statement or proof step changed; Lemma S32 written out); the reviews remain bound to 74d65b0 and a recheck of revision 1 is owed.",
+          "sha256": "47cd7e25a2f249e57dc0c8fb80fe677e583424bed30967cd82a512ab85da78bf"
         },
         {
           "kind": "computation",
@@ -2093,15 +2091,20 @@
           "revision": "53421a6f519c49a042f9e70836c4089dd0a1e2f8",
           "sha256": "6ff22fa2f27ae5deef92ba4aa932fa773cffc23b9dd100f120e7c3dccc4c4f8a",
           "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
+        },
+        {
+          "kind": "proof",
+          "path": "formalization/Conjectura/Research/CollinsShorPeak/UpperBoundPeak.lean",
+          "summary": "Formal proof (Lean 4 + Mathlib) of the sequence lemma S41 only. Lean 4 + Mathlib: Lemma S41 as a statement about real sequences (upperD_succ_lt: d strictly decreasing from k on; upperD_maxIndex_le: every maximizing index is at most k), registered for CJ-0001; hypotheses positivity, strictly decreasing ratios and q_{N-1} = α q_N. Nothing about trees, Lemma S40, Darroch's rule, the trace or T9 is formalized. The Lean statement was compared with the note by the formalizing agent and the author of the session only. Receipt: verification/receipts (session 13)."
         }
       ],
       "status": {
         "mathematical": "candidate-proof",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, not an established result. Two independent AI reviews of revision 53421a6 (claude-opus-5-5, same model as the author, independent by context; claude-sonnet-5-5, a different model of the same vendor) found no gap; no human has read it. It uses classical results cited, not reproved: the Graham–Lovász inverse and the Graham–Pollak determinant, Weyl interlacing, Newton's inequalities, Darroch's rule (1964; statement read in Pitman 1997, the original not read) and the Laplacian spectrum of the path. It uses none of the candidate results MD-0015 to MD-0021. Novelty: the literature audit of session 13 found no proof or disproof of the upper bound and no use of the distance eigenvalues or of Darroch's rule for the location of the peak, within an English web and arXiv search (no MathSciNet, zbMATH or Google Scholar).",
+      "limitations": "A candidate proof, not an established result. Two independent AI reviews of revision 53421a6 (claude-opus-5-5, same model as the author, independent by context; claude-sonnet-5-5, a different model of the same vendor) found no gap; no human has read it. It uses classical results cited, not reproved: the Graham–Lovász inverse and the Graham–Pollak determinant, Weyl interlacing, Newton's inequalities, Darroch's rule (1964; statement read in Pitman 1997, the original not read) and the Laplacian spectrum of the path. Formal: only Lemma S41 (the sequence lemma) is formalized in Lean. It uses none of the candidate results MD-0015 to MD-0021. Novelty: the literature audit of session 13 found no proof or disproof of the upper bound and no use of the distance eigenvalues or of Darroch's rule for the location of the peak, within an English web and arXiv search (no MathSciNet, zbMATH or Google Scholar).",
       "depends_on": [
         {
           "ref": "MD-0023",

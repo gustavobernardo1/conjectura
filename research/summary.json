@@ -176,8 +176,8 @@
           "partial-result": 1
         },
         "formal": {
-          "not-started": 19,
-          "partial": 3
+          "not-started": 18,
+          "partial": 4
         },
         "novelty": {
           "preliminary-search-completed": 16,
@@ -206,11 +206,11 @@
   "generated": {
     "date": "2026-11-27",
     "branch": "research",
-    "revision": "917d657c9fbb881d50e062efe0e963199f7c086c",
+    "revision": "45fc87136c6be8360924abe548b323b1f761781d",
     "sources_committed": false,
     "sources": {
       "research/catalogue.json": "bf451e00de41eb9b83d6534d1fd1f05b30741642",
-      "research/discoveries.json": "f928e3a785860baba819f4c8cd7685b8e96bc20d",
+      "research/discoveries.json": "b9b735479b84e67f1939d01b3099d7b8a61b7c90",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "1992016e8ba83ae8f4b4386cc7f81929979cb6c0"
     }
