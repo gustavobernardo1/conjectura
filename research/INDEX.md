@@ -2,7 +2,7 @@
 
 # Research index
 
-Catalogue last updated: 2026-11-26. Scoring model version: 1.
+Catalogue last updated: 2026-11-27. Scoring model version: 1.
 
 The score is a weighted-sum heuristic used to order the queue of candidate problems.
 It is **not** a probability of success. Read each score together with its written

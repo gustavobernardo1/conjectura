@@ -2408,3 +2408,158 @@ Searches: 15 web queries (listed in the auditor's report, journal entry of
 session 13); English web and arXiv only; no MathSciNet, zbMATH or Google
 Scholar; papers citing Andriantiana–Misanantenaina–Wagner not followed. An
 unsuccessful search does not establish originality.
+
+## Audit for session 14 (2026-11-27)
+
+Made by a `literature-auditor` subagent (`claude-opus-5-5`) on 2026-11-27,
+for the candidate proof `manuscripts/CJ-0001-collins-shor/main.tex`
+(Sections 1 and 15 read). Budget: about 15 minutes and at most 25 web
+requests. Used: 19 web requests (4 web searches, 15 fetches); 3 of the
+fetches downloaded PDFs, which were then read as page images from the
+locally saved files (no further web requests). Access date of every source:
+2026-11-27. No prior resolution of the conjecture, or of either half, was
+found within this coverage.
+
+### Queries (verbatim, general web search tool, standard mode)
+
+1. `"Collins-Shor" OR "Collins–Shor" conjecture tree distance polynomial peak`
+2. `trees "spanning rooted forests" OR "rooted spanning forests" "average number of edges" OR "expected number of roots" path extremal "Laplacian eigenvalues" 1/(1+μ) sum`
+3. `"Darroch" mode mean "Laplacian coefficients" OR "distance coefficients" tree real-rooted peak index bound`
+4. `"distance matrix" tree characteristic polynomial "every coefficient" OR "each coefficient" OR "all coefficients" star smallest path largest "among all trees" Graham Lovász forests`
+
+### URLs fetched and what was actually read
+
+| URL | What was read |
+| --- | --- |
+| `https://api.openalex.org/works?search=Graham%20Lov%C3%A1sz%20unimodality%20coefficients%20distance%20characteristic%20polynomial%20tree&select=id,title,doi,publication_year,cited_by_count,ids` | Tool listing of 22 records. The ELA paper is `W1528479167` (DOI `10.13001/1081-3810.3493`, arXiv:1507.02341, "cited by 8"). One new record of possible relevance: arXiv:2608.16977 (2026), checked below. |
+| `https://api.openalex.org/works?filter=cites:W1528479167&select=id,title,doi,publication_year,ids&per-page=50` | Tool listing, `meta.count` 7: arXiv:2103.00647, 1812.05734, 2104.14516, 2206.07561 (preprint and LAA 2023 record), 2407.03309 (Comput. Appl. Math. 2025, DOI `10.1007/s40314-025-03163-5`), "Discrete Mathematics Days 2022". Same set as in session 11; nothing new since. |
+| `https://api.openalex.org/works?filter=cites:W4409150226\|W2027419566\|W4365150847\|W4283022060,publication_year:>2018&select=id,title,doi,publication_year,ids&per-page=50` | Tool listing, `meta.count` 21: works since 2019 citing Collins (1989), the LAA 2023 paper, its arXiv record, or the 2025 journal version of arXiv:2407.03309. Besides the papers above: arXiv:2207.03343, arXiv:2306.07956 (journal DOI `10.1145/3849485`, 2026, not opened), arXiv:2309.08691 (seen in session 10), three theses (below), and seven records whose titles are unrelated (quaternion Sylvester equations, seven-valent symmetric graphs, special linear group, conjugacy graphs, codes and groups, Albertson spectra, NM-polynomials of drugs; titles only, apparently mis-linked). |
+| `https://api.openalex.org/works?filter=openalex_id:W7216863722\|W7151911856\|W7197401696\|W4412829015&select=id,title,publication_year,type,primary_location,authorships,abstract_inverted_index` | Tool summaries of the OpenAlex abstracts: A. Ngo, *Deep reinforcement learning in extremal combinatorics*, thesis, Univ. Delaware 2025; M. Roucairol, *Monte-Carlo tree search applied to structure generation*, PhD thesis, PSL 2024; J. Rubeš, *Applying reinforcement learning to rigidity theory*, bachelor thesis, CTU 2025; T. Wu, X. Dong, *Further results on permanents of Laplacian matrices of trees*, Open Math. 2025. No abstract mentions the distance polynomial, Collins, Graham–Lovász or a peak. The theses themselves were NOT opened. |
+| `https://api.openalex.org/works/W4283761078?select=id,title,doi,publication_year,primary_location,authorships,abstract_inverted_index` | OpenAlex record of "Discrete Mathematics Days 2022" (DOI `10.22429/euc2022.016`; Santander, 4–6 July 2022): tool summary of the volume's description only. The volume, and whichever extended abstract in it cites AAB, were NOT opened. |
+| `https://api.semanticscholar.org/graph/v1/paper/DOI:10.1007/s00373-020-02136-1/citations?fields=title,year,externalIds,venue&limit=100` | Empty list (`data: []`). |
+| `https://api.semanticscholar.org/graph/v1/paper/arXiv:1903.09825/citations?fields=title,year,externalIds,venue&limit=100` | Tool listing: 12 papers citing Andriantiana–Razanajatovo Misanantenaina–Wagner (titles only): arXiv:2610.11446, 2608.06818, 2604.28033 (2026), Sui–Li DAM 2025, Engbers–Erey DAM 2023, Contrib. Math. 2022 (unicyclic independent sets), arXiv:2208.10475, 2204.10236, 2104.00600, 2008.06531, Adv. Appl. Math. (Hans) 2026, DAM 2025 (minimal edge covers). All titles concern average sizes of matchings, maximal matchings, independent sets, dominating sets or edge covers. None was opened. |
+| `https://arxiv.org/abs/2608.16977` | Abstract page, tool summary: Zheng, Zhang, Avigad, Tetali, Welleck, *The Problem Is the Problem: Towards Scalable Mathematical Discovery*, v1 only (17 Aug 2026). A pipeline that extracted 4,717 well-posed open problems from 5,245 combinatorics papers and surfaced 598 potential resolutions; the abstract names results on Davies–Jenssen–Perkins–Roberts, Erdős–Straus, Ikenmeyer–Pak–Panova and Lund–Saraf–Wolf, and does not mention this conjecture. |
+| `https://arxiv.org/html/2608.16977v1` (twice: offset 0 and offset 100000) | Tool search of the HTML text for "Graham", "Lovász", "Lovasz", "Collins", "Shor", "distance matrix", "distance characteristic polynomial", "unimodal", "peak", "Aalipour": none found. Coverage: characters 0 to 100,000 (abstract, Sections 1–6, start of the references, contents of Appendices A–C), and from 100,000 until a tool truncation inside Appendix C.3. The rest of Appendix C, later appendices and part of the reference list were NOT seen, and embedded prompt blocks were not decoded. Tool keyword search only, not a reading. |
+| `https://arxiv.org/pdf/2104.14516` (v1, 29 Apr 2021) | Downloaded PDF read as page images: pp. 1–6 and 8–11. Not read: p. 7 and pp. 12 onwards. |
+| `https://arxiv.org/pdf/2207.03343` (v3, 3 Aug 2022) | Downloaded PDF read as page images: pp. 1–3 and 6–9 (Section 5 and Table 1). Not read: pp. 4–5 and 10 onwards. |
+| `https://arxiv.org/pdf/2306.07956` (v2, 27 Jun 2023) | Downloaded PDF read as page images: pp. 1–3 and 9–12 (Section 4, all ten conjectures). Not read: pp. 4–8 and 13 onwards. |
+| `https://arxiv.org/abs/2407.03309` | Abstract page, tool summary: still one version only (v1, 3 July 2024); no journal reference on the arXiv page. |
+| `https://arxiv.org/abs/2603.17114` | Abstract page, tool summary: Levit, Kadrawi, *Closing Trees into Unicyclic Counterexamples*, v1 (17 Mar 2026). Independence polynomials of unicyclic graphs, unimodal but not log-concave; "Darroch localization" is applied to a real-rooted correction term. It does not concern distance or Laplacian matrices. |
+
+The web search tool's result lists (queries 1–4) were seen as titles, URLs
+and the tool's summaries only. Other result titles that were not opened:
+arXiv:1307.3810 (Knill, counting rooted forests), 1512.07757, 2512.19256,
+2402.07209, 2205.10968, 2008.00722, 1205.6487 (query 2); 1410.6601
+(Brändén's survey), 1709.03407, 2609.06096, 2104.08476, 1104.4280,
+1609.04579, 1505.04806 (query 3); Graham–Lovász 1978 (UCSD copy),
+core.ac.uk 10129286, arXiv:2411.11488, McKay's *SpectralTrees.pdf*
+(query 4).
+
+### Findings per question (within this coverage only)
+
+**Question 1: has either half, or the whole, been proved, claimed or
+refuted (2015–2026)?** No source that proves, claims or refutes either bound
+was found.
+
+- *Citing works.* OpenAlex lists 7 works citing the ELA paper; together with
+  the Semantic Scholar list of session 13 they are the same papers as
+  before, plus "Discrete Mathematics Days 2022", which was not opened. Works
+  since 2019 that cite Collins (1989), the 2022/2023 Abiad et al. paper or the
+  2025 journal version of Jana–Mahato–Sivasubramanian add only the two
+  Monte Carlo papers, three reinforcement-learning theses (abstracts only)
+  and unrelated records. arXiv:2407.03309 still has one version.
+- *The refutations of a "Collins conjecture" concern Conjecture 10 of
+  Collins (1989), not Conjecture 9.* This settles the item left unverified
+  since session 2. Wagner (arXiv:2104.14516, §2.4, pp. 9–11) states
+  "Conjecture 2.4 (Collins [18]). The sequence of absolute values of the
+  non-zero coefficients of CPA(T) form a unimodal sequence, and its peak is
+  at the same place as the peak of the normalized coefficients of CPD(T)",
+  refutes its peak part (Theorem 2.5, Proposition 2.6), and on p. 11 writes
+  about his trees `T_{n,d}`: "It seems that when n is large enough compared
+  to d, we always have p_D(T_{n,d})/n(T_{n,d}) = ⌊n/2⌋/n ≈ 1/2. We do not know
+  how to prove this. Instead we will use a result from [1], which states that
+  p_D(T) ≤ ⌈2/3 n(T)⌉ for every tree T." He also states (p. 9) the
+  Graham–Lovász conjecture with peak "precisely at index ⌊n/2⌋" and its
+  refutation by Collins for paths. His 48-vertex example has `p_D/n = 1/2`.
+  Roucairol–Cazenave (arXiv:2207.03343, §5.3) treat "Conjecture 3. Collins.
+  Conjecture 10 from [9], also present as conjecture 2.4 from [26]" and
+  refute only "the second part of the conjecture"; their example has
+  "p_D(T) at 16/30" (so `n = 32`, `p_D = 16 = n/2`, inside the Collins–Shor
+  range). Vito–Stefanus (arXiv:2306.07956, §4) use the same statement as
+  their resolved "Conjecture 3 (Collins, 1989)"; their six open conjectures
+  (Liu et al. 2021, two; AutoGraphiX/Aouchiche 2006, four) do not include
+  the peak of the distance polynomial. None of the three papers addresses
+  Conjecture 9. Their examples, as quoted, are consistent with it. That the
+  adjacency conjecture is Conjecture 10, p. 35, of Collins (1989) agrees with
+  this dossier's reading of the paper in session 11.
+- *AI discovery pipeline.* The parts of arXiv:2608.16977 that the tool
+  searched contain no mention of the conjecture or its objects. The tail of
+  the HTML text was not searched.
+- *Not found:* any thesis, talk or 2025–2026 arXiv paper on the peak
+  location for all trees. Theses were found only through OpenAlex citation
+  links, and those three concern reinforcement learning.
+
+**Question 2: is `d_k(T) ≥ d_k(S_n)` (or `d_k(T) ≤ d_k(P_n)`) stated
+anywhere; is "the path minimizes `tr(I+L)^{−1}` among trees" stated
+directly?**
+
+- *Coefficientwise minimality of the star / maximality of the path for the
+  distance coefficients.* Query 4 found no statement (tool summary: "I did
+  not find a source stating that the star minimizes and the path maximizes
+  each coefficient over all trees"). Not found within this coverage. This
+  adds one query to those of sessions 9 and 11.
+- *`tr(I+L)^{−1}` and the path.* Query 2 returned the forest-counting
+  identity `det(I+L)` = number of rooted spanning forests (Knill,
+  arXiv:1307.3810, per the tool's summary) but no extremal statement for
+  `Σ 1/(1+μ)` or for the expected number of roots or edges of a uniform
+  rooted spanning forest over trees. The 12 papers that Semantic Scholar
+  lists as citing Andriantiana–Razanajatovo Misanantenaina–Wagner all have
+  titles about average sizes of matchings, maximal matchings, independent
+  sets, dominating sets or edge covers. None has a Laplacian-spectral or
+  forest title, and none was opened. Within this coverage the session-13
+  conclusion stands: no direct statement was found, and the result is very
+  probably a consequence of [AMW, Theorem 4.4] through the subdivision
+  argument recorded in session 13. That argument is unreviewed.
+
+**Question 3: has Darroch's rule been applied to the distance characteristic
+polynomial of trees, or to `q(x)` in `ℓ_T = 4(α − x)q(x)`?** Not found.
+Query 3 returned Darroch's rule in general form and in surveys, Laplacian
+coefficient papers on trees with no mode bounds (tool summaries), and one
+2026 paper (arXiv:2603.17114) that applies "Darroch localization" to
+independence polynomials of unicyclic graphs, a different object. Wagner's
+p. 11 confirms that, as of 2021, the only general upper bound he knew was
+`⌈2n/3⌉` of AAB.
+
+### Not searched or not accessible
+
+- The "Discrete Mathematics Days 2022" volume and the extended abstract in it
+  that cites AAB (very probably related to arXiv:2206.07561, which is not
+  verified); the three theses (Ngo 2025, Roucairol 2024, Rubeš 2025) beyond
+  their OpenAlex abstracts; the journal version of arXiv:2306.07956
+  (DOI `10.1145/3849485`).
+- The tail of arXiv:2608.16977 (part of Appendix C onwards), and any
+  supplementary list of the problems it extracted.
+- Full texts of the 12 papers citing AMW; papers citing AMW's journal
+  version (Semantic Scholar returned none, OpenAlex was not queried for it).
+- MathSciNet, zbMATH, Google Scholar, MathOverflow, ResearchGate,
+  non-English sources, and the full texts of most search hits listed above.
+- Formalization libraries were not re-searched in this session.
+
+An unsuccessful search does not establish originality. The statements above
+mean only "not found within this coverage".
+
+### Recommendation for the registry (the auditor did not edit it)
+
+- CJ-0001 novelty: the evidence is unchanged in kind. Within the cumulative
+  coverage of sessions 2–14, no prior proof, claim or refutation of either
+  half was found; `no-prior-resolution-found` (with its coverage qualifier)
+  remains the honest value if the registry uses it.
+- Close the long-standing unverified item (sections "Unverified items" and
+  "Project notes"): Wagner (arXiv:2104.14516), Roucairol–Cazenave
+  (arXiv:2207.03343) and Vito–Stefanus (arXiv:2306.07956) refute only the
+  peak-coincidence part of Collins's Conjecture 10 (adjacency versus
+  distance), and their examples are consistent with Conjecture 9.
+- Manuscript Section 15 could add OpenAlex citing-work lists of Collins
+  (1989) and AMW (via Semantic Scholar) to its coverage sentence, and note
+  that the "not searched" item "the papers citing [AMW]" is now covered by
+  title only.

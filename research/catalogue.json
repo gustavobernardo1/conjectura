@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "problems": [
     {
       "id": "CJ-0001",
@@ -33,13 +33,13 @@
         "external_review": "not-reviewed"
       },
       "open_status": {
-        "as_of": "2026-11-26",
+        "as_of": "2026-11-27",
         "evidence": "arXiv:1507.02341 (versions 2015 to 2017) states that the peak location remains open and reports verification for all trees of order at most 20. arXiv:2206.07561 (2022, read in full) says of it: 'Little progress on this problem is known.' arXiv:2407.03309 (2024, read in full) studies the peak location for two other matrices of a tree and reports no result on this conjecture. A citation index queried on 2026-11-26 lists no title announcing a resolution. No source dated after July 2024 was found.",
         "url": "https://arxiv.org/abs/2206.07561"
       },
       "novelty_search": {
-        "as_of": "2026-11-26",
-        "coverage": "Session 1: three web queries; the TeX source of arXiv:1507.02341 read for the exact statement. Session 2 (literature audit by a separate agent context, 2026-11-26): arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries; two citation lists (5 papers citing arXiv:1507.02341 and 14 citing Collins 1989, mostly titles only). Within this coverage no proof or refutation was found, and no proof of either half for a family other than stars and paths. Details: the dossier. Session 11: Collins (1989) read in full and Collins's thesis (1986) read (pp. 30–47 and 55–61 as page images, the rest through OCR); a further audit by a separate agent context (11 searches, 19 fetches): no proof or refutation of the conjecture or of either half was found.",
+        "as_of": "2026-11-27",
+        "coverage": "Session 1: three web queries; the TeX source of arXiv:1507.02341 read for the exact statement. Session 2 (literature audit by a separate agent context, 2026-11-26): arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries; two citation lists (5 papers citing arXiv:1507.02341 and 14 citing Collins 1989, mostly titles only). Within this coverage no proof or refutation was found, and no proof of either half for a family other than stars and paths. Details: the dossier. Session 11: Collins (1989) read in full and Collins's thesis (1986) read (pp. 30–47 and 55–61 as page images, the rest through OCR); a further audit by a separate agent context (11 searches, 19 fetches): no proof or refutation of the conjecture or of either half was found. Session 13: an audit of the upper half (15 queries; dossier, \"Audit for session 13\"). Session 14: an audit by a separate agent context (4 searches, 15 fetches; dossier, \"Audit for session 14\"): the OpenAlex citation lists of arXiv:1507.02341 (7 works) and of Collins (1989), arXiv:2206.07561 and arXiv:2407.03309 (21 works since 2019), and the titles of the 12 papers citing Andriantiana-Razanajatovo Misanantenaina-Wagner (2020): no proof, claim or refutation of the conjecture or of either half was found; the refutations of 2021 to 2023 (arXiv:2104.14516, 2207.03343, 2306.07956) concern Collins's Conjecture 10, not Conjecture 9.",
         "limitations": "Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow (one general query only), non-English literature. Most citing papers were seen by title only. The formulas of pp. 13–29 and 48–54 of Collins's thesis were read through OCR only. An unsuccessful search does not establish that nobody has settled the conjecture or the special cases treated by the project."
       },
       "scores": {
