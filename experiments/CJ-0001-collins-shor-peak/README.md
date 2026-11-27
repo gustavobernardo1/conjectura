@@ -31,6 +31,7 @@ decide an inequality.
 | `slope_family.py` | Objective O7 (`STATE.md`, "Next step"): the polynomial `F(T, ν, u)`, statement (E″) with `ν = 0` included, the three leaf identities for `F`, and the slope statement (S), on every weighted tree with at most 6 vertices and weights 0 to 4. Pure Python integers. Details below. |
 | `slope_family_extension.py` | For the failures of (S) and (E″) stored by `slope_family.py`: the tree with one more leaf (a failure of (E″) for a larger weight) and statement (E) on the corresponding trees. Imports `slope_family.py`. |
 | `slope_family_verify.py` | Independent checker of the stored failures (hypotheses, then the violation): evaluation at integer points, Gauss–Jordan elimination over `Fraction`, interpolation. Shares no code with the two scripts above. |
+| `upper_bound.py` | Session 12: exact checks around `tr(T) = trace (I+L)^{-1}` and an upper bound on the peak index: path minimality of `tr`, the path value, the peak bound `p < n - n/sqrt 5 + 3/5`, pendant-path merging, a path inequality, the merge identity. Imports `lower_bound.py`, `distpoly.py`, `tree_shift.py`. Details below. |
 | `results/*.json` | Outputs of the runs below. |
 
 Validation: `uv run pytest tests/test_cj0001_distpoly.py` (101 tests) and
@@ -464,6 +465,98 @@ result). These are finite checks. They do not prove S37, S38, T7, T8, S39 (those
 rest on the written proofs of the note, unreviewed) and say nothing about trees
 outside the ranges; part E is evidence about an open statement, and the E(ii),
 E(iii) samples are not exhaustive.
+
+## The trace of `(I+L)^{-1}` and the peak bound (session 12): `upper_bound.py`
+
+Question. Finite exact checks of the ingredients of an upper bound on the peak
+index of `d_0, ..., d_{n-2}` through `tr(T) := trace (I+L)^{-1}` (`L` the
+Laplacian), computed exactly as `-p'(-1)/p(-1)`, `p(y) = det(yI - L)`. The
+checks concern statements to be used in a proof; none of them is a proof.
+Arithmetic: Python integers, `Fraction`, `python-flint`. Two items are not exact
+and are labelled so in the code and in the result file: part B2 (50 significant
+digits with `decimal`: `high-precision numeric`) and part F (`EXPLORATORY`,
+floating point). Decimal renderings of exact margins are labelled
+`decimal_exploratory`.
+
+Command of the stored run (from the repository root):
+
+    uv run python experiments/CJ-0001-collins-shor-peak/upper_bound.py \
+        --out experiments/CJ-0001-collins-shor-peak/results/upper-bound.json
+
+No seeds (everything is exhaustive or a closed form). Defaults: `--v-max 9 --n-a 20
+--n-c 18 --n-path 2000 --n-b1 200 --n-b2 60 --x-max 8 --pq-max 8 --n-e 60 --n-f 14
+--m-size 6 --time-limit 780`. Budget fixed before the run: 15 minutes of
+wall-clock in total; the run took 293.2 s and completed every part. Versions:
+python 3.12.4, python-flint 0.9.0, networkx 3.7. `numpy` is not installed, hence
+part F takes the eigenvalues from the flint complex roots of the characteristic
+polynomial of `D` (midpoints of the enclosures, converted to floats).
+
+| Part | Statement checked | Search space (exact) | Cases | Failures |
+| --- | --- | --- | --- | --- |
+| V | `tr` by three methods (charpoly of `L`; flint exact inverse; `Fraction` Gauss-Jordan sharing no code with flint) agree; by-hand values `tr(P_1)=1`, `tr(P_2)=4/3`, `tr(P_3)=7/4`, `tr(K_{1,3})=11/5`; a continuant formula for `tr(P_n)` equals the charpoly value | every tree of order 1..9 (95 trees), the path `P_n`, `n = 1..40` | 139 | 0 |
+| A | `tr(T) >= tr(P_n)`, equality only for the path | every tree of order 2..20 (1,346,023 trees) | 2,692,065 | 0 |
+| B1 | `tr(P_n) - 2/5 > n/sqrt 5` (squares compared in Q, both sides positive) | `n = 1..200` | 400 | 0 |
+| B2 | `tr(P_n) = n/sqrt5 + 2/5 + (2n/sqrt5) r^{2n}/(1 - r^{2n})`, `r = phi^{-2}`, to 50 significant digits (high-precision numeric, working precision 90 digits) | `n = 1..60` | 60 | 0 |
+| C (path) | every maximizing index `p` satisfies `5 n^2 < (5(n-p)+3)^2` (exactly `p < n - n/sqrt5 + 3/5`); the coefficients come from Collins's closed form `d_{n-k}(P_n) = C(n+k-1, 2k-1)(k-1)n/k`, equal to the distance-matrix value for `n <= 30` | `P_n`, `n = 3..2000` | 2,026 | 0 |
+| C (trees) | the same condition for every maximizing index of every tree | every tree of order 3..18 (205,002 trees) | 205,003 | 0 |
+| D | `tr(T(p,q)) > tr(T(p+q,0))` | rooted trees `(X,v)` with `2 <= |X| <= 8` (199 classes), pairs `1 <= q <= p`, `p+q <= 8` (16 pairs) | 3,184 | 0 |
+| E | `c(0) >= c(r)`, equality only at `N = 2, r = 1` | `P_{N+1}`, `N = 2..60`, `1 <= r <= N-1` (1,770 pairs) | 1,771 | 0 |
+| M | `g_T = 1/(1+eps_A+eps_B)` and `tr(T) = tr(A) + tr(B) - g_T - g_T(eps_B kappa_A g_A + eps_A kappa_B g_B)`, with `g`, `k` the root entries of `(I+L)^{-1}`, `(I+L)^{-2}`, `eps = 1/g - 1`, `kappa = k/g^2` | all ordered pairs of rooted trees, `1 <= |A|,|B| <= 6` (37 classes, 1,369 pairs), glued at the roots | 2,738 | 0 |
+| F (exploratory) | `sum 1/(1+beta_i) <= n - tr(T)` (tolerance `1e-9`), `beta_i = -theta_i` for the `n-1` negative eigenvalues of `D/2` (one positive, `n-1` negative checked); `n - tr(T) <= n - tr(P_n)` exactly | every tree of order 3..14 (5,445 trees) | 16,335 | 0 |
+
+Result. No failure in any part, among the trees and parameter ranges of the
+table.
+
+- (A) The minimum of `tr(T) - tr(P_n)` over the non-paths is positive in every
+  order 4..20 and increases with `n`: exactly `1/105` at order 4 (the star
+  `K_{1,3}`: `11/5` against `46/21`), `5/286` at order 5, `1/51` at order 6, and
+  then approaches about `0.0201626` (exploratory decimals; order 12:
+  `0.02016260`, order 20: `0.02016261`). The exact fractions and the minimizing
+  trees are in the result file. In this range the minimum does not tend to zero.
+- (B1) The smallest margin of squares is at `n = 200` (exact rational in the
+  result file). (B2) The largest relative difference is `8.3e-90`, far below the
+  required `1e-50`.
+- (C, path) For `n = 3..2000` the peak is unique (no tied peak) and equals
+  `ceil(n - n/sqrt5) = n - isqrt(n^2 // 5)` in 393 cases and `floor` in 1,605
+  cases, never anything else (the same counts as `tree_shift.py`, part F). In the
+  393 `ceil` cases the minimum of the fractional part of `n - n/sqrt5` is
+  `0.80128` (at `n = 1436`; `decimal`, 60 digits, high-precision numeric), above
+  `2/5`, as the strict inequality requires there. The smallest exact slack
+  `(5(n-p)+3)^2 - 5n^2` over the path and all trees of order 3..18 is the integer
+  89 (order 4, `p = 2`).
+- (C, trees) The largest peak index over all trees of order `n` is
+  `1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 10` for `n = 3..18`, each below
+  `n - n/sqrt5 + 3/5` (2.26, 2.81, ..., 10.55).
+- (D) The smallest margin is `1/105` (`X` an edge, `p = q = 1`: the star against
+  `P_4`).
+- (E) The only equality is `N = 2, r = 1` (`c(0) = c(1) = 3/4`); the smallest
+  strict gap is `1/26` at `N = 3, r = 1`.
+- (F) The smallest gap over the 5,445 trees is about 0.0179 (order 3); no
+  violation. Exploratory.
+
+Range actually run. The request was orders 2..17 for (A) and 3..16 for (C); the
+first complete run with those ranges took 32 s, far below the budget, so the
+ranges were extended to 2..20 and 3..18 before the stored run (the first run was
+overwritten; same code, same results on the overlap). The numbers of trees per
+order equal OEIS A000055 (`distpoly.layouts`, validated in
+`tests/test_cj0001_distpoly.py`).
+
+Provenance: HEAD at the time of the run was `53421a6` with `tree_clean: false`
+only because `upper_bound.py`, its test and the result file were not yet
+committed (the `dirty_files` list of the result file shows exactly those three).
+`tree_shift.py`, `lower_bound.py`, `distpoly.py`, `rooted_state.py` were identical
+to their blobs at that revision; the SHA-256 of `upper_bound.py` is in the
+`sources` block.
+
+Regression test: `tests/test_cj0001_upper_bound.py` (about 1 s: the trace by hand
+and by three methods, small orders of A and C with the star-path difference
+`1/105` by hand, the peak condition by hand and at the boundary `p = n - 1`, the
+path peaks and closed form, B1, B2 with a negative control showing that a wrong
+constant is detected, D on small ranges with `T(1,1) = K_{1,3}` against `P_4` by
+hand, E with `P_3` by hand, M with a negative control in which the sign of the
+correction term is flipped, F on small orders, and the stored result). These are
+finite checks. They do not prove path minimality of `tr`, the peak bound for all
+trees, or the merge identity; part F is exploratory.
 
 ## Limits
 
