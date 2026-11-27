@@ -2040,6 +2040,139 @@
           "note": "(PM) would give the upper half of the conjecture, given the bound on the peak of the path."
         }
       ]
+    },
+    {
+      "id": "MD-0022",
+      "type": "theorem",
+      "title": "The upper bound of the Collins–Shor conjecture for every tree",
+      "statement": "Let T be a tree of order n ≥ 3 with distance matrix D and Laplacian L, let ℓ_T(x) = −2^{−(n−2)} det(2xI − D), and for 0 ≤ k ≤ n − 2 let d_k be the coefficient of x^k in ℓ_T (the normalized coefficients of the distance characteristic polynomial). Then every index p with d_p = max_k d_k satisfies p < n − n/√5 + 3/5; in particular p ≤ ⌈n − n/√5 − 2/5⌉ ≤ ⌈n − n/√5⌉. More precisely, writing the eigenvalues of D/2 as α > 0 > −β_1 ≥ … ≥ −β_{n−1} and q(x) = Π_i (x + β_i): every maximizing index of d_0, …, d_{n−2} is at most every maximizing index of the coefficients of q, and Σ_i 1/(1 + β_i) ≤ n − tr(I + L)^{−1} < n − n/√5 − 2/5.",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 13 (principal investigator): the spectral route (S40 to S42), the reduction to the trace of (I+L)^{-1}, the proofs of Lemmas S43 to S46 and Theorems T9 and T10"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 13, literature-auditor subagent: located Darroch's rule (through Pitman 1997), Merris 1990 and Andriantiana-Misanantenaina-Wagner (2020), and derived T10 from the last"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (instructions for session 13: resolve the upper bound; no mathematical input)"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
+          "summary": "Lemma S40 (ℓ_T = 4(α − x)q(x), q real-rooted, from the Graham–Lovász inverse and Weyl interlacing), S41 (if q_{k+1} < q_k then d is strictly decreasing from k on), S42 (the mean of q is at most n − tr(I+L)^{−1}), S43 (gluing formula for the trace), S44 (the path seen from one vertex, closed forms in cosh), S45 (merging two pendant paths lowers the trace), Theorem T10, S46 (the trace for the path), Theorem T9. A candidate proof; reviews are listed below when they exist.",
+          "revision": "53421a6"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "A candidate proof, not an established result. It uses classical results cited, not reproved: the Graham–Lovász inverse and the Graham–Pollak determinant, Weyl interlacing, Newton's inequalities, Darroch's rule (1964; statement read in Pitman 1997, the original not read) and the Laplacian spectrum of the path. It uses none of the candidate results MD-0015 to MD-0021. Novelty: the literature audit of session 13 found no proof or disproof of the upper bound and no use of the distance eigenvalues or of Darroch's rule for the location of the peak, within an English web and arXiv search (no MathSciNet, zbMATH or Google Scholar).",
+      "depends_on": [
+        {
+          "ref": "MD-0023",
+          "note": "Theorem T10 (the path minimizes tr(I+L)^{−1}) and Lemma S46 (its value); only tr(I + L_T)^{−1} > n/√5 + 2/5 is used.",
+          "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
+        },
+        {
+          "citation": "J. N. Darroch, Ann. Math. Statist. 35 (1964) 1317–1321 (Darroch's rule: every mode of a polynomial with non-negative coefficients and only real zeros differs from its mean by less than 1), as stated by J. Pitman, J. Combin. Theory Ser. A 77 (1997) 279–303, p. 284."
+        },
+        {
+          "citation": "R. L. Graham, L. Lovász, Adv. Math. 29 (1978) 60–88 (inverse of the distance matrix of a tree); R. Merris, J. Graph Theory 14 (1990) 365–369 (the resulting interlacing of distance and Laplacian eigenvalues)."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S40, S41, S42, S46, T9",
+          "note": "Session 13, objective: the upper half."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "The upper half of Conjecture 1.2 of arXiv:1507.02341 for every tree; with Theorem T6(c) (MD-0019, the lower half, a candidate proof) the whole conjecture."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-27",
+        "coverage": "Literature audit of session 13: 15 web searches; arXiv:1507.02341 and its five citing papers (Semantic Scholar); Pitman 1997; Merris 1990; arXiv:1903.09825; arXiv:2606.30996. No proof or disproof of the upper bound; no link of the peak with Darroch's rule or the distance eigenvalues.",
+        "limitations": "English web and arXiv only; no MathSciNet, zbMATH or Google Scholar; papers citing Andriantiana–Misanantenaina–Wagner not followed. An unsuccessful search does not establish originality."
+      }
+    },
+    {
+      "id": "MD-0023",
+      "type": "theorem",
+      "title": "The path minimizes the trace of (I + L)^{−1} among trees",
+      "statement": "For every tree T of order n ≥ 1 with Laplacian L, tr (I + L_T)^{−1} ≥ tr (I + L_{P_n})^{−1}, with equality only if T is the path P_n; equivalently, Σ_j μ_j/(1 + μ_j) over the Laplacian eigenvalues of T is maximal exactly for the path. Moreover tr (I + L_{P_n})^{−1} = n/√5 + 2/5 + (2n/√5) r^{2n}/(1 − r^{2n}) with r = φ^{−2}, φ = (1+√5)/2. The proof uses: if (X, v) is a rooted tree with at least two vertices and p, q ≥ 1, then replacing two pendant paths of p and q new vertices at v by one pendant path of p + q new vertices at v strictly decreases tr (I + L)^{−1}.",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 13 (principal investigator): the spectral route (S40 to S42), the reduction to the trace of (I+L)^{-1}, the proofs of Lemmas S43 to S46 and Theorems T9 and T10"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 13, literature-auditor subagent: located Darroch's rule (through Pitman 1997), Merris 1990 and Andriantiana-Misanantenaina-Wagner (2020), and derived T10 from the last"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (instructions for session 13: resolve the upper bound; no mathematical input)"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
+          "summary": "Lemmas S43 to S46 and Theorem T10: a self-contained proof by merging pendant paths; the key step is the convexity of x/(φ^{2x} + 1) on [3, ∞) together with an exact identity at x = 1, 3, 5. A candidate proof; reviews are listed below when they exist.",
+          "revision": "53421a6"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "A candidate proof. Very probably a known consequence of a published theorem: by the literature auditor's derivation (session 13, not reviewed), the subdivision S(T) satisfies avm(S(T)) = Σ_j μ_j/(1 + μ_j) (Lemma 5.1 of E. O. D. Andriantiana, V. Razanajatovo Misanantenaina, S. Wagner, Graphs Combin. 36 (2020) 539–560, arXiv:1903.09825), and their Theorem 4.4 (the path maximizes the average size of a matching among trees) gives the inequality; their Lemma 4.2 gives the value for the path. Their proof uses a computer-checked case analysis; the proof here does not. Originality of the statement is not claimed; whether the proof by merging pendant paths is new is not established.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S43, S44, S45, S46, T10",
+          "note": "Session 13."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0022",
+          "note": "The extremal step of the upper bound."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-27",
+        "coverage": "Literature audit of session 13: no direct statement in Laplacian, forest, resolvent or Kirchhoff language; a derivation from Andriantiana–Misanantenaina–Wagner (2020), Theorem 4.4 and Lemma 5.1.",
+        "limitations": "The two classical steps of that derivation (matching polynomial of a forest; spectrum of the subdivision) were not checked against a source; citing papers not followed; no MathSciNet or zbMATH."
+      }
     }
   ]
 }

@@ -2539,3 +2539,15 @@ the manuscript of the lower half), then objective O11 through (PM).
   all trees of order ≤ 17 (exploratory). Switching to focused work: write
   the note, a stored exact check, two independent reviews. Subagents so
   far: one literature auditor.
+- **Checkpoint 2 (16:00 by the clock, 32 minutes).** `notes/upper-bound.md`
+  committed at `53421a6`. Registered MD-0022 (T9, the upper half) and
+  MD-0023 (T10, the path minimizes the trace), both `candidate-proof`,
+  `not-reviewed`; STATE.md and the dossier updated; catalogue valid, views
+  rendered. Running in the background: two independent reviews of
+  `53421a6` (`claude-opus-5-5` fresh context; `claude-sonnet-5-5`, a model
+  other than the author's, after `claude-fable-5-2` was refused by a spend
+  limit before doing any work), the stored computation `upper_bound.py`
+  (computational experimenter), and a Lean formalization of Lemma S41
+  (formalization agent). Subagent count: six launched (one failed at once);
+  justified by the significance of the claim (two reviews are required for
+  a result that settles half of a catalogued problem).

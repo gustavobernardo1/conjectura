@@ -35,21 +35,20 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0021",
-    "type": "conjecture",
-    "title": "Peak monotonicity under the generalized tree shift, and peak-location maximality of the path",
+    "id": "MD-0023",
+    "type": "theorem",
+    "title": "The path minimizes the trace of (I + L)^{−1} among trees",
     "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
-      "mathematical": "candidate",
+      "mathematical": "candidate-proof",
       "formal": "not-started",
-      "novelty": "unknown",
+      "novelty": "preliminary-search-completed",
       "external_review": "not-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/tree-shift.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md"
+      "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md"
     ]
   },
   "latest_reviewed_contribution": {
@@ -82,30 +81,25 @@
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0020",
+    "id": "MD-0023",
     "type": "theorem",
-    "title": "The generalized tree shift lowers the distance polynomial of a tree in the half-gamma cone order; the path is the coefficientwise maximum",
+    "title": "The path minimizes the trace of (I + L)^{−1} among trees",
     "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
       "mathematical": "candidate-proof",
       "formal": "not-started",
       "novelty": "preliminary-search-completed",
-      "external_review": "ai-reviewed"
+      "external_review": "not-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/tree-shift.json",
-      "experiments/CJ-0001-collins-shor-peak/tree_shift_symbolic.py",
-      "research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-T7-T8-path-maximality.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
-      "tests/test_cj0001_tree_shift.py"
+      "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md"
     ],
     "novelty_search": {
       "as_of": "2026-11-27",
-      "coverage": "No new search in session 12. The literature audit of session 11 (11 web searches, 19 fetches; dossier) asked explicitly whether the path maximizes, or the star minimizes, the coefficients of the distance characteristic polynomial of trees, and whether they are monotone under a tree shift: nothing found for the distance matrix; the Laplacian and adjacency analogues are known (Zhou–Gutman; Mohar 2007; Csikvári 2010, 2013). Collins (1986, 1989), read in session 11, contain no such statement.",
-      "limitations": "Shallow: no MathSciNet, zbMATH or Google Scholar; Csikvári's first paper and Guo (2010) not read; the literature on the distance spectral radius of trees and on mathematical chemistry indices not searched. An unsuccessful search does not establish originality."
+      "coverage": "Literature audit of session 13: no direct statement in Laplacian, forest, resolvent or Kirchhoff language; a derivation from Andriantiana–Misanantenaina–Wagner (2020), Theorem 4.4 and Lemma 5.1.",
+      "limitations": "The two classical steps of that derivation (matching polynomial of a forest; spectrum of the subdivision) were not checked against a source; citing papers not followed; no MathSciNet or zbMATH."
     }
   },
   "public": {
@@ -160,38 +154,38 @@
       }
     },
     "contributions": {
-      "registered": 21,
+      "registered": 23,
       "by_standing": {
-        "candidate": 19,
+        "candidate": 21,
         "established": 0,
         "rediscovered": 2,
         "withdrawn": 0
       },
-      "counted": 19,
+      "counted": 21,
       "by_type": {
         "computational-finding": 1,
         "conjecture": 5,
         "counterexample": 1,
         "structural-result": 5,
-        "theorem": 7
+        "theorem": 9
       },
       "by_status": {
         "mathematical": {
           "candidate": 4,
-          "candidate-proof": 14,
+          "candidate-proof": 16,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 16,
+          "not-started": 18,
           "partial": 3
         },
         "novelty": {
-          "preliminary-search-completed": 14,
+          "preliminary-search-completed": 16,
           "unknown": 5
         },
         "external_review": {
           "ai-reviewed": 13,
-          "not-reviewed": 6
+          "not-reviewed": 8
         }
       }
     },
@@ -212,11 +206,11 @@
   "generated": {
     "date": "2026-11-27",
     "branch": "research",
-    "revision": "33f83ea1ace5f2fa8ef3ee8cb782d3ca417849c7",
-    "sources_committed": true,
+    "revision": "53421a6f519c49a042f9e70836c4089dd0a1e2f8",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "bf451e00de41eb9b83d6534d1fd1f05b30741642",
-      "research/discoveries.json": "b4aa697a88f1e2aae80d70db5d2cf3c639e0fc09",
+      "research/discoveries.json": "b9dac0f3454469dc7cff72cad0dd0a8f404482d3",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "7b6844d46ed35f5977be6dec490d6ee1a1a98703"
     }

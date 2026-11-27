@@ -2352,3 +2352,59 @@ Laplacian and adjacency analogues of T6(b) and S36; Csikvári (2010, 2013),
 Guo (2010) and Mohar (2007) for the operation itself. The operation of S36
 should be called by its published name (generalized tree shift with `k = 2`).
 An unsuccessful search does not establish originality.
+
+## Audit for session 13 (2026-11-27): the upper bound, Darroch's rule, the trace of `(I + L)^{−1}`
+
+Made by a `literature-auditor` subagent (`claude-opus-5-5`) on 2026-11-27;
+summarized here by the principal investigator from the auditor's report (the
+report itself was returned in the session and is not stored separately).
+Access date of every source: 2026-11-27.
+
+**Question 1: is it known that the path minimizes `tr(I + L_T)^{−1}` among
+trees?** No direct statement was found in Laplacian, rooted-forest,
+resolvent-energy or Kirchhoff-index language. The auditor derived it from:
+E. O. D. Andriantiana, V. Razanajatovo Misanantenaina, S. Wagner, *The
+average size of matchings in graphs*, arXiv:1903.09825v1 (read, pp. 1–18);
+journal version Graphs Combin. 36(3) (2020) 539–560,
+doi:10.1007/s00373-020-02136-1 (Crossref; not read). Lemma 4.2 (eq. 8):
+`avm(P_n) = (5−√5)/10·n + (1−√5)/10 − (n+1)/(√5((−φ²)^{n+1} − 1))`.
+Theorem 4.4: for every tree `T` of order `n` other than the path,
+`avm(T) ≤ an + b`, `b = (7√5 − 17)/10`, and the path maximizes `avm` among
+trees of order `n` (strictly; the proof uses 35 computer-checked cases).
+Lemma 5.1: `avm(G) = ½ Σ_j μ_j²/(μ_j² + 1)` over the zeros of the matching
+polynomial. The derivation: the subdivision `S(T)` is a tree whose adjacency
+eigenvalues are `±√μ_j` and zeros; for a forest the matching polynomial is
+the characteristic polynomial; so `avm(S(T)) = Σ_j μ_j/(1 + μ_j)` and the
+path is the maximizer. The two classical steps were not checked against a
+source in the session; the derivation is unreviewed. Other sources looked
+at: arXiv:2606.30996 (Liu–Tang, resolvent energies; its admissible class does
+not contain `μ/(1+μ)`), arXiv:2609.29486, arXiv:2008.00722 (abstracts).
+
+**Question 2: has the upper bound been proved or disproved since 2018?** The
+five papers citing arXiv:1507.02341 (Semantic Scholar API: 2407.03309,
+2206.07561, 2104.14516, 2103.00647, 1812.05734) and web searches for 2025–2026
+show nothing; the upper bound `⌈2n/3⌉` of the source (Theorem 3.3) is proved
+by ratio inequalities, not through the mean of a real-rooted polynomial or
+the distance eigenvalues. No source links the peak with Darroch's rule.
+
+**Question 3: the classical tools.** Darroch's rule: J. N. Darroch, Ann.
+Math. Statist. 35 (1964) 1317–1321 (original not read: empty page); its
+statement read in J. Pitman, J. Combin. Theory Ser. A 77 (1997) 279–303,
+p. 284: "a PF sequence … has either a unique index `m` or two consecutive
+indices `m` such that `a_m = max_k a_k`. Darroch showed that such a mode `m`
+differs from the mean `μ` by less than 1", with the finer form of
+Theorem 4 of Darroch. Merris, *The distance spectrum of a tree*, J. Graph
+Theory 14 (1990) 365–369 (read in full): the eigenvalues of `−2K^{−1}`
+interlace those of `D`, explicitly
+`0 > −2/λ_1 ≥ d_2 ≥ −2/λ_2 ≥ ⋯ ≥ −2/λ_{n−1} ≥ d_n`, `K` with the non-zero
+Laplacian eigenvalues; the inertia of `D` is `(1, n−1, 0)`.
+
+**Consequences for the registry.** MD-0022 (T9): no prior proof of the upper
+bound found within this coverage; the spectral form, Darroch's rule and the
+interlacing are known tools. MD-0023 (T10): very probably a known
+consequence of Theorem 4.4 of Andriantiana–Misanantenaina–Wagner; the proof
+of `notes/upper-bound.md` by merging pendant paths is independent of theirs.
+Searches: 15 web queries (listed in the auditor's report, journal entry of
+session 13); English web and arXiv only; no MathSciNet, zbMATH or Google
+Scholar; papers citing Andriantiana–Misanantenaina–Wagner not followed. An
+unsuccessful search does not establish originality.
