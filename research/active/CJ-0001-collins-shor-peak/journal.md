@@ -2769,3 +2769,6 @@ draft) and supplied some citation details from memory, to be checked
 once). The final clean `verify_lean.py` run and the push are recorded in the
 commit that follows this entry.
 
+Final verification (16:57 by the clock): `uv run python scripts/verify_lean.py`
+on a clean tree at `319c099` — toolchain, build, sources, axioms, registry,
+replay passed; receipt `verification/receipts/20261127T195730Z-319c099c1c-passed.json`.
