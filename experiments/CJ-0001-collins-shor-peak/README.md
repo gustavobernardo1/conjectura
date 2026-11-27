@@ -32,6 +32,7 @@ decide an inequality.
 | `slope_family_extension.py` | For the failures of (S) and (E″) stored by `slope_family.py`: the tree with one more leaf (a failure of (E″) for a larger weight) and statement (E) on the corresponding trees. Imports `slope_family.py`. |
 | `slope_family_verify.py` | Independent checker of the stored failures (hypotheses, then the violation): evaluation at integer points, Gauss–Jordan elimination over `Fraction`, interpolation. Shares no code with the two scripts above. |
 | `upper_bound.py` | Session 13: exact checks around `tr(T) = trace (I+L)^{-1}` and an upper bound on the peak index: path minimality of `tr`, the path value, the peak bound `p < n - n/sqrt 5 + 3/5`, pendant-path merging, a path inequality, the merge identity. Imports `lower_bound.py`, `distpoly.py`, `tree_shift.py`. Details below. |
+| `manuscript_check.py` | Session 14: independent exact check of the lower half as restated in `manuscripts/CJ-0001-collins-shor/main.tex` (rooted calculus with root weights, plant and merge rules, leaf recursion, distance formulas, the sum of squares, the cone memberships, star minimality), written from the manuscript's definitions and sharing no code with the other scripts. Details below. |
 | `results/*.json` | Outputs of the runs below. |
 
 Validation: `uv run pytest tests/test_cj0001_distpoly.py` (101 tests) and
@@ -558,6 +559,38 @@ hand, E with `P_3` by hand, M with a negative control in which the sign of the
 correction term is flipped, F on small orders, and the stored result). These are
 finite checks. They do not prove path minimality of `tr`, the peak bound for all
 trees, or the merge identity; part F is exploratory.
+
+## The manuscript check (session 14): `manuscript_check.py`
+
+Question. Do the identities and cone memberships of Sections 4 to 7 of
+`manuscripts/CJ-0001-collins-shor/main.tex` hold, as written there, on small
+trees? The script was written from the manuscript's definitions only (root
+weight `w` at the root, `R_w`, `π_w`, the branch polynomials `Ψ`, `Ω`, and
+`H`, `G`, `E`); it imports nothing from the other scripts. Arithmetic: exact
+(`fractions.Fraction`); every matrix polynomial is computed by evaluation at
+integer points and Lagrange interpolation; `K_d` membership by the
+coordinates in the basis `{x^e(1+x)^(d-2e): 2e < d} ∪ {x^e: 2e ≥ d}`.
+
+Checks, per rooted tree of order `≤ --max-rooted` (one per isomorphism class
+of rooted trees): Lemma 5.1 for `w = 0, 1, 2`; `Ψ` as the product over the
+branches; Proposition 5.2(b) and (c) (raise, plant, including `Φ̂_0`);
+Proposition 6.2(a), (b); Corollary 5.3(a), (b); Proposition 6.1(b), (c), (e)
+(both forms of `R_1`); the memberships of Proposition 6.1, Corollary 4.4 and
+Theorem 7.1. Per pair of rooted trees whose merge has order `≤ --max-merge`:
+Proposition 5.2(d), Proposition 6.2(c), Proposition 6.3 (identity and
+membership). Per tree of order 2 to `--max-order-sm`: Theorem 7.3(b) and (c).
+(Numbers as in the manuscript compiled in session 14.)
+
+Command of the stored run (from the repository root):
+
+    uv run python experiments/CJ-0001-collins-shor-peak/manuscript_check.py \
+        --max-rooted 8 --max-order-sm 12 --max-merge 8 \
+        --out experiments/CJ-0001-collins-shor-peak/results/manuscript-check.json
+
+No seeds (exhaustive). Budget fixed before the run: 10 minutes of wall-clock.
+A scratch run with the same parameters before the script was stored took
+220.8 s: 11,379 checks, 0 failures. Regression test:
+`tests/test_cj0001_manuscript_check.py`.
 
 ## Limits
 

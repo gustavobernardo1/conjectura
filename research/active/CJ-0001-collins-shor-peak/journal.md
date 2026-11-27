@@ -2780,3 +2780,60 @@ did not cover that change. Fixed (the target is now `obligations.md`, and the
 heading says "verbatim except for the targets of relative links", as in
 session 11); `uv run pytest -m "not lean"` passed locally (206 passed, 11
 deselected), then pushed again.
+
+## Session 14 — 2026-11-27
+
+- **Entry status:** in progress.
+- **Agent / model:** Claude, model `claude-opus-5-5` (Research Director and
+  principal investigator, main session). Human participant: the director
+  (instructions below).
+- **Mode:** focused work (consolidation and validation).
+- **Role(s):** research director, mathematical author of the manuscript.
+- **Repository revision at start:** `1de859c` (`research`, clean tree).
+- **Director's instructions (2026-11-27):** CJ-0001 may be moved from
+  `active-investigation` to `candidate-proof` (this does not authorize
+  `proved` or any resolved status); the primary objective is one rigorous,
+  self-contained manuscript of the complete candidate proof of the
+  Collins-Shor conjecture, readable without the repository's history;
+  audit dependencies, hypotheses, boundary cases, citations, novelty claims
+  and open obligations; distinguish original contributions, known results,
+  rediscoveries and open auxiliary conjectures; prepare it for review by
+  models of other vendors; human consultation deferred; no promotion on the
+  strength of AI reviews; verified commits and pushes to `research` only.
+- **Objective (exact):** a manuscript `manuscripts/CJ-0001-collins-shor/`
+  containing complete proofs that for every tree `T` of order `n ≥ 3`,
+  every maximizing index of `d_0, …, d_{n−2}` lies in
+  `[⌊n/2⌋, ⌈n − n/√5⌉]` (Conjecture 1.2 of arXiv:1507.02341, strong
+  reading of ties), using only cited classical results; plus an audit of
+  every dependency it uses.
+- **Approach:** lower half from the Graham-Lovász formula through the Wiener
+  identity S24 and the rooted induction T5, T6 (`notes/lower-bound.md`,
+  revision 1); upper half from the spectral route T9, T10
+  (`notes/upper-bound.md`, revision 1, and the unreviewed draft
+  `manuscripts/CJ-0001-upper-bound/main.tex`); simplify where possible.
+- **Falsification test:** every identity and inequality in the manuscript
+  re-checked exactly on small trees by a script independent of the notes'
+  code before the manuscript is called complete.
+- **Stopping conditions:** the manuscript written, compiled and checked; or a
+  gap found that the session cannot close (then recorded as such).
+- **Budget:** at most 120 minutes of agent work, started 17:13 local (clock
+  reading); the last 20 minutes for verification and persistence;
+  computation 30 minutes of wall-clock in total.
+
+### Checkpoints
+
+- **Checkpoint 1 (17:33 by the clock, 20 minutes).** CJ-0001 set to
+  `candidate-proof` in `research/catalogue.json` (director's approval of
+  2026-11-27; validate: 0 errors). Manuscript
+  `manuscripts/CJ-0001-collins-shor/main.tex` written (30 pages, pdfLaTeX,
+  no undefined reference): both halves with complete proofs. The lower half
+  is restated in a shorter form: only root weights, the rules for raising
+  the root weight and planting derived from the identity (★) instead of the
+  recurrences S15, S16 for weighted trees; the leaf recursion S23(b) derived
+  from the plant rule; the cones `C_d` dropped (only `K_d` is needed). Level:
+  written; the new derivations checked by the author and by a new
+  independent exact script `manuscript_check.py` (rooted trees of order ≤ 8,
+  merges of order ≤ 8, trees of order ≤ 12; 11,379 checks, 0 failures, scratch
+  run before storing). Unfinished: the stored run on a clean tree; an
+  independent review of the whole document; STATE.md. Next: commit, stored
+  run, reviews.
