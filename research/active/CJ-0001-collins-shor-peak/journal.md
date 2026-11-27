@@ -2497,3 +2497,45 @@ the end of the run and briefly took the run for interrupted; it was not.
 Next step: `STATE.md`, section "Next step" — obligations 11 and 12 (one
 revision each of `lower-bound.md` and `path-maximality.md`, with rechecks;
 the manuscript of the lower half), then objective O11 through (PM).
+
+## Session 13 — 2026-11-27
+
+- **Entry status:** in progress.
+- **Agent / model:** Claude, model `claude-opus-5-5` (Research Director and
+  principal investigator, main session). Human participant: the director
+  (instructions below).
+- **Mode:** exploration, switching to focused work if a route appears.
+- **Repository revision at start:** `33e277c` (`research`).
+- **Director's instructions:** resolve the upper bound of the Collins-Shor
+  conjecture, ideally the whole conjecture; full discretion over strategy;
+  use the full 120-minute budget productively; verified commits and pushes to
+  `research` only.
+- **Budget:** at most 120 minutes of agent work, started 15:28 local
+  (clock reading); the last 20 minutes for verification and persistence;
+  computation 30 minutes of wall-clock in total.
+- **What is explored:** a spectral route to the upper half, not tried in
+  sessions 1 to 12: write `ℓ_T = 4(α − x)q(x)` with `q` real-rooted
+  (the distance eigenvalues of a tree), compare the peak of `d` with the
+  mode of `q`, the mode of `q` with its mean (Darroch), and the mean with the
+  Laplacian spectrum by interlacing (Graham-Lovász inverse).
+- **Deferred:** obligations 11 and 12 (revisions of `lower-bound.md` and
+  `path-maximality.md`), because the director set the upper half as the
+  objective and they are revisions of wording.
+
+### Checkpoints
+
+- **Checkpoint 1 (15:52 by the clock, 24 minutes).** Found, in exploration, a
+  complete candidate argument for the **upper half** for every tree: (1)
+  `ℓ_T = 4(α − x)q(x)`, `q = Π(x + β_i)` from the distance spectrum; (2) if
+  `q_{k+1} < q_k` then `d` is strictly decreasing from `k` on; (3) Darroch:
+  every mode of `q` is within 1 of `μ_q = Σ 1/(1+β_i)`; (4) interlacing
+  (Graham-Lovász inverse; Merris 1990): `μ_q ≤ n − tr(I+L)^{-1}`; (5) the
+  path minimizes `tr(I+L)^{-1}` (own proof by merging two pendant paths, the
+  key step being convexity of `x/(φ^{2x}+1)` on `[3, ∞)`; the literature
+  auditor found that it also follows from Andriantiana-Misanantenaina-Wagner,
+  Graphs Combin. 36 (2020), Theorem 4.4, via the subdivision); (6)
+  `tr(I+L_{P_n})^{-1} = n/√5 + 2/5 + (2n/√5) r^{2n}/(1 − r^{2n})`,
+  `r = φ^{−2}`. Level: written in scratch only, checked in floating point on
+  all trees of order ≤ 17 (exploratory). Switching to focused work: write
+  the note, a stored exact check, two independent reviews. Subagents so
+  far: one literature auditor.
