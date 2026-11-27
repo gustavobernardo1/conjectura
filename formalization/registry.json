@@ -311,6 +311,26 @@
         "witness": "Conjectura.Research.CollinsShorPeak.upperD_hypotheses_nonvacuous"
       },
       "statement_fingerprint": "95a9fe4b33e44dadea8364651d2ec4f64482c57078b3203f3db55eedcfe18b92"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.starCoeff_lt_of_le_half",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "manuscripts/CJ-0001-collins-shor/main.tex (revision 87c3c8c), Lemma 7.5 ('the star', lem:starshape), part (a), as a statement about binomial coefficients: for an integer n >= 3 put N = n - 2, m = floor(n/2) and, for every integer k, c(k) = (n-1) C(N,k) + 4(n-2) C(N,k-1) - 4 C(N,k-2) with C(N,j) = 0 for j < 0 or j > N; then c(k-1) < c(k) for every integer k with 1 <= k <= m. In Lean: for n : Nat with 3 <= n and k : Int with 1 <= k and k <= ((n / 2 : Nat) : Int), starCoeff n (k - 1) < starCoeff n k. Encoding: n : Nat with 3 <= n; N = n - 2 is natural-number subtraction, the true difference since n >= 3; C(N,j) for an integer j is starBinom N j = if 0 <= j then Nat.choose N j.toNat else 0 (it is Nat.choose N j for j >= 0 by starBinom_natCast, 0 for j < 0 by starBinom_of_neg, 0 for j > N by starBinom_of_lt); c(k) for an integer k is starCoeff n k = ((n : Int) - 1) * starBinom (n - 2) k + 4 * ((n : Int) - 2) * starBinom (n - 2) (k - 1) - 4 * starBinom (n - 2) (k - 2), computed in Int (values checked against the expansions of (1+x)(2+4x-4x^2) and (1+x)^2(3+8x-4x^2) by starCoeff_examples); m = floor(n/2) is the natural-number division n / 2 cast to Int. Only the binomial statement is formalized: that c(k) = [x^k] l_{S_n} (Corollary cor:leaf(d)) and [x^k] l_T = d_k(T) for 0 <= k <= n-2 (Lemma lem:ident), i.e. that the lemma concerns the coefficients d_k of the star, is not formalized; nothing about trees, distance matrices or the polynomial l_{S_n} appears, the conclusion 'so floor(n/2) is the unique maximizing index of the star' is not formalized, and the closed form of Lemma lem:starvalue (Lemma 7.4) is not used (the proof is a cross-multiplied polynomial identity, not the manuscript's ratio bounds). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against manuscripts/CJ-0001-collins-shor/main.tex at revision 87c3c8c; this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.CollinsShorPeak.starShape_hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": "476d377dd3dbaac84ead985d2edca244bf0b67214cd2e00ca089103154142b98"
+    },
+    {
+      "name": "Conjectura.Research.CollinsShorPeak.starCoeff_lt_of_half_lt",
+      "kind": "research",
+      "catalogue_id": "CJ-0001",
+      "source_statement": "manuscripts/CJ-0001-collins-shor/main.tex (revision 87c3c8c), Lemma 7.5 ('the star', lem:starshape), part (b), as a statement about binomial coefficients: with n >= 3, N, m and c(k) as in part (a), c(k) < c(k-1) for every integer k with m + 1 <= k <= n - 2 (no such k unless n >= 5). In Lean: for n : Nat with 3 <= n and k : Int with ((n / 2 : Nat) : Int) + 1 <= k and k <= (n : Int) - 2 (integer subtraction), starCoeff n k < starCoeff n (k - 1). Encoding: n : Nat with 3 <= n; N = n - 2 is natural-number subtraction, the true difference since n >= 3; C(N,j) for an integer j is starBinom N j = if 0 <= j then Nat.choose N j.toNat else 0 (it is Nat.choose N j for j >= 0 by starBinom_natCast, 0 for j < 0 by starBinom_of_neg, 0 for j > N by starBinom_of_lt); c(k) for an integer k is starCoeff n k = ((n : Int) - 1) * starBinom (n - 2) k + 4 * ((n : Int) - 2) * starBinom (n - 2) (k - 1) - 4 * starBinom (n - 2) (k - 2), computed in Int (values checked against the expansions of (1+x)(2+4x-4x^2) and (1+x)^2(3+8x-4x^2) by starCoeff_examples); m = floor(n/2) is the natural-number division n / 2 cast to Int. Only the binomial statement is formalized: that c(k) = [x^k] l_{S_n} (Corollary cor:leaf(d)) and [x^k] l_T = d_k(T) for 0 <= k <= n-2 (Lemma lem:ident), i.e. that the lemma concerns the coefficients d_k of the star, is not formalized; nothing about trees, distance matrices or the polynomial l_{S_n} appears, the conclusion 'so floor(n/2) is the unique maximizing index of the star' is not formalized, and the closed form of Lemma lem:starvalue (Lemma 7.4) is not used (the proof is a cross-multiplied polynomial identity, not the manuscript's ratio bounds). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against manuscripts/CJ-0001-collins-shor/main.tex at revision 87c3c8c; this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.CollinsShorPeak.starShape_hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": "0eedbd6c9ce0a915d9d72a75280ac0594e6ab61da514047abcea03238cc4d48f"
     }
   ]
 }

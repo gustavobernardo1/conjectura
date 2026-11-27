@@ -20,3 +20,4 @@ import Conjectura.Research.CollinsShorPeak.HalfGammaCone
 import Conjectura.Research.CollinsShorPeak.WienerCone
 import Conjectura.Research.CollinsShorPeak.LowerBoundCone
 import Conjectura.Research.CollinsShorPeak.UpperBoundPeak
+import Conjectura.Research.CollinsShorPeak.StarShape
