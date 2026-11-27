@@ -420,6 +420,11 @@ full text of items 1 to 8 as of session 7 is there).
 
 ## Next step
 
+**Session 12 is in progress** (stopped at the director's request on
+2026-11-27): resume from its journal entry. It works on O12 below; a draft
+proof of (GS) for every path length and of (PX) is in
+[`notes/path-maximality.md`](notes/path-maximality.md) (not reviewed).
+
 **Owed first (validation of the lower half, obligation 11).** (a) The one
 revision of `notes/lower-bound.md` for the defects listed there, and its
 recheck by a fresh context. (b) Start `manuscripts/CJ-0001-lower-bound/`: one

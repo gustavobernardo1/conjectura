@@ -2309,3 +2309,73 @@ Next step: `STATE.md`, section "Next step" — obligation 11 (one revision of
 `lower-bound.md` and a self-contained manuscript of the lower half), then
 objective O12 (the generalized tree shift for every path length, hence path
 maximality), then O11 (the upper half).
+
+
+## Session 12 — 2026-11-26 to 2026-11-27
+
+- **Entry status:** in progress (stopped at the director's request at about
+  00:05 on 2026-11-27, to be resumed).
+- **Agent / model:** Claude, model `claude-opus-5-5` (Research Director,
+  main session). Principal investigator: `claude-opus-5-5`, by the
+  director's decision, while `claude-fable-5-2` is unavailable. Human
+  participant: the director (instructions below).
+- **Mode:** focused work.
+- **Repository revision at start:** `4ca441e` (`research`), the harness
+  commit "Cost-efficient model assignment for the research harness"
+  (promoted to `main` as `ddc2edf`).
+- **Director's instructions:** continue research under the existing harness
+  with Opus 5.5 as principal investigator; maximize valid mathematical
+  discoveries per available usage budget without sacrificing correctness,
+  originality or integrity; MD-0019 keeps its candidate status pending
+  further validation and originality assessment; verified research
+  contributions may be pushed to `research` only.
+- **Objective (exact), O12 of `STATE.md`:** for rooted trees `(A, u)`,
+  `(B, v)` with `a, b ≥ 2` and every `k ≥ 1`, prove
+  `ℓ_{T_k} − ℓ_{T′_k} ∈ C_{n−1}` for the generalized tree shift (`T_k`: `A`
+  and `B` joined by a path of length `k`; `T′_k`: `A` and `B` glued, with a
+  pendant path of length `k`), and deduce `ℓ_{P_n} − ℓ_T ∈ C_{n−1}` for every
+  tree of order `n`.
+- **Approach:** plant is linear and merge bilinear in the state
+  `(Ψ, H, G, Ω, E)`, so the difference along a shift has a rational
+  generating function in the path length; prove the closed form found in
+  session 11 for all `k` by bounding the degree of the numerator, then count
+  cone levels with T5 and Lemma K.
+- **Falsification test:** the closed form against the generating function
+  as rational functions; (GS) and (PX) had already been checked exactly on
+  all trees of order up to 13 and 17 (session 11, scratch).
+- **Stopping conditions:** done when the note is written, stored with its
+  computation, and reviewed; stop if the generating-function identity fails.
+- **Budget:** at most 120 minutes; started at 23:57 local on 2026-11-26
+  (clock reading). Computation: 30 minutes. Deferred by this choice:
+  obligation 11(a) (the revision of `lower-bound.md` for defects of wording)
+  — O12 was judged the better use of the budget because session 11 had
+  already found its closed form for `k ≤ 12`.
+
+### Checkpoints
+
+- **+8 min (00:05 local, 2026-11-27, clock reading; stopped here at the
+  director's request):** *Established, at the level stated.* The closed form
+  of Lemma S37 holds as an identity of rational generating functions in the
+  path length (exact symbolic computation, sympy 1.14.0, saved as
+  `experiments/CJ-0001-collins-shor-peak/tree_shift_symbolic.py`). A written
+  proof of Lemma S37 (generating functions; `det(I − tP) = (1 − xt)Q(t)²`;
+  numerator of degree at most 5, so `k ≤ 5` suffices), Proposition S38 (cone
+  levels), Theorem T7 (every generalized shift lowers `ℓ` in the cone order),
+  Lemma S39 (every tree but the path is the result of a shift that removes
+  one leaf) and Theorem T8 (path maximality:
+  `ℓ_{S_n} ≤ ℓ_T ≤ ℓ_{P_n}` in the cone order, so `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)`)
+  is saved as `notes/path-maximality.md` — **a draft, not reread, not
+  reviewed, not registered**; it depends on the candidate results of
+  `lower-bound.md` (MD-0019) and on S19 (MD-0015). *Unfinished.* (1) Reread
+  the draft against `lower-bound.md` (levels, the degree bound in the proof
+  of S37, Lemma S39). (2) The stored experiment `tree_shift.py` with a test
+  and a README entry (delegate to `computational-experimenter`): the
+  factorization of `det(I − tP)`, the closed form for `k ≤ 12`, the lemma on
+  actual trees from the distance matrix, (GS) on all shifts and (PX) on all
+  trees in ranges that fit the budget; the scratch scripts of sessions 11
+  and 12 are in a scratch directory that may not survive, and the code of
+  the session-11 symbolic check is in the journal of session 11. (3) One
+  independent review (`adversarial-reviewer`, Opus; the author is also
+  Opus, so independence is by context only — record it). (4) Register the
+  result (one record, type theorem, candidate) after the review; update
+  `STATE.md`. *Next action on resuming:* item (1).
