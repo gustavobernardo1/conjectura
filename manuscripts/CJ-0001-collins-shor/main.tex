@@ -6,6 +6,10 @@
 % unreviewed draft manuscripts/CJ-0001-upper-bound/main.tex with corrections.
 % Plain LaTeX with standard packages only (amsart, amsmath, amssymb, amsthm,
 % hyperref).
+% Revision 2 (session 14, same day): defects of the two AI reviews of 8df6bea
+% (reviews/2026-11-27-claude-{opus,sonnet}-5-5-manuscript.md) corrected;
+% Lemma "the star" (lem:starshape) added, so that the bounds no longer use the
+% log-concavity theorem of [AAB] or Collins's Theorem 1; Lemma R1 removed.
 \documentclass[11pt]{amsart}
 \usepackage{amsmath,amssymb,amsthm}
 \PassOptionsToPackage{hyphens}{url}
@@ -49,7 +53,9 @@ Federal de Goi\'as (UFG), Brazil}
 Let $T$ be a tree with $n\ge3$ vertices and distance matrix $D$, and let
 $d_0,\dots,d_{n-2}$ be the normalized coefficients
 $d_k=2^{k-(n-2)}|\delta_k|$ of $\det(D-xI)=\sum_k\delta_kx^k$. Graham and
-Lov\'asz asked where this sequence peaks; Aalipour et al.\ proved that it is
+Lov\'asz conjectured that this sequence is unimodal with peak at $n/2$;
+Collins showed that the peak of the path is near $n-n/\sqrt5$, and Aalipour
+et al.\ proved that the sequence is
 log-concave, hence unimodal, and recorded the conjecture of Collins and Shor
 that the peak lies between $\lfloor n/2\rfloor$ and $\lceil n-n/\sqrt5\rceil$.
 We give complete written proofs that every index $p$ with $d_p=\max_kd_k$
@@ -82,7 +88,9 @@ distribution.} The mathematics of this draft was produced by AI systems
 Anthropic) in the Conjectura research project, November 2026. Its parts were
 reviewed only by AI reviewers run in fresh contexts (models of the same
 vendor); \textbf{AI review is not peer review}, and \textbf{no mathematician
-has read the proofs}. This document as a whole has not yet been reviewed.
+has read the proofs}. The first version of this document was reviewed as a
+whole by two AI reviewers of the same vendor; revision~2 has not been
+rechecked, and no reviewer of another vendor has read it.
 The status of every statement is given in Section~\ref{sec:status}; novelty
 is not claimed beyond what is stated in Section~\ref{sec:literature}. Nothing
 has been submitted, posted or sent; every outside use is decided by the
@@ -101,10 +109,11 @@ $(-1)^{n-1}\delta_k>0$ for $0\le k\le n-2$ (in the form
 \[
 d_k=d_k(T)=2^{k-(n-2)}\,|\delta_k|\qquad(0\le k\le n-2)
 \]
-are positive, and they asked whether this sequence is unimodal and where its
-peak lies. Collins~\cite{Col89} computed the sequence for the star and for the
-path, showed that the star peaks at $\lfloor n/2\rfloor$ and the path near
-$n-n/\sqrt5$ (\cite[Theorems~1 and~3]{Col89}), and stated, as
+are positive. The conjecture of Graham and Lov\'asz, as Collins recalls it
+\cite[p.~29]{Col89}, was that this sequence is unimodal with peak at
+$k=\tfrac12n$. Collins~\cite{Col89} computed the sequence for the star and for
+the path, showed that the star peaks at $\lfloor n/2\rfloor$ but the path
+near $n-n/\sqrt5$ (\cite[Theorems~1 and~3]{Col89}), and stated, as
 Conjecture~9 of~\cite{Col89}, attributed there to Peter Shor: ``The
 coefficients of $\mathrm{CPD}(T)$ for any tree $T$ with $n$ vertices are
 unimodal with peak between $\tfrac12n$ and $n(1-1/\sqrt5)$.'' Aalipour,
@@ -125,7 +134,10 @@ places the peak of the star at $\tfrac12(n-1)$; the floor in
 Conjecture~\ref{conj:CS} is the consistent reading, and we prove that one.
 Neither source says how a tie between two maximal coefficients is to be read.
 We prove the strong reading, in which \emph{every} index $p$ with
-$d_p=\max_kd_k$ (a \emph{maximizing index}) is bounded.
+$d_p=\max_kd_k$ (a \emph{maximizing index}) is bounded. As in~\cite{AAB},
+whose standing convention is a tree of order at least three, we take
+$n\ge3$; for $n=2$ the sequence is the single term $d_0$, and the lower
+bound $\lfloor n/2\rfloor=1$ would fail.
 
 \begin{maintheorem}
 Let $T$ be a tree with $n\ge3$ vertices. Every maximizing index $p$ of
@@ -134,10 +146,14 @@ $d_0(T),\dots,d_{n-2}(T)$ satisfies
 \Bigl\lfloor\frac n2\Bigr\rfloor\ \le\ p\ \le\ \Bigl\lceil n-\frac n{\sqrt5}-\frac25\Bigr\rceil\ \le\ \Bigl\lceil n-\frac n{\sqrt5}\Bigr\rceil .
 \]
 Both outer bounds are attained: the lower one by the star $S_n$ for every
-$n\ge3$, the upper one by the path $P_n$ for infinitely many $n$.
+$n\ge3$ (its unique maximizing index is $\lfloor n/2\rfloor$), the upper one
+by the path $P_n$ for infinitely many $n$ (this uses Collins's formula for
+the path, (C) of Section~\ref{sec:tools}).
 \end{maintheorem}
 
-Together with \cite[Theorem~2.1]{AAB} this is Conjecture~\ref{conj:CS}. The
+Together with the unimodality of $(d_k)$, \cite[Theorem~2.1]{AAB}, this is
+Conjecture~\ref{conj:CS}. The proof of the two bounds does not use that
+theorem. The
 lower bound is Theorem~\ref{thm:lower}(c), the upper bound
 Theorem~\ref{thm:upper}; attainment is Remark~\ref{rem:star-peak} and
 Corollary~\ref{cor:pathceil}.
@@ -238,8 +254,9 @@ $\det D=(-1)^{n-1}(n-1)2^{n-2}$ for $n\ge2$. Used in Lemmas~\ref{lem:L1}
 and~\ref{lem:S40}. Not read at the source; quoted in~\cite{AAB}; consistent
 with all exact computations.
 \item[(LC)] \emph{Log-concavity} \cite[Theorem~2.1]{AAB}: the sequence
-$d_0,\dots,d_{n-2}$ is positive and log-concave. Used only in
-Theorem~\ref{thm:lower}(c) (see Remark~\ref{rem:noLC}). Read in the source.
+$d_0,\dots,d_{n-2}$ is positive and log-concave. Not used in the proofs below;
+it supplies the word ``unimodal'' of Conjecture~\ref{conj:CS}. Read in the
+source.
 \item[(W)] \emph{Weyl interlacing for a rank-one positive semidefinite
 update}: if $B=A+ww^\T$ with $A$ real symmetric of size $n$, then, with
 eigenvalues in decreasing order, $\lambda_i(A)\le\lambda_i(B)\le\lambda_{i-1}(A)$
@@ -264,8 +281,8 @@ proof, p.~31]{Col89}: for $n\ge3$ and $2\le k\le n$,
 $d_{n-k}(P_n)=\binom{n+k-1}{2k-1}\frac{(k-1)n}{k}$. Used only in
 Section~\ref{sec:path}. Read in the source; checked against the distance
 matrix in exact arithmetic for $3\le n\le30$.
-\item[(Kr)] \emph{Kronecker}: for irrational $\xi$, the fractional parts of
-$n\xi$, $n\ge1$, are dense in $[0,1)$. Used only in
+\item[(Kr)] \emph{Kronecker}: for irrational $\zeta$, the fractional parts of
+$n\zeta$, $n\ge1$, are dense in $[0,1)$. Used only in
 Corollary~\ref{cor:pathceil}.
 \end{enumerate}
 The Schur complement formulas, the matrix determinant lemma, the
@@ -273,20 +290,7 @@ Sherman--Morrison formula and the Poisson kernel are used as elementary
 identities. (W), (N), (M), (PS), (Kr) are textbook facts and were not checked
 against a particular source.
 
-\subsection{Two elementary lemmas}
-
-\begin{lemma}\label{lem:R1}
-Let $a_0,\dots,a_r$ be positive and log-concave ($a_k^2\ge a_{k-1}a_{k+1}$)
-and $1\le j\le r$. Every maximizing index of the sequence is $\ge j$ if and
-only if $a_{j-1}<a_j$.
-\end{lemma}
-
-\begin{proof}
-The ratios $a_{k+1}/a_k$ are non-increasing. If $a_{j-1}<a_j$, they exceed $1$
-for $k\le j-1$, so the sequence increases strictly up to $j$. If
-$a_{j-1}\ge a_j$, they are at most $1$ for $k\ge j-1$, so the sequence is
-non-increasing from $j-1$ on and $j-1$ is a maximizing index.
-\end{proof}
+\subsection{The Laplacian form}
 
 \begin{lemma}[{Graham--Lov\'asz~\cite{GL78}; the Laplacian form}]\label{lem:L1}
 For every tree with $n\ge2$ vertices,
@@ -878,8 +882,9 @@ $0\le k\le n-2$.
 \[
 d_m(T)-d_{m-1}(T)\ \ge\ d_m(S_n)-d_{m-1}(S_n)\ >\ 0 ,
 \]
-and every maximizing index of $d_0(T),\dots,d_{n-2}(T)$ is at least
-$\lfloor n/2\rfloor$.
+and more generally $d_\mu(T)-d_{\mu-1}(T)\ge d_\mu(S_n)-d_{\mu-1}(S_n)>0$
+for $1\le\mu\le m$. Hence $d_0(T)<d_1(T)<\dots<d_m(T)$, and every maximizing
+index of $d_0(T),\dots,d_{n-2}(T)$ is at least $\lfloor n/2\rfloor$.
 \end{theorem}
 
 \begin{proof}
@@ -900,12 +905,13 @@ Corollary~\ref{cor:leaf}(d)):
 and by (a) for $T_k$ each bracket is in $\K_k$, so each term is in
 $\K_{n-1}$. The last assertion follows from (K1) and Lemma~\ref{lem:ident}.
 
-(c) $2m-1\le n-1$, so $\K_{n-1}\subseteq\K_{2m-1}$, and
-$\lambda_m(\ell_T-\ell_{S_n})\ge0$ by (b) and Lemma~\ref{lem:A}. As $n\ge3$,
-$1\le m\le n-2$, so $\lambda_m(\ell_T)=d_m(T)-d_{m-1}(T)$ by
+(c) Let $1\le\mu\le m$. Then $2\mu-1\le n-1$, so $\K_{n-1}\subseteq\K_{2\mu-1}$,
+and $\lambda_\mu(\ell_T-\ell_{S_n})\ge0$ by (b) and Lemma~\ref{lem:A}. As
+$n\ge3$, $\mu\le m\le n-2$, so $\lambda_\mu(\ell_T)=d_\mu(T)-d_{\mu-1}(T)$ by
 Lemma~\ref{lem:ident}, and likewise for the star. That
-$d_m(S_n)-d_{m-1}(S_n)>0$ is Lemma~\ref{lem:starvalue} below. The last
-assertion is Lemma~\ref{lem:R1} with (LC).
+$d_\mu(S_n)-d_{\mu-1}(S_n)>0$ is Lemma~\ref{lem:starshape}(a) below (for
+$\mu=m$, Lemma~\ref{lem:starvalue}). So $d_0(T)<\dots<d_m(T)$, and no index
+below $m$ is maximizing.
 \end{proof}
 
 \begin{lemma}\label{lem:starvalue}
@@ -932,26 +938,54 @@ $\lambda_m=4\beta\bigl[\frac{2(2m-1)}{m-1}-\frac4{m+2}\bigr]>0$ since
 $\frac{2(2m-1)}{m-1}>4$.
 \end{proof}
 
+\begin{lemma}[the star]\label{lem:starshape}
+Let $n\ge3$ and $m=\lfloor n/2\rfloor$. \textup{(a)}
+$d_0(S_n)<d_1(S_n)<\dots<d_m(S_n)$. \textup{(b)}
+$d_m(S_n)>d_{m+1}(S_n)>\dots>d_{n-2}(S_n)$. So $\lfloor n/2\rfloor$ is the
+unique maximizing index of the star.
+\end{lemma}
+
+\begin{proof}
+Let $N=n-2$ and $F(j)=\binom Nj-\binom N{j-1}$, so that $F(j)=0$ for $j<0$
+and $F(N+1-j)=-F(j)$ for all $j$. As in the proof of
+Lemma~\ref{lem:starvalue},
+\[
+\lambda_k(\ell_{S_n})=(n-1)F(k)+4(n-2)F(k-1)-4F(k-2)\qquad(1\le k\le n-2).
+\]
+For $0\le j\le N/2$, $F(j)=\binom Nj\frac{N-2j+1}{N-j+1}>0$; for $0\le j<(N-1)/2$
+(so that $F(j+1)>0$),
+\begin{equation}\label{eq:Fratio}
+\frac{F(j)}{F(j+1)}=\frac{(j+1)(N-2j+1)}{(N-j+1)(N-2j-1)} .
+\end{equation}
+
+(a) For $k=m$ this is Lemma~\ref{lem:starvalue}. Let $1\le k\le m-1$, so
+$2k\le N$, and $F(k)>0$, $F(k-1)>0$. If $k=1$, $F(-1)=0$ and $\lambda_1>0$. If
+$k\ge2$, apply~\eqref{eq:Fratio} with $j=k-2$: then $2j<N$ and
+$N-2j-1=N-2k+3\ge3$, so $F(k-2)/F(k-1)<1+2/3=5/3$. As $n\ge2k+2\ge6$,
+$4F(k-2)<\frac{20}3F(k-1)<4(n-2)F(k-1)$, and $\lambda_k>(n-1)F(k)>0$.
+
+(b) Let $m+1\le k\le n-2$ (nothing to prove unless $n\ge5$). Then
+$k>(N+1)/2$, so $F(k)<0$, and $k-1\ge m\ge(N+1)/2$, so $F(k-1)\le0$. If
+$F(k-2)\ge0$, then $\lambda_k\le(n-1)F(k)<0$. Otherwise put $j=N+2-k$; then
+$j\ge2$ (as $k\le N$), $j<(N-1)/2$ (since $F(k-2)<0$ forces $k-2>(N+1)/2$),
+$-F(k-1)=F(j)>0$
+and $-F(k-2)=F(j+1)>0$, and by~\eqref{eq:Fratio}
+$F(j+1)/F(j)<(N-j+1)/(j+1)\le(N-1)/3<n-2$. So
+$-4F(k-2)<4(n-2)(-F(k-1))$, and
+$\lambda_k<(n-1)F(k)+4(n-2)F(k-1)-4(n-2)F(k-1)=(n-1)F(k)<0$.
+\end{proof}
+
 \begin{remark}\label{rem:star-peak}
-The lower bound is attained: by \cite[Theorem~1]{Col89} the star $S_n$ peaks
-exactly at $\lfloor n/2\rfloor$ (an elementary computation with the closed
-form of Corollary~\ref{cor:leaf}(d), not reproduced here; the project checked
-exactly that $\lfloor n/2\rfloor$ is the unique maximizing index of the star
-for $3\le n<400$). For even $n$ the
-relative margin
-$1-d_{m-1}/d_m$ of the star is of order $1/n$; this is the case in which the
-lower bound is delicate.
+By Lemma~\ref{lem:starshape} the lower bound is attained by the star for every
+$n\ge3$, in agreement with~\cite[Theorem~1]{Col89}. For even $n$ the relative
+margin $1-d_{m-1}/d_m$ of the star is of order $1/n$; this is the case in
+which the lower bound is delicate.
 \end{remark}
 
 \begin{remark}[on the use of log-concavity]\label{rem:noLC}
-The argument gives more than $d_m>d_{m-1}$: since $\K_{n-1}\subseteq\K_{2\mu-1}$
-for every $\mu\le m$, $d_\mu(T)-d_{\mu-1}(T)\ge d_\mu(S_n)-d_{\mu-1}(S_n)$ for
-$1\le\mu\le m$. Consequently, if the sequence of the star is strictly
-increasing up to the index $m$, then so is that of $T$, and (LC) is not needed
-for Theorem~\ref{thm:lower}(c). That property of the star follows
-from~\cite[Theorem~1]{Col89} and was checked exactly from
-Corollary~\ref{cor:leaf}(d) for $3\le n<400$, but we have not written out a
-proof for all $n$; so the proof above uses (LC).
+Theorem~\ref{thm:lower}(c) does not use (LC): the cone comparison holds for
+every increment $\lambda_\mu$ with $\mu\le m$, and the star increases strictly
+up to $m$ (Lemma~\ref{lem:starshape}(a)).
 \end{remark}
 
 \begin{remark}[a sharper cone]\label{rem:Ccone}
@@ -1058,7 +1092,9 @@ so $\sum_j\mu_{(j)}/(1+\mu_{(j)})=\sum_j\bigl(1-1/(1+\mu_{(j)})\bigr)=(n-1)-(\Tr
 The interlacing between the distance eigenvalues and the reciprocals of the
 non-zero Laplacian eigenvalues used in Lemmas~\ref{lem:S40}
 and~\ref{lem:S42} is a theorem of Merris~\cite{Mer90}:
-$0>-2/\mu_{(n-1)}\ge\partial_2\ge-2/\mu_{(n-2)}\ge\dots\ge\partial_n\ge-2/\mu_{(1)}$,
+$0>-2/\mu_{(n-1)}\ge\partial_2\ge-2/\mu_{(n-2)}\ge\partial_3\ge\dots\ge-2/\mu_{(1)}\ge\partial_n$
+(revision~2: the last inequality was written in the wrong direction in the
+first version),
 where $\partial_1\ge\dots\ge\partial_n$ are the eigenvalues of $D$; the
 inertia of $D$ is $(1,n-1,0)$. Merris's paper was read in full by the
 project's literature audit; the equation number cited for this chain in the
@@ -1399,9 +1435,13 @@ In both cases $p\le K\le\lceil \xi\rceil$ and $p\le K<(\xi-2/5)+1=\xi+3/5$.
 Let $T$ be a tree of order $n\ge3$ and $p$ a maximizing index. By
 Theorem~\ref{thm:lower}(c), $p\ge\lfloor n/2\rfloor$; by
 Theorem~\ref{thm:upper}, $p\le\lceil n-n/\sqrt5-2/5\rceil\le\lceil n-n/\sqrt5\rceil$.
-The lower bound is attained by the star (Remark~\ref{rem:star-peak}) and the
-upper bound by the path for infinitely many $n$
-(Corollary~\ref{cor:pathceil}).
+The lower bound is attained by the star, whose unique maximizing index is
+$\lfloor n/2\rfloor$ (Lemma~\ref{lem:starshape}). By
+Corollary~\ref{cor:pathceil}, for infinitely many $n$ the unique maximizing
+index of $P_n$ is $\lceil\xi\rceil$, $\xi=n-n/\sqrt5$, and for those $n$ the
+fractional part of $\xi$ exceeds $4/5$, so that
+$\lceil\xi-2/5\rceil=\lceil\xi\rceil$: both forms of the upper bound are
+attained there.
 \end{proof}
 
 \begin{corollary}\label{cor:sharper}
@@ -1561,8 +1601,10 @@ $d_{k+1}(T)/d_k(T)\le d_{k+1}(P_n)/d_k(P_n)$ for
 $0\le k\le\min(p(P_n),n-3)$ on all trees of order $4$ to $20$ and on $10{,}000$
 random trees of orders $24$ to $90$; it is proved here only for $k=0$
 ($d_1=2n^2-6-\sum_vk_v^2$, which is in the proof of \cite[Theorem~3.3]{AAB}).
-The analogous comparison with the star at $k=\lfloor n/2\rfloor-1$ is false
-(the double star $S(9,9)$, order $20$).
+The analogous lower comparison with the star,
+$d_{k+1}(T)/d_k(T)\ge d_{k+1}(S_n)/d_k(S_n)$ at $k=\lfloor n/2\rfloor-1$, holds
+for all trees of order $4$ to $19$ and is false at order $20$: for the double
+star $S(9,9)$ at $k=9$ the ratio is $10791/10255<99/94$, the ratio of the star.
 \item \emph{Weighted versions.} Theorem~\ref{thm:T5} is the case of unit
 weight at the root of the statement ``$R(K,\nu)\in\mathcal C_{j+1}$ for every
 weighted tree with $\nu\ne0$'', which is open for general weights; some
@@ -1593,8 +1635,10 @@ this range.
 \texttt{b1359cc}): $1{,}040{,}693$ checks of the identities and memberships of
 Sections~\ref{sec:distances} and~\ref{sec:lowerproof} on all rooted trees of
 order at most $9$ and all merges of order at most $9$; star minimality
-$\ell_T-\ell_{S_n}\in\mathcal C_{n-1}$ for all $1{,}346{,}023$ trees of order
-$3$ to $20$ (\nolinkurl{leaf_telescoping.py}). No failure.
+$\ell_T-\ell_{S_n}\in\mathcal C_{n-1}$ for all $1{,}346{,}022$ trees of order
+$3$ to $20$ (\nolinkurl{leaf_telescoping.py}; the project's notes give
+$1{,}346{,}023$, which is the number of trees of order $2$ to $20$). No
+failure.
 \item \emph{Lower half, independent check of this text}
 (\nolinkurl{manuscript_check.py}, written for this manuscript from its
 definitions, without the notes' code): Lemma~\ref{lem:star} for $w=0,1,2$,
@@ -1621,8 +1665,9 @@ Finite checks establish the statements only in the range checked.
 \section{Formal verification}\label{sec:formal}
 
 Only auxiliary statements are formalized in Lean~4 with Mathlib (directory
-\nolinkurl{formalization/Conjectura/Research/CollinsShorPeak/}): the general
-form of Lemma~\ref{lem:R1}; the cones $\K_d$ with (K1), (K2) and
+\nolinkurl{formalization/Conjectura/Research/CollinsShorPeak/}): a lemma on
+the maximizing indices of positive log-concave sequences (used in the first
+version of this text, no longer used); the cones $\K_d$ with (K1), (K2) and
 Lemma~\ref{lem:A}; the cone $\mathcal C_d$ with its product rules; and the
 sequence part of Lemma~\ref{lem:S41} (positivity of $q$ and the decrease of
 its ratios as hypotheses). Nothing about trees, determinants, distance
@@ -1636,7 +1681,8 @@ written ones has been made by the agents that wrote them, not independently.
 \emph{Coverage.} The project's searches (November 2026, by AI literature
 auditors) used general web search and arXiv only (the queries are listed verbatim in
 the project's dossier for this problem), the papers citing~\cite{AAB} listed by Semantic Scholar and
-OpenAlex (five papers), \cite{AAB} and~\cite{Col89} read in full, Collins's
+OpenAlex (five papers: arXiv:2407.03309, 2206.07561, 2104.14516, 2103.00647,
+1812.05734; none resolves the conjecture), \cite{AAB} and~\cite{Col89} read in full, Collins's
 thesis~\cite{Col86} in part, \cite{GL78} in part, \cite{Mer90}, \cite{AMW}
 (arXiv version), \cite{Pit97} (one page), \cite{CS06}, and the papers of
 Mohar and Csikv\'ari on Laplacian coefficients of trees. \emph{Not searched:}
@@ -1709,7 +1755,18 @@ Lemma~\ref{lem:star} (in the project's notes they came from separate
 recurrences for weighted trees), and the derivation of the leaf recursion
 from the plant rule; Lemma~\ref{lem:star} itself for root weights; the
 assembly of the two halves. These were checked by exact computation
-(Section~\ref{sec:comp}, item 3) and by the author, not by a reviewer.
+(Section~\ref{sec:comp}, item 3) and, in the first version of this text
+(commit \texttt{8df6bea}), by two independent AI reviews of the whole
+document (models \nolinkurl{claude-opus-5-5} and
+\nolinkurl{claude-sonnet-5-5}, fresh contexts, same vendor as the author;
+both ``no gap found within stated scope'', with two errors in remarks or
+proofs not used by the Main Theorem and several defects of wording and
+bookkeeping, corrected in revision~2).
+\item \emph{New in revision~2 and not reviewed:} Lemma~\ref{lem:starshape}
+(the shape of the star's sequence), which replaces the use of (LC) and of
+\cite[Theorem~1]{Col89} in Theorem~\ref{thm:lower}(c) and in the attainment
+of the lower bound; the removal of the lemma on log-concave sequences.
+Lemma~\ref{lem:starshape} was checked exactly for $3\le n<800$.
 \item \emph{Human review:} none. \emph{Formal verification:} partial, of
 auxiliary lemmas only (Section~\ref{sec:formal}). \emph{Novelty:} as in
 Section~\ref{sec:literature}.
@@ -1750,8 +1807,10 @@ authorship, and AI systems are not listed as authors.
 
 \begin{itemize}
 \item The proofs are candidate proofs, checked by AI reviews of their parts
-and by exact computation; this document as a whole has not been reviewed,
-and no human has read it. AI review is not peer review.
+and by exact computation; the first version of this document was reviewed
+as a whole by two AI models of one vendor (Section~\ref{sec:status}); no
+model of another vendor and no human has read it. AI review is not peer
+review.
 \item Several classical results are cited without proof, and some were not
 read at their sources (Section~\ref{sec:tools}): Darroch's paper, the
 Graham--Pollak paper, and the textbook facts.
@@ -1771,7 +1830,8 @@ the reviews of those notes (\nolinkurl{reviews/}):
 
 \smallskip
 \noindent\begin{tabular}{@{}p{0.37\textwidth}p{0.58\textwidth}@{}}
-Lemma~\ref{lem:R1}, Lemma~\ref{lem:L1} & R1, L1 (\nolinkurl{lemmas.md})\\
+Lemma~\ref{lem:L1} & L1 (\nolinkurl{lemmas.md})\\
+Lemma~\ref{lem:starshape} & new in revision~2 of this text (S23(d) and Collins's Theorem~1 give the value at the middle and the shape)\\
 Lemma~\ref{lem:A} & Lemma A(a) (\nolinkurl{wiener-form.md})\\
 Lemma~\ref{lem:K}, Lemma~\ref{lem:path} & Lemma K, Lemma S24 (\nolinkurl{wiener-form.md}); Lemma S32 (\nolinkurl{lower-bound.md})\\
 Corollary~\ref{cor:phi1} & proof of T6(a) (\nolinkurl{lower-bound.md})\\

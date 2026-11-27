@@ -2837,3 +2837,25 @@ deselected), then pushed again.
   run before storing). Unfinished: the stored run on a clean tree; an
   independent review of the whole document; STATE.md. Next: commit, stored
   run, reviews.
+
+- **Checkpoint 2 (17:54 by the clock, 41 minutes; checkpoint 1 was at 17:32,
+  not 17:33 as written).** Stored run of `manuscript_check.py` in a clean
+  worktree at `8df6bea`: 11,379 exact checks, 0 failures, 258.5 s (committed
+  `2047ebb`, pushed; CI started by the push). Two independent AI reviews of
+  the whole manuscript at `8df6bea`: `claude-opus-5-5` (fresh context) and
+  `claude-sonnet-5-5` (a model other than the author's, after
+  `claude-fable-5-2` was refused at once by its monthly spend limit); both
+  **no gap found within stated scope** (committed `31f6386`). Defects
+  reported: the reversed last inequality of the Merris chain in a remark;
+  the wording of the "only if" direction of Lemma R1 (both reviewers); the
+  attainment of the lower bound resting on Collins's Theorem 1 (both); the
+  count 1,346,023 for orders 3 to 20 (should be 1,346,022; the slip is in
+  `leaf-telescoping.md` too); the domain `n ≥ 3`; the description of the
+  Graham-Lovász conjecture; the direction of the S(9,9) ratio statement; the
+  unnamed citing papers. Revision 2 of the manuscript made: all of these
+  corrected; new Lemma 7.5 (the star's sequence increases strictly up to
+  `⌊n/2⌋` and decreases strictly after it, by a binomial estimate), which
+  makes the bounds independent of the log-concavity theorem of
+  arXiv:1507.02341 and of Collins's Theorem 1; Lemma R1 removed (no longer
+  used). Lemma 7.5 checked exactly for `3 ≤ n < 800` (scratch). Next: commit,
+  recheck of revision 2 by a fresh context.
