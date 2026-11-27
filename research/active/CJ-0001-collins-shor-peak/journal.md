@@ -2980,3 +2980,9 @@ of another vendor with `REVIEW-PROMPT.md` (to be supplied by the director);
 the open literature items; a result package when the director judges the
 manuscript mature. `STATE.md` is about 490 lines and should be compacted
 below 400 at the start of the next session.
+
+Final verification (18:42 by the clock): `uv run pytest` on a clean tree at
+`d2e9827`: 221 passed in 567.46 s (the earlier failure of
+`test_registry_and_lean_root_are_consistent` was the formalization agent's
+uncommitted registry edit, as expected; it passes now). `uv run python
+scripts/catalogue.py validate`: 15 problems, 24 contributions, 0 errors.
