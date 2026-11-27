@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "discoveries": [
     {
       "id": "MD-0001",
@@ -1858,6 +1858,188 @@
         "coverage": "Session 11. Collins (1989) read in full and Collins's thesis (1986) read (page images for pp. 30–47 and 55–61, OCR for the rest): neither contains any of the items. Literature audit by a separate agent context (11 web searches, 19 fetches; queries and URLs verbatim in the dossier): arXiv listings, Semantic Scholar and OpenAlex citation lists of arXiv:1507.02341, Mohar's 2007 preprint on Laplacian coefficients of acyclic graphs (read in full) and Csikvári, On a poset of trees II (pp. 1–11 and 19–21 read). Earlier audits of sessions 9 and 10 searched for coefficientwise extremality of the star and for bounds on the peak. Within this coverage no prior proof of the lower bound ⌊n/2⌋ for every tree, no coefficientwise extremal result for the distance characteristic polynomial of trees, and no monotonicity of its coefficients under a tree shift was found.",
         "limitations": "Shallow. Not searched: MathSciNet, zbMATH, Google Scholar; MathOverflow, OEIS and the formal libraries only by one general query or not at all. Not read: Graham–Lovász (1978) pp. 72–88, Csikvári's first paper (Combinatorica 2010) and pp. 12–18 of the second, Guo (2010), Stevanović–Ilić and the literature on the distance spectral radius of trees, 'The 2-Steiner distance matrix of a tree' (2022) and 'On a poset of trees revisited' (2021) (titles only), the mathematical-chemistry journals. The intermediate statements (S32 to S35, the polynomial E) were not searched. English only. An unsuccessful search does not establish originality."
       }
+    },
+    {
+      "id": "MD-0020",
+      "type": "theorem",
+      "title": "The generalized tree shift lowers the distance polynomial of a tree in the half-gamma cone order; the path is the coefficientwise maximum",
+      "statement": "Let T be a tree of order n with distance matrix D; put ℓ_T(x) = −2^{−(n−2)} det(2xI − D), and for 0 ≤ k ≤ n − 2 let d_k be the coefficient of x^k in ℓ_T (the normalized coefficients of the distance characteristic polynomial). For an integer d ≥ 0 let C_d be the set of polynomials Σ_{2e<d} ρ_e x^e (1+x)^{d−2e} + Σ_{d≤2e≤2d} σ_e x^e with real ρ_e, σ_e ≥ 0. P_n is the path of order n. (i) (Generalized tree shift.) Let A and B be trees with a ≥ 2 and b ≥ 2 vertices, u a vertex of A, v a vertex of B, and k ≥ 1. Let T_k be the tree obtained from disjoint copies of A and B by joining u to v by a path of length k (with k − 1 new inner vertices), and T′_k the tree obtained by identifying u with v and attaching a new path of length k at the identified vertex; both have order n = a + b + k − 1. Then ℓ_{T_k} − ℓ_{T′_k} ∈ C_{n−1}; in particular d_j(T_k) ≥ d_j(T′_k) for 0 ≤ j ≤ n − 2. (ii) (Path maximality, coefficientwise.) For every tree T of order n ≥ 2: ℓ_{P_n} − ℓ_T ∈ C_{n−1}; in particular d_k(T) ≤ d_k(P_n) for 0 ≤ k ≤ n − 2, and ℓ_T = ℓ_{P_n} only if T is the path. (iii) For n ≥ 3 and 1 ≤ μ ≤ ⌊n/2⌋: d_μ(T) − d_{μ−1}(T) ≤ d_μ(P_n) − d_{μ−1}(P_n). Nothing is asserted about the index at which d_0, …, d_{n−2} is maximal.",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "session 11: the exploration of the tree shift, the bilinear form of the shift computed for path lengths 1 to 12 (scratch), and the exact tests of (GS) and (PX)"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 12 (principal investigator): the proof of the closed form for every path length by generating functions, the written proofs of Lemma S37, Proposition S38, Lemma S39 and Theorems T7, T8, and the distinction of coefficientwise and peak-location extremality; the stored computation and its test were written by a computational-experimenter subagent (claude-sonnet-5-5)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (instructions for sessions 11 and 12; no mathematical input to this contribution)"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md",
+          "summary": "Lemma S37 (an explicit formula for the difference under a generalized shift along a path of length k, proved with generating functions in k: the plant map is linear with det(I − tJ) = (1 − xt)Q(t)², the merge is bilinear, the numerator of the difference has degree at most 5, and the identity is checked exactly for k ≤ 5), Proposition S38 (each of its four terms is in K_{n−1}, from Lemma K, S33 and Theorem T5), Theorem T7, Lemma S39 (every tree but the path is the result of a shift from a tree with one leaf fewer), Theorem T8 (path maximality by induction on the number of leaves) and the equality case from L2. A candidate proof; its review is listed below.",
+          "revision": "8b03309499bf14baa1316cb84419ad56d92046b9",
+          "sha256": "b2c0f38ad7050455aa19ac369994bc94ff07ce799bfab93145da91625698ccf5"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/tree-shift.json",
+          "summary": "Exact, 1,000,000 checks in all, 0 failures, clean tree at 3c96980 (282 s): part A (sympy 1.14.0) the factorization of det(I − tJ) and Lemma S37 for k ≤ 12 in free state variables; part B Lemma S37 and Proposition S38 on 2,371 pairs of actual rooted trees (k ≤ 6, n ≤ 11), with ℓ from the distance matrix; part C item (i) on every generalized shift of every tree of order 5 to 15 (127,192 shifts); part D item (ii) on all 81,134 trees of order 4 to 17, equality only for the path, and Lemma S39 constructively on every non-path tree of order ≤ 15. Parts E and F (evidence about the open statements of MD-0021) are in the same file. Finite checks, not a proof.",
+          "revision": "3c9698089040d8c3dfba74f6b0327f2b42122d14",
+          "sha256": "fe83aa12f25211e1ec55eee78c2548fdd0f1bc290981f9a041a913ab14ed9aa5"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/tree_shift_symbolic.py",
+          "summary": "The identity of generating functions in the proof of Lemma S37, checked exactly with sympy 1.14.0 (run in session 12; command in the note).",
+          "sha256": "d6198737ba2b9cda366fc5995b4c440b7c710b6950093dd4512c8326a787a5e0"
+        },
+        {
+          "kind": "test",
+          "path": "tests/test_cj0001_tree_shift.py",
+          "summary": "Regression test of tree_shift.py with small parameters and negative controls."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-T7-T8-path-maximality.md",
+          "summary": "Independent adversarial review of notes/path-maximality.md at 8b03309: every step of Lemma S37 (plant matrix against S34(b), merge against S34(c), the functional χ re-derived from S23(a) and L1, the block-triangular determinant, the degree bound and why k ≤ 5 suffices), Proposition S38 (all level sums), Theorem T7, Lemma S39, Theorem T8 and the equality remark reconstructed by hand — no gap found within stated scope; the shift agrees with Csikvári's definition as restated in arXiv:1711.09787. The implications of the section on the peak were checked as implications; nothing about the peak index beyond Theorem T6(c) is claimed as proved. Reviewer's own exact code, no project module: the generating-function identity (sympy), Lemma S37 on 3,080 cases of actual trees, item (ii) on all 205,003 trees of order 2 to 18 and 122 extreme trees of orders 60 to 121, items (i) and (PM) on 95,248 shifts of orders 4 to 14, 34,928 constructions of Lemma S39; no failure. Eight defects of wording and citation, no gap (obligation 12 of STATE.md). The registered statement was compared with the reviewed one by the author of the session: item (i) is Theorem T7 with the shift written out, item (ii) is Theorem T8 with the equality remark, item (iii) is the increment inequality of T8. Not covered: the dependencies (relied on at their earlier review status), Lean, novelty.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8b03309499bf14baa1316cb84419ad56d92046b9",
+          "sha256": "a86cf50554d368e9e6309b8379bae2e149320b57cd375467af7d96a0ce9c9df9",
+          "statement_fingerprint": "fa11512f28430d4f6e186e9dec2d231c9d1ea81fa0420cf05dde504f737c421b"
+        },
+        {
+          "kind": "note",
+          "path": "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
+          "summary": "Literature audit of session 11: the operation of item (i) is Csikvári's generalized tree shift; the analogues of items (i) and (ii) for Laplacian and adjacency coefficients are theorems of Zhou–Gutman, Mohar (2007) and Csikvári (2010, 2013); no version for the distance characteristic polynomial was found within its coverage (its item (b) asked for path maximality explicitly)."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A candidate proof, not an established result. One AI review of one revision (8b03309) found no gap; the reviewer is the same model as the author, so independence is by context only, and no human has read it. It rests on candidate results: MD-0019 (Theorem T5, Propositions S33, S34) and MD-0015 (Proposition S19). The proof of Lemma S37 uses a finite exact symbolic identity (sympy). The note has defects of wording and citation listed by the review (D1 to D8) and has not been revised. Coefficientwise extremality only: nothing is asserted about the index at which the coefficients are maximal — the peak-location maximality of the path is open (MD-0021). The shift is Csikvári's, and the analogues of items (i) and (ii) for Laplacian and adjacency coefficients are known (Zhou–Gutman; Mohar 2007; Csikvári 2010, 2013); originality is not established.",
+      "depends_on": [
+        {
+          "ref": "MD-0019",
+          "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630",
+          "note": "Theorem T5 (E ∈ K_{a+1}) and Propositions S33, S34 of notes/lower-bound.md (the state of an unweighted rooted tree, the plant and merge rules for E); item (i) for k = 1 is Proposition S36 there."
+        },
+        {
+          "ref": "MD-0015",
+          "statement_fingerprint": "e07c2df1c1c76722a7e2a94488c1762dff9d2f852452e5d1ae110d262b6a4e93",
+          "note": "Proposition S19 (plant and merge rules of the rooted state), with all weights zero."
+        },
+        {
+          "ref": "MD-0016",
+          "statement_fingerprint": "dc1297093f8028e017991fc9d6ba6f5b159987e7f3229b3e7ba5f03fa2db9e7d",
+          "note": "Lemmas proved in its note (the cones K_d with (K2), Lemma K, Lemma A(a)), not its two registered items."
+        },
+        {
+          "citation": "R. L. Graham, L. Lovász, Adv. Math. 29 (1978) 60–88, through L2 of notes/lemmas.md: d_1 = 2n² − 6 − Σ deg². Used for the equality case of item (ii) only."
+        }
+      ],
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S37, S38, S39, T7, T8",
+          "note": "Objective O12, sessions 11 (exploration) and 12 (focused work)."
+        },
+        {
+          "type": "generalizes",
+          "target": "MD-0019",
+          "note": "Item (i) for k = 1 is item (iv) of MD-0019 (contraction of an edge)."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "Coefficientwise extremality only. It does not locate the peak: the upper half of the conjecture would follow from peak-location maximality of the path (statement (PX-peak) of the note), which is open."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-27",
+        "coverage": "No new search in session 12. The literature audit of session 11 (11 web searches, 19 fetches; dossier) asked explicitly whether the path maximizes, or the star minimizes, the coefficients of the distance characteristic polynomial of trees, and whether they are monotone under a tree shift: nothing found for the distance matrix; the Laplacian and adjacency analogues are known (Zhou–Gutman; Mohar 2007; Csikvári 2010, 2013). Collins (1986, 1989), read in session 11, contain no such statement.",
+        "limitations": "Shallow: no MathSciNet, zbMATH or Google Scholar; Csikvári's first paper and Guo (2010) not read; the literature on the distance spectral radius of trees and on mathematical chemistry indices not searched. An unsuccessful search does not establish originality."
+      }
+    },
+    {
+      "id": "MD-0021",
+      "type": "conjecture",
+      "title": "Peak monotonicity under the generalized tree shift, and peak-location maximality of the path",
+      "statement": "For a tree T of order n ≥ 3 let d_0, …, d_{n−2} be the normalized coefficients of its distance characteristic polynomial (the coefficients of ℓ_T(x) = −2^{−(n−2)} det(2xI − D)), and p_max(T) the largest index at which this sequence is maximal. For trees A, B with a, b ≥ 2 vertices, vertices u of A and v of B, and k ≥ 1, let T_k be A and B joined by a path of length k from u to v, and T′_k the tree obtained by identifying u with v and attaching a new path of length k at the identified vertex (Csikvári's generalized tree shift). Conjecture (PM): p_max(T′_k) ≤ p_max(T_k) for all such A, B, u, v, k. Conjecture (PX-peak): p_max(T) ≤ p_max(P_n) for every tree T of order n ≥ 3, P_n the path. (PM) implies (PX-peak); and (PX-peak), together with p_max(P_n) ≤ ⌈n − n/√5⌉, implies the upper bound of the Collins–Shor conjecture (every maximizing index of every tree of order n is at most ⌈n − n/√5⌉).",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-fable-5-2",
+            "kind": "ai-model",
+            "role": "session 11: the observation that the peak index did not increase along any generalized shift of trees of order 5 to 15 (scratch)"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 12 (principal investigator): the formulation of (PM) and (PX-peak), the proof of the two implications, the separation of coefficientwise from peak-location extremality, and a scratch probe on double brooms; the stored falsification test was written by a computational-experimenter subagent (claude-sonnet-5-5)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (instructions for session 12, including to distinguish coefficientwise from peak-location extremality; no mathematical input)"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "note",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md",
+          "summary": "Section 'What these results say about the location of the peak': the statements, the proof that (PM) implies (PX-peak) (Lemma S39 and induction on the number of leaves, as in Theorem T8), and why the cone order of Theorem T8 does not give (PX-peak). The review of revision 8b03309 checked the two implications as implications.",
+          "revision": "8b03309499bf14baa1316cb84419ad56d92046b9",
+          "sha256": "b2c0f38ad7050455aa19ac369994bc94ff07ce799bfab93145da91625698ccf5"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/tree-shift.json",
+          "summary": "Part E (exact): no violation of (PM), for the largest and for the smallest maximizing index, on every tree of order 5 to 15 and every generalized shift (127,192 shifts), on 10,812 shifts of double stars, brooms, spiders and caterpillars of orders 20 to 150 (all shifts up to about order 30, seeded samples above), and on 4,000 random shifts of 200 random trees of orders 30 to 100; the smallest relative margin found is about 0.0014 (order 120). Part F: for every n from 3 to 2000 the path has a unique maximizing index, equal to ⌈n − n/√5⌉ (393 values) or ⌊n − n/√5⌋ (1,605 values).",
+          "revision": "3c9698089040d8c3dfba74f6b0327f2b42122d14",
+          "sha256": "fe83aa12f25211e1ec55eee78c2548fdd0f1bc290981f9a041a913ab14ed9aa5"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "A conjecture formulated by the project, supported by finite exact computation only: exhaustive for orders at most 15, sampled on families and random trees up to order 150, and (scratch, not stored) on double brooms shifted to brooms up to order 300, where the margin shrinks roughly like c/n with c between 0.3 and 0.7 and stays positive. (PX-peak) holds for every tree of order at most 23 (E3 of STATE.md) and at most 18 (the reviewer of 8b03309, own code). The bound p_max(P_n) ≤ ⌈n − n/√5⌉ is the informal last step of the proof of Theorem 3 of Collins (1989); it is checked exactly for n ≤ 2000 only, so the second implication is conditional on it. No proof technique is known: the cone order of MD-0020 controls the increments d_μ − d_{μ−1} only for μ ≤ n/2, and the ratio d_{j+1}/d_j is not monotone along a shift even at j = p_max(T_k) (2,292 of 95,248 shifts of orders 4 to 14, the smallest S(2,2) → S_6; reviewer of 8b03309). No literature search was made for either statement.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "(PM), (PX-peak)",
+          "note": "Sessions 11 (observation) and 12 (formulation)."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0001",
+          "note": "(PM) would give the upper half of the conjecture, given the bound on the peak of the path."
+        }
+      ]
     }
   ]
 }

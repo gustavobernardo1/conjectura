@@ -1,6 +1,6 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-26 (session 11). This file is the current truth about the
+Last updated: 2026-11-27 (session 12). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
 continue. It was compacted in sessions 5, 8 and 9: details are in the notes it
 links. **Session 9:** [`notes/wiener-form.md`](notes/wiener-form.md) (S24 to
@@ -13,6 +13,10 @@ S31, statement (SM⁺): the even orders reduced to one polynomial `Ω_T`).
 Theorems T5 and T6: statement (Γ_c¹), star minimality (SM) and **the lower
 bound `⌊n/2⌋` for every tree** — a candidate proof; contraction of an edge);
 Collins (1986) and Collins (1989) read (dossier, last section).
+**Session 12:** [`notes/path-maximality.md`](notes/path-maximality.md) (S37 to
+S39, Theorems T7 and T8: the generalized tree shift lowers `ℓ` in the cone
+order, and the path is the coefficientwise maximum — a candidate proof;
+statements (PM) and (PX-peak) on the location of the peak, open).
 Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/double-stars.md`](notes/double-stars.md) (T1),
 [`notes/spine3.md`](notes/spine3.md) (T2),
@@ -84,7 +88,8 @@ theorems** (director's decision of 2026-11-26), and so is **T4** (session 9:
 `d_{μ−1} < d_μ`, `μ = ⌊(n−1)/2⌋`, for every tree — the conjectured lower
 bound for odd order, one less for even order), and so are **T5 and T6**
 (session 11: `d_{m−1} < d_m`, `m = ⌊n/2⌋`, for every tree — the conjectured
-lower bound for every order; its reviews are listed in obligation 11). The
+lower bound for every order; its reviews are listed in obligation 11), and so are **T7 and T8**
+(session 12: the path is the coefficientwise maximum; obligation 12). The
 status of every registered contribution is in
 [`research/discoveries.json`](../../discoveries.json), not here.
 
@@ -123,6 +128,7 @@ review of one revision, named in the registry.
 | S32 to S35, **T5** | For a rooted tree `(A, u)` of order `a`, weight zero, `δ` the distances from `u`, `a_v = x^{δ_v−1}Π_{uv}`: `H = Σ a_v`, `G = xΣ(δ_v−1)a_v`, `R(A, e_u) = Q¹ + x²Σδ_v²a_v` with `Q¹ ∈ K_a` (S33); `E := R − Ω + (1+2x)²Ψ − 2xG = R(A, e_u) − (1+x)(Ω + xH)`, with the plant rule `E^ = x[E + Ω + 2G + x(3+2x)H]` and the merge rule `E = E_1Ψ_2 + E_2Ψ_1 + x(H_1Ω_2 + H_2Ω_1) − 2G_1G_2` (S34); for two planted trees the last two terms equal `x(Ψ_1R¹_2 + Ψ_2R¹_1) + x²(H_1Q¹_2 + H_2Q¹_1) + x⁴Σ(δ_v − δ_{v′})²a_va_{v′}` (S35). **T5: `Ω ∈ K_a`, `E ∈ K_{a+1}`, `R(A, e_u) ∈ C_{a+1}` for every rooted tree — statement (Γ_c¹).** | Candidate proof (induction on rooted trees); reviews: obligation 11. Exact on all rooted trees of order ≤ 9 and (Γ_c¹) to order 11. |
 | **T6** | **For every tree: `r_u(T) − (1+4x)(1+x)^{n−1} ∈ K_n`; (SM) `ℓ_T − ℓ_{S_n} ∈ C_{n−1}` (so `d_k(T) ≥ d_k(S_n)` for every `k`); and for `n ≥ 3`, `m = ⌊n/2⌋`: `d_m − d_{m−1} ≥` that of the star `> 0` — every maximizing index is `≥ ⌊n/2⌋`, the lower half of the conjecture.** Uses T5, S23(c), Lemma A, R1. | Candidate proof; reviews: obligation 11. (SM) exact on all trees of order ≤ 20; the conjecture itself on orders ≤ 23 (E1, E2). |
 | S36 | **Contraction.** `uv` a non-pendant edge, `(A, u)`, `(B, v)` the two sides, `T′` = `A` and `B` glued at `u = v` plus a pendant vertex there: `ℓ_T − ℓ_{T′} = H_AE_B + H_BE_A + x(2+5x)H_AH_B + 2G_AG_B/x ∈ C_{n−1}`; so every `d_k` and `d_m − d_{m−1}` decrease (weakly) under the operation. A second proof of (SM). | Candidate proof; reviews: obligation 11. Formula exact on 1,064 pairs; membership on all trees of order 4 to 16 and all non-pendant edges (220,181). |
+| S37 to S39, **T7, T8** | **Generalized tree shift** (`A`, `B` joined by a path of length `k` → glued, with a pendant path of length `k`; `a, b ≥ 2`): `ℓ_{T_k} − ℓ_{T′_k}` has an explicit formula (S37: four terms, coefficients built from the tridiagonal determinants `a_j`) and lies in `C_{n−1}` (T7). Every tree but the path is the result of a shift that removes one leaf (S39). **T8: `ℓ_{P_n} − ℓ_T ∈ C_{n−1}` for every tree** — with T6(b), `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` for every `k`, and the increments `d_μ − d_{μ−1}` ordered the same way for `μ ≤ ⌊n/2⌋`; equality with the path only for the path. **Coefficientwise only: nothing about the peak index.** | Candidate proof (session 12); one AI review of `8b03309`, no gap found (`claude-opus-5-5`, the author's model; independent by context only); S37 uses a finite exact identity (sympy). Exact: `results/tree-shift.json` (T7 on all shifts of order ≤ 15, T8 on all trees of order ≤ 17). |
 | S27 | (SM) implies `d_m − d_{m−1} ≥` that of the star `> 0`, `m = ⌊n/2⌋`, for every tree; `Φ(B, e_c) − (1+x)^j ∈ C_j`; (Γ_c¹) ⇒ `r_u(T) − (1+4x)(1+x)^{n−1} ∈ C_n` ⇒ (SM). | Proved (conditional); (a), (b) and the algebra of (c) checked by the reviewer of `b5d9294`, which is not a review of the note. |
 
 ### Global identifiers
@@ -148,6 +154,8 @@ Statuses are in the registry and in [`research/INDEX.md`](../../INDEX.md).
 | (SM), with S23 and S27 as evidence; (SM⁺) | MD-0017 | conjecture |
 | S28 to S30, with S31 | MD-0018 | structural result (candidate) |
 | T5, T6, S36 (with S32 to S35) | MD-0019 | theorem (candidate) |
+| S37 to S39, T7, T8 | MD-0020 | theorem (candidate) |
+| (PM), (PX-peak) | MD-0021 | conjecture |
 
 Not registered: R1, L2, L4 and S1 to S4 are tools or steps (S3 and S4 are the
 evidence of MD-0010); Γ⁺ is an observation on the 47 small trees, recorded
@@ -168,35 +176,30 @@ for every tree; it follows from T5(i) and the formula of S30 (unreviewed).
 of any non-pendant edge (S36). Still open, and no longer needed for the
 lower half: Γ_c for general weights, (E), (Λ), Conjecture Γ.
 
-**Statements (GS) and (PX) — open; observed in session 11, scratch only, not
-registered.** The operation of S36 is a known one: the generalized tree
-shift of Csikvári for adjacent vertices, also "separating an edge" (Guo) and,
-when one side is a star, Mohar's `σ` (audit of session 11 in the dossier);
-for the Laplacian and adjacency polynomials the coefficients are monotone
-along it (Mohar 2007; Csikvári). **(GS):** for the generalized tree shift
-along a path of any length (inner vertices of degree 2; the other neighbours
-of one end moved to the other), `ℓ_T − ℓ_{T′} ∈ C_{n−1}` — exact for every
-tree of order 5 to 13 and every shift (no failure; the case of length 1 is
-S36). **(PX), path maximality:** `ℓ_{P_n} − ℓ_T ∈ C_{n−1}` for every tree, so
-`d_k(T) ≤ d_k(P_n)` for every `k` — exact for the 81,134 trees of order 4 to
-17. (GS) implies (PX), the path being the only tree that is not the result
-of a shift (Csikvári; not checked by the project). With T6(b):
-`ℓ_{S_n} ≤ ℓ_T ≤ ℓ_{P_n}` in the cone order, the analogue of the theorem of
-Zhou and Gutman for Laplacian coefficients. Neither statement gives the upper
-half of Collins–Shor (the cone controls `λ_μ` only for `μ ≤ n/2`).
-*A route to (GS)* (scratch, symbolic, **not written as a proof and not
-reviewed**): plant is linear and merge bilinear in the state
-`(Ψ, H, G, Ω, E)`, so for a shift along a path of length `k`,
-`x(ℓ_T − ℓ_{T′})` is a bilinear form in the states of `(A, u)` and `(B, v)`.
-For `k = 1, …, 12` it was computed (sympy, scratch; the code is in the
-journal entry of session 11):
-`x(ℓ_T − ℓ_{T′}) = x a_{k−1}(H_AE_B + E_AH_B) + 2γ_k G_AG_B + 2x²γ_{k−1}(H_AG_B + G_AH_B) + x²[2(1+x)γ_k + 3x a_{k−1} + xΣ_{i=0}^{k−2}(i+1)(k−1−i)x^i a_{k−2−i}] H_AH_B`,
-where `a_j` is the determinant of the `j × j` tridiagonal matrix with
-`1 + 2x` on the diagonal and `−x` beside it (`a_0 = 1`; the inner vertices of
-the path) and `γ_k = Σ_{i<k} x^i a_{k−1−i}`. With `a_j ∈ K_j` (Lemma K) and
-the memberships of T5 and S33 each term is in `K_{n−1}` (levels counted by
-hand, once). What is missing for (GS): a proof of this closed form for
-every `k`, and the write-up.
+**Three kinds of extremality** (session 12; `path-maximality.md`, last
+sections). (1) *Coefficientwise*: `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` — T6(b) and
+T8, candidate proofs. (2) *Increments below the middle*: the same order for
+`d_μ − d_{μ−1}`, `μ ≤ ⌊n/2⌋`; the cone reaches no further. (3) *Peak
+location*: the star is peak-minimal (every tree has `p_min ≥ ⌊n/2⌋ = p_max(S_n)`;
+this is T6(c), the lower half); whether the path is peak-maximal is open,
+and (1) does not imply it (termwise domination does not order maximizing
+indices).
+
+**(PX-peak) and (PM) — open (MD-0021, session 12).** (PX-peak):
+`p_max(T) ≤ p_max(P_n)` for every tree. (PM): for every generalized shift,
+`p_max(T′_k) ≤ p_max(T_k)`. Proved: (PM) ⇒ (PX-peak) (S39 and induction on
+the leaves); (PX-peak) and `p_max(P_n) ≤ ⌈n − n/√5⌉` ⇒ the upper half. The
+path bound is the informal last step of Collins's Theorem 3; exact for
+`n ≤ 2000` (the path's maximizing index is unique and equals
+`⌈n − n/√5⌉` for 393 values of `n`, `⌊n − n/√5⌋` for 1,605). Evidence for
+(PM), exact (`results/tree-shift.json`, part E): every shift of every tree of
+order 5 to 15; 10,812 shifts of families of orders 20 to 150; 4,000 random
+shifts of random trees of orders 30 to 100; no violation; smallest relative
+margin about 0.0014 (order 120). Scratch, not stored: double brooms shifted
+to brooms up to order 300, no violation, margin about `c/n`, `c` between 0.3
+and 0.7. Ratio dominance `d_{j+1}(T′)/d_j(T′) ≤ d_{j+1}(T)/d_j(T)` fails even
+at `j = p_max(T_k)` (2,292 of 95,248 shifts of orders 4 to 14, the smallest
+`S(2,2) → S_6`; the reviewer of `8b03309`), so (PM) needs another mechanism.
 
 **Conjecture Γ (MD-0010) and Hypothesis V (MD-0009) — open; no longer on
 the route to the lower half.** Γ: for every tree `S` and every `A ⊆ V(S)`,
@@ -282,6 +285,9 @@ Collins–Shor, lower half  (⇔ d_{m−1} < d_m, m = ⌊n/2⌋, by R1 [Lean])
 
 Collins–Shor, upper half
   ⇐ R1
+  ⇐ (PX-peak) + p_max(P_n) ≤ ⌈n − n/√5⌉               [(PX-peak) OPEN (MD-0021); path bound exact for n ≤ 2000]
+      ⇐ (PM) + Lemma S39                             [(PM) OPEN; S39 candidate proof (MD-0020)]
+  coefficientwise path maximality T8                 [candidate proof; does NOT locate the peak]
   ⇐ Hypothesis A(ii) at k = p_n                      [OPEN; k = 0 proved (L2)]
   ⇐ Collins 1989, Theorem 3: d_{n−k}(P_n) = C(n+k−1, 2k−1)(k−1)n/k; peak of P_n at ⌊n − n/√5⌋ or ⌈n − n/√5⌉
                                                      [read in session 11; the last step of its proof is informal]
@@ -401,6 +407,20 @@ full text of items 1 to 8 as of session 7 is there).
    statements of `LowerBoundCone.lean`, if registered, were compared with
    the note by the formalizing agent and the author only.
 
+12. **Session 12: T7, T8 (MD-0020).** Done: one AI review of
+   `path-maximality.md` at `8b03309` (`claude-opus-5-5`, the author's model;
+   no gap); the stored computation `tree_shift.py` (`results/tree-shift.json`,
+   0 failures). Owed: one revision of the note for the review's defects D1 to
+   D8 (the cited code for `Δ_k = c_k` is the wrong scratch script — the check
+   is now part A of `tree_shift.py`; notation `a_j`, `ρ_k`, `C(t)`, `Q`, `T_0`;
+   a self-contradictory sentence in the equality remark; the star's unique
+   peak cited to S23(d) instead of Collins 1989; two negative claims stated
+   beyond their support; the path bound attributed to Collins's theorem
+   rather than to its informal last step; the header's dependency list), then
+   a recheck; a reviewer of another model when one is available; a
+   literature search aimed at distance-matrix versions of Csikvári's
+   results; it depends on MD-0019 and MD-0015, which are candidates.
+
 ## Remaining obstacles
 
 - **Lower half.** No mathematical obstacle is known: T6 is a candidate proof
@@ -409,62 +429,37 @@ full text of items 1 to 8 as of session 7 is there).
   terms, one level short) was avoided: they are never separated from
   `R(A_l, e_{c_l})` except where an extra factor `x` is available (Remark
   after T5 in `lower-bound.md`).
-- **Upper half.** No mechanism: A(ii) is unproved beyond `k = 0`. The
-  contraction of an edge (S36) moves every tree towards the star; its
-  maximal elements are the trees in which no vertex of degree `≥ 3` has a
-  pendant neighbour, not only the path, so an upper-half argument along this
-  order would need the more general shift along a path with inner vertices
-  of degree 2 (not computed).
+- **Upper half.** Reduced to (PM) (MD-0021), with no proof mechanism: the
+  cone order controls only `μ ≤ n/2`, and ratio dominance fails at the
+  relevant index. What a proof must show is a sign: with `p = p_max(T_k)`,
+  `λ_{p+1}(ℓ_{T′_k}) = λ_{p+1}(ℓ_{T_k}) − λ_{p+1}(ℓ_{T_k} − ℓ_{T′_k}) < 0`, where
+  the second term is given by S37. A(ii) is unproved beyond `k = 0`.
 - Γ_c for general weights, (E), (Λ), Conjecture Γ: open, and now of interest
   only for themselves (the weighted statements), not for Collins–Shor.
 
 ## Next step
 
-**Session 12 is in progress** (stopped at the director's request on
-2026-11-27): resume from its journal entry. It works on O12 below; a draft
-proof of (GS) for every path length and of (PX) is in
-[`notes/path-maximality.md`](notes/path-maximality.md) (not reviewed).
+**Owed first.** (a) Obligation 11: the one revision of
+`notes/lower-bound.md` for the defects listed there, and its recheck; then
+`manuscripts/CJ-0001-lower-bound/`, one self-contained proof of T6(c) from the
+Graham–Lovász inverse (L1, Lemma K, S24, S19 for zero weights, S23, S33 to
+S35, T5, T6) for a complete audit. (b) Obligation 12: the one revision of
+`notes/path-maximality.md` for the defects D1 to D8 of its review, and its
+recheck.
 
-**Owed first (validation of the lower half, obligation 11).** (a) The one
-revision of `notes/lower-bound.md` for the defects listed there, and its
-recheck by a fresh context. (b) Start `manuscripts/CJ-0001-lower-bound/`: one
-self-contained document that proves T6(c) from the Graham–Lovász inverse
-formula, with every lemma it uses (L1, Lemma K, S24, S19 for zero weights,
-S23, S33 to S35, T5, T6), written for a complete audit. S19 should be
-re-proved there for weight zero only, which is all the proof needs.
+**Objective O11 (the upper half) through (PM) (MD-0021).** First action
+(exploration, cheap, exact): for the shifts of order ≤ 14 where ratio
+dominance fails at `p = p_max(T_k)`, split `λ_{p+1}(ℓ_{T_k} − ℓ_{T′_k})` into the
+four terms of S37 and see which one is negative and how it compares with
+`λ_{p+1}(ℓ_{T_k})`; look for an inequality between `λ_{p+1}` of the terms
+`a_{k−1}(H_AE_B + E_AH_B)` and `λ_{p+1}(ℓ_{T_k})` that a proof could use. Keep
+testing (PM) on families before building on it (spiders with legs of mixed
+lengths and caterpillars near the star at orders ≥ 200).
 
-**Objective O11 (the upper half): for every tree of order `n`,
-`d_{M+1} < d_M` with `M = ⌈n − n/√5⌉` (when `M ≤ n − 3`).** Nothing is proved.
-Two observations of session 11, both scratch and neither stored:
-
-1. *(PM), exact arithmetic.* Along Csikvári's generalized tree shift (a path
-   `x … y` whose inner vertices have degree 2; all other neighbours of `y`
-   are moved to `x`; the contraction of S36 is the case of an edge) the
-   largest and the smallest maximizing index never moved up: every tree of
-   order 5 to 15 and every shift, 127,192 shifts. Since the path is the only
-   tree that is not the result of a shift, (PM) and Collins's theorem for the
-   path would give the upper half. The ratio `d_{k+1}/d_k` is **not** monotone
-   along shifts for `k ≥ ⌊n/2⌋` (failures in every order from 6), so (PM)
-   cannot be proved through ratio dominance. First action: derive the
-   analogue of S36 for a shift along a path of length `k` (plant `k` times,
-   then merge) and look at `λ_{M+1}` of the difference; test (PM) on large
-   families (brooms, spiders with long legs, caterpillars at `n ≥ 60`)
-   before building on it.
-2. *Upper cone, floating-point LP only (exploratory, not a certificate).*
-   For every tree of order 5 to 14 the part of `ℓ_T` of degree `≤ n − 2` is a
-   non-negative combination of `x^e(1+x)^i` with `2e + i ≤ 2M + 1` (on which
-   `λ_{M+1} ≤ 0`); the least bound needed is `n + 2` or `n + 3` for trees
-   close to the star and reaches `2M + 1` at order 14, so this certificate
-   may fail for near-stars at larger even orders. Where the constant comes
-   from: `Φ(P_j, e_end) = Σ_k C(j+k, 2k) x^{j−k}` (Morgan-Voyce), whose peak is
-   at about `j(1 − 1/√5)`.
-
-**Objective O12 (path maximality): prove (GS) for every path length, hence
-(PX).** First action: store `shift_formula.py` (the bilinear form of the shift
-for `k ≤ 12`) and the exact tests of (GS) and (PX) as an experiment with a
-test; then prove the closed form stated under (GS) by induction on `k` (the sequences `plant^k` satisfy linear recurrences); check Csikvári's
-statement that the path is the only tree not obtained by a shift. O12 looks
-closer than O11.
+Upper cone, floating-point LP of session 11 (exploratory, not a
+certificate): for every tree of order 5 to 14 the part of `ℓ_T` of degree
+`≤ n − 2` is a non-negative combination of `x^e(1+x)^i` with `2e + i ≤ 2M + 1`
+(on which `λ_{M+1} ≤ 0`), with no margin for two near-stars at order 14.
 
 Also open and cheap: obligations 5 and 8; the rerun of orders 21 to 23
 (obligation 4) needs the director's approval of its budget.

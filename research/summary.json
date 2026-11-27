@@ -35,87 +35,77 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0019",
-    "type": "theorem",
-    "title": "The lower bound ⌊n/2⌋ for the peak of the normalized coefficients of the distance characteristic polynomial of every tree; star minimality in the half-gamma cone order; contraction of an edge",
-    "registered": "2026-11-26",
+    "id": "MD-0021",
+    "type": "conjecture",
+    "title": "Peak monotonicity under the generalized tree shift, and peak-location maximality of the path",
+    "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
-      "mathematical": "candidate-proof",
-      "formal": "partial",
-      "novelty": "preliminary-search-completed",
-      "external_review": "ai-reviewed"
+      "mathematical": "candidate",
+      "formal": "not-started",
+      "novelty": "unknown",
+      "external_review": "not-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json",
-      "formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean",
-      "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
-      "research/candidates/CJ-0001-collins-shor-peak.md#primary-sources-read-in-session-11-2026-11-26-collins-1986-and-collins-1989",
-      "tests/test_cj0001_lower_bound.py"
+      "experiments/CJ-0001-collins-shor-peak/results/tree-shift.json",
+      "research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md"
     ]
   },
   "latest_reviewed_contribution": {
-    "id": "MD-0019",
+    "id": "MD-0020",
     "type": "theorem",
-    "title": "The lower bound ⌊n/2⌋ for the peak of the normalized coefficients of the distance characteristic polynomial of every tree; star minimality in the half-gamma cone order; contraction of an edge",
-    "registered": "2026-11-26",
+    "title": "The generalized tree shift lowers the distance polynomial of a tree in the half-gamma cone order; the path is the coefficientwise maximum",
+    "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
       "mathematical": "candidate-proof",
-      "formal": "partial",
+      "formal": "not-started",
       "novelty": "preliminary-search-completed",
       "external_review": "ai-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json",
-      "formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean",
-      "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md",
+      "experiments/CJ-0001-collins-shor-peak/results/tree-shift.json",
+      "experiments/CJ-0001-collins-shor-peak/tree_shift_symbolic.py",
+      "research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-T7-T8-path-maximality.md",
       "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
-      "research/candidates/CJ-0001-collins-shor-peak.md#primary-sources-read-in-session-11-2026-11-26-collins-1986-and-collins-1989",
-      "tests/test_cj0001_lower_bound.py"
+      "tests/test_cj0001_tree_shift.py"
     ],
     "review": {
-      "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
-      "date": "2026-11-26",
-      "revision": "74d65b010289e236fc3387b37010290a2d266241",
-      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md"
+      "by": "claude-opus-5-5 (fresh context; the same model as the author, so independent by context only; AI review, not human or peer review)",
+      "date": "2026-11-27",
+      "revision": "8b03309499bf14baa1316cb84419ad56d92046b9",
+      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-T7-T8-path-maximality.md"
     }
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0019",
+    "id": "MD-0020",
     "type": "theorem",
-    "title": "The lower bound ⌊n/2⌋ for the peak of the normalized coefficients of the distance characteristic polynomial of every tree; star minimality in the half-gamma cone order; contraction of an edge",
-    "registered": "2026-11-26",
+    "title": "The generalized tree shift lowers the distance polynomial of a tree in the half-gamma cone order; the path is the coefficientwise maximum",
+    "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
       "mathematical": "candidate-proof",
-      "formal": "partial",
+      "formal": "not-started",
       "novelty": "preliminary-search-completed",
       "external_review": "ai-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json",
-      "formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean",
-      "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md",
+      "experiments/CJ-0001-collins-shor-peak/results/tree-shift.json",
+      "experiments/CJ-0001-collins-shor-peak/tree_shift_symbolic.py",
+      "research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-T7-T8-path-maximality.md",
       "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
-      "research/candidates/CJ-0001-collins-shor-peak.md#primary-sources-read-in-session-11-2026-11-26-collins-1986-and-collins-1989",
-      "tests/test_cj0001_lower_bound.py"
+      "tests/test_cj0001_tree_shift.py"
     ],
     "novelty_search": {
-      "as_of": "2026-11-26",
-      "coverage": "Session 11. Collins (1989) read in full and Collins's thesis (1986) read (page images for pp. 30–47 and 55–61, OCR for the rest): neither contains any of the items. Literature audit by a separate agent context (11 web searches, 19 fetches; queries and URLs verbatim in the dossier): arXiv listings, Semantic Scholar and OpenAlex citation lists of arXiv:1507.02341, Mohar's 2007 preprint on Laplacian coefficients of acyclic graphs (read in full) and Csikvári, On a poset of trees II (pp. 1–11 and 19–21 read). Earlier audits of sessions 9 and 10 searched for coefficientwise extremality of the star and for bounds on the peak. Within this coverage no prior proof of the lower bound ⌊n/2⌋ for every tree, no coefficientwise extremal result for the distance characteristic polynomial of trees, and no monotonicity of its coefficients under a tree shift was found.",
-      "limitations": "Shallow. Not searched: MathSciNet, zbMATH, Google Scholar; MathOverflow, OEIS and the formal libraries only by one general query or not at all. Not read: Graham–Lovász (1978) pp. 72–88, Csikvári's first paper (Combinatorica 2010) and pp. 12–18 of the second, Guo (2010), Stevanović–Ilić and the literature on the distance spectral radius of trees, 'The 2-Steiner distance matrix of a tree' (2022) and 'On a poset of trees revisited' (2021) (titles only), the mathematical-chemistry journals. The intermediate statements (S32 to S35, the polynomial E) were not searched. English only. An unsuccessful search does not establish originality."
+      "as_of": "2026-11-27",
+      "coverage": "No new search in session 12. The literature audit of session 11 (11 web searches, 19 fetches; dossier) asked explicitly whether the path maximizes, or the star minimizes, the coefficients of the distance characteristic polynomial of trees, and whether they are monotone under a tree shift: nothing found for the distance matrix; the Laplacian and adjacency analogues are known (Zhou–Gutman; Mohar 2007; Csikvári 2010, 2013). Collins (1986, 1989), read in session 11, contain no such statement.",
+      "limitations": "Shallow: no MathSciNet, zbMATH or Google Scholar; Csikvári's first paper and Guo (2010) not read; the literature on the distance spectral radius of trees and on mathematical chemistry indices not searched. An unsuccessful search does not establish originality."
     }
   },
   "public": {
@@ -170,38 +160,38 @@
       }
     },
     "contributions": {
-      "registered": 19,
+      "registered": 21,
       "by_standing": {
-        "candidate": 17,
+        "candidate": 19,
         "established": 0,
         "rediscovered": 2,
         "withdrawn": 0
       },
-      "counted": 17,
+      "counted": 19,
       "by_type": {
         "computational-finding": 1,
-        "conjecture": 4,
+        "conjecture": 5,
         "counterexample": 1,
         "structural-result": 5,
-        "theorem": 6
+        "theorem": 7
       },
       "by_status": {
         "mathematical": {
-          "candidate": 3,
-          "candidate-proof": 13,
+          "candidate": 4,
+          "candidate-proof": 14,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 14,
+          "not-started": 16,
           "partial": 3
         },
         "novelty": {
-          "preliminary-search-completed": 13,
-          "unknown": 4
+          "preliminary-search-completed": 14,
+          "unknown": 5
         },
         "external_review": {
-          "ai-reviewed": 12,
-          "not-reviewed": 5
+          "ai-reviewed": 13,
+          "not-reviewed": 6
         }
       }
     },
@@ -222,11 +212,11 @@
   "generated": {
     "date": "2026-11-27",
     "branch": "research",
-    "revision": "c94a670034ce9e84b17be56d6778af01eec97d6b",
-    "sources_committed": true,
+    "revision": "3f620e16be3ed4877321f4f9228af12d68ef5e4a",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "bf451e00de41eb9b83d6534d1fd1f05b30741642",
-      "research/discoveries.json": "b704910b5132afa52c70a9758dfb2ad829ca1fa5",
+      "research/discoveries.json": "b4aa697a88f1e2aae80d70db5d2cf3c639e0fc09",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "7b6844d46ed35f5977be6dec490d6ee1a1a98703"
     }

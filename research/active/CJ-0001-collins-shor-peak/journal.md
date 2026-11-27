@@ -2313,8 +2313,9 @@ maximality), then O11 (the upper half).
 
 ## Session 12 — 2026-11-26 to 2026-11-27
 
-- **Entry status:** in progress (stopped at the director's request at about
-  00:05 on 2026-11-27, to be resumed).
+- **Entry status:** completed; stopped early, with the objective reached
+  (it had been stopped at the director's request at about 00:05 on
+  2026-11-27 and was resumed at 14:23 the same day).
 - **Agent / model:** Claude, model `claude-opus-5-5` (Research Director,
   main session). Principal investigator: `claude-opus-5-5`, by the
   director's decision, while `claude-fable-5-2` is unavailable. Human
@@ -2394,3 +2395,105 @@ maximality), then O11 (the upper half).
   statement (PM) added: (PM) and Lemma S39 would give peak-location
   maximality of the path, hence, with Collins's theorem on the path, the
   upper half.
+- **+27 min of work (14:50 local, clock reading):** the review returned no
+  gap (report committed at `3c96980`); `tree_shift.py` stored and rerun on a
+  clean tree (`3f620e1`); MD-0020 and MD-0021 registered; `STATE.md`
+  rewritten. Decision: stop early, see "Outcome".
+
+### What was done
+
+- Reread of the draft by its author (two defects, corrected in the one
+  revision before review, `8b03309`: a claimed computation that had not been
+  made, now a proof from L2; notation), and a new section separating three
+  kinds of extremality, at the director's request.
+- `computational-experimenter` (model `claude-sonnet-5-5`, as recorded in its
+  transcript) wrote `tree_shift.py`, its test and README entry; the stored
+  run was repeated by the main session on a clean tree:
+  `uv run --with sympy==1.14.0 python experiments/CJ-0001-collins-shor-peak/tree_shift.py --out experiments/CJ-0001-collins-shor-peak/results/tree-shift.json`
+  at `3c96980`, clean tree, 282 s: parts A to F, 0 failures, 0 violations of
+  (PM) (counts identical to the agent's own run on a dirty tree).
+- `adversarial-reviewer` (model `claude-opus-5-5`, fresh context; the same
+  model as the author) reviewed `path-maximality.md` at `8b03309`:
+  `reviews/2026-11-27-claude-opus-5-5-T7-T8-path-maximality.md`, no gap found
+  within stated scope, defects D1 to D8.
+- Scratch, exact, not stored (`pm_brooms.py`, `pm_thin.py`): (PM) on the shift
+  from a double broom (stars of `s_1` and `s_2` leaves joined by a path of
+  length `L`) to a broom, 458 cases of orders 30 to 120 and a thin-margin scan
+  of orders 120 to 300 — no violation; the smallest relative margin at the
+  peak of `T` (a ratio of exact integers printed in floating point) was about
+  0.0011 to 0.0057, shrinking roughly like `c/n` with `c` between 0.3 and 0.7.
+- Registry: MD-0020 (theorem, candidate-proof, ai-reviewed through the review
+  of `8b03309`, novelty preliminary-search-completed by the audit of session
+  11); MD-0021 (conjecture (PM) with (PX-peak), candidate, not reviewed,
+  novelty unknown).
+
+### Findings
+
+1. **Theorem T7 (generalized tree shift) and Theorem T8 (path
+   maximality): `ℓ_{S_n} ≤ ℓ_T ≤ ℓ_{P_n}` in the cone order, so
+   `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` for every `k`, with equality with the path
+   only for the path.** Level: candidate proof; one AI review, no gap, by the
+   author's model in a fresh context; exact checks by two codes (stored
+   experiment; the reviewer's own) on all trees of order ≤ 17 or 18. Depends
+   on the candidate results MD-0019 and MD-0015. Originality not
+   established; the operation and the Laplacian/adjacency analogues are
+   Csikvári's, Mohar's, Zhou–Gutman's.
+2. **Coefficientwise versus peak-location extremality.** The star is
+   extremal in both senses at the bottom (T6(b), T6(c)); the path is the
+   coefficientwise maximum (T8), but whether it is the peak-location maximum
+   is open, and coefficientwise domination does not imply it. Recorded as
+   (PX-peak), with the route (PM) ⇒ (PX-peak) ⇒ (with the bound on the path's
+   peak) the upper half; MD-0021.
+3. **The path's peak, exactly, for `n ≤ 2000`:** unique, equal to
+   `⌈n − n/√5⌉` for 393 values and `⌊n − n/√5⌋` for 1,605 (part F; the
+   informal last step of Collins's Theorem 3 holds in that range).
+4. **Negative result, sharpened by the reviewer:** ratio dominance along a
+   shift fails even at `j = p_max(T_k)` (2,292 of 95,248 shifts of orders 4 to
+   14; smallest `S(2,2) → S_6`). A proof of (PM) cannot be a ratio comparison
+   with `T_k`.
+
+### What failed
+
+- The first version of the note asserted a computation (equality only for
+  the path, up to order 17) that had not been made. Found by the author's
+  reread before review, replaced by a proof; recorded here and in the note.
+- No idea for a proof of (PM) was found; none was attempted beyond the
+  negative result above.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-opus-5-5` (principal investigator, main session; reviewer); `claude-sonnet-5-5` (computational experimenter) |
+| Computation wall-clock | stored run 282 s (clean tree) and 299 s (the agent's run, dirty tree); scratch about 2 minutes; quick tests 74 s; full test suite: see "Outcome" |
+| Token usage | main context unavailable; subagents as reported by the environment: experimenter 122,374 tokens, 27 tool uses, 874 s; reviewer 160,340 tokens, 36 tool uses, 969 s |
+| Research iterations | 1 focused objective (O12) |
+| Proof attempts | 1 (complete written proof of T7, T8; reviewed) |
+| Counterexamples found | 0 (to the conjecture, to T7/T8, or to (PM)); ratio dominance at `p_max` refuted (reviewer) |
+| Formalization attempts | 0 |
+| Successful verifications | one independent AI review (no gap); stored run (0 failures); `catalogue.py validate`; the commands under "Outcome" |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress: a second extremal theorem (candidate, reviewed once), and a
+precise, registered reduction of the upper half of the conjecture to a
+monotonicity statement (PM) that holds in every case tested, with no proof
+mechanism yet. MD-0019 keeps its status, as the director instructed.
+CJ-0001 keeps the status `active-investigation`.
+
+The session stopped early with the objective reached: about 35 minutes of
+the 120-minute budget used (23:57–00:05 on 2026-11-26/27, then 14:23–about
+15:00 on 2026-11-27), two subagents. The rest of the budget was not spent
+because no concrete idea for (PM) was available to justify it.
+
+Verification commands, run by the main session on the tree of the commit
+that contains this entry (before this sentence was filled in):
+`uv run python scripts/catalogue.py validate` (15 problems, 21 contributions,
+0 errors); `render --check` (up to date); `uv run pytest` (207 passed in
+966.65 s). While it ran, the main session misread its own clock reading as
+the end of the run and briefly took the run for interrupted; it was not.
+
+Next step: `STATE.md`, section "Next step" — obligations 11 and 12 (one
+revision each of `lower-bound.md` and `path-maximality.md`, with rechecks;
+the manuscript of the lower half), then objective O11 through (PM).
