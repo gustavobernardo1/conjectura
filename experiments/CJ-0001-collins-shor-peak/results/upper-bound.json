@@ -1,0 +1,3373 @@
+{
+ "experiment": "CJ-0001 exact checks around tr(T) = trace (I+L)^{-1} and the upper bound on the peak index",
+ "arithmetic": "exact integers / Fractions / python-flint; part B2 high-precision numeric (decimal); part F exploratory floating point",
+ "scope": "finite checks on the stated ranges; not a proof",
+ "run": {
+  "command": [
+   "python",
+   "experiments/CJ-0001-collins-shor-peak/upper_bound.py",
+   "--out",
+   "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json"
+  ],
+  "git_revision": "917d657c9fbb881d50e062efe0e963199f7c086c",
+  "tree_clean": true,
+  "started_utc": "2026-11-27T19:09:01Z",
+  "versions": {
+   "python": "3.12.4",
+   "python-flint": "0.9.0",
+   "networkx": "3.7"
+  },
+  "dirty_files": []
+ },
+ "sources": {
+  "experiments/CJ-0001-collins-shor-peak/upper_bound.py": {
+   "sha256": "2de1d3efbf2d1b362e251a318178cc77b827288a0e9e82ecd58e91bcdc442b4e",
+   "identical_to_git_revision": true
+  },
+  "experiments/CJ-0001-collins-shor-peak/tree_shift.py": {
+   "sha256": "47c5050d03e2d32040892abfff8557b744be1cdae2fecf09160ed5868c45c1eb",
+   "identical_to_git_revision": true
+  },
+  "experiments/CJ-0001-collins-shor-peak/lower_bound.py": {
+   "sha256": "da3adf10f091109223dc39a5795bc0735ad749d1637fe3f6e1cb62524aba2497",
+   "identical_to_git_revision": true
+  },
+  "experiments/CJ-0001-collins-shor-peak/distpoly.py": {
+   "sha256": "43a481a07fd38a320b592ff31334f0a3b102e99a82fa1c4383e0a158574d13d0",
+   "identical_to_git_revision": true
+  },
+  "experiments/CJ-0001-collins-shor-peak/rooted_state.py": {
+   "sha256": "bfaf7c7066a0c40ec274c0709215a33c086a4a9f870d5ab50a3ad8ae817997af",
+   "identical_to_git_revision": true
+  }
+ },
+ "parameters": {
+  "v_max": 9,
+  "n_a": 20,
+  "n_c": 18,
+  "n_path": 2000,
+  "n_b1": 200,
+  "n_b2": 60,
+  "x_max": 8,
+  "pq_max": 8,
+  "n_e": 60,
+  "n_f": 14,
+  "m_size": 6,
+  "time_limit": 780.0,
+  "only": "VBDEMFAC",
+  "out": "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json"
+ },
+ "V": {
+  "completed": true,
+  "rows": [
+   {
+    "order": 1,
+    "trees": 1
+   },
+   {
+    "order": 2,
+    "trees": 1
+   },
+   {
+    "order": 3,
+    "trees": 1
+   },
+   {
+    "order": 4,
+    "trees": 2
+   },
+   {
+    "order": 5,
+    "trees": 3
+   },
+   {
+    "order": 6,
+    "trees": 6
+   },
+   {
+    "order": 7,
+    "trees": 11
+   },
+   {
+    "order": 8,
+    "trees": 23
+   },
+   {
+    "order": 9,
+    "trees": 47
+   }
+  ],
+  "trees": 95,
+  "path_to": 40,
+  "checks": {
+   "V_three_methods_agree": {
+    "cases": 95,
+    "failures": 0
+   },
+   "V_by_hand_P1": {
+    "cases": 1,
+    "failures": 0
+   },
+   "V_by_hand_P2": {
+    "cases": 1,
+    "failures": 0
+   },
+   "V_by_hand_P3": {
+    "cases": 1,
+    "failures": 0
+   },
+   "V_by_hand_star_K13": {
+    "cases": 1,
+    "failures": 0
+   },
+   "V_path_continuant_equals_charpoly": {
+    "cases": 40,
+    "failures": 0
+   }
+  },
+  "cases_total": 139,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 0.3
+ },
+ "B1": {
+  "completed": true,
+  "n_range": "1..200",
+  "min_square_margin_exact": "256/1239373445912714578972433477813501566339899001757399702056129428972747198294161278577654254803755769451937417396957298747500629771061320334671855649395285835999484225",
+  "min_square_margin_at_n": 200,
+  "checks": {
+   "B1_lhs_positive": {
+    "cases": 200,
+    "failures": 0
+   },
+   "B1_tr_minus_2_5_exceeds_n_over_sqrt5": {
+    "cases": 200,
+    "failures": 0
+   }
+  },
+  "cases_total": 400,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 0.2
+ },
+ "B2": {
+  "completed": true,
+  "n_range": "1..60",
+  "kind": "high-precision numeric (decimal, working precision 90 digits), not exact",
+  "significant_digits_required": 50,
+  "max_relative_difference": "8.314e-90",
+  "checks": {
+   "B2_formula_agrees_to_50_significant_digits": {
+    "cases": 60,
+    "failures": 0
+   }
+  },
+  "cases_total": 60,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 0.0
+ },
+ "D": {
+  "completed": true,
+  "X_orders": "2..8",
+  "p_plus_q_at_most": 8,
+  "pairs_pq": 16,
+  "rooted_trees": 199,
+  "cases": 3184,
+  "min_margin": {
+   "exact": "1/105",
+   "decimal_exploratory": 0.00952380952381,
+   "witness": {
+    "X_edges": [
+     [
+      0,
+      1
+     ]
+    ],
+    "root": 0,
+    "p": 1,
+    "q": 1,
+    "X_order": 2
+   }
+  },
+  "checks": {
+   "D_tr_T(p,q)_exceeds_tr_T(p+q,0)": {
+    "cases": 3184,
+    "failures": 0
+   }
+  },
+  "cases_total": 3184,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 0.7
+ },
+ "E": {
+  "completed": true,
+  "N_range": "2..60",
+  "pairs": 1770,
+  "equalities": [
+   [
+    2,
+    1
+   ]
+  ],
+  "min_strict_gap": {
+   "exact": "1/26",
+   "decimal_exploratory": 0.0384615384615,
+   "at": {
+    "N": 3,
+    "r": 1
+   }
+  },
+  "checks": {
+   "E_c0_at_least_c_r": {
+    "cases": 1770,
+    "failures": 0
+   },
+   "E_equality_only_at_N2_r1": {
+    "cases": 1,
+    "failures": 0
+   }
+  },
+  "cases_total": 1771,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 0.8
+ },
+ "M": {
+  "completed": true,
+  "max_size": 6,
+  "rooted_trees": 37,
+  "ordered_pairs": 1369,
+  "checks": {
+   "M_g_T_equals_1_over_1_plus_eps_sum": {
+    "cases": 1369,
+    "failures": 0
+   },
+   "M_tr_T_identity": {
+    "cases": 1369,
+    "failures": 0
+   }
+  },
+  "cases_total": 2738,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 0.6
+ },
+ "C_path": {
+  "completed": true,
+  "n_range": "3..2000",
+  "matrix_checked_to": 30,
+  "n_with_peak_equal_ceil": 393,
+  "n_with_peak_equal_floor": 1605,
+  "n_with_peak_neither": [],
+  "n_with_tied_peak": [],
+  "first_ceil_cases": [
+   9,
+   18,
+   27,
+   36,
+   45,
+   47,
+   54,
+   56,
+   63,
+   65,
+   74,
+   83,
+   85,
+   92,
+   94,
+   101,
+   103,
+   112,
+   121,
+   123,
+   130,
+   132,
+   139,
+   141,
+   148,
+   150,
+   159,
+   161,
+   168,
+   170,
+   177,
+   179,
+   186,
+   188,
+   197,
+   206,
+   208,
+   215,
+   217,
+   224
+  ],
+  "min_fractional_part_when_peak_is_ceil": {
+   "value": "0.801276862060399",
+   "at_n": 1436,
+   "kind": "high-precision numeric (decimal, 60 digits); the exact claim is `peak < n - n/sqrt5 + 3/5`, which for peak = ceil(x) says fractional part > 2/5"
+  },
+  "min_slack_5n2_exact": {
+   "value": 89,
+   "at": {
+    "n": 4,
+    "p": 2
+   },
+   "meaning": "min over n, maximizing p of (5(n-p)+3)^2 - 5n^2, an exact positive integer"
+  },
+  "checks": {
+   "C_path_closed_form_equals_distance_matrix": {
+    "cases": 28,
+    "failures": 0
+   },
+   "C_path_every_peak_below_bound": {
+    "cases": 1998,
+    "failures": 0
+   }
+  },
+  "cases_total": 2026,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 5.7
+ },
+ "F_exploratory": {
+  "completed": true,
+  "kind": "EXPLORATORY: floating point (flint complex roots, midpoints), tolerance 1e-9; the second inequality is exact",
+  "rows": [
+   {
+    "order": 3,
+    "trees": 1,
+    "min_gap_exploratory": 0.017949192431122807,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      0,
+      2
+     ]
+    ]
+   },
+   {
+    "order": 4,
+    "trees": 2,
+    "min_gap_exploratory": 0.034211134632990525,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ]
+    ]
+   },
+   {
+    "order": 5,
+    "trees": 3,
+    "min_gap_exploratory": 0.04558111888817917,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      0,
+      3
+     ],
+     [
+      3,
+      4
+     ]
+    ]
+   },
+   {
+    "order": 6,
+    "trees": 6,
+    "min_gap_exploratory": 0.05216259047652594,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      4,
+      5
+     ]
+    ]
+   },
+   {
+    "order": 7,
+    "trees": 11,
+    "min_gap_exploratory": 0.05515548586923735,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      0,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      6
+     ]
+    ]
+   },
+   {
+    "order": 8,
+    "trees": 23,
+    "min_gap_exploratory": 0.055806263985408666,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      6,
+      7
+     ]
+    ]
+   },
+   {
+    "order": 9,
+    "trees": 47,
+    "min_gap_exploratory": 0.055063032678705603,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      0,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      7,
+      8
+     ]
+    ]
+   },
+   {
+    "order": 10,
+    "trees": 106,
+    "min_gap_exploratory": 0.05355537602099947,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      0,
+      6
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      8,
+      9
+     ]
+    ]
+   },
+   {
+    "order": 11,
+    "trees": 235,
+    "min_gap_exploratory": 0.05167147473382716,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      0,
+      6
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      8,
+      9
+     ],
+     [
+      9,
+      10
+     ]
+    ]
+   },
+   {
+    "order": 12,
+    "trees": 551,
+    "min_gap_exploratory": 0.04963965039954843,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      0,
+      7
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      8,
+      9
+     ],
+     [
+      9,
+      10
+     ],
+     [
+      10,
+      11
+     ]
+    ]
+   },
+   {
+    "order": 13,
+    "trees": 1301,
+    "min_gap_exploratory": 0.047589274148596594,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      0,
+      7
+     ],
+     [
+      7,
+      8
+     ],
+     [
+      8,
+      9
+     ],
+     [
+      9,
+      10
+     ],
+     [
+      10,
+      11
+     ],
+     [
+      11,
+      12
+     ]
+    ]
+   },
+   {
+    "order": 14,
+    "trees": 3159,
+    "min_gap_exploratory": 0.0455906940836055,
+    "witness": [
+     [
+      0,
+      1
+     ],
+     [
+      1,
+      2
+     ],
+     [
+      2,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      5
+     ],
+     [
+      5,
+      6
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      0,
+      8
+     ],
+     [
+      8,
+      9
+     ],
+     [
+      9,
+      10
+     ],
+     [
+      10,
+      11
+     ],
+     [
+      11,
+      12
+     ],
+     [
+      12,
+      13
+     ]
+    ]
+   }
+  ],
+  "trees": 5445,
+  "checks": {
+   "F_one_positive_and_n_minus_1_negative_eigenvalues": {
+    "cases": 5445,
+    "failures": 0
+   },
+   "F_sum_inverse_1_plus_beta_at_most_n_minus_tr": {
+    "cases": 5445,
+    "failures": 0
+   },
+   "F_n_minus_tr_at_most_n_minus_tr_path_exact": {
+    "cases": 5445,
+    "failures": 0
+   }
+  },
+  "cases_total": 16335,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 11.9
+ },
+ "A": {
+  "completed": true,
+  "rows": [
+   {
+    "order": 2,
+    "trees": 1,
+    "paths": 1,
+    "non_paths": 0,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": null,
+     "decimal_exploratory": null,
+     "witness": null
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 3,
+    "trees": 1,
+    "paths": 1,
+    "non_paths": 0,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": null,
+     "decimal_exploratory": null,
+     "witness": null
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 4,
+    "trees": 2,
+    "paths": 1,
+    "non_paths": 1,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "1/105",
+     "decimal_exploratory": 0.00952380952381,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        0,
+        2
+       ],
+       [
+        0,
+        3
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 5,
+    "trees": 3,
+    "paths": 1,
+    "non_paths": 2,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "5/286",
+     "decimal_exploratory": 0.0174825174825,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        0,
+        3
+       ],
+       [
+        0,
+        4
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 6,
+    "trees": 6,
+    "paths": 1,
+    "non_paths": 5,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "1/51",
+     "decimal_exploratory": 0.0196078431373,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        1,
+        3
+       ],
+       [
+        0,
+        4
+       ],
+       [
+        4,
+        5
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 7,
+    "trees": 11,
+    "paths": 1,
+    "non_paths": 10,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "673/33553",
+     "decimal_exploratory": 0.020057818973,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        0,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        4,
+        6
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 8,
+    "trees": 23,
+    "paths": 1,
+    "non_paths": 22,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "9265/459942",
+     "decimal_exploratory": 0.0201438442238,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        2,
+        4
+       ],
+       [
+        0,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 9,
+    "trees": 47,
+    "paths": 1,
+    "non_paths": 46,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "1986/98515",
+     "decimal_exploratory": 0.0201593665939,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        0,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        6,
+        8
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 10,
+    "trees": 106,
+    "paths": 1,
+    "non_paths": 105,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "43565/2160741",
+     "decimal_exploratory": 0.0201620647731,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        3,
+        5
+       ],
+       [
+        0,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        8,
+        9
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 11,
+    "trees": 235,
+    "paths": 1,
+    "non_paths": 234,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "2986057/148099382",
+     "decimal_exploratory": 0.0201625216775,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        0,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        8,
+        9
+       ],
+       [
+        8,
+        10
+       ]
+      ]
+     }
+    },
+    "seconds": 0.0
+   },
+   {
+    "order": 12,
+    "trees": 551,
+    "paths": 1,
+    "non_paths": 550,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "53299/2643459",
+     "decimal_exploratory": 0.0201625975663,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        4,
+        6
+       ],
+       [
+        0,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        8,
+        9
+       ],
+       [
+        9,
+        10
+       ],
+       [
+        10,
+        11
+       ]
+      ]
+     }
+    },
+    "seconds": 0.1
+   },
+   {
+    "order": 13,
+    "trees": 1301,
+    "paths": 1,
+    "non_paths": 1300,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "70140865/3478759201",
+     "decimal_exploratory": 0.0201626099846,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        0,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        8,
+        9
+       ],
+       [
+        9,
+        10
+       ],
+       [
+        10,
+        11
+       ],
+       [
+        10,
+        12
+       ]
+      ]
+     }
+    },
+    "seconds": 0.3
+   },
+   {
+    "order": 14,
+    "trees": 3159,
+    "paths": 1,
+    "non_paths": 3158,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "961505377/47687540550",
+     "decimal_exploratory": 0.0201626119928,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        5,
+        7
+       ],
+       [
+        0,
+        8
+       ],
+       [
+        8,
+        9
+       ],
+       [
+        9,
+        10
+       ],
+       [
+        10,
+        11
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        12,
+        13
+       ]
+      ]
+     }
+    },
+    "seconds": 0.8
+   },
+   {
+    "order": 15,
+    "trees": 7741,
+    "paths": 1,
+    "non_paths": 7740,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "41189100/2042845409",
+     "decimal_exploratory": 0.0201626123144,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        0,
+        8
+       ],
+       [
+        8,
+        9
+       ],
+       [
+        9,
+        10
+       ],
+       [
+        10,
+        11
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        12,
+        13
+       ],
+       [
+        12,
+        14
+       ]
+      ]
+     }
+    },
+    "seconds": 2.0
+   },
+   {
+    "order": 16,
+    "trees": 19320,
+    "paths": 1,
+    "non_paths": 19319,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "22585143361/1120149658761",
+     "decimal_exploratory": 0.0201626123655,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        6,
+        8
+       ],
+       [
+        0,
+        9
+       ],
+       [
+        9,
+        10
+       ],
+       [
+        10,
+        11
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        12,
+        13
+       ],
+       [
+        13,
+        14
+       ],
+       [
+        14,
+        15
+       ]
+      ]
+     }
+    },
+    "seconds": 7.0
+   },
+   {
+    "order": 17,
+    "trees": 48629,
+    "paths": 1,
+    "non_paths": 48628,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "309601751161/15355239957206",
+     "decimal_exploratory": 0.0201626123736,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        0,
+        9
+       ],
+       [
+        9,
+        10
+       ],
+       [
+        10,
+        11
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        12,
+        13
+       ],
+       [
+        13,
+        14
+       ],
+       [
+        14,
+        15
+       ],
+       [
+        14,
+        16
+       ]
+      ]
+     }
+    },
+    "seconds": 16.1
+   },
+   {
+    "order": 18,
+    "trees": 123867,
+    "paths": 1,
+    "non_paths": 123866,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "3684100645/182719410387",
+     "decimal_exploratory": 0.0201626123749,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        7,
+        9
+       ],
+       [
+        0,
+        10
+       ],
+       [
+        10,
+        11
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        12,
+        13
+       ],
+       [
+        13,
+        14
+       ],
+       [
+        14,
+        15
+       ],
+       [
+        15,
+        16
+       ],
+       [
+        16,
+        17
+       ]
+      ]
+     }
+    },
+    "seconds": 41.6
+   },
+   {
+    "order": 19,
+    "trees": 317955,
+    "paths": 1,
+    "non_paths": 317954,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "559411232677/27744977797045",
+     "decimal_exploratory": 0.0201626123751,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        8,
+        9
+       ],
+       [
+        0,
+        10
+       ],
+       [
+        10,
+        11
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        12,
+        13
+       ],
+       [
+        13,
+        14
+       ],
+       [
+        14,
+        15
+       ],
+       [
+        15,
+        16
+       ],
+       [
+        16,
+        17
+       ],
+       [
+        16,
+        18
+       ]
+      ]
+     }
+    },
+    "seconds": 55.8
+   },
+   {
+    "order": 20,
+    "trees": 823065,
+    "paths": 1,
+    "non_paths": 823064,
+    "min_tr_minus_tr_path_over_non_paths": {
+     "exact": "19938160475165/988867915735854",
+     "decimal_exploratory": 0.0201626123751,
+     "witness": {
+      "edges": [
+       [
+        0,
+        1
+       ],
+       [
+        1,
+        2
+       ],
+       [
+        2,
+        3
+       ],
+       [
+        3,
+        4
+       ],
+       [
+        4,
+        5
+       ],
+       [
+        5,
+        6
+       ],
+       [
+        6,
+        7
+       ],
+       [
+        7,
+        8
+       ],
+       [
+        8,
+        9
+       ],
+       [
+        8,
+        10
+       ],
+       [
+        0,
+        11
+       ],
+       [
+        11,
+        12
+       ],
+       [
+        12,
+        13
+       ],
+       [
+        13,
+        14
+       ],
+       [
+        14,
+        15
+       ],
+       [
+        15,
+        16
+       ],
+       [
+        16,
+        17
+       ],
+       [
+        17,
+        18
+       ],
+       [
+        18,
+        19
+       ]
+      ]
+     }
+    },
+    "seconds": 154.8
+   }
+  ],
+  "trees": 1346023,
+  "checks": {
+   "A_tr_at_least_tr_path": {
+    "cases": 1346023,
+    "failures": 0
+   },
+   "A_equality_only_for_the_path": {
+    "cases": 1346023,
+    "failures": 0
+   },
+   "A_path_value_matches_continuant": {
+    "cases": 19,
+    "failures": 0
+   }
+  },
+  "cases_total": 2692065,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 278.5
+ },
+ "C_all_trees": {
+  "completed": true,
+  "rows": [
+   {
+    "order": 3,
+    "trees": 1,
+    "largest_peak_index": 1,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ]
+     ]
+    },
+    "min_slack_exact": 124,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       2
+      ]
+     ],
+     "p": 1
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 2.258359
+   },
+   {
+    "order": 4,
+    "trees": 2,
+    "largest_peak_index": 2,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       0,
+       3
+      ]
+     ]
+    },
+    "min_slack_exact": 89,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       0,
+       3
+      ]
+     ],
+     "p": 2
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 2.811146
+   },
+   {
+    "order": 5,
+    "trees": 3,
+    "largest_peak_index": 2,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       3,
+       4
+      ]
+     ]
+    },
+    "min_slack_exact": 199,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       0,
+       3
+      ],
+      [
+       3,
+       4
+      ]
+     ],
+     "p": 2
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 3.363932
+   },
+   {
+    "order": 6,
+    "trees": 6,
+    "largest_peak_index": 3,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       4,
+       5
+      ]
+     ]
+    },
+    "min_slack_exact": 144,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       4,
+       5
+      ]
+     ],
+     "p": 3
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 3.916718
+   },
+   {
+    "order": 7,
+    "trees": 11,
+    "largest_peak_index": 3,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ]
+     ]
+    },
+    "min_slack_exact": 284,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       0,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ]
+     ],
+     "p": 3
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 4.469505
+   },
+   {
+    "order": 8,
+    "trees": 23,
+    "largest_peak_index": 4,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       0,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ]
+     ]
+    },
+    "min_slack_exact": 209,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       0,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ]
+     ],
+     "p": 4
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 5.022291
+   },
+   {
+    "order": 9,
+    "trees": 47,
+    "largest_peak_index": 5,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       0,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ]
+     ]
+    },
+    "min_slack_exact": 124,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       0,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ]
+     ],
+     "p": 5
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 5.575078
+   },
+   {
+    "order": 10,
+    "trees": 106,
+    "largest_peak_index": 5,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ]
+     ]
+    },
+    "min_slack_exact": 284,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ]
+     ],
+     "p": 5
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 6.127864
+   },
+   {
+    "order": 11,
+    "trees": 235,
+    "largest_peak_index": 6,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ]
+     ]
+    },
+    "min_slack_exact": 179,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       0,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ]
+     ],
+     "p": 6
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 6.68065
+   },
+   {
+    "order": 12,
+    "trees": 551,
+    "largest_peak_index": 6,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       0,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ]
+     ]
+    },
+    "min_slack_exact": 369,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       0,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ]
+     ],
+     "p": 6
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 7.233437
+   },
+   {
+    "order": 13,
+    "trees": 1301,
+    "largest_peak_index": 7,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       0,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ]
+     ]
+    },
+    "min_slack_exact": 244,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       0,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ]
+     ],
+     "p": 7
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 7.786223
+   },
+   {
+    "order": 14,
+    "trees": 3159,
+    "largest_peak_index": 7,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ]
+     ]
+    },
+    "min_slack_exact": 464,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ]
+     ],
+     "p": 7
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 8.33901
+   },
+   {
+    "order": 15,
+    "trees": 7741,
+    "largest_peak_index": 8,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ]
+     ]
+    },
+    "min_slack_exact": 319,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       0,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ]
+     ],
+     "p": 8
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 8.891796
+   },
+   {
+    "order": 16,
+    "trees": 19320,
+    "largest_peak_index": 8,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       0,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ],
+      [
+       14,
+       15
+      ]
+     ]
+    },
+    "min_slack_exact": 569,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       0,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ],
+      [
+       14,
+       15
+      ]
+     ],
+     "p": 8
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 9.444582
+   },
+   {
+    "order": 17,
+    "trees": 48629,
+    "largest_peak_index": 9,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       0,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       15,
+       16
+      ]
+     ]
+    },
+    "min_slack_exact": 404,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       0,
+       9
+      ],
+      [
+       9,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       15,
+       16
+      ]
+     ],
+     "p": 9
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 9.997369
+   },
+   {
+    "order": 18,
+    "trees": 123867,
+    "largest_peak_index": 10,
+    "largest_peak_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       0,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       15,
+       16
+      ],
+      [
+       16,
+       17
+      ]
+     ]
+    },
+    "min_slack_exact": 229,
+    "min_slack_witness": {
+     "edges": [
+      [
+       0,
+       1
+      ],
+      [
+       1,
+       2
+      ],
+      [
+       2,
+       3
+      ],
+      [
+       3,
+       4
+      ],
+      [
+       4,
+       5
+      ],
+      [
+       5,
+       6
+      ],
+      [
+       6,
+       7
+      ],
+      [
+       7,
+       8
+      ],
+      [
+       8,
+       9
+      ],
+      [
+       0,
+       10
+      ],
+      [
+       10,
+       11
+      ],
+      [
+       11,
+       12
+      ],
+      [
+       12,
+       13
+      ],
+      [
+       13,
+       14
+      ],
+      [
+       14,
+       15
+      ],
+      [
+       15,
+       16
+      ],
+      [
+       16,
+       17
+      ]
+     ],
+     "p": 10
+    },
+    "bound_n_minus_n_over_sqrt5_plus_3_5_exploratory": 10.550155
+   }
+  ],
+  "trees": 205002,
+  "checks": {
+   "C_peak_below_n_minus_n_over_sqrt5_plus_3_5": {
+    "cases": 205003,
+    "failures": 0
+   }
+  },
+  "cases_total": 205003,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 278.5
+ },
+ "summary": {
+  "cases": {
+   "V": 139,
+   "B1": 400,
+   "B2": 60,
+   "D": 3184,
+   "E": 1771,
+   "M": 2738,
+   "C_path": 2026,
+   "F_exploratory": 16335,
+   "A": 2692065,
+   "C_all_trees": 205003
+  },
+  "failures": {
+   "V": 0,
+   "B1": 0,
+   "B2": 0,
+   "D": 0,
+   "E": 0,
+   "M": 0,
+   "C_path": 0,
+   "F_exploratory": 0,
+   "A": 0,
+   "C_all_trees": 0
+  },
+  "failures_of_exact_checks": 0,
+  "failures_of_exploratory_checks": 0,
+  "completed": true
+ },
+ "seconds": 298.7
+}
