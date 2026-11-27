@@ -373,6 +373,98 @@ These are finite checks on the stated ranges. They do not prove S33 to S36,
 T5 or T6, which rest on the written proofs of the note (unreviewed at the
 time of the run), and they say nothing about trees outside the ranges.
 
+## The generalized tree shift and path maximality (session 12): `tree_shift.py`
+
+Question. Finite exact checks of the statements of
+`research/active/CJ-0001-collins-shor-peak/notes/path-maximality.md` (draft, not
+reviewed): Lemma S37 (difference under a shift), Proposition S38, Theorems T7 and
+T8, Lemma S39; and a falsification attempt on statement (PM), which is an
+**open** conjecture, not a statement with a proof in the note: along every
+generalized tree shift `T -> T'`, `pmax(T') <= pmax(T)` and `pmin(T') <= pmin(T)`
+(`pmax`, `pmin`: largest and smallest index maximizing `d_0, ..., d_{n-2}`).
+Arithmetic: Python integers and `python-flint` (as `lower_bound.py`), `Fraction`
+for margins; no floating point supports a claim (decimals of margins are labelled
+exploratory). Membership in `K_d` at any degree is decided from the unique
+coordinates in the basis `x^e (1+x)^(d-2e)` (`2e < d`), `x^e` (`2e >= d`).
+
+Command of the stored run (from the repository root; part A needs sympy, which is
+not a project dependency, hence `--with`; without sympy part A is skipped and
+recorded as skipped):
+
+    uv run --with sympy==1.14.0 python experiments/CJ-0001-collins-shor-peak/tree_shift.py \
+        --out experiments/CJ-0001-collins-shor-peak/results/tree-shift.json
+
+Defaults (chosen after timing, fixed before the stored run): `--k-max 6 --n-b 11
+--n-c 15 --n-d 17 --n-e 15 --e-orders 20,30,45,60,80,100,120,150 --e-sample 200
+--e-sample-big 50 --e-big-from 60 --e-random-trees 200 --e-random-shifts 20
+--e-random-orders 30,100 --n-f 2000 --seed 20261127 --time-limit 570`. Budget: 10
+minutes of wall-clock for the stored run; it took 298.9 s and completed every part.
+Versions: python 3.12.4, python-flint 0.9.0, networkx 3.7, sympy 1.14.0 (part A).
+
+| Part | Search space (exact) | Size | Cases | Failures |
+| --- | --- | --- | --- | --- |
+| A (sympy) | `det(I - tJ) = (1 - xt)Q(t)^2`; `Delta_k = c_k`, `k = 1..12`, free state variables | 1 + 12 | 13 | 0 |
+| B | pairs of rooted trees (one per class), `a, b >= 2`, `a <= b` (both orders for `a = b`), `k = 1..6`, `n = a+b+k-1 <= 11` | 2,371 pairs | 26,089 | 0 |
+| C | every tree of order 5..15 and every generalized shift (unordered end pair `x < y`) | 13,183 trees, 127,192 shifts | 381,576 | 0 |
+| D | every tree of order 4..17 (`T8`); Lemma S39 recipe on every non-path tree of order <= 15, two splits of the neighbours | 81,134 trees | 296,094 | 0 |
+| E(i) | every tree of order 5..15, every shift | 13,183 trees, 127,192 shifts | 254,384 | 0 |
+| E(ii) | double stars, brooms, spiders, caterpillars (about 28 trees per order) at orders 20, 30, 45, 60, 80, 100, 120, 150; every shift if at most 200 (n <= 60: 200, above: 50 sampled with the seed) | 223 trees, 10,812 shifts tested | 21,624 | 0 |
+| E(iii) | 200 random Pruefer trees of order 30..100, 20 random shifts each | 4,000 shifts | 8,000 | 0 |
+| F | the path, `n = 3..2000` from Collins's closed form, against the distance matrix for `n <= 60` | 1,998 | 4,054 | 0 |
+
+What is checked. B: for actual graphs `T_k`, `T'_k` (built from the edge lists,
+`l` from the distance matrix, states of `(A,u)`, `(B,v)` from their definitions,
+`E = R - Omega + (1+2x)^2 Psi - 2xG`) the identity of Lemma S37 with
+`a_j` (also checked against the tridiagonal determinant at integer points),
+`gamma_k`, `rho_k`; each of the four terms in the cone `K` at the index of
+Proposition S38 (`K_{n-1}`, `K_n`, `K_n`, `K_{n-1}`, and the three pieces of the
+last term), and the difference in `C_{n-1}`. C: `l_T - l_T'` in `C_{n-1}` (also in
+`K_{n-1}` and coefficientwise `>= 0`). D: `l_{P_n} - l_T` in `C_{n-1}`; equality
+`l_T = l_{P_n}` only for the path (14 trees in total, one per order 4..17, the
+paths); the reversed difference is not in the cone for the 81,120 other trees; for
+every non-path tree of order <= 15 the preimage `T_k(A,B)` built by the recipe of
+the proof is a tree with exactly one leaf fewer, its shift along the path from `z`
+to `w` is isomorphic (networkx `is_isomorphic`) to the original, and `a, b >= 2`.
+E: the statement (PM) as above; a violation would be re-verified by an independent
+method (Faddeev-LeVerrier on a breadth-first distance matrix, which shares no
+code with the flint charpoly; it is tested, not triggered) and stop the run.
+F: from `d_{n-k}(P_n) = C(n+k-1, 2k-1)(k-1)n/k` (`2 <= k <= n`).
+
+Result. No failure in any part; no violation of (PM) among the trees and shifts
+listed in the table (finite evidence about an open statement, nothing more).
+Closest margin, exact (`margin1`: `(max_{j<=p} d_j(T') - max_{j>p} d_j(T')) /
+max d(T')` with `p = pmax(T)`, positive exactly when `pmax(T') <= p`; `margin2`:
+the same at `p = pmin(T)`, non-negative exactly when `pmin(T') <= p`): E(i)
+`607/110068` (0.0055, order 15, `k = 1`); E(ii) about 0.00140 (order 120, a
+caterpillar with one vertex of degree 20, `k = 1`; exact fraction in the result
+file); E(iii) about 0.00234 (order 80, `k = 1`). `margin1 = margin2` in all three
+because `pmax = pmin` at the minimizers. The margins are thin but positive, and
+shrink with the order in these families. F: for every `n = 3..2000` the peak of
+`d_k(P_n)` is unique (`pmax = pmin`) and equals either `M = n - isqrt(n^2 // 5)`
+(that is `ceil(n - n/sqrt 5)`) in 393 cases, or `M - 1` (`floor`) in 1,605 cases;
+no `n` is neither, so `pmax(P_n) <= M` and `pmin(P_n) >= M - 1`. For `n <= 60` the
+peak is `M` exactly for `n` in {9, 18, 27, 36, 45, 47, 54, 56} (the full lists for
+the floor case are in the result file, truncated beyond 400 entries).
+Agreement with the note: the note's scratch counts (T8 on the 81,134 trees of
+order 4..17; no tree other than the path with `l_T = l_{P_n}` for `n <= 17`) are
+reproduced; T7 is now checked through order 15 instead of 13.
+
+Provenance: revision `8b03309` with `tree_clean: false` (the script, its test and
+the result file were not yet committed; no other file was modified). The
+`sources` block holds the SHA-256 of `tree_shift.py`, `lower_bound.py`,
+`distpoly.py`, `rooted_state.py`; the last three were identical to their blobs at
+that revision, `tree_shift.py` is not in the revision.
+
+Regression test: `tests/test_cj0001_tree_shift.py` (about 2 s: membership in `K_d`
+by hand, shifts by hand, the independent method against flint, the sequences of
+S37 by hand, the lemma on small orders, a negative control with a wrong
+coefficient in the `G-hat G-hat` term, a reversed difference and a reversed shift
+reported as failures, the path, part A when sympy is importable, and the stored
+result). These are finite checks. They do not prove S37, S38, T7, T8, S39 (those
+rest on the written proofs of the note, unreviewed) and say nothing about trees
+outside the ranges; part E is evidence about an open statement, and the E(ii),
+E(iii) samples are not exhaustive.
+
 ## Limits
 
 - Orders 21–23 were computed by one implementation (with the guards above). The
