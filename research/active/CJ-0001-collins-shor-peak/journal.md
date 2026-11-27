@@ -2783,7 +2783,7 @@ deselected), then pushed again.
 
 ## Session 14 — 2026-11-27
 
-- **Entry status:** in progress.
+- **Entry status:** completed; the objective was reached (17:13 to about 18:40 by the clock, about 87 of the 120 minutes; after the objective the time went to adversarial verification, a simplification of the proof, a literature audit and a Lean formalization).
 - **Agent / model:** Claude, model `claude-opus-5-5` (Research Director and
   principal investigator, main session). Human participant: the director
   (instructions below).
@@ -2877,3 +2877,106 @@ deselected), then pushed again.
   limit); justified by the significance of the claim (a complete candidate
   proof of a catalogued problem; the director asked for adversarial
   verification, originality assessment and formalization).
+
+### What was done
+
+- Catalogue: CJ-0001 `active-investigation` → `candidate-proof` (director's
+  approval of 2026-11-27; not `proved`). `external_review` of the problem
+  left at `not-reviewed` (the manuscript reviews are recorded on the
+  contributions MD-0019, MD-0022 to MD-0024).
+- Manuscript `manuscripts/CJ-0001-collins-shor/main.tex` written by the main
+  session (`claude-opus-5-5`): both halves, self-contained. Lower half
+  (Sections 3 to 7) restated from `lower-bound.md`, `wiener-form.md`,
+  `rooted-calculus.md`, `leaf-telescoping.md` with three simplifications:
+  (i) only root weights; the identity (★) proved for them (Lemma 5.1), and
+  the rules for raising the root weight and planting derived from (★)
+  (Proposition 5.2), so that the recurrences S15, S16 for weighted trees and
+  Lemma G are no longer needed; (ii) the leaf recursion S23(b) derived from
+  the plant rule; (iii) only the cones `K_d` (the cones `C_d` and Lemma C
+  are a remark). Upper half (Sections 8 to 11) from the unreviewed draft
+  `manuscripts/CJ-0001-upper-bound/main.tex`, with `x = n − n/√5` renamed
+  `ξ` (it clashed with the polynomial variable) and the conditional
+  corollary replaced by the proof of the Main Theorem. Revision 2 (after the
+  reviews): new Lemma 7.5 (the star's sequence increases strictly up to
+  `⌊n/2⌋` and decreases strictly after it), so neither bound uses the
+  log-concavity theorem of arXiv:1507.02341 or Collins's Theorem 1; Lemma R1
+  removed; the reviewers' defects corrected. Compiled with MiKTeX pdfLaTeX:
+  30 pages (`8df6bea`), 32 pages (`87c3c8c`), no undefined reference.
+  Review packet: `README.md` and `REVIEW-PROMPT.md` beside it.
+- Exact computations. `manuscript_check.py` (new, written from the
+  manuscript's definitions, independent of the notes' code), stored run in a
+  clean worktree at `8df6bea`: 11,379 checks, 0 failures, 258.5 s
+  (`results/manuscript-check.json`); its test
+  `tests/test_cj0001_manuscript_check.py` (4 tests, including negative
+  controls). Scratch (not stored): the star's maximizing index is unique
+  and equal to `⌊n/2⌋` for `3 ≤ n < 400`; the inequalities of the proof of
+  Lemma 7.5 for `3 ≤ n < 800`.
+- Reviews (fresh contexts, given the manuscript, the revision and the
+  primary source only): `claude-opus-5-5` and `claude-sonnet-5-5` of
+  `8df6bea` (a third reviewer on `claude-fable-5-2` was refused at once by a
+  monthly spend limit and did no work); `claude-sonnet-5-5` recheck of
+  revision 2 (`87c3c8c`). All three: no gap found within stated scope.
+- Literature audit (`literature-auditor`, `claude-opus-5-5`; 4 searches, 15
+  fetches): no prior proof, claim or refutation of either half found within
+  its coverage; dossier, section "Audit for session 14".
+- Registry: the manuscript and the reviews added as evidence to MD-0019,
+  MD-0022, MD-0023, MD-0024 (for MD-0019 the evidence says explicitly that
+  its item (iv), the contraction S36, is not in the manuscript).
+
+- Lean (`formalization-agent`, `claude-opus-5-5`; about 23.5 minutes):
+  `StarShape.lean`, the binomial statement of Lemma 7.5, both parts
+  (`starCoeff_lt_of_le_half`, `starCoeff_lt_of_half_lt`), two registry
+  entries; statements compared with the manuscript by the agent and by the
+  main session (they match (a) and (b) with `c(k) = d_k(S_n)`). Clean
+  `uv run python scripts/verify_lean.py` at `8cbc015`: toolchain, build,
+  sources, axioms, registry, replay passed; receipt
+  `verification/receipts/20261127T213151Z-8cbc0151bc-passed.json`.
+
+### Findings
+
+- A complete written candidate proof of Conjecture 1.2 of arXiv:1507.02341
+  (strong reading of ties) exists as one self-contained document, reviewed
+  as a whole by two AI models of one vendor (no gap) and rechecked after
+  revision. Level: candidate proof; AI-reviewed; not human-reviewed.
+- New in this session and AI-rechecked: Lemma 7.5 (shape of the star's
+  sequence) — with it the proof of both bounds uses neither the
+  log-concavity theorem nor Collins's Theorem 1; the root-weight form of
+  the rooted calculus (reviewed as part of the whole document).
+- Slip found by both reviewers: "1,346,023 trees of order 3 to 20" in
+  `notes/leaf-telescoping.md` and in the first version of the manuscript;
+  orders 3 to 20 have 1,346,022 trees (the stored computation covers orders
+  3 to 20). Corrected in the manuscript; the note is left as reviewed and the
+  slip is recorded in `STATE.md`, obligation 14.
+
+### What failed
+
+- The second reviewer on `claude-fable-5-2`: refused by a spend limit before
+  doing any work (replaced by `claude-sonnet-5-5`).
+- No reviewer of another vendor is reachable from this environment;
+  obligation 14 keeps it owed.
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-opus-5-5` (main session); subagents: `claude-opus-5-5` (review, literature audit, formalization), `claude-sonnet-5-5` (review, recheck); `claude-fable-5-2` refused by a spend limit |
+| Computation wall-clock | `manuscript_check.py`: 220.8 s (scratch), 258.5 s (stored, worktree), one discarded duplicate run in the main tree; star checks in scratch, seconds; `verify_lean.py` about 7 minutes; `pytest`: 943 s (full suite, one failure caused by an agent's unfinished Lean edits; rerun recorded below) |
+| Token usage | subagents as reported by the environment: review (Opus) 179,012 tokens, 46 tool uses, 1,036 s; review (Sonnet) 192,029 tokens, 43 tool uses, 1,226 s; recheck (Sonnet) 94,585 tokens, 23 tool uses, 810 s; literature audit (Opus) 114,845 tokens, 44 tool uses, 386 s; formalization (Opus) 103,301 tokens, 41 tool uses, 1,412 s. Main session: unavailable |
+| Research iterations | 2 revisions of the manuscript |
+| Proof attempts | 1 new lemma (Lemma 7.5), proved |
+| Counterexamples found | 0 (to the conjecture or any statement of the manuscript) |
+| Formalization attempts | 1, complete for its stated scope |
+| Successful verifications | 3 AI reviews (no gap); stored exact check (0 failures); `verify_lean.py` passed on a clean tree |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Completed. CJ-0001 is `candidate-proof` (director's approval); one
+self-contained manuscript of the complete candidate proof exists
+(`manuscripts/CJ-0001-collins-shor/main.tex`, revision 2 at `87c3c8c`), and
+it was reviewed as a whole by two AI models of one vendor and rechecked
+after revision, with no gap found. This is AI review only; nothing was
+promoted. Next (`STATE.md`, "Next step"): a review of `main.tex` by a model
+of another vendor with `REVIEW-PROMPT.md` (to be supplied by the director);
+the open literature items; a result package when the director judges the
+manuscript mature. `STATE.md` is about 490 lines and should be compacted
+below 400 at the start of the next session.

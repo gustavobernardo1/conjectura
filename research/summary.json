@@ -217,13 +217,13 @@
   "generated": {
     "date": "2026-11-27",
     "branch": "research",
-    "revision": "614c3f50dd8153eeed98cd91911f7077720208c1",
+    "revision": "c4e7682622197a243bea49f2fc7663bcb43a1cac",
     "sources_committed": false,
     "sources": {
       "research/catalogue.json": "e30f8b7651aa357b2afa8a3208deb6c055cdddef",
-      "research/discoveries.json": "88817bb880aeb31e871f3e69767bd6d275ea7695",
+      "research/discoveries.json": "cf32c79cf86dcaf57d69fa53cf8f6e51879dbe04",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
-      "formalization/registry.json": "f39f601441b47004aeaecf34daea84d392ff1202"
+      "formalization/registry.json": "d6213327d28ca00900877b08e55c4816511f1396"
     }
   }
 }

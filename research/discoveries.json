@@ -1860,6 +1860,11 @@
           "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
           "sha256": "f8e7dbcb81c726880f053a8023051c2853fe2b26e4099bdce2be0613a2bc3643",
           "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
+        },
+        {
+          "kind": "note",
+          "path": "formalization/Conjectura/Research/CollinsShorPeak/StarShape.lean",
+          "summary": "Session 14: Lean 4 + Mathlib proof of the binomial statement of Lemma 7.5 of the manuscript (the coefficients c(k) = (n-1)C(n-2,k) + 4(n-2)C(n-2,k-1) - 4C(n-2,k-2) increase strictly for 1 <= k <= floor(n/2) and decrease strictly for floor(n/2)+1 <= k <= n-2; theorems starCoeff_lt_of_le_half and starCoeff_lt_of_half_lt, registered in formalization/registry.json). Not formalized: that c(k) = d_k(S_n), and anything about trees or determinants. The Lean statements were compared with the written ones by the formalizing agent and the author of the session only. Formal status of this record stays partial."
         }
       ],
       "status": {
