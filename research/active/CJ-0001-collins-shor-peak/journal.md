@@ -1948,3 +1948,74 @@ Next step: objective O10 in `STATE.md` (a lower bound for `λ_m(Ω_T)`, or
 (SM⁺)), after obligation 9. Decisions left to the director: who reads T4
 outside the author's vendor, and whether Collins's thesis can be obtained
 (the copies reachable from this environment refused automated access).
+
+## Session 11 — 2026-11-26
+
+- **Entry status:** in progress.
+- **Agent / model:** Claude, model `claude-fable-5-2` (Research Director,
+  main session). Human participant: the director, who supplied the two
+  Collins sources as local files and the instructions recorded below.
+- **Mode:** focused work for the literature objective; exploration for the
+  even orders, which became focused work when an induction closed (the
+  switch is recorded in the first checkpoint).
+- **Role(s):** Research Director; literature reading (both sources read by
+  the main session); mathematical research; computation.
+- **Repository revision at start:** `759d93f` (`research`), the harness
+  commit of this session (session budget of 120 minutes, checkpoints),
+  promoted to `main` as `2b687db` by cherry-pick before the research began.
+- **Director's instructions for this session:** read Collins (1986) and
+  Collins (1989), now available locally, and reassess the originality and
+  the implications of the project's results (leaf recursion, Wiener form,
+  T4); rely on independent AI review, adversarial verification, exact
+  computation and Lean for the current phase, human specialist consultation
+  being deferred until there is a mature manuscript; allocate effort by
+  independent mathematical judgment; do not optimize the number of
+  registered contributions; verified commits may be pushed to `research`
+  for research contributions. The PDFs are not to be committed.
+- **Objective (exact):** (1) Record, for each of S23 (leaf recursion), S25
+  (Wiener form), T4, S23(d) (the star) and the statement of the conjecture,
+  whether Collins's thesis or her 1989 paper contains it, an equivalent, or a
+  precursor, with page and statement numbers. (2) Explore the even orders
+  from a new side: the behaviour of `ℓ_T` when a non-pendant edge is
+  contracted and a pendant vertex is added.
+- **Approach:** (1) read both sources in full. (2) the rooted calculus of
+  `notes/rooted-calculus.md` (plant, merge) applied to the two trees.
+- **Falsification test:** for (2), the exact test of
+  `ℓ_T − ℓ_{T'} ∈ C_{n−1}` on every tree and every non-pendant edge of small
+  order, run first.
+- **Stopping conditions:** (1) both sources read and compared. (2) stop if
+  the contraction statement fails on small trees, or if no proof structure
+  appears within about 40 minutes.
+- **Budget:** time: at most 120 minutes, the last 20 or so reserved for
+  verification, documentation and persistence; the research began at 22:22
+  local time (UTC−3; 01:22 UTC on 2026-11-27), while the test suite of the
+  harness commit was running, so the ceiling is 00:22 local and the working
+  part ends at about 00:02. Computation: 30 minutes of wall-clock time,
+  largest instance: all trees of order 16. Tokens: not limited by the
+  director; not reported by the environment for the main context.
+
+### Checkpoints
+
+- **+17 min (22:39 local, clock reading):** *Established.* Both Collins
+  sources read (the 1989 paper from its nine page images; the thesis from
+  page images for pp. 30–47 and 55–61 and from its OCR text layer for the
+  rest); the comparison is not yet written in the dossier. Exact, scratch
+  only: `ℓ_T − ℓ_{T'} ∈ C_{n−1}` for every tree of order 4 to 16 and every
+  non-pendant edge (216,000 pairs, no failure). Derived by hand and checked
+  exactly on every rooted tree of order ≤ 9 (486 rooted trees, 778 pairs):
+  the formula `ℓ_T − ℓ_{T'} = H_A E_B + H_B E_A + x(2+5x)H_A H_B + 2G_A G_B/x`
+  with `E = R − Ω + (1+2x)²Ψ − 2xG`; `H = Σ_v x^{δ_v−1}Π_{uv}`,
+  `G = Σ_v (δ_v−1)x^{δ_v}Π_{uv}`; the plant rule
+  `E^ = x[E + Ω + 2G + x(3+2x)H]` and the merge rule
+  `E = E_1Ψ_2 + E_2Ψ_1 + x(H_1Ω_2 + H_2Ω_1) − 2G_1G_2`; and an identity that
+  turns the negative term of the merge of two planted trees into a sum of
+  squares. With these an induction on rooted trees appears to close for the
+  system `Ψ ∈ C_{a−1}`, `H ∈ C_{a−2}`, `G/x ∈ C_{a−1}`, `Ω ∈ C_a`,
+  `E ∈ C_{a+1}`; it would give (Γ_c¹), hence (SM) and the lower bound
+  `⌊n/2⌋` for every tree. **Not written, not reviewed: a candidate
+  argument in the author's head and in scratch files only.** The mode
+  switches to focused work: write the proof, store the computation, obtain
+  an independent review. *Unfinished, and where:* scratch scripts
+  `contract_test.py`, `cm_formula.py`, `system_check.py` in the session's
+  scratch directory (outside the repository). *Next action:* write
+  `notes/contraction.md`.
