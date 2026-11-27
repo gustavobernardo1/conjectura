@@ -1,9 +1,12 @@
 # CJ-0001 — the generalized tree shift in the cone order, and path maximality
 
 Status of this file: written by an AI agent (Claude, model `claude-opus-5-5`)
-on 2026-11-26, session 12. **Draft**: session 12 was stopped (at the director's
-request) before this note was reread, stored with its computation or
-reviewed; see the journal entry of session 12. Lemma S37, Proposition S38, Lemma S39 and
+on 2026-11-26 and 2026-11-27, session 12 (the session was stopped overnight
+at the director's request and resumed). Revised once by its author before any
+review, after a reread: Remark 1 of the first version claimed an exact
+computation that had not been made (it is now a proof); the plant matrix and
+the linear functional were renamed `J` and `χ`; the section on the location of
+the peak was added. Lemma S37, Proposition S38, Lemma S39 and
 Theorems T7 and T8 have written proofs below; the proof of Lemma S37 uses one
 finite exact computation (stated, with its command). **Nothing here is an
 established result**: a statement counts as reviewed only where a report under
@@ -64,7 +67,7 @@ becomes the root, and merging identifies roots.
 
 For `k = 1` this is Proposition S36 (`a_0 = 1`, `γ_1 = 1`, `γ_0 = ρ_1 = 0`).
 
-*Proof.* By S34(b), plant is a linear map of the state, `s ↦ Ps`, with
+*Proof.* By S34(b), plant is a linear map of the state, `s ↦ Js`, with
 
 ```
 Ψ' = (1+x)Ψ + xH,   H' = Ψ + xH,   G' = x²H + xG,
@@ -72,23 +75,23 @@ For `k = 1` this is Proposition S36 (`a_0 = 1`, `γ_1 = 1`, `γ_0 = ρ_1 = 0`).
 ```
 
 by S34(c), merge is a bilinear map `m(s, s′)` of the two states; and by S23(a)
-and the definition of `E`, `xℓ = λ(s) := E + Ω + 2xG + x(1+4x)H − 4x²Ψ`
+and the definition of `E`, `xℓ = χ(s) := E + Ω + 2xG + x(1+4x)H − 4x²Ψ`
 (`R = E + Ω − (1+2x)²Ψ + 2xG` and `Φ = Ψ + xH`). Hence
 
-`Δ_k := x(ℓ_{T_k} − ℓ_{T′_k}) = λ(m(P^k s_A, s_B)) − λ(m(m(s_A, s_B), P^k e))`,
+`Δ_k := x(ℓ_{T_k} − ℓ_{T′_k}) = χ(m(J^k s_A, s_B)) − χ(m(m(s_A, s_B), J^k e))`,
 
 `e = (1, 0, 0, 0, 0)` the state of `•`. This also holds for `k = 0` with
 `Δ_0 = 0`, since merging with `•` changes no state.
 
-*Generating functions.* `Σ_{k≥0} P^k t^k = (I − tP)^{−1} = adj(I − tP)/det(I − tP)`
-as formal power series in `t` with coefficients in `ℤ[x]`, and `λ`, `m` are
+*Generating functions.* `Σ_{k≥0} J^k t^k = (I − tJ)^{−1} = adj(I − tJ)/det(I − tJ)`
+as formal power series in `t` with coefficients in `ℤ[x]`, and `χ`, `m` are
 (bi)linear with coefficients independent of `t`, so
-`F(t) := Σ_k Δ_k t^k = L(t)/det(I − tP)` with `L` a polynomial in `t` of degree
+`F(t) := Σ_k Δ_k t^k = L(t)/det(I − tJ)` with `L` a polynomial in `t` of degree
 at most 4 (the entries of the adjugate of a `5 × 5` matrix linear in `t`). In
-the order `(Ψ, H | G | Ω, E)` the matrix `P` is block lower triangular with
+the order `(Ψ, H | G | Ω, E)` the matrix `J` is block lower triangular with
 diagonal blocks `[[1+x, x], [1, x]]`, `(x)`, `[[1+x, 1], [x, x]]`, each
 `2 × 2` block having trace `1 + 2x` and determinant `x²`; so
-`det(I − tP) = (1 − xt)Q(t)²`.
+`det(I − tJ) = (1 − xt)Q(t)²`.
 
 Let `C(t) := Σ_{k≥1} c_k t^k`, `c_k` being `x` times the right side of the
 lemma. With `Σ_{k≥1} a_{k−1}t^k = t/Q`, `Σ_{k≥1} γ_k t^k = t/((1 − xt)Q)`,
@@ -116,7 +119,7 @@ of the generating function of `ρ_k` against their definitions up to `t^8`.
 The check `Δ_k = c_k` for `k = 1, …, 12` is the scratch computation of
 session 11 (its code is in the journal entry of session 11). **Owed:** a
 stored experiment with a test and a README entry that also checks the
-factorization of `det(I − tP)` and the lemma on actual trees, with `ℓ`
+factorization of `det(I − tJ)` and the lemma on actual trees, with `ℓ`
 taken from the distance matrix.
 
 ## Proposition S38 (each term is in the cone)
@@ -200,27 +203,67 @@ the path. If `T` has more, Lemma S39 gives `T ≅ T′_k(A, B)` with
 `C_{n−1}` is closed under addition. The inequalities follow as in Theorem T7.
 (`n = 2`: the only tree is the path.) ∎
 
-**Remarks.** 1. The equality cases are not determined here. Exact
-computation (below) found no tree other than `P_n` with `ℓ_T = ℓ_{P_n}` for
-`n ≤ 17`.
+**Remark (equality).** `ℓ_T = ℓ_{P_n}` only for `T = P_n`: by L2
+([`lemmas.md`](lemmas.md); Graham–Lovász), `d_1 = 2n² − 6 − Σ_v deg(v)²`, and
+`Σ_v deg(v)² = Σ_v (deg(v) − 2)² + 4n − 8` (as `Σ_v deg(v) = 2n − 2`); the sum
+`Σ_v (deg(v) − 2)²` is at least the number of leaves, which is at least 3 for a
+tree that is not a path, and equals 2 for the path. So `d_1(T) < d_1(P_n)` when
+`T` is not the path. The same computation gives `d_1(T) > d_1(S_n)` when `T` is
+not the star (`Σ_v (deg(v) − 2)²` is largest for the star only — not needed
+here, and not proved here).
 
-2. The interval `[ℓ_{S_n}, ℓ_{P_n}]` of the cone order does not locate the
-peak: the cone controls `λ_μ` only for `μ ≤ n/2` (Lemma A), while the upper
-half of the conjecture concerns `μ = M + 1 > n/2`. Along a shift the ratio
-`d_{j+1}/d_j` is not monotone for `j ≥ ⌊n/2⌋` (session 11, scratch), but in
-every case computed the largest maximizing index did not increase
-(observation (PM) of `STATE.md`; not proved).
+## What these results say about the location of the peak
 
-3. For the Laplacian and the adjacency (matching) polynomials the analogous
-extremality of the star and the path, and the monotonicity along the shift,
-are theorems of Zhou–Gutman, Mohar and Csikvári (dossier, audit of session
-11). No version for the distance characteristic polynomial was found in that
-audit's coverage; originality is not established.
+Three kinds of extremality must be kept apart.
+
+1. **Coefficientwise.** By Theorem T6(b) and Theorem T8, every coefficient
+   satisfies `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)`. The star and the path are the
+   coefficientwise minimum and maximum among the trees of order `n`.
+2. **Increments below the middle.** For `1 ≤ μ ≤ ⌊n/2⌋`, the increments
+   `d_μ − d_{μ−1}` are ordered the same way. The cone `K_{n−1}` controls
+   `λ_μ` only for `2μ − 1 ≤ n − 1` (Lemma A); it says nothing about
+   `μ > n/2`.
+3. **Peak location.** Let `p_min(T)`, `p_max(T)` be the smallest and the
+   largest index at which `d_0, …, d_{n−2}` is maximal.
+   - *Lower side — the star is peak-minimal.* The star has a single maximizing
+     index `⌊n/2⌋` (Collins 1989, Theorem 1; S23(d)), and every tree has
+     `p_min(T) ≥ ⌊n/2⌋` (Theorem T6(c)). So `p_min(T) ≥ p_max(S_n)` for every
+     tree: this is the lower half of the conjecture, and it rests on the
+     increments (item 2) at `μ = ⌊n/2⌋`, not on item 1 alone.
+   - *Upper side — open.* Item 1 does **not** imply `p_max(T) ≤ p_max(P_n)`.
+     Termwise domination of positive log-concave sequences does not order
+     their maximizing indices: `(1, 2, 3) ≤ (1, 10, 9)` termwise, with maxima at
+     indices 2 and 1. The statement
+
+     > **(PX-peak)** `p_max(T) ≤ p_max(P_n)` for every tree `T` of order `n`
+
+     is not proved. It holds for every tree of order at most 23 (E3 of
+     `STATE.md`: in those orders the path attains the largest peak; orders 21
+     to 23 by one implementation only). With Collins's theorem on the path
+     (`p_max(P_n) ≤ ⌈n − n/√5⌉`; Collins 1989, Theorem 3, whose last step is
+     informal — see the dossier), (PX-peak) would give the upper half of the
+     conjecture.
+   - *A route to (PX-peak).* Statement **(PM)**: for every generalized tree
+     shift `T_k(A, B) → T′_k(A, B)` with `a, b ≥ 2`,
+     `p_max(T′_k) ≤ p_max(T_k)`. By Lemma S39 and induction on the number of
+     leaves, exactly as in the proof of Theorem T8, (PM) implies (PX-peak).
+     (PM) is open. It cannot be obtained from Lemma S37 through the cone,
+     because the cone does not reach `μ > n/2`. Along a shift the ratio
+     `d_{j+1}/d_j` is not monotone for `j ≥ ⌊n/2⌋` (session 11, scratch).
+     So a proof of (PM) cannot go through ratio dominance either.
+
+For the Laplacian and the adjacency (matching) polynomials the analogue of
+item 1, and monotonicity along the shift, are theorems of Zhou–Gutman, Mohar
+and Csikvári (dossier, audit of session 11). No version for the distance
+characteristic polynomial was found in that audit's coverage. Originality is
+not established.
 
 ## Exact checks
 
-Not yet stored (see the Computation paragraph of Lemma S37). The scratch
-runs of session 11 found: Theorem T7's conclusion on every tree of order 5 to 13 and every shift
-(no failure), and Theorem T8's on the 81,134 trees of order 4 to 17. These are
-finite checks; the proofs above do not depend on them, except for the finite
-identity in the proof of Lemma S37.
+Scratch runs of session 11 (exact; their code is not stored): the conclusion
+of Theorem T7 on every tree of order 5 to 13 and every generalized shift (no
+failure), and that of Theorem T8 on the 81,134 trees of order 4 to 17 (no
+failure). A stored computation (`tree_shift.py`) was being written when this
+revision was made; see the experiments README and `STATE.md`. These are finite
+checks; the proofs above do not depend on them, except for the finite identity
+in the proof of Lemma S37 (`tree_shift_symbolic.py`).

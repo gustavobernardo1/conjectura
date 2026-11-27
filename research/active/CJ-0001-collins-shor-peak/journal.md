@@ -2379,3 +2379,18 @@ maximality), then O11 (the upper half).
   Opus, so independence is by context only — record it). (4) Register the
   result (one record, type theorem, candidate) after the review; update
   `STATE.md`. *Next action on resuming:* item (1).
+- **Resumed at 14:23 local on 2026-11-27 (clock reading), same model
+  (`claude-opus-5-5`), on the director's instruction "resume session 12 from
+  the existing checkpoint under the current harness; distinguish
+  coefficientwise extremality from peak-location extremality".** The tree was
+  clean at `00f30ef`, as the checkpoint describes. Remaining budget: 112
+  minutes (ceiling about 16:15). Item (1), reread of the draft: two defects
+  found by its author. Remark 1 claimed an exact computation (no tree other
+  than `P_n` with `ℓ_T = ℓ_{P_n}` for `n ≤ 17`) that had **not** been made —
+  the scratch scripts tested membership in the cone only; it is replaced by a
+  proof from L2. Notation: the plant matrix was called `P` (as the paths
+  `P_n`) and the linear functional `λ` (as `λ_μ`). Item (2) delegated to
+  `computational-experimenter` (Sonnet), with a falsification attempt of
+  statement (PM) added: (PM) and Lemma S39 would give peak-location
+  maximality of the path, hence, with Collins's theorem on the path, the
+  upper half.
