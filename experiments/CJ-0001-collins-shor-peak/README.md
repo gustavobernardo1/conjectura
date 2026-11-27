@@ -589,7 +589,14 @@ Command of the stored run (from the repository root):
 
 No seeds (exhaustive). Budget fixed before the run: 10 minutes of wall-clock.
 A scratch run with the same parameters before the script was stored took
-220.8 s: 11,379 checks, 0 failures. Regression test:
+220.8 s: 11,379 checks, 0 failures. The stored result
+`results/manuscript-check.json` is the run made in a clean temporary Git
+worktree at `8df6bea` (its `run` block records that revision and
+`tree_clean: true`; the `--out` path in the recorded command is the
+worktree's, the file was then copied here): 11,379 checks, 0 failures,
+258.5 s. A second run in the main tree, started at `8df6bea` and finished
+after the commit `44ca448` (which did not change the script), gave the same
+counts and was discarded. Regression test:
 `tests/test_cj0001_manuscript_check.py`.
 
 ## Limits

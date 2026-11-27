@@ -1,0 +1,181 @@
+{
+  "run": {
+    "command": "uv run python experiments/CJ-0001-collins-shor-peak/manuscript_check.py --max-rooted 8 --max-order-sm 12 --max-merge 8 --out C:/Users/bezze/AppData/Local/Temp/claude/150e3719c412ed18/d5a51a78-6d01-4a8b-8120-e94bfd03026d/scratchpad/wt14/manuscript-check.json",
+    "git_revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+    "tree_clean": true,
+    "python": "3.12.4",
+    "networkx": "3.7",
+    "arithmetic": "exact (fractions.Fraction); evaluation at integer points and Lagrange interpolation"
+  },
+  "parameters": {
+    "max_rooted": 8,
+    "max_order_sm": 12,
+    "max_merge": 8
+  },
+  "checks": {
+    "star(w=0)": {
+      "cases": 200,
+      "failures": 0
+    },
+    "star(w=1)": {
+      "cases": 200,
+      "failures": 0
+    },
+    "star(w=2)": {
+      "cases": 200,
+      "failures": 0
+    },
+    "Psi = prod Phi1(branch)": {
+      "cases": 200,
+      "failures": 0
+    },
+    "raise R1": {
+      "cases": 200,
+      "failures": 0
+    },
+    "E = R1 - (1+x)(Omega + xH)": {
+      "cases": 200,
+      "failures": 0
+    },
+    "H = sum a_v": {
+      "cases": 200,
+      "failures": 0
+    },
+    "G = x sum (delta-1) a_v": {
+      "cases": 200,
+      "failures": 0
+    },
+    "R1 = variance form": {
+      "cases": 200,
+      "failures": 0
+    },
+    "R1 = Q1 + x^2 W": {
+      "cases": 200,
+      "failures": 0
+    },
+    "Psi in K_{a-1}": {
+      "cases": 200,
+      "failures": 0
+    },
+    "H in K_{a-2}": {
+      "cases": 200,
+      "failures": 0
+    },
+    "G/x in K_{a-1}": {
+      "cases": 200,
+      "failures": 0
+    },
+    "Omega in K_a": {
+      "cases": 200,
+      "failures": 0
+    },
+    "E in K_{a+1}": {
+      "cases": 200,
+      "failures": 0
+    },
+    "R1 in K_{a+1}": {
+      "cases": 200,
+      "failures": 0
+    },
+    "deg R1 <= a+1": {
+      "cases": 200,
+      "failures": 0
+    },
+    "Q1 in K_a": {
+      "cases": 200,
+      "failures": 0
+    },
+    "Phi1 - (1+x)^a in K_a": {
+      "cases": 200,
+      "failures": 0
+    },
+    "R0 = x ell - (1+4x)Phi": {
+      "cases": 200,
+      "failures": 0
+    },
+    "plant Psi": {
+      "cases": 85,
+      "failures": 0
+    },
+    "plant Omega": {
+      "cases": 85,
+      "failures": 0
+    },
+    "plant H": {
+      "cases": 85,
+      "failures": 0
+    },
+    "plant G": {
+      "cases": 85,
+      "failures": 0
+    },
+    "plant R0": {
+      "cases": 85,
+      "failures": 0
+    },
+    "plant Phi0": {
+      "cases": 85,
+      "failures": 0
+    },
+    "plant E": {
+      "cases": 85,
+      "failures": 0
+    },
+    "leaf recursion": {
+      "cases": 85,
+      "failures": 0
+    },
+    "a_v in K_{a+delta-3}": {
+      "cases": 1246,
+      "failures": 0
+    },
+    "merge Psi": {
+      "cases": 312,
+      "failures": 0
+    },
+    "merge H": {
+      "cases": 312,
+      "failures": 0
+    },
+    "merge G": {
+      "cases": 312,
+      "failures": 0
+    },
+    "merge Omega": {
+      "cases": 312,
+      "failures": 0
+    },
+    "merge R0": {
+      "cases": 312,
+      "failures": 0
+    },
+    "merge E": {
+      "cases": 312,
+      "failures": 0
+    },
+    "S35": {
+      "cases": 312,
+      "failures": 0
+    },
+    "S35 cone": {
+      "cases": 312,
+      "failures": 0
+    },
+    "SM in K_{n-1}": {
+      "cases": 986,
+      "failures": 0
+    },
+    "deg(SM) <= n-2": {
+      "cases": 986,
+      "failures": 0
+    },
+    "d_m - d_{m-1} >= star > 0": {
+      "cases": 985,
+      "failures": 0
+    }
+  },
+  "first_failures": {},
+  "cases_total": 11379,
+  "failures_total": 0,
+  "elapsed_seconds": 258.5
+}
