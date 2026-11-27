@@ -278,13 +278,13 @@ Decisions of sessions 1 to 8, as they read in `STATE.md` at the end of session 1
   (ii) (bound) and (iv) are recorded as implied by Richman–Shokrieh–Wu in its
   novelty search; splitting it is a decision for the director.
 
-## Text moved from `STATE.md` in session 13 (verbatim)
+## Text moved from `STATE.md` in session 13 (verbatim except for the targets of relative links)
 
 Moved on 2026-11-27 to keep `STATE.md` compact; the summaries left in `STATE.md` point here.
 
 ## Decisions
 
-- Sessions 1 to 8 (verbatim in [`notes/obligations.md`](notes/obligations.md),
+- Sessions 1 to 8 (verbatim in [`notes/obligations.md`](obligations.md),
   last section). Still in force: strong reading of ties; T1 to T3 stay
   candidate theorems (director); every description of T2 states
   `a, b, c ≥ 1`; formalization accompanies the investigation; reviews by a

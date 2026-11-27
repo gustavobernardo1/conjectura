@@ -2772,3 +2772,11 @@ commit that follows this entry.
 Final verification (16:57 by the clock): `uv run python scripts/verify_lean.py`
 on a clean tree at `319c099` — toolchain, build, sources, axioms, registry,
 replay passed; receipt `verification/receipts/20261127T195730Z-319c099c1c-passed.json`.
+CI of the push at `b088f0a` failed in `tests/test_repository.py::test_relative_markdown_links_resolve`:
+the text moved from `STATE.md` into `notes/obligations.md` kept one link
+target relative to the investigation directory (`notes/obligations.md`). The
+local full test run (217 passed) had been made before the compaction, so it
+did not cover that change. Fixed (the target is now `obligations.md`, and the
+heading says "verbatim except for the targets of relative links", as in
+session 11); `uv run pytest -m "not lean"` passed locally (206 passed, 11
+deselected), then pushed again.
