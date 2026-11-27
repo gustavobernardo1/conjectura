@@ -35,28 +35,9 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0018",
-    "type": "structural-result",
-    "title": "A rooted form of the distance polynomial of a tree, the positive leaf polynomial, and the remainder Ω_T that governs the lower bound of the peak for even order",
-    "registered": "2026-11-26",
-    "standing": "candidate",
-    "status": {
-      "mathematical": "candidate-proof",
-      "formal": "not-started",
-      "novelty": "unknown",
-      "external_review": "not-reviewed"
-    },
-    "record": "research/discoveries.json",
-    "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/even-order.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/even-order.md",
-      "tests/test_cj0001_even_order.py"
-    ]
-  },
-  "latest_reviewed_contribution": {
-    "id": "MD-0016",
+    "id": "MD-0019",
     "type": "theorem",
-    "title": "The Wiener form of the distance polynomial of a tree, and the bound ⌊(n−1)/2⌋ on the peak of its normalized coefficients",
+    "title": "The lower bound ⌊n/2⌋ for the peak of the normalized coefficients of the distance characteristic polynomial of every tree; star minimality in the half-gamma cone order; contraction of an edge",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
@@ -67,47 +48,74 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/wiener-form.json",
-      "formalization/Conjectura/Research/CollinsShorPeak/WienerCone.lean",
-      "research/active/CJ-0001-collins-shor-peak/notes/wiener-form.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T4-recheck-complete-audit.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T4-wiener-form.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-10-2026-11-26-originality-of-md-0016-wiener-form-peak-at-least-n12",
-      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-9-2026-11-26-leaf-recursion-and-star-minimality",
-      "tests/test_cj0001_wiener_form.py"
+      "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json",
+      "formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean",
+      "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
+      "research/candidates/CJ-0001-collins-shor-peak.md#primary-sources-read-in-session-11-2026-11-26-collins-1986-and-collins-1989",
+      "tests/test_cj0001_lower_bound.py"
+    ]
+  },
+  "latest_reviewed_contribution": {
+    "id": "MD-0019",
+    "type": "theorem",
+    "title": "The lower bound ⌊n/2⌋ for the peak of the normalized coefficients of the distance characteristic polynomial of every tree; star minimality in the half-gamma cone order; contraction of an edge",
+    "registered": "2026-11-26",
+    "standing": "candidate",
+    "status": {
+      "mathematical": "candidate-proof",
+      "formal": "partial",
+      "novelty": "preliminary-search-completed",
+      "external_review": "ai-reviewed"
+    },
+    "record": "research/discoveries.json",
+    "evidence": [
+      "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json",
+      "formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean",
+      "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
+      "research/candidates/CJ-0001-collins-shor-peak.md#primary-sources-read-in-session-11-2026-11-26-collins-1986-and-collins-1989",
+      "tests/test_cj0001_lower_bound.py"
     ],
     "review": {
       "by": "claude-opus-5-5 (fresh context; a different model of the same vendor and family as the author; AI review, not human or peer review)",
       "date": "2026-11-26",
-      "revision": "b5d9294df21b5ff0af2230ce5403a372483f5060",
-      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T4-wiener-form.md"
+      "revision": "74d65b010289e236fc3387b37010290a2d266241",
+      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md"
     }
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0017",
-    "type": "conjecture",
-    "title": "Star minimality of the distance polynomial of a tree in the half-gamma cone order",
+    "id": "MD-0019",
+    "type": "theorem",
+    "title": "The lower bound ⌊n/2⌋ for the peak of the normalized coefficients of the distance characteristic polynomial of every tree; star minimality in the half-gamma cone order; contraction of an edge",
     "registered": "2026-11-26",
     "standing": "candidate",
     "status": {
-      "mathematical": "candidate",
-      "formal": "not-started",
+      "mathematical": "candidate-proof",
+      "formal": "partial",
       "novelty": "preliminary-search-completed",
-      "external_review": "not-reviewed"
+      "external_review": "ai-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/leaf-telescoping.json",
-      "research/active/CJ-0001-collins-shor-peak/notes/even-order.md",
-      "research/active/CJ-0001-collins-shor-peak/notes/leaf-telescoping.md",
-      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-9-2026-11-26-leaf-recursion-and-star-minimality",
-      "tests/test_cj0001_wiener_form.py"
+      "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json",
+      "formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean",
+      "research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md",
+      "research/candidates/CJ-0001-collins-shor-peak.md#audit-for-session-11-2026-11-26-the-lower-bound-for-every-tree-star-minimality-contraction-of-an-edge",
+      "research/candidates/CJ-0001-collins-shor-peak.md#primary-sources-read-in-session-11-2026-11-26-collins-1986-and-collins-1989",
+      "tests/test_cj0001_lower_bound.py"
     ],
     "novelty_search": {
       "as_of": "2026-11-26",
-      "coverage": "Literature audit of session 9 (first search): 9 web searches (verbatim in the dossier) and 9 fetches; the arXiv listing for 'distance characteristic polynomial' (5 entries) and the 5 papers citing arXiv:1507.02341 on Semantic Scholar; abstract pages of arXiv:2206.07561 and arXiv:2407.03309 in paraphrase. Nothing found on a coefficientwise or cone-order extremality of the star for the distance characteristic polynomial of trees, nor on gamma-type expansions for it. Analogues for other polynomials seen as snippets only: Zhou–Gutman and Mohar (Laplacian coefficients), Csikvári (generalized tree shift).",
-      "limitations": "Shallow. Not read: Graham–Lovász 1978 (scan without text layer), Edelberg–Garey–Graham 1976, Collins 1989, the document at core.ac.uk/download/10129286.pdf (HTTP 403), the PDFs of arXiv:2206.07561 and arXiv:2407.03309 in this session. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, OEIS, books, papers citing arXiv:2206.07561 and arXiv:2407.03309. English only."
+      "coverage": "Session 11. Collins (1989) read in full and Collins's thesis (1986) read (page images for pp. 30–47 and 55–61, OCR for the rest): neither contains any of the items. Literature audit by a separate agent context (11 web searches, 19 fetches; queries and URLs verbatim in the dossier): arXiv listings, Semantic Scholar and OpenAlex citation lists of arXiv:1507.02341, Mohar's 2007 preprint on Laplacian coefficients of acyclic graphs (read in full) and Csikvári, On a poset of trees II (pp. 1–11 and 19–21 read). Earlier audits of sessions 9 and 10 searched for coefficientwise extremality of the star and for bounds on the peak. Within this coverage no prior proof of the lower bound ⌊n/2⌋ for every tree, no coefficientwise extremal result for the distance characteristic polynomial of trees, and no monotonicity of its coefficients under a tree shift was found.",
+      "limitations": "Shallow. Not searched: MathSciNet, zbMATH, Google Scholar; MathOverflow, OEIS and the formal libraries only by one general query or not at all. Not read: Graham–Lovász (1978) pp. 72–88, Csikvári's first paper (Combinatorica 2010) and pp. 12–18 of the second, Guo (2010), Stevanović–Ilić and the literature on the distance spectral radius of trees, 'The 2-Steiner distance matrix of a tree' (2022) and 'On a poset of trees revisited' (2021) (titles only), the mathematical-chemistry journals. The intermediate statements (S32 to S35, the polynomial E) were not searched. English only. An unsuccessful search does not establish originality."
     }
   },
   "public": {
@@ -162,38 +170,38 @@
       }
     },
     "contributions": {
-      "registered": 18,
+      "registered": 19,
       "by_standing": {
-        "candidate": 16,
+        "candidate": 17,
         "established": 0,
         "rediscovered": 2,
         "withdrawn": 0
       },
-      "counted": 16,
+      "counted": 17,
       "by_type": {
         "computational-finding": 1,
         "conjecture": 4,
         "counterexample": 1,
         "structural-result": 5,
-        "theorem": 5
+        "theorem": 6
       },
       "by_status": {
         "mathematical": {
-          "candidate": 4,
-          "candidate-proof": 11,
+          "candidate": 3,
+          "candidate-proof": 13,
           "partial-result": 1
         },
         "formal": {
           "not-started": 14,
-          "partial": 2
+          "partial": 3
         },
         "novelty": {
-          "preliminary-search-completed": 12,
+          "preliminary-search-completed": 13,
           "unknown": 4
         },
         "external_review": {
-          "ai-reviewed": 10,
-          "not-reviewed": 6
+          "ai-reviewed": 12,
+          "not-reviewed": 5
         }
       }
     },
@@ -212,15 +220,15 @@
     "The block 'public' is stricter: beyond its investigations it covers only promoted records with novelty 'no-prior-resolution-found' (docs/public-summary.md)."
   ],
   "generated": {
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "branch": "research",
-    "revision": "291737f22718932e4ae6a9b538abb62c20022698",
-    "sources_committed": true,
+    "revision": "6e6432c223a6408b1e19874a74d0f4042afa33c5",
+    "sources_committed": false,
     "sources": {
-      "research/catalogue.json": "11b8c3027ae4079ac6e61130ac996a5c5cc4fefe",
-      "research/discoveries.json": "2781cb4a0c682d31f0d919abcaf9802b0b4bbeab",
+      "research/catalogue.json": "bf451e00de41eb9b83d6534d1fd1f05b30741642",
+      "research/discoveries.json": "b704910b5132afa52c70a9758dfb2ad829ca1fa5",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
-      "formalization/registry.json": "746c45ad21a9be617ec3cedc884ab01738224cb4"
+      "formalization/registry.json": "7b6844d46ed35f5977be6dec490d6ee1a1a98703"
     }
   }
 }

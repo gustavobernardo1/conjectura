@@ -1951,9 +1951,13 @@ outside the author's vendor, and whether Collins's thesis can be obtained
 
 ## Session 11 — 2026-11-26
 
-- **Entry status:** in progress.
+- **Entry status:** completed (closed at the end of the session; it was
+  marked "in progress" until then).
 - **Agent / model:** Claude, model `claude-fable-5-2` (Research Director,
-  main session). Human participant: the director, who supplied the two
+  main session), until the session was interrupted during its closing
+  steps; the closing steps after the interruption by Claude, model
+  `claude-opus-5-5` (see "Interruption and resumption" at the end of this
+  entry). Human participant: the director, who supplied the two
   Collins sources as local files and the instructions recorded below.
 - **Mode:** focused work for the literature objective; exploration for the
   even orders, which became focused work when an induction closed (the
@@ -2042,3 +2046,266 @@ outside the author's vendor, and whether Collins's thesis can be obtained
   `d_{k+1}/d_k` is *not* monotone along them for `k` above about `n/2`.
   *Next action:* read the reports as they arrive; then registry, obligations,
   next step, verification.
+- **+58 min (23:20 local, clock reading; correction: the previous checkpoint
+  was written at 22:57, +35 min, not at 23:02):** *Established since the
+  last checkpoint.* Both reviews returned "no gap found within stated scope"
+  (reports committed at `77a8bc8`). The stored computation exists and was
+  rerun on a clean tree at `b1359cc` (1,040,693 checks, 0 failures; result
+  committed at `6e6432c`). The literature audit is in the dossier.
+  `LowerBoundCone.lean` is committed (`b1359cc`); `verify_lean.py
+  --no-receipt` passed on the working tree, as reported by the formalizing
+  agent. `STATE.md` is rewritten (commits `8b4139e`, `b1359cc`). New
+  observations, scratch only: (GS), (PX), and the bilinear form of the tree
+  shift for path lengths up to 9. *Unfinished, and where.* `verify_lean.py`
+  is running on the clean tree `6e6432c` for the receipt; the registry
+  (MD-0019, MD-0017), the catalogue fields about Collins, the generated
+  views, the full test suite and the rest of this entry are not done. The
+  configuration for the registry update is in the scratch directory
+  (`registry_s11.py`, `reviews.json`). *Next action:* apply the registry
+  update when the receipt is written, validate, run the test suite, close
+  this entry. No new mathematics in what remains of the session.
+
+### What was done
+
+Harness first (not research): the session budget of 120 minutes and the
+checkpoints, commit `759d93f` on `research`, cherry-picked to `main` as
+`2b687db`; `uv run pytest` on `research` 185 passed (680 s); on `main` the
+tests that do not need Lean, 42 passed, and the catalogue checks; CI passed
+on both branches, Lean job included.
+
+Reading. Collins (1989) in full from its page images; Collins (1986):
+pp. 30–47 and 55–61 from page images, the rest from the OCR text layer
+(formulas of pp. 13–29 and 48–54 not reliably legible). The comparison is in
+the dossier, section "Primary sources read in session 11". Exact scratch
+checks of what was read (`collins_check.py`, run with
+`uv run --with sympy`, not stored): the star and path formulas of the 1989
+paper for orders 3 to 30, Table 1 row `n = 9`, Theorem 4 of the thesis with
+leaf weight 1 and its dictionary with `r_u` on 142 (tree, vertex) pairs.
+
+Mathematics. Falsification test first: `ℓ_T − ℓ_{T′} ∈ C_{n−1}` for the
+contraction of a non-pendant edge, all trees of order 4 to 12 (no failure),
+then 13 to 16. Then, by hand: the formula of S36 from the plant and merge
+rules; the formulas `H = Σ a_v`, `G = xΣ(δ_v − 1)a_v` from `Lδ = τ − 2e_u`;
+the quadratic form of `R(A, e_u)`; the polynomial `E` and its rules; the
+identity for two planted trees. Each was checked exactly in scratch before
+it was relied on (`cm_formula.py`, `system_check.py`). A first attempt to
+prove `E ∈ C_{a+1}` term by term from its explicit positive formula failed
+(see "What failed"); the induction that works keeps `Ω` and `R(A_l, e_{c_l})`
+whole. Written as `notes/lower-bound.md`, committed at `74d65b0`.
+
+Delegated, each in a fresh context:
+
+- adversarial review, `claude-opus-5-5`:
+  `reviews/2026-11-26-claude-opus-5-5-T5-T6-lower-bound.md`;
+- adversarial review with a machine re-derivation, `claude-fable-5-2`:
+  `reviews/2026-11-26-claude-fable-5-2-T5-T6-lower-bound-machine.md`;
+- stored computation and test (computational-experimenter,
+  `claude-fable-5-2`): `experiments/CJ-0001-collins-shor-peak/lower_bound.py`,
+  `tests/test_cj0001_lower_bound.py`;
+- Lean (formalization-agent, `claude-fable-5-2`): see "Findings";
+- literature audit (literature-auditor, `claude-fable-5-2`): the dossier,
+  section "Audit for session 11".
+
+Exploration for the upper half (scratch, not stored): `ratio_test.py`
+(exact) and `upper_cone.py` (floating-point LP, exploratory).
+
+### Findings
+
+Each with its level of evidence. Nothing is promoted in this session.
+
+1. **Theorem T5 (statement (Γ_c¹)) and Theorem T6: for every tree of order
+   `n ≥ 3`, `d_{m−1} < d_m`, `m = ⌊n/2⌋`** — the lower half of the
+   Collins–Shor conjecture for every tree — with star minimality (SM) on the
+   way. Level: **candidate proof**, written (`notes/lower-bound.md`); two
+   independent AI reviews of revision `74d65b0`, both "no gap found within
+   stated scope" (one by a different model of the same vendor, with every
+   step and the unreviewed S23(a) to (c) reconstructed by hand; one by the
+   author's model in a fresh context, with a machine re-derivation from the
+   definitions); exact checks by three independent codes (the stored
+   script; each reviewer's own): T6(b), (c) on all trees of order ≤ 18.
+   Not a human review; S19 was not re-derived by either reviewer; novelty
+   not established. Registered as MD-0019; MD-0017 (the conjecture (SM)) now
+   has a candidate proof.
+2. **Proposition S36**: the explicit formula for `ℓ_T − ℓ_{T′}` under the
+   contraction of a non-pendant edge, and its membership in `C_{n−1}`. Level:
+   candidate proof, same reviews (the identity was expanded by hand by one
+   reviewer and machine-checked by both); exact on 220,181 pairs for the
+   membership.
+3. **Literature.** S23(d) is Collins 1989, Theorem 1 (known). The leaf
+   recursion has a precursor in Theorem 4 of Collins's thesis, and the merge
+   rule in its Theorem 7; neither source contains the Wiener form, T4, or
+   anything like T5, T6, S36. Conjecture 9 has no floor or ceiling; the
+   floor is the only reading consistent with Theorem 1 of the same paper.
+   Level: first-hand reading, with the stated limit on the OCR pages.
+4. **Upper half, observations only.** (PM): along generalized tree shifts
+   the peak never moved up, orders 5 to 15, 127,192 shifts (exact, scratch).
+   The ratio `d_{k+1}/d_k` is not monotone along shifts for `k ≥ ⌊n/2⌋`.
+   Floating-point LP (exploratory): the truncated `ℓ_T` is in the cone of the
+   `x^e(1+x)^i` with `2e + i ≤ 2M + 1` for all trees of order 5 to 14, with no
+   margin at order 14 for two trees close to the star.
+5. **Generalized tree shift and path maximality, observations.** (GS):
+   `ℓ_T − ℓ_{T′} ∈ C_{n−1}` along the shift of Csikvári for a path of any
+   length — exact, scratch, every tree of order 5 to 13 and every shift, no
+   failure. (PX): `ℓ_{P_n} − ℓ_T ∈ C_{n−1}` for the 81,134 trees of order 4 to
+   17 (exact, scratch). The bilinear form of the shift along a path of
+   length `k`, computed symbolically in free state variables for `k = 1` to
+   `12` (sympy, scratch), is
+   `x(ℓ_T − ℓ_{T′}) = x a_{k−1}(H_AE_B + E_AH_B) + 2γ_k G_AG_B + 2x²γ_{k−1}(H_AG_B + G_AH_B) + x²[2(1+x)γ_k + 3x a_{k−1} + xΣ_{i=0}^{k−2}(i+1)(k−1−i)x^i a_{k−2−i}] H_AH_B`,
+   with `a_j` the determinant of the `j × j` tridiagonal matrix with `1 + 2x`
+   on the diagonal and `−x` beside it (`a_0 = 1`) and
+   `γ_k = Σ_{i<k} x^i a_{k−1−i}`. Every coefficient is non-negative, and with
+   `a_j ∈ K_j` (Lemma K), T5 and S33 every term is in `K_{n−1}`. So (GS) for
+   path lengths at most 12 would follow from T5 and a computer-algebra
+   identity, and the general case from a proof of this closed form by
+   induction on `k` — **none of this is written as a proof, the level count
+   was done by hand once, and nothing here is reviewed**. Not
+   registered; `STATE.md`, objective O12.
+   The whole of the symbolic computation, so that it can be repeated
+   without the scratch directory (run with `uv run --with sympy python`):
+
+   ```python
+   import sympy as sp
+   x = sp.symbols("x")
+   def plant(s):            # state (Psi, H, G, Omega, E); Proposition S34(b)
+       P, H, G, O, E = s
+       return ((1+x)*P + x*H, P + x*H, x*(x*H + G), E + (1+x)*(O + x*H),
+               x*(E + O + 2*G + x*(3+2*x)*H))
+   def merge(s, t):         # Proposition S34(c)
+       P1, H1, G1, O1, E1 = s; P2, H2, G2, O2, E2 = t
+       return (P1*P2, H1*P2 + H2*P1, G1*P2 + G2*P1, O1*P2 + O2*P1,
+               E1*P2 + E2*P1 + x*(H1*O2 + H2*O1) - 2*G1*G2)
+   def xl(s):               # x * l_T, from S23(a) and the definition of E
+       P, H, G, O, E = s
+       return E + O + 2*x*G + x*(1+4*x)*H - 4*x**2*P
+   A = sp.symbols("PA HA GA OA EA"); B = sp.symbols("PB HB GB OB EB")
+   sA, path = A, (sp.Integer(1), 0, 0, 0, 0)
+   for k in range(1, 13):   # shift along a path of length k
+       sA, path = plant(sA), plant(path)
+       print(k, sp.factor(sp.expand(xl(merge(sA, B)) - xl(merge(merge(A, B), path)))))
+   ```
+6. **Lean** (formalization-agent, fresh context): `formalization/Conjectura/Research/CollinsShorPeak/LowerBoundCone.lean`,
+   six registered theorems (`plant_E_mem`, `raised_R_mem`, `sum_sq_identity`,
+   `two_planted_identity`, `two_planted_mem`, `two_planted_lhs_mem`): the
+   cone arithmetic of the plant step and of the step "(iii) from (i) and
+   (ii)" in the proof of T5, and the identity and the membership of S35,
+   for arbitrary real polynomials with the memberships as hypotheses and
+   orders at least 2. **Nothing about trees, the rooted state, S19, Lemma
+   K, S32, the induction of T5 or T6 is formalized.** The first build
+   failed on three proof steps, which were repaired without changing a
+   statement. The Lean statements were compared with the note by the
+   formalizing agent and by the author (the main session read the six
+   statements against S34(b), S35 and the proof of T5): no independent
+   comparison. Formal status of MD-0019: `partial`, with this scope.
+
+### What failed
+
+- Proving `E ∈ C_{a+1}` directly from the positive formula
+  `E = 2(1+x)G + Σ_{(ii)} + Σ_{(iii)}` (sum over pairs of vertices): the
+  terms `x²Π_{e∪{u,y}}` (an edge `e` away from the root, `y` a neighbour of
+  the root) are one level short, and only those with `e` at depth 2 have an
+  obvious partner. This is the deep-edge obstruction of session 10 again.
+  It is not needed: the induction of T5 never isolates these terms.
+- Ratio dominance along tree shifts, as a route to the upper half: false
+  from order 6 at indices `k ≥ ⌊n/2⌋`.
+- Recording error: the second checkpoint says "23:02 local, clock reading";
+  the clock, read in the same command that appended it, said 22:57. The
+  count "216,000" of the first checkpoint is 220,181.
+
+### Telemetry
+
+| Item | Value |
+| --- | --- |
+| Model | `claude-fable-5-2` (author; experimenter; second reviewer; literature auditor; formalization agent); `claude-opus-5-5` (first reviewer, as reported by it; and the main session after the interruption, closing steps only) |
+| Computation wall-clock | stored run of `lower_bound.py`: 53.8 s; scratch runs in total about 5 minutes (the largest: contraction test to order 16, about 105 s; tree shifts to order 15, about 65 s; path maximality to order 17, about 37 s; floating-point LP to order 14, a few minutes in the background); test suites and `verify_lean.py`: see "Outcome" |
+| Token usage | main context unavailable; subagents as reported by the environment: experimenter 144,586 tokens, 28 tool uses, 678 s; first reviewer 187,787 tokens, 40 tool uses, 813 s; second reviewer 188,406 tokens, 30 tool uses, 933 s; literature auditor 135,748 tokens, 41 tool uses, 369 s; formalization agent 116,506 tokens, 37 tool uses, 1,424 s |
+| Research iterations | 1 focused objective (the two sources), 1 exploration that became a focused objective (the lower half), 2 explorations (upper half; tree shift) |
+| Proof attempts | 2 (`E ∈ C_{a+1}` term by term: failed; the induction of T5: complete written proof) |
+| Counterexamples found | 0 to the conjecture or to any statement of the note; ratio dominance along shifts refuted (order 6) |
+| Formalization attempts | 1 (complete for its scope; one failed build on the way) |
+| Successful verifications | two independent AI reviews (no gap found); stored run of `lower_bound.py` (0 failures); the exact checks of Collins's formulas; the commands under "Outcome" |
+| Cost estimate and assumptions | unavailable |
+
+### Outcome and next step
+
+Durable progress, of the first order for this investigation, and all of it
+at the level of a **candidate**.
+
+**The lower half of the Collins–Shor conjecture has a candidate proof for
+every tree** (Theorem T6(c): `d_{m−1} < d_m`, `m = ⌊n/2⌋`; MD-0019), by a
+proof of statement (Γ_c¹) that sessions 9 and 10 had left open. It has two
+independent AI reviews of one revision with no gap found, three independent
+exact codes agreeing on all trees of order at most 18, and a first literature
+search that found no prior statement within a shallow coverage. It has no
+human review, its reviewers are models of the author's vendor, the rule S19
+it rests on was not re-derived this session, and its originality is not
+established. **CJ-0001 keeps the status `active-investigation`**: the upper
+half is open and has no mechanism, and nothing is promoted in the session
+that produced a claim. By the director's instruction human consultation waits
+for a mature manuscript; the next steps of validation are in obligation 11 of
+`STATE.md`.
+
+**Reading of Collins.** Done, with its limits recorded. It changes the
+description of S23 (the star is Collins 1989, Theorem 1; a leaf formula is
+Theorem 4 of the thesis) and of S19(d) (Theorem 7 of the thesis), and it
+finds nothing equivalent to the Wiener form, T4, T5, T6 or S36. The operation
+of S36 is itself known (Csikvári, Guo, Mohar), as the audit of this session
+found.
+
+**An error of handling, corrected.** While `verify_lean.py` was running on
+the clean tree `6e6432c`, a dry run of the registry update that was meant
+for a scratch worktree wrote `research/discoveries.json` and
+`research/catalogue.json` in the repository (a path substitution did not
+apply). The two files were restored from Git about a minute later, before
+the verifier finished; it reads them only for the list of identifiers,
+which the write did not change, and it builds nothing from them. The
+receipt records a clean tree, which was true when it was written; this
+paragraph is the record that the tree was not clean throughout the run.
+The same update was then validated in the scratch worktree and applied.
+
+Verification commands. `uv run python experiments/CJ-0001-collins-shor-peak/lower_bound.py --max-rooted 9 --max-merge 9 --max-pairs 10 --max-contract 16 --out experiments/CJ-0001-collins-shor-peak/results/lower-bound.json`
+at `b1359cc`, clean tree: 1,040,693 checks, 0 failures, 53.8 s.
+`uv run python scripts/verify_lean.py` at `6e6432c`: VERDICT passed, receipt
+`verification/receipts/20261127T022617Z-6e6432c223-passed.json` (see the paragraph above).
+`uv run python scripts/catalogue.py validate`: 15 problems, 19 contributions,
+0 errors; `render --check`: up to date at the commit that contains this
+entry. Test suite (`uv run pytest`): 195 passed in 547.93 s, run by the resuming
+model on the tree of the commit that contains this entry plus the edit of
+`.claude/skills/research-session/SKILL.md` described below (which
+`tests/test_repository.py` reads), and before these two sentences were
+filled in.
+
+Budget: the session started at 22:22 local time; `claude-fable-5-2` worked until
+about 23:27 (about 65 minutes); after a pause of about 12 minutes
+`claude-opus-5-5` did the closing from 23:39 to about 23:52 (clock
+readings) — within the ceiling of 120 minutes, reserve included.
+Computation: the stored run (53.8 s) and the experimenter's two trial runs
+(75.8 s and 60.8 s, as it reported); scratch runs about 5 minutes; in
+addition `verify_lean.py` once on the clean tree (about 6 minutes; the
+formalizing agent ran it twice more without a receipt, about 8 minutes
+each, as it reported) and the full test suite twice (680 s for the harness
+commit at the start, 548 s at the end). `STATE.md` has 471 lines, above the aim of
+400, after moving the text on Conjecture Γ, the route of sessions 4 to 8,
+obligations 1 to 8 and the decisions of sessions 1 to 8 to the notes
+(verbatim).
+
+**Interruption and resumption.** At about 23:27 local time the session,
+then run by `claude-fable-5-2`, was stopped while it was writing the
+closing part of this entry. At that point the registry (MD-0019 added,
+MD-0017 and the literature notes of MD-0015, MD-0016, MD-0018 updated), the
+catalogue fields on Collins, `STATE.md`, the generated views and the Lean
+receipt of `6e6432c` were written but not committed, and two sentences of
+this entry (the test suite, the budget) were placeholders. The director
+switched the model to `claude-opus-5-5` and asked for the session to be
+resumed without restarting it. The resuming model checked the working tree
+against the last checkpoint and the closing text (`git status`: exactly
+those files; `catalogue.py validate`: 0 errors), filled the two sentences,
+recorded this paragraph, ran the verifications below and committed. It did
+no mathematics and changed no statement, proof, status or classification
+written by the session. In the same pause the director also had a change
+made to the skill `research-session` (a model and effort line and a cap on
+subagents, for cost); that change is not part of this session's commits.
+
+Next step: `STATE.md`, section "Next step" — obligation 11 (one revision of
+`lower-bound.md` and a self-contained manuscript of the lower half), then
+objective O12 (the generalized tree shift for every path length, hence path
+maximality), then O11 (the upper half).

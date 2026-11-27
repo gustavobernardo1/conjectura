@@ -17,7 +17,7 @@
         "published": "1989",
         "accessed": "2026-11-26",
         "statement_checked_against": "primary-source",
-        "note": "The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) could not be accessed (publisher and repositories refused automated access on 2026-11-26); according to arXiv:1507.02341 it states the bounds without floor and ceiling."
+        "note": "The catalogued wording is Conjecture 1.2 of arXiv:1507.02341, compared with the paper's TeX source on 2026-11-26. Collins (1989) was read in full in session 11 (a copy supplied by the director): its Conjecture 9 reads 'The coefficients of CPD(T) for any tree T with n vertices are unimodal with peak between ½n and n(1 − 1/√5)', without floor or ceiling, as arXiv:1507.02341 reports; for odd n the floor is the only reading consistent with Theorem 1 of the same paper (the star peaks at ½(n−1))."
       },
       "statement": "Let $T$ be a tree of order $n \\ge 3$ with distance matrix $\\mathcal{D}(T)$ (the $(i,j)$ entry is the length of the path from $v_i$ to $v_j$). Let $\\delta_k(T)$ be the coefficient of $x^k$ in $\\det(\\mathcal{D}(T) - xI)$ and, for $0 \\le k \\le n-2$, let $d_k(T) = 2^{k-(n-2)}\\,|\\delta_k(T)|$ be the normalized coefficients. Conjecture 1.2 (Collins–Shor), verbatim: \"The [normalized] coefficients of the distance characteristic polynomial for any tree $T$ with $n$ vertices are unimodal with peak between $\\lfloor n/2 \\rfloor$ and $\\lceil n - n/\\sqrt{5} \\rceil$.\" Unimodality (indeed log-concavity) is Theorem 2.1 of the same paper. The open part is the location: every index $k$ at which $d_0(T),\\dots,d_{n-2}(T)$ attains its maximum satisfies $\\lfloor n/2 \\rfloor \\le k \\le \\lceil n - n/\\sqrt{5} \\rceil$. (The source does not say how a tie between two maximal coefficients is to be read; the project uses the strong reading 'every maximizing index' and records ties explicitly.)",
       "fields": [
@@ -39,8 +39,8 @@
       },
       "novelty_search": {
         "as_of": "2026-11-26",
-        "coverage": "Session 1: three web queries; the TeX source of arXiv:1507.02341 read for the exact statement. Session 2 (literature audit by a separate agent context, 2026-11-26): arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries; two citation lists (5 papers citing arXiv:1507.02341 and 14 citing Collins 1989, mostly titles only). Within this coverage no proof or refutation was found, and no proof of either half for a family other than stars and paths. Details: the dossier.",
-        "limitations": "Collins (1989) and her 1986 thesis were not accessible and are known only second-hand. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, the arXiv listing interface, non-English literature. Most citing papers were seen by title only. An unsuccessful search does not establish that nobody has settled the conjecture or the special cases treated by the project."
+        "coverage": "Session 1: three web queries; the TeX source of arXiv:1507.02341 read for the exact statement. Session 2 (literature audit by a separate agent context, 2026-11-26): arXiv:1507.02341v3, arXiv:2206.07561v1 and arXiv:2407.03309v1 read in full; arXiv:2103.00647 pages 5 to 12; Graham and Lovász (1978) pages 60 to 67 and 80 to 86; nine web queries; two citation lists (5 papers citing arXiv:1507.02341 and 14 citing Collins 1989, mostly titles only). Within this coverage no proof or refutation was found, and no proof of either half for a family other than stars and paths. Details: the dossier. Session 11: Collins (1989) read in full and Collins's thesis (1986) read (pp. 30–47 and 55–61 as page images, the rest through OCR); a further audit by a separate agent context (11 searches, 19 fetches): no proof or refutation of the conjecture or of either half was found.",
+        "limitations": "Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow (one general query only), non-English literature. Most citing papers were seen by title only. The formulas of pp. 13–29 and 48–54 of Collins's thesis were read through OCR only. An unsuccessful search does not establish that nobody has settled the conjecture or the special cases treated by the project."
       },
       "scores": {
         "statement_precision": {
@@ -65,7 +65,7 @@
         },
         "supporting_literature": {
           "score": 3,
-          "why": "Graham–Lovász 1978 (read in part), Aalipour et al. and its 2022 extension (read in full) and the Hogben–Reinhart survey give techniques; Collins 1989 is not accessible to the project."
+          "why": "Graham–Lovász 1978 (read in part), Aalipour et al. and its 2022 extension (read in full) and the Hogben–Reinhart survey give techniques; Collins 1989 and her 1986 thesis were read in session 11."
         },
         "lean_coverage": {
           "score": 2,
