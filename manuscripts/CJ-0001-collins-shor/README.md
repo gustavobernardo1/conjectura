@@ -8,9 +8,11 @@ arXiv:1507.02341; Conjecture 9 of Collins, Discrete Appl. Math. 25 (1989)).
 
 **Status.** Draft written with AI assistance (Claude, model
 `claude-opus-5-5`, session 14, 2026-11-27) from the project's notes. Its
-parts were reviewed earlier by AI models of one vendor (Anthropic); the
-document as a whole is under review (see `STATE.md` of the investigation,
-obligation 14). No mathematician has read it. It is a **candidate proof**,
+parts were reviewed earlier by AI models of one vendor (Anthropic). The
+first version (`8df6bea`) was reviewed as one document by two AI models of
+the same vendor (`claude-opus-5-5`, `claude-sonnet-5-5`; no gap found within
+stated scope); revision 2 (`87c3c8c`) corrects their defects and adds
+Lemma 7.5. See `STATE.md` of the investigation, obligation 14. No mathematician has read it. It is a **candidate proof**,
 not an established result. Not for distribution: any outside use is decided
 by the project director.
 
@@ -18,8 +20,8 @@ by the project director.
 
 Plain LaTeX with standard packages (`amsart`, `amsmath`, `amssymb`, `amsthm`,
 `hyperref`). Run `pdflatex main.tex` twice (three times for the table of
-contents). Checked with MiKTeX pdfLaTeX on 2026-11-27: 30 pages, no undefined
-reference. The PDF is not committed.
+contents). Checked with MiKTeX pdfLaTeX on 2026-11-27: 30 pages (first
+version), 32 pages (revision 2), no undefined reference. The PDF is not committed.
 
 ## Structure
 

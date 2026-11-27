@@ -430,7 +430,15 @@ full text of items 1 to 8 as of session 7 is there).
    recursion S23(b) derived from the plant rule; the presentation with the
    cones `K_d` only. Checked by `manuscript_check.py` (exact, independent of
    the notes' code; `results/manuscript-check.json`). Reviews of the whole
-   document: see the journal of session 14 and `reviews/`. Owed: a review
+   document at `8df6bea`: `claude-opus-5-5` and `claude-sonnet-5-5` (fresh
+   contexts), both no gap found within stated scope
+   (`reviews/2026-11-27-*-manuscript.md`); their defects corrected in
+   revision 2 (`87c3c8c`), which also adds Lemma 7.5 (the shape of the
+   star's sequence), so that neither bound uses the log-concavity theorem of
+   arXiv:1507.02341 or Collins's Theorem 1; recheck of revision 2: journal
+   of session 14. The count "1,346,023 trees of order 3 to 20" in
+   `notes/leaf-telescoping.md` is a slip for 1,346,022 (orders 2 to 20 give
+   1,346,023); left in the note, corrected in the manuscript. Owed: a review
    by a model of another vendor (use `REVIEW-PROMPT.md`); human reading
    (deferred by the director); a result package; the literature items of
    obligations 9, 11(c), 13.
@@ -438,8 +446,8 @@ full text of items 1 to 8 as of session 7 is there).
 ## Remaining obstacles
 
 - **Lower half.** No mathematical obstacle is known: T6 is a candidate proof
-  for every tree. What remains is validation (obligation 11) and one
-  self-contained write-up. How the difficulty of session 10 (the deep-edge
+  for every tree. What remains is validation (obligations 11, 14); the
+  self-contained write-up exists since session 14. How the difficulty of session 10 (the deep-edge
   terms, one level short) was avoided: they are never separated from
   `R(A_l, e_{c_l})` except where an extra factor `x` is available (Remark
   after T5 in `lower-bound.md`).
@@ -451,22 +459,21 @@ full text of items 1 to 8 as of session 7 is there).
 
 ## Next step
 
-**Session 13 changes the priorities.** Both halves now have candidate
-proofs (T6(c), T9), each reviewed (T9 twice, no gap, and its revision
-rechecked; T6 twice at `74d65b0`, its revision rechecked). The next steps
-are validation, not discovery: (a) **one self-contained manuscript of the
-whole conjecture**, `manuscripts/CJ-0001-collins-shor/` (lower half from the
-Graham–Lovász inverse through T5 and T6; upper half S40 to S46, T9, T10; the
-peak of the path, S47), then a complete audit of that one document by a
-reviewer of another vendor when one is available (obligations 11(b), 13);
-(b) the small defects left by the rechecks, folded into the manuscript;
-(c) literature: papers citing Andriantiana–Misanantenaina–Wagner, Darroch's
-original, MathSciNet/zbMATH when available; (d) the director's decision on
-the status of CJ-0001 (`candidate-proof` is now accurate in the sense of
-`AGENTS.md`, section 4; it was left at `active-investigation` by the
-decision of session 10); (e) open mathematics: (PX-peak) for the `n` with
-fractional part of `n − n/√5` above `2/5` needs a mode–mean inequality for
-`q` sharper than Darroch's by about `0.4` (journal, session 13).
+**Session 14:** the manuscript of the whole conjecture exists
+(`manuscripts/CJ-0001-collins-shor/main.tex`, revision 2 at `87c3c8c`),
+reviewed as one document by two AI models of one vendor (no gap), and
+CJ-0001 is `candidate-proof`. The next steps are validation, not discovery:
+(a) **a review of `main.tex` by a model of another vendor**, with the prompt
+`manuscripts/CJ-0001-collins-shor/REVIEW-PROMPT.md` and nothing else (no
+such model is reachable from this environment; the director has to supply
+one); (b) a recheck of any later revision; (c) literature: papers citing
+Andriantiana–Misanantenaina–Wagner, Darroch's original, Graham–Pollak at the
+source, MathSciNet/zbMATH when available; (d) a result package under
+`results/` once the director decides that the manuscript is mature (human
+consultation is deferred by the director until then); (e) open mathematics:
+(PX-peak) for the `n` with fractional part of `n − n/√5` above `2/5` needs a
+mode–mean inequality for `q` sharper than Darroch's by about `0.4` (journal,
+session 13).
 
 The items of session 12 under "Next step" (the route through (PM), the upper
 cone LP) are in `notes/obligations.md`, section "Text moved from `STATE.md`

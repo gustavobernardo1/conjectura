@@ -1850,6 +1850,16 @@
           "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
           "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
           "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript-recheck-r2.md",
+          "summary": "Recheck of revision 2 of manuscripts/CJ-0001-collins-shor/main.tex (87c3c8c) against 8df6bea: every changed passage checked; Lemma 7.5 reconstructed by hand and tested exactly for 3 <= n <= 1200; each defect of the two reviews of 8df6bea found corrected or disclosed; no gap found within stated scope (the changes of revision 2 only; the unchanged parts rest on the two reviews of 8df6bea). Scope for this record, the new Lemma 7.5 (the shape of the star sequence) and the new proof of Theorem 7.3(c), which no longer use log-concavity or Collins's Theorem 1.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor, the same model as one earlier reviewer; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+          "sha256": "f8e7dbcb81c726880f053a8023051c2853fe2b26e4099bdce2be0613a2bc3643",
+          "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
         }
       ],
       "status": {
@@ -2182,6 +2192,16 @@
           "date": "2026-11-27",
           "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
           "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript-recheck-r2.md",
+          "summary": "Recheck of revision 2 of manuscripts/CJ-0001-collins-shor/main.tex (87c3c8c) against 8df6bea: every changed passage checked; Lemma 7.5 reconstructed by hand and tested exactly for 3 <= n <= 1200; each defect of the two reviews of 8df6bea found corrected or disclosed; no gap found within stated scope (the changes of revision 2 only; the unchanged parts rest on the two reviews of 8df6bea). Scope for this record, the corrected Merris chain in the remark after Lemma 8.3 and the new proof of the Main Theorem (upper bound unchanged).",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor, the same model as one earlier reviewer; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+          "sha256": "f8e7dbcb81c726880f053a8023051c2853fe2b26e4099bdce2be0613a2bc3643",
           "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
         }
       ],
