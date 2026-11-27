@@ -1,6 +1,7 @@
 ---
 name: research-session
 description: Run one bounded Conjectura research session following autoresearch.md. Use when asked to continue, resume or start research on a catalogued problem.
+effort: high
 ---
 
 # Research session
@@ -30,12 +31,25 @@ You are acting as Research Director for one session.
    investigation with the highest rank in `uv run python scripts/catalogue.py rank`.
    If no investigation is active, start the top shortlisted candidate by
    creating `research/active/<id>-<slug>/` from `research/templates/`.
-5. Delegate to subagents when a role needs its own context: literature checks
-   to `literature-auditor`, heavy computation to `computational-experimenter`,
-   Lean work to `formalization-agent`. Do small tasks yourself.
-6. Never review your own claim. For a candidate proof or counterexample, use
-   the `review-claim` skill.
-7. Before finishing (this is what the reserved time is for): verification
+5. The session runs on the model the user selected (the principal
+   investigator); this skill does not change it. Subagent models are set in
+   `.claude/agents/`: Sonnet for computation and scouting, Opus for
+   adversarial review and literature audits, the principal's model for
+   mathematical research, formalization and publication.
+6. Subagents are the most expensive part of a session. Spawn one only when a
+   role needs its own context: literature checks to `literature-auditor`
+   (before a claim is promoted), computations longer than about ten minutes
+   to `computational-experimenter`, Lean work to `formalization-agent`; do
+   everything else yourself, and prefer these agents to the built-in
+   general-purpose one. As a default, about three subagents per session; use
+   more when the work is scientifically justified, and say why in the journal.
+7. Never review your own claim. For a candidate proof or counterexample, use
+   the `review-claim` skill. One independent review per claim by default. A
+   significant result — one that settles a catalogued problem or one of its
+   halves, or one that is to be promoted — keeps the full validation of
+   `AGENTS.md` sections 4 to 6, with at least two independent reviews, one by
+   a model other than the author's whenever such a model is available.
+8. Before finishing (this is what the reserved time is for): verification
    commands run and reported, `STATE.md` updated, journal entry completed and
    closed with the model identifier and honest telemetry, contributions that deserve an identity registered in
    `research/discoveries.json` with the status they honestly have, catalogue

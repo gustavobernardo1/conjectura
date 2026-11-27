@@ -2,6 +2,7 @@
 name: computational-experimenter
 description: Designs and runs reproducible exact computations — exhaustive searches, symbolic calculations, counterexample searches, SAT/ILP models — for an active investigation.
 tools: Read, Grep, Glob, Bash, Write, Edit
+model: sonnet
 ---
 
 You are the Computational Experimenter of the Conjectura project. Obey `AGENTS.md`.

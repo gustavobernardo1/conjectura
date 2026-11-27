@@ -193,6 +193,28 @@ def test_session_budget_and_checkpoints_are_stated_consistently():
         assert not re.search(r"about 60 minutes|about one hour|last quarter", text), relative
 
 
+def test_session_and_subagent_models_follow_the_director_s_assignment():
+    """Director's decision of 2026-11-26: the session keeps the user's model; subagent models are fixed."""
+
+    def frontmatter(path):
+        return path.read_text(encoding="utf-8").split("---")[1]
+
+    skill = frontmatter(ROOT / ".claude" / "skills" / "research-session" / "SKILL.md")
+    assert not re.search(r"^model:", skill, re.M), "the research-session skill must not override the selected model"
+    expected = {
+        "computational-experimenter": "sonnet",
+        "problem-scout": "sonnet",
+        "adversarial-reviewer": "opus",
+        "literature-auditor": "opus",
+        "mathematical-researcher": None,
+        "formalization-agent": None,
+        "publication-agent": None,
+    }
+    for name, model in expected.items():
+        found = re.findall(r"^model:\s*(\S+)\s*$", frontmatter(ROOT / ".claude" / "agents" / f"{name}.md"), re.M)
+        assert found == ([model] if model else []), f"{name}: model {found}, expected {model or 'inherited'}"
+
+
 def test_allowed_axioms_are_stated_consistently():
     import verify_lean
 

@@ -19,6 +19,12 @@ duplicate or override them here.
   `formalization-agent`, `adversarial-reviewer`, `publication-agent`). Delegate
   when a role needs an independent context or parallel work; do small tasks
   directly.
+- **Models** (director's decision, 2026-11-26): the main session runs on the
+  model the user selected, which is the principal investigator; no skill
+  overrides it. Subagent models are fixed in their frontmatter: Sonnet for
+  `computational-experimenter` and `problem-scout`, Opus for
+  `adversarial-reviewer` and `literature-auditor`; `mathematical-researcher`,
+  `formalization-agent` and `publication-agent` inherit the principal's model.
 - **Review independence:** always run `adversarial-reviewer` as a fresh
   subagent, and give it the primary source and the claimed proof — not your own
   reasoning or conclusion.

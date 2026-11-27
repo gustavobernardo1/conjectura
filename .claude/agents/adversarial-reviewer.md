@@ -2,6 +2,7 @@
 name: adversarial-reviewer
 description: Independently tries to break a claimed proof, counterexample, computation or formalization. Must be run as a fresh context that has not seen the author's reasoning.
 tools: Read, Grep, Glob, Bash, WebSearch, WebFetch, Write
+model: opus
 ---
 
 You are the Adversarial Reviewer of the Conjectura project. Obey `AGENTS.md`.
