@@ -184,6 +184,20 @@ of a shift (Csikvári; not checked by the project). With T6(b):
 `ℓ_{S_n} ≤ ℓ_T ≤ ℓ_{P_n}` in the cone order, the analogue of the theorem of
 Zhou and Gutman for Laplacian coefficients. Neither statement gives the upper
 half of Collins–Shor (the cone controls `λ_μ` only for `μ ≤ n/2`).
+*A route to (GS)* (scratch, symbolic, **not written as a proof and not
+reviewed**): plant is linear and merge bilinear in the state
+`(Ψ, H, G, Ω, E)`, so for a shift along a path of length `k`,
+`x(ℓ_T − ℓ_{T′})` is a bilinear form in the states of `(A, u)` and `(B, v)`.
+For `k = 1, …, 9` it was computed (sympy, `shift_formula.py` and
+`shift_closed.py`, scratch): it is
+`c_HH H_AH_B + c_HG(H_AG_B + G_AH_B) + c_HE(H_AE_B + E_AH_B) + c_GG G_AG_B`
+and nothing else, with `c_HE = x a_{k−1}`, `c_GG = 2γ_k`, `c_HG = 2x²γ_{k−1}`,
+`c_HH = x²[2(1+x)γ_k + 3x a_{k−1} + ρ_k]`, where `a_j` is the determinant of
+the `j × j` tridiagonal matrix with `1 + 2x` on the diagonal and `−x` beside
+it (the inner vertices of the path), `γ_k = Σ_{i<k} x^i a_{k−1−i}`, and `ρ_k`
+has non-negative coefficients (`ρ_1 = 0`, `ρ_2 = x`, `ρ_3 = 2x(3x+1)`; not
+identified in general). With the memberships of T5 and S33 each term is in
+`K_{n−1}` (levels counted by hand for `k ≤ 5` only).
 
 **Conjecture Γ (MD-0010) and Hypothesis V (MD-0009) — open; no longer on
 the route to the lower half.** Γ: for every tree `S` and every `A ⊆ V(S)`,
@@ -440,6 +454,14 @@ Two observations of session 11, both scratch and neither stored:
    may fail for near-stars at larger even orders. Where the constant comes
    from: `Φ(P_j, e_end) = Σ_k C(j+k, 2k) x^{j−k}` (Morgan-Voyce), whose peak is
    at about `j(1 − 1/√5)`.
+
+**Objective O12 (path maximality): prove (GS) for every path length, hence
+(PX).** First action: store `shift_formula.py` (the bilinear form of the shift
+for `k ≤ 5`) and the exact tests of (GS) and (PX) as an experiment with a
+test; then identify `c_HH` and prove the four closed forms by induction on
+`k` (the sequences `plant^k` satisfy linear recurrences); check Csikvári's
+statement that the path is the only tree not obtained by a shift. O12 looks
+closer than O11.
 
 Also open and cheap: obligations 5 and 8; the rerun of orders 21 to 23
 (obligation 4) needs the director's approval of its budget.
