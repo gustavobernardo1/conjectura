@@ -9,6 +9,10 @@ duplicate or override them here.
 
 - **Session procedure:** `autoresearch.md`, also available as the skill
   `/research-session`. Independent review of a claim: skill `/review-claim`.
+- **Long sessions:** context compaction and usage limits are expected within
+  the default session budget. After either, resume from the journal entry
+  marked `in progress` and `STATE.md` (the checkpoints of `autoresearch.md`),
+  not from what is remembered of the conversation.
 - **Roles:** the main session acts as Research Director. The other roles are
   subagents in `.claude/agents/` (`problem-scout`, `literature-auditor`,
   `mathematical-researcher`, `computational-experimenter`,

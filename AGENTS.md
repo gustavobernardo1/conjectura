@@ -223,7 +223,10 @@ All durable knowledge lives in the repository, not in conversation history.
 - `journal.md` is append-only: one entry per session with date, agent model,
   mode, objective (or, for exploration, what was explored), budget, what was
   run, what was found, and telemetry where it is actually available (write
-  `unavailable` otherwise).
+  `unavailable` otherwise). The entry is opened when the session starts and
+  receives a short checkpoint about every 30 minutes
+  ([`autoresearch.md`](autoresearch.md#checkpoints)), so that an interrupted
+  session can be resumed from the repository. A checkpoint promotes nothing.
 - `research/discoveries.json` holds one authoritative record per contribution.
   It refers to proofs, computations, reviews and receipts by path and never
   copies them. A record starts minimal and is completed as the contribution

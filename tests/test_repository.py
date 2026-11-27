@@ -146,6 +146,53 @@ def test_claude_md_imports_agents_md_and_agent_files_are_well_formed():
         assert f"name: {skill}" in text.split("---")[1]
 
 
+def test_session_budget_and_checkpoints_are_stated_consistently():
+    """The default session budget is written in several instruction files; they must agree."""
+
+    def flat(relative: str) -> str:
+        return re.sub(r"\s+", " ", (ROOT / relative).read_text(encoding="utf-8"))
+
+    protocol = flat("autoresearch.md")
+    policy = flat("docs/research-policy.md")
+    skill = flat(".claude/skills/research-session/SKILL.md")
+    template = flat("research/templates/journal-entry.md")
+
+    # One default, stated the same way wherever it is stated.
+    for name, text in (("autoresearch.md", protocol), ("research-policy.md", policy), ("SKILL.md", skill)):
+        assert "at most about 120 minutes of agent work" in text, name
+        assert "last 20 minutes" in text, name
+        assert "a maximum, not a target" in text, name
+        assert re.search(r"checkpoint about every 30 minutes", text), name
+    assert "default 120 minutes" in template and "### Checkpoints" in (
+        ROOT / "research" / "templates" / "journal-entry.md"
+    ).read_text(encoding="utf-8")
+    assert "a maximum, not a target" in template and "in progress" in template
+
+    # The computational default is unchanged.
+    assert "computations capped at 30 minutes of wall-clock time" in protocol
+    assert "30 minutes of computation" in policy
+    assert "computations capped at 30 minutes of wall-clock time" in skill
+
+    # The protocol defines what the other files point to, and how a session is resumed.
+    assert "## Checkpoints" in (ROOT / "autoresearch.md").read_text(encoding="utf-8")
+    assert "Resuming an interrupted session" in protocol and "promotes nothing" in protocol
+    assert "autoresearch.md#checkpoints" in flat("AGENTS.md")
+
+    # No instruction file still states the previous default.
+    for relative in (
+        "AGENTS.md",
+        "CLAUDE.md",
+        "README.md",
+        "autoresearch.md",
+        "docs/research-policy.md",
+        "docs/methodology.md",
+        ".claude/skills/research-session/SKILL.md",
+        "research/templates/journal-entry.md",
+    ):
+        text = flat(relative)
+        assert not re.search(r"about 60 minutes|about one hour|last quarter", text), relative
+
+
 def test_allowed_axioms_are_stated_consistently():
     import verify_lean
 
