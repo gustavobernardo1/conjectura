@@ -278,6 +278,101 @@ S30 rest on their written proofs, (SM⁺) is a conjecture, and S31 (the right
 side of inequality (3) is negative from `n = 100` in that family) is a
 computation on the stated range.
 
+## The lower bound `⌊n/2⌋` (session 11): `lower_bound.py`
+
+Note: `research/active/CJ-0001-collins-shor-peak/notes/lower-bound.md`
+(Propositions S33 to S36, Theorems T5 and T6). Question: do the identities
+and the cone memberships stated there hold on small trees? Exact integers;
+imports `distpoly.py` (enumeration of trees, `d_k` from the characteristic
+polynomial of the distance matrix, python-flint) and `rooted_state.py` (the
+state `(Ψ, H, G, Ω, R)` of a rooted tree, each entry from its definition;
+`det` and `adj` of `I + xL` by the Faddeev–LeVerrier recursion). No floating
+point.
+
+Inputs: `--max-rooted`, `--max-merge`, `--max-pairs`, `--max-contract`,
+`--time-limit` (seconds, default 300; tested before each order of each part,
+the run stops there, records where and exits with status 2), `--out`. Exit
+status 1 if any check fails. Every failing check stores its first instance in
+the result file.
+
+- Part A, every rooted tree of order 1 to `--max-rooted`, one per isomorphism
+  class of rooted trees (the trees of `distpoly.layouts`, every vertex as
+  root, duplicates removed by the canonical code of the rooted tree; the
+  count per order is compared with OEIS A000081): S33(b), (c), (e) with
+  `a_v = x^{δ_v−1} Π_{uv}` computed from the minor `Π_{uv}` of its definition
+  (and `x a_v = adj(M)_{uv}`, Lemma S24); S34(a); S34(b) and the other plant
+  rules against the state of the planted tree computed from its definition;
+  the memberships `Ψ ∈ C_{a−1}`, `H ∈ C_{a−2}`, `G/x ∈ C_{a−1}`, `Ω ∈ C_a`,
+  `E ∈ C_{a+1}`, `R(A, e_u) ∈ C_{a+1}`, `Q¹ ∈ C_a`, `a_v ∈ C_{a−2}`,
+  `a_v ∈ C_{a+δ_v−3}` and `r_u − (1+4x)(1+x)^{a−1} ∈ C_a` (Theorem T6(a)).
+- Part B, every pair of these rooted trees of orders `a_1 ≤ a_2` with
+  `a_1 + a_2 − 1 ≤ --max-merge` (every ordered pair when `a_1 = a_2`): the
+  merge rules for `Ψ, H, G, Ω` and S34(c) against the state of the merged
+  tree; the identity of S35, its left side taken from the states of the two
+  planted trees, and that left side in `C_{a_1+a_2+2}`.
+- Part C, every pair of orders `a ≤ b` with `a + b ≤ --max-pairs`: the trees
+  `T` and `T′` of Proposition S36 are built, `ℓ` is taken from the distance
+  matrix (and compared with `(R(T, 0) + (1+4x)Φ_T)/x`, S23(a)), and
+  `ℓ_T − ℓ_{T′}` is compared with the formula of S36 and tested for
+  membership in `C_{n−1}`. The pairs with `a = 1` (a pendant edge, `T = T′`,
+  both sides zero) are outside the hypothesis of S36 and are counted apart.
+- Part D, every tree of order 4 to `--max-contract` and every non-pendant
+  edge, from the distance matrix only: `ℓ_T − ℓ_{T′} ∈ C_{n−1}`,
+  `λ_m(ℓ_T − ℓ_{T′}) ≥ 0` for `m = ⌊n/2⌋`, and the coefficient of `x`
+  (Remark 1 of S36).
+- Part E, Theorem T6(b), (c) directly, every tree of order 2 to
+  `--max-contract`, from the distance matrix only: the closed form
+  `ℓ_{S_n} = (1+x)^{n−2}[(n−1) + 4(n−2)x − 4x²]` against the distance matrix
+  of the star; `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`; for `n ≥ 3`,
+  `d_m(T) − d_{m−1}(T) ≥ d_m(S_n) − d_{m−1}(S_n) > 0` and every maximizing
+  index at least `m = ⌊n/2⌋`; the value of the star for even `n` (Remark 3).
+
+The note states its memberships in the cones `K_d`. The script tests
+membership in `C_d` at the same index, which is equivalent for a polynomial
+of degree at most `d` ((K1) and (K4) of the note) and is counted as a failure
+if the degree is larger. Membership in `K_d` is not tested as such.
+
+```sh
+uv run python experiments/CJ-0001-collins-shor-peak/lower_bound.py --max-rooted 9 --max-merge 9 --max-pairs 10 --max-contract 16 \
+    --out experiments/CJ-0001-collins-shor-peak/results/lower-bound.json                      # about 1 min
+```
+
+Stored run (`results/lower-bound.json`; 61 s; budget fixed beforehand: 5
+minutes; completed):
+
+| Part | Range | Objects | Checks | Failures |
+| --- | --- | ---: | ---: | ---: |
+| A | rooted trees of order 1 to 9 | 486 rooted trees (3,534 pairs `(u, v)`) | 20,331 | 0 |
+| B | merged order at most 9 | 1,064 pairs | 4,256 | 0 |
+| C | `a + b ≤ 10` | 1,064 pairs (486 with `a = 1`) | 5,320 | 0 |
+| D | trees of order 4 to 16 | 32,505 trees, 220,181 pairs (tree, non-pendant edge) | 880,724 | 0 |
+| E | trees of order 2 to 16 | 32,507 trees | 130,062 | 0 |
+
+Provenance: revision `74d65b0`, with `tree_clean: false`. At the start of the
+run the script and its test were not yet committed and a file of another
+session (`research/candidates/CJ-0001-collins-shor-peak.md`) was modified.
+The `sources` block of the result file holds the SHA-256 of `lower_bound.py`,
+`distpoly.py` and `rooted_state.py` and records that the last two were
+identical to their blobs at that revision.
+
+Differences from the scratch computations of session 11 that the note
+quotes: part B includes the pairs with `a_1 = 1`, `a_2 = 9`, which the
+scratch loop left out (1,064 pairs instead of 778; the 778 are the pairs with
+both orders at most 8); the left side of S35 comes from the planted trees
+themselves instead of the plant rules; `a_v` comes from the minor instead of
+the adjugate; `ℓ` in part C comes from the distance matrix instead of
+S23(a); rooted trees are identified by a canonical code instead of by their
+state (the same 486 classes); the checks of Lemma S24, S19(c), (d), S33(a) at
+the index `a + δ_v − 3`, T6(a), Remarks 1 and 3, and part E are additions.
+S34(d) (merge of several trees) is not tested directly.
+
+Regression test: `tests/test_cj0001_lower_bound.py` (10 tests, about 2 s:
+values by hand, the five parts on small orders, three negative controls in
+which a wrong formula is reported as a failure, and the stored result).
+These are finite checks on the stated ranges. They do not prove S33 to S36,
+T5 or T6, which rest on the written proofs of the note (unreviewed at the
+time of the run), and they say nothing about trees outside the ranges.
+
 ## Limits
 
 - Orders 21–23 were computed by one implementation (with the guards above). The
