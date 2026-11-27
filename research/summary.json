@@ -49,7 +49,10 @@
     "record": "research/discoveries.json",
     "evidence": [
       "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
+      "manuscripts/CJ-0001-collins-shor/main.tex",
       "research/active/CJ-0001-collins-shor-peak/notes/path-peak.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-peak.md"
     ]
   },
@@ -68,7 +71,10 @@
     "record": "research/discoveries.json",
     "evidence": [
       "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
+      "manuscripts/CJ-0001-collins-shor/main.tex",
       "research/active/CJ-0001-collins-shor-peak/notes/path-peak.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-peak.md"
     ],
     "review": {
@@ -93,8 +99,11 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
+      "manuscripts/CJ-0001-collins-shor/main.tex",
       "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-upper-bound.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-recheck-upper-bound.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-upper-bound.md"
     ],
@@ -208,11 +217,11 @@
   "generated": {
     "date": "2026-11-27",
     "branch": "research",
-    "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
-    "sources_committed": true,
+    "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+    "sources_committed": false,
     "sources": {
       "research/catalogue.json": "7085b66b3e1905cc3a27fc19f55c397f9c4b5459",
-      "research/discoveries.json": "8ab2f0e3e1d6329e58117510c73489bdfaa955a2",
+      "research/discoveries.json": "5e274faee98b87e084aaffb4c2e2fe4d6117f9ee",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "1992016e8ba83ae8f4b4386cc7f81929979cb6c0"
     }

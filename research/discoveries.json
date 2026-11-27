@@ -1823,6 +1823,33 @@
           "revision": "e16cb62",
           "sha256": "fc3e1dfee7059968755263c060accdcb9d80f2b44ff3457741f93a86965dfb3a",
           "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
+        },
+        {
+          "kind": "proof",
+          "path": "manuscripts/CJ-0001-collins-shor/main.tex",
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Sections 3 to 7 of the manuscript: items (i) to (iii) of this record in the cones K_d (Theorem 7.1, Theorem 7.3), with the cones C_d only in Remark 7.8; item (iv) (contraction of an edge, S36) is NOT in the manuscript and NOT covered by its reviews. Candidate proof; reviews listed below.",
+          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
+          "revision": "87c3c8c"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version): every proof reconstructed by hand; the reviewer's own exact code on rooted trees of order <= 7, trees of order 3 to 13, paths and the trace; no gap found within stated scope; two errors in a remark and in a lemma not used by the Main Theorem, four defects of wording and bookkeeping, corrected in revision 2 (87c3c8c). Scope for this record: Sections 3 to 7 of the manuscript: items (i) to (iii) of this record in the cones K_d (Theorem 7.1, Theorem 7.3), with the cones C_d only in Remark 7.8; item (iv) (contraction of an edge, S36) is NOT in the manuscript and NOT covered by its reviews. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author of the manuscript text, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "d7e0f5f6375ba0d76e6e4feb504de8fb8594f29bb58ac92c3ca1605c1c3bfaf8",
+          "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version), with emphasis on Sections 4 to 7: every proof reconstructed by hand; the reviewer's own exact code (13,171 checks of the rooted calculus on rooted trees of order <= 8; star minimality on trees of order 3 to 11; the Main Theorem on all 13,186 trees of order 3 to 15; Sections 9 to 11 on small cases); no gap found within stated scope for the bounds; one gap confined to the attainment clauses (closed in revision 2 by Lemma 7.5 for the star; the path clause rests on the cited formula of Collins), one error, six defects of wording and citation. Scope for this record: Sections 3 to 7 of the manuscript: items (i) to (iii) of this record in the cones K_d (Theorem 7.1, Theorem 7.3), with the cones C_d only in Remark 7.8; item (iv) (contraction of an edge, S36) is NOT in the manuscript and NOT covered by its reviews. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
         }
       ],
       "status": {
@@ -2129,6 +2156,33 @@
           "revision": "2037b18",
           "sha256": "09e2201e0e3b78e34b17ea03bc8890e9db484317bc6257231fc9208d7d0552c9",
           "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
+        },
+        {
+          "kind": "proof",
+          "path": "manuscripts/CJ-0001-collins-shor/main.tex",
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Sections 8 to 10 of the manuscript (Lemmas 8.1 to 8.3, Theorem 10.1): the whole statement of this record. Candidate proof; reviews listed below.",
+          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
+          "revision": "87c3c8c"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version): every proof reconstructed by hand; the reviewer's own exact code on rooted trees of order <= 7, trees of order 3 to 13, paths and the trace; no gap found within stated scope; two errors in a remark and in a lemma not used by the Main Theorem, four defects of wording and bookkeeping, corrected in revision 2 (87c3c8c). Scope for this record: Sections 8 to 10 of the manuscript (Lemmas 8.1 to 8.3, Theorem 10.1): the whole statement of this record. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author of the manuscript text, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "d7e0f5f6375ba0d76e6e4feb504de8fb8594f29bb58ac92c3ca1605c1c3bfaf8",
+          "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version), with emphasis on Sections 4 to 7: every proof reconstructed by hand; the reviewer's own exact code (13,171 checks of the rooted calculus on rooted trees of order <= 8; star minimality on trees of order 3 to 11; the Main Theorem on all 13,186 trees of order 3 to 15; Sections 9 to 11 on small cases); no gap found within stated scope for the bounds; one gap confined to the attainment clauses (closed in revision 2 by Lemma 7.5 for the star; the path clause rests on the cited formula of Collins), one error, six defects of wording and citation. Scope for this record: Sections 8 to 10 of the manuscript (Lemmas 8.1 to 8.3, Theorem 10.1): the whole statement of this record. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
         }
       ],
       "status": {
@@ -2233,6 +2287,33 @@
           "revision": "2037b18",
           "sha256": "09e2201e0e3b78e34b17ea03bc8890e9db484317bc6257231fc9208d7d0552c9",
           "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
+        },
+        {
+          "kind": "proof",
+          "path": "manuscripts/CJ-0001-collins-shor/main.tex",
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Section 9 of the manuscript (Lemmas 9.1 to 9.4, 9.7, Theorem 9.5): the whole statement of this record. Candidate proof; reviews listed below.",
+          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
+          "revision": "87c3c8c"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version): every proof reconstructed by hand; the reviewer's own exact code on rooted trees of order <= 7, trees of order 3 to 13, paths and the trace; no gap found within stated scope; two errors in a remark and in a lemma not used by the Main Theorem, four defects of wording and bookkeeping, corrected in revision 2 (87c3c8c). Scope for this record: Section 9 of the manuscript (Lemmas 9.1 to 9.4, 9.7, Theorem 9.5): the whole statement of this record. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author of the manuscript text, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "d7e0f5f6375ba0d76e6e4feb504de8fb8594f29bb58ac92c3ca1605c1c3bfaf8",
+          "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version), with emphasis on Sections 4 to 7: every proof reconstructed by hand; the reviewer's own exact code (13,171 checks of the rooted calculus on rooted trees of order <= 8; star minimality on trees of order 3 to 11; the Main Theorem on all 13,186 trees of order 3 to 15; Sections 9 to 11 on small cases); no gap found within stated scope for the bounds; one gap confined to the attainment clauses (closed in revision 2 by Lemma 7.5 for the star; the path clause rests on the cited formula of Collins), one error, six defects of wording and citation. Scope for this record: Section 9 of the manuscript (Lemmas 9.1 to 9.4, 9.7, Theorem 9.5): the whole statement of this record. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
         }
       ],
       "status": {
@@ -2303,6 +2384,33 @@
           "date": "2026-11-27",
           "revision": "2037b18",
           "sha256": "40e34a730463bc599c17e8f115379869a24720edc23d41e500eaa2bffc6734ec",
+          "statement_fingerprint": "eee0b291d0f4bbe1d13373cae62a5149a6b0e3b7a9d1df77153451ee1cee717c"
+        },
+        {
+          "kind": "proof",
+          "path": "manuscripts/CJ-0001-collins-shor/main.tex",
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Section 11 of the manuscript (Lemma 11.1, Corollary 11.2): the whole statement of this record. Candidate proof; reviews listed below.",
+          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
+          "revision": "87c3c8c"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version): every proof reconstructed by hand; the reviewer's own exact code on rooted trees of order <= 7, trees of order 3 to 13, paths and the trace; no gap found within stated scope; two errors in a remark and in a lemma not used by the Main Theorem, four defects of wording and bookkeeping, corrected in revision 2 (87c3c8c). Scope for this record: Section 11 of the manuscript (Lemma 11.1, Corollary 11.2): the whole statement of this record. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author of the manuscript text, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "d7e0f5f6375ba0d76e6e4feb504de8fb8594f29bb58ac92c3ca1605c1c3bfaf8",
+          "statement_fingerprint": "eee0b291d0f4bbe1d13373cae62a5149a6b0e3b7a9d1df77153451ee1cee717c"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
+          "summary": "Independent adversarial review of the whole manuscript at 8df6bea (first version), with emphasis on Sections 4 to 7: every proof reconstructed by hand; the reviewer's own exact code (13,171 checks of the rooted calculus on rooted trees of order <= 8; star minimality on trees of order 3 to 11; the Main Theorem on all 13,186 trees of order 3 to 15; Sections 9 to 11 on small cases); no gap found within stated scope for the bounds; one gap confined to the attainment clauses (closed in revision 2 by Lemma 7.5 for the star; the path clause rests on the cited formula of Collins), one error, six defects of wording and citation. Scope for this record: Section 11 of the manuscript (Lemma 11.1, Corollary 11.2): the whole statement of this record. The registered statement was compared with the reviewed one by the author of the session.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
           "statement_fingerprint": "eee0b291d0f4bbe1d13373cae62a5149a6b0e3b7a9d1df77153451ee1cee717c"
         }
       ],
