@@ -2551,3 +2551,79 @@ the manuscript of the lower half), then objective O11 through (PM).
   (formalization agent). Subagent count: six launched (one failed at once);
   justified by the significance of the claim (two reviews are required for
   a result that settles half of a catalogued problem).
+- **Objective (exact), switched to focused work at 15:52:** prove that for
+  every tree `T` of order `n ≥ 3` every maximizing index of
+  `d_0, …, d_{n−2}` is at most `⌈n − n/√5⌉` (the upper half of
+  Conjecture 1.2 of arXiv:1507.02341, strong reading of ties).
+- **Approach:** the spectral route described above; it was not among the
+  approaches of sessions 1 to 12 (the dead end "Darroch's theorem" of
+  session 7 concerned `r_A` at the lower central index, a different
+  polynomial and index).
+- **Falsification test:** each lemma and the theorem exactly on all trees of
+  small order and on paths to large order (stored experiment), and by two
+  reviewers' own code.
+- **Stopping condition:** the note written, reviewed twice, stored with its
+  computation; or a step found false.
+
+### What was run
+
+- Exploratory floating-point scratch (scratchpad, not stored): the chain
+  peak(`d`) ≤ mode(`q`), `μ_q ≤ n − tr(I+L)^{−1}`, `tr(T) ≥ tr(P_n)` on all
+  trees of order 4 to 16; the rooted recursion for the trace; the envelope of
+  rooted invariants (abandoned: irregular); the merging inequality on all
+  rooted trees of order 2 to 11 with `p, q ≤ 8` and on synthetic states
+  (it fails for `κ` up to `1 + ε`, holds for `κ ≤ 1 + ε/2`, which is the
+  true bound, S43′); the closed forms of S44 against matrix inverses.
+- Literature audit (`literature-auditor`, `claude-opus-5-5`, about 6.5
+  minutes, 108,814 tokens, 39 tool uses). Queries: (1) trees minimal
+  Kirchhoff index fan graph join K_1 tree extremal; (2) Kirchhoff index join
+  K_1 tree cone fan minimal among trees Laplacian eigenvalues 1/(1+mu)
+  (extended); (3) trace of (I+L)^{-1} trees path minimizes spanning rooted
+  forests expected number of roots tree extremal (extended); (4) Laplacian
+  resolvent energy trees path star extremal; (5) resistance distance or
+  Kirchhoff index fan graph join of a vertex and a tree extremal trees
+  minimum; (6) average size of matchings trees path extremal Andriantiana
+  Wagner; (7) random rooted spanning forest number of roots expectation sum
+  q/(q+lambda) trees extremal path star; (8) subdivision average size of
+  matchings Laplacian eigenvalues tree rooted spanning forests; (9) Collins
+  Shor conjecture peak normalized coefficients distance characteristic
+  polynomial tree sqrt 5 proof (extended); (10) distance characteristic
+  polynomial tree coefficients peak location 2025 or 2026 arXiv (extended);
+  (11) Darroch theorem mode real-rooted polynomial distance matrix tree
+  coefficients peak eigenvalues; (12) Darroch 1964 "On the distribution of
+  the number of successes in independent trials" mode mean; (13) Pitman
+  "Probabilistic bounds on the coefficients of polynomials with only real
+  zeros" Darroch mode; (14) tree Laplacian eigenvalues 1/(1+μ_i) path
+  minimum; (15) Kirchhoff index of graphs with a dominating vertex trees
+  K_1 ∨ T minimum fan. Findings: dossier, section "Audit for session 13".
+- Reviews of `notes/upper-bound.md` at `53421a6`: `claude-opus-5-5`
+  (fresh context; 107,954 tokens, 34 tool uses, 742 s) and
+  `claude-sonnet-5-5` (114,491 tokens, 28 tool uses, 530 s), both "no gap
+  found within stated scope", with 4 and 6 defects of provenance, wording,
+  notation and citation. A third reviewer on `claude-fable-5-2` was refused
+  at once by a spend limit and did no work. The Sonnet report gives
+  `tanh(3 log φ) ≈ 0.9128`; the value is `0.8944` (the note's bound
+  `> 0.894` is right; the slip does not affect its verdict).
+- Stored computation `upper_bound.py` (computational experimenter,
+  `claude-sonnet-5-5`; 110,369 tokens, 25 tool uses, 634 s): parts V, A to F,
+  M; stored run at `917d657` in a clean temporary worktree (the main tree
+  held another agent's uncommitted Lean files), 298.7 s, 0 failures in every
+  part (A: all 1,346,023 trees of order 2 to 20).
+- Revision 1 of the note (`2037b18`) for the reviewers' defects; new note
+  `path-peak.md` (S47, S48), its criterion checked exactly against the peak
+  of the path for `n ≤ 2000` (scratch `pp2.py`, 193 s; a first, slower
+  scratch run to `n = 3000` was stopped unfinished and is not counted).
+- Exploratory dead end (floating point): the polynomial `Σ_{k≤n−2} d_k x^k`
+  is **not** real-rooted in general (5,416 of 5,444 trees of order 4 to 14
+  fail, the first at order 5), so Darroch's rule cannot be applied to `d`
+  itself to sharpen T9 towards (PX-peak).
+- Exploratory (floating point): for the path the interlacing step loses
+  little (`n − tr − μ_q ≈ 0.9/n`), so the gap between T9's bound
+  `⌈x − 2/5⌉` and the path's peak comes from the step from `q` to `d`
+  (S41) and from Darroch's rule, not from S42.
+- **Checkpoint 3 (16:16 by the clock, 48 minutes).** Established at the
+  level of candidate proofs with two independent AI reviews (no gap): T9 (the
+  upper half) and T10. Not yet reviewed: revision 1 (recheck running) and
+  `path-peak.md` (review running, same reviewer). Lean formalization of S41
+  running. Next: collect those results, run the test suite, finish the
+  entry, commit and push.

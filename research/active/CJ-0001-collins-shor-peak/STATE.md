@@ -20,7 +20,10 @@ statements (PM) and (PX-peak) on the location of the peak, open).
 **Session 13:** [`notes/upper-bound.md`](notes/upper-bound.md) (S40 to
 S46, Theorems T9 and T10: **the upper bound `⌈n − n/√5⌉` for every tree** —
 a candidate proof by a spectral route independent of the cone machinery;
-the path minimizes `tr(I + L)^{−1}`).
+the path minimizes `tr(I + L)^{−1}`; two independent AI reviews of `53421a6`,
+no gap; revision 1 at `2037b18`) and [`notes/path-peak.md`](notes/path-peak.md)
+(S47, S48: the exact peak of the path; the bound `⌈n − n/√5⌉` is attained
+for infinitely many `n`).
 Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/double-stars.md`](notes/double-stars.md) (T1),
 [`notes/spine3.md`](notes/spine3.md) (T2),
@@ -137,7 +140,8 @@ review of one revision, named in the registry.
 | **T6** | **For every tree: `r_u(T) − (1+4x)(1+x)^{n−1} ∈ K_n`; (SM) `ℓ_T − ℓ_{S_n} ∈ C_{n−1}` (so `d_k(T) ≥ d_k(S_n)` for every `k`); and for `n ≥ 3`, `m = ⌊n/2⌋`: `d_m − d_{m−1} ≥` that of the star `> 0` — every maximizing index is `≥ ⌊n/2⌋`, the lower half of the conjecture.** Uses T5, S23(c), Lemma A, R1. | Candidate proof; reviews: obligation 11. (SM) exact on all trees of order ≤ 20; the conjecture itself on orders ≤ 23 (E1, E2). |
 | S36 | **Contraction.** `uv` a non-pendant edge, `(A, u)`, `(B, v)` the two sides, `T′` = `A` and `B` glued at `u = v` plus a pendant vertex there: `ℓ_T − ℓ_{T′} = H_AE_B + H_BE_A + x(2+5x)H_AH_B + 2G_AG_B/x ∈ C_{n−1}`; so every `d_k` and `d_m − d_{m−1}` decrease (weakly) under the operation. A second proof of (SM). | Candidate proof; reviews: obligation 11. Formula exact on 1,064 pairs; membership on all trees of order 4 to 16 and all non-pendant edges (220,181). |
 | S37 to S39, **T7, T8** | **Generalized tree shift** (`A`, `B` joined by a path of length `k` → glued, with a pendant path of length `k`; `a, b ≥ 2`): `ℓ_{T_k} − ℓ_{T′_k}` has an explicit formula (S37: four terms, coefficients built from the tridiagonal determinants `a_j`) and lies in `C_{n−1}` (T7). Every tree but the path is the result of a shift that removes one leaf (S39). **T8: `ℓ_{P_n} − ℓ_T ∈ C_{n−1}` for every tree** — with T6(b), `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` for every `k`, and the increments `d_μ − d_{μ−1}` ordered the same way for `μ ≤ ⌊n/2⌋`; equality with the path only for the path. **Coefficientwise only: nothing about the peak index.** | Candidate proof (session 12); one AI review of `8b03309`, no gap found (`claude-opus-5-5`, the author's model; independent by context only); S37 uses a finite exact identity (sympy). Exact: `results/tree-shift.json` (T7 on all shifts of order ≤ 15, T8 on all trees of order ≤ 17). |
-| S40 to S46, **T9, T10** | **Spectral route to the upper half.** `ℓ_T = 4(α − x)q(x)`, `q = Π(x + β_i)` over the negative eigenvalues `−β_i` of `D/2` (S40); if `q_{k+1} < q_k` then `d` is strictly decreasing from `k` on (S41); `μ_q = Σ 1/(1+β_i) ≤ n − tr(I+L)^{−1}` (S42, interlacing); gluing formula for the trace (S43); the path seen from one vertex, closed forms in `cosh` (S44); merging two pendant paths lowers `tr(I+L)^{−1}` (S45); **T10: the path minimizes `tr(I+L)^{−1}` among trees**; `tr(I+L_{P_n})^{−1} = n/√5 + 2/5 + (2n/√5)r^{2n}/(1−r^{2n})` (S46); with Darroch's rule, **T9: every maximizing index is `≤ ⌈n − n/√5 − 2/5⌉ ≤ ⌈n − n/√5⌉`, for every tree of order `n ≥ 3`.** | Candidate proof (session 13); reviews: obligation 13. Uses only classical results (Graham–Lovász, Weyl, Newton, Darroch 1964, Merris 1990), none of MD-0015 to MD-0021. T10 is very probably a known consequence of Andriantiana–Misanantenaina–Wagner (2020), Theorem 4.4 (the auditor's derivation, unreviewed). Exact: `results/upper-bound.json`. |
+| S40 to S46, **T9, T10** | **Spectral route to the upper half.** `ℓ_T = 4(α − x)q(x)`, `q = Π(x + β_i)` over the negative eigenvalues `−β_i` of `D/2` (S40); if `q_{k+1} < q_k` then `d` is strictly decreasing from `k` on (S41); `μ_q = Σ 1/(1+β_i) ≤ n − tr(I+L)^{−1}` (S42, interlacing); gluing formula for the trace (S43); the path seen from one vertex, closed forms in `cosh` (S44); merging two pendant paths lowers `tr(I+L)^{−1}` (S45); **T10: the path minimizes `tr(I+L)^{−1}` among trees**; `tr(I+L_{P_n})^{−1} = n/√5 + 2/5 + (2n/√5)r^{2n}/(1−r^{2n})` (S46); with Darroch's rule, **T9: every maximizing index is `≤ ⌈n − n/√5 − 2/5⌉ ≤ ⌈n − n/√5⌉`, for every tree of order `n ≥ 3`.** | Candidate proof (session 13); **two independent AI reviews of `53421a6`, no gap found**: `claude-opus-5-5` (fresh context, the author's model) and `claude-sonnet-5-5` (a different model, same vendor); every step re-derived by both; their own exact code on all trees of order ≤ 17 and ≤ 16. Revision 1 (`2037b18`) repairs their defects of wording; its recheck: obligation 13. Uses only classical results (Graham–Lovász, Weyl, Newton, Darroch 1964, Merris 1990), none of MD-0015 to MD-0021. T10 is very probably a known consequence of Andriantiana–Misanantenaina–Wagner (2020), Theorem 4.4 (the auditor's derivation, unreviewed). Exact: `results/upper-bound.json`. |
+| S47, S48 | **The peak of the path, exactly**: unique, at `n − k_0(n)`, `k_0` the least `k ≥ 2` with `5k³ + 2k² − 4k − 2 > kn²`; always `⌊x⌋` or `⌈x⌉` (`x = n − n/√5`), the ceiling only if the fractional part of `n/√5` is below `1/5`, and whenever it is below `1/10` (`n ≥ 30`), so for infinitely many `n`. Completes the informal last step of Collins's Theorem 3. | Candidate proof (session 13), from Collins's closed formula; not reviewed (obligation 13). Criterion exact for `n ≤ 2000` (scratch). |
 | S27 | (SM) implies `d_m − d_{m−1} ≥` that of the star `> 0`, `m = ⌊n/2⌋`, for every tree; `Φ(B, e_c) − (1+x)^j ∈ C_j`; (Γ_c¹) ⇒ `r_u(T) − (1+4x)(1+x)^{n−1} ∈ C_n` ⇒ (SM). | Proved (conditional); (a), (b) and the algebra of (c) checked by the reviewer of `b5d9294`, which is not a review of the note. |
 
 ### Global identifiers
@@ -167,6 +171,7 @@ Statuses are in the registry and in [`research/INDEX.md`](../../INDEX.md).
 | (PM), (PX-peak) | MD-0021 | conjecture |
 | S40 to S42, S46, T9 | MD-0022 | theorem (candidate) |
 | S43 to S45, T10 | MD-0023 | theorem (candidate) |
+| S47, S48 | MD-0024 | theorem (candidate) |
 
 Not registered: R1, L2, L4 and S1 to S4 are tools or steps (S3 and S4 are the
 evidence of MD-0010); Γ⁺ is an observation on the 47 small trees, recorded
@@ -198,9 +203,9 @@ indices).
 
 **(PX-peak) and (PM) — open (MD-0021, session 12); no longer needed for
 the upper half since session 13 (T9 proves the bound directly).** T9 gives
-(PX-peak) for every `n` with fractional part of `n − n/√5` below `2/5` for
-which the path peaks at `⌊n − n/√5⌋` (all such `n ≤ 2000`), since then
-`p_max(T) ≤ ⌈n − n/√5 − 2/5⌉ = ⌊n − n/√5⌋`. (PX-peak):
+(PX-peak) for every `n` with fractional part of `n − n/√5` below `2/5`: then
+the path peaks at `⌊n − n/√5⌋` (S48(a)) and `p_max(T) ≤ ⌈n − n/√5 − 2/5⌉ =
+⌊n − n/√5⌋`. Open for the other `n`. (PX-peak):
 `p_max(T) ≤ p_max(P_n)` for every tree. (PM): for every generalized shift,
 `p_max(T′_k) ≤ p_max(T_k)`. Proved: (PM) ⇒ (PX-peak) (S39 and induction on
 the leaves); (PX-peak) and `p_max(P_n) ≤ ⌈n − n/√5⌉` ⇒ the upper half. The
@@ -444,13 +449,20 @@ full text of items 1 to 8 as of session 7 is there).
    results; it depends on MD-0019 and MD-0015, which are candidates.
 
 13. **Session 13: T9, T10 (MD-0022, MD-0023), before any promotion.** Done
-   at the time of writing: the note `notes/upper-bound.md` at `53421a6`; a
-   literature audit (dossier, section of session 13); the stored computation
-   `upper_bound.py`. Owed: the reviews (two were started in session 13; see
-   the journal entry for their outcome), one revision for their defects and a
-   recheck; the auditor's derivation of T10 from Andriantiana–Misanantenaina–
-   Wagner (two classical steps unchecked); Darroch (1964) not read in the
-   original; a result package; Lean.
+   in session 13: the note `notes/upper-bound.md` at `53421a6`; two
+   independent AI reviews of that revision, no gap (`claude-opus-5-5` by
+   context, `claude-sonnet-5-5` a different model); revision 1 at `2037b18`
+   for their defects (wording, notation, citation, provenance); a literature
+   audit (dossier, section of session 13); the stored computation
+   `upper_bound.py` (`results/upper-bound.json`, run at `917d657` on a clean
+   checkout, 0 failures). Owed: the recheck of revision 1 (started in
+   session 13; see the journal); a first review of `notes/path-peak.md`
+   (MD-0024; started in session 13); the auditor's derivation of T10 from
+   Andriantiana–Misanantenaina–Wagner (two classical steps unchecked);
+   Darroch (1964) not read in the original (read through Pitman 1997 by the
+   auditor and a reviewer); a reviewer of another vendor when one is
+   available; one manuscript of the whole conjecture; a result package;
+   Lean beyond Lemma S41.
 
 ## Remaining obstacles
 
