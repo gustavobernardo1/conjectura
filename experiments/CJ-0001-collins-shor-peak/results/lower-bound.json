@@ -1,0 +1,547 @@
+{
+ "experiment": "CJ-0001 exact checks of notes/lower-bound.md (S33 to S36, Theorems T5 and T6)",
+ "arithmetic": "exact integers (Python integers; python-flint characteristic polynomial of the distance matrix)",
+ "scope": "finite checks of identities and cone memberships on the stated ranges; not a proof",
+ "run": {
+  "command": [
+   "python",
+   "experiments/CJ-0001-collins-shor-peak/lower_bound.py",
+   "--max-rooted",
+   "9",
+   "--max-merge",
+   "9",
+   "--max-pairs",
+   "10",
+   "--max-contract",
+   "16",
+   "--out",
+   "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json"
+  ],
+  "git_revision": "b1359cc576c9452a3f6919e5428f0b603274b0a0",
+  "tree_clean": true,
+  "started_utc": "2026-11-27T02:19:07Z",
+  "versions": {
+   "python": "3.12.4",
+   "python-flint": "0.9.0",
+   "networkx": "3.7"
+  }
+ },
+ "sources": {
+  "experiments/CJ-0001-collins-shor-peak/lower_bound.py": {
+   "sha256": "da3adf10f091109223dc39a5795bc0735ad749d1637fe3f6e1cb62524aba2497",
+   "identical_to_git_revision": true
+  },
+  "experiments/CJ-0001-collins-shor-peak/distpoly.py": {
+   "sha256": "43a481a07fd38a320b592ff31334f0a3b102e99a82fa1c4383e0a158574d13d0",
+   "identical_to_git_revision": true
+  },
+  "experiments/CJ-0001-collins-shor-peak/rooted_state.py": {
+   "sha256": "bfaf7c7066a0c40ec274c0709215a33c086a4a9f870d5ab50a3ad8ae817997af",
+   "identical_to_git_revision": true
+  }
+ },
+ "parameters": {
+  "max_rooted": 9,
+  "max_merge": 9,
+  "max_pairs": 10,
+  "max_contract": 16,
+  "time_limit": 300.0,
+  "out": "experiments/CJ-0001-collins-shor-peak/results/lower-bound.json"
+ },
+ "A": {
+  "completed": true,
+  "rooted_trees": 486,
+  "rooted_trees_by_order": {
+   "1": 1,
+   "2": 1,
+   "3": 2,
+   "4": 4,
+   "5": 9,
+   "6": 20,
+   "7": 48,
+   "8": 115,
+   "9": 286
+  },
+  "checks": {
+   "enumeration_A000081": {
+    "cases": 9,
+    "failures": 0
+   },
+   "S33b_H": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S33c_x_divides_G": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S33c_G_over_x": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S33e_R1": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S34a_E": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S34b_plant_Psi": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S34b_plant_Psi_is_Phi1": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S34b_plant_H": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S34b_plant_G": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S34b_plant_Omega": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S19c_plant_R": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S34b_plant_E": {
+    "cases": 486,
+    "failures": 0
+   },
+   "cone_Psi_in_C(a-1)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "cone_H_in_C(a-2)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "cone_G_over_x_in_C(a-1)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "cone_Omega_in_C(a)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "cone_E_in_C(a+1)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "cone_R1_in_C(a+1)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "cone_Q1_in_C(a)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "T6a_r_minus_star_in_C(a)": {
+    "cases": 486,
+    "failures": 0
+   },
+   "S24_x_av_is_adjugate_entry": {
+    "cases": 3534,
+    "failures": 0
+   },
+   "cone_av_in_C(a-2)": {
+    "cases": 3534,
+    "failures": 0
+   },
+   "cone_av_in_C(a+delta-3)": {
+    "cases": 3534,
+    "failures": 0
+   }
+  },
+  "cases_total": 20331,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 6.3
+ },
+ "B": {
+  "completed": true,
+  "pairs": 1064,
+  "pairs_by_orders": {
+   "1,1": 1,
+   "1,2": 1,
+   "1,3": 2,
+   "1,4": 4,
+   "1,5": 9,
+   "1,6": 20,
+   "1,7": 48,
+   "1,8": 115,
+   "1,9": 286,
+   "2,2": 1,
+   "2,3": 2,
+   "2,4": 4,
+   "2,5": 9,
+   "2,6": 20,
+   "2,7": 48,
+   "2,8": 115,
+   "3,3": 4,
+   "3,4": 8,
+   "3,5": 18,
+   "3,6": 40,
+   "3,7": 96,
+   "4,4": 16,
+   "4,5": 36,
+   "4,6": 80,
+   "5,5": 81
+  },
+  "checks": {
+   "S19d_merge_Psi_H_G_Omega": {
+    "cases": 1064,
+    "failures": 0
+   },
+   "S34c_merge_E": {
+    "cases": 1064,
+    "failures": 0
+   },
+   "S35_identity": {
+    "cases": 1064,
+    "failures": 0
+   },
+   "S35_left_side_in_C(a1+a2+2)": {
+    "cases": 1064,
+    "failures": 0
+   }
+  },
+  "cases_total": 4256,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 3.3
+ },
+ "C": {
+  "completed": true,
+  "pairs": 1064,
+  "pairs_with_a_single_vertex_tree": 486,
+  "pairs_by_orders": {
+   "1,1": 1,
+   "1,2": 1,
+   "1,3": 2,
+   "1,4": 4,
+   "1,5": 9,
+   "1,6": 20,
+   "1,7": 48,
+   "1,8": 115,
+   "1,9": 286,
+   "2,2": 1,
+   "2,3": 2,
+   "2,4": 4,
+   "2,5": 9,
+   "2,6": 20,
+   "2,7": 48,
+   "2,8": 115,
+   "3,3": 4,
+   "3,4": 8,
+   "3,5": 18,
+   "3,6": 40,
+   "3,7": 96,
+   "4,4": 16,
+   "4,5": 36,
+   "4,6": 80,
+   "5,5": 81
+  },
+  "checks": {
+   "guard_d_k_integers": {
+    "cases": 1064,
+    "failures": 0
+   },
+   "S23a_l_from_R": {
+    "cases": 2128,
+    "failures": 0
+   },
+   "S36_formula": {
+    "cases": 1064,
+    "failures": 0
+   },
+   "S36_difference_in_C(n-1)": {
+    "cases": 1064,
+    "failures": 0
+   }
+  },
+  "cases_total": 5320,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 6.1
+ },
+ "D": {
+  "completed": true,
+  "trees": 32505,
+  "tree_edge_pairs": 220181,
+  "rows": [
+   {
+    "order": 4,
+    "trees": 2,
+    "tree_edge_pairs": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 5,
+    "trees": 3,
+    "tree_edge_pairs": 3,
+    "seconds": 0.0
+   },
+   {
+    "order": 6,
+    "trees": 6,
+    "tree_edge_pairs": 9,
+    "seconds": 0.0
+   },
+   {
+    "order": 7,
+    "trees": 11,
+    "tree_edge_pairs": 23,
+    "seconds": 0.0
+   },
+   {
+    "order": 8,
+    "trees": 23,
+    "tree_edge_pairs": 60,
+    "seconds": 0.0
+   },
+   {
+    "order": 9,
+    "trees": 47,
+    "tree_edge_pairs": 150,
+    "seconds": 0.0
+   },
+   {
+    "order": 10,
+    "trees": 106,
+    "tree_edge_pairs": 398,
+    "seconds": 0.0
+   },
+   {
+    "order": 11,
+    "trees": 235,
+    "tree_edge_pairs": 1017,
+    "seconds": 0.1
+   },
+   {
+    "order": 12,
+    "trees": 551,
+    "tree_edge_pairs": 2696,
+    "seconds": 0.3
+   },
+   {
+    "order": 13,
+    "trees": 1301,
+    "tree_edge_pairs": 7112,
+    "seconds": 0.8
+   },
+   {
+    "order": 14,
+    "trees": 3159,
+    "tree_edge_pairs": 19060,
+    "seconds": 2.3
+   },
+   {
+    "order": 15,
+    "trees": 7741,
+    "tree_edge_pairs": 51116,
+    "seconds": 7.2
+   },
+   {
+    "order": 16,
+    "trees": 19320,
+    "tree_edge_pairs": 138536,
+    "seconds": 22.9
+   }
+  ],
+  "checks": {
+   "guard_d_k_integers": {
+    "cases": 220181,
+    "failures": 0
+   },
+   "S36_difference_in_C(n-1)": {
+    "cases": 220181,
+    "failures": 0
+   },
+   "S36_lam_m_nonnegative": {
+    "cases": 220181,
+    "failures": 0
+   },
+   "S36_remark1_linear_coefficient": {
+    "cases": 220181,
+    "failures": 0
+   }
+  },
+  "cases_total": 880724,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 33.5
+ },
+ "E": {
+  "completed": true,
+  "trees": 32507,
+  "rows": [
+   {
+    "order": 2,
+    "trees": 1,
+    "star_gap": null,
+    "trees_with_gap_equal_to_star": 0,
+    "seconds": 0.0
+   },
+   {
+    "order": 3,
+    "trees": 1,
+    "star_gap": 4,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 4,
+    "trees": 2,
+    "star_gap": 1,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 5,
+    "trees": 3,
+    "star_gap": 20,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 6,
+    "trees": 6,
+    "star_gap": 10,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 7,
+    "trees": 11,
+    "star_gap": 84,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 8,
+    "trees": 23,
+    "star_gap": 49,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 9,
+    "trees": 47,
+    "star_gap": 336,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 10,
+    "trees": 106,
+    "star_gap": 210,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 11,
+    "trees": 235,
+    "star_gap": 1320,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 12,
+    "trees": 551,
+    "star_gap": 858,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.0
+   },
+   {
+    "order": 13,
+    "trees": 1301,
+    "star_gap": 5148,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.1
+   },
+   {
+    "order": 14,
+    "trees": 3159,
+    "star_gap": 3432,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 0.3
+   },
+   {
+    "order": 15,
+    "trees": 7741,
+    "star_gap": 20020,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 1.0
+   },
+   {
+    "order": 16,
+    "trees": 19320,
+    "star_gap": 13585,
+    "trees_with_gap_equal_to_star": 1,
+    "seconds": 3.1
+   }
+  ],
+  "checks": {
+   "S23d_star_closed_form": {
+    "cases": 15,
+    "failures": 0
+   },
+   "guard_d_k_integers_and_d_0": {
+    "cases": 32507,
+    "failures": 0
+   },
+   "T6b_l_minus_star_in_C(n-1)": {
+    "cases": 32507,
+    "failures": 0
+   },
+   "T6c_star_gap_positive": {
+    "cases": 14,
+    "failures": 0
+   },
+   "T6c_gap_at_least_star": {
+    "cases": 32506,
+    "failures": 0
+   },
+   "T6c_peak_at_least_floor_n_over_2": {
+    "cases": 32506,
+    "failures": 0
+   },
+   "T6_remark3_star_gap": {
+    "cases": 7,
+    "failures": 0
+   }
+  },
+  "cases_total": 130062,
+  "failures_total": 0,
+  "first_failures": {},
+  "seconds": 4.6
+ },
+ "summary": {
+  "cases": {
+   "A": 20331,
+   "B": 4256,
+   "C": 5320,
+   "D": 880724,
+   "E": 130062
+  },
+  "failures": {
+   "A": 0,
+   "B": 0,
+   "C": 0,
+   "D": 0,
+   "E": 0
+  },
+  "cases_total": 1040693,
+  "failures_total": 0,
+  "completed": true
+ },
+ "seconds": 53.8
+}
