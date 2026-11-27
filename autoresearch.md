@@ -12,11 +12,23 @@ approach, or a precise handoff. Resolving the conjecture an investigation
 started from is not required, and a contribution does not need it to matter.
 Ending with "no durable progress" is a legitimate, recorded outcome.
 
-**Default budget:** one session of about 60 minutes of agent work, of which the
-last quarter is reserved for verification and persistence; computations capped
-at 30 minutes of wall-clock time in total unless the director has approved a
-larger campaign in the investigation's `STATE.md`. A limit set by the director
-or by the user who started the session is binding in every mode.
+**Default budget:** one session of at most about 120 minutes of agent work, of
+which approximately the last 20 minutes are reserved for verification,
+documentation and persistence; computations capped at 30 minutes of wall-clock
+time in total unless the director has approved a larger campaign in the
+investigation's `STATE.md`. A limit set by the director or by the user who
+started the session is binding in every mode.
+
+**The time budget is a maximum, not a target.** A session that has reached its
+objective, met a stopping condition, or has no idea left that justifies the
+effort stops early and says so ([Stopping cleanly](#stopping-cleanly)). Time
+that remains is not filled with work of low value, and the length of a session
+is never a measure of its worth. How the time is spent — continue, redirect,
+suspend — is the mathematical judgment of the agent running the session.
+
+**Checkpoints.** A session leaves a light checkpoint about every 30 minutes, so
+that an interruption, a compaction of the agent's context or a usage limit
+costs at most that much work ([Checkpoints](#checkpoints)).
 
 ## Two modes
 
@@ -38,14 +50,17 @@ Use it for an unusual angle on an active problem, a pattern noticed in data, a
 connection to another area, a conjecture of your own, a new technique, a
 question outside the catalogue, or a doubt about the project's own methods.
 
-**Before.** Write the budget (time and computation) and one line saying what
-the session is curious about. Nothing else is required in advance: no exact
-objective, no catalogue entry, no literature review.
+**Before.** Write the budget (time and computation), the time the session
+starts, and one line saying what the session is curious about. Nothing else is
+required in advance: no exact objective, no catalogue entry, no literature
+review.
 
 **During.** Follow the mathematics. Change direction, drop what is not
 working, compute, guess, and try to break your own guesses. No independent
 review and no formalization is required. Floating-point and heuristic output
 is labelled exploratory, and nothing is reported as checked that was not.
+[Checkpoints](#checkpoints) apply as in focused work: a few lines in the note,
+about every 30 minutes.
 
 **After.** Leave a dated note: model identifier, budget used, what was tried,
 what was seen, what looks worth pursuing. It goes in the investigation's
@@ -95,7 +110,9 @@ ls research/active/
 ```
 
 For the investigation you will work on, read `STATE.md` in full, then the last
-two entries of `journal.md`. The sections *Open obligations* and *Next step* of
+two entries of `journal.md`. If the last entry is still marked `in progress`,
+the session that wrote it was interrupted: resume it as described under
+[Checkpoints](#checkpoints) before choosing anything new. The sections *Open obligations* and *Next step* of
 `STATE.md` say what is owed. Unfinished obligations (an unreviewed candidate
 proof, an unverified computation, a stale receipt) come first by default. A
 session may defer them for a more promising idea: record the deferral in the
@@ -141,9 +158,15 @@ state what is different this time, or choose another.
 
 ### 8. Establish the budget
 
-Write the time budget, the computational budget (wall-clock limit, memory, the
-largest instance size to attempt) and, when relevant, the model/token budget.
-Do not exceed it without recording why.
+Write the time budget, the time the session starts, the computational budget
+(wall-clock limit, memory, the largest instance size to attempt) and, when
+relevant, the model/token budget. Do not exceed it without recording why.
+
+The time budget is a ceiling. Plan the work so that its last 20 minutes or so
+are free for steps 10 to 12: the investigation stops when the working part of
+the budget is spent, not when the whole of it is. Open the journal entry now,
+marked `in progress`, with the fields written so far; the first
+[checkpoint](#checkpoints) is due about 30 minutes later.
 
 ### 9. Investigate
 
@@ -180,7 +203,8 @@ result that uses it.
 ### 11. Persist
 
 Update `STATE.md` (lemmas, failed approaches, observations, dependency map,
-obligations), append the journal entry, register or update the contributions
+obligations), complete the journal entry and replace its mark `in progress` by
+the outcome, register or update the contributions
 that deserve an identity in `research/discoveries.json`, update the catalogue
 status if it changed, regenerate the generated views, and commit:
 
@@ -202,12 +226,55 @@ committed on its own.
 The *Next step* section of `STATE.md` must name one specific action that a new
 agent can start immediately, with the file or lemma it concerns.
 
+## Checkpoints
+
+A session can be cut off without warning: an interruption, a usage limit, a
+compaction of the agent's context. About every 30 minutes of work, and before a
+step that may not return (a long computation, a large delegation), leave a
+checkpoint. The interval is approximate: finish the argument or the command in
+hand first.
+
+A checkpoint is a few lines, not a report, and takes a couple of minutes:
+
+1. **In the journal.** The entry of the session is opened when the session
+   starts, marked `in progress`. A checkpoint is appended under its heading
+   *Checkpoints*: the time elapsed (from a clock reading where the environment
+   gives one, otherwise an estimate labelled as an estimate); what has been
+   established since the last checkpoint, each item with its level of
+   evidence; what is unfinished and where it is (files, running commands,
+   delegated work); and the immediate next action. Exploration outside an
+   investigation writes the same lines in its note under
+   `research/explorations/`.
+2. **In `STATE.md`,** only if the current truth changed: a lemma established, an
+   approach refuted, a different next step.
+3. **In Git.** If files changed, commit them on `research` (or the session's
+   branch) with a message that says it is a checkpoint. A checkpoint commit is
+   a save point. It promotes nothing: no status changes at a checkpoint, and
+   work recorded there as unfinished or unchecked stays so until step 10.
+   Pushing follows the director's authorization, as for any commit.
+
+A checkpoint does not replace steps 10 to 12, and it is not a reason to
+continue: a session that should stop, stops at once and closes its entry.
+
+**Resuming an interrupted session.** An entry still marked `in progress` was
+not closed. Read `STATE.md` and that entry; check that what the last checkpoint
+describes is there (`git status --short`, the files it names); then either
+continue within what remains of the budget — the budget written in the entry
+less the time recorded at the last checkpoint — or close the entry with the
+outcome `interrupted` and what was lost. The same applies to an agent whose own
+context was compacted in the middle of a session: the journal entry, not its
+memory of the conversation, is the record. Earlier lines of the entry are not
+rewritten; the continuation is appended.
+
 ## Stopping cleanly
 
 Stop the session — and record why in the journal — when any of these holds: the
-budget is spent; the falsification test fails; a required tool or source is
-unavailable; no approach with a new idea remains; or the mathematics no longer
-justifies the effort. Stopping is not failure; leaving an inaccurate record is.
+working part of the budget is spent (what remains is the reserve for
+verification, documentation and persistence); the objective is reached; the
+falsification test fails; a required tool or source is unavailable; no approach
+with a new idea remains; or the mathematics no longer justifies the effort.
+Stopping early is not failure and needs no justification beyond the reason
+itself; leaving an inaccurate record is the failure.
 
 ## Journal entry format
 

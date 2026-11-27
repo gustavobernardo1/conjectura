@@ -210,7 +210,7 @@ Durable knowledge is stored in the repository:
 | Kind of knowledge | Location |
 | --- | --- |
 | Active conjecture, definitions, established lemmas, failed approaches, counterexamples, observations, proof dependencies, decisions, obstacles, next steps | `research/active/<id>-<slug>/STATE.md` |
-| What each session did, with which model and budget | `research/active/<id>-<slug>/journal.md` |
+| What each session did, with which model and budget; the checkpoints of a session under way | `research/active/<id>-<slug>/journal.md` |
 | Each contribution worth an identity: statement, status, relations, references to its evidence | `research/discoveries.json` |
 | Exploration that belongs to no catalogued problem | `research/explorations/<topic>.md` |
 | Verification results | `verification/receipts/`, experiment result files, review reports |
@@ -224,9 +224,21 @@ Long derivations go to separate notes linked from it.
 ## Budgets and efficiency
 
 - A session has a written time budget, computation budget and stopping
-  condition before it starts (`autoresearch.md`). The default is about one hour
-  of agent work and 30 minutes of computation. This holds in exploration too:
-  what exploration is spared is the predefined objective, not the budget.
+  condition before it starts (`autoresearch.md`). The default is at most about
+  120 minutes of agent work, of which approximately the last 20 minutes are
+  reserved for verification, documentation and persistence, and 30 minutes of
+  computation. This holds in exploration too: what exploration is spared is
+  the predefined objective, not the budget.
+- The time budget is a maximum, not a target. A session stops when its
+  objective is reached, a stopping condition is met or the mathematics no
+  longer justifies the effort, whatever time remains; how the time is spent is
+  the judgment of the agent running the session.
+- A session leaves a light checkpoint about every 30 minutes — a few lines in
+  its journal entry, and a commit of the working files when something changed
+  — so that an interruption, a compaction of the agent's context or a usage
+  limit loses at most that much work
+  ([`autoresearch.md`](../autoresearch.md#checkpoints)). A checkpoint promotes
+  nothing.
 - A larger campaign (long searches, many parallel agents, paid API use) needs
   an explicit budget approved by the director and recorded in `STATE.md`.
 - No unbounded autonomous loops.
