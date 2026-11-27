@@ -10,7 +10,7 @@ justification in `research/catalogue.json` and the linked dossier.
 
 | Rank | ID | Problem | Fields | Score | Mathematical | Formal | Novelty | External review |
 | ---: | --- | --- | --- | ---: | --- | --- | --- | --- |
-| 1 | CJ-0001 | [Collins–Shor conjecture on the peak of the distance characteristic polynomial of a tree](candidates/CJ-0001-collins-shor-peak.md) | spectral graph theory, matrix analysis, combinatorics | 80.2 | active-investigation | partial | preliminary-search-completed | not-reviewed |
+| 1 | CJ-0001 | [Collins–Shor conjecture on the peak of the distance characteristic polynomial of a tree](candidates/CJ-0001-collins-shor-peak.md) | spectral graph theory, matrix analysis, combinatorics | 80.2 | candidate-proof | partial | preliminary-search-completed | not-reviewed |
 | 2 | CJ-0002 | [Chollet's permanent conjecture](candidates/CJ-0002-chollet-permanent.md) | matrix analysis, inequalities | 79.2 | candidate | not-started | preliminary-search-completed | not-reviewed |
 | 3 | CJ-0007 | [Ellis–Filmus–Friedgut spectral conjectures H and I for Kneser graphs of downsets](candidates/CJ-0007-ellis-filmus-friedgut-spectral.md) | spectral graph theory, combinatorics, discrete optimization | 78.1 | candidate | not-started | preliminary-search-completed | not-reviewed |
 | 4 | CJ-0006 | [Written on the Wall II, Conjecture 40](candidates/CJ-0006-wowii-40.md) | graph theory | 76.0 | candidate | not-started | preliminary-search-completed | not-reviewed |

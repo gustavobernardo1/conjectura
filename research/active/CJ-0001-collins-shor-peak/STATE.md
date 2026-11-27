@@ -1,6 +1,6 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-27 (session 13). This file is the current truth about the
+Last updated: 2026-11-27 (session 14). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
 continue. It was compacted in sessions 5, 8 and 9: details are in the notes it
 links. **Session 9:** [`notes/wiener-form.md`](notes/wiener-form.md) (S24 to
@@ -24,6 +24,11 @@ the path minimizes `tr(I + L)^{−1}`; two independent AI reviews of `53421a6`,
 no gap; revision 1 at `2037b18`) and [`notes/path-peak.md`](notes/path-peak.md)
 (S47, S48: the exact peak of the path; the bound `⌈n − n/√5⌉` is attained
 for infinitely many `n`).
+**Session 14:** the manuscript of the whole conjecture,
+[`manuscripts/CJ-0001-collins-shor/main.tex`](../../../manuscripts/CJ-0001-collins-shor/main.tex)
+(both halves, self-contained, 30 pages; the lower half restated with root
+weights only; its review: obligation 14); CJ-0001 moved to `candidate-proof`
+(director's approval).
 Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/double-stars.md`](notes/double-stars.md) (T1),
 [`notes/spine3.md`](notes/spine3.md) (T2),
@@ -84,7 +89,7 @@ of the source). Only the location of the peak is open.
 
 ## Status
 
-Mathematical: `active-investigation`. Formal: `partial`. Novelty:
+Mathematical: `candidate-proof` (since session 14, by the director's approval of 2026-11-27, which does not authorize `proved`). Formal: `partial`. Novelty:
 `preliminary-search-completed`. External review: `not-reviewed`.
 
 Nothing in this file is an established result of the project. Every statement
@@ -415,6 +420,20 @@ full text of items 1 to 8 as of session 7 is there).
    from memory (titles of Darroch 1964 and Pitman 1997, Graham–Pollak 1971,
    textbooks) that must be checked before any use. Next: an audit of the
    draft as one document, then extend it to the whole conjecture.
+   (Superseded in session 14 by the manuscript of obligation 14.)
+
+14. **Session 14: the manuscript of the whole conjecture**
+   (`manuscripts/CJ-0001-collins-shor/main.tex`, first commit `8df6bea`;
+   review packet `README.md`, `REVIEW-PROMPT.md` there). New in it and not
+   reviewed before: Lemma 5.1 ((★) for root weights only) and the derivation
+   of the raise and plant rules from it, replacing S15 and S16; the leaf
+   recursion S23(b) derived from the plant rule; the presentation with the
+   cones `K_d` only. Checked by `manuscript_check.py` (exact, independent of
+   the notes' code; `results/manuscript-check.json`). Reviews of the whole
+   document: see the journal of session 14 and `reviews/`. Owed: a review
+   by a model of another vendor (use `REVIEW-PROMPT.md`); human reading
+   (deferred by the director); a result package; the literature items of
+   obligations 9, 11(c), 13.
 
 ## Remaining obstacles
 
