@@ -2500,7 +2500,7 @@ the manuscript of the lower half), then objective O11 through (PM).
 
 ## Session 13 — 2026-11-27
 
-- **Entry status:** completed; the objective was reached (15:28 to about 16:45 by the clock, about 77 of the 120 minutes; the rest of the budget was not used because the remaining items are validation work for a later session — the consolidated manuscript — and no further research step justified it).
+- **Entry status:** completed; the objective was reached (15:28 to about 17:00 by the clock, about 92 of the 120 minutes; after the objective the time went to validation: rechecks, revision of the lower half, a manuscript draft, compaction of STATE.md).
 - **Agent / model:** Claude, model `claude-opus-5-5` (Research Director and
   principal investigator, main session). Human participant: the director
   (instructions below).
@@ -2755,3 +2755,17 @@ change.
 Next step: `STATE.md`, section "Next step" — the consolidated manuscript of
 the whole conjecture and its audit; `STATE.md` is 551 lines and should be
 compacted (aim under 400) at the start of the next session.
+
+Addendum (16:40 to 17:00 by the clock). `STATE.md` compacted from 551 to
+about 460 lines (moved text verbatim in `notes/obligations.md`, section
+"Text moved from `STATE.md` in session 13"). A publication-agent subagent
+(`claude-opus-5-5`) wrote an unreviewed draft manuscript of the upper half,
+`manuscripts/CJ-0001-upper-bound/main.tex` (pdfLaTeX, MiKTeX 25.12, two
+runs, exit 0, 18 pages; the PDF only in the session scratchpad). It found
+three small steps missing from `upper-bound.md` (a proof of Corollary 3;
+`K ≥ 2` in T9; the case `Y = {v}` of S43; all immediate, supplied in the
+draft) and supplied some citation details from memory, to be checked
+(`STATE.md`, obligation 13). Subagents in all: 8 launched (one refused at
+once). The final clean `verify_lean.py` run and the push are recorded in the
+commit that follows this entry.
+

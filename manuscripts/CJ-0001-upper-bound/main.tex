@@ -1,0 +1,1088 @@
+% Conjectura manuscript, CJ-0001 (upper half of the Collins--Shor conjecture).
+% DRAFT, NOT REVIEWED BY A HUMAN, NOT FOR DISTRIBUTION.
+% Prepared on 2026-11-27 by the publication agent (Claude, model
+% claude-opus-5-5) from the following project files only:
+%   research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md (revision 1,
+%     commit 2037b18, SHA-256 ad21eeb615ab3a50...49e0ed)
+%   research/active/CJ-0001-collins-shor-peak/notes/path-peak.md (commit 2037b18,
+%     SHA-256 b65a9931ed849704...e78016)
+%   research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-*upper-bound*.md,
+%     2026-11-27-*path-peak*.md
+%   research/candidates/CJ-0001-collins-shor-peak.md (literature audits)
+% The mathematical content is intended to be identical to the notes; defects
+% listed in the reviews are folded in as wording, citation or written-out steps.
+% Plain LaTeX with standard packages only.
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\sech}{\operatorname{sech}}
+\newcommand{\frc}[1]{\{#1\}}
+
+\title[The upper bound in the Collins--Shor conjecture]{The upper bound in the
+Collins--Shor conjecture on the coefficients of the distance characteristic
+polynomial of a tree\\[0.5ex] \normalfont\small (unreviewed draft prepared with AI assistance)}
+\author[Conjectura project (draft)]{Conjectura project (authorship not yet determined; see the attribution section)}
+\address{Conjectura project, directed by Gustavo Bernardo Brito, Universidade
+Federal de Goi\'as (UFG), Brazil}
+\date{Draft of 27 November 2026}
+
+\emergencystretch=3em
+\begin{document}
+
+\begin{abstract}
+For a tree $T$ of order $n\ge 3$ with distance matrix $D$, let
+$d_0,\dots,d_{n-2}$ be the normalized coefficients
+$d_k=2^{k-(n-2)}|\delta_k|$, where $\delta_k$ is the coefficient of $x^k$ in
+$\det(D-xI)$. We give a written candidate proof, checked so far only by AI
+reviews, that every index $p$ with
+$d_p=\max_k d_k$ satisfies $p<n-n/\sqrt5+3/5$, and in particular
+$p\le\lceil n-n/\sqrt5\rceil$. This is the upper half of the conjecture of
+Collins and Shor in the form stated as Conjecture~1.2 by Aalipour et al.,
+under the reading that every maximizing index is to be bounded. The proof
+writes the polynomial as $4(\alpha-x)q(x)$ with $q$ real-rooted, bounds the
+peak by the mode of $q$, the mode by the mean (Darroch's rule), and the mean
+by $n-\tr(I+L)^{-1}$ through interlacing with the Laplacian spectrum; it then
+shows that the path minimizes $\tr(I+L)^{-1}$ among trees of order $n$, and
+evaluates this trace for the path. The minimality of the path is very
+probably a consequence of a published theorem of Andriantiana,
+Razanajatovo Misanantenaina and Wagner; the proof given here is independent
+of theirs. Finally, from Collins's closed formula for the path we locate the
+peak of the path exactly, which shows that the bound
+$\lceil n-n/\sqrt5\rceil$ is attained for infinitely many $n$. No claim of
+novelty is made; the searches made are listed.
+\end{abstract}
+
+\maketitle
+
+\begin{center}
+\fbox{\parbox{0.93\textwidth}{\small
+\textbf{Unreviewed draft prepared with AI assistance. Not for distribution.}
+The mathematics of this draft (the proof strategy, and the lemmas, theorems
+and proofs of Sections~\ref{sec:spectral} to~\ref{sec:path}) was produced by
+an AI system, Claude, model \nolinkurl{claude-opus-5-5}
+(Anthropic), in the Conjectura project in November 2026; the text was
+assembled from the project's notes by the same model. The proofs have been
+checked only by AI reviews run in fresh contexts (models
+\nolinkurl{claude-opus-5-5} and \nolinkurl{claude-sonnet-5-5}); \textbf{AI review is
+not peer review}. \textbf{No mathematician has read the proof of either half
+of the conjecture}, neither the upper half proved here nor the lower half,
+for which the project holds a separate candidate proof. Novelty is not
+claimed (Section~\ref{sec:literature}). Nothing in this draft has been
+submitted, posted or sent to anyone; every outside use is decided by the
+project director. The AI-use disclosure and the attribution record are at
+the end.}}
+\end{center}
+
+\section{Introduction}\label{sec:intro}
+
+Let $T$ be a tree of order $n$ and $D$ its distance matrix. By Graham and
+Lov\'asz~\cite{GL78}, the coefficients of the characteristic polynomial of
+$D$ have signs that allow them to be normalized to positive numbers
+$d_0,\dots,d_{n-2}$ (Definition~\ref{def:dk}; \cite[Fact~1.1]{AAB}). The
+conjecture of Graham and Lov\'asz, as Collins recalls it
+\cite[p.~29]{Col89}, was that this sequence is unimodal with peak at
+$k=\frac12n$; Collins showed that this is true for stars but not for paths,
+computed the coefficients of the star and of the path, and stated as
+Conjecture~9 of~\cite{Col89}, attributed there to Peter Shor:
+``The coefficients of $\mathrm{CPD}(T)$ for any tree $T$ with $n$ vertices
+are unimodal with peak between $\tfrac12 n$ and $n(1-1/\sqrt5)$.''
+Aalipour, Abiad, Berikkyzy, Hogben, Kenter, Lin and Tait~\cite{AAB} proved
+unimodality, indeed log-concavity, of $d_0,\dots,d_{n-2}$ for every tree
+(\cite[Theorem~2.1]{AAB}), proved that the peak is at most
+$\lceil 2n/3\rceil$ (\cite[Theorem~3.3]{AAB}), and restated the location of
+the peak with a floor and a ceiling:
+
+\begin{conjecture}[{\cite[Conjecture~1.2]{AAB}}; Collins--Shor]\label{conj:CS}
+Verbatim, as transcribed in the project's statement file (the bracketed word
+is part of that transcription): ``The [normalized] coefficients of the
+distance characteristic polynomial for any tree $T$ with $n$ vertices are
+unimodal with peak between $\lfloor n/2\rfloor$ and
+$\lceil n-n/\sqrt5\rceil$.''
+\end{conjecture}
+
+The source does not say how a tie between two maximal coefficients is to be
+read. Throughout we use the strong reading: \emph{every} index $p$ with
+$d_p=\max_{0\le k\le n-2}d_k$ is to lie in
+$[\lfloor n/2\rfloor,\lceil n-n/\sqrt5\rceil]$. Since unimodality is
+\cite[Theorem~2.1]{AAB}, only the location of the peak is open. The
+\emph{upper half} of Conjecture~\ref{conj:CS} is the statement that, for
+every $n\ge3$ and every tree $T$ of order $n$, every maximizing index $p$
+satisfies $p\le\lceil n-n/\sqrt5\rceil$. This draft gives a written proof of
+it (Theorem~\ref{thm:T9}), with a slightly sharper bound.
+
+\subsection*{Results}
+For a graph $H$ let $L_H$ be its Laplacian and
+$\Tr(H):=\tr(I+L_H)^{-1}$. Let $P_n$ be the path of order $n$.
+
+\begin{itemize}
+\item Theorem~\ref{thm:T9} (local name T9). For every tree $T$ of order
+$n\ge3$, every maximizing index $p$ of $d_0,\dots,d_{n-2}$ satisfies
+$p<n-n/\sqrt5+3/5$; in particular $p\le\lceil n-n/\sqrt5\rceil$.
+\item Theorem~\ref{thm:T10} (T10). For every tree $T$ of order $n\ge1$,
+$\Tr(T)\ge\Tr(P_n)$, with equality only for $T\cong P_n$.
+\item Lemma~\ref{lem:S46} (S46). $\Tr(P_n)=n/\sqrt5+2/5+(2n/\sqrt5)\,r^{2n}/(1-r^{2n})$,
+$r=\varphi^{-2}$, $\varphi=(1+\sqrt5)/2$.
+\item Lemma~\ref{lem:S47} and Corollary~\ref{cor:S48} (S47, S48). The exact
+peak of the path, and the attainment of $\lceil n-n/\sqrt5\rceil$ by the path
+for infinitely many $n$.
+\end{itemize}
+The local names (S40 to S48, T9, T10) are those of the project notes, and
+are kept so that each statement can be traced to its source file and its
+reviews.
+
+The lower half of Conjecture~\ref{conj:CS} (every maximizing index is at
+least $\lfloor n/2\rfloor$) has a separate candidate proof in the project
+(Theorem~T6(c) of the note \nolinkurl{notes/lower-bound.md}, registry record
+MD-0019). It is not reproduced here and nothing in this draft depends on it,
+except Corollary~\ref{cor:both}, which is stated conditionally. Neither half
+has been read by a mathematician.
+
+The proof of Theorem~\ref{thm:T9} uses only the classical facts collected in
+Section~\ref{sec:tools} and the identification of the $d_k$ with the
+coefficients of a normalized polynomial (Lemma~\ref{lem:ident}); it does not
+use the log-concavity of $(d_k)$ \cite[Theorem~2.1]{AAB}.
+
+\section{Definitions and the normalized polynomial}\label{sec:defs}
+
+\begin{definition}\label{def:dk}
+Let $T$ be a tree of order $n\ge2$ with distance matrix $D$, Laplacian $L$,
+and let $\tau\in\mathbb R^{V(T)}$, $\tau_v=2-\deg v$. Let $\delta_k$ be the
+coefficient of $x^k$ in $\det(D-xI)$. The \emph{normalized coefficients}
+are $d_k=2^{k-(n-2)}|\delta_k|$, $0\le k\le n-2$. Put
+\[
+\ell_T(x)=-2^{-(n-2)}\det(2xI-D).
+\]
+A \emph{maximizing index} is an index $p\in\{0,\dots,n-2\}$ with
+$d_p=\max_{0\le k\le n-2}d_k$. Put $M=\lceil n-n/\sqrt5\rceil$ and
+$\varphi=(1+\sqrt5)/2$.
+\end{definition}
+
+\begin{lemma}[identification; {\cite[Observation~3.1]{AAB}}]\label{lem:ident}
+For $0\le k\le n-2$ the coefficient of $x^k$ in $\ell_T$ is $d_k$.
+\end{lemma}
+
+\begin{proof}
+$\det(2xI-D)=(-1)^n\det(D-2xI)=(-1)^n\sum_k\delta_k2^kx^k$, so the coefficient
+of $x^k$ in $\ell_T$ is $(-1)^{n-1}2^{k-(n-2)}\delta_k$. By Graham and
+Lov\'asz~\cite{GL78}, in the form \cite[Fact~1.1]{AAB}, $(-1)^{n-1}\delta_k>0$
+for $0\le k\le n-2$, so this coefficient equals $2^{k-(n-2)}|\delta_k|=d_k$.
+\end{proof}
+
+For a graph $H$ write $G_H=(I+L_H)^{-1}$ and $\Tr(H)=\tr G_H$. A
+\emph{rooted tree} $(X,v)$ is a tree $X$ with a distinguished vertex $v$; put
+\[
+g_X=(G_X)_{vv},\quad k_X=(G_X^2)_{vv},\quad \varepsilon_X=1/g_X-1,\quad
+\kappa_X=k_X/g_X^2,\quad t_X=\tr G_X .
+\]
+
+\section{Classical tools}\label{sec:tools}
+
+The following facts are used without proof. For each we record where the
+project checked it.
+
+\begin{enumerate}
+\item[(GL)] \emph{Graham--Lov\'asz inverse.} For a tree of order $n\ge2$,
+$D^{-1}=-\tfrac12L+\tau\tau^{\mathsf T}/(2(n-1))$ \cite[Lemma~1, p.~66]{GL78}.
+Read in a scan of~\cite{GL78} by the project's literature audit (two minus
+signs are illegible in the scan and were fixed from Fact~3 and eq.~(10) of
+the same paper); verified in exact arithmetic by an AI reviewer for every
+tree of order $3$ to $17$.
+\item[(GP)] \emph{Graham--Pollak determinant.}
+$\det D=(-1)^{n-1}(n-1)2^{n-2}$ \cite{GP71}. Not read at the source in the
+project; it is quoted in \cite{AAB} (as $d_0=n-1$) and is implied by the
+exact characteristic polynomials computed by the reviewers for all trees of
+order at most $17$.
+\item[(W)] \emph{Weyl interlacing for a rank-one positive semidefinite
+update.} If $B=A+ww^{\mathsf T}$ with $A$ real symmetric, then, with
+eigenvalues in decreasing order, $\lambda_i(A)\le\lambda_i(B)\le\lambda_{i-1}(A)$
+for $2\le i\le n$, and $\lambda_1(A)\le\lambda_1(B)$. Textbook fact (e.g.\
+\cite{HJ}); no specific statement in a source was checked in the project.
+\item[(N)] \emph{Newton's inequalities.} If $\sum_{k=0}^Nq_kx^k$ has only real
+zeros and positive coefficients, then
+$q_k^2\ge q_{k-1}q_{k+1}(1+1/k)(1+1/(N-k))>q_{k-1}q_{k+1}$ for $1\le k\le N-1$.
+Textbook fact (e.g.\ \cite{HLP}); not checked against a source in the
+project.
+\item[(D)] \emph{Darroch's rule} \cite[Theorem~4]{Dar64}, as stated by Pitman
+\cite[p.~284]{Pit97}: if a polynomial $P$ with non-negative coefficients has
+only real zeros, every index $m$ at which its coefficient is maximal
+satisfies $|m-\mu|<1$, where $\mu=P'(1)/P(1)$. Darroch's paper was not read
+in the project; the statement was read in Pitman~\cite{Pit97} by the
+project's literature audit and, independently, by one AI reviewer, including
+the case of two maximizing indices (\cite[eq.~(13)]{Pit97}). A second
+reviewer, who could read neither source, confirmed the rule in a secondary
+source and tested it on $20{,}000$ random real-rooted polynomials.
+\item[(M)] \emph{M-matrix facts.} For a graph $H$, $I+L_H$ is a non-singular
+M-matrix; if $H$ is connected, $(I+L_H)^{-1}$ is entrywise positive; and
+$(I+L_H)\mathbf 1=\mathbf 1$, so every row of $G_H$ sums to $1$. Textbook
+facts (e.g.\ \cite{BP}); not checked against a source in the project.
+\item[(PS)] \emph{Spectrum of the path.} The Laplacian eigenvalues of $P_n$
+are $2-2\cos(j\pi/n)$, $0\le j\le n-1$. Textbook fact (e.g.\ \cite{BH});
+confirmed indirectly by the exact checks of Lemma~\ref{lem:S46}.
+\item[(C)] \emph{Collins's formula for the path} \cite[Theorem~3 and its
+proof, p.~31]{Col89}: for $n\ge3$,
+$d_{n-k}(P_n)=\binom{n+k-1}{2k-1}\frac{(k-1)n}{k}$ for $2\le k\le n$. Read
+first-hand in~\cite{Col89} by the project (the final step of Collins's proof
+of the location of the peak is informal, and only the formula is used here);
+checked in exact arithmetic against the distance matrix for $3\le n\le30$ by
+the stored computation (Section~\ref{sec:comp}) and for $3\le n\le20$ by an
+AI reviewer. Used only in Section~\ref{sec:path}.
+\item[(K)] \emph{Kronecker's theorem}: for irrational $\xi$ the fractional
+parts of $n\xi$, $n\ge1$, are dense in $[0,1)$ (indeed equidistributed, by
+Weyl). Textbook fact. Used only in Corollary~\ref{cor:S48}.
+\end{enumerate}
+The Schur complement formula, the Sherman--Morrison formula and the
+expansion of the Poisson kernel are used as elementary identities.
+
+\section{The spectral form of \texorpdfstring{$\ell_T$}{l\_T} and the mode of \texorpdfstring{$q$}{q}}\label{sec:spectral}
+
+\begin{lemma}[S40]\label{lem:S40}
+Let $T$ be a tree of order $n\ge2$. The matrix $D/2$ has one positive
+eigenvalue $\alpha$ and $n-1$ negative eigenvalues
+$-\beta_1,\dots,-\beta_{n-1}$, and $\alpha=\sum_i\beta_i$. With
+$q(x)=\prod_{i=1}^{n-1}(x+\beta_i)=\sum_{k=0}^{n-1}q_kx^k$,
+\[
+\ell_T(x)=4(\alpha-x)q(x),\qquad\text{so}\qquad d_k=4(\alpha q_k-q_{k-1})
+\quad(0\le k\le n-2,\ q_{-1}=0).
+\]
+\end{lemma}
+
+\begin{proof}
+By (GL), $2D^{-1}=-L+ww^{\mathsf T}$ with $w=\tau/\sqrt{n-1}$. Since a tree is
+connected, the eigenvalues of $-L$ in decreasing order are
+$0\ge-\mu_{(1)}\ge\dots\ge-\mu_{(n-1)}$, where
+$0<\mu_{(1)}\le\dots\le\mu_{(n-1)}$ are the non-zero Laplacian eigenvalues;
+thus $\lambda_1(-L)=0$ and $\lambda_i(-L)=-\mu_{(i-1)}$ for $i\ge2$. Let
+$\nu_1\ge\dots\ge\nu_n$ be the eigenvalues of $2D^{-1}$. By (W),
+$\nu_i\le\lambda_{i-1}(-L)\le0$ for $i\ge2$; none is zero, since $D$ is
+invertible by (GP); so $\nu_2,\dots,\nu_n<0$. The product $\prod_i\nu_i=\det(2D^{-1})$
+has the sign of $\det D$, that is $(-1)^{n-1}$ by (GP); hence $\nu_1>0$. The
+eigenvalues of $D/2$ are the $1/\nu_i$: $\alpha=1/\nu_1>0$ and, for $i\ge2$,
+$-\beta_{i-1}=1/\nu_i<0$. Since $\tr D=0$, $\alpha=\sum_i\beta_i$. Finally,
+with $\theta_1,\dots,\theta_n$ the eigenvalues of $D/2$,
+$\det(2xI-D)=2^n\prod_i(x-\theta_i)=2^n(x-\alpha)q(x)$, so
+$\ell_T=-2^{-(n-2)}2^n(x-\alpha)q(x)=4(\alpha-x)q(x)$. Comparing coefficients
+and using Lemma~\ref{lem:ident} gives $d_k=4(\alpha q_k-q_{k-1})$ for
+$0\le k\le n-2$.
+\end{proof}
+
+\begin{lemma}[S41: the peak of $d$ lies at or before a descent of $q$]\label{lem:S41}
+Let $T$ be a tree of order $n\ge3$, with $\alpha$, $q$ as in
+Lemma~\ref{lem:S40}, and let $0\le k\le n-3$. If $q_{k+1}<q_k$, then
+$d_{j+1}<d_j$ for every $j$ with $k\le j\le n-3$; hence every maximizing
+index of $d_0,\dots,d_{n-2}$ is at most $k$.
+\end{lemma}
+
+\begin{proof}
+The polynomial $q$ has degree $n-1$, positive coefficients (its zeros
+$-\beta_i$ are negative) and only real zeros. By (N),
+$q_j^2>q_{j-1}q_{j+1}$ for $1\le j\le n-2$, so the ratios
+$\varrho_j=q_{j+1}/q_j$, $0\le j\le n-2$, are strictly decreasing. Since $q$
+is monic, $q_{n-2}=\sum_i\beta_i=\alpha$, so $\varrho_{n-2}=1/\alpha$, and
+hence $\alpha\varrho_j>1$ for $0\le j\le n-3$. Fix $j$ with $k\le j\le n-3$;
+then $\varrho_j\le\varrho_k<1$. By Lemma~\ref{lem:S40},
+\[
+d_{j+1}-d_j=4\bigl[\alpha(q_{j+1}-q_j)-(q_j-q_{j-1})\bigr].
+\]
+If $j=0$, this is $4[\alpha(q_1-q_0)-q_0]<0$. If $j\ge1$ and
+$q_j\ge q_{j-1}$, the first term is negative and the second is non-positive.
+If $j\ge1$ and $q_j<q_{j-1}$, then $\varrho_j<\varrho_{j-1}<1$, and writing
+$q_j=\varrho_{j-1}q_{j-1}$, $q_{j+1}=\varrho_j\varrho_{j-1}q_{j-1}$,
+\[
+d_{j+1}-d_j=4q_{j-1}\bigl[(1-\varrho_{j-1})-\alpha\varrho_{j-1}(1-\varrho_j)\bigr];
+\]
+since $\alpha\varrho_{j-1}>1$ and $1-\varrho_j>1-\varrho_{j-1}>0$, the bracket
+is negative. So $d_k>d_{k+1}>\dots>d_{n-2}$, and no index larger than $k$ is
+maximizing.
+\end{proof}
+
+\begin{lemma}[S42: the mean of $q$ and the Laplacian spectrum]\label{lem:S42}
+Let $T$ be a tree of order $n\ge2$, with $q$ as in Lemma~\ref{lem:S40}. Then
+\[
+\mu_q:=\frac{q'(1)}{q(1)}=\sum_{i=1}^{n-1}\frac1{1+\beta_i}
+\le\sum_{j=1}^{n-1}\frac{\mu_{(j)}}{1+\mu_{(j)}}=n-\Tr(T).
+\]
+\end{lemma}
+
+\begin{proof}
+The first equality is the logarithmic derivative of $\prod_i(x+\beta_i)$ at
+$x=1$. In the notation of the proof of Lemma~\ref{lem:S40},
+$\beta_{i-1}=-1/\nu_i=1/|\nu_i|$ for $2\le i\le n$, so
+$1/(1+\beta_{i-1})=|\nu_i|/(1+|\nu_i|)$. By (W), $\nu_i\ge\lambda_i(-L)=-\mu_{(i-1)}$
+for $i\ge2$, so $|\nu_i|\le\mu_{(i-1)}$; and $y\mapsto y/(1+y)$ is increasing
+on $(0,\infty)$. This gives the inequality. Finally
+$\Tr(T)=1+\sum_j1/(1+\mu_{(j)})$ (the eigenvalue $0$ of $L$ contributes $1$),
+so $\sum_j\mu_{(j)}/(1+\mu_{(j)})=\sum_j\bigl(1-1/(1+\mu_{(j)})\bigr)=(n-1)-(\Tr(T)-1)=n-\Tr(T)$.
+\end{proof}
+
+\begin{remark}
+The interlacing between the distance eigenvalues and the reciprocals of the
+non-zero Laplacian eigenvalues used in Lemmas~\ref{lem:S40}
+and~\ref{lem:S42} is a theorem of Merris~\cite{Mer90}:
+$0>-2/\mu_{(n-1)}\ge\partial_2\ge-2/\mu_{(n-2)}\ge\dots\ge\partial_n\ge-2/\mu_{(1)}$,
+where $\partial_1\ge\dots\ge\partial_n$ are the eigenvalues of $D$; the
+inertia of $D$ is $(1,n-1,0)$. Merris's paper was read in full by the
+project's literature audit; the equation number cited for this chain in the
+project notes was not confirmed by a reviewer. The proofs above are the
+same argument, through (GL).
+\end{remark}
+
+\section{The trace of \texorpdfstring{$(I+L)^{-1}$}{(I+L)\^{}(-1)}}\label{sec:trace}
+
+\begin{lemma}[S43: gluing two rooted trees]\label{lem:S43}
+Let $(X,v)$ and $(Y,v)$ be rooted trees and let $T$ be the tree obtained by
+identifying their roots. Then $1/g_T=1/g_X+1/g_Y-1$ (so
+$\varepsilon_T=\varepsilon_X+\varepsilon_Y$), and
+\[
+t_T=t_X+t_Y-g_T\bigl[1+\varepsilon_Y\kappa_Xg_X+\varepsilon_X\kappa_Yg_Y\bigr].
+\]
+\end{lemma}
+
+\begin{proof}
+If $Y=\{v\}$ then $g_Y=1$, $\varepsilon_Y=0$, $t_Y=1$, $T=X$, and both claims
+are immediate; similarly if $X=\{v\}$. Otherwise order the vertices of $T$ as
+the vertices of $X$ (including $v$), then those of $Y\setminus v$. Let
+$C=(I+L_Y)[Y\setminus v]$ be the principal submatrix of $I+L_Y$ on
+$Y\setminus v$ (positive definite, as a principal submatrix of the positive
+definite matrix $I+L_Y$), let $b\in\mathbb R^{Y\setminus v}$ be the indicator
+vector of the neighbours of $v$ in $Y$, and let $\tilde b$ be the
+$|X|\times|Y\setminus v|$ matrix whose row $v$ is $b^{\mathsf T}$ and whose
+other rows are zero. Then
+\[
+I+L_T=\begin{pmatrix}I+L_X+\deg_Y(v)E_{vv}&-\tilde b\\-\tilde b^{\mathsf T}&C\end{pmatrix}.
+\]
+By the Schur complement formula, the $X$-block of $G_T$ is
+$\bigl(I+L_X+sE_{vv}\bigr)^{-1}$ with $s=\deg_Y(v)-b^{\mathsf T}C^{-1}b$
+(because $\tilde bC^{-1}\tilde b^{\mathsf T}=(b^{\mathsf T}C^{-1}b)E_{vv}$).
+In $Y$ alone, ordered with $v$ first,
+$I+L_Y=\begin{pmatrix}1+\deg_Y(v)&-b^{\mathsf T}\\-b&C\end{pmatrix}$, and the
+same elimination gives $1/g_Y=1+\deg_Y(v)-b^{\mathsf T}C^{-1}b$; hence
+$s=\varepsilon_Y$. By the Sherman--Morrison formula,
+\[
+(I+L_X+sE_{vv})^{-1}=G_X-\frac{s\,G_Xe_ve_v^{\mathsf T}G_X}{1+s\,g_X};
+\]
+its $(v,v)$ entry is $g_X/(1+sg_X)$, and its trace is
+$t_X-sk_X/(1+sg_X)$ (as $\tr(G_Xe_ve_v^{\mathsf T}G_X)=e_v^{\mathsf T}G_X^2e_v=k_X$).
+Hence $g_T=g_X/(1+\varepsilon_Yg_X)$, that is $1/g_T=1/g_X+\varepsilon_Y$,
+which is the first claim. Exchanging the roles of $X$ and $Y$, the
+$Y$-block of $G_T$ (on the vertex set of $Y$, including $v$) has trace
+$t_Y-\varepsilon_Xk_Y/(1+\varepsilon_Xg_Y)$. The two blocks are principal
+submatrices of $G_T$ whose index sets share only $v$, so
+\[
+t_T=t_X-\frac{\varepsilon_Yk_X}{1+\varepsilon_Yg_X}+t_Y-\frac{\varepsilon_Xk_Y}{1+\varepsilon_Xg_Y}-g_T .
+\]
+Finally
+$\varepsilon_Yk_X/(1+\varepsilon_Yg_X)=\varepsilon_Y\kappa_Xg_X\cdot g_X/(1+\varepsilon_Yg_X)=g_T\,\varepsilon_Y\kappa_Xg_X$,
+and symmetrically $\varepsilon_Xk_Y/(1+\varepsilon_Xg_Y)=g_T\,\varepsilon_X\kappa_Yg_Y$.
+\end{proof}
+
+\begin{lemma}[S43$'$: bounds at a root]\label{lem:S43p}
+Let $(X,v)$ be a rooted tree with $|X|\ge2$. Then $0<g_X<1$, so
+$a:=1/g_X=1+\varepsilon_X>1$, and $1\le\kappa_X\le1+\varepsilon_X/2=(1+a)/2$.
+\end{lemma}
+
+\begin{proof}
+Write $G=G_X$. By (M), row $v$ of $G$ is positive and sums to $1$; as
+$|X|\ge2$, $0<G_{vv}<1$. Hence
+$\varepsilon_X=(1-G_{vv})/G_{vv}=\sum_{w\ne v}G_{vw}/G_{vv}>0$, and, $G$ being
+symmetric, $\kappa_X=\sum_wG_{vw}^2/G_{vv}^2=1+\sum_{w\ne v}(G_{vw}/G_{vv})^2\ge1$.
+For the upper bound it is enough to show $G_{wv}\le G_{vv}/2$ for every
+$w\ne v$, since then
+$\sum_{w\ne v}(G_{vw}/G_{vv})^2\le\frac12\sum_{w\ne v}G_{vw}/G_{vv}=\varepsilon_X/2$.
+Let $w^*$ maximize $G_{wv}$ over $w\ne v$, and let $d=\deg w^*\ge1$. Row
+$w^*$ of $(I+L)G=I$, in column $v$, reads $(1+d)G_{w^*v}=\sum_{x\sim w^*}G_{xv}$.
+If $v$ is not a neighbour of $w^*$, the right side is at most $dG_{w^*v}$,
+so $G_{w^*v}\le0$, contradicting (M). So $v\sim w^*$, and
+$(1+d)G_{w^*v}\le G_{vv}+(d-1)G_{w^*v}$, that is $2G_{w^*v}\le G_{vv}$.
+\end{proof}
+
+For $N\ge2$ let $P=P_{N+1}$ with vertices $0,1,\dots,N$ in order, $G=G_P$,
+and for a vertex $r$ put $E_r=1/G_{rr}-1$ and $c_r=(G^2)_{rr}/G_{rr}$.
+
+\begin{lemma}[S44: the path seen from one vertex]\label{lem:S44}
+Let $N\ge2$ and $1\le r\le N-1$. Then (i) $E_r>E_0$; (ii) $c_r>3/5$;
+(iii) $c_0\ge c_r$, with equality only for $N=2$, $r=1$.
+\end{lemma}
+
+\begin{proof}
+Let $G(t)=(tI+L_P)^{-1}$ for $t>0$, and write $t=4\sinh^2u$ with $u>0$. Then
+$t=1$ corresponds to $u=\log\varphi$, since
+$\sinh(\log\varphi)=(\varphi-\varphi^{-1})/2=1/2$. Let $e_j(t)$ be the
+determinant of the $j\times j$ tridiagonal matrix with diagonal
+$(t+1,t+2,\dots,t+2)$ and entries $-1$ next to the diagonal ($e_0=1$); it is
+the principal minor of $tI+L_P$ on a segment of $j$ consecutive vertices
+that contains an end of $P$ and does not contain $r$. Expanding along the
+last row, $e_j=(t+2)e_{j-1}-e_{j-2}$ for $j\ge2$. Since $t+2=2\cosh2u$ and
+$e_1=t+1=2\cosh2u-1=\cosh3u/\cosh u$, and since
+$2\cosh2u\cosh((2j-1)u)=\cosh((2j+1)u)+\cosh((2j-3)u)$, induction gives
+\[
+e_j=\cosh((2j+1)u)/\cosh u\qquad(j\ge0).
+\]
+For $m\ge2$, expanding $\det(tI+L_{P_m})$ at an end vertex gives
+$(t+1)e_{m-1}-e_{m-2}$; with $t+1=2\cosh2u-1$ and
+$2\cosh2u\cosh((2m-1)u)=\cosh((2m+1)u)+\cosh((2m-3)u)$ this equals
+\[
+\frac{\cosh((2m+1)u)-\cosh((2m-1)u)}{\cosh u}=\frac{2\sinh u\,\sinh(2mu)}{\cosh u};
+\]
+for $m=1$ the right side is $4\sinh^2u=t=\det(tI+L_{P_1})$. Removing $r$
+splits $P$ into segments of $r$ and $s=N-r$ vertices. With $a=2r+1$,
+$b=2s+1$, $a+b=2N+2$, Cramer's rule gives, for every $0\le r\le N$,
+\begin{equation}\label{eq:Grr}
+G_{rr}(t)=\frac{e_re_s}{\det(tI+L_P)}=\frac{\cosh(au)\cosh(bu)}{2\sinh u\cosh u\,\sinh((a+b)u)}.
+\end{equation}
+
+(i) By \eqref{eq:Grr}, for $r=0$ one has $a=1$ and $b=a+b-1$ with the same
+$a+b$; so
+\[
+\frac{G_{rr}}{G_{00}}=\frac{\cosh(au)\cosh(bu)}{\cosh(u)\cosh((a+b-1)u)}
+=\frac{\cosh((a+b)u)+\cosh((a-b)u)}{\cosh((a+b)u)+\cosh((a+b-2)u)}<1,
+\]
+because $|a-b|<a+b-2$ when $a,b\ge3$, that is when $1\le r\le N-1$. So
+$G_{rr}<G_{00}$ at $t=1$, and $E_r>E_0$.
+
+(ii) Since $\frac{d}{dt}G(t)=-G(t)^2$, $c_r=-\frac{d}{dt}\log G_{rr}(t)$ at
+$t=1$. From \eqref{eq:Grr},
+\[
+\frac{d}{du}\log G_{rr}=a\tanh(au)+b\tanh(bu)-\tanh u-\coth u-(a+b)\coth((a+b)u),
+\]
+and $dt/du=4\sinh2u$. At $u=\log\varphi$: $\cosh u=\sqrt5/2$,
+$\sinh2u=(\varphi^2-\varphi^{-2})/2=\sqrt5/2$, $\tanh u=1/\sqrt5$,
+$\coth u=\sqrt5$. Hence
+\begin{equation}\label{eq:cr}
+c_r=\frac{6/\sqrt5+(a+b)\coth((a+b)u)-a\tanh(au)-b\tanh(bu)}{2\sqrt5},
+\end{equation}
+valid for every $0\le r\le N$ (for $r=0$, $a=1$ and $b=2N+1$). Since
+$\coth>1>\tanh$ on $(0,\infty)$, $(a+b)\coth((a+b)u)>a+b>a\tanh(au)+b\tanh(bu)$,
+so the numerator exceeds $6/\sqrt5$ and $c_r>3/5$.
+
+(iii) In \eqref{eq:cr} the $\coth$ terms are the same for $r$ and for $0$.
+Using $\tanh z=1-2/(e^{2z}+1)$, and noting that the linear parts cancel
+because $a+b=1+(2N+1)$, one gets at $u=\log\varphi$ (where
+$e^{2xu}=\varphi^{2x}$)
+\[
+c_0-c_r=\frac{\psi(1)+\psi(2N+1)-\psi(a)-\psi(b)}{\sqrt5},\qquad
+\psi(x)=\frac{x}{\varphi^{2x}+1}.
+\]
+Put $f_k=\psi(2k+1)$ and $\delta_k=f_k-f_{k+1}$. Then $\psi(a)=f_r$,
+$\psi(b)=f_s$, and, as $N=s+r$,
+\[
+f_0+f_N-f_r-f_s=(f_0-f_r)-(f_s-f_{s+r})=\sum_{i=0}^{r-1}(\delta_i-\delta_{s+i}).
+\]
+It suffices to show that $\delta$ is non-increasing with $\delta_0=\delta_1$
+and $\delta_k>\delta_{k+1}$ for $k\ge1$. Then every term is $\ge0$ (as
+$s+i>i$). If $r\ge2$, the term $i=1$ is $\delta_1-\delta_{s+1}>0$; if $r=1$,
+the only term is $\delta_0-\delta_s$, which vanishes exactly when $s=1$. So
+equality holds only for $r=s=1$, that is $N=2$, $r=1$.
+
+\emph{$\delta_0=\delta_1$.} For odd $x$,
+$\varphi^{2x}+1=\varphi^x(\varphi^x+\varphi^{-x})=\sqrt5F_x\varphi^x$, where
+$F_x$ is the Fibonacci number (Binet's formula). With $F_1=1$, $F_3=2$,
+$F_5=5$,
+\[
+\psi(1)-2\psi(3)+\psi(5)=\frac{\varphi^{-1}-3\varphi^{-3}+\varphi^{-5}}{\sqrt5}
+=\frac{\varphi^{-5}(\varphi^4-3\varphi^2+1)}{\sqrt5}=0,
+\]
+since $\varphi^4=3\varphi+2$ and $3\varphi^2=3\varphi+3$.
+
+\emph{$\delta_k>\delta_{k+1}$ for $k\ge1$.} Since
+$\delta_k-\delta_{k+1}=\psi(2k+1)-2\psi(2k+3)+\psi(2k+5)$, this follows from
+strict convexity of $\psi$ on $[3,\infty)$. With $\gamma=2\log\varphi$ and
+$\sigma(x)=1/(e^{\gamma x}+1)$ one has $\psi=x\sigma$,
+$\sigma'=-\gamma\sigma(1-\sigma)$, and
+\[
+\psi''(x)=\gamma\sigma(1-\sigma)\bigl[\gamma x\tanh(\gamma x/2)-2\bigr],
+\]
+which is positive if and only if $z\tanh z>1$ for $z=x\log\varphi$. The
+function $z\tanh z$ is increasing on $(0,\infty)$. At $x=3$,
+$\tanh(3\log\varphi)=(\varphi^6-1)/(\varphi^6+1)=(8\varphi+4)/(8\varphi+6)=2/\sqrt5>0.894$
+and $3\log\varphi>1.443$, so $z\tanh z>1.29$ for every $x\ge3$.
+\end{proof}
+
+\begin{lemma}[S45: merging two pendant paths lowers the trace]\label{lem:S45}
+Let $(X,v)$ be a rooted tree with $|X|\ge2$ and let $j_1,j_2\ge1$. Let
+$T(j_1,j_2)$ be the tree obtained from $X$ by attaching at $v$ two pendant
+paths with $j_1$ and $j_2$ new vertices, and $T(j_1+j_2,0)$ the tree
+obtained from $X$ by attaching at $v$ one pendant path with $j_1+j_2$ new
+vertices. Then $\Tr(T(j_1,j_2))>\Tr(T(j_1+j_2,0))$.
+\end{lemma}
+
+\begin{proof}
+Let $N=j_1+j_2\ge2$ and $P=P_{N+1}$ as before Lemma~\ref{lem:S44}. Then
+$T(j_1,j_2)$ is $X$ glued at $v$ to $(P,j_1)$, and $T(N,0)$ is $X$ glued at
+$v$ to $(P,0)$; note $1\le j_1\le N-1$. In Lemma~\ref{lem:S43} with
+$(Y,v)=(P,r)$ one has $\varepsilon_Y=E_r$, $\kappa_Yg_Y=k_Y/g_Y=c_r$, and
+$t_Y=\Tr(P)$, which does not depend on $r$. Put $a=1/g_X$ and
+$\kappa=\kappa_X$; then $\varepsilon_X=a-1$ and $g_T=1/(a+E_r)$, so
+Lemma~\ref{lem:S43} gives
+\begin{gather*}
+\Tr(T(N,0))=t_X+\Tr(P)-\Theta(E_0,c_0),\\
+\Tr(T(j_1,j_2))=t_X+\Tr(P)-\Theta(E_{j_1},c_{j_1}),\\
+\Theta(E,c)=\frac{1+E\kappa/a+(a-1)c}{a+E}.
+\end{gather*}
+Write $E=E_{j_1}$, $c=c_{j_1}$, $E'=E_0$, $c'=c_0$. Then
+$\Tr(T(j_1,j_2))-\Tr(T(N,0))=\Theta(E',c')-\Theta(E,c)$. Multiplying
+$\Theta(E',c')$ by $a(a+E')$ gives $a[1+(a-1)c']+\kappa E'$, and similarly
+for $\Theta(E,c)$; expanding, the terms in $\kappa$ give $\kappa a(E'-E)$, and
+\begin{gather*}
+a(a+E)(a+E')\bigl[\Theta(E',c')-\Theta(E,c)\bigr]=a\,\mathcal N,\\
+\mathcal N=(E-E')(1-\kappa)+(a-1)\bigl[(a+E)c'-(a+E')c\bigr].
+\end{gather*}
+By Lemma~\ref{lem:S44}(i), $E>E'$, and by Lemma~\ref{lem:S43p},
+$1-\kappa\ge-(a-1)/2$; so
+$\mathcal N\ge(a-1)\bigl[(a+E)c'-(a+E')c-(E-E')/2\bigr]$. By
+Lemma~\ref{lem:S44}(iii), $c'\ge c$, so $(a+E)c'\ge(a+E)c$ and
+\[
+\mathcal N\ge(a-1)(E-E')(c-1/2),
+\]
+which is positive by Lemma~\ref{lem:S43p} ($a>1$), Lemma~\ref{lem:S44}(i)
+and Lemma~\ref{lem:S44}(ii) ($c>3/5$). As $a(a+E)(a+E')>0$, the claim
+follows.
+\end{proof}
+
+\begin{theorem}[T10: the path minimizes $\tr(I+L)^{-1}$]\label{thm:T10}
+For every tree $T$ of order $n\ge1$, $\tr(I+L_T)^{-1}\ge\tr(I+L_{P_n})^{-1}$,
+with equality only for $T\cong P_n$. Equivalently, among trees of order $n$,
+$\sum_j\mu_j/(1+\mu_j)$ over the Laplacian eigenvalues $\mu_j$ is maximized
+exactly by the path.
+\end{theorem}
+
+\begin{proof}
+By induction on the number of leaves. A tree with at most two leaves is a
+path. Otherwise $T$ has a vertex of degree at least $3$. Root $T$ at a leaf
+$\rho$ and let $v$ be a vertex of degree $\ge3$ at maximum distance from
+$\rho$. Every branch at $v$ (component of $T-v$) not containing $\rho$
+contains no vertex of degree $\ge3$, since each of its vertices is farther
+from $\rho$ than $v$; so it is a path, and its vertex adjacent to $v$ has
+degree at most $2$ in $T$, hence is an end of that path. There are
+$\deg v-1\ge2$ such branches. Take two of them, with $j_1$ and $j_2$
+vertices, and let $X$ be $T$ without them; then $v\in X$ and $\rho\in X$
+with $\rho\ne v$, so $|X|\ge2$, and $T=T(j_1,j_2)$ in the notation of
+Lemma~\ref{lem:S45}. By Lemma~\ref{lem:S45}, $T'=T(j_1+j_2,0)$ has
+$\Tr(T')<\Tr(T)$. The tree $T'$ has order $n$ and one leaf fewer than $T$:
+the two ends of the two pendant paths are replaced by one, and $v$ keeps
+degree $\deg v-1\ge2$. By induction $\Tr(T')\ge\Tr(P_n)$, so
+$\Tr(T)>\Tr(P_n)$. The equivalent form follows from
+$\sum_j\mu_j/(1+\mu_j)=n-\Tr(T)$ (proof of Lemma~\ref{lem:S42}).
+\end{proof}
+
+\begin{remark}[a second route; not reviewed]\label{rem:AMW}
+The project's literature audit derived Theorem~\ref{thm:T10} from the work
+of Andriantiana, Razanajatovo Misanantenaina and Wagner~\cite{AMW} as
+follows. For a forest the matching polynomial is the characteristic
+polynomial. The subdivision $S(T)$ of a tree $T$ is a tree whose adjacency
+eigenvalues are $\pm\sqrt{\mu_j}$ (over the Laplacian eigenvalues $\mu_j$ of
+$T$) together with zeros. By \cite[Lemma~5.1]{AMW}, the average size of a
+matching satisfies $\mathrm{avm}(G)=\frac12\sum_\lambda\lambda^2/(\lambda^2+1)$
+over the zeros $\lambda$ of the matching polynomial of $G$; hence
+$\mathrm{avm}(S(T))=\sum_j\mu_j/(1+\mu_j)$. By \cite[Theorem~4.4]{AMW}, the
+path maximizes $\mathrm{avm}$ among trees of a given order, strictly (its
+proof uses computer-checked cases). Since $S(P_n)=P_{2n-1}$,
+Theorem~\ref{thm:T10} would follow. This derivation is the auditor's; its two
+classical steps (matching polynomial of a forest; spectrum of the
+subdivision) were not checked against a source, and no reviewer checked the
+derivation. If it is correct, Theorem~\ref{thm:T10} is a known consequence
+of a published theorem, and the proof given above is an independent,
+self-contained one. We regard Theorem~\ref{thm:T10} as very probably known.
+\end{remark}
+
+\begin{lemma}[S46: the value for the path]\label{lem:S46}
+For $n\ge1$, with $r=\varphi^{-2}$,
+\[
+\tr(I+L_{P_n})^{-1}=\frac{n}{\sqrt5}+\frac25+\frac{2n}{\sqrt5}\,\frac{r^{2n}}{1-r^{2n}}>\frac{n}{\sqrt5}+\frac25 .
+\]
+\end{lemma}
+
+\begin{proof}
+By (PS), the eigenvalues of $I+L_{P_n}$ are $3-2\cos\theta_j$,
+$\theta_j=j\pi/n$, $0\le j\le n-1$. Since $r^2-3r+1=0$ (equivalently
+$\varphi^4-3\varphi^2+1=0$), $r+1/r=3$ and
+\[
+\frac1{3-2\cos\theta}=\frac{r}{1-2r\cos\theta+r^2}
+=\frac1{\sqrt5}\Bigl(1+2\sum_{m\ge1}r^m\cos m\theta\Bigr),
+\]
+by the Poisson kernel, with $r/(1-r^2)=1/(\varphi^2-\varphi^{-2})=1/\sqrt5$;
+the series converges absolutely, as $0<r<1$. Now
+$\sum_{j=0}^{n-1}\cos(m\theta_j)=\operatorname{Re}\sum_{j=0}^{n-1}\omega^j$ with
+$\omega=e^{i\pi m/n}$, and $\omega^n=e^{i\pi m}$. If $2n\mid m$ the sum is $n$.
+If $m$ is even and $2n\nmid m$, then $\omega\ne1=\omega^n$ and the sum is $0$.
+If $m$ is odd, then $m/n$ is not an even integer, so $\omega\ne1$, and
+$\omega^n=-1$; the sum is
+$\operatorname{Re}[(1-\omega^n)/(1-\omega)]=\operatorname{Re}[2/(1-\omega)]=1$,
+because $\operatorname{Re}[1/(1-e^{i\psi})]=1/2$ whenever $e^{i\psi}\ne1$.
+This covers $n=1$ (one eigenvalue, equal to $1$). Summing over $j$ and
+interchanging the sums (absolute convergence),
+\[
+\tr(I+L_{P_n})^{-1}=\frac1{\sqrt5}\Bigl[n+2\sum_{m\text{ odd}}r^m+2n\sum_{l\ge1}r^{2nl}\Bigr],
+\]
+and $2\sum_{m\text{ odd}}r^m=2r/(1-r^2)=2/\sqrt5$, which gives the formula.
+The last term is positive.
+\end{proof}
+
+\begin{remark}
+The same value follows from \cite[Lemma~4.2, eq.~(8)]{AMW} applied to the
+path with $2n-1$ vertices, as the literature audit noted (not checked by a
+reviewer).
+\end{remark}
+
+\section{Proof of the upper bound}\label{sec:proof}
+
+\begin{theorem}[T9: the upper half of Conjecture~\ref{conj:CS}]\label{thm:T9}
+For every tree $T$ of order $n\ge3$, every maximizing index $p$ of the
+normalized coefficients $d_0,\dots,d_{n-2}$ satisfies $p<n-n/\sqrt5+3/5$. In
+particular $p\le\lceil n-n/\sqrt5\rceil$; more precisely
+$p\le K:=\lceil n-n/\sqrt5-2/5\rceil$.
+\end{theorem}
+
+\begin{proof}
+Let $x=n-n/\sqrt5$, which is irrational since $\sqrt5$ is, and
+$K=\lceil x-2/5\rceil$; note $K\le\lceil x\rceil=M$, and $K\ge2$ because
+$x-2/5\ge3(1-1/\sqrt5)-2/5>1$ for $n\ge3$. By Lemma~\ref{lem:S42},
+Theorem~\ref{thm:T10} and Lemma~\ref{lem:S46},
+\[
+\mu_q\le n-\Tr(T)\le n-\Tr(P_n)<x-2/5 .
+\]
+By (D), applied to $q$ (positive coefficients, only real zeros), every
+maximizing index $m_q$ of $q_0,\dots,q_{n-1}$ satisfies
+$m_q<\mu_q+1<(x-2/5)+1$. As $m_q$ is an integer and $x-2/5$ is not,
+$m_q\le\lceil x-2/5\rceil=K$.
+
+If $K\ge n-2$, every maximizing index $p$ of $d_0,\dots,d_{n-2}$ satisfies
+$p\le n-2\le K$. Otherwise $0\le K\le n-3$, and $q_{K+1}<q_K$: if not, then,
+the ratios $\varrho_j=q_{j+1}/q_j$ being strictly decreasing (proof of
+Lemma~\ref{lem:S41}), $\varrho_j>\varrho_K\ge1$ for $j<K$, so
+$q_0<q_1<\dots<q_K\le q_{K+1}$, and the maximum of $q_0,\dots,q_{n-1}$ would
+be attained at some index $\ge K+1$, contradicting $m_q\le K$ for every
+maximizing index $m_q$. Lemma~\ref{lem:S41} with $k=K$ then gives $p\le K$.
+In both cases $p\le K\le M$ and $p\le K<(x-2/5)+1=x+3/5$.
+\end{proof}
+
+\begin{corollary}[conditional on the lower half]\label{cor:both}
+Suppose that, for every tree $T$ of order $n\ge3$, every maximizing index of
+$d_0(T),\dots,d_{n-2}(T)$ is at least $\lfloor n/2\rfloor$ (the lower half
+of Conjecture~\ref{conj:CS}; the project's candidate proof of it is
+Theorem~T6(c) of \nolinkurl{notes/lower-bound.md}, record MD-0019, not
+reproduced or assessed here). Then Conjecture~\ref{conj:CS} holds for every
+tree, in the strong reading: every maximizing index lies in
+$[\lfloor n/2\rfloor,\lceil n-n/\sqrt5\rceil]$.
+\end{corollary}
+
+\begin{proof}
+Combine the hypothesis with Theorem~\ref{thm:T9}; unimodality is
+\cite[Theorem~2.1]{AAB}.
+\end{proof}
+
+Both halves are candidate proofs; neither is established, and neither has
+been read by a mathematician.
+
+\begin{corollary}\label{cor:sharper}
+(a) For every tree of order $n\ge3$, every maximizing index is at most
+$K=\lceil n-n/\sqrt5-2/5\rceil$, which equals $\lfloor n-n/\sqrt5\rfloor$
+when the fractional part of $n-n/\sqrt5$ is below $2/5$. In particular, the
+peak of the path can equal $\lceil n-n/\sqrt5\rceil$ only when that
+fractional part exceeds $2/5$ (in fact only when it exceeds $4/5$, by
+Corollary~\ref{cor:S48}).
+
+(b) For an individual tree $T$ of order $n\ge3$, every maximizing index $p$
+satisfies $p<1+\sum_j\mu_j/(1+\mu_j)=n+1-\tr(I+L_T)^{-1}$.
+\end{corollary}
+
+\begin{proof}
+(a) The first statement is Theorem~\ref{thm:T9}. If the fractional part
+$f$ of $x=n-n/\sqrt5$ is below $2/5$, then
+$x-2/5\in(\lfloor x\rfloor-1,\lfloor x\rfloor)$, so $K=\lfloor x\rfloor$, which
+is less than $\lceil x\rceil$ as $x$ is irrational. The last sentence follows
+since the path is a tree, with Corollary~\ref{cor:S48} for the refinement.
+
+(b) Let $k^*$ be the largest maximizing index of $q_0,\dots,q_{n-1}$. By (D)
+and Lemma~\ref{lem:S42}, $k^*<\mu_q+1\le n+1-\Tr(T)$. If $k^*\le n-3$, then
+$q_{k^*+1}<q_{k^*}$ (as $k^*+1$ is not maximizing), and Lemma~\ref{lem:S41}
+with $k=k^*$ gives $p\le k^*$. Otherwise $p\le n-2\le k^*$. In both cases
+$p\le k^*<n+1-\Tr(T)$.
+\end{proof}
+
+\begin{remark}
+For the bound $p\le\lceil n-n/\sqrt5\rceil$ of the conjecture alone,
+$\Tr(T)>n/\sqrt5$ is enough: it gives $\mu_q<x$, hence $m_q<x+1$, so
+$m_q\le\lceil x\rceil$, and then Lemma~\ref{lem:S41} as in the proof of
+Theorem~\ref{thm:T9} with $K$ replaced by $\lceil x\rceil$. The extra $2/5$
+of Lemma~\ref{lem:S46} is used only for the sharper bound $K$.
+Theorem~\ref{thm:T10} is stronger than either requirement. The statement
+that the path has the largest peak index among all trees of order $n$ is
+not proved here for general $n$, and Theorem~\ref{thm:T9} does not need it
+(but see the end of Section~\ref{sec:path}).
+\end{remark}
+
+\section{The peak of the path}\label{sec:path}
+
+In this section $n\ge3$, $d_j=d_j(P_n)$, $x=n-n/\sqrt5$ and $y=n/\sqrt5$
+(both irrational). All statements of this section rest on Collins's formula
+(C). For every integer $k$ put
+\[
+h_n(k)=5k^3+2k^2-4k-2-kn^2,
+\]
+and let $k_0(n)$ be the least integer $k\ge2$ with $h_n(k)>0$.
+
+\begin{lemma}[S47: the peak of the path]\label{lem:S47}
+Let $n\ge3$. Then $k_0(n)$ exists and $k_0(n)\le n-1$, and
+$d_0,\dots,d_{n-2}$ is strictly increasing up to the index $n-k_0(n)$ and
+strictly decreasing after it; so the path has the unique maximizing index
+$p(P_n)=n-k_0(n)$. Moreover $p(P_n)\in\{\lfloor x\rfloor,\lceil x\rceil\}$, and
+$p(P_n)=\lceil x\rceil$ if and only if $h_n(\lfloor y\rfloor)>0$.
+\end{lemma}
+
+\begin{proof}
+For $2\le k\le n-1$, by (C) (applied to $k$ and to $k+1\le n$) and
+$\binom{n+k}{2k+1}/\binom{n+k-1}{2k-1}=\frac{(n+k)(n-k)}{2k(2k+1)}$,
+\[
+\frac{d_{n-k}}{d_{n-k-1}}=\frac{k-1}{k}\cdot\frac{k+1}{k}\cdot\frac{2k(2k+1)}{(n+k)(n-k)}
+=\frac{2(k^2-1)(2k+1)}{k(n^2-k^2)} .
+\]
+All factors are positive, and $2(k^2-1)(2k+1)-k(n^2-k^2)=h_n(k)$; so
+$d_{n-k}>d_{n-k-1}$ if and only if $h_n(k)>0$, and likewise with $<$ and $=$.
+Now $h_n(k)/k=5k^2+2k-4-2/k-n^2$ is strictly increasing in real $k>0$, and
+$h_n(k)\ne0$ for every integer $k\ge2$: a zero would make $k$ divide $2$
+(as $h_n(k)\equiv-2\pmod k$), so $k=2$, and $h_n(2)=38-2n^2\ne0$. Hence,
+among integers $k\ge2$, $h_n(k)>0$ exactly for $k\ge k_0(n)$, once $k_0(n)$
+exists. And $k_0(n)\le n-1$:
+$h_n(n-1)=(n-1)\bigl(5(n-1)^2-n^2\bigr)+2(n-1)^2-4(n-1)-2$ is positive for
+$n\ge4$ (both parts are, since $\sqrt5(n-1)>n$, and $2k^2-4k-2>0$ for
+$k=n-1\ge3$), and equals $20$ for $n=3$. Reading $k=n-1,n-2,\dots,2$, that is
+the index pairs $(n-k-1,n-k)$ from $(0,1)$ upwards, $d$ increases strictly
+while $k\ge k_0$ and decreases strictly once $k<k_0$; the unique peak is at
+$n-k_0$.
+
+\emph{Location for $n\ge6$.} Then $y\ge6/\sqrt5>1+\sqrt2$ (since
+$\sqrt5(1+\sqrt2)<5.4$). For $k=\lceil y\rceil>y$, monotonicity gives
+$h_n(k)/k>5y^2+2y-4-2/y-n^2=2y-4-2/y>0$ (as $y^2-2y-1>0$), so
+$k_0\le\lceil y\rceil$. If $k=\lfloor y\rfloor-1\ge2$, then $k<y-1$ and
+$h_n(k)/k<5(y-1)^2+2(y-1)-4-2/(y-1)-n^2=-8y-1-2/(y-1)<0$, so $h_n<0$ at all
+integers $2\le k\le\lfloor y\rfloor-1$ and $k_0\ge\lfloor y\rfloor$; this is
+trivially true also when $\lfloor y\rfloor-1<2$. Hence
+$k_0\in\{\lfloor y\rfloor,\lceil y\rceil\}$ and
+$p=n-k_0\in\{\lfloor x\rfloor,\lceil x\rceil\}$, because
+$n-\lceil y\rceil=\lfloor x\rfloor$ and $n-\lfloor y\rfloor=\lceil x\rceil$.
+Since $\lfloor y\rfloor\ge2$, $p=\lceil x\rceil$ if and only if
+$k_0=\lfloor y\rfloor$, if and only if $h_n(\lfloor y\rfloor)>0$.
+
+\emph{The cases $n=3,4,5$, directly.} Here $x\approx1.66,\,2.21,\,2.76$ and
+$\lfloor y\rfloor=1,1,2$. One has $h_3(2)=20$, $h_4(2)=6$, $h_5(2)=-12$,
+$h_5(3)=64$, so $k_0=2,2,3$ and $p=1,2,2=\lfloor x\rfloor$. For the criterion
+(the polynomial $h_n$ being defined at every integer):
+$h_3(1)=-8$, $h_4(1)=-15$, $h_5(2)=-12$ are negative and $p=\lfloor x\rfloor\ne\lceil x\rceil$,
+so ``$p=\lceil x\rceil$ if and only if $h_n(\lfloor y\rfloor)>0$'' holds, both
+sides being false.
+\end{proof}
+
+\begin{corollary}[S48: when the path reaches the ceiling]\label{cor:S48}
+Let $n\ge3$ and let $\theta$ be the fractional part of $y=n/\sqrt5$.
+(a) If $\theta\ge1/5$, then $p(P_n)=\lfloor x\rfloor$. (b) If $\theta<1/10$ and
+$n\ge30$, then $p(P_n)=\lceil x\rceil$. (c) In particular,
+$p(P_n)=\lceil n-n/\sqrt5\rceil$ implies that the fractional part of
+$n-n/\sqrt5$ exceeds $4/5$, and $p(P_n)=\lceil n-n/\sqrt5\rceil$ holds for
+infinitely many $n$. Thus the upper bound $\lceil n-n/\sqrt5\rceil$ of
+Conjecture~\ref{conj:CS} is attained, by the path, for infinitely many $n$,
+and for those $n$ it cannot be replaced by $\lfloor n-n/\sqrt5\rfloor$.
+\end{corollary}
+
+\begin{proof}
+For $n\le5$, Lemma~\ref{lem:S47} gives $p=\lfloor x\rfloor$ directly, so (a)
+holds and (b), (c) need only $n\ge6$. Let $n\ge6$, so that
+$k=\lfloor y\rfloor=y-\theta\ge2$. Then
+\[
+h_n(k)/k=2y(1-5\theta)+5\theta^2-2\theta-4-2/k .
+\]
+(a) If $\theta\ge1/5$, the first term is $\le0$, $5\theta^2-2\theta-4<0$ on
+$[0,1)$, and $-2/k<0$; so $h_n(\lfloor y\rfloor)<0$ and Lemma~\ref{lem:S47}
+gives $p=\lfloor x\rfloor$. (b) If $\theta<1/10$ and $n\ge30$, the first term
+exceeds $y\ge30/\sqrt5>13$, while $|5\theta^2-2\theta-4-2/k|<6$; so
+$h_n(\lfloor y\rfloor)>0$ and $p=\lceil x\rceil$. (c) The fractional part of
+$x=n-y$ is $1-\theta$; if $p=\lceil x\rceil$ then $\theta<1/5$ by (a), so
+$1-\theta>4/5$. Since $1/\sqrt5$ is irrational, (K) gives infinitely many
+$n$ with $\theta<1/10$, hence infinitely many such $n\ge30$, and for them
+$p(P_n)=\lceil x\rceil$ by (b). As $p(P_n)$ is the unique maximizing index
+(Lemma~\ref{lem:S47}) and $\lceil x\rceil>\lfloor x\rfloor$, the ceiling cannot
+be replaced by the floor for those $n$.
+\end{proof}
+
+\emph{Consistency with Theorem~\ref{thm:T9}.} Theorem~\ref{thm:T9} gives
+$p(T)\le\lceil x-2/5\rceil$ for every tree. When the path is at $\lceil x\rceil$,
+the fractional part of $x$ exceeds $4/5>2/5$, so
+$\lceil x-2/5\rceil=\lceil x\rceil$: no contradiction. When the fractional
+part of $x$ is below $2/5$ (which implies $\theta=1-\frc{x}>3/5\ge1/5$),
+Theorem~\ref{thm:T9} gives $p(T)\le\lfloor x\rfloor$ for every tree $T$ of
+order $n$, and Corollary~\ref{cor:S48}(a) gives $p(P_n)=\lfloor x\rfloor$; so
+for those $n$ the path has the largest peak index among trees of order $n$.
+
+\section{Computational evidence}\label{sec:comp}
+
+The computations below support, but are not part of, the proofs. They were
+not rerun for this draft.
+
+\emph{Stored computation.} \nolinkurl{experiments/CJ-0001-collins-shor-peak/upper_bound.py},
+committed at \texttt{3b95386} with the regression test
+\nolinkurl{tests/test_cj0001_upper_bound.py}; result file
+\nolinkurl{experiments/CJ-0001-collins-shor-peak/results/upper-bound.json}. Command
+(from the repository root):
+\begin{verbatim}
+uv run python \
+  experiments/CJ-0001-collins-shor-peak/upper_bound.py \
+  --out \
+  experiments/CJ-0001-collins-shor-peak/results/upper-bound.json
+\end{verbatim}
+The stored run (block \texttt{run} of the result file) was made at commit
+\texttt{917d657} in a clean worktree, with Python 3.12.4, python-flint 0.9.0
+and networkx 3.7, in 298.7 s, with 0 failures in every part. Arithmetic is
+exact (integers, rationals) except where stated. It checks: Theorem~\ref{thm:T10}
+on all trees of order $2$ to $20$; Lemma~\ref{lem:S46} (the inequality
+exactly for $n\le200$; the closed form to 50 significant digits for
+$n\le60$, high-precision numeric, not exact); the bound $p<n-n/\sqrt5+3/5$
+of Theorem~\ref{thm:T9} on all trees of order $3$ to $18$ and, through
+Collins's formula, on the path for $n\le2000$ (the formula itself is checked
+against the distance matrix only for $n\le30$; for $31\le n\le2000$ these
+path checks rest on (C)); Lemma~\ref{lem:S45} on all rooted trees with
+$2\le|X|\le8$ and $j_1+j_2\le8$; Lemma~\ref{lem:S44}(iii) for $N\le60$; the
+trace formula of Lemma~\ref{lem:S43} on all pairs of rooted trees of order
+at most $6$; and, in floating point (exploratory only), Lemma~\ref{lem:S42}
+on all trees of order $3$ to $14$. The result file also contains a part V
+(trees of order at most $9$ computed by three methods, according to the
+script's help text), not described in the notes. For the path, the run
+finds 393 values of $n\le2000$ with $p(P_n)=\lceil x\rceil$; the smallest
+fractional part of $x$ among them is $0.80128$.
+
+\emph{Reviewers' own computations} (scratch, not stored). The two AI reviews
+of the upper bound checked every intermediate inequality and
+Theorem~\ref{thm:T9} in exact or rigorous arithmetic on all trees of order
+$3$ to $17$ (respectively $3$ to $16$), on paths up to order $160$
+(respectively $3000$, via Collins's formula), and on $198$ further trees of
+orders $20$ to $70$ (respectively $162$ trees of orders $17$ to $60$; random
+trees and special families); the review of Section~\ref{sec:path} checked
+Collins's formula against the distance matrix for $n\le20$ and
+Lemma~\ref{lem:S47} and Corollary~\ref{cor:S48} exactly for $3\le n\le700$.
+No counterexample to any statement was found. Finite checks establish the
+statements only in the range checked.
+
+\section{Formal verification}\label{sec:formal}
+
+Only the sequence part of Lemma~\ref{lem:S41} is formalized: Lean~4
+theorems \nolinkurl{Conjectura.Research.CollinsShorPeak.upperD_succ_lt} and
+\nolinkurl{Conjectura.Research.CollinsShorPeak.upperD_maxIndex_le} in
+\nolinkurl{formalization/Conjectura/Research/CollinsShorPeak/UpperBoundPeak.lean},
+as statements about real sequences in which positivity of $q$, the strict
+decrease of the ratios $q_{j+1}/q_j$ and $q_{n-1}/q_{n-2}=1/\alpha$ are
+hypotheses. Nothing about trees, distance matrices, Lemma~\ref{lem:S40},
+Darroch's rule, the trace of $(I+L)^{-1}$, Theorem~\ref{thm:T9} or
+Section~\ref{sec:path} is formalized. The project records a passing receipt
+(\nolinkurl{verification/receipts/20261127T192616Z-e16cb626ca-dirty-passed.json};
+Lean 4.36.0, Mathlib commit \texttt{fc4f59e5}) made at commit
+\texttt{e16cb62} on a working tree that was not clean; the comparison of the
+Lean statements with the note was made by the agent that wrote them and has
+not been independently reviewed. The check was not rerun for this draft.
+
+\section{Literature and novelty}\label{sec:literature}
+
+\emph{No claim of novelty is made.} What was searched, as recorded in the
+project's dossier for this problem (audit for session 13, 2026-11-27, by an
+AI literature-auditor, model \nolinkurl{claude-opus-5-5}): 15 web queries
+(English web and arXiv only); the five papers citing \cite{AAB} found
+through the Semantic Scholar API (arXiv:2407.03309, 2206.07561, 2104.14516,
+2103.00647, 1812.05734); \cite{AMW} (arXiv version, pp.~1--18; the journal
+version was not read); \cite{Pit97} (p.~284); \cite{Mer90} (in full); and
+several abstracts. Earlier audits of the project (sessions 2 to 11) read
+\cite{AAB}, parts of \cite{GL78}, \cite{Col89} in full and parts of Collins's
+thesis. Not searched: MathSciNet, zbMATH, Google Scholar, MathOverflow, and
+the papers citing \cite{AMW}. The two AI reviewers made a few further web
+searches of their own. An unsuccessful search does not establish
+originality.
+
+Findings within this coverage only.
+(1) No prior proof of the upper half of Conjecture~\ref{conj:CS} was found;
+the bound $\lceil 2n/3\rceil$ of \cite[Theorem~3.3]{AAB} is proved by ratio
+inequalities, and no source linking the peak with Darroch's rule was found.
+The ingredients (the spectral form, Darroch's rule, Merris's interlacing) are
+known tools.
+(2) Theorem~\ref{thm:T10} is very probably a known consequence of
+\cite[Theorem~4.4]{AMW} (Remark~\ref{rem:AMW}); our proof by merging pendant
+paths is independent of theirs. No direct statement in Laplacian,
+rooted-forest, resolvent-energy or Kirchhoff-index language was found.
+(3) Lemma~\ref{lem:S46} also follows from \cite[Lemma~4.2]{AMW}.
+(4) The location of the peak of the path up to one is the content of
+\cite[Theorem~3]{Col89}, whose last step is informal; the exact criterion of
+Lemma~\ref{lem:S47} and Corollary~\ref{cor:S48} was not the subject of a
+separate literature search, and its novelty is unknown.
+
+\section*{Status of the contributions}
+
+The project keeps four independent status fields for each registered
+contribution (registry \nolinkurl{research/discoveries.json}, values at the time
+of writing, uncommitted working tree of 2026-11-27):
+
+\smallskip
+\noindent\begin{tabular}{@{}p{0.22\textwidth}p{0.74\textwidth}@{}}
+MD-0022 (Thm.~\ref{thm:T9}) & mathematical: candidate-proof; formal: partial (Lemma~\ref{lem:S41}, sequence part, only); novelty: preliminary-search-completed (no prior proof found within the coverage above); external review: ai-reviewed. Standing: original candidate, not established.\\[0.5ex]
+MD-0023 (Thm.~\ref{thm:T10}) & mathematical: candidate-proof; formal: not-started; novelty: preliminary-search-completed; external review: ai-reviewed. Standing: very probably a known result (Remark~\ref{rem:AMW}); the proof here is independent; not established.\\[0.5ex]
+MD-0024 (Lem.~\ref{lem:S47}, Cor.~\ref{cor:S48}) & mathematical: candidate-proof; formal: not-started; novelty: unknown; external review: ai-reviewed. Standing: refinement of \cite[Theorem~3]{Col89}; not established.
+\end{tabular}
+\smallskip
+
+\noindent In short: written proofs, AI-reviewed, not human-reviewed, not
+peer-reviewed, novelty not established, essentially not formalized.
+
+\section*{Use of AI systems}
+
+\emph{Systems.} Claude (Anthropic), models \nolinkurl{claude-opus-5-5} and
+\nolinkurl{claude-sonnet-5-5}, run through Claude Code in the Conjectura
+repository in November 2026. Earlier project files used here
+(the identification Lemma~\ref{lem:ident} and the reading of \cite{Col89})
+were produced by \nolinkurl{claude-fable-5-2}.
+
+\emph{What the systems did.} \nolinkurl{claude-opus-5-5}, as principal
+investigator: the proof strategy (spectral form, Darroch's rule, reduction
+to $\tr(I+L)^{-1}$), the statements and proofs of Lemmas S40 to S47,
+Theorems T9 and T10 and Corollary S48, and the stored computation.
+\nolinkurl{claude-opus-5-5}, as literature auditor: located Darroch's rule
+through \cite{Pit97}, \cite{Mer90} and \cite{AMW}, and derived the second
+route of Remark~\ref{rem:AMW}. \nolinkurl{claude-opus-5-5}, as formalization
+agent: the Lean statements and proofs of Section~\ref{sec:formal}.
+\nolinkurl{claude-opus-5-5}, as publication agent: the assembly and wording of
+this draft from the notes. Reviews: (1) \nolinkurl{claude-opus-5-5}, fresh
+context (same model as the author, so independent by context only), of the
+upper-bound note at commit \texttt{53421a6}; (2) \nolinkurl{claude-sonnet-5-5},
+fresh context (different model, same vendor), of the same revision; (3)
+\nolinkurl{claude-sonnet-5-5}, recheck of the changes of revision~1 at commit
+\texttt{2037b18}; (4) \nolinkurl{claude-sonnet-5-5}, of the path note at
+\texttt{2037b18}. Each returned ``no gap found within stated scope'', and
+each listed defects of wording, provenance or citation, which are folded
+into this draft. No review covered this \LaTeX{} text itself.
+
+\emph{What was checked by a human.} Nothing. No mathematician has read the
+proofs of this draft or the project's candidate proof of the lower half. The
+project director set the research direction only.
+
+\emph{What was verified computationally or formally.} See
+Sections~\ref{sec:comp} and~\ref{sec:formal}: finite exact checks in the
+ranges stated; Lean verification of one sequence lemma under its stated
+hypotheses.
+
+\emph{What was not independently checked.} The classical tools marked as
+not checked in Section~\ref{sec:tools} (in particular Darroch's original
+paper, Graham--Pollak, Weyl and Newton at their sources); the second route
+of Remark~\ref{rem:AMW}; the agreement of the Lean statements with the
+notes; this manuscript text as a whole.
+
+\section*{Attribution}
+
+\begin{itemize}
+\item \emph{Research direction:} Gustavo Bernardo Brito (UFG), project
+director: chose the project and the problem, set the objectives and budgets
+of the sessions (for this work: to resolve the upper bound). No mathematical
+input.
+\item \emph{Human mathematical contribution:} none.
+\item \emph{AI-generated proof strategies and mathematical discoveries:}
+\nolinkurl{claude-opus-5-5} (Lemmas S40 to S47, Theorems T9 and T10,
+Corollary S48), 27 November 2026.
+\item \emph{Computational contribution:} \nolinkurl{claude-opus-5-5} wrote and
+ran \nolinkurl{upper_bound.py} (Python 3.12.4, python-flint 0.9.0, networkx 3.7;
+the hardware is not recorded in the \texttt{run} block of the result file).
+\item \emph{Formalization:} \nolinkurl{claude-opus-5-5} (formalization agent).
+\item \emph{Independent verification:} the four AI reviews listed above, run
+as fresh subagent contexts; none is human review.
+\item \emph{External mathematical results:} \cite{GL78,GP71,Dar64,Pit97,Mer90,Col89,AAB,AMW}
+and the textbook facts of Section~\ref{sec:tools}.
+\end{itemize}
+Authorship of an eventual manuscript is to be decided by the director under
+the project's attribution policy; operating an AI system does not by itself
+confer authorship, and AI systems are not listed as authors.
+
+\section*{Limitations}
+
+\begin{itemize}
+\item The proofs are candidate proofs checked by AI reviews only; no human
+has read them. AI review is not peer review.
+\item The proof uses classical results that were cited, not reproved, and
+some were not checked at their sources (Section~\ref{sec:tools}).
+Section~\ref{sec:path} depends on Collins's formula (C), checked against the
+distance matrix only for $n\le30$.
+\item Theorem~\ref{thm:T10} is very probably known; the novelty of the other
+results is not established, and the literature search has the gaps listed
+in Section~\ref{sec:literature}.
+\item Only one sequence lemma is formalized, under hypotheses; its receipt
+was produced on a working tree that was not clean.
+\item The lower half of the conjecture is not treated here;
+Corollary~\ref{cor:both} is conditional on it.
+\item This \LaTeX{} text was assembled by an AI system from the project notes
+and has not itself been reviewed; discrepancies with the notes, if any, are
+errors of this draft.
+\end{itemize}
+
+\begin{thebibliography}{99}
+
+\bibitem{AAB}
+G.~Aalipour, A.~Abiad, Z.~Berikkyzy, L.~Hogben, F.~H.~J. Kenter, J.~C.-H. Lin
+and M.~Tait, \emph{Proof of a conjecture of Graham and Lov\'asz concerning
+unimodality of coefficients of the distance characteristic polynomial of a
+tree}, arXiv:1507.02341. Journal version reported as Electron.\ J.\ Linear
+Algebra 34 (2018) 373--380 (not checked against the journal).
+
+\bibitem{AMW}
+E.~O.~D. Andriantiana, V.~Razanajatovo Misanantenaina and S.~Wagner,
+\emph{The average size of matchings in graphs}, Graphs Combin.\ 36 (2020)
+539--560, doi:10.1007/s00373-020-02136-1; arXiv:1903.09825 (version~1 read).
+
+\bibitem{BP}
+A.~Berman and R.~J. Plemmons, \emph{Nonnegative Matrices in the
+Mathematical Sciences}, SIAM, Philadelphia, 1994.
+
+\bibitem{BH}
+A.~E. Brouwer and W.~H. Haemers, \emph{Spectra of Graphs}, Springer, New
+York, 2012.
+
+\bibitem{Col89}
+K.~L. Collins, \emph{On a conjecture of Graham and Lov\'asz about distance
+matrices}, Discrete Appl.\ Math.\ 25 (1989) 27--35,
+doi:10.1016/0166-218X(89)90044-9.
+
+\bibitem{Dar64}
+J.~N. Darroch, \emph{On the distribution of the number of successes in
+independent trials}, Ann.\ Math.\ Statist.\ 35 (1964) 1317--1321.
+
+\bibitem{GL78}
+R.~L. Graham and L.~Lov\'asz, \emph{Distance matrix polynomials of trees},
+Adv.\ Math.\ 29 (1978) 60--88.
+
+\bibitem{GP71}
+R.~L. Graham and H.~O. Pollak, \emph{On the addressing problem for loop
+switching}, Bell System Tech.\ J.\ 50 (1971) 2495--2519.
+
+\bibitem{HLP}
+G.~H. Hardy, J.~E. Littlewood and G.~P\'olya, \emph{Inequalities}, 2nd ed.,
+Cambridge University Press, 1952.
+
+\bibitem{HJ}
+R.~A. Horn and C.~R. Johnson, \emph{Matrix Analysis}, 2nd ed., Cambridge
+University Press, 2013.
+
+\bibitem{Mer90}
+R.~Merris, \emph{The distance spectrum of a tree}, J.\ Graph Theory 14
+(1990) 365--369.
+
+\bibitem{Pit97}
+J.~Pitman, \emph{Probabilistic bounds on the coefficients of polynomials
+with only real zeros}, J.\ Combin.\ Theory Ser.\ A 77 (1997) 279--303.
+
+\end{thebibliography}
+
+\end{document}

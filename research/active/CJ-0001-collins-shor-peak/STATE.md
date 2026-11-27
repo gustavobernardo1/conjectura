@@ -405,7 +405,16 @@ full text of items 1 to 8 as of session 7 is there).
    Darroch (1964) not read in the original (read through Pitman 1997 by the
    auditor and a reviewer); a reviewer of another vendor when one is
    available; one manuscript of the whole conjecture; a result package;
-   Lean beyond Lemma S41.
+   Lean beyond Lemma S41. **Draft manuscript of the upper half**
+   (`manuscripts/CJ-0001-upper-bound/main.tex`, session 13, by a
+   publication-agent subagent; compiles with MiKTeX pdfLaTeX, 18 pages;
+   **unreviewed**): it supplies three small steps missing from the note —
+   a proof of Corollary 3 (`p_max(T) < n + 1 − tr(I+L_T)^{−1}`, via the
+   largest mode of `q` and S41), `K ≥ 2` in the proof of T9 (needed for
+   `k ≥ 0` in S41), the case `Y = {v}` of S43 — and some citation details
+   from memory (titles of Darroch 1964 and Pitman 1997, Graham–Pollak 1971,
+   textbooks) that must be checked before any use. Next: an audit of the
+   draft as one document, then extend it to the whole conjecture.
 
 ## Remaining obstacles
 
