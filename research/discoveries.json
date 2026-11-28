@@ -2744,7 +2744,7 @@
       "id": "MD-0027",
       "type": "counterexample",
       "title": "Shifted Łukasiewicz t-norms with the drastic boundary: a second (S,N)- and QL-implication among residuals of non-left-continuous t-norms",
-      "statement": "Definitions as in Baczyński–Jayaram (STUDFUZZ 300, 2013; FSS 161, 2010): a t-norm/t-conorm is a commutative, associative operation on [0,1], non-decreasing in each variable, with neutral element 1/0; a fuzzy negation is non-increasing with N(0)=1, N(1)=0; the R-implication of a t-norm T is I_T(x,y)=sup{t in [0,1] : T(x,t) <= y}; an (S,N)-implication is S(N(x),y); a QL-implication is a fuzzy implication of the form S(N(x),T'(x,y)); border-continuity is continuity on [0,1]^2 minus ]0,1[^2; I_WB(x,y)=1 for x<1 and I_WB(1,y)=y. For every real c with 1<c<2 let T_c(x,y)=min(x,y) if max(x,y)=1 and T_c(x,y)=max(0,x+y-c) otherwise. Then T_c is a t-norm that is not border-continuous; its residual is I_c(x,y)=min(1,c-x+y) for x<1 and I_c(1,y)=y; I_c(x,y)=S_L(N_c(x),y)=S_L(N_c(x),min(x,y)) for all x,y in [0,1], where S_L(a,b)=min(1,a+b) and N_c(x)=min(1,c-x) for x<1, N_c(1)=0; I_c(c-1,0)=1, so I_c is not the residual of any left-continuous t-norm; and I_c differs from I_WB and from I_{c'} for c'≠c. Consequently the equality I_{S,N} ∩ (I_T \\ I_{T_LC}) = {I_WB} (Problem 4.8.1 of Baczyński–Jayaram 2008, Problem 4.2(i) of their 2013 chapter) fails, and I_WB is not the only QL-implication that is the residual of a non-left-continuous t-norm (Problem 4.5(ii) of the 2013 chapter = Problem 9.4(ii) of the 2010 paper).",
+      "statement": "Definitions as in Baczyński–Jayaram (STUDFUZZ 300, 2013; FSS 161, 2010): a t-norm/t-conorm is a commutative, associative operation on [0,1], non-decreasing in each variable, with neutral element 1/0; a fuzzy negation is non-increasing with N(0)=1, N(1)=0; the R-implication of a t-norm T is I_T(x,y)=sup{t in [0,1] : T(x,t) <= y}; an (S,N)-implication is S(N(x),y); a QL-implication is a fuzzy implication of the form S(N(x),T'(x,y)); border-continuity is continuity on [0,1]^2 minus ]0,1[^2; I_WB(x,y)=1 for x<1 and I_WB(1,y)=y. For every real c with 1<c<2 let T_c(x,y)=min(x,y) if max(x,y)=1 and T_c(x,y)=max(0,x+y-c) otherwise. Then T_c is a t-norm that is not border-continuous; its residual is I_c(x,y)=min(1,c-x+y) for x<1 and I_c(1,y)=y; I_c(x,y)=S_L(N_c(x),y)=S_L(N_c(x),min(x,y)) for all x,y in [0,1], where S_L(a,b)=min(1,a+b) and N_c(x)=min(1,c-x) for x<1, N_c(1)=0; I_c(c-1,0)=1, so I_c is not the residual of any left-continuous t-norm; and I_c differs from I_WB and from I_{c'} for c'≠c. Consequently the equality I_{S,N} ∩ (I_T \\ I_{T_LC}) = {I_WB} (Problem 4.8.1 of Baczyński–Jayaram 2008, Problem 4.2(i) of their 2013 chapter) fails, and I_WB is not the only QL-implication that is the residual of a non-left-continuous t-norm and of no left-continuous t-norm (the strong reading of Problem 4.5(ii) of the 2013 chapter = Problem 9.4(ii) of the 2010 paper; read literally, that question is already answered in the sources by the Fodor implication).",
       "registered": "2026-11-27",
       "provenance": {
         "contributors": [
@@ -2774,13 +2774,12 @@
         },
         {
           "kind": "review",
-          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-review-1.md",
-          "summary": "Fresh-context review of revision 1 by claude-opus-5-5 (same model as the author): the theorem and Lemmas 1-4 hold; gaps G1-G5 in side claims, reading of Problem 4.5(ii), attribution."
-        },
-        {
-          "kind": "review",
           "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-recheck-r2.md",
-          "summary": "Recheck of revision 2 (commit bf6015c, SHA-256 48686378...) by claude-sonnet-5-5: G1-G5 resolved; theorem re-derived; no gap found within stated scope."
+          "summary": "Recheck of note revision 2: G1-G5 of the first review (reviews/2026-11-27-review-1.md, claude-opus-5-5, revision 1: theorem correct, gaps in side claims) resolved; Theorem A, Lemmas 1-4 and the Corollary (strong reading) re-derived with an own exact check; no gap found within stated scope. The record's statement transcribes Theorem A and the Corollary of that revision; the reviewer read the note, not this registry text.",
+          "by": "claude-sonnet-5-5 (fresh context; a different model from the author claude-opus-5-5; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "bf6015c3048f801b51b7153062717a1064c4f196",
+          "statement_fingerprint": "b18d08939fabbd09dc9b8eb06cef59041977f45a282ca86e1a2bc008cefa8f7c"
         }
       ],
       "status": {
@@ -2844,13 +2843,12 @@
         },
         {
           "kind": "review",
-          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-review-1.md",
-          "summary": "Fresh-context review of revision 1 by claude-opus-5-5 (same model as the author): the theorem and Lemmas 1-4 hold; gaps G1-G5 in side claims, reading of Problem 4.5(ii), attribution."
-        },
-        {
-          "kind": "review",
           "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-recheck-r2.md",
-          "summary": "Recheck of revision 2 (commit bf6015c, SHA-256 48686378...) by claude-sonnet-5-5: G1-G5 resolved; theorem re-derived; no gap found within stated scope."
+          "summary": "Recheck of note revision 2: G1-G5 of the first review (reviews/2026-11-27-review-1.md, claude-opus-5-5, revision 1: theorem correct, gaps in side claims) resolved; Theorem B, Lemmas 1-4 and the Corollary (strong reading) re-derived with an own exact check; no gap found within stated scope. The record's statement transcribes Theorem B and the Corollary of that revision; the reviewer read the note, not this registry text.",
+          "by": "claude-sonnet-5-5 (fresh context; a different model from the author claude-opus-5-5; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "bf6015c3048f801b51b7153062717a1064c4f196",
+          "statement_fingerprint": "2f42cc627e5f1ed80783330ceef29ee9776d9e6756fef243bc5b9abe57fb09c1"
         }
       ],
       "status": {
