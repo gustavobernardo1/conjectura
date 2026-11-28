@@ -2989,7 +2989,7 @@ scripts/catalogue.py validate`: 15 problems, 24 contributions, 0 errors.
 
 ## Session 15 — 2026-11-27
 
-- **Entry status:** in progress.
+- **Entry status:** completed; the objective was reached (21:02 to about 22:15 by the clock, about 73 of the 120 minutes; after the objective, one addition: a proof of Collins's formula, reviewed, in revision 4).
 - **Agent / model:** Claude, model `claude-opus-5-5` (Research Director and
   principal investigator, main session). Human participant: the director
   (instructions below).
@@ -3063,3 +3063,80 @@ scripts/catalogue.py validate`: 15 problems, 24 contributions, 0 errors.
   corrected, Lemma 11.3 added, revision 3 frozen in `versions/r3/`; registry
   MD-0026 (type proof). Unfinished: the recheck of revision 4 (running),
   the full test suite, closing. Next: tests while the recheck runs.
+- **Checkpoint 3 (22:11 by the clock, 69 minutes).** Recheck of revision 4
+  (fresh `claude-opus-5-5`): no gap found within stated scope; defects N1
+  (minor: Section 12, item 1 writes the eleven settled orders as
+  "3, 5, 7, …, 23", which reads as the odd numbers and wrongly includes 9)
+  and N2 to N8 (cosmetic), left for revision 5 so that revision 4 stays the
+  rechecked text. Full test suite on `f37b2ad`: 228 passed in 1,563.67 s.
+
+### What was run
+
+- Provenance: `sha256sum` of `main.tex` at `87c3c8c`, of the director's copy
+  in `D:\Usuarios\GBB\Downloads` and of `REVIEW-PROMPT.md` there.
+- `amw_reduction_check.py` (new): stored run at `f695cbd` on a clean
+  worktree, 19.7 s, 0 failures. `path_formula_check.py` (new): stored run at
+  `e15ae8f` on a clean worktree, paths of order 2 to 60, 46.4 s, 0
+  failures. Scratch, not stored: the first AMW check (sympy), eq. (8) of
+  AMW at 60 digits (exploratory), the order-13 tie, the open-order counts.
+- Tests: `tests/test_cj0001_amw_reduction.py` (4), `tests/test_cj0001_path_formula.py`
+  (3); the full suite (above); `-m "not lean"` once at the start (213
+  passed, 1 failed: links in the moved text, fixed).
+- `scripts/catalogue.py validate` (0 errors) and `render --check` after
+  each registry change; `pdflatex` (MiKTeX) three times per revision: 34
+  pages (revision 3), 35 pages (revision 4), no undefined reference.
+- Subagents (6, more than the default 3: each new revision needs its own
+  fresh review, and the originality questions needed a literature context):
+  `literature-auditor` (Opus) with one follow-up; `web-fetch` for AMW;
+  `adversarial-reviewer` three times (recheck of revision 3, Opus; review
+  of `notes/path-formula.md`, Sonnet; recheck of revision 4, Opus).
+
+### Findings
+
+- The external review (OpenAI model through Codex) of revision 2: no gap
+  found within its scope; six findings, all justified after checking; its
+  tie value (189972 at order 13) confirmed.
+- **T10 is a consequence of Andriantiana–Misanantenaina–Wagner, Theorem
+  4.4** (strict form on p. 16 of the arXiv version), through the
+  subdivision: `avm(S(T)) = n − tr(I+L_T)^{−1}`. Proved in Remark 9.6, checked
+  exactly, rechecked. MD-0023 is `previously-resolved`; the merging lemma S45
+  (the part of the proof not in AMW) is MD-0025, with no source found
+  (Csikvári's tree shift orders coefficients only).
+- (PX-peak) is open for exactly 795 of the orders `24 ≤ n ≤ 2000`; it holds
+  for the other orders up to 2000 (by T9, or by computation for `n ≤ 23`).
+  The earlier claim that a sharper Darroch inequality is needed was too
+  strong.
+- **New: a proof of Collins's formula for the path** (`notes/path-formula.md`,
+  MD-0026, Lemma 11.3) from the Laplacian form, the path cofactor formula
+  and a Cauchy–Binet forest expansion; two AI reviews, no gap. Section 11 no
+  longer needs Collins's formula as a citation.
+- Literature (dossier, "Audit for session 15"): no proof, claim or
+  refutation of either half found within the coverage; GL p. 83 reads
+  "[n/2]"; Graham–Pollak read at the source; Darroch, the journal versions
+  of AMW and Collins (1989), MathSciNet and zbMATH not accessible.
+
+### What failed
+
+- Two mistakes in the first version of `path_formula_check.py` (a wrong
+  length test on `A_n`, which made every case fail; an enumeration of
+  `12^12` tuples), both found and fixed before the stored run; a test value
+  of mine (`√5 − 9/4 > 0`) was wrong, the function was right.
+- Checkpoint 2 was first written as 21:50; the clock read 21:44 (corrected).
+
+### Telemetry
+
+- Model: `claude-opus-5-5` (main session). Subagent token counts as
+  reported by the harness: literature auditor 160,074 and 224,467 (follow-up);
+  web-fetch 74,402; recheck of revision 3 210,379; review of the path note
+  39,264; recheck of revision 4 154,624. Main-session tokens and cost:
+  unavailable.
+
+### Outcome and next step
+
+- Manuscript revision 4 (`4b02146`) is the current, rechecked text;
+  revisions 2 and 3 are frozen in `manuscripts/CJ-0001-collins-shor/versions/`.
+  CJ-0001 stays `candidate-proof`; nothing was promoted. Its
+  `external_review` field is left for the director to decide.
+- Next: revision 5 for N1 to N8 when the manuscript is next touched; a
+  second whole-document review by another vendor's model, of revision 4;
+  the director's decisions in `STATE.md`, "Next step" (a).

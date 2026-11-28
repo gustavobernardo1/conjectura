@@ -2707,6 +2707,16 @@
           "revision": "e15ae8f16b7d961f34a77e80bdef91debeede1cb",
           "sha256": "c6e7cdb3f446a72109b4962a219f053ddca289f2dc51c18a5ce83b8962a131e4",
           "statement_fingerprint": "ab240ee1a275423ac767ef7a3089f420e56cd4aa5fdf04bd83bbde311c473c56"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript-recheck-r4.md",
+          "summary": "Recheck of the changes of revision 4 of the manuscript (4b02146): Lemma 11.3 (this proof) re-derived step by step, no circularity with Section 11, own exact code against the distance matrix for 2 <= n <= 22 and Step 2 on random trees; no gap found within stated scope; defects N1 (minor, elsewhere in the text) to N8 (cosmetic), owed in revision 5.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "4b021468b854bd88f3a7a0e002f79fb617d3b909",
+          "sha256": "bb4ae345202f12c8605609e2211ab4c230917d9caae92c9c76987468b3fe4810",
+          "statement_fingerprint": "ab240ee1a275423ac767ef7a3089f420e56cd4aa5fdf04bd83bbde311c473c56"
         }
       ],
       "status": {
@@ -2715,7 +2725,7 @@
         "novelty": "unknown",
         "external_review": "ai-reviewed"
       },
-      "limitations": "The formula itself is known (K. L. Collins, Discrete Appl. Math. 25 (1989) 27-35, Theorem 3, proved there through the counting of Collins's thesis); this record is the proof only. The forest expansion of Step 2 is the classical matrix-forest theorem, proved here from Cauchy-Binet. Whether this route to the formula is in the literature was not searched: novelty unknown. One AI review; no human has read it.",
+      "limitations": "The formula itself is known (K. L. Collins, Discrete Appl. Math. 25 (1989) 27-35, Theorem 3, proved there through the counting of Collins's thesis); this record is the proof only. The forest expansion of Step 2 is the classical matrix-forest theorem, proved here from Cauchy-Binet. Whether this route to the formula is in the literature was not searched: novelty unknown. Two AI reviews (the note, and its transcription in revision 4); no human has read it.",
       "relations": [
         {
           "type": "originated_from",

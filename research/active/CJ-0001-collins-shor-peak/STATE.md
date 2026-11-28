@@ -345,7 +345,10 @@ Items 9 to 14 as of session 14, in full: `notes/obligations.md`, section
    recheck (`claude-opus-5-5`, fresh context): no gap, eight minor defects.
    Revision 4 (`4b02146`) corrects them and adds Lemma 11.3 (Collins's
    formula proved; MD-0026, its note reviewed by `claude-sonnet-5-5`, no
-   gap); recheck of revision 4: journal of session 15. Revisions 2 and 3
+   gap); recheck of revision 4 (`claude-opus-5-5`, fresh context): no gap,
+   defects N1 to N8 (`reviews/2026-11-27-claude-opus-5-5-manuscript-recheck-r4.md`),
+   owed in revision 5 (N1, minor: Section 12, item 1 should list 3, 5, 7, 8,
+   10, 12, 14, 16, 19, 21, 23, not "3, 5, 7, …, 23"). Revisions 2 and 3
    frozen in `manuscripts/CJ-0001-collins-shor/versions/`. Owed: human
    reading (deferred by the director); a result package once the director
    judges the manuscript mature; MathSciNet and zbMATH (not accessible); the
@@ -354,14 +357,9 @@ Items 9 to 14 as of session 14, in full: `notes/obligations.md`, section
 
 ## Remaining obstacles
 
-- **Lower half.** No mathematical obstacle is known: T6 is a candidate proof
-  for every tree; what remains is validation (obligations 11, 14, 15). The
-  difficulty of session 10 (the deep-edge terms, one level short) is avoided
-  by never separating them from `R(A_l, e_{c_l})` except where an extra
-  factor `x` is available (Remark after T5 in `lower-bound.md`).
-- **Upper half.** No mathematical obstacle is known: T9 is a candidate proof
-  for every tree, and its extremal step T10 is now also a consequence of a
-  published theorem; what remains is validation (obligations 13 to 15).
+- **Both halves.** No mathematical obstacle is known: T6 and T9 are
+  candidate proofs for every tree, and T10 is also a consequence of a
+  published theorem; what remains is validation (obligations 11, 13 to 15).
 - Open, and not needed for Collins–Shor: (PX-peak) for 795 of the `n ≤ 2000`
   (see above); Γ_c for general weights, (E), (Λ), Conjecture Γ.
 
@@ -371,8 +369,9 @@ Items 9 to 14 as of session 14, in full: `notes/obligations.md`, section
 It corrects the six findings of the review of revision 2 by an OpenAI model
 through Codex (the first review by a model of another vendor; no gap found)
 and the eight defects of the recheck of revision 3, and proves Collins's
-formula (Lemma 11.3). Its own recheck is in the journal of session 15. The
-next steps are validation, not discovery:
+formula (Lemma 11.3); its recheck found no gap and eight small defects,
+owed in revision 5 (obligation 15). The next steps are validation, not
+discovery:
 (a) a decision by the director on `external_review` of CJ-0001 and on when
 the manuscript is mature enough for a result package and for human reading
 (both deferred by the director); (b) a recheck of any later revision; a
