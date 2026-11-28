@@ -67,3 +67,12 @@ When a target becomes an investigation, its record moves to
   CJ-0016: a 2007 characterisation by Mesiarová(-Zemánková) probably decides
   it (abstract only). Running: review of the first note, review of Theorem C,
   Lean formalization of Theorem A. Computation used: about 4 minutes.
+- **+42 min (23:52, clock):** Review 1 of the CJ-0024 note (Opus, fresh
+  context): theorems hold, gaps G1–G5 in side claims; revision 2 written
+  (revision 1 kept); recheck of revision 2 by claude-sonnet-5-5 (Fable was
+  refused: monthly spend limit): no gap found within stated scope. Found
+  while answering G3: the printed Theorem 6.5 of the 2008 survey misses a
+  hypothesis (its own Remark 6.4(i) contradicts it) — an erratum, not a
+  result. Manuscript draft `manuscripts/CJ-0024-weber-uniqueness/main.tex`
+  (4 pages, compiles). CJ-0025/CJ-0026: observations only (STATE.md).
+  Running: Lean (Theorems A, B), review of Theorem C.

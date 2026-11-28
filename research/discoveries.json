@@ -2765,12 +2765,22 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md",
-          "summary": "Theorem A with Lemmas 1-4, revision 1; not reviewed."
+          "summary": "Theorem A with Lemmas 1-4, revision 2 (revision 1 in notes/versions/weber-uniqueness-r1.md)."
         },
         {
           "kind": "computation",
           "path": "experiments/CJ-0024-sn-r-nonborder-intersection/check_examples.py",
           "summary": "Exact rational grid check (5 values of c, 19048 grid pairs; residual bracketed by exact bisection, independent of the closed form): all checks passed, 2026-11-27. Evidence for, not proof of, the identities on [0,1]."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-review-1.md",
+          "summary": "Fresh-context review of revision 1 by claude-opus-5-5 (same model as the author): the theorem and Lemmas 1-4 hold; gaps G1-G5 in side claims, reading of Problem 4.5(ii), attribution."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-recheck-r2.md",
+          "summary": "Recheck of revision 2 (commit bf6015c, SHA-256 48686378...) by claude-sonnet-5-5: G1-G5 resolved; theorem re-derived; no gap found within stated scope."
         }
       ],
       "status": {
@@ -2825,12 +2835,22 @@
         {
           "kind": "proof",
           "path": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md",
-          "summary": "Theorem B, revision 1; not reviewed."
+          "summary": "Theorem B with Lemmas 1-4, revision 2 (revision 1 in notes/versions/weber-uniqueness-r1.md)."
         },
         {
           "kind": "computation",
           "path": "experiments/CJ-0024-sn-r-nonborder-intersection/check_examples.py",
           "summary": "Exact rational grid check (5 values of c, 19048 grid pairs; residual bracketed by exact bisection, independent of the closed form): all checks passed, 2026-11-27. Evidence for, not proof of, the identities on [0,1]."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-review-1.md",
+          "summary": "Fresh-context review of revision 1 by claude-opus-5-5 (same model as the author): the theorem and Lemmas 1-4 hold; gaps G1-G5 in side claims, reading of Problem 4.5(ii), attribution."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-recheck-r2.md",
+          "summary": "Recheck of revision 2 (commit bf6015c, SHA-256 48686378...) by claude-sonnet-5-5: G1-G5 resolved; theorem re-derived; no gap found within stated scope."
         }
       ],
       "status": {

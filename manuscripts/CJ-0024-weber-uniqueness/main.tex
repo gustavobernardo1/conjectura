@@ -1,0 +1,265 @@
+% Conjectura manuscript, CJ-0024 / CJ-0023: residuals of non-border-continuous
+% t-norms that are (S,N)- and QL-implications.
+% DRAFT FOR INDEPENDENT REVIEW. NOT REVIEWED BY A HUMAN. NOT FOR DISTRIBUTION.
+% Written on 2026-11-27 (session 1 of CJ-0024) by Claude, model
+% claude-opus-5-5, from research/active/CJ-0024-sn-r-nonborder-intersection/
+% notes/weber-uniqueness.md (revision 2) and notes/rescaled-tnorms.md
+% (revision 1). Plain LaTeX, standard packages only. Revision 1.
+\documentclass[11pt]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{problem}{Problem}
+\renewcommand{\theproblem}{\Alph{problem}}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\IWB}{I_{\mathrm{WB}}}
+\newcommand{\cI}{\mathbb{I}}
+
+\title[A second (S,N)- and QL-residual of a non-left-continuous t-norm]{Residuals of non-border-continuous t-norms that are (S,N)- and QL-implications}
+\author{Conjectura project (draft; see the disclosure at the end)}
+\date{27 November 2026, draft revision 1}
+
+\begin{document}
+
+\begin{abstract}
+Baczy\'nski and Jayaram asked whether the Weber implication is the only fuzzy
+implication that is simultaneously an $(S,N)$-implication and the residual of a
+non-border-continuous t-norm that is not the residual of any left-continuous
+t-norm, and whether it is the only QL-implication of that kind. We show that
+it is not: for every left-continuous t-norm $T_0$ with a strong natural
+negation and every rescaling of $[0,1]$ onto $[0,a]$ with $a$ above the fixed
+point of that negation, the rescaled t-norm closed by the drastic boundary has a
+residual that is both an $(S,N)$- and a QL-implication, violates the ordering
+property, and differs from the Weber implication. For $a$ at or below the fixed
+point the construction returns the Weber implication. Two explicit
+one-parameter families, from the {\L}ukasiewicz t-norm and the nilpotent
+minimum, are given with complete elementary proofs.
+\end{abstract}
+
+\maketitle
+
+\section{The problems}
+
+All operations are on $[0,1]$. A \emph{t-norm} (\emph{t-conorm}) is a
+commutative, associative binary operation, non-decreasing in each variable,
+with neutral element $1$ ($0$); a \emph{fuzzy negation} is a non-increasing
+$N$ with $N(0)=1$, $N(1)=0$; a \emph{fuzzy implication} is $I$ non-increasing in
+the first and non-decreasing in the second variable with $I(0,0)=I(1,1)=1$,
+$I(1,0)=0$. The \emph{residual} (R-implication) of a t-norm $T$ is
+$I_T(x,y)=\sup\{t\in[0,1] : T(x,t)\le y\}$, with no continuity assumed; an
+\emph{$(S,N)$-implication} is $I_{S,N}(x,y)=S(N(x),y)$; a \emph{QL-implication}
+is a fuzzy implication of the form $S(N(x),T(x,y))$. $T$ is
+\emph{border-continuous} if it is continuous at every point of
+$[0,1]^2\setminus\,]0,1[^2$. The \emph{ordering property} (OP) is
+$I(x,y)=1\iff x\le y$. The Weber implication is $\IWB(x,y)=1$ for $x<1$,
+$\IWB(1,y)=y$; it is the residual of the drastic product $T_D$ and equals
+$I_{S,N_{D2}}$ for every t-conorm $S$. We write $\cI_T$, $\cI_{T_{LC}}$,
+$\cI_{S,N}$, $\cI_{QL}$ for the R-implications of all t-norms, of
+left-continuous t-norms, the $(S,N)$- and the QL-implications.
+
+The following questions are quoted from \cite{BJ2013} (Section~4, p.~202),
+where they are said to remain open; the second is also Problem~9.4(ii) of
+\cite{BJ2010}, and the first is Problem~4.8.1 of \cite{BJ2008book}, quoted in
+\cite[\S3.1.3]{BJ2013} as ``is the following equality true
+$\cI_{S,N}\cap(\cI_T\setminus\cI_{T^*})=\{\IWB\}$?''.
+
+\begin{problem}[{\cite[Problem 4.2]{BJ2013}}]\label{pr:sn}
+(i) Is there a fuzzy implication $I$, other than the Weber implication
+$\IWB$, which is both an $(S,N)$-implication and an R-implication which is
+obtained from a non-border continuous t-norm and cannot be obtained as the
+residual of any other left-continuous t-norm? (ii) If the answer to the above
+question is in the affirmative, characterize the above non-empty
+intersection.
+\end{problem}
+
+\begin{problem}[{\cite[Problem 4.5(ii)]{BJ2013}}]\label{pr:ql}
+Is the Weber implication $\IWB$ the only QL-implication that is also an
+R-implication obtained from a non-left continuous t-norm? If not, give other
+examples from the above intersection and hence, characterize the non-empty
+intersection $\cI_{QL}\cap\cI_T$.
+\end{problem}
+
+\begin{remark}[Reading of Problem~\ref{pr:ql}]
+Read literally, the first question of Problem~\ref{pr:ql} is answered in the
+sources themselves: the non-left-continuous nilpotent minimum ($0$ for
+$x+y<1$, $\min$ otherwise) has the Fodor implication as residual
+\cite[p.~189]{BJ2013}, and the Fodor implication is a QL-implication
+\cite[Table~6, Proposition~6.4]{BJ2010}. We therefore read it, as the
+monograph form of Problem~\ref{pr:sn} does, as asking for QL-implications in
+$\cI_T\setminus\cI_{T_{LC}}$. The results below are claimed only under this
+reading.
+\end{remark}
+
+\section{Two lemmas}
+
+The following construction is classical (\cite[Corollary~1.8]{KMP}, as used in
+\cite[\S4, (5)--(6)]{JBM2011}); proofs are included for completeness.
+
+\begin{lemma}\label{lem:drastic}
+Let $M:[0,1]^2\to[0,1]$ be commutative, associative, non-decreasing, with
+$M\le\min$. Then $T(x,y)=\min(x,y)$ if $\max(x,y)=1$ and $T(x,y)=M(x,y)$
+otherwise is a t-norm, and for $x<1$
+\[
+  I_T(x,y)=\sup\bigl(\{t\in[0,1[\;: M(x,t)\le y\}\cup\{1: x\le y\}\bigr),
+  \qquad I_T(1,y)=y .
+\]
+\end{lemma}
+
+\begin{proof}
+Monotonicity: for $x<1$, $T(x,t)=M(x,t)\le\min(x,t)\le x=T(x,1)$. For
+associativity, if one of $x,y,z$ equals $1$ both sides reduce to $T$ of the
+other two; if all are $<1$ then $T(x,y)=M(x,y)<1$, $T(y,z)<1$, and both sides
+equal $M(M(x,y),z)=M(x,M(y,z))$. The residual formula is the definition, with
+$T(x,1)=x$.
+\end{proof}
+
+\begin{lemma}\label{lem:lc}
+If $T$ is a t-norm with $T(x,\cdot)$ left-continuous at $1$ and
+$I_T(x,y)=1$, then $x\le y$. Hence an implication $I$ with $I(x_0,y_0)=1$ for
+some $x_0>y_0$ is not the residual of any left-continuous t-norm.
+\end{lemma}
+
+\begin{proof}
+If $T(x,1)\le y$ we are done. Otherwise $\sup\{t:T(x,t)\le y\}=1$ is not
+attained, so by monotonicity $T(x,s)\le y$ for all $s<1$, and
+$x=T(x,1)=\lim_{s\to1^-}T(x,s)\le y$.
+\end{proof}
+
+\section{The general construction}
+
+\begin{theorem}\label{thm:C}
+Let $T_0$ be a left-continuous t-norm whose natural negation
+$N_0(v)=\sup\{t: T_0(v,t)=0\}$ is strong, $e$ its fixed point, and $S_0$ the
+$N_0$-dual t-conorm. Let $0<a<1$ and let $\psi:[0,1]\to[0,a]$ be an increasing
+bijection. Put $T(x,y)=\min(x,y)$ if $\max(x,y)=1$,
+$T(x,y)=\psi^{-1}(T_0(\psi x,\psi y))$ otherwise;
+$N(x)=\psi^{-1}(\min(a,N_0(\psi x)))$ for $x<1$, $N(1)=0$;
+$S(p,q)=\psi^{-1}(\min(a,S_0(\psi p,\psi q)))$. Then:
+\begin{enumerate}
+\item $T$ is a t-norm, $S$ a t-conorm, $N$ a fuzzy negation;
+\item $I_T(x,y)=\psi^{-1}(\min(a,I_{T_0}(\psi x,\psi y)))$ for $x<1$;
+\item $I_T(x,y)=S(N(x),y)=S(N(x),\min(x,y))$ for all $x,y$;
+\item if $a\le e$, then $I_T=\IWB$;
+\item if $e<a<1$, then $I_T(x,0)=1$ for $0<x\le\psi^{-1}(N_0(a))$, so $I_T$
+  is not the residual of any left-continuous t-norm; $T$ is not
+  border-continuous; and $I_T\ne\IWB$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+We use: (F1) $T_0(u,t)\le v\iff t\le I_{T_0}(u,v)$ (left-continuity);
+(F2) $I_{T_0}(u,v)=S_0(N_0(u),v)$ \cite[Theorem~5.13]{BJ2010}; (F3)
+$I_{T_0}(u,u)=1$, $I_{T_0}(u,0)=N_0(u)$; (F4) $N_0(u)\ge a\iff u\le N_0(a)$,
+and $a>e\iff N_0(a)<e<a$; (F5) $T_0(u,v)=0$ when $u\le N_0(v)$, since
+$T_0(v,N_0(v))=0$ by (F1).
+
+(1) $M=\psi^{-1}\circ T_0\circ(\psi\times\psi)$ is well defined, being
+conjugate to the restriction of $T_0$ to $[0,a]^2$, which $T_0$ maps into
+$[0,a]$; it is associative, commutative, non-decreasing, $M\le\min$; apply
+Lemma~\ref{lem:drastic}. With $U=\min(a,S_0)$ on $[0,a]^2$ one has
+$U(U(u,v),w)=\min(a,S_0(S_0(u,v),w))$ (both sides equal $a$ if
+$S_0(u,v)\ge a$), a symmetric expression; so $U$ is associative, and $S$,
+conjugate to $U$, is a t-conorm. $N$ is clearly a fuzzy negation.
+
+(2) For $x<1$ and $t<1$: $M(x,t)\le y\iff \psi t\le r:=I_{T_0}(\psi x,\psi y)$
+by (F1). If $r\ge a$ the set is $[0,1[$, supremum $1=\psi^{-1}(a)$; otherwise
+it is $[0,\psi^{-1}(r)]$. If $x\le y$ then $r=1$. Lemma~\ref{lem:drastic}
+gives the formula.
+
+(3) For $x=1$ both sides equal $y$. For $x<1$, with $u=\psi x$, $v=\psi y$:
+$S(N(x),y)=\psi^{-1}(\min(a,S_0(\min(a,N_0u),v)))=
+\psi^{-1}(\min(a,S_0(N_0u,v)))$ (both are $1$ if $N_0u\ge a$), which is
+$I_T(x,y)$ by (F2) and (2). If $y\ge x$, $S(N(x),x)=\psi^{-1}(\min(a,I_{T_0}(u,u)))=1$ by
+(F3); if $y<x$, $\min(x,y)=y$.
+
+(4) If $a\le e$, then for $x<1$, $N_0(\psi x)\ge N_0(a)\ge e\ge a$, so
+$I_T(x,0)=1$ and $I_T(x,\cdot)\equiv1$.
+
+(5) For $0<x\le\psi^{-1}(N_0(a))$, $N_0(\psi x)\ge a$, so $I_T(x,0)=1$;
+apply Lemma~\ref{lem:lc}. For the same $x$ and $t<1$,
+$T_0(\psi x,\psi t)\le T_0(\psi x,a)=0$ by (F5), so $T(x,t)=0$ while
+$T(x,1)=x>0$. For $N_0(a)<\psi x<a$, $I_T(x,0)=\psi^{-1}(N_0(\psi x))<1$.
+\end{proof}
+
+\section{Two explicit families}
+
+Let $1<c<2$ and $N_c(x)=\min(1,c-x)$ for $x<1$, $N_c(1)=0$. Taking
+$\psi(x)=x/c$ (so $a=1/c>1/2=e$) in Theorem~\ref{thm:C}:
+
+\begin{corollary}\label{cor:A}
+$T_c(x,y)=\max(0,x+y-c)$ for $x,y<1$, $\min(x,y)$ otherwise, is a
+non-border-continuous t-norm with residual $I_c(x,y)=\min(1,c-x+y)$ ($x<1$),
+$I_c(1,y)=y$, and $I_c(x,y)=\min(1,N_c(x)+y)=\min(1,N_c(x)+\min(x,y))$.
+($T_0=T_{\mathbf L}$.)
+\end{corollary}
+
+\begin{corollary}\label{cor:B}
+$T'_c(x,y)=\min(x,y)$ if $\max(x,y)=1$ or $x+y>c$, and $0$ otherwise, is a
+non-border-continuous t-norm with residual $J_c(x,y)=1$ ($x\le y$),
+$J_c(x,y)=\max(\min(1,c-x),y)$ ($y<x<1$), $J_c(1,y)=y$, and
+$J_c(x,y)=S^*_c(N_c(x),y)=S^*_c(N_c(x),\min(x,y))$ with the t-conorm
+$S^*_c(a,b)=\max(a,b)$ for $a+b<c$, $1$ otherwise. ($T_0=T_{nM}$.)
+\end{corollary}
+
+Both corollaries are also proved directly, without Theorem~\ref{thm:C}, in the
+project note cited below, and both were checked in exact rational arithmetic on
+grids (residuals bracketed by exact bisection). In each family $I_c(c-1,0)=1$,
+$I_c\ne\IWB$, and different $c$ give different implications; $I_c\ne J_c$
+although both have the natural negation $N_c$.
+
+\begin{corollary}
+The answer to Problem~\ref{pr:sn}(i) is yes, and the equality
+$\cI_{S,N}\cap(\cI_T\setminus\cI_{T_{LC}})=\{\IWB\}$ is false: the
+intersection contains continuum many elements. Under the reading of the
+remark above, the answer to the first question of Problem~\ref{pr:ql} is no.
+\end{corollary}
+
+\begin{remark}
+Theorem~6.5 of \cite{BJ2008} (Theorem~5.14 of \cite{BJ2010}) is printed for a
+right-continuous t-conorm $S$ and an arbitrary t-norm $T$. Corollary~\ref{cor:B}
+($S=S^*_c$ is right-continuous with $N_{S^*_c}=N_c$, not strict) contradicts
+it in that generality, as does $\IWB=I_{S_M,N_{D2}}=I_{T_D}$, noted in
+\cite[Remark~6.4(i)]{BJ2008} immediately before it; the remark stresses that
+left-continuity of $T$ is essential, which suggests that this hypothesis was
+intended.
+\end{remark}
+
+\section*{Status, evidence and disclosure}
+
+The characterisation parts of both problems remain open. A literature audit
+(27~November 2026; the sources listed below, the citation lists of
+\cite{BJ2008,BJ2010} and of the 2015 handbook chapter by Baczy\'nski,
+Jayaram, Massanet and Torrens, screened by title) found no earlier answer and
+no occurrence of these families; the 2015 chapter and \cite{BJ2008book} were
+not accessible, so novelty is not established. The project files are
+\texttt{research/active/CJ-0024-sn-r-nonborder-intersection/} (notes, reviews)
+and \texttt{experiments/CJ-0024-sn-r-nonborder-intersection/} (exact checks).
+This draft, the construction and the proofs were produced by an AI model
+(Claude, \texttt{claude-opus-5-5}) in the Conjectura project directed by
+Gustavo Bernardo Brito; the reviews so far are AI reviews; no human has
+checked the mathematics.
+
+\begin{thebibliography}{9}
+\bibitem{BJ2008} M.~Baczy\'nski, B.~Jayaram, $(S,N)$- and R-implications: a
+state-of-the-art survey, Fuzzy Sets Syst.\ 159 (2008) 1836--1859.
+\bibitem{BJ2008book} M.~Baczy\'nski, B.~Jayaram, Fuzzy Implications,
+Studies in Fuzziness and Soft Computing 231, Springer, 2008.
+\bibitem{BJ2010} M.~Baczy\'nski, B.~Jayaram, QL-implications: some
+properties and intersections, Fuzzy Sets Syst.\ 161 (2010) 158--188.
+\bibitem{BJ2013} M.~Baczy\'nski, B.~Jayaram, Fuzzy implications: some
+recently solved problems, in: Advances in Fuzzy Implication Functions, Studies
+in Fuzziness and Soft Computing 300, Springer, 2013, 177--204.
+\bibitem{JBM2011} B.~Jayaram, M.~Baczy\'nski, R.~Mesiar, R-implications and
+the exchange principle: a complete characterization, in: Proc.\ EUSFLAT 2011,
+Atlantis Press, 223--229.
+\bibitem{KMP} E.~P.~Klement, R.~Mesiar, E.~Pap, Triangular Norms, Kluwer,
+2000 (cited after \cite{JBM2011}; not consulted).
+\end{thebibliography}
+
+\end{document}
