@@ -2907,6 +2907,15 @@
           "kind": "computation",
           "path": "experiments/CJ-0024-sn-r-nonborder-intersection/check_theorem_c.py",
           "summary": "Exact rational grid check, 30 configurations (3 base t-norms, 5 values of a, linear and piecewise-linear psi): all checks passed, 2026-11-27."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/reviews/2026-11-27-review-theorem-c.md",
+          "summary": "Review of notes/rescaled-tnorms.md revision 1 (SHA-256 77385d89...): every step of parts 1-5 reconstructed; hypotheses (F1)-(F5) checked against the 2010 paper; independent exact checks with three further base t-norms and nonlinear psi; no gap found within stated scope. The record's statement transcribes Theorem C; the reviewer read the note, not this registry text.",
+          "by": "claude-opus-5-5 (fresh context; same model as the author; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "88d33c6cc01800a2466de80d8b537f7f32613c25",
+          "statement_fingerprint": "157fac2ccd0d60674b26b8b0f000e1fcaa9771d3bf203475fc18d53bff40debd"
         }
       ],
       "status": {

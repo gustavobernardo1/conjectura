@@ -37,7 +37,7 @@ CJ-0024 and CJ-0023: mathematical `candidate-counterexample`, formal
 
 | ID | Statement | Level | Evidence |
 | --- | --- | --- | --- |
-| C | Theorem C (`notes/rescaled-tnorms.md`): any left-continuous T₀ with strong natural negation (fixed point e), rescaled into [0,a] by an increasing bijection ψ and closed by the drastic boundary, has residual = S(N(x),y) = S(N(x),min(x,y)) (truncated N₀-dual S, truncated N₀); a ≤ e gives I_WB; e < a < 1 gives (OP) failure, non-border-continuity, ≠ I_WB. A and B are the cases T_L, T_nM. MD-0029. | candidate proof; exact grid check (30 configurations) passed; review running | `notes/rescaled-tnorms.md`; `check_theorem_c.py` |
+| C | Theorem C (`notes/rescaled-tnorms.md`): any left-continuous T₀ with strong natural negation (fixed point e), rescaled into [0,a] by an increasing bijection ψ and closed by the drastic boundary, has residual = S(N(x),y) = S(N(x),min(x,y)) (truncated N₀-dual S, truncated N₀); a ≤ e gives I_WB; e < a < 1 gives (OP) failure, non-border-continuity, ≠ I_WB. A and B are the cases T_L, T_nM. MD-0029. | candidate proof; exact grid check (30 configurations) passed; review (same model): no gap found | `notes/rescaled-tnorms.md`; `check_theorem_c.py` |
 | A | For 1 < c < 2, T_c (max(0, x+y−c) inside, min on the lines x = 1, y = 1) is a non-border-continuous t-norm with residual I_c = min(1, c−x+y) (x < 1), y (x = 1); I_c = S_L(N_c(x), y) = S_L(N_c(x), min(x,y)); I_c(c−1, 0) = 1, so I_c is not the residual of any left-continuous t-norm; I_c ≠ I_WB. | candidate proof (note §4, revision 2); exact grid check passed; review 1 (Opus, gaps G1–G5 in side claims only), recheck of revision 2 (Sonnet): no gap found; Lean: see obligations | MD-0027; [`notes/weber-uniqueness.md`](notes/weber-uniqueness.md) Theorem A; `experiments/CJ-0024-sn-r-nonborder-intersection/check_examples.py` |
 | B | Same for T'_c (min if x+y > c, else 0, inside; min on the lines), residual J_c, t-conorm S*_c (max if a+b < c, else 1). | as for A | MD-0028; note Theorem B; same script |
 | L1–L4 | Drastic-boundary lemma, residual lemma, threshold-minimum associativity, (OP)-type property of residuals of left-continuous t-norms. | candidate proof | note §4 |
@@ -102,8 +102,10 @@ B ← Lemmas 1–4. Nothing external except the definitions.
    `formalization/Conjectura/Research/WeberUniqueness.lean`): see the journal
    for its outcome; the comparison of the Lean statements with the written
    ones needs an independent check before `formal: complete`.
-4. Review of Theorem C (`notes/rescaled-tnorms.md`): running at the end of
-   session 1; see `reviews/`.
+4. Done: review of Theorem C (`reviews/2026-11-27-review-theorem-c.md`,
+   fresh context, same model as the author): no gap found within stated
+   scope; it adds that for a ≤ e the subnorm is 0, so T = T_D. A review by a
+   different model is still owed before promotion.
 5. Manuscript draft `manuscripts/CJ-0024-weber-uniqueness/main.tex` (4 pages)
    not yet reviewed as a whole; a result package under `results/` is for a
    later session (no promotion in the session that produced the claim).

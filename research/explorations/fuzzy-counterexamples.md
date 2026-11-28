@@ -95,3 +95,5 @@ When a target becomes an investigation, its record moves to
   (candidate counterexample), MD-0031 (candidate proof); CJ-0017
   `partial-result`. Running: Lean (CJ-0024), review of the CJ-0017 note.
   Computation used so far: about 13 minutes (z3 run 4 min).
+- **Correction:** the previous checkpoint was written at 00:02 (clock), not
+  00:05; elapsed time +53 min.
