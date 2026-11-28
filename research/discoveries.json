@@ -2780,11 +2780,16 @@
           "date": "2026-11-27",
           "revision": "bf6015c3048f801b51b7153062717a1064c4f196",
           "statement_fingerprint": "b18d08939fabbd09dc9b8eb06cef59041977f45a282ca86e1a2bc008cefa8f7c"
+        },
+        {
+          "kind": "note",
+          "path": "formalization/Conjectura/Research/WeberUniqueness.lean",
+          "summary": "Lean 4/Mathlib formalization of the items of Theorem A (t-norm, residual formula, (S,N) and QL identities, (OP) failure, not the residual of any t-norm left-continuous in the second variable at 1, non-left- and non-border-continuity, distinctness); registered in formalization/registry.json (catalogue_id CJ-0024); verify_lean.py passed, receipt verification/receipts/20261128T030452Z-232840d982-dirty-passed.json (dirty tree; clean rerun in progress). Not formalized: the fuzzy-implication property, the Corollary. Statement comparison by the authoring agent only."
         }
       ],
       "status": {
         "mathematical": "candidate-counterexample",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
@@ -2849,11 +2854,16 @@
           "date": "2026-11-27",
           "revision": "bf6015c3048f801b51b7153062717a1064c4f196",
           "statement_fingerprint": "2f42cc627e5f1ed80783330ceef29ee9776d9e6756fef243bc5b9abe57fb09c1"
+        },
+        {
+          "kind": "note",
+          "path": "formalization/Conjectura/Research/WeberUniqueness.lean",
+          "summary": "Lean 4/Mathlib formalization of the items of Theorem B (t-norm, residual formula, (S,N) and QL identities, (OP) failure, not the residual of any t-norm left-continuous in the second variable at 1, non-left- and non-border-continuity, distinctness); registered in formalization/registry.json (catalogue_id CJ-0024); verify_lean.py passed, receipt verification/receipts/20261128T030452Z-232840d982-dirty-passed.json (dirty tree; clean rerun in progress). Not formalized: the fuzzy-implication property, the Corollary. Statement comparison by the authoring agent only."
         }
       ],
       "status": {
         "mathematical": "candidate-counterexample",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },

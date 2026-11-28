@@ -1554,7 +1554,7 @@
       "dossier": "research/candidates/CJ-0023-weber-ql-r-intersection.md",
       "status": {
         "mathematical": "candidate-counterexample",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
@@ -1645,7 +1645,7 @@
       "dossier": "research/candidates/CJ-0024-sn-r-nonborder-intersection.md",
       "status": {
         "mathematical": "candidate-counterexample",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },

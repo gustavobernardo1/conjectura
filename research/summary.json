@@ -36,7 +36,7 @@
       "name": "A second implication that is both an (S,N)- and an R-implication from a non-border-continuous t-norm?",
       "status": {
         "mathematical": "candidate-counterexample",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
@@ -50,7 +50,7 @@
       "name": "Is the Weber implication the only QL-implication that is also an R-implication from a non-left-continuous t-norm?",
       "status": {
         "mathematical": "candidate-counterexample",
-        "formal": "not-started",
+        "formal": "partial",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
@@ -178,7 +178,7 @@
         "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0024-sn-r-nonborder-intersection.md",
         "status": {
           "mathematical": "candidate-counterexample",
-          "formal": "not-started",
+          "formal": "partial",
           "novelty": "preliminary-search-completed",
           "external_review": "not-reviewed"
         }
@@ -189,7 +189,7 @@
         "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0023-weber-ql-r-intersection.md",
         "status": {
           "mathematical": "candidate-counterexample",
-          "formal": "not-started",
+          "formal": "partial",
           "novelty": "preliminary-search-completed",
           "external_review": "not-reviewed"
         }
@@ -260,8 +260,8 @@
           "partial-result": 1
         },
         "formal": {
-          "not-started": 24,
-          "partial": 4
+          "not-started": 22,
+          "partial": 6
         },
         "novelty": {
           "preliminary-search-completed": 21,
@@ -290,11 +290,11 @@
   "generated": {
     "date": "2026-11-28",
     "branch": "research",
-    "revision": "232840d98267fdaf7069d3063144bd2fd756d39d",
+    "revision": "f5de051aade0fc854b8274e4ae708aef024864be",
     "sources_committed": false,
     "sources": {
-      "research/catalogue.json": "bb47745603c2cf583327c425c20cf804d57778e4",
-      "research/discoveries.json": "3d74474b88749d954a8cc800aba36b3be4136f60",
+      "research/catalogue.json": "672486c8f9675a4a53112244a94cfa664efab533",
+      "research/discoveries.json": "83da98cb6ce1eec5e0047e243349c1385ea430a4",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "9eeaa30ae12789415077a0268f865822d2bb99bd"
     }

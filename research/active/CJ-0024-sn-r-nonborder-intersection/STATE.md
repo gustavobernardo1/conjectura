@@ -31,7 +31,8 @@ continuous on [0,1]² \ ]0,1[². QL-operation: S(N(x), T(x,y)).
 ## Status
 
 CJ-0024 and CJ-0023: mathematical `candidate-counterexample`, formal
-`not-started`, novelty `unknown`, external review `not-reviewed` (catalogue).
+`partial`, novelty `preliminary-search-completed`, external review
+`not-reviewed` (catalogue; the director may set `ai-reviewed`, see obligation 1).
 
 ## Established results
 
@@ -98,10 +99,17 @@ B ← Lemmas 1–4. Nothing external except the definitions.
 2. Done: literature audit (`research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md`).
    Still owed: the 2015 handbook chapter (doi:10.1007/978-3-662-43505-2_12)
    and the 2008 monograph, which were not accessible; zbMATH/MathSciNet.
-3. Lean formalization of Theorems A and B (session 1, file
-   `formalization/Conjectura/Research/WeberUniqueness.lean`): see the journal
-   for its outcome; the comparison of the Lean statements with the written
-   ones needs an independent check before `formal: complete`.
+3. Lean: Theorems A and B formalized (`formalization/Conjectura/Research/WeberUniqueness.lean`,
+   25 registered theorems, only `propext`, `Classical.choice`, `Quot.sound`);
+   `verify_lean.py` passed (receipt `20261128T030452Z-232840d982-dirty-passed`,
+   dirty tree; clean rerun at the end of session 1). Formal status `partial`.
+   Independent comparison of the 25 Lean statements and the definition
+   bodies with the note: `reviews/2026-11-28-lean-statement-review.md`
+   (claude-sonnet-5-5): statements match within stated scope; qualifications
+   F1–F4 there (joint-continuity reading of border-continuity; the
+   fuzzy-implication property, the Corollary and Lemmas 1–3 in general form
+   not formalized). Still owed: formalize the Corollary-level claims and
+   Theorem C; then `formal: complete` can be considered.
 4. Done: review of Theorem C (`reviews/2026-11-27-review-theorem-c.md`,
    fresh context, same model as the author): no gap found within stated
    scope; it adds that for a ≤ e the subnorm is 0, so T = T_D. A review by a

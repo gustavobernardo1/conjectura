@@ -7,7 +7,7 @@ entry there is the authoritative record of that session.
 
 ## Session 1 — 2026-11-27
 
-- **Entry status:** in progress (see the exploration note for the full entry).
+- **Entry status:** completed (see the exploration note for the full entry and telemetry).
 - **Agent / model:** `claude-opus-5-5`.
 - **Mode:** focused work (switched from exploration at about +15 min).
 - **Objective (exact):** decide Problem 4.2(i) of Baczyński–Jayaram (2013)
@@ -22,3 +22,8 @@ entry there is the authoritative record of that session.
   independent review and a literature audit exist; stop if the example fails
   the grid check or the source's definitions exclude it.
 - **Budget:** inside the 120-minute session (23:10–01:10).
+- **Outcome:** Theorems A, B (MD-0027, MD-0028) and C (MD-0029) written,
+  checked exactly, reviewed (A/B: review with gaps G1–G5, revision 2, recheck
+  by Sonnet with no gap; C: one review, same model, no gap), A/B formalized
+  in Lean (passed; statement comparison by Sonnet: match). Manuscript draft.
+  Next step: as in STATE.md.
