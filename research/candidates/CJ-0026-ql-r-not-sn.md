@@ -71,3 +71,15 @@ As for CJ-0025.
 ## Prerequisites
 
 As for CJ-0025.
+
+## Director's notes, 2026-11-27 (session 1 of CJ-0024)
+
+Local analysis with S = S_L and N(x) = c − x on ]c−1, 1[ (as in CJ-0024):
+writing I(x,y) = min(1, c − x + T'(x,y)), the R-implication condition becomes
+commutativity of the recovered t-norm, i.e. φ(x,s) = φ(s + c − x, s) where
+φ(x,s) = inf{y : T'(x,y) ≥ s}; the (S,N) condition becomes the contrapositive
+symmetry I(x,y) = I(c − y, c − x) on the region where I < 1. T' = T_M
+satisfies both; T_P and ordinal sums of T_L with min fail the first. No
+T' satisfying the first and failing the second was found; it is possible
+that the answer to Problem 9.4(iii) is "the set is empty" (a theorem to
+prove, not a counterexample). Not pursued further in this session.

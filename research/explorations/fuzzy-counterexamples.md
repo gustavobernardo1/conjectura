@@ -76,3 +76,8 @@ When a target becomes an investigation, its record moves to
   result. Manuscript draft `manuscripts/CJ-0024-weber-uniqueness/main.tex`
   (4 pages, compiles). CJ-0025/CJ-0026: observations only (STATE.md).
   Running: Lean (Theorems A, B), review of Theorem C.
+- **Correction (23:50, clock):** the time "23:52" in the previous checkpoint
+  was written without reading the clock; that checkpoint was written at about
+  23:47. Since then: MD-0027's registry statement corrected to the strong
+  reading of Problem 4.5(ii) and the recheck bound to MD-0027/MD-0028
+  (`a956225`); campaign 2 recorded in `research/scouting-log.md`.

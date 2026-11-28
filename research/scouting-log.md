@@ -73,3 +73,50 @@ fields acquired resolution claims during 2026, and lists of "open" problems
 behind. Membership of such a list is not evidence that a problem is open; the
 eligibility check must be repeated immediately before work starts and again
 before any claim.
+
+## Campaign 2 — 2026-11-27 (fuzzy mathematics)
+
+**Method.** At the director's request (pause of CJ-0001; mission:
+counterexample-driven discovery in fuzzy mathematics), five `problem-scout`
+subagents (Sonnet, separate contexts, about 30 web operations each) covered:
+A t-norms, uninorms, copulas, lattice operations; B fuzzy implications;
+C aggregation, fuzzy measures, pairwise comparison / AHP; D interval-valued,
+type-2, algebraic fuzzy logic, fuzzy relation equations; E bounded lattices,
+discrete operators, fuzzy numbers. A `literature-auditor` (Opus) audited the
+selected target. Coordinating agent `claude-opus-5-5`.
+
+**Yield.** Low, and informative: most published open problems in these
+areas ask to *characterize* a class and cannot be refuted by one object; the
+precise yes/no questions found were few. Catalogued: CJ-0016, CJ-0017,
+CJ-0023 to CJ-0026, CJ-0037, CJ-0038 (eight, below the 10–20 aimed at;
+quality was preferred). CJ-0043 (scout E) duplicated CJ-0037 and was merged.
+Subfields not covered: fuzzy numbers and arithmetic; hesitant, Pythagorean and
+neutrosophic operators; most of interval-valued and Atanassov theory.
+
+**Telemetry reported by the environment.** Subagent tokens: A 131,897;
+B 78,525; C 71,015; D 76,474; E 93,238; auditor 146,286. Tool calls:
+47, 41, 41, 47, 50, 52.
+
+### Considered and not catalogued, or found resolved (as reported by the scouts; mostly unverified)
+
+| Problem | Finding | Evidence level |
+| --- | --- | --- |
+| Furtado–Johnson conjecture on sources in extensions of reciprocal matrices (arXiv:2404.13713) | Proved by R. Fernandes, arXiv:2507.16593 | abstract fetched |
+| Durante, FSTA 2010 Problem 2.5 (closed convex hull of associative copulas = Schur-concave commutative copulas?) | Answered negatively (Šeliga; simpler proof Trutschnig–Úbeda-Flores, arXiv:2610.33646) | abstract via summary |
+| Jayaram, FSTA 2014 Problem 2.1 (Archimedean t-norm with involutive N_T) | Answered no (Ghiselli Ricci) | repository records only |
+| Holčapek et al., FSTA 2014 Problem 7.1 (GUFP) | Solved ("The solution to Holčapek's open problem", FSS 2015) | title only |
+| Hutník, FSTA 2014 Problems 9.1–9.5 (semicopula integrals) | Mostly solved (arXiv 1410.7261, 1501.03136, others) | titles only |
+| Ertuğrul–Yeşilyurt ordinal-sum question on bounded lattices | Answered in arXiv:2003.03013 | abstract via summary |
+| Çaylı idempotent-uninorm question on bounded lattices | Claimed solved, arXiv:2208.06254 | not fetched |
+| Hernández–Cubillo–Torres-Blanc 2015 tr-norm question | Answered affirmatively, arXiv:1908.10532 | abstract fetched |
+| Convolution t-norms on normal convex functions | Claimed solved, arXiv:2511.17640 | abstract fetched |
+| Schweizer–Sklar triangle functions τ_{T,L} | Resolved, arXiv:2510.26439 | abstract fetched |
+| Amalgamation for residuated lattices, MTL, semilinear integral classes | Negative, arXiv:2504.16111, 2408.17400 | abstracts fetched |
+| Baczyński–Jayaram 2013, Problems 4.3, 4.4, 4.5(i), 4.1 | Characterisation problems; open per the chapter | primary source |
+| Mesiar–Sarkoci FSTA 2010 list; Klement–Mesiar FSTA 2006 list | Mostly characterisation problems | primary sources (images) |
+| Counting fuzzy subgroups of finite abelian groups (Tărnăuceanu and others) | A counting problem, not a refutable conjecture | search summaries |
+| Klement–Mesiar–Pap 2004 problem list (FSS 145) | Not read (inaccessible); 47 citing works, several titled as solutions | OpenAlex titles |
+| Mesiar–Stupňanová, FSS 261 (2015) open-problem list | Read only by scout A (Problem 4.1 → CJ-0017); inaccessible to the others | — |
+
+The scouts' full reports are summarised in the dossiers and in
+`research/explorations/fuzzy-counterexamples.md`.
