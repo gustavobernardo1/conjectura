@@ -16,6 +16,34 @@
       "dossier": "research/candidates/CJ-0001-collins-shor-peak.md",
       "priority_score": 80.2,
       "state": "research/active/CJ-0001-collins-shor-peak/STATE.md"
+    },
+    {
+      "id": "CJ-0024",
+      "name": "A second implication that is both an (S,N)- and an R-implication from a non-border-continuous t-norm?",
+      "status": {
+        "mathematical": "candidate-counterexample",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "record": "research/catalogue.json",
+      "dossier": "research/candidates/CJ-0024-sn-r-nonborder-intersection.md",
+      "priority_score": 61.5,
+      "state": "research/active/CJ-0024-sn-r-nonborder-intersection/STATE.md"
+    },
+    {
+      "id": "CJ-0023",
+      "name": "Is the Weber implication the only QL-implication that is also an R-implication from a non-left-continuous t-norm?",
+      "status": {
+        "mathematical": "candidate-counterexample",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "record": "research/catalogue.json",
+      "dossier": "research/candidates/CJ-0023-weber-ql-r-intersection.md",
+      "priority_score": 59.4,
+      "state": "research/active/CJ-0023-weber-ql-r-intersection/STATE.md"
     }
   ],
   "highest_priority_investigation": {
@@ -123,6 +151,28 @@
           "novelty": "preliminary-search-completed",
           "external_review": "not-reviewed"
         }
+      },
+      {
+        "id": "CJ-0024",
+        "title": "A second implication that is both an (S,N)- and an R-implication from a non-border-continuous t-norm?",
+        "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0024-sn-r-nonborder-intersection.md",
+        "status": {
+          "mathematical": "candidate-counterexample",
+          "formal": "not-started",
+          "novelty": "preliminary-search-completed",
+          "external_review": "not-reviewed"
+        }
+      },
+      {
+        "id": "CJ-0023",
+        "title": "Is the Weber implication the only QL-implication that is also an R-implication from a non-left-continuous t-norm?",
+        "url": "https://github.com/gustavobernardo1/conjectura/blob/research/research/candidates/CJ-0023-weber-ql-r-intersection.md",
+        "status": {
+          "mathematical": "candidate-counterexample",
+          "formal": "not-started",
+          "novelty": "preliminary-search-completed",
+          "external_review": "not-reviewed"
+        }
       }
     ],
     "primary_investigation": {
@@ -155,9 +205,10 @@
   },
   "counts": {
     "problems": {
-      "catalogued": 15,
+      "catalogued": 23,
       "by_mathematical_status": {
-        "candidate": 14,
+        "candidate": 20,
+        "candidate-counterexample": 2,
         "candidate-proof": 1
       }
     },
@@ -216,10 +267,10 @@
   "generated": {
     "date": "2026-11-28",
     "branch": "research",
-    "revision": "bcaa2f0bc236dbc5ebbb7be8df7f83224ce19681",
-    "sources_committed": true,
+    "revision": "809cd1d35143e5303777f61246c2c27e2f478011",
+    "sources_committed": false,
     "sources": {
-      "research/catalogue.json": "056a0fdc1995ddd17a327e7a94c8eb6bfcededed",
+      "research/catalogue.json": "52b547dbeec5aa25f912e5b586b21c0e88849754",
       "research/discoveries.json": "87b18b2acb59170e4faa875c85ec10c63ee0cd86",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "d6213327d28ca00900877b08e55c4816511f1396"

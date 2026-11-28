@@ -292,6 +292,9 @@ before promotion (session 11).
   simplification goes into a later revision, never over a reviewed one.
   CJ-0001's `external_review` is left at `not-reviewed`: setting it to
   `ai-reviewed` is the director's decision (skill `review-claim`, step 5).
+- 2026-11-27 (director). CJ-0001 paused for the fuzzy-mathematics campaign
+  (`research/explorations/fuzzy-counterexamples.md`); results, statuses and
+  obligations unchanged, no work on it until the director resumes it.
 
 ## Open obligations
 

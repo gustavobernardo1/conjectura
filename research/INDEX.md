@@ -20,15 +20,25 @@ justification in `research/catalogue.json` and the linked dossier.
 | 8 | CJ-0013 | [Chen–Edelman–Urschel conjecture on the 5x5 growth factor under complete pivoting](candidates/CJ-0013-growth-factor-5x5.md) | numerical analysis, matrix analysis | 71.9 | candidate | not-started | preliminary-search-completed | not-reviewed |
 | 9 | CJ-0008 | [Unimodality of the independence polynomial of trees](candidates/CJ-0008-tree-independence-unimodality.md) | graph theory, combinatorics | 70.8 | candidate | not-started | preliminary-search-completed | not-reviewed |
 | 10 | CJ-0011 | [Sun's supercongruence conjecture for OEIS A275027](candidates/CJ-0011-sun-a275027-supercongruence.md) | elementary number theory | 70.8 | candidate | not-started | preliminary-search-completed | not-reviewed |
-| 11 | CJ-0009 | [Erdős–Gyárfás conjecture (Erdős Problem 64)](candidates/CJ-0009-erdos-gyarfas.md) | graph theory | 67.7 | candidate | not-started | preliminary-search-completed | not-reviewed |
-| 12 | CJ-0012 | [Kellner's conjectures on denominators of Bernoulli polynomials](candidates/CJ-0012-kellner-bernoulli-denominators.md) | elementary number theory | 67.7 | candidate | not-started | preliminary-search-completed | not-reviewed |
-| 13 | CJ-0015 | [Kalai's 3^d conjecture](candidates/CJ-0015-kalai-3d.md) | discrete optimization, combinatorics | 65.6 | candidate | not-started | preliminary-search-completed | not-reviewed |
-| 14 | CJ-0014 | [Casas-Alvero conjecture (smallest open degree 20)](candidates/CJ-0014-casas-alvero-degree-20.md) | inequalities, algebra | 63.5 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| 11 | CJ-0025 | [Does every QL-implication satisfying the exchange principle coincide with an (S,N)-implication?](candidates/CJ-0025-ql-ep-sn.md) | fuzzy logic, fuzzy implication functions, t-norms | 68.8 | candidate | not-started | unknown | not-reviewed |
+| 12 | CJ-0009 | [Erdős–Gyárfás conjecture (Erdős Problem 64)](candidates/CJ-0009-erdos-gyarfas.md) | graph theory | 67.7 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| 13 | CJ-0012 | [Kellner's conjectures on denominators of Bernoulli polynomials](candidates/CJ-0012-kellner-bernoulli-denominators.md) | elementary number theory | 67.7 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| 14 | CJ-0015 | [Kalai's 3^d conjecture](candidates/CJ-0015-kalai-3d.md) | discrete optimization, combinatorics | 65.6 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| 15 | CJ-0026 | [Is every QL-implication that is an R-implication also an (S,N)-implication?](candidates/CJ-0026-ql-r-not-sn.md) | fuzzy logic, fuzzy implication functions, t-norms | 65.6 | candidate | not-started | unknown | not-reviewed |
+| 16 | CJ-0037 | [Existence of left-continuous t-norms on a given bounded lattice (finite case)](candidates/CJ-0037-leftcont-tnorm-finite-lattices.md) | fuzzy logic, lattice theory, combinatorics | 65.6 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| 17 | CJ-0014 | [Casas-Alvero conjecture (smallest open degree 20)](candidates/CJ-0014-casas-alvero-degree-20.md) | inequalities, algebra | 63.5 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| 18 | CJ-0024 | [A second implication that is both an (S,N)- and an R-implication from a non-border-continuous t-norm?](candidates/CJ-0024-sn-r-nonborder-intersection.md) | fuzzy logic, fuzzy implication functions, t-norms | 61.5 | candidate-counterexample | not-started | preliminary-search-completed | not-reviewed |
+| 19 | CJ-0023 | [Is the Weber implication the only QL-implication that is also an R-implication from a non-left-continuous t-norm?](candidates/CJ-0023-weber-ql-r-intersection.md) | fuzzy logic, fuzzy implication functions, t-norms | 59.4 | candidate-counterexample | not-started | preliminary-search-completed | not-reviewed |
+| 20 | CJ-0038 | [Amalgamation property for commutative and integral cancellative semilinear residuated lattices](candidates/CJ-0038-cancellative-semilinear-amalgamation.md) | algebraic logic, universal algebra, fuzzy logic | 44.8 | candidate | not-started | preliminary-search-completed | not-reviewed |
 | – | CJ-0004 | [Liang–So–Zhang per-tensor product conjecture (with Pate's conjecture)](candidates/CJ-0004-liang-so-zhang-per-tensor.md) | matrix analysis, inequalities | 69.8 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| – | CJ-0017 | [Mesiar's Problem 4.1 on the n-ary perturbation C - prod(x_i - C)](candidates/CJ-0017-nary-copula-perturbation.md) | copulas, inequalities, aggregation functions | 67.7 | candidate | not-started | preliminary-search-completed | not-reviewed |
+| – | CJ-0016 | [Klement–Mesiar Conjecture 3.2 on L_p-Lipschitz Archimedean t-norms](candidates/CJ-0016-lipschitz-lp-tnorm-conjecture.md) | triangular norms, inequalities, functional equations | 64.6 | candidate | not-started | preliminary-search-completed | not-reviewed |
 
 Unranked entries:
 
 - CJ-0004 is unranked: it fails the gate(s) open_evidence.
+- CJ-0017 is unranked: it fails the gate(s) statement_precision.
+- CJ-0016 is unranked: it fails the gate(s) open_evidence.
 
 ## Shortlist (decided 2026-11-26)
 
