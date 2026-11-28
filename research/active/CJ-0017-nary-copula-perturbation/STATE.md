@@ -51,7 +51,13 @@ P4 ← min/max of d_3 (hand proof); P1–P3 independent of each other.
 
 ## Open obligations
 
-1. Review of `notes/product-copula.md` revision 1 (running; `reviews/`).
+1. Done: review of `notes/product-copula.md` revision 1 by claude-sonnet-5-5
+   (`reviews/2026-11-28-review-1.md`): no gap found within stated scope. Minor
+   remarks (say explicitly that values in [0,1] follow; sign convention of the
+   bivariate family; give the G + 4/15 identity symbolically) go into a
+   revision 2. The director may set `external_review` to `ai-reviewed`.
+   Additional exact computation after the review: d_9(463/500,1,…,1) < 0, so
+   n = 9 also fails (not yet in the note).
 2. **Read Fernández-Sánchez, Úbeda-Flores, Fuzzy Sets Syst. 354 (2019)
    116–122** (doi:10.1016/j.fss.2018.06.013, closed access): it may already
    contain P1–P4. Also the leads listed in the audit file.

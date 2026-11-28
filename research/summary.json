@@ -91,7 +91,8 @@
     "record": "research/discoveries.json",
     "evidence": [
       "experiments/CJ-0017-nary-copula-perturbation/density_bounds_z3.py",
-      "research/active/CJ-0017-nary-copula-perturbation/notes/product-copula.md"
+      "research/active/CJ-0017-nary-copula-perturbation/notes/product-copula.md",
+      "research/active/CJ-0017-nary-copula-perturbation/reviews/2026-11-28-review-1.md"
     ]
   },
   "latest_reviewed_contribution": {
@@ -137,7 +138,8 @@
     "record": "research/discoveries.json",
     "evidence": [
       "experiments/CJ-0017-nary-copula-perturbation/density_bounds_z3.py",
-      "research/active/CJ-0017-nary-copula-perturbation/notes/product-copula.md"
+      "research/active/CJ-0017-nary-copula-perturbation/notes/product-copula.md",
+      "research/active/CJ-0017-nary-copula-perturbation/reviews/2026-11-28-review-1.md"
     ],
     "novelty_search": {
       "as_of": "2026-11-28",
@@ -288,11 +290,11 @@
   "generated": {
     "date": "2026-11-28",
     "branch": "research",
-    "revision": "9cb74dbdfe98f5023f0b8eae3b685e32b7ce06a9",
+    "revision": "232840d98267fdaf7069d3063144bd2fd756d39d",
     "sources_committed": false,
     "sources": {
       "research/catalogue.json": "bb47745603c2cf583327c425c20cf804d57778e4",
-      "research/discoveries.json": "9338477eddb2ef072fc2dfca35c2c0ab2bb7d426",
+      "research/discoveries.json": "3d74474b88749d954a8cc800aba36b3be4136f60",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "9eeaa30ae12789415077a0268f865822d2bb99bd"
     }
