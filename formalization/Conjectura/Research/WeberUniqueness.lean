@@ -4,8 +4,9 @@ non-border-continuous t-norms), Theorems A and B.
 
 Source statement: Theorem A of
 `research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md`
-(revision 1, 2026-11-27), with Lemma 4 of the same note (Theorem B is quoted
-before its formalization below):
+(read at revision 2, commit bf6015c; the text of Theorems A and B and of
+Lemma 4 is identical in revision 1, commit e23d59c), with Lemma 4 of the same
+note (Theorem B is quoted before its formalization below):
 
   Let `1 < c < 2`, `N_c(x) = min(1, c − x)` for `0 ≤ x < 1`, `N_c(1) = 0`,
   `T_c(x,y) = min(x,y)` if `max(x,y) = 1`, `T_c(x,y) = max(0, x + y − c)` if
@@ -35,7 +36,8 @@ Encoding:
   (since `1` is the right end of `[0,1]`, this is continuity from the left);
 * "not border-continuous" is formalized as: `T_c`, as a function of two
   variables, is not continuous within `[0,1]²` at the boundary point `(x,1)`
-  for every `0 < x < 1`;
+  for every `0 < x < 1` (the joint-continuity reading of revision 2 of the
+  note; the one-variable failure `Tc_not_leftContinuous` is also proved);
 * `N_c`, `T_c`, `I_c`, `S_L`, `I_WB` are written with `if` exactly as in the
   note (`Nc`, `Tc`, `Ic`, `SL`, `weberImp`); `T_M` is `min`.
 * every theorem about `c` keeps the note's standing hypothesis `1 < c < 2` as

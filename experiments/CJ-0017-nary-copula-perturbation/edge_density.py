@@ -35,7 +35,7 @@ def density_edge(n):
             out[e[0] - 1] += coef
     return {k: v for k, v in out.items() if v}
 
-for n in range(2, 9):
+for n in range(2, 10):
     d = density_edge(n)
     f = lambda t: sum(c * t**k for k, c in d.items())
     best = min((f(F(k, 1000)), F(k, 1000)) for k in range(1001))
