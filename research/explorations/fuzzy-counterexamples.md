@@ -207,3 +207,8 @@ Next steps, in order: (1) the director decides on `external_review`
 CJ-0024 result package from `manuscripts/CJ-0024-weber-uniqueness/main.tex`
 after a whole-manuscript review; (4) mathematics: CJ-0026 (a proof that
 (I_QL ∩ I_T) \ I_{S,N} = ∅ may be within reach), odd n ≥ 11 for CJ-0017.
+- **Persistence finished 00:36 (clock):** the entry was closed at about
+  00:18; the full test suite (228 passed, 13 min), the final commits
+  (`c25f111`, `7fd701b`), the push of `research` and its CI run
+  (46103280768, success) took until 00:36. Total session time about 86
+  minutes of the 120-minute budget.
