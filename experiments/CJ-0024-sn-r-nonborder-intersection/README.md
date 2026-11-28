@@ -23,3 +23,13 @@ supports, but does not prove, identities on [0,1]; the proofs are in the note.
 **Expected output.** One line per c ending in `all checks passed`, then
 `residual/(S,N)/QL identities checked at 19048 grid pairs` and
 `ALL CHECKS PASSED`. Run time about 50 s on a desktop (2026-11-27).
+
+## `check_theorem_c.py`
+
+Exact checks of Theorem C of `notes/rescaled-tnorms.md` for T0 in
+{Lukasiewicz, nilpotent minimum, nilpotent minimum of the piecewise-linear
+strong negation N3 (fixed point 1/3)}, a in {e - 1/10, e, (e+1)/2, e + 1/10,
+9/10}, psi linear or piecewise linear; grid {k/24} plus psi^-1(N0(a)),
+its half, and psi^-1((N0(a)+a)/2). Residual bracketed by 50 exact bisection
+steps. Command `uv run python check_theorem_c.py`; expected last line
+`ALL CHECKS PASSED for 30 configurations`; about 2 min 45 s (2026-11-27).

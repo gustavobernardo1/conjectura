@@ -2739,6 +2739,193 @@
           "note": "MD-0024 uses Collins's formula; with this proof it no longer needs it as a citation."
         }
       ]
+    },
+    {
+      "id": "MD-0027",
+      "type": "counterexample",
+      "title": "Shifted Łukasiewicz t-norms with the drastic boundary: a second (S,N)- and QL-implication among residuals of non-left-continuous t-norms",
+      "statement": "Definitions as in Baczyński–Jayaram (STUDFUZZ 300, 2013; FSS 161, 2010): a t-norm/t-conorm is a commutative, associative operation on [0,1], non-decreasing in each variable, with neutral element 1/0; a fuzzy negation is non-increasing with N(0)=1, N(1)=0; the R-implication of a t-norm T is I_T(x,y)=sup{t in [0,1] : T(x,t) <= y}; an (S,N)-implication is S(N(x),y); a QL-implication is a fuzzy implication of the form S(N(x),T'(x,y)); border-continuity is continuity on [0,1]^2 minus ]0,1[^2; I_WB(x,y)=1 for x<1 and I_WB(1,y)=y. For every real c with 1<c<2 let T_c(x,y)=min(x,y) if max(x,y)=1 and T_c(x,y)=max(0,x+y-c) otherwise. Then T_c is a t-norm that is not border-continuous; its residual is I_c(x,y)=min(1,c-x+y) for x<1 and I_c(1,y)=y; I_c(x,y)=S_L(N_c(x),y)=S_L(N_c(x),min(x,y)) for all x,y in [0,1], where S_L(a,b)=min(1,a+b) and N_c(x)=min(1,c-x) for x<1, N_c(1)=0; I_c(c-1,0)=1, so I_c is not the residual of any left-continuous t-norm; and I_c differs from I_WB and from I_{c'} for c'≠c. Consequently the equality I_{S,N} ∩ (I_T \\ I_{T_LC}) = {I_WB} (Problem 4.8.1 of Baczyński–Jayaram 2008, Problem 4.2(i) of their 2013 chapter) fails, and I_WB is not the only QL-implication that is the residual of a non-left-continuous t-norm (Problem 4.5(ii) of the 2013 chapter = Problem 9.4(ii) of the 2010 paper).",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "found the construction, wrote the proof and the exact grid checks (AI-generated discovery)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (set the fuzzy-mathematics mission and the session budget); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0024-sn-r-nonborder-intersection/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md",
+          "summary": "Theorem A with Lemmas 1-4, revision 1; not reviewed."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0024-sn-r-nonborder-intersection/check_examples.py",
+          "summary": "Exact rational grid check (5 values of c, 19048 grid pairs; residual bracketed by exact bisection, independent of the closed form): all checks passed, 2026-11-27. Evidence for, not proof of, the identities on [0,1]."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-counterexample",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "Novelty: literature audit research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md found no answer to the problems and no explicit occurrence of the family; the 2015 handbook chapter and the 2008 monograph were not read. The general drastic-boundary form T_M of a t-subnorm M appears in Jayaram-Baczyński-Mesiar (EUSFLAT 2011). Not reviewed; not formalized at registration.",
+      "relations": [
+        {
+          "type": "refutes",
+          "target": "CJ-0024",
+          "local_id": "Theorem A",
+          "note": "Refutes the equality of Problem 4.8.1 / answers 4.2(i) affirmatively."
+        },
+        {
+          "type": "refutes",
+          "target": "CJ-0023",
+          "local_id": "Theorem A",
+          "note": "Answers the first question of Problem 4.5(ii) negatively."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-27",
+        "coverage": "Literature audit (literature-auditor subagent, Opus, about 30 web operations), research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md: the 2008 survey FSS 159, the 2010 QL paper FSS 161, the 2013 chapter STUDFUZZ 300, Jayaram-Baczyński-Mesiar EUSFLAT 2011 read; OpenAlex citing-work titles of the 2008 survey (169), the 2010 paper (79), the 2015 handbook chapter (105); Fernández-Peralta's survey arXiv:2503.05702. No occurrence of the construction or of an answer found.",
+        "limitations": "Not read: the 2015 handbook chapter (paywalled), the 2008 monograph, Klement-Mesiar-Pap's book, FSS 476 (2024) 108786, FSS 2025 109580 and 109285, the 2022 paper on non-continuous negations; titles only for citing works; no zbMATH, MathSciNet or Google Scholar. A failed search does not establish novelty."
+      }
+    },
+    {
+      "id": "MD-0028",
+      "type": "counterexample",
+      "title": "Threshold nilpotent minimum with the drastic boundary: further (S,N)- and QL-residuals of non-left-continuous t-norms",
+      "statement": "Definitions as in Baczyński–Jayaram (STUDFUZZ 300, 2013; FSS 161, 2010): a t-norm/t-conorm is a commutative, associative operation on [0,1], non-decreasing in each variable, with neutral element 1/0; a fuzzy negation is non-increasing with N(0)=1, N(1)=0; the R-implication of a t-norm T is I_T(x,y)=sup{t in [0,1] : T(x,t) <= y}; an (S,N)-implication is S(N(x),y); a QL-implication is a fuzzy implication of the form S(N(x),T'(x,y)); border-continuity is continuity on [0,1]^2 minus ]0,1[^2; I_WB(x,y)=1 for x<1 and I_WB(1,y)=y. For every real c with 1<c<2 let T'_c(x,y)=min(x,y) if max(x,y)=1 or x+y>c, and T'_c(x,y)=0 otherwise, and let S*_c(a,b)=max(a,b) if a+b<c and S*_c(a,b)=1 otherwise. Then T'_c is a t-norm that is not border-continuous and S*_c is a t-conorm; the residual of T'_c is J_c(x,y)=1 if x<=y, J_c(x,y)=max(min(1,c-x),y) if y<x<1, J_c(1,y)=y; J_c(x,y)=S*_c(N_c(x),y)=S*_c(N_c(x),min(x,y)) for all x,y, with N_c as in MD-0027; J_c(c-1,0)=1, so J_c is not the residual of any left-continuous t-norm; J_c differs from I_WB, from the implications I_c of MD-0027, and from J_{c'} for c'≠c.",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "found the construction, wrote the proof and the exact grid checks (AI-generated discovery)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (set the fuzzy-mathematics mission and the session budget); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0024-sn-r-nonborder-intersection/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md",
+          "summary": "Theorem B, revision 1; not reviewed."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0024-sn-r-nonborder-intersection/check_examples.py",
+          "summary": "Exact rational grid check (5 values of c, 19048 grid pairs; residual bracketed by exact bisection, independent of the closed form): all checks passed, 2026-11-27. Evidence for, not proof of, the identities on [0,1]."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-counterexample",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "As for MD-0027.",
+      "relations": [
+        {
+          "type": "refutes",
+          "target": "CJ-0024",
+          "local_id": "Theorem B"
+        },
+        {
+          "type": "refutes",
+          "target": "CJ-0023",
+          "local_id": "Theorem B"
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-27",
+        "coverage": "Literature audit (literature-auditor subagent, Opus, about 30 web operations), research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md: the 2008 survey FSS 159, the 2010 QL paper FSS 161, the 2013 chapter STUDFUZZ 300, Jayaram-Baczyński-Mesiar EUSFLAT 2011 read; OpenAlex citing-work titles of the 2008 survey (169), the 2010 paper (79), the 2015 handbook chapter (105); Fernández-Peralta's survey arXiv:2503.05702. No occurrence of the construction or of an answer found.",
+        "limitations": "Not read: the 2015 handbook chapter (paywalled), the 2008 monograph, Klement-Mesiar-Pap's book, FSS 476 (2024) 108786, FSS 2025 109580 and 109285, the 2022 paper on non-continuous negations; titles only for citing works; no zbMATH, MathSciNet or Google Scholar. A failed search does not establish novelty."
+      }
+    },
+    {
+      "id": "MD-0029",
+      "type": "theorem",
+      "title": "Rescaled left-continuous t-norms with strong negation and the drastic boundary give (S,N)- and QL-residuals outside the left-continuous class",
+      "statement": "Definitions as in Baczyński–Jayaram (STUDFUZZ 300, 2013; FSS 161, 2010): a t-norm/t-conorm is a commutative, associative operation on [0,1], non-decreasing in each variable, with neutral element 1/0; a fuzzy negation is non-increasing with N(0)=1, N(1)=0; the R-implication of a t-norm T is I_T(x,y)=sup{t in [0,1] : T(x,t) <= y}; an (S,N)-implication is S(N(x),y); a QL-implication is a fuzzy implication of the form S(N(x),T'(x,y)); border-continuity is continuity on [0,1]^2 minus ]0,1[^2; I_WB(x,y)=1 for x<1 and I_WB(1,y)=y. Let T0 be a left-continuous t-norm whose natural negation N0(v)=sup{t : T0(v,t)=0} is strong, with fixed point e, and S0 the N0-dual t-conorm. Let 0<a<1 and psi:[0,1]->[0,a] an increasing bijection. Let T(x,y)=min(x,y) if max(x,y)=1 and T(x,y)=psi^{-1}(T0(psi(x),psi(y))) otherwise; N(x)=psi^{-1}(min(a,N0(psi(x)))) for x<1, N(1)=0; S(p,q)=psi^{-1}(min(a,S0(psi(p),psi(q)))). Then T is a t-norm, S a t-conorm, N a fuzzy negation; I_T(x,y)=psi^{-1}(min(a,I_{T0}(psi(x),psi(y)))) for x<1 and I_T(1,y)=y; I_T(x,y)=S(N(x),y)=S(N(x),min(x,y)) for all x,y. If a<=e then I_T=I_WB. If e<a<1 then I_T(x,0)=1 for 0<x<=psi^{-1}(N0(a)), so I_T is not the residual of any left-continuous t-norm, T is not border-continuous, and I_T differs from I_WB.",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "found the construction, wrote the proof and the exact grid checks (AI-generated discovery)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (set the fuzzy-mathematics mission and the session budget); no mathematical input to this contribution"
+          }
+        ],
+        "record": "research/active/CJ-0024-sn-r-nonborder-intersection/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/rescaled-tnorms.md",
+          "summary": "Theorem C, revision 1; uses Theorem 5.13 of Baczyński-Jayaram FSS 161 (2010) and Lemmas 1, 2, 4 of the companion note; not reviewed."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0024-sn-r-nonborder-intersection/check_theorem_c.py",
+          "summary": "Exact rational grid check, 30 configurations (3 base t-norms, 5 values of a, linear and piecewise-linear psi): all checks passed, 2026-11-27."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "limitations": "As for MD-0027; in addition the construction relies on a cited theorem (F2) whose proof was not re-derived here.",
+      "relations": [
+        {
+          "type": "generalizes",
+          "target": "MD-0027",
+          "note": "T0 = Łukasiewicz, psi(x)=x/c."
+        },
+        {
+          "type": "generalizes",
+          "target": "MD-0028",
+          "note": "T0 = nilpotent minimum, psi(x)=x/c."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0024",
+          "local_id": "Theorem C",
+          "note": "Towards the characterisation asked in Problem 4.2(ii)."
+        },
+        {
+          "type": "contributes_to",
+          "target": "CJ-0023",
+          "local_id": "Theorem C"
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-27",
+        "coverage": "Literature audit (literature-auditor subagent, Opus, about 30 web operations), research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md: the 2008 survey FSS 159, the 2010 QL paper FSS 161, the 2013 chapter STUDFUZZ 300, Jayaram-Baczyński-Mesiar EUSFLAT 2011 read; OpenAlex citing-work titles of the 2008 survey (169), the 2010 paper (79), the 2015 handbook chapter (105); Fernández-Peralta's survey arXiv:2503.05702. No occurrence of the construction or of an answer found.",
+        "limitations": "Not read: the 2015 handbook chapter (paywalled), the 2008 monograph, Klement-Mesiar-Pap's book, FSS 476 (2024) 108786, FSS 2025 109580 and 109285, the 2022 paper on non-continuous negations; titles only for citing works; no zbMATH, MathSciNet or Google Scholar. A failed search does not establish novelty."
+      }
     }
   ]
 }

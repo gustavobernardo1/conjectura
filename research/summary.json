@@ -63,24 +63,21 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0026",
-    "type": "proof",
-    "title": "A proof of Collins's formula for the path through the forest expansion",
+    "id": "MD-0029",
+    "type": "theorem",
+    "title": "Rescaled left-continuous t-norms with strong negation and the drastic boundary give (S,N)- and QL-residuals outside the left-continuous class",
     "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
       "mathematical": "candidate-proof",
       "formal": "not-started",
-      "novelty": "unknown",
-      "external_review": "ai-reviewed"
+      "novelty": "preliminary-search-completed",
+      "external_review": "not-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/path-formula-check.json",
-      "manuscripts/CJ-0001-collins-shor/main.tex",
-      "research/active/CJ-0001-collins-shor-peak/notes/path-formula.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript-recheck-r4.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-formula.md"
+      "experiments/CJ-0024-sn-r-nonborder-intersection/check_theorem_c.py",
+      "research/active/CJ-0024-sn-r-nonborder-intersection/notes/rescaled-tnorms.md"
     ]
   },
   "latest_reviewed_contribution": {
@@ -112,30 +109,26 @@
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0025",
-    "type": "lemma",
-    "title": "Merging two pendant paths lowers the trace of (I + L)^{-1}",
+    "id": "MD-0029",
+    "type": "theorem",
+    "title": "Rescaled left-continuous t-norms with strong negation and the drastic boundary give (S,N)- and QL-residuals outside the left-continuous class",
     "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
       "mathematical": "candidate-proof",
       "formal": "not-started",
       "novelty": "preliminary-search-completed",
-      "external_review": "ai-reviewed"
+      "external_review": "not-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
-      "manuscripts/CJ-0001-collins-shor/main.tex",
-      "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md"
+      "experiments/CJ-0024-sn-r-nonborder-intersection/check_theorem_c.py",
+      "research/active/CJ-0024-sn-r-nonborder-intersection/notes/rescaled-tnorms.md"
     ],
     "novelty_search": {
       "as_of": "2026-11-27",
-      "coverage": "Session 15 follow-up audit (dossier, \"Audit for session 15\", subsection \"Follow-up: MD-0025\"): AMW arXiv v1 read in full (the proof of Theorem 4.4 is an induction with a case analysis, with no transformation lemma); the companion paper on independent sets (arXiv:1807.08290, same structure); Csikvari, On a poset of trees II (J. Graph Theory 74 (2013)): the merge is the reverse of a generalized tree shift, which orders the characteristic and Laplacian coefficients one by one (Theorems 6.1, 7.3), not a mean such as sum mu/(1+mu) or avm; no source states the lemma.",
-      "limitations": "Not read: Csikvari Part I, Mohar (2007), Zhou-Gutman (2008), the Razanajatovo Misanantenaina thesis, the journal versions of the AMW papers; MathSciNet, zbMATH and Google Scholar not searched."
+      "coverage": "Literature audit (literature-auditor subagent, Opus, about 30 web operations), research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md: the 2008 survey FSS 159, the 2010 QL paper FSS 161, the 2013 chapter STUDFUZZ 300, Jayaram-Baczyński-Mesiar EUSFLAT 2011 read; OpenAlex citing-work titles of the 2008 survey (169), the 2010 paper (79), the 2015 handbook chapter (105); Fernández-Peralta's survey arXiv:2503.05702. No occurrence of the construction or of an answer found.",
+      "limitations": "Not read: the 2015 handbook chapter (paywalled), the 2008 monograph, Klement-Mesiar-Pap's book, FSS 476 (2024) 108786, FSS 2025 109580 and 109285, the 2022 paper on non-continuous negations; titles only for citing works; no zbMATH, MathSciNet or Google Scholar. A failed search does not establish novelty."
     }
   },
   "public": {
@@ -213,40 +206,41 @@
       }
     },
     "contributions": {
-      "registered": 26,
+      "registered": 29,
       "by_standing": {
-        "candidate": 23,
+        "candidate": 26,
         "established": 0,
         "rediscovered": 3,
         "withdrawn": 0
       },
-      "counted": 23,
+      "counted": 26,
       "by_type": {
         "computational-finding": 1,
         "conjecture": 5,
-        "counterexample": 1,
+        "counterexample": 3,
         "lemma": 1,
         "proof": 1,
         "structural-result": 5,
-        "theorem": 9
+        "theorem": 10
       },
       "by_status": {
         "mathematical": {
           "candidate": 4,
-          "candidate-proof": 18,
+          "candidate-counterexample": 2,
+          "candidate-proof": 19,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 19,
+          "not-started": 22,
           "partial": 4
         },
         "novelty": {
-          "preliminary-search-completed": 16,
+          "preliminary-search-completed": 19,
           "unknown": 7
         },
         "external_review": {
           "ai-reviewed": 17,
-          "not-reviewed": 6
+          "not-reviewed": 9
         }
       }
     },
@@ -267,13 +261,13 @@
   "generated": {
     "date": "2026-11-28",
     "branch": "research",
-    "revision": "809cd1d35143e5303777f61246c2c27e2f478011",
+    "revision": "e23d59c8b8e1d93e91058e3027b75cdafd6cec97",
     "sources_committed": false,
     "sources": {
       "research/catalogue.json": "52b547dbeec5aa25f912e5b586b21c0e88849754",
-      "research/discoveries.json": "87b18b2acb59170e4faa875c85ec10c63ee0cd86",
+      "research/discoveries.json": "25b59cb0ef336f70c684cb4c35e8d2f12d5a13af",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
-      "formalization/registry.json": "d6213327d28ca00900877b08e55c4816511f1396"
+      "formalization/registry.json": "9cf5bbaab3e5f3164671c822391a27d5d2905ffc"
     }
   }
 }

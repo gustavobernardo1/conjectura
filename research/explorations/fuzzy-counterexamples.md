@@ -55,3 +55,15 @@ When a target becomes an investigation, its record moves to
   (19048 grid pairs, 5 values of c). Running: literature audit, adversarial
   review, Lean formalization (all subagents, background). Next: CJ-0026 with
   the same construction while those run. Commit: this checkpoint.
+- **+30 min (23:40, clock):** Literature audit of CJ-0024/CJ-0023 done (no
+  answer found within its coverage; 2015 handbook chapter not accessible).
+  New: Theorem C (`notes/rescaled-tnorms.md`): every left-continuous t-norm
+  with strong natural negation, rescaled into [0,a] with a above the fixed
+  point and closed by the drastic boundary, gives an (S,N)- and QL-residual
+  outside the left-continuous class; a below the fixed point gives I_WB.
+  Exact grid check `check_theorem_c.py`: 30 configurations passed
+  (candidate, not reviewed). Registered MD-0027, MD-0028 (Theorems A, B,
+  candidate counterexamples) and MD-0029 (Theorem C, candidate proof).
+  CJ-0016: a 2007 characterisation by Mesiarová(-Zemánková) probably decides
+  it (abstract only). Running: review of the first note, review of Theorem C,
+  Lean formalization of Theorem A. Computation used: about 4 minutes.

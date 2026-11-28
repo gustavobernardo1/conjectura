@@ -69,3 +69,16 @@ Triangular norms and additive generators (Klement–Mesiar–Pap, Triangular Nor
 - Everything in "Mathematical approaches" is an unchecked hand derivation.
 - Whether the conjecture has been resolved or restated since 2006 (not established).
 - References [17], [23], [26] of the problem paper (not fetched).
+
+## Director's note, 2026-11-27
+
+A web search (one query) found the record of A. Mesiarová(-Zemánková),
+"k-lp-Lipschitz t-norms", International Journal of General Systems (2007)
+(dblp key `journals/ijgs/Mesiarova07`; abstract seen only through an
+aggregator page, <https://manuscript.isc.ac/Inventory/10/1182442.htm>). Per that
+abstract, k-l_p-Lipschitz t-norms are ordinal sums of k-l_p-Lipschitz
+Archimedean t-norms, and their additive generators are characterised by
+"k-p-convexity". If that characterisation differs from "p-power of a convex
+function", Conjecture 3.2 is already decided by it. The full text was not
+read. Until it is, CJ-0016 stays below the open-evidence gate and no work
+should start on it.

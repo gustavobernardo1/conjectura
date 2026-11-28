@@ -331,6 +331,256 @@
         "witness": "Conjectura.Research.CollinsShorPeak.starShape_hypotheses_nonvacuous"
       },
       "statement_fingerprint": "0eedbd6c9ce0a915d9d72a75280ac0594e6ab61da514047abcea03238cc4d48f"
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Tc_isTNorm",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 1, first clause: for 1 < c < 2, T_c(x,y) = min(x,y) if max(x,y) = 1, T_c(x,y) = max(0, x + y - c) if x, y < 1, is a t-norm. In Lean: IsTNorm (Tc c). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Tc_not_leftContinuous",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 1, 'T_c is not left-continuous', in the form proved in the note (proof of item 1): for 0 < x < 1, T_c(x,.) is not left-continuous at 1. In Lean: for 1 < c < 2 and 0 < x < 1, not ContinuousWithinAt (Tc c x) (Set.Icc 0 1) 1. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Tc_not_borderContinuous",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 1, 'T_c is not border-continuous' (border-continuous: continuous on [0,1]^2 minus ]0,1[^2), in the form proved in the note: T_c is discontinuous at the boundary point (x,1) for 0 < x < 1. In Lean: for 1 < c < 2 and 0 < x < 1, not ContinuousWithinAt (Function.uncurry (Tc c)) (Set.Icc 0 1 xˢ Set.Icc 0 1) (x, 1). Border-continuity is read as continuity, as a function on [0,1]^2, at every point of the boundary. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.residual_Tc",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 2: the residual of T_c is I_c(x,y) = min(1, c - x + y) for x < 1 and I_c(1,y) = y. In Lean: for 1 < c < 2 and x, y in [0,1], residual (Tc c) x y = Ic c x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.SL_isTConorm",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 3, the t-conorm used: S_L(a,b) = min(1, a + b) is a t-conorm. In Lean: IsTConorm SL. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "not_needed": "The statement has no hypotheses."
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Nc_isFuzzyNegation",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Section 3 of the note: for 1 < c < 2, N_c(x) = min(1, c - x) for 0 <= x < 1, N_c(1) = 0, is a fuzzy negation. In Lean: IsFuzzyNegation (Nc c). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Ic_eq_SL_Nc",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 3: I_c(x,y) = S_L(N_c(x), y) for all x, y. In Lean: for every real c, every real x and y in [0,1], Ic c x y = SL (Nc c x) y (no hypothesis on c or x is needed). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Ic_eq_SL_Nc_min",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 4: I_c(x,y) = S_L(N_c(x), T_M(x,y)) for all x, y. In Lean: for 1 < c < 2 and x, y in [0,1], Ic c x y = SL (Nc c x) (min x y). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.residual_Tc_violates_OP",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 5, first sentence: I_c(c - 1, 0) = 1 although c - 1 > 0. In Lean: for 1 < c < 2, 0 < c - 1, c - 1 <= 1 and residual (Tc c) (c - 1) 0 = 1 (stated for the residual itself, not for Ic). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.le_of_residual_eq_one",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Lemma 4 of the note: if T is a t-norm such that T(x,.) is left-continuous at 1 for every x, and I_T(x,y) = 1, then x <= y. In Lean: for IsTNorm T, x, y in [0,1], ContinuousWithinAt (T x) (Set.Icc 0 1) 1 (only at this x) and residual T x y = 1, x <= y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.residual_ne_of_leftContinuous",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 5, second sentence: I_c is not the residual of any left-continuous t-norm. In Lean: for 1 < c < 2 and every T' with IsTNorm T' and ContinuousWithinAt (T' x) (Set.Icc 0 1) 1 for every x in [0,1], there are x, y in [0,1] with residual T' x y /= residual (Tc c) x y. The hypothesis on T' (left-continuity of every T'(x,.) at 1) is weaker than left-continuity of T', so the Lean statement covers every left-continuous t-norm. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Ic_ne_weberImp",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 6, first clause: I_c /= I_WB. In Lean: for 1 < c < 2 there are x, y in [0,1] with Ic c x y /= weberImp x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Ic_ne_Ic",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem A, item 6, second clause: I_c /= I_{c'} for c /= c'. In Lean: for 1 < c < 2, 1 < c' < 2, c /= c', there are x, y in [0,1] with Ic c x y /= Ic c' x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Tc'_isTNorm",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 1, first clause: for 1 < c < 2, T'_c(x,y) = min(x,y) if max(x,y) = 1 or x + y > c, T'_c(x,y) = 0 otherwise, is a t-norm. In Lean: IsTNorm (Tc' c). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Tc'_not_leftContinuous",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 1, 'T'_c is not left-continuous', in the form proved in the note: for 0 < x <= c - 1, T'_c(x,.) is not left-continuous at 1. In Lean: for 1 < c < 2 and 0 < x <= c - 1, not ContinuousWithinAt (Tc' c x) (Set.Icc 0 1) 1. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Tc'_not_borderContinuous",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 1, 'T'_c is not border-continuous', in the form proved in the note: T'_c is discontinuous at the boundary point (x,1) for 0 < x <= c - 1. In Lean: for 1 < c < 2 and 0 < x <= c - 1, not ContinuousWithinAt (Function.uncurry (Tc' c)) (Set.Icc 0 1 xˢ Set.Icc 0 1) (x, 1). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Sstar_isTConorm",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 1, last clause: S*_c(a,b) = max(a,b) if a + b < c, S*_c(a,b) = 1 if a + b >= c, is a t-conorm. In Lean: for 1 < c < 2, IsTConorm (Sstar c). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.residual_Tc'",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 2: the residual of T'_c is J_c(x,y) = 1 if x <= y, max(min(1, c - x), y) if y < x < 1, J_c(1,y) = y. In Lean: for 1 < c < 2 and x, y in [0,1], residual (Tc' c) x y = Jc c x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Jc_eq_Sstar_Nc",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 3, first identity: J_c(x,y) = S*_c(N_c(x), y) for all x, y. In Lean: for 1 < c < 2 and x, y in [0,1], Jc c x y = Sstar c (Nc c x) y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Jc_eq_Sstar_Nc_min",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 3, second identity: J_c(x,y) = S*_c(N_c(x), T_M(x,y)) for all x, y. In Lean: for 1 < c < 2 and x, y in [0,1], Jc c x y = Sstar c (Nc c x) (min x y). Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.residual_Tc'_violates_OP",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 4, first clause: J_c(c - 1, 0) = 1 (with c - 1 > 0). In Lean: for 1 < c < 2, 0 < c - 1, c - 1 <= 1 and residual (Tc' c) (c - 1) 0 = 1. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.residual_Tc'_ne_of_leftContinuous",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 4, second clause: J_c is not the residual of any left-continuous t-norm. In Lean: for 1 < c < 2 and every T' with IsTNorm T' and ContinuousWithinAt (T' x) (Set.Icc 0 1) 1 for every x in [0,1], there are x, y in [0,1] with residual T' x y /= residual (Tc' c) x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Jc_ne_weberImp",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 5, first clause: J_c /= I_WB. In Lean: for 1 < c < 2 there are x, y in [0,1] with Jc c x y /= weberImp x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Jc_ne_Ic",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 5, second clause: J_c /= I_c. In Lean: for 1 < c < 2 there are x, y in [0,1] with Jc c x y /= Ic c x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
+    },
+    {
+      "name": "Conjectura.Research.WeberUniqueness.Jc_ne_Jc",
+      "kind": "research",
+      "catalogue_id": "CJ-0024",
+      "source_statement": "research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c), Theorem B, item 5, third clause: J_c /= J_{c'} for c /= c'. In Lean: for 1 < c < 2, 1 < c' < 2, c /= c', there are x, y in [0,1] with Jc c x y /= Jc c' x y. Encoding: operations are functions R -> R -> R (or R -> R) and every property is quantified over arguments in Set.Icc 0 1 only. IsTNorm T: for x, y, z in [0,1], T x y in [0,1], T x y = T y x, T (T x y) z = T x (T y z), T x 1 = x, and x <= x' -> T x y <= T x' y (monotonicity in the second variable then follows, IsTNorm.mono_right); IsTConorm S: the same with S x 0 = x; IsFuzzyNegation N: N x in [0,1] and x <= y -> N y <= N x for x, y in [0,1], N 0 = 1, N 1 = 0. residual T x y = sSup {t | t in Set.Icc 0 1 and T x t <= y} (the real sSup). Tc c x y = if max x y = 1 then min x y else max 0 (x + y - c); Nc c x = if x = 1 then 0 else min 1 (c - x); SL a b = min 1 (a + b); Ic c x y = if x = 1 then y else min 1 (c - x + y); weberImp x y = if x < 1 then 1 else y; T_M is min. 'T(x,.) is left-continuous at 1' is ContinuousWithinAt (T x) (Set.Icc 0 1) 1. The standing hypothesis 1 < c < 2 of the note is kept as (hc1 : 1 < c) (hc2 : c < 2) even where unused. Theorem B: Tc' c x y = if max x y = 1 or c < x + y then min x y else 0; Sstar c a b = if a + b < c then max a b else 1; Jc c x y = if x = 1 then y else if x <= y then 1 else max (min 1 (c - x)) y (on [0,1]^2 this is the note's three-case J_c; the cases of the note overlap only at (1,1), where both give 1). Statement comparison: made by the formalization agent that wrote the Lean statement (claude-opus-5-5, 2026-11-27) against research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md (revision 1, commit e23d59c); this comparison is not independently reviewed.",
+      "nonvacuity": {
+        "witness": "Conjectura.Research.WeberUniqueness.hypotheses_nonvacuous"
+      },
+      "statement_fingerprint": null
     }
   ]
 }

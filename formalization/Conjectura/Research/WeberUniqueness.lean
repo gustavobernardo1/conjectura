@@ -1,10 +1,11 @@
 /-
 RESEARCH — problem CJ-0024 ((S,N)- and QL-implications that are residuals of
-non-border-continuous t-norms), Theorem A.
+non-border-continuous t-norms), Theorems A and B.
 
 Source statement: Theorem A of
 `research/active/CJ-0024-sn-r-nonborder-intersection/notes/weber-uniqueness.md`
-(revision 1, 2026-11-27), with Lemma 4 of the same note:
+(revision 1, 2026-11-27), with Lemma 4 of the same note (Theorem B is quoted
+before its formalization below):
 
   Let `1 < c < 2`, `N_c(x) = min(1, c − x)` for `0 ≤ x < 1`, `N_c(1) = 0`,
   `T_c(x,y) = min(x,y)` if `max(x,y) = 1`, `T_c(x,y) = max(0, x + y − c)` if
@@ -37,11 +38,24 @@ Encoding:
   for every `0 < x < 1`;
 * `N_c`, `T_c`, `I_c`, `S_L`, `I_WB` are written with `if` exactly as in the
   note (`Nc`, `Tc`, `Ic`, `SL`, `weberImp`); `T_M` is `min`.
+* every theorem about `c` keeps the note's standing hypothesis `1 < c < 2` as
+  `(hc1 : 1 < c) (hc2 : c < 2)`, also where the proof uses only one half of it
+  or neither (this is the source of the unused-variable warnings of the
+  build).
 
-Not formalized: that `I_c` is a fuzzy implication (Definition 2.1), and the
-phrase "is an (S,N)-implication / QL-implication" beyond the two identities of
-items 3 and 4 together with `IsTConorm SL` and `IsFuzzyNegation (Nc c)`.
-Theorem B of the note is not formalized here.
+Theorem B of the note (`T'_c`, `S*_c`, `J_c`) is formalized in the second
+half of the file with the same encoding: `Tc'`, `Sstar`, `Jc`. `J_c` is written
+`J_c(1,y) = y`, `J_c(x,y) = 1` if `x < 1` and `x ≤ y`, and
+`max(min(1, c − x), y)` if `y < x < 1`; on `[0,1]²` this is the note's
+three-case definition (the cases overlap only at `(1,1)`, where both give `1`).
+
+Not formalized: that `I_c` and `J_c` are fuzzy implications (Definition 2.1),
+and the phrases "is an (S,N)-implication / QL-implication" beyond the identities
+of Theorem A items 3–4 and Theorem B item 3 together with `IsTConorm SL`,
+`IsTConorm (Sstar c)` and `IsFuzzyNegation (Nc c)`; the Corollary of the note
+(statements about the classes of implications and the cardinality of the
+intersection) is not formalized. Lemmas 1–3 of the note are not stated
+separately: their content is proved directly for `T_c` and `T'_c`.
 -/
 import Mathlib.Topology.Instances.Real.Lemmas
 import Mathlib.Tactic.Linarith
@@ -473,28 +487,401 @@ theorem Ic_ne_Ic {c c' : ℝ} (hc1 : 1 < c) (hc2 : c < 2) (hc1' : 1 < c') (hc2' 
   intro h
   exact hne (by linarith)
 
+/-! ## Theorem B
+
+Source statement (same note, Theorem B): for `1 < c < 2` let
+`T'_c(x,y) = min(x,y)` if `max(x,y) = 1` or `x + y > c`, `T'_c(x,y) = 0`
+otherwise, and `S*_c(a,b) = max(a,b)` if `a + b < c`, `S*_c(a,b) = 1` if
+`a + b ≥ c`. Then
+1. `T'_c` is a t-norm, neither border-continuous nor left-continuous; `S*_c` is
+   a t-conorm;
+2. the residual of `T'_c` is `J_c(x,y) = 1` if `x ≤ y`,
+   `J_c(x,y) = max(min(1, c − x), y)` if `y < x < 1`, `J_c(1,y) = y`;
+3. `J_c(x,y) = S*_c(N_c(x), y) = S*_c(N_c(x), T_M(x,y))` for all `x, y`;
+4. `J_c(c − 1, 0) = 1`, so `J_c` violates (OP) and is not the residual of any
+   left-continuous t-norm;
+5. `J_c ≠ I_WB`, `J_c ≠ I_c`, and `J_c ≠ J_{c'}` for `c ≠ c'`.
+-/
+
+/-- The t-norm `T'_c` of Theorem B. -/
+noncomputable def Tc' (c : ℝ) (x y : ℝ) : ℝ :=
+  if max x y = 1 ∨ c < x + y then min x y else 0
+
+/-- The t-conorm `S*_c` of Theorem B. -/
+noncomputable def Sstar (c : ℝ) (a b : ℝ) : ℝ :=
+  if a + b < c then max a b else 1
+
+/-- The implication `J_c` of Theorem B. -/
+noncomputable def Jc (c : ℝ) (x y : ℝ) : ℝ :=
+  if x = 1 then y else if x ≤ y then 1 else max (min 1 (c - x)) y
+
+theorem Tc'_one_left (c : ℝ) {y : ℝ} (hy : y ≤ 1) : Tc' c 1 y = y := by
+  unfold Tc'
+  rw [max_eq_left hy, if_pos (Or.inl rfl), min_eq_right hy]
+
+theorem Tc'_one_right (c : ℝ) {x : ℝ} (hx : x ≤ 1) : Tc' c x 1 = x := by
+  unfold Tc'
+  rw [max_eq_right hx, if_pos (Or.inl rfl), min_eq_left hx]
+
+theorem Tc'_of_lt (c : ℝ) {x y : ℝ} (hx : x < 1) (hy : y < 1) :
+    Tc' c x y = if c < x + y then min x y else 0 := by
+  unfold Tc'
+  have h : max x y ≠ 1 := ne_of_lt (max_lt hx hy)
+  simp only [h, false_or]
+
+/-- **Theorem B, item 1 (first part).** `T'_c` is a t-norm. -/
+theorem Tc'_isTNorm {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) : IsTNorm (Tc' c) := by
+  have hmem : ∀ x ∈ Icc (0 : ℝ) 1, ∀ y ∈ Icc (0 : ℝ) 1, Tc' c x y ∈ Icc (0 : ℝ) 1 := by
+    intro x hx y hy
+    unfold Tc'
+    split_ifs
+    · exact ⟨le_min hx.1 hy.1, min_le_of_left_le hx.2⟩
+    · exact ⟨le_rfl, zero_le_one⟩
+  refine ⟨hmem, ?_, ?_, ?_, ?_⟩
+  · intro x _ y _
+    unfold Tc'
+    rw [max_comm, min_comm, add_comm x y]
+  · intro x hx y hy z hz
+    by_cases hx1 : x = 1
+    · subst hx1
+      rw [Tc'_one_left c hy.2, Tc'_one_left c (hmem y hy z hz).2]
+    by_cases hz1 : z = 1
+    · subst hz1
+      rw [Tc'_one_right c (hmem x hx y hy).2, Tc'_one_right c hy.2]
+    by_cases hy1 : y = 1
+    · subst hy1
+      rw [Tc'_one_right c hx.2, Tc'_one_left c hz.2]
+    have hx' := lt_one_of_mem_ne hx hx1
+    have hy' := lt_one_of_mem_ne hy hy1
+    have hz' := lt_one_of_mem_ne hz hz1
+    have hxy : Tc' c x y < 1 := by
+      rw [Tc'_of_lt c hx' hy']
+      split_ifs
+      · exact lt_of_le_of_lt (min_le_left _ _) hx'
+      · exact zero_lt_one
+    have hyz : Tc' c y z < 1 := by
+      rw [Tc'_of_lt c hy' hz']
+      split_ifs
+      · exact lt_of_le_of_lt (min_le_left _ _) hy'
+      · exact zero_lt_one
+    rw [Tc'_of_lt c hxy hz', Tc'_of_lt c hx' hyz, Tc'_of_lt c hx' hy', Tc'_of_lt c hy' hz']
+    obtain ⟨hx0, -⟩ := hx
+    obtain ⟨hy0, -⟩ := hy
+    obtain ⟨hz0, -⟩ := hz
+    simp only [min_def]
+    split_ifs <;> linarith
+  · intro x hx
+    exact Tc'_one_right c hx.2
+  · intro x hx x' hx' y hy hle
+    by_cases hy1 : y = 1
+    · subst hy1
+      rw [Tc'_one_right c hx.2, Tc'_one_right c hx'.2]
+      exact hle
+    have hy' := lt_one_of_mem_ne hy hy1
+    by_cases hx'1 : x' = 1
+    · subst hx'1
+      rw [Tc'_one_left c hy.2]
+      by_cases hx1 : x = 1
+      · subst hx1
+        rw [Tc'_one_left c hy.2]
+      · rw [Tc'_of_lt c (lt_one_of_mem_ne hx hx1) hy']
+        split_ifs
+        · exact min_le_right _ _
+        · exact hy.1
+    · have hx'' := lt_one_of_mem_ne hx' hx'1
+      rw [Tc'_of_lt c (lt_of_le_of_lt hle hx'') hy', Tc'_of_lt c hx'' hy']
+      split_ifs with h1 h2
+      · exact min_le_min hle le_rfl
+      · exact absurd (by linarith : c < x' + y) h2
+      · exact le_min hx'.1 hy.1
+      · exact le_rfl
+
+/-- **Theorem B, item 1 (second part).** For every `0 < x ≤ c − 1`, `T'_c(x,·)`
+is not left-continuous at `1` (within `[0,1]`). -/
+theorem Tc'_not_leftContinuous {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) {x : ℝ}
+    (hx0 : 0 < x) (hxc : x ≤ c - 1) :
+    ¬ ContinuousWithinAt (Tc' c x) (Icc (0 : ℝ) 1) 1 := by
+  intro hcont
+  have hx1 : x < 1 := by linarith
+  rw [Metric.continuousWithinAt_iff] at hcont
+  obtain ⟨δ, hδ, hδ'⟩ := hcont x hx0
+  set s : ℝ := max 0 (1 - δ / 2) with hs_def
+  have hs0 : 0 ≤ s := le_max_left _ _
+  have hs1 : s < 1 := max_lt (by norm_num) (by linarith)
+  have hdist : dist s 1 < δ := by
+    rw [Real.dist_eq, abs_of_neg (by linarith)]
+    have : 1 - δ / 2 ≤ s := le_max_right _ _
+    linarith
+  have key := hδ' ⟨hs0, hs1.le⟩ hdist
+  rw [Real.dist_eq, Tc'_one_right c hx1.le, Tc'_of_lt c hx1 hs1,
+    if_neg (by linarith : ¬ c < x + s), zero_sub, abs_neg, abs_of_pos hx0] at key
+  exact lt_irrefl _ key
+
+/-- **Theorem B, item 1 (second part).** For every `0 < x ≤ c − 1`, `T'_c` is
+not continuous within `[0,1]²` at the boundary point `(x,1)`. -/
+theorem Tc'_not_borderContinuous {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) {x : ℝ}
+    (hx0 : 0 < x) (hxc : x ≤ c - 1) :
+    ¬ ContinuousWithinAt (Function.uncurry (Tc' c)) (Icc (0 : ℝ) 1 ×ˢ Icc (0 : ℝ) 1) (x, 1) := by
+  intro h
+  apply Tc'_not_leftContinuous hc1 hc2 hx0 hxc
+  have hf : ContinuousWithinAt (fun s : ℝ => (x, s)) (Icc (0 : ℝ) 1) 1 :=
+    (continuous_const.prodMk continuous_id).continuousWithinAt
+  have hmaps : MapsTo (fun s : ℝ => (x, s)) (Icc (0 : ℝ) 1) (Icc (0 : ℝ) 1 ×ˢ Icc (0 : ℝ) 1) :=
+    fun s hs => ⟨⟨hx0.le, by linarith⟩, hs⟩
+  exact h.comp hf hmaps
+
+/-- **Theorem B, item 1 (third part).** `S*_c` is a t-conorm. -/
+theorem Sstar_isTConorm {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) : IsTConorm (Sstar c) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · intro x hx y hy
+    unfold Sstar
+    split_ifs
+    · exact ⟨le_max_of_le_left hx.1, max_le hx.2 hy.2⟩
+    · exact ⟨zero_le_one, le_rfl⟩
+  · intro x _ y _
+    unfold Sstar
+    rw [add_comm, max_comm]
+  · intro x hx y hy z hz
+    obtain ⟨hx0, hx1⟩ := hx
+    obtain ⟨hy0, hy1⟩ := hy
+    obtain ⟨hz0, hz1⟩ := hz
+    unfold Sstar
+    simp only [max_def]
+    split_ifs <;> linarith
+  · intro x hx
+    unfold Sstar
+    rw [add_zero, if_pos (by linarith [hx.2]), max_eq_left hx.1]
+  · intro x hx x' hx' y hy h
+    unfold Sstar
+    split_ifs with h1 h2
+    · exact max_le_max h le_rfl
+    · exact max_le hx.2 hy.2
+    · exact absurd (by linarith : x + y < c) h1
+    · exact le_rfl
+
+/-- **Theorem B, item 2.** The residual of `T'_c` is `J_c` on `[0,1]²`. -/
+theorem residual_Tc' {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) {x y : ℝ}
+    (hx : x ∈ Icc (0 : ℝ) 1) (hy : y ∈ Icc (0 : ℝ) 1) :
+    residual (Tc' c) x y = Jc c x y := by
+  unfold residual Jc
+  by_cases hx1 : x = 1
+  · subst hx1
+    rw [if_pos rfl]
+    have : {t | t ∈ Icc (0 : ℝ) 1 ∧ Tc' c 1 t ≤ y} = Icc 0 y := by
+      ext t
+      simp only [mem_setOf_eq, mem_Icc]
+      constructor
+      · rintro ⟨⟨ht0, ht1⟩, h⟩
+        rw [Tc'_one_left c ht1] at h
+        exact ⟨ht0, h⟩
+      · rintro ⟨ht0, hty⟩
+        have ht1 : t ≤ 1 := le_trans hty hy.2
+        exact ⟨⟨ht0, ht1⟩, by rw [Tc'_one_left c ht1]; exact hty⟩
+    rw [this, csSup_Icc hy.1]
+  rw [if_neg hx1]
+  have hx' := lt_one_of_mem_ne hx hx1
+  by_cases hxy : x ≤ y
+  · rw [if_pos hxy]
+    apply IsGreatest.csSup_eq
+    refine ⟨⟨⟨zero_le_one, le_rfl⟩, ?_⟩, ?_⟩
+    · rw [Tc'_one_right c hx.2]; exact hxy
+    · rintro t ⟨ht, _⟩
+      exact ht.2
+  rw [if_neg hxy]
+  push_neg at hxy
+  have hset : {t | t ∈ Icc (0 : ℝ) 1 ∧ Tc' c x t ≤ y} =
+      {t | t ∈ Ico (0 : ℝ) 1 ∧ t ≤ max (c - x) y} := by
+    ext t
+    simp only [mem_setOf_eq, mem_Icc, mem_Ico, le_max_iff]
+    constructor
+    · rintro ⟨⟨ht0, ht1⟩, h⟩
+      have ht1' : t ≠ 1 := by
+        rintro rfl
+        rw [Tc'_one_right c hx.2] at h
+        linarith
+      have ht1'' : t < 1 := lt_of_le_of_ne ht1 ht1'
+      rw [Tc'_of_lt c hx' ht1''] at h
+      refine ⟨⟨ht0, ht1''⟩, ?_⟩
+      split_ifs at h with hc
+      · right
+        rcases le_total x t with hxt | htx
+        · rw [min_eq_left hxt] at h; linarith
+        · rw [min_eq_right htx] at h; exact h
+      · left; linarith
+    · rintro ⟨⟨ht0, ht1⟩, h⟩
+      refine ⟨⟨ht0, ht1.le⟩, ?_⟩
+      rw [Tc'_of_lt c hx' ht1]
+      split_ifs with hc
+      · rcases h with h | h
+        · linarith
+        · exact le_trans (min_le_right _ _) h
+      · exact hy.1
+  rw [hset]
+  by_cases hb : max (c - x) y < 1
+  · have hcx : c - x < 1 := lt_of_le_of_lt (le_max_left _ _) hb
+    rw [min_eq_right hcx.le]
+    have : {t | t ∈ Ico (0 : ℝ) 1 ∧ t ≤ max (c - x) y} = Icc 0 (max (c - x) y) := by
+      ext t
+      simp only [mem_setOf_eq, mem_Ico, mem_Icc]
+      constructor
+      · rintro ⟨⟨ht0, _⟩, h⟩
+        exact ⟨ht0, h⟩
+      · rintro ⟨ht0, h⟩
+        exact ⟨⟨ht0, by linarith⟩, h⟩
+    rw [this, csSup_Icc (le_max_of_le_right hy.1)]
+  · push_neg at hb
+    have hcx : 1 ≤ c - x := by
+      rcases le_max_iff.mp hb with h | h
+      · exact h
+      · linarith
+    rw [min_eq_left hcx, max_eq_left hy.2]
+    have : {t | t ∈ Ico (0 : ℝ) 1 ∧ t ≤ max (c - x) y} = Ico 0 1 := by
+      ext t
+      simp only [mem_setOf_eq, mem_Ico]
+      constructor
+      · rintro ⟨h, _⟩
+        exact h
+      · rintro ⟨ht0, ht1⟩
+        exact ⟨⟨ht0, ht1⟩, by linarith⟩
+    rw [this, csSup_Ico zero_lt_one]
+
+/-- **Theorem B, item 3 (first identity).** `J_c(x,y) = S*_c(N_c(x), y)` on
+`[0,1]²`. -/
+theorem Jc_eq_Sstar_Nc {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) {x y : ℝ}
+    (hx : x ∈ Icc (0 : ℝ) 1) (hy : y ∈ Icc (0 : ℝ) 1) :
+    Jc c x y = Sstar c (Nc c x) y := by
+  obtain ⟨hx0, hx1⟩ := hx
+  obtain ⟨hy0, hy1⟩ := hy
+  unfold Jc Sstar Nc
+  by_cases h1 : x = 1
+  · rw [if_pos h1, if_pos h1, zero_add, if_pos (by linarith), max_eq_right hy0]
+  · rw [if_neg h1, if_neg h1]
+    have hx' : x < 1 := lt_of_le_of_ne hx1 h1
+    simp only [min_def, max_def]
+    split_ifs <;> linarith
+
+/-- **Theorem B, item 3 (second identity).** `J_c(x,y) = S*_c(N_c(x), T_M(x,y))`
+on `[0,1]²`. -/
+theorem Jc_eq_Sstar_Nc_min {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) {x y : ℝ}
+    (hx : x ∈ Icc (0 : ℝ) 1) (hy : y ∈ Icc (0 : ℝ) 1) :
+    Jc c x y = Sstar c (Nc c x) (min x y) := by
+  obtain ⟨hx0, hx1⟩ := hx
+  obtain ⟨hy0, hy1⟩ := hy
+  unfold Jc Sstar Nc
+  by_cases h1 : x = 1
+  · subst h1
+    rw [if_pos rfl, if_pos rfl, zero_add, min_eq_right hy1, if_pos (by linarith),
+      max_eq_right hy0]
+  · rw [if_neg h1, if_neg h1]
+    have hx' : x < 1 := lt_of_le_of_ne hx1 h1
+    simp only [min_def, max_def]
+    split_ifs <;> linarith
+
+/-- **Theorem B, item 4 (first part).** `0 < c − 1 ≤ 1` and
+`I_{T'_c}(c − 1, 0) = 1`. -/
+theorem residual_Tc'_violates_OP {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) :
+    0 < c - 1 ∧ c - 1 ≤ 1 ∧ residual (Tc' c) (c - 1) 0 = 1 := by
+  refine ⟨by linarith, by linarith, ?_⟩
+  rw [residual_Tc' hc1 hc2 ⟨by linarith, by linarith⟩ ⟨le_rfl, zero_le_one⟩]
+  unfold Jc
+  rw [if_neg (by linarith : c - 1 ≠ 1), if_neg (by linarith : ¬ c - 1 ≤ 0),
+    show c - (c - 1) = 1 by ring, min_self, max_eq_left zero_le_one]
+
+/-- **Theorem B, item 4 (second part).** The residual of `T'_c` is not the
+residual of any t-norm `T'` such that `T'(x,·)` is left-continuous at `1` for
+every `x ∈ [0,1]`. -/
+theorem residual_Tc'_ne_of_leftContinuous {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2)
+    {T' : ℝ → ℝ → ℝ} (hT' : IsTNorm T')
+    (hcont : ∀ x ∈ Icc (0 : ℝ) 1, ContinuousWithinAt (T' x) (Icc (0 : ℝ) 1) 1) :
+    ∃ x ∈ Icc (0 : ℝ) 1, ∃ y ∈ Icc (0 : ℝ) 1, residual T' x y ≠ residual (Tc' c) x y := by
+  obtain ⟨h0, h1, hres⟩ := residual_Tc'_violates_OP hc1 hc2
+  have hxI : c - 1 ∈ Icc (0 : ℝ) 1 := ⟨h0.le, h1⟩
+  have h0I : (0 : ℝ) ∈ Icc (0 : ℝ) 1 := ⟨le_rfl, zero_le_one⟩
+  refine ⟨c - 1, hxI, 0, h0I, ?_⟩
+  rw [hres]
+  intro h
+  have := le_of_residual_eq_one hT' hxI h0I (hcont _ hxI) h
+  linarith
+
+/-- **Theorem B, item 5.** `J_c ≠ I_WB`, `J_c ≠ I_c`, and `J_c ≠ J_{c'}` for
+`c ≠ c'` (each: the two functions differ at some point of `[0,1]²`). -/
+theorem Jc_ne_weberImp {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) :
+    ∃ x ∈ Icc (0 : ℝ) 1, ∃ y ∈ Icc (0 : ℝ) 1, Jc c x y ≠ weberImp x y := by
+  refine ⟨c / 2, ⟨by linarith, by linarith⟩, 0, ⟨le_rfl, zero_le_one⟩, ?_⟩
+  unfold Jc weberImp
+  rw [if_neg (by linarith : c / 2 ≠ 1), if_neg (by linarith : ¬ c / 2 ≤ 0),
+    if_pos (by linarith : c / 2 < 1), min_eq_right (by linarith : c - c / 2 ≤ 1),
+    max_eq_left (by linarith : (0 : ℝ) ≤ c - c / 2)]
+  linarith
+
+theorem Jc_ne_Ic {c : ℝ} (hc1 : 1 < c) (hc2 : c < 2) :
+    ∃ x ∈ Icc (0 : ℝ) 1, ∃ y ∈ Icc (0 : ℝ) 1, Jc c x y ≠ Ic c x y := by
+  refine ⟨(2 + c) / 4, ⟨by linarith, by linarith⟩, (2 - c) / 4, ⟨by linarith, by linarith⟩, ?_⟩
+  unfold Jc Ic
+  rw [if_neg (by linarith : (2 + c) / 4 ≠ 1), if_neg (by linarith : ¬ (2 + c) / 4 ≤ (2 - c) / 4),
+    if_neg (by linarith : (2 + c) / 4 ≠ 1),
+    min_eq_right (by linarith : c - (2 + c) / 4 ≤ 1),
+    max_eq_left (by linarith : (2 - c) / 4 ≤ c - (2 + c) / 4),
+    min_eq_right (by linarith : c - (2 + c) / 4 + (2 - c) / 4 ≤ 1)]
+  intro h
+  linarith
+
+theorem Jc_ne_Jc {c c' : ℝ} (hc1 : 1 < c) (hc2 : c < 2) (hc1' : 1 < c') (hc2' : c' < 2)
+    (hne : c ≠ c') :
+    ∃ x ∈ Icc (0 : ℝ) 1, ∃ y ∈ Icc (0 : ℝ) 1, Jc c x y ≠ Jc c' x y := by
+  set m := max c c' with hm
+  have hcm : c ≤ m := le_max_left _ _
+  have hc'm : c' ≤ m := le_max_right _ _
+  have hm2 : m < 2 := max_lt hc2 hc2'
+  have hm1 : 1 < m := lt_of_lt_of_le hc1 hcm
+  refine ⟨m / 2, ⟨by linarith, by linarith⟩, 0, ⟨le_rfl, zero_le_one⟩, ?_⟩
+  unfold Jc
+  rw [if_neg (by linarith : m / 2 ≠ 1), if_neg (by linarith : ¬ m / 2 ≤ 0),
+    if_neg (by linarith : m / 2 ≠ 1), if_neg (by linarith : ¬ m / 2 ≤ 0),
+    min_eq_right (by linarith : c - m / 2 ≤ 1), min_eq_right (by linarith : c' - m / 2 ≤ 1),
+    max_eq_left (by linarith : (0 : ℝ) ≤ c - m / 2),
+    max_eq_left (by linarith : (0 : ℝ) ≤ c' - m / 2)]
+  intro h
+  exact hne (by linarith)
+
 /-! ### Non-vacuity -/
 
-/-- The hypotheses `1 < c < 2` of Theorem A are satisfiable (`c = 6/5`), and
-the hypotheses of `le_of_residual_eq_one` and `residual_ne_of_leftContinuous`
-on `T'` are satisfied by the minimum t-norm. -/
+/-- The minimum `T_M` is a t-norm. -/
+theorem min_isTNorm : IsTNorm (fun x y : ℝ => min x y) := by
+  refine ⟨?_, ?_, ?_, ?_, ?_⟩
+  · intro x hx y hy
+    exact ⟨le_min hx.1 hy.1, min_le_of_left_le hx.2⟩
+  · intro x _ y _
+    exact min_comm x y
+  · intro x _ y _ z _
+    exact min_assoc x y z
+  · intro x hx
+    exact min_eq_left hx.2
+  · intro x _ x' _ y _ h
+    exact min_le_min h le_rfl
+
+/-- Non-vacuity of the hypotheses of the registered theorems: `c = 6/5` and
+`c' = 7/5` satisfy `1 < c < 2`, `1 < c' < 2`, `c ≠ c'`; `x = 1/5` satisfies
+`0 < x < 1` and `0 < x ≤ c − 1` for `c = 6/5`; the minimum t-norm satisfies the
+t-norm and left-continuity hypotheses of `le_of_residual_eq_one`,
+`residual_ne_of_leftContinuous` and `residual_Tc'_ne_of_leftContinuous`, and
+`x = y = 0` with `T = min` satisfies all hypotheses of `le_of_residual_eq_one`
+including `I_T(x,y) = 1`. -/
 theorem hypotheses_nonvacuous :
     ((1 : ℝ) < 6 / 5 ∧ (6 / 5 : ℝ) < 2) ∧
+    ((1 : ℝ) < 7 / 5 ∧ (7 / 5 : ℝ) < 2) ∧ (6 / 5 : ℝ) ≠ 7 / 5 ∧
+    ((0 : ℝ) < 1 / 5 ∧ (1 / 5 : ℝ) < 1 ∧ (1 / 5 : ℝ) ≤ 6 / 5 - 1) ∧
     IsTNorm (fun x y : ℝ => min x y) ∧
-    (∀ x ∈ Icc (0 : ℝ) 1, ContinuousWithinAt (fun y : ℝ => min x y) (Icc (0 : ℝ) 1) 1) := by
-  refine ⟨⟨by norm_num, by norm_num⟩, ?_, ?_⟩
-  · refine ⟨?_, ?_, ?_, ?_, ?_⟩
-    · intro x hx y hy
-      exact ⟨le_min hx.1 hy.1, min_le_of_left_le hx.2⟩
-    · intro x _ y _
-      exact min_comm x y
-    · intro x _ y _ z _
-      exact min_assoc x y z
-    · intro x hx
-      exact min_eq_left hx.2
-    · intro x _ x' _ y _ h
-      exact min_le_min h le_rfl
+    (∀ x ∈ Icc (0 : ℝ) 1, ContinuousWithinAt (fun y : ℝ => min x y) (Icc (0 : ℝ) 1) 1) ∧
+    ((0 : ℝ) ∈ Icc (0 : ℝ) 1 ∧ residual (fun x y : ℝ => min x y) 0 0 = 1) := by
+  refine ⟨⟨by norm_num, by norm_num⟩, ⟨by norm_num, by norm_num⟩, by norm_num,
+    ⟨by norm_num, by norm_num, by norm_num⟩, min_isTNorm, ?_, ⟨le_rfl, zero_le_one⟩, ?_⟩
   · intro x _
     exact (continuous_const.min continuous_id).continuousWithinAt
+  · unfold residual
+    apply IsGreatest.csSup_eq
+    refine ⟨⟨⟨zero_le_one, le_rfl⟩, min_le_left 0 1⟩, ?_⟩
+    rintro t ⟨ht, _⟩
+    exact ht.2
 
 end Conjectura.Research.WeberUniqueness
