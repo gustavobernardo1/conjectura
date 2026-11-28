@@ -1827,9 +1827,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Sections 3 to 7 of the manuscript: items (i) to (iii) of this record in the cones K_d (Theorem 7.1, Theorem 7.3), with the cones C_d only in Remark 7.8; item (iv) (contraction of an edge, S36) is NOT in the manuscript and NOT covered by its reviews. Candidate proof; reviews listed below.",
-          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
-          "revision": "87c3c8c"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Sections 3 to 7 of the manuscript: items (i) to (iii) of this record in the cones K_d (Theorem 7.1, Theorem 7.3), with the cones C_d only in Remark 7.8; item (iv) (contraction of an edge, S36) is NOT in the manuscript and NOT covered by its reviews. Candidate proof; reviews listed below.",
+          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
+          "revision": "f695cbd"
         },
         {
           "kind": "review",
@@ -1865,6 +1865,16 @@
           "kind": "note",
           "path": "formalization/Conjectura/Research/CollinsShorPeak/StarShape.lean",
           "summary": "Session 14: Lean 4 + Mathlib proof of the binomial statement of Lemma 7.5 of the manuscript (the coefficients c(k) = (n-1)C(n-2,k) + 4(n-2)C(n-2,k-1) - 4C(n-2,k-2) increase strictly for 1 <= k <= floor(n/2) and decrease strictly for floor(n/2)+1 <= k <= n-2; theorems starCoeff_lt_of_le_half and starCoeff_lt_of_half_lt, registered in formalization/registry.json). Not formalized: that c(k) = d_k(S_n), and anything about trees or determinants. The Lean statements were compared with the written ones by the formalizing agent and the author of the session only. Formal status of this record stays partial."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md",
+          "summary": "Independent review of the whole manuscript at revision 2 (87c3c8c) by a model of another vendor; covers Theorems 7.1 and 7.3 (items (i) to (iii) of this record); item (iv), S36, is not in the manuscript and not covered. No gap found within the scope of the review; six findings (none in a step of this record's proof), corrected in revision 3.",
+          "by": "an OpenAI model run by the project director through Codex ('GPT Astra 6 (Extra High)', the director's description; 'agent based on GPT-6', the report's own); a vendor other than the author's; a context outside the repository given main.tex and REVIEW-PROMPT.md only; AI review, not human or peer review",
+          "date": "2026-11-27",
+          "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+          "sha256": "862e011e7ff4ccffd8aaea78a9b53e5538a3aa9bcbd77583893d637e5c1f36a7",
+          "statement_fingerprint": "003464764020a1b2368028ea5de485bce2a241d4205d0d54b1d4f215f8655630"
         }
       ],
       "status": {
@@ -2175,9 +2185,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Sections 8 to 10 of the manuscript (Lemmas 8.1 to 8.3, Theorem 10.1): the whole statement of this record. Candidate proof; reviews listed below.",
-          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
-          "revision": "87c3c8c"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Sections 8 to 10 of the manuscript (Lemmas 8.1 to 8.3, Theorem 10.1): the whole statement of this record. Candidate proof; reviews listed below.",
+          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
+          "revision": "f695cbd"
         },
         {
           "kind": "review",
@@ -2208,6 +2218,16 @@
           "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
           "sha256": "f8e7dbcb81c726880f053a8023051c2853fe2b26e4099bdce2be0613a2bc3643",
           "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md",
+          "summary": "Independent review of the whole manuscript at revision 2 (87c3c8c) by a model of another vendor; covers Lemmas 8.1 to 8.3, Theorem 10.1 and the proof of the Main Theorem: the whole statement of this record. No gap found within the scope of the review; six findings (none in a step of this record's proof), corrected in revision 3.",
+          "by": "an OpenAI model run by the project director through Codex ('GPT Astra 6 (Extra High)', the director's description; 'agent based on GPT-6', the report's own); a vendor other than the author's; a context outside the repository given main.tex and REVIEW-PROMPT.md only; AI review, not human or peer review",
+          "date": "2026-11-27",
+          "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+          "sha256": "862e011e7ff4ccffd8aaea78a9b53e5538a3aa9bcbd77583893d637e5c1f36a7",
+          "statement_fingerprint": "8e184bd7b1a85cb41d7b1ac53c2462ebbf9eb99dfb2b95cae22db32c98ff500e"
         }
       ],
       "status": {
@@ -2220,8 +2240,8 @@
       "depends_on": [
         {
           "ref": "MD-0023",
-          "note": "Theorem T10 (the path minimizes tr(I+L)^{−1}) and Lemma S46 (its value); only tr(I + L_T)^{−1} > n/√5 + 2/5 is used.",
-          "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
+          "note": "Theorem T10 (the path minimizes tr(I+L)^{−1}) and Lemma S46 (its value); only tr(I + L_T)^{−1} > n/√5 + 2/5 is used. Reassessed in session 15 after MD-0023 lost its sentence on the proof method: the inequality and the value are unchanged; MD-0023 is now previously-resolved (AMW).",
+          "statement_fingerprint": "87dc9ddd92b90189357f9fb06d58405c150fb3249ce1beff0b04a0e30f2fcc87"
         },
         {
           "citation": "J. N. Darroch, Ann. Math. Statist. 35 (1964) 1317–1321 (Darroch's rule: every mode of a polynomial with non-negative coefficients and only real zeros differs from its mean by less than 1), as stated by J. Pitman, J. Combin. Theory Ser. A 77 (1997) 279–303, p. 284."
@@ -2253,7 +2273,7 @@
       "id": "MD-0023",
       "type": "theorem",
       "title": "The path minimizes the trace of (I + L)^{−1} among trees",
-      "statement": "For every tree T of order n ≥ 1 with Laplacian L, tr (I + L_T)^{−1} ≥ tr (I + L_{P_n})^{−1}, with equality only if T is the path P_n; equivalently, Σ_j μ_j/(1 + μ_j) over the Laplacian eigenvalues of T is maximal exactly for the path. Moreover tr (I + L_{P_n})^{−1} = n/√5 + 2/5 + (2n/√5) r^{2n}/(1 − r^{2n}) with r = φ^{−2}, φ = (1+√5)/2. The proof uses: if (X, v) is a rooted tree with at least two vertices and p, q ≥ 1, then replacing two pendant paths of p and q new vertices at v by one pendant path of p + q new vertices at v strictly decreases tr (I + L)^{−1}.",
+      "statement": "For every tree T of order n ≥ 1 with Laplacian L, tr (I + L_T)^{−1} ≥ tr (I + L_{P_n})^{−1}, with equality only if T is the path P_n; equivalently, Σ_j μ_j/(1 + μ_j) over the Laplacian eigenvalues of T is maximal exactly for the path. Moreover tr (I + L_{P_n})^{−1} = n/√5 + 2/5 + (2n/√5) r^{2n}/(1 − r^{2n}) with r = φ^{−2}, φ = (1+√5)/2.",
       "registered": "2026-11-27",
       "provenance": {
         "contributors": [
@@ -2271,6 +2291,16 @@
             "who": "Gustavo Bernardo Brito",
             "kind": "human",
             "role": "research direction (instructions for session 13: resolve the upper bound; no mathematical input)"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 15 (principal investigator): the reduction to AMW written as a proof in revision 3 of the manuscript (Remark 9.6), with exact checks"
+          },
+          {
+            "who": "OpenAI model through Codex (external reviewer)",
+            "kind": "ai-model",
+            "role": "review of revision 2 of the manuscript, run by the director: confirmed the reduction to AMW and corrected the count of zero eigenvalues of the subdivision"
           }
         ],
         "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
@@ -2316,9 +2346,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Section 9 of the manuscript (Lemmas 9.1 to 9.4, 9.7, Theorem 9.5): the whole statement of this record. Candidate proof; reviews listed below.",
-          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
-          "revision": "87c3c8c"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Theorem 9.5 and Lemma 9.7 of the manuscript: the whole statement of this record; Lemmas 9.1 to 9.4 give the independent proof (MD-0025), and Remark 9.6 proves the derivation from Andriantiana-Misanantenaina-Wagner. Candidate proof; reviews listed below.",
+          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
+          "revision": "f695cbd"
         },
         {
           "kind": "review",
@@ -2339,15 +2369,50 @@
           "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
           "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
           "statement_fingerprint": "b94418100bcf262ae1d3c0c2c51cd236a30cb02311155997cfb47c82070e3cbb"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md",
+          "summary": "Independent review of the whole manuscript at revision 2 (87c3c8c) by a model of another vendor: Theorem 9.5 and Lemma 9.7 (identical in revisions 1 to 3, hence the statement of this record as it reads now) and their proofs reconstructed, the path-merging argument included; the reduction to AMW confirmed (finding 5) after correcting the spectrum of the subdivision (finding 1). No gap found within the scope of the review. Original report in Portuguese next to this file.",
+          "by": "an OpenAI model run by the project director through Codex ('GPT Astra 6 (Extra High)', the director's description; 'agent based on GPT-6', the report's own); a vendor other than the author's; a context outside the repository given main.tex and REVIEW-PROMPT.md only; AI review, not human or peer review",
+          "date": "2026-11-27",
+          "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+          "sha256": "862e011e7ff4ccffd8aaea78a9b53e5538a3aa9bcbd77583893d637e5c1f36a7",
+          "statement_fingerprint": "87dc9ddd92b90189357f9fb06d58405c150fb3249ce1beff0b04a0e30f2fcc87"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/amw-reduction-check.json",
+          "summary": "Session 15, run at f695cbd on a clean worktree: parts A to C (the subdivision identity, the path as the unique avm maximizer, avm(P_N) > aN + b), 0 failures."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+          "summary": "Rebound in session 15 to the statement as it reads now: Theorem 9.5 and Lemma 9.7 of the manuscript, identical in revisions 1 to 3, are this statement, and were within the scope of this review of the whole manuscript at revision 1 (8df6bea); no gap found within stated scope.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author of the manuscript text, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "d7e0f5f6375ba0d76e6e4feb504de8fb8594f29bb58ac92c3ca1605c1c3bfaf8",
+          "statement_fingerprint": "87dc9ddd92b90189357f9fb06d58405c150fb3249ce1beff0b04a0e30f2fcc87"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
+          "summary": "Rebound in session 15 to the statement as it reads now: Theorem 9.5 and Lemma 9.7 of the manuscript, identical in revisions 1 to 3, are this statement, and were within the scope of this review of the whole manuscript at revision 1 (8df6bea); no gap found within stated scope.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "87dc9ddd92b90189357f9fb06d58405c150fb3249ce1beff0b04a0e30f2fcc87"
         }
       ],
       "status": {
-        "mathematical": "candidate-proof",
+        "mathematical": "previously-resolved",
         "formal": "not-started",
-        "novelty": "preliminary-search-completed",
+        "novelty": "prior-resolution-identified",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof; two independent AI reviews of revision 53421a6 (claude-opus-5-5 by context; claude-sonnet-5-5, a different model) found no gap; no human has read it. Very probably a known consequence of a published theorem: by the literature auditor's derivation (session 13, not reviewed), the subdivision S(T) satisfies avm(S(T)) = Σ_j μ_j/(1 + μ_j) (Lemma 5.1 of E. O. D. Andriantiana, V. Razanajatovo Misanantenaina, S. Wagner, Graphs Combin. 36 (2020) 539–560, arXiv:1903.09825), and their Theorem 4.4 (the path maximizes the average size of a matching among trees) gives the inequality; their Lemma 4.2 gives the value for the path. The identity avm(S(T)) = Σ_j μ_j/(1 + μ_j) = n − tr(I + L_T)^{−1} on which that derivation rests was checked exactly on all 986 trees of order 2 to 12 (scratch, session 13; a finite check). Their proof uses a computer-checked case analysis; the proof here does not. Originality of the statement is not claimed; whether the proof by merging pendant paths is new is not established.",
+      "limitations": "Rediscovered, not new as a statement: a consequence of a published theorem (resolution_source), found by the literature audit of session 13 after the proof here had been written; the reduction was confirmed by the external review of revision 2 of the manuscript (its finding 5, with the corrected count of zero eigenvalues of finding 1), written out as a proof in revision 3 (Remark 9.6), and checked exactly (amw_reduction_check.py: the identity on all 94 trees of order 2 to 9, unique maximality of the path for avm on all 32,507 trees of order 2 to 16, avm(P_N) > aN + b for 4 <= N <= 200). The proof here (merging pendant paths, MD-0025, with the gluing formula and the path estimates S43, S44, and an induction on the number of leaves) is independent of that of AMW, whose proof includes 35 computer-checked cases (pp. 13-15 of the arXiv version). The record is kept because the upper half (MD-0022) uses the statement; it is not a result of the project. Session 15 removed from the statement a sentence describing the proof method (now MD-0025); the reviews bound to the earlier wording are kept as history.",
       "relations": [
         {
           "type": "originated_from",
@@ -2363,8 +2428,12 @@
       ],
       "novelty_search": {
         "as_of": "2026-11-27",
-        "coverage": "Literature audit of session 13: no direct statement in Laplacian, forest, resolvent or Kirchhoff language; a derivation from Andriantiana–Misanantenaina–Wagner (2020), Theorem 4.4 and Lemma 5.1.",
-        "limitations": "The two classical steps of that derivation (matching polynomial of a forest; spectrum of the subdivision) were not checked against a source; citing papers not followed; no MathSciNet or zbMATH."
+        "coverage": "Literature audit of session 13 (no direct statement in Laplacian, forest, resolvent or Kirchhoff language; the derivation from AMW). Session 15 (dossier, \"Audit for session 15\"): AMW arXiv v1 read, pp. 8-17 (Theorem 4.4, the strict form, Lemma 4.2, Lemma 5.1, the computer-checked cases); the 14 papers citing AMW listed by OpenAlex (titles only); secondary sources for the two classical steps (arXiv:2410.14112, section 4); no direct statement of the trace result found elsewhere.",
+        "limitations": "The journal version of AMW was not read; the full texts of the papers citing AMW were not read; MathSciNet and zbMATH not searched."
+      },
+      "resolution_source": {
+        "citation": "E. O. D. Andriantiana, V. Razanajatovo Misanantenaina, S. Wagner, The average size of matchings in graphs, Graphs Combin. 36 (2020) 539-560 (doi:10.1007/s00373-020-02136-1); arXiv:1903.09825 v1 (numbering and pages of the arXiv version; the journal version was not compared): Theorem 4.4 (p. 8: every tree T of order N that is not a path has avm(T) <= aN + b, a = (5 - sqrt5)/10, b = (7 sqrt5 - 17)/10), its strict form avm(P_N) > aN + b >= avm(T) (p. 16), Lemma 4.2, eq. (8) (avm(P_N)) and Lemma 5.1 (avm through the zeros of the matching polynomial). Through the subdivision S(T), a tree of order 2n - 1 that is a path only if T is one, with S(P_n) = P_{2n-1}: avm(S(T)) = sum_j mu_j/(1 + mu_j) = n - tr(I + L_T)^{-1}. The reduction is proved in Remark 9.6 of manuscripts/CJ-0001-collins-shor/main.tex (revision 3); it was first derived by the literature auditor of session 13 and confirmed by the external reviewer of revision 2.",
+        "url": "https://arxiv.org/abs/1903.09825"
       }
     },
     {
@@ -2414,9 +2483,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 2 (session 14). Section 11 of the manuscript (Lemma 11.1, Corollary 11.2): the whole statement of this record. Candidate proof; reviews listed below.",
-          "sha256": "5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9",
-          "revision": "87c3c8c"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Section 11 of the manuscript (Lemma 11.1, Corollary 11.2): the whole statement of this record. Candidate proof; reviews listed below.",
+          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
+          "revision": "f695cbd"
         },
         {
           "kind": "review",
@@ -2436,6 +2505,16 @@
           "date": "2026-11-27",
           "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
           "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "eee0b291d0f4bbe1d13373cae62a5149a6b0e3b7a9d1df77153451ee1cee717c"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md",
+          "summary": "Independent review of the whole manuscript at revision 2 (87c3c8c) by a model of another vendor; covers Lemma 11.1 and Corollary 11.2: the whole statement of this record. No gap found within the scope of the review; six findings (none in a step of this record's proof), corrected in revision 3.",
+          "by": "an OpenAI model run by the project director through Codex ('GPT Astra 6 (Extra High)', the director's description; 'agent based on GPT-6', the report's own); a vendor other than the author's; a context outside the repository given main.tex and REVIEW-PROMPT.md only; AI review, not human or peer review",
+          "date": "2026-11-27",
+          "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+          "sha256": "862e011e7ff4ccffd8aaea78a9b53e5538a3aa9bcbd77583893d637e5c1f36a7",
           "statement_fingerprint": "eee0b291d0f4bbe1d13373cae62a5149a6b0e3b7a9d1df77153451ee1cee717c"
         }
       ],
@@ -2462,6 +2541,104 @@
           "type": "contributes_to",
           "target": "CJ-0001",
           "note": "Shows that the upper bound ⌈n − n/√5⌉ of the conjecture is attained, by the path, for infinitely many n; with MD-0022, (PX-peak) of MD-0021 holds for every n with fractional part of n − n/√5 below 2/5."
+        }
+      ]
+    },
+    {
+      "id": "MD-0025",
+      "type": "lemma",
+      "title": "Merging two pendant paths lowers the trace of (I + L)^{-1}",
+      "statement": "Let (X, v) be a rooted tree with |X| >= 2 and let j_1, j_2 >= 1. Let T(j_1, j_2) be the tree obtained from X by attaching at v two pendant paths with j_1 and j_2 new vertices, and T(j_1 + j_2, 0) the tree obtained from X by attaching at v one pendant path with j_1 + j_2 new vertices. Then tr(I + L)^{-1} is strictly larger for T(j_1, j_2) than for T(j_1 + j_2, 0), L denoting the Laplacian of the tree.",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 13 (principal investigator): Lemmas S43 to S45 and their proofs"
+          },
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 15: registered as a record of its own when MD-0023 was found to be a consequence of a published theorem"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (no mathematical input)"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
+          "summary": "Lemma S45 with the gluing formula S43, the root bounds S43' and the path estimates S44 (revision 1 of the note).",
+          "sha256": "ad21eeb615ab3a500dd0ad8575ae15ce323a09233dde6537fee7b0f6a449e0ed",
+          "revision": "2037b18"
+        },
+        {
+          "kind": "proof",
+          "path": "manuscripts/CJ-0001-collins-shor/main.tex",
+          "summary": "Lemma 9.4 of the manuscript, revision 3, with Lemmas 9.1 to 9.3 (statement identical in revisions 1 to 3).",
+          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
+          "revision": "f695cbd"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
+          "summary": "Session 13: the lemma on all rooted trees with 2 <= |X| <= 8 and j_1 + j_2 <= 8, exact, 0 failures."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
+          "summary": "Review of the whole manuscript at revision 1 (8df6bea); Lemma 9.4 (this statement, verbatim, unchanged since) and its proof are within its scope; no gap found within stated scope.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author of the manuscript text, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "d7e0f5f6375ba0d76e6e4feb504de8fb8594f29bb58ac92c3ca1605c1c3bfaf8",
+          "statement_fingerprint": "34be87cb824ed34cf8e8ea1e48500ee01049315594e8ee0526c02a694b4a5a98"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
+          "summary": "Review of the whole manuscript at revision 1 (8df6bea); Lemma 9.4 (this statement, verbatim, unchanged since) and its proof are within its scope; no gap found within stated scope.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
+          "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "34be87cb824ed34cf8e8ea1e48500ee01049315594e8ee0526c02a694b4a5a98"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md",
+          "summary": "Independent review of the whole manuscript at revision 2 (87c3c8c) by a model of another vendor; Lemma 9.4 (this statement, verbatim) and Lemmas 9.1 to 9.3 reconstructed (\"A expansão do numerador no Lema 9.4 é correta\"). No gap found within the scope of the review.",
+          "by": "an OpenAI model run by the project director through Codex ('GPT Astra 6 (Extra High)', the director's description; 'agent based on GPT-6', the report's own); a vendor other than the author's; a context outside the repository given main.tex and REVIEW-PROMPT.md only; AI review, not human or peer review",
+          "date": "2026-11-27",
+          "revision": "87c3c8c36a4cc1acac50fb48102497ef73c56022",
+          "sha256": "862e011e7ff4ccffd8aaea78a9b53e5538a3aa9bcbd77583893d637e5c1f36a7",
+          "statement_fingerprint": "34be87cb824ed34cf8e8ea1e48500ee01049315594e8ee0526c02a694b4a5a98"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "A candidate proof, reviewed only by AI models (the reviews of the manuscript listed in the evidence, and the two reviews of notes/upper-bound.md at 53421a6, which are not bound here); no human has read it. With the induction on the number of leaves in the proof of Theorem 9.5 it gives a proof of MD-0023 independent of Andriantiana-Misanantenaina-Wagner. Through the subdivision it is equivalent to avm(S(T(j_1, j_2))) < avm(S(T(j_1 + j_2, 0))), a statement about two pendant paths with 2j_1 and 2j_2 vertices at a vertex of a subdivided tree; transformations of this kind may occur in the literature on matchings or in the proof of AMW, which was not compared with it. No literature search was made for this lemma: novelty unknown.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "S43, S44, S45",
+          "note": "Session 13; a record of its own since session 15."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0023",
+          "note": "An independent proof of MD-0023, with S43, S44 and the induction of Theorem 9.5."
         }
       ]
     }

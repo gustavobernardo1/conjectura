@@ -1,0 +1,133 @@
+{
+  "run": {
+    "command": "uv run python experiments/CJ-0001-collins-shor-peak/amw_reduction_check.py --out experiments/CJ-0001-collins-shor-peak/results/amw-reduction-check.json",
+    "git_revision": "f695cbd1c78ecb0b817ced0c5d94776d8e310fa6",
+    "tree_clean": true,
+    "python": "3.12.4",
+    "networkx": "3.7",
+    "arithmetic": "exact (integers, fractions.Fraction, sign tests in Q(sqrt5))"
+  },
+  "A_identity": {
+    "orders": [
+      2,
+      9
+    ],
+    "cases": 94,
+    "failures": 0
+  },
+  "B_path_maximizes_avm": {
+    "orders": [
+      2,
+      16
+    ],
+    "trees": 32507,
+    "failures": 0
+  },
+  "C_path_above_AMW_bound": {
+    "N": [
+      4,
+      200
+    ],
+    "cases": 197,
+    "failures": 0
+  },
+  "D_open_orders": {
+    "n": [
+      3,
+      2000
+    ],
+    "fractional_part_below_two_fifths": 799,
+    "path_at_ceiling_with_fractional_part_above_two_fifths": 393,
+    "open": 806,
+    "first_open": [
+      3,
+      5,
+      7,
+      8,
+      10,
+      12,
+      14,
+      16,
+      19,
+      21
+    ],
+    "first_ceiling_case": [
+      9,
+      18,
+      27,
+      36,
+      45,
+      47,
+      54,
+      56,
+      63,
+      65
+    ],
+    "failures": 0
+  },
+  "E_tie_order_13": {
+    "order": 13,
+    "trees": 1301,
+    "ties": [
+      {
+        "indices": [
+          6,
+          7
+        ],
+        "value": 189972,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            7,
+            10
+          ],
+          [
+            8,
+            9
+          ],
+          [
+            11,
+            12
+          ]
+        ]
+      }
+    ]
+  },
+  "failures_total": 0,
+  "elapsed_seconds": 19.7
+}

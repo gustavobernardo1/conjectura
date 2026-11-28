@@ -19,6 +19,7 @@ manuscripts/**/*.blg
 manuscripts/**/*.fls
 manuscripts/**/*.fdb_latexmk
 manuscripts/**/*.synctex.gz
+manuscripts/**/*.toc
 manuscripts/**/*.pdf
 
 # Large or transient experiment outputs. Small, exact result files that support

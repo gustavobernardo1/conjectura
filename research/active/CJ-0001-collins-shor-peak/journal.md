@@ -3025,3 +3025,23 @@ scripts/catalogue.py validate`: 15 problems, 24 contributions, 0 errors.
 
 ### Checkpoints
 
+- **Checkpoint 1 (21:26 by the clock, 24 minutes).** Provenance of the
+  external review verified: the SHA-256 it reports equals that of `main.tex`
+  at `87c3c8c` and of the director's copy it names; its prompt file equals
+  `REVIEW-PROMPT.md`. Report stored verbatim
+  (`reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.original-pt.txt`) with
+  an English record and the author's assessment
+  (`reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md`). All six findings
+  accepted after checking each; the AMW reduction re-derived and checked
+  exactly (new `amw_reduction_check.py`, stored run at `f695cbd` on a clean
+  worktree, 0 failures); the tie at order 13 recomputed (value 189972, the
+  only tie among 1,301 trees). Revision 3 committed (`f695cbd`); revision 2
+  frozen in `manuscripts/CJ-0001-collins-shor/versions/r2/main.tex`. The
+  literature auditor's report is in the dossier (section of session 15): no
+  prior resolution found; GL p. 83 reads "[n/2]"; Graham-Pollak read at the
+  source; AMW's strict form on p. 16. Registry: MD-0023 reduced to its
+  statement and set `previously-resolved` / `prior-resolution-identified`
+  (source AMW); the merging lemma registered as MD-0025 (candidate);
+  MD-0022's pin reassessed; validate 0 errors. Unfinished: the recheck of
+  revision 3 (fresh `adversarial-reviewer`, running), STATE.md, the final
+  tests. Next: STATE.md while the review runs.

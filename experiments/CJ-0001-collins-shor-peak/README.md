@@ -33,6 +33,7 @@ decide an inequality.
 | `slope_family_verify.py` | Independent checker of the stored failures (hypotheses, then the violation): evaluation at integer points, Gauss–Jordan elimination over `Fraction`, interpolation. Shares no code with the two scripts above. |
 | `upper_bound.py` | Session 13: exact checks around `tr(T) = trace (I+L)^{-1}` and an upper bound on the peak index: path minimality of `tr`, the path value, the peak bound `p < n - n/sqrt 5 + 3/5`, pendant-path merging, a path inequality, the merge identity. Imports `lower_bound.py`, `distpoly.py`, `tree_shift.py`. Details below. |
 | `manuscript_check.py` | Session 14: independent exact check of the lower half as restated in `manuscripts/CJ-0001-collins-shor/main.tex` (rooted calculus with root weights, plant and merge rules, leaf recursion, distance formulas, the sum of squares, the cone memberships, star minimality), written from the manuscript's definitions and sharing no code with the other scripts. Details below. |
+| `amw_reduction_check.py` | Session 15: exact checks behind revision 3 of the manuscript: the subdivision identity `avm(S(T)) = n − tr(I+L_T)^{−1}` and `m_k(S(T)) = [t^k] det(I + tL_T)` (Remark 9.6), the path as the unique maximizer of the average matching size, `avm(P_N) > aN + b` (the comparison with Theorem 4.4 of arXiv:1903.09825), the orders for which peak-maximality of the path is settled (Section 12, item 1), the tie at order 13. Details below. |
 | `results/*.json` | Outputs of the runs below. |
 
 Validation: `uv run pytest tests/test_cj0001_distpoly.py` (101 tests) and
@@ -598,6 +599,32 @@ worktree's, the file was then copied here): 11,379 checks, 0 failures,
 after the commit `44ca448` (which did not change the script), gave the same
 counts and was discarded. Regression test:
 `tests/test_cj0001_manuscript_check.py`.
+
+## The AMW reduction and the open orders (session 15): `amw_reduction_check.py`
+
+Exact checks for revision 3 of `manuscripts/CJ-0001-collins-shor/main.tex`
+(integers, `fractions.Fraction`, and sign tests in `Q(√5)`; part E uses
+python-flint for exact characteristic polynomials):
+
+| Part | What | Range | Result of the stored run |
+| --- | --- | --- | --- |
+| A | matching numbers of the subdivision `S(T)` equal the coefficients of `det(I + tL_T)`; `avm(S(T)) = n − tr(I+L_T)^{−1}` | every tree of order 2..9 (94) | 0 failures |
+| B | the path is the unique maximizer of `avm` | every tree of order 2..16 (32,507) | 0 failures |
+| C | `avm(P_N) > aN + b`, `a = (5−√5)/10`, `b = (7√5−17)/10` | `4 ≤ N ≤ 200` | 0 failures |
+| D | orders `n` with `p(P_n) = ⌈ξ − 2/5⌉` (so `p(T) ≤ p(P_n)` for every tree by Theorem 10.1), from the criterion of Lemma 11.1 | `3 ≤ n ≤ 2000` | 799 with fractional part of `ξ` below `2/5`, 393 more with `p(P_n) = ⌈ξ⌉`, 806 open (first 3, 5, 7, 8, 10) |
+| E | ties among the maximal coefficients | every tree of order 13 (1,301) | one tie, indices 6 and 7, value 189972 |
+
+Command of the stored run (from the repository root):
+
+    uv run python experiments/CJ-0001-collins-shor-peak/amw_reduction_check.py \
+        --out experiments/CJ-0001-collins-shor-peak/results/amw-reduction-check.json
+
+Defaults: `--max-identity 9 --max-avm 16 --max-path 200 --max-open 2000`. No
+seeds. Budget fixed before the run: 5 minutes. The stored result was made in a
+clean temporary Git worktree at `f695cbd` (`tree_clean: true`), 19.7 s, 0
+failures. Regression test: `tests/test_cj0001_amw_reduction.py`. Exploratory
+only, not stored: eq. (8) of arXiv:1903.09825 agrees with the exact `avm(P_N)`
+for `N ≤ 80` to 50 digits (60-digit floating point).
 
 ## Limits
 

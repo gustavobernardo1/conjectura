@@ -1,6 +1,6 @@
 # CJ-0001 — Collins–Shor conjecture — investigation state
 
-Last updated: 2026-11-27 (session 14). This file is the current truth about the
+Last updated: 2026-11-27 (session 15). This file is the current truth about the
 investigation and is meant to be sufficient, on its own, for a new agent to
 continue. It was compacted in sessions 5, 8 and 9: details are in the notes it
 links. **Session 9:** [`notes/wiener-form.md`](notes/wiener-form.md) (S24 to
@@ -29,6 +29,11 @@ for infinitely many `n`).
 (both halves, self-contained, 30 pages; the lower half restated with root
 weights only; its review: obligation 14); CJ-0001 moved to `candidate-proof`
 (director's approval).
+**Session 15:** the review of revision 2 by an OpenAI model through Codex
+(no gap; six findings, all accepted) and revision 3 of the manuscript
+(obligations 14, 15); T10 recognized as a consequence of
+Andriantiana–Misanantenaina–Wagner (MD-0023 `previously-resolved`; the
+merging lemma S45 is MD-0025).
 Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/double-stars.md`](notes/double-stars.md) (T1),
 [`notes/spine3.md`](notes/spine3.md) (T2),
@@ -92,21 +97,16 @@ of the source). Only the location of the peak is open.
 Mathematical: `candidate-proof` (since session 14, by the director's approval of 2026-11-27, which does not authorize `proved`). Formal: `partial`. Novelty:
 `preliminary-search-completed`. External review: `not-reviewed`.
 
-Nothing in this file is an established result of the project. Every statement
-below marked "reviewed" had one AI review of one revision by a fresh context
-(named in the registry); none has been read by a mathematician, and
-originality is not established for any of them. T1, T2, T3 are **candidate
-theorems** (director's decision of 2026-11-26), and so is **T4** (session 9:
-`d_{μ−1} < d_μ`, `μ = ⌊(n−1)/2⌋`, for every tree — the conjectured lower
-bound for odd order, one less for even order), and so are **T5 and T6**
-(session 11: `d_{m−1} < d_m`, `m = ⌊n/2⌋`, for every tree — the conjectured
-lower bound for every order; its reviews are listed in obligation 11), and so are **T7 and T8**
-(session 12: the path is the coefficientwise maximum; obligation 12), and so
-are **T9 and T10** (session 13: every maximizing index is `< n − n/√5 + 3/5`
-for every tree — the conjectured upper bound; obligation 13). With T6(c),
-**both halves of the conjecture have candidate proofs**; neither is
-established. The
-status of every registered contribution is in
+Nothing in this file is an established result of the project. "Reviewed"
+means AI review of one revision in a fresh context (named in the registry);
+no mathematician has read any of it, and originality is not established.
+Candidate theorems (director, 2026-11-26, and later sessions): T1, T2, T3;
+T4 (the lower bound for odd order); T5, T6 (the lower bound for every order;
+obligation 11); T7, T8 (coefficientwise path maximality; obligation 12); T9
+(the upper bound; obligation 13). T10 is a consequence of a published
+theorem (session 15). **Both halves of the conjecture have candidate
+proofs**, written as one manuscript reviewed by AI models of two vendors;
+neither is established. The status of every registered contribution is in
 [`research/discoveries.json`](../../discoveries.json), not here.
 
 Formal (Lean, `formalization/Conjectura/Research/CollinsShorPeak/`): 31 registered theorems for this problem (count of session 14; the figure 21 written here earlier was out of date); the latest receipt is under `verification/receipts/` (session 14: `20261127T213151Z-8cbc0151bc-passed.json`, clean tree). **Session 14** (`StarShape.lean`): the binomial statement of Lemma 7.5 of the manuscript (the star's coefficients increase strictly up to `⌊n/2⌋` and decrease strictly after it), both parts, by a different route from the written proof (a polynomial identity and positivity); not the identification of those coefficients with `d_k(S_n)`. **Session 10** (`WienerCone.lean`): the cones `K_d` (`WienerCone`) with (K1), (K2), and Lemma A of `wiener-form.md` on the cone, strict part included — nothing about trees, `Φ`, S24 to S26 or T4. In Lean before that: the general form of R1; the discrete core of L4, since session 8 **in any finite number of variables** (`vertex_principle_discrete`: a function on integer points with the exchange inequality `f(c+e_i−e_k) + f(c+e_k−e_i) ≤ 2f(c)` on the slice is, at every point of the slice, at least its value at some vertex `λ + (S−Σλ)e_p`); the cone `C_d` over real polynomials (`HalfGammaCone`) with `C_d·C_e ⊆ C_{d+e}`, `x·C_d ⊆ C_{d+1}`, `x·C_d ⊆ C_{d+2}`, `(1+x)·C_d ⊆ C_{d+1}`, `x(1+x)·C_d ⊆ C_{d+3}`, and Lemma C. **Not formalized:** the step from a multi-affine polynomial with non-negative mixed partials to the exchange inequality (so L4 as written is not formalized); the equality of the inductive cone with the explicit non-negative sums; anything about trees, determinants or `r_A`. The Lean statements were compared with the written ones by the formalizing agent and the author of the session only.
@@ -145,7 +145,7 @@ review of one revision, named in the registry.
 | **T6** | **For every tree: `r_u(T) − (1+4x)(1+x)^{n−1} ∈ K_n`; (SM) `ℓ_T − ℓ_{S_n} ∈ C_{n−1}` (so `d_k(T) ≥ d_k(S_n)` for every `k`); and for `n ≥ 3`, `m = ⌊n/2⌋`: `d_m − d_{m−1} ≥` that of the star `> 0` — every maximizing index is `≥ ⌊n/2⌋`, the lower half of the conjecture.** Uses T5, S23(c), Lemma A, R1. | Candidate proof; reviews: obligation 11. (SM) exact on all trees of order ≤ 20; the conjecture itself on orders ≤ 23 (E1, E2). |
 | S36 | **Contraction.** `uv` a non-pendant edge, `(A, u)`, `(B, v)` the two sides, `T′` = `A` and `B` glued at `u = v` plus a pendant vertex there: `ℓ_T − ℓ_{T′} = H_AE_B + H_BE_A + x(2+5x)H_AH_B + 2G_AG_B/x ∈ C_{n−1}`; so every `d_k` and `d_m − d_{m−1}` decrease (weakly) under the operation. A second proof of (SM). | Candidate proof; reviews: obligation 11. Formula exact on 1,064 pairs; membership on all trees of order 4 to 16 and all non-pendant edges (220,181). |
 | S37 to S39, **T7, T8** | **Generalized tree shift** (`A`, `B` joined by a path of length `k` → glued, with a pendant path of length `k`; `a, b ≥ 2`): `ℓ_{T_k} − ℓ_{T′_k}` has an explicit formula (S37: four terms, coefficients built from the tridiagonal determinants `a_j`) and lies in `C_{n−1}` (T7). Every tree but the path is the result of a shift that removes one leaf (S39). **T8: `ℓ_{P_n} − ℓ_T ∈ C_{n−1}` for every tree** — with T6(b), `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` for every `k`, and the increments `d_μ − d_{μ−1}` ordered the same way for `μ ≤ ⌊n/2⌋`; equality with the path only for the path. **Coefficientwise only: nothing about the peak index.** | Candidate proof (session 12); one AI review of `8b03309`, no gap found (`claude-opus-5-5`, the author's model; independent by context only); S37 uses a finite exact identity (sympy). Exact: `results/tree-shift.json` (T7 on all shifts of order ≤ 15, T8 on all trees of order ≤ 17). |
-| S40 to S46, **T9, T10** | **Spectral route to the upper half.** `ℓ_T = 4(α − x)q(x)`, `q = Π(x + β_i)` over the negative eigenvalues `−β_i` of `D/2` (S40); if `q_{k+1} < q_k` then `d` is strictly decreasing from `k` on (S41); `μ_q = Σ 1/(1+β_i) ≤ n − tr(I+L)^{−1}` (S42, interlacing); gluing formula for the trace (S43); the path seen from one vertex, closed forms in `cosh` (S44); merging two pendant paths lowers `tr(I+L)^{−1}` (S45); **T10: the path minimizes `tr(I+L)^{−1}` among trees**; `tr(I+L_{P_n})^{−1} = n/√5 + 2/5 + (2n/√5)r^{2n}/(1−r^{2n})` (S46); with Darroch's rule, **T9: every maximizing index is `≤ ⌈n − n/√5 − 2/5⌉ ≤ ⌈n − n/√5⌉`, for every tree of order `n ≥ 3`.** | Candidate proof (session 13); **two independent AI reviews of `53421a6`, no gap found**: `claude-opus-5-5` (fresh context, the author's model) and `claude-sonnet-5-5` (a different model, same vendor); every step re-derived by both; their own exact code on all trees of order ≤ 17 and ≤ 16. Revision 1 (`2037b18`) repairs their defects of wording; its recheck: obligation 13. Uses only classical results (Graham–Lovász, Weyl, Newton, Darroch 1964, Merris 1990), none of MD-0015 to MD-0021. T10 is very probably a known consequence of Andriantiana–Misanantenaina–Wagner (2020), Theorem 4.4 (the auditor's derivation, unreviewed). Exact: `results/upper-bound.json`. |
+| S40 to S46, **T9, T10** | **Spectral route to the upper half.** `ℓ_T = 4(α − x)q(x)`, `q = Π(x + β_i)` over the negative eigenvalues `−β_i` of `D/2` (S40); if `q_{k+1} < q_k` then `d` is strictly decreasing from `k` on (S41); `μ_q = Σ 1/(1+β_i) ≤ n − tr(I+L)^{−1}` (S42, interlacing); gluing formula for the trace (S43); the path seen from one vertex, closed forms in `cosh` (S44); merging two pendant paths lowers `tr(I+L)^{−1}` (S45); **T10: the path minimizes `tr(I+L)^{−1}` among trees**; `tr(I+L_{P_n})^{−1} = n/√5 + 2/5 + (2n/√5)r^{2n}/(1−r^{2n})` (S46); with Darroch's rule, **T9: every maximizing index is `≤ ⌈n − n/√5 − 2/5⌉ ≤ ⌈n − n/√5⌉`, for every tree of order `n ≥ 3`.** | Candidate proof (session 13); **two independent AI reviews of `53421a6`, no gap found**: `claude-opus-5-5` (fresh context, the author's model) and `claude-sonnet-5-5` (a different model, same vendor); every step re-derived by both; their own exact code on all trees of order ≤ 17 and ≤ 16. Revision 1 (`2037b18`) repairs their defects of wording; its recheck: obligation 13. Uses only classical results (Graham–Lovász, Weyl, Newton, Darroch 1964, Merris 1990), none of MD-0015 to MD-0021. **T10 is a consequence of Andriantiana–Misanantenaina–Wagner (2020), Theorem 4.4** through the subdivision (session 15: confirmed by the external reviewer of revision 2, proved in Remark 9.6 of revision 3, checked exactly); MD-0023 is `previously-resolved`, the proof by merging (S45) is independent and is MD-0025. Exact: `results/upper-bound.json`, `results/amw-reduction-check.json`. |
 | S47, S48 | **The peak of the path, exactly**: unique, at `n − k_0(n)`, `k_0` the least `k ≥ 2` with `5k³ + 2k² − 4k − 2 > kn²`; always `⌊x⌋` or `⌈x⌉` (`x = n − n/√5`), the ceiling only if the fractional part of `n/√5` is below `1/5`, and whenever it is below `1/10` (`n ≥ 30`), so for infinitely many `n`. Completes the informal last step of Collins's Theorem 3. | Candidate proof (session 13), from Collins's closed formula; not reviewed (obligation 13). Criterion exact for `n ≤ 2000` (scratch). |
 | S27 | (SM) implies `d_m − d_{m−1} ≥` that of the star `> 0`, `m = ⌊n/2⌋`, for every tree; `Φ(B, e_c) − (1+x)^j ∈ C_j`; (Γ_c¹) ⇒ `r_u(T) − (1+4x)(1+x)^{n−1} ∈ C_n` ⇒ (SM). | Proved (conditional); (a), (b) and the algebra of (c) checked by the reviewer of `b5d9294`, which is not a review of the note. |
 
@@ -175,8 +175,9 @@ Statuses are in the registry and in [`research/INDEX.md`](../../INDEX.md).
 | S37 to S39, T7, T8 | MD-0020 | theorem (candidate) |
 | (PM), (PX-peak) | MD-0021 | conjecture |
 | S40 to S42, S46, T9 | MD-0022 | theorem (candidate) |
-| S43 to S45, T10 | MD-0023 | theorem (candidate) |
+| T10 with S46 | MD-0023 | theorem (previously resolved: AMW 2020; session 15) |
 | S47, S48 | MD-0024 | theorem (candidate) |
+| S45 (with S43, S44) | MD-0025 | lemma (candidate; session 15) |
 
 Not registered: R1, L2, L4 and S1 to S4 are tools or steps (S3 and S4 are the
 evidence of MD-0010); Γ⁺ is an observation on the 47 small trees, recorded
@@ -186,144 +187,81 @@ verification; Q1, Q2 are questions.
 
 ## Conjectures and hypotheses of this investigation
 
-**Statement (SM), star minimality (MD-0017, session 9) — candidate proof
-since session 11 (Theorem T6(b), MD-0019).** For every tree of order
-`n ≥ 3`: `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`. Exact for all 1,346,023 trees of order 3
-to 20 (equality only for the star). It implies the lower bound `⌊n/2⌋` for
-**every** tree, and it follows from **(Γ_c¹)**: `R(B, e_c) ∈ C_{j+1}` for
-every rooted tree, which is Theorem T5. **(SM⁺)** (session 10): `Ω_T ∈ C_{n−1}`
-for every tree; it follows from T5(i) and the formula of S30 (unreviewed).
-**(CM)** (session 11): the same cone order is respected by the contraction
-of any non-pendant edge (S36). Still open, and no longer needed for the
-lower half: Γ_c for general weights, (E), (Λ), Conjecture Γ.
+Full text as of session 14: [`notes/obligations.md`](notes/obligations.md),
+section "Text moved from `STATE.md` in session 15".
 
-**Three kinds of extremality** (session 12; `path-maximality.md`, last
-sections). (1) *Coefficientwise*: `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` — T6(b) and
-T8, candidate proofs. (2) *Increments below the middle*: the same order for
-`d_μ − d_{μ−1}`, `μ ≤ ⌊n/2⌋`; the cone reaches no further. (3) *Peak
-location*: the star is peak-minimal (every tree has `p_min ≥ ⌊n/2⌋ = p_max(S_n)`;
-this is T6(c), the lower half); whether the path is peak-maximal is open,
-and (1) does not imply it (termwise domination does not order maximizing
-indices).
+- **(SM), star minimality (MD-0017):** `ℓ_T − ℓ_{S_n} ∈ C_{n−1}` for every
+  tree; candidate proof since session 11 (T6(b), MD-0019; also from S36).
+  (SM⁺) and (CM) are variants (moved text).
+- **Extremality:** coefficientwise `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` (T6(b), T8,
+  candidate proofs); the star is peak-minimal (T6(c), the lower half);
+  peak-maximality of the path is (PX-peak) below. Termwise domination does
+  not order maximizing indices.
 
-**(PX-peak) and (PM) — open (MD-0021, session 12); no longer needed for
-the upper half since session 13 (T9 proves the bound directly).** T9 gives
-(PX-peak) for every `n` with fractional part of `n − n/√5` below `2/5`: then
-the path peaks at `⌊n − n/√5⌋` (S48(a)) and `p_max(T) ≤ ⌈n − n/√5 − 2/5⌉ =
-⌊n − n/√5⌋`. Open for the other `n`. (PX-peak):
-`p_max(T) ≤ p_max(P_n)` for every tree. (PM): for every generalized shift,
-`p_max(T′_k) ≤ p_max(T_k)`. Proved: (PM) ⇒ (PX-peak) (S39 and induction on
-the leaves); (PX-peak) and `p_max(P_n) ≤ ⌈n − n/√5⌉` ⇒ the upper half. The
-path bound is the informal last step of Collins's Theorem 3; exact for
-`n ≤ 2000` (the path's maximizing index is unique and equals
-`⌈n − n/√5⌉` for 393 values of `n`, `⌊n − n/√5⌋` for 1,605). Evidence for
-(PM), exact (`results/tree-shift.json`, part E): every shift of every tree of
-order 5 to 15; 10,812 shifts of families of orders 20 to 150; 4,000 random
-shifts of random trees of orders 30 to 100; no violation; smallest relative
-margin about 0.0014 (order 120). Scratch, not stored: double brooms shifted
-to brooms up to order 300, no violation, margin about `c/n`, `c` between 0.3
-and 0.7. Ratio dominance `d_{j+1}(T′)/d_j(T′) ≤ d_{j+1}(T)/d_j(T)` fails even
-at `j = p_max(T_k)` (2,292 of 95,248 shifts of orders 4 to 14, the smallest
-`S(2,2) → S_6`; the reviewer of `8b03309`), so (PM) needs another mechanism.
+**(PX-peak) and (PM) — open (MD-0021); not needed for the upper half.**
+(PX-peak): `p_max(T) ≤ p_max(P_n)` for every tree of order `n`. By T9 it
+holds for every `n` with `p(P_n) = ⌈ξ − 2/5⌉`, `ξ = n − n/√5`: the `n` with
+fractional part of `ξ` below `2/5`, and the `n` with `p(P_n) = ⌈ξ⌉` (for
+instance `n = 9`; finding 2 of the review of revision 2). Open for the
+others: 806 of the `n` in `[3, 2000]` (`amw_reduction_check.py`, part D),
+all `n ≤ 23` among them settled by the exhaustive computation (the path has
+the largest peak index in every order ≤ 23). A sharper mode–mean inequality
+for `q` would be one approach; it is not known to be necessary. (PM) (every
+generalized shift lowers `p_max`) implies (PX-peak) (S39); its exact evidence
+and the failure of ratio dominance: `notes/obligations.md`, section "Text
+moved from `STATE.md` in session 15".
 
-**Conjecture Γ (MD-0010) and Hypothesis V (MD-0009) — open; no longer on
-the route to the lower half.** Γ: for every tree `S` and every `A ⊆ V(S)`,
-`|A| ≥ 2`, the polynomial `r_A` is in the half-gamma cone `C_{s−|A|+1}`.
-Proved for `A = V`, for `A` with independent complement or complement of at
-most two vertices, and (exactly) for the 47 trees with 2 to 8 vertices; all
-roots of `r_A` are real. Chain `Γ ⇐ Γ⁺ ⇐ Γ_c ⇐ (E) ⇐ (Λ)`; (E″), (S) false.
-V: non-negative mixed partials of `D_n` for caterpillars. Full text as of
-session 10: [`notes/gamma-chain.md`](notes/gamma-chain.md), last section.
-
-**Hypothesis A(ii) — open (MD-0005).** For every tree `T` of order `n` and
-every `0 ≤ k ≤ min(p_n, n−3)`, `p_n` the largest maximizing index of the path:
-`ρ_k(T) ≤ ρ_k(P_n)`. Exact for all trees of order 4 to 20 and 10,000 sampled
-trees of orders 24 to 90; proved for `k = 0` (L2). With Collins's theorem on
-paths it would give the upper half. The path does not maximize `ρ_k` at every
-index.
-
-**Questions Q1, Q2 — open.** Q1: for balanced caterpillars with fixed spine
-length `s`, `n(1 − q) → 6/(2s+3)` (observed at `n = 10³ … 10⁶`). Q2: is
-`q(T) < 1` for every tree of even order (the lower half)? The smallest margins
-found are on balanced caterpillars whose spine grows slowly with `n`
-(`1 − q ≈ 1.3 × 10⁻⁶` at `n = 10⁵`, spine 33); `results/near-star-families.json`.
+- **Open, and on the route to neither half:** Conjecture Γ (MD-0010),
+  Hypothesis V (MD-0009), Hypothesis A(ii) (MD-0005; ratio comparison with
+  the path, exact to order 20, proved for `k = 0`), Questions Q1, Q2 (margins
+  of balanced caterpillars). Statements and evidence: the moved text and
+  [`notes/gamma-chain.md`](notes/gamma-chain.md).
 
 ## Failed approaches and refuted hypotheses
 
-Full text of each: [`notes/dead-ends.md`](notes/dead-ends.md).
+Full text: [`notes/dead-ends.md`](notes/dead-ends.md); the summary as of
+session 14 is in the moved text. The lessons still in force:
 
-- **Hypothesis A(i) — refuted (MD-0004).** `ρ_k(T) ≥ ρ_k(S_n)` for
-  `k ≤ ⌊n/2⌋ − 1` holds for all trees of order 4 to 19 and fails at order 20
-  (`S(9,9)`: `q = 10255/10791 > 94/99`). Do not retry star-comparison at
-  `k = ⌊n/2⌋ − 1`.
-- **Inequality (3) of `wiener-form.md` — refuted as a route (S31, session
-  10).** Dropping the pairs at distance ≥ 2 from the Wiener form loses the
-  even case: negative at `n = 100` on spiders with legs of length 2. The
-  cone statement `4(W − 3n)Θ_T − 16n(1+x)^{n−2} − Σ_e (n − 2n_e)² Π_e ∈ C_{n−2}`
-  (which would imply (3) > 0) holds for all trees of order 7 to 15 and fails
-  on the same spiders from about `n = 30` (scratch, not stored). **Test
-  even-order statements on spiders with many legs of length 2 at `n ≥ 100`.**
-- **Roots of `r_A`** (session 7): real-rootedness does not give the cone
-  (`1 + 5x/2 + x²/2`); pairing roots cannot work for long paths.
-- **Darroch's theorem** on the mode (session 7): the index needed is the upper
-  central one, where a bound on the mean decides nothing.
-- **Termwise absorption in S17** (session 7): `E*` alone leaves the cone.
-- **(E″) and (S)** (proposed in session 7, **refuted in session 8**, S21):
-  `F = E − xR(T′, ν+e_u)` is not in `C_{j′+2}` for stars with many heavy
-  leaves, so a proof of (E) cannot discard `R(T′, ν+e_u)`; the slope
-  statement (S) fails already at 5 vertices. The session-7 range (`j ≤ 5`,
-  weights ≤ 2) contained no failure: **test auxiliary cone statements on
-  stars with heavy leaves (weights ≥ 4) before building on them.**
+- **A(i) refuted at order 20** (MD-0004; `S(9,9)`): do not retry the star
+  comparison of ratios at `k = ⌊n/2⌋ − 1`.
+- **Inequality (3) of `wiener-form.md` fails at `n = 100`** (S31): test
+  even-order statements on spiders with many legs of length 2 at `n ≥ 100`.
+- **(E″) and (S) refuted** (S21): test auxiliary cone statements on stars
+  with heavy leaves (weights ≥ 4) before building on them.
+- Session 7: real roots of `r_A` do not give the cone; Darroch's rule
+  applied to `r_A` decides nothing at the upper central index (the spectral
+  route of session 13 applies it to `q` instead); termwise absorption in S17
+  leaves the cone.
 
 ## Counterexamples and observations
 
-- No counterexample to the Collins–Shor conjecture was found.
-- For odd `n` the lower-bound margin is wide; for even `n` it tends to 0.
-- For `10 ≤ n ≤ 19` the star minimizes `ρ_k` exactly for `k ≤ ⌊n/2⌋ − 1`.
-- The relative margin `1 − d_{m−1}/d_m` behaves like a constant over `n` in
-  every family examined (double stars: about `1/n` for even and `3/n` for odd
-  order; `K(a,b,c)`: `≈ 0.0024` at order 302). Not proved.
-- In every case computed, the tree "skeleton plus one star" with the smallest
-  `d_m − d_{m−1}` has the star at a vertex of large degree or central
-  position; no rule was extracted.
-- `Ω` has non-negative coefficients in all 4,395 rooted weighted trees
-  computed (not proved; it would follow from Γ_c).
+- No counterexample to the Collins–Shor conjecture was found (orders 3 to
+  23); one tie (order 13, value 189972). Margins and other observations:
+  the moved text.
 
 ## Dependency map
 
-```
-Collins–Shor, lower half  (⇔ d_{m−1} < d_m, m = ⌊n/2⌋, by R1 [Lean])
-  ODD ORDER, every tree:  T4  ⇐ S25 (Wiener form) ⇐ L1, S24 ⇐ Lemma F   [candidate proof, session 9 (MD-0016)]
-  EVERY ORDER, every tree: T6(c)                                          [candidate proof, session 11 (MD-0019)]
-    ⇐ (SM): ℓ_T − ℓ_{S_n} ∈ C_{n−1}   (T6(b); also from S36)              [candidate proof]
-    ⇐ S23(c) (telescoped leaf recursion) + T6(a) ⇐ T5(i): Ω ∈ K_a          [S23(a)–(c): see obligation 11]
-    ⇐ T5: (Γ_c¹), by induction on rooted trees                            [candidate proof]
-        ⇐ S19 (plant, merge rules) [AI-reviewed, MD-0015], S33 to S35, Lemma K, Lemma S24
-    ⇐ the star: d_{m−1}(S_n) < d_m(S_n)                                   [KNOWN: Collins 1989, Theorem 1]
-    ⇐ R1 [Lean], Lemma A(a) [Lean on the cone], log-concavity [Theorem 2.1 of the source]
-  routes that are not needed any more: S30(d) and (SM⁺) (now consequences of T5); Γ_c, (E), (Λ) [OPEN];
-    inequality (3) of wiener-form.md                                     [FALSE in general: S31]
-  the route of sessions 4 to 8 (S1, L4, S4, Property Γ, "skeleton plus one star"; leafy trees only):
-    superseded for the lower half; verbatim in notes/gamma-chain.md, last section.
-  special cases with complete candidate proofs, both halves, peak exactly m:
-    diameter 3: T1;  caterpillars of diameter 4: T2, T3, P_5;  stars: Collins 1989, Theorem 1
+As written in the manuscript (revision 3); the map as of session 14, with the
+routes no longer needed, is in `notes/obligations.md`, section "Text moved
+from `STATE.md` in session 15".
 
-Collins–Shor, upper half
-  EVERY TREE: T9 [candidate proof, session 13 (MD-0022)]
-    ⇐ S41 (peak of d ≤ mode of q) ⇐ S40 (ℓ_T = 4(α − x)q) ⇐ Graham–Lovász, Weyl, Newton
-    ⇐ Darroch's rule [KNOWN, 1964] applied to q
-    ⇐ S42: μ_q ≤ n − tr(I+L)^{−1} [interlacing; KNOWN in substance: Merris 1990]
-    ⇐ T10: tr(I+L_T)^{−1} ≥ tr(I+L_{P_n})^{−1} [candidate proof (MD-0023); very probably KNOWN via AMW 2020]
-        ⇐ S45 ⇐ S43 (gluing), S43′, S44 (cosh forms; convexity of x/(φ^{2x}+1) on [3, ∞))
-    ⇐ S46: tr(I+L_{P_n})^{−1} > n/√5 + 2/5   [proof by Fourier series]
-  routes no longer needed:
-  ⇐ (PX-peak) + p_max(P_n) ≤ ⌈n − n/√5⌉               [(PX-peak) OPEN (MD-0021); path bound exact for n ≤ 2000]
-      ⇐ (PM) + Lemma S39                             [(PM) OPEN; S39 candidate proof (MD-0020)]
-  coefficientwise path maximality T8                 [candidate proof; does NOT locate the peak]
-  ⇐ Hypothesis A(ii) at k = p_n                      [OPEN; k = 0 proved (L2)]
-  ⇐ Collins 1989, Theorem 3: d_{n−k}(P_n) = C(n+k−1, 2k−1)(k−1)n/k; peak of P_n at ⌊n − n/√5⌋ or ⌈n − n/√5⌉
-                                                     [read in session 11; the last step of its proof is informal]
-  no mechanism from the skeleton expansion           [Property Γ says nothing about it]
+```
+Collins–Shor, lower half: every maximizing index ≥ ⌊n/2⌋        [candidate proof; MD-0019]
+  ⇐ (SM): ℓ_T − ℓ_{S_n} ∈ K_{n−1} (Thm 7.3(b); T6(b))  + Lemma A (cone increments) [Lean on the cone]
+      ⇐ telescoped leaf recursion (Cor. 5.3; S23) + T6(a) ⇐ T5 (Thm 7.1): Ω ∈ K_a, E ∈ K_{a+1}, R_1 ∈ K_{a+1}
+          ⇐ Lemma 5.1, Prop. 5.2 (root weights only), Props. 6.1–6.3 (S33–S35), Lemma K, Lemma S24
+  ⇐ the star rises strictly up to ⌊n/2⌋ and falls after it (Lemma 7.5) [Lean: StarShape.lean, binomial part]
+  (no log-concavity, no Collins 1989 Thm 1 since revision 2; odd order also by T4, MD-0016)
+
+Collins–Shor, upper half: every maximizing index ≤ ⌈n − n/√5 − 2/5⌉   [candidate proof; MD-0022]
+  ⇐ S41 (peak of d ≤ mode of q) [Lean] ⇐ S40 (ℓ_T = 4(α − x)q) ⇐ Graham–Lovász, Weyl, Newton
+  ⇐ Darroch's rule [KNOWN, 1964] applied to q
+  ⇐ S42: μ_q ≤ n − tr(I+L)^{−1} [interlacing; KNOWN in substance: Merris 1990]
+  ⇐ T10: tr(I+L_T)^{−1} ≥ tr(I+L_{P_n})^{−1} [KNOWN: AMW 2020, Thm 4.4, via the subdivision (MD-0023)]
+      independent proof: S45 (MD-0025) ⇐ S43 (gluing), S43′, S44 (cosh forms; convexity of x/(φ^{2x}+1) on [3, ∞))
+  ⇐ S46: tr(I+L_{P_n})^{−1} > n/√5 + 2/5 [Fourier series; also AMW Lemma 4.2]
+Attainment: the star (Lemma 7.5); the path for infinitely many n (S47, S48; MD-0024) ⇐ Collins 1989, Thm 3
+Special cases with separate candidate proofs, peak exactly m: T1 (diameter 3), T2, T3, P_5 (diameter 4)
 ```
 
 ## Decisions
@@ -348,6 +286,17 @@ before promotion (session 11).
   theorem; registered for its proof); S47, S48 are MD-0024. CJ-0001 is left
   at `active-investigation` under the decision of session 10; the principal
   investigator recommends `candidate-proof`.
+- 2026-11-27 (session 14, director). CJ-0001 is `candidate-proof`; this
+  does not authorize `proved`.
+- 2026-11-27 (session 15). MD-0023 reduced to its statement proper (T10 and
+  the value S46) and set `previously-resolved` / `prior-resolution-identified`
+  (AMW 2020), following the precedent of MD-0002 and MD-0003; the merging
+  lemma S45, the part of its proof that is not in AMW, is MD-0025. The
+  reviewed revision 2 of the manuscript is kept byte-identical in
+  `manuscripts/CJ-0001-collins-shor/versions/r2/`; any substantial
+  simplification goes into a later revision, never over a reviewed one.
+  CJ-0001's `external_review` is left at `not-reviewed`: setting it to
+  `ai-reviewed` is the director's decision (skill `review-claim`, step 5).
 
 ## Open obligations
 
@@ -368,112 +317,72 @@ full text of items 1 to 8 as of session 7 is there).
    (independent comparison of the Lean statements; L4 as written; the
    inductive cone against explicit sums; next: S4, Lemma F); 8 description
    strings of `spine3.py`.
-9. **T4 (MD-0016):** one revision of `wiener-form.md` for the audit's defects
-   D1 to D5 and a recheck; a reader of another vendor; literature still
-   unread (Graham–Lovász pp. 72–88, Moon 1995); a result package.
-   `leaf-telescoping.md` (S23, S27) has had no review of its own.
-10. **Session 10:** `even-order.md` (MD-0018) unreviewed, no literature
-   search; `WienerCone.lean` compared by its author only.
-11. **Session 11: T5, T6, S36 (MD-0019).** Two AI reviews of `74d65b0`, no
-   gap; stored computation `lower_bound.py`, 0 failures. (a) **Done in
-   session 13:** revision 1 at `e16cb62`, rechecked (`claude-sonnet-5-5`, no
-   gap; five defects of bookkeeping left: the unreviewed status of S23(a) to
-   (c), the wording of Remark 1, one notation item, part E not listed).
-   (b) **Owed: one self-contained manuscript** (L1, Lemma K, S24, S19 with
-   zero weights, S23, S33 to S35, T5, T6), audited as one document by a
-   model of another vendor when available; S19 was re-derived by neither
-   reviewer of session 11. (c) Literature (audit of session 11). (d) A result
-   package. (e) `LowerBoundCone.lean` compared by its author only.
-12. **Session 12: T7, T8 (MD-0020).** One review of `8b03309`, no gap; one
-   revision for its defects D1 to D8 and a recheck owed; a reviewer of
-   another model; literature on distance versions of Csikvári's results.
-
-13. **Session 13: T9, T10 (MD-0022, MD-0023), before any promotion.** Done
-   in session 13: the note `notes/upper-bound.md` at `53421a6`; two
-   independent AI reviews of that revision, no gap (`claude-opus-5-5` by
-   context, `claude-sonnet-5-5` a different model); revision 1 at `2037b18`
-   for their defects (wording, notation, citation, provenance); a literature
-   audit (dossier, section of session 13); the stored computation
-   `upper_bound.py` (`results/upper-bound.json`, run at `917d657` on a clean
-   checkout, 0 failures); the recheck of revision 1 (`claude-sonnet-5-5`,
-   no gap; four defects of bookkeeping: the citation limits not listed as
-   left open, the README (corrected), `d_k` from `lemmas.md` not under
-   Tools, the name of the provenance block); a first review of
-   `notes/path-peak.md` at `2037b18` (MD-0024; `claude-sonnet-5-5`, no gap;
-   four defects of wording: the ceiling criterion written for `n ≥ 6` only,
-   an outdated sentence about `upper-bound.md`, the reliance on Collins's
-   formula beyond `n ≤ 30`, a redundant condition); Lean for Lemma S41
-   (`UpperBoundPeak.lean`; statement compared by the formalizing agent and
-   the author only). Owed: those defects in one later revision of each note
-   (no recheck of a recheck is planned); the auditor's derivation of T10 from
-   Andriantiana–Misanantenaina–Wagner (two classical steps unchecked);
-   Darroch (1964) not read in the original (read through Pitman 1997 by the
-   auditor and a reviewer); a reviewer of another vendor when one is
-   available; one manuscript of the whole conjecture; a result package;
-   Lean beyond Lemma S41. **Draft manuscript of the upper half**
-   (`manuscripts/CJ-0001-upper-bound/main.tex`, session 13, by a
-   publication-agent subagent; compiles with MiKTeX pdfLaTeX, 18 pages;
-   **unreviewed**): it supplies three small steps missing from the note —
-   a proof of Corollary 3 (`p_max(T) < n + 1 − tr(I+L_T)^{−1}`, via the
-   largest mode of `q` and S41), `K ≥ 2` in the proof of T9 (needed for
-   `k ≥ 0` in S41), the case `Y = {v}` of S43 — and some citation details
-   from memory (titles of Darroch 1964 and Pitman 1997, Graham–Pollak 1971,
-   textbooks) that must be checked before any use. Next: an audit of the
-   draft as one document, then extend it to the whole conjecture.
-   (Superseded in session 14 by the manuscript of obligation 14.)
-
-14. **Session 14: the manuscript of the whole conjecture**
-   (`manuscripts/CJ-0001-collins-shor/main.tex`, first commit `8df6bea`;
-   review packet `README.md`, `REVIEW-PROMPT.md` there). New in it and not
-   reviewed before: Lemma 5.1 ((★) for root weights only) and the derivation
-   of the raise and plant rules from it, replacing S15 and S16; the leaf
-   recursion S23(b) derived from the plant rule; the presentation with the
-   cones `K_d` only. Checked by `manuscript_check.py` (exact, independent of
-   the notes' code; `results/manuscript-check.json`). Reviews of the whole
-   document at `8df6bea`: `claude-opus-5-5` and `claude-sonnet-5-5` (fresh
-   contexts), both no gap found within stated scope
-   (`reviews/2026-11-27-*-manuscript.md`); their defects corrected in
-   revision 2 (`87c3c8c`), which also adds Lemma 7.5 (the shape of the
-   star's sequence), so that neither bound uses the log-concavity theorem of
-   arXiv:1507.02341 or Collins's Theorem 1; recheck of revision 2: journal
-   of session 14. The count "1,346,023 trees of order 3 to 20" in
-   `notes/leaf-telescoping.md` is a slip for 1,346,022 (orders 2 to 20 give
-   1,346,023); left in the note, corrected in the manuscript. Owed: a review
-   by a model of another vendor (use `REVIEW-PROMPT.md`); human reading
-   (deferred by the director); a result package; the literature items of
-   obligations 9, 11(c), 13.
+Items 9 to 14 as of session 14, in full: `notes/obligations.md`, section
+"Text moved from `STATE.md` in session 15". In short:
+9. **T4 (MD-0016):** one revision of `wiener-form.md` (audit defects D1 to
+   D5) and a recheck; `leaf-telescoping.md` (S23, S27) never reviewed on its
+   own; Moon 1995 unread.
+10. `even-order.md` (MD-0018) unreviewed, no literature search;
+   `WienerCone.lean` compared by its author only.
+11. **T5, T6, S36 (MD-0019):** done: two reviews of `74d65b0`, revision 1
+   rechecked, the self-contained manuscript (obligation 14). Owed: a result
+   package; `LowerBoundCone.lean` compared by its author only; S36 is in no
+   manuscript.
+12. **T7, T8 (MD-0020):** one review of `8b03309`; one revision (defects D1 to
+   D8) and a recheck owed; literature on distance versions of Csikvári's
+   results.
+13. **T9, T10 (MD-0022, MD-0023), S47, S48 (MD-0024):** done: two reviews of
+   `notes/upper-bound.md`, revision 1 rechecked, a first review of
+   `notes/path-peak.md`, Lean for S41, the manuscript (obligation 14). Owed:
+   the defects of those reviews in one later revision of each note; Darroch
+   (1964) not read in the original (still not accessible in session 15);
+   a result package; Lean beyond S41. The draft
+   `manuscripts/CJ-0001-upper-bound/main.tex` is superseded.
+14. **The manuscript** (`manuscripts/CJ-0001-collins-shor/`; versions,
+   hashes and reviews in its `README.md`). Revision 1 `8df6bea`: two reviews
+   (Anthropic), no gap. Revision 2 `87c3c8c`: Lemma 7.5 added; recheck
+   (`claude-sonnet-5-5`), no gap; **review of the whole document by an
+   OpenAI model through Codex** (session 15), no gap found within its scope,
+   six findings. The count "1,346,023" in `notes/leaf-telescoping.md` is a
+   slip for 1,346,022 (left in the note, corrected in the manuscript).
+15. **Session 15.** Revision 3 (`f695cbd`) corrects the six findings (record
+   and assessment: `reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md`);
+   its recheck: journal of session 15. Owed: human reading (deferred by the
+   director); a result package once the director judges the manuscript
+   mature; MathSciNet and zbMATH (not accessible); the journal versions of
+   AMW and Collins (1989) were not compared with the versions read; MD-0025
+   (the merging lemma) has had no literature search of its own.
 
 ## Remaining obstacles
 
 - **Lower half.** No mathematical obstacle is known: T6 is a candidate proof
-  for every tree. What remains is validation (obligations 11, 14); the
-  self-contained write-up exists since session 14. How the difficulty of session 10 (the deep-edge
-  terms, one level short) was avoided: they are never separated from
-  `R(A_l, e_{c_l})` except where an extra factor `x` is available (Remark
-  after T5 in `lower-bound.md`).
+  for every tree; what remains is validation (obligations 11, 14, 15). The
+  difficulty of session 10 (the deep-edge terms, one level short) is avoided
+  by never separating them from `R(A_l, e_{c_l})` except where an extra
+  factor `x` is available (Remark after T5 in `lower-bound.md`).
 - **Upper half.** No mathematical obstacle is known: T9 is a candidate proof
-  for every tree; what remains is validation (obligation 13). (PX-peak) is
-  open for the `n` with fractional part of `n − n/√5` above `2/5`.
-- Γ_c for general weights, (E), (Λ), Conjecture Γ: open, and now of interest
-  only for themselves (the weighted statements), not for Collins–Shor.
+  for every tree, and its extremal step T10 is now also a consequence of a
+  published theorem; what remains is validation (obligations 13 to 15).
+- Open, and not needed for Collins–Shor: (PX-peak) for 806 of the `n ≤ 2000`
+  (see above); Γ_c for general weights, (E), (Λ), Conjecture Γ.
 
 ## Next step
 
-**Session 14:** the manuscript of the whole conjecture exists
-(`manuscripts/CJ-0001-collins-shor/main.tex`, revision 2 at `87c3c8c`),
-reviewed as one document by two AI models of one vendor (no gap), and
-CJ-0001 is `candidate-proof`. The next steps are validation, not discovery:
-(a) **a review of `main.tex` by a model of another vendor**, with the prompt
-`manuscripts/CJ-0001-collins-shor/REVIEW-PROMPT.md` and nothing else (no
-such model is reachable from this environment; the director has to supply
-one); (b) a recheck of any later revision; (c) literature: papers citing
-Andriantiana–Misanantenaina–Wagner, Darroch's original, Graham–Pollak at the
-source, MathSciNet/zbMATH when available; (d) a result package under
-`results/` once the director decides that the manuscript is mature (human
-consultation is deferred by the director until then); (e) open mathematics:
-(PX-peak) for the `n` with fractional part of `n − n/√5` above `2/5` needs a
-mode–mean inequality for `q` sharper than Darroch's by about `0.4` (journal,
-session 13).
+**Session 15:** revision 3 of the manuscript (`f695cbd`) corrects the six
+findings of the review of revision 2 by an OpenAI model through Codex (the
+first review by a model of another vendor; no gap found); its recheck is in
+the journal of session 15. The next steps are validation, not discovery:
+(a) a decision by the director on `external_review` of CJ-0001 and on when
+the manuscript is mature enough for a result package and for human reading
+(both deferred by the director); (b) a recheck of any later revision; a
+second review by another vendor's model would add independence;
+(c) literature still owed: MathSciNet and zbMATH, Darroch (1964) and the
+journal versions of AMW and Collins (1989) (not accessible to the session-15
+auditor), a search for MD-0025; (d) optional, only after (a): a substantial
+simplification of the manuscript (for instance citing AMW for T10 and
+dropping Lemmas 9.1–9.4) as a new revision, keeping revision 3 and the
+frozen revision 2 intact; (e) open mathematics: (PX-peak) for the `n` with
+`p(P_n) = ⌊ξ⌋` and fractional part of `ξ` above `2/5`.
 
 The items of session 12 under "Next step" (the route through (PM), the upper
 cone LP) are in `notes/obligations.md`, section "Text moved from `STATE.md`
@@ -484,4 +393,5 @@ orders 21 to 23 (obligation 4) needs the director's approval of its budget.
 
 - G. Aalipour et al., arXiv:1507.02341 — read in full (TeX source; twice by reviewers).
 - K. L. Collins, Discrete Appl. Math. 25 (1989) 27–35 — read in full (session 11). K. L. Collins, Distance matrices of trees, thesis, MIT 1986 — read (pp. 30–47, 55–61 as page images, the rest through OCR; session 11). Details: the dossier, section "Primary sources read in session 11".
-- Every other source, with what was read of each: [`notes/obligations.md`](notes/obligations.md), sections "Sources read" and "Text moved from `STATE.md` in session 11", and the dossier. None was added in session 9. Session 10: what its audit read is in the dossier, section "Audit for session 10".
+- Session 15: Andriantiana–Razanajatovo Misanantenaina–Wagner, arXiv:1903.09825 v1, pp. 8–17; Graham–Lovász (1978) p. 83 and Graham–Pollak (1971) pp. 2509–2511 in scans (dossier, "Audit for session 15").
+- Every other source, with what was read of each: [`notes/obligations.md`](notes/obligations.md), sections "Sources read" and "Text moved from `STATE.md` in session 11", and the dossier. Session 10: what its audit read is in the dossier, section "Audit for session 10".

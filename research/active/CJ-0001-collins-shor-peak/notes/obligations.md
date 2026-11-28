@@ -439,3 +439,233 @@ certificate): for every tree of order 5 to 14 the part of `ℓ_T` of degree
 
 Also open and cheap: obligations 5 and 8; the rerun of orders 21 to 23
 (obligation 4) needs the director's approval of its budget.
+
+## Text moved from `STATE.md` in session 15 (verbatim except for the targets of relative links)
+
+### The paragraph on (PX-peak) and (PM), as of session 14
+
+**(PX-peak) and (PM) — open (MD-0021, session 12); no longer needed for
+the upper half since session 13 (T9 proves the bound directly).** T9 gives
+(PX-peak) for every `n` with fractional part of `n − n/√5` below `2/5`: then
+the path peaks at `⌊n − n/√5⌋` (S48(a)) and `p_max(T) ≤ ⌈n − n/√5 − 2/5⌉ =
+⌊n − n/√5⌋`. Open for the other `n`. (PX-peak):
+`p_max(T) ≤ p_max(P_n)` for every tree. (PM): for every generalized shift,
+`p_max(T′_k) ≤ p_max(T_k)`. Proved: (PM) ⇒ (PX-peak) (S39 and induction on
+the leaves); (PX-peak) and `p_max(P_n) ≤ ⌈n − n/√5⌉` ⇒ the upper half. The
+path bound is the informal last step of Collins's Theorem 3; exact for
+`n ≤ 2000` (the path's maximizing index is unique and equals
+`⌈n − n/√5⌉` for 393 values of `n`, `⌊n − n/√5⌋` for 1,605). Evidence for
+(PM), exact (`results/tree-shift.json`, part E): every shift of every tree of
+order 5 to 15; 10,812 shifts of families of orders 20 to 150; 4,000 random
+shifts of random trees of orders 30 to 100; no violation; smallest relative
+margin about 0.0014 (order 120). Scratch, not stored: double brooms shifted
+to brooms up to order 300, no violation, margin about `c/n`, `c` between 0.3
+and 0.7. Ratio dominance `d_{j+1}(T′)/d_j(T′) ≤ d_{j+1}(T)/d_j(T)` fails even
+at `j = p_max(T_k)` (2,292 of 95,248 shifts of orders 4 to 14, the smallest
+`S(2,2) → S_6`; the reviewer of `8b03309`), so (PM) needs another mechanism.
+
+(Session 15: its sentence "Open for the other `n`" and the claim in "Next step" that those `n` need a sharper mode-mean inequality were too strong; see the review of revision 2 of the manuscript, finding 2, and `STATE.md`.)
+
+### Open obligations 9 to 14, as of session 14
+
+9. **T4 (MD-0016):** one revision of `wiener-form.md` for the audit's defects
+   D1 to D5 and a recheck; a reader of another vendor; literature still
+   unread (Graham–Lovász pp. 72–88, Moon 1995); a result package.
+   `leaf-telescoping.md` (S23, S27) has had no review of its own.
+10. **Session 10:** `even-order.md` (MD-0018) unreviewed, no literature
+   search; `WienerCone.lean` compared by its author only.
+11. **Session 11: T5, T6, S36 (MD-0019).** Two AI reviews of `74d65b0`, no
+   gap; stored computation `lower_bound.py`, 0 failures. (a) **Done in
+   session 13:** revision 1 at `e16cb62`, rechecked (`claude-sonnet-5-5`, no
+   gap; five defects of bookkeeping left: the unreviewed status of S23(a) to
+   (c), the wording of Remark 1, one notation item, part E not listed).
+   (b) **Owed: one self-contained manuscript** (L1, Lemma K, S24, S19 with
+   zero weights, S23, S33 to S35, T5, T6), audited as one document by a
+   model of another vendor when available; S19 was re-derived by neither
+   reviewer of session 11. (c) Literature (audit of session 11). (d) A result
+   package. (e) `LowerBoundCone.lean` compared by its author only.
+12. **Session 12: T7, T8 (MD-0020).** One review of `8b03309`, no gap; one
+   revision for its defects D1 to D8 and a recheck owed; a reviewer of
+   another model; literature on distance versions of Csikvári's results.
+
+13. **Session 13: T9, T10 (MD-0022, MD-0023), before any promotion.** Done
+   in session 13: the note `notes/upper-bound.md` at `53421a6`; two
+   independent AI reviews of that revision, no gap (`claude-opus-5-5` by
+   context, `claude-sonnet-5-5` a different model); revision 1 at `2037b18`
+   for their defects (wording, notation, citation, provenance); a literature
+   audit (dossier, section of session 13); the stored computation
+   `upper_bound.py` (`results/upper-bound.json`, run at `917d657` on a clean
+   checkout, 0 failures); the recheck of revision 1 (`claude-sonnet-5-5`,
+   no gap; four defects of bookkeeping: the citation limits not listed as
+   left open, the README (corrected), `d_k` from `lemmas.md` not under
+   Tools, the name of the provenance block); a first review of
+   `notes/path-peak.md` at `2037b18` (MD-0024; `claude-sonnet-5-5`, no gap;
+   four defects of wording: the ceiling criterion written for `n ≥ 6` only,
+   an outdated sentence about `upper-bound.md`, the reliance on Collins's
+   formula beyond `n ≤ 30`, a redundant condition); Lean for Lemma S41
+   (`UpperBoundPeak.lean`; statement compared by the formalizing agent and
+   the author only). Owed: those defects in one later revision of each note
+   (no recheck of a recheck is planned); the auditor's derivation of T10 from
+   Andriantiana–Misanantenaina–Wagner (two classical steps unchecked);
+   Darroch (1964) not read in the original (read through Pitman 1997 by the
+   auditor and a reviewer); a reviewer of another vendor when one is
+   available; one manuscript of the whole conjecture; a result package;
+   Lean beyond Lemma S41. **Draft manuscript of the upper half**
+   (`manuscripts/CJ-0001-upper-bound/main.tex`, session 13, by a
+   publication-agent subagent; compiles with MiKTeX pdfLaTeX, 18 pages;
+   **unreviewed**): it supplies three small steps missing from the note —
+   a proof of Corollary 3 (`p_max(T) < n + 1 − tr(I+L_T)^{−1}`, via the
+   largest mode of `q` and S41), `K ≥ 2` in the proof of T9 (needed for
+   `k ≥ 0` in S41), the case `Y = {v}` of S43 — and some citation details
+   from memory (titles of Darroch 1964 and Pitman 1997, Graham–Pollak 1971,
+   textbooks) that must be checked before any use. Next: an audit of the
+   draft as one document, then extend it to the whole conjecture.
+   (Superseded in session 14 by the manuscript of obligation 14.)
+
+14. **Session 14: the manuscript of the whole conjecture**
+   (`manuscripts/CJ-0001-collins-shor/main.tex`, first commit `8df6bea`;
+   review packet `README.md`, `REVIEW-PROMPT.md` there). New in it and not
+   reviewed before: Lemma 5.1 ((★) for root weights only) and the derivation
+   of the raise and plant rules from it, replacing S15 and S16; the leaf
+   recursion S23(b) derived from the plant rule; the presentation with the
+   cones `K_d` only. Checked by `manuscript_check.py` (exact, independent of
+   the notes' code; `results/manuscript-check.json`). Reviews of the whole
+   document at `8df6bea`: `claude-opus-5-5` and `claude-sonnet-5-5` (fresh
+   contexts), both no gap found within stated scope
+   (`reviews/2026-11-27-*-manuscript.md`); their defects corrected in
+   revision 2 (`87c3c8c`), which also adds Lemma 7.5 (the shape of the
+   star's sequence), so that neither bound uses the log-concavity theorem of
+   arXiv:1507.02341 or Collins's Theorem 1; recheck of revision 2: journal
+   of session 14. The count "1,346,023 trees of order 3 to 20" in
+   `notes/leaf-telescoping.md` is a slip for 1,346,022 (orders 2 to 20 give
+   1,346,023); left in the note, corrected in the manuscript. Owed: a review
+   by a model of another vendor (use `REVIEW-PROMPT.md`); human reading
+   (deferred by the director); a result package; the literature items of
+   obligations 9, 11(c), 13.
+
+### Sections "Conjectures and hypotheses", "Failed approaches" and "Counterexamples and observations", as of session 14 (without the (PX-peak) paragraph, which is above)
+
+## Conjectures and hypotheses of this investigation
+
+**Statement (SM), star minimality (MD-0017, session 9) — candidate proof
+since session 11 (Theorem T6(b), MD-0019).** For every tree of order
+`n ≥ 3`: `ℓ_T − ℓ_{S_n} ∈ C_{n−1}`. Exact for all 1,346,023 trees of order 3
+to 20 (equality only for the star). It implies the lower bound `⌊n/2⌋` for
+**every** tree, and it follows from **(Γ_c¹)**: `R(B, e_c) ∈ C_{j+1}` for
+every rooted tree, which is Theorem T5. **(SM⁺)** (session 10): `Ω_T ∈ C_{n−1}`
+for every tree; it follows from T5(i) and the formula of S30 (unreviewed).
+**(CM)** (session 11): the same cone order is respected by the contraction
+of any non-pendant edge (S36). Still open, and no longer needed for the
+lower half: Γ_c for general weights, (E), (Λ), Conjecture Γ.
+
+**Three kinds of extremality** (session 12; `path-maximality.md`, last
+sections). (1) *Coefficientwise*: `d_k(S_n) ≤ d_k(T) ≤ d_k(P_n)` — T6(b) and
+T8, candidate proofs. (2) *Increments below the middle*: the same order for
+`d_μ − d_{μ−1}`, `μ ≤ ⌊n/2⌋`; the cone reaches no further. (3) *Peak
+location*: the star is peak-minimal (every tree has `p_min ≥ ⌊n/2⌋ = p_max(S_n)`;
+this is T6(c), the lower half); whether the path is peak-maximal is open,
+and (1) does not imply it (termwise domination does not order maximizing
+indices).
+
+**Conjecture Γ (MD-0010) and Hypothesis V (MD-0009) — open; no longer on
+the route to the lower half.** Γ: for every tree `S` and every `A ⊆ V(S)`,
+`|A| ≥ 2`, the polynomial `r_A` is in the half-gamma cone `C_{s−|A|+1}`.
+Proved for `A = V`, for `A` with independent complement or complement of at
+most two vertices, and (exactly) for the 47 trees with 2 to 8 vertices; all
+roots of `r_A` are real. Chain `Γ ⇐ Γ⁺ ⇐ Γ_c ⇐ (E) ⇐ (Λ)`; (E″), (S) false.
+V: non-negative mixed partials of `D_n` for caterpillars. Full text as of
+session 10: [`notes/gamma-chain.md`](gamma-chain.md), last section.
+
+**Hypothesis A(ii) — open (MD-0005).** For every tree `T` of order `n` and
+every `0 ≤ k ≤ min(p_n, n−3)`, `p_n` the largest maximizing index of the path:
+`ρ_k(T) ≤ ρ_k(P_n)`. Exact for all trees of order 4 to 20 and 10,000 sampled
+trees of orders 24 to 90; proved for `k = 0` (L2). With Collins's theorem on
+paths it would give the upper half. The path does not maximize `ρ_k` at every
+index.
+
+**Questions Q1, Q2 — open.** Q1: for balanced caterpillars with fixed spine
+length `s`, `n(1 − q) → 6/(2s+3)` (observed at `n = 10³ … 10⁶`). Q2: is
+`q(T) < 1` for every tree of even order (the lower half)? The smallest margins
+found are on balanced caterpillars whose spine grows slowly with `n`
+(`1 − q ≈ 1.3 × 10⁻⁶` at `n = 10⁵`, spine 33); `results/near-star-families.json`.
+
+## Failed approaches and refuted hypotheses
+
+Full text of each: [`notes/dead-ends.md`](dead-ends.md).
+
+- **Hypothesis A(i) — refuted (MD-0004).** `ρ_k(T) ≥ ρ_k(S_n)` for
+  `k ≤ ⌊n/2⌋ − 1` holds for all trees of order 4 to 19 and fails at order 20
+  (`S(9,9)`: `q = 10255/10791 > 94/99`). Do not retry star-comparison at
+  `k = ⌊n/2⌋ − 1`.
+- **Inequality (3) of `wiener-form.md` — refuted as a route (S31, session
+  10).** Dropping the pairs at distance ≥ 2 from the Wiener form loses the
+  even case: negative at `n = 100` on spiders with legs of length 2. The
+  cone statement `4(W − 3n)Θ_T − 16n(1+x)^{n−2} − Σ_e (n − 2n_e)² Π_e ∈ C_{n−2}`
+  (which would imply (3) > 0) holds for all trees of order 7 to 15 and fails
+  on the same spiders from about `n = 30` (scratch, not stored). **Test
+  even-order statements on spiders with many legs of length 2 at `n ≥ 100`.**
+- **Roots of `r_A`** (session 7): real-rootedness does not give the cone
+  (`1 + 5x/2 + x²/2`); pairing roots cannot work for long paths.
+- **Darroch's theorem** on the mode (session 7): the index needed is the upper
+  central one, where a bound on the mean decides nothing.
+- **Termwise absorption in S17** (session 7): `E*` alone leaves the cone.
+- **(E″) and (S)** (proposed in session 7, **refuted in session 8**, S21):
+  `F = E − xR(T′, ν+e_u)` is not in `C_{j′+2}` for stars with many heavy
+  leaves, so a proof of (E) cannot discard `R(T′, ν+e_u)`; the slope
+  statement (S) fails already at 5 vertices. The session-7 range (`j ≤ 5`,
+  weights ≤ 2) contained no failure: **test auxiliary cone statements on
+  stars with heavy leaves (weights ≥ 4) before building on them.**
+
+## Counterexamples and observations
+
+- No counterexample to the Collins–Shor conjecture was found.
+- For odd `n` the lower-bound margin is wide; for even `n` it tends to 0.
+- For `10 ≤ n ≤ 19` the star minimizes `ρ_k` exactly for `k ≤ ⌊n/2⌋ − 1`.
+- The relative margin `1 − d_{m−1}/d_m` behaves like a constant over `n` in
+  every family examined (double stars: about `1/n` for even and `3/n` for odd
+  order; `K(a,b,c)`: `≈ 0.0024` at order 302). Not proved.
+- In every case computed, the tree "skeleton plus one star" with the smallest
+  `d_m − d_{m−1}` has the star at a vertex of large degree or central
+  position; no rule was extracted.
+- `Ω` has non-negative coefficients in all 4,395 rooted weighted trees
+  computed (not proved; it would follow from Γ_c).
+
+
+### The section "Dependency map", as of session 14 (the T10 line already as updated in session 15)
+
+
+```
+Collins–Shor, lower half  (⇔ d_{m−1} < d_m, m = ⌊n/2⌋, by R1 [Lean])
+  ODD ORDER, every tree:  T4  ⇐ S25 (Wiener form) ⇐ L1, S24 ⇐ Lemma F   [candidate proof, session 9 (MD-0016)]
+  EVERY ORDER, every tree: T6(c)                                          [candidate proof, session 11 (MD-0019)]
+    ⇐ (SM): ℓ_T − ℓ_{S_n} ∈ C_{n−1}   (T6(b); also from S36)              [candidate proof]
+    ⇐ S23(c) (telescoped leaf recursion) + T6(a) ⇐ T5(i): Ω ∈ K_a          [S23(a)–(c): see obligation 11]
+    ⇐ T5: (Γ_c¹), by induction on rooted trees                            [candidate proof]
+        ⇐ S19 (plant, merge rules) [AI-reviewed, MD-0015], S33 to S35, Lemma K, Lemma S24
+    ⇐ the star: d_{m−1}(S_n) < d_m(S_n)                                   [KNOWN: Collins 1989, Theorem 1]
+    ⇐ R1 [Lean], Lemma A(a) [Lean on the cone], log-concavity [Theorem 2.1 of the source]
+  routes that are not needed any more: S30(d) and (SM⁺) (now consequences of T5); Γ_c, (E), (Λ) [OPEN];
+    inequality (3) of wiener-form.md                                     [FALSE in general: S31]
+  the route of sessions 4 to 8 (S1, L4, S4, Property Γ, "skeleton plus one star"; leafy trees only):
+    superseded for the lower half; verbatim in notes/gamma-chain.md, last section.
+  special cases with complete candidate proofs, both halves, peak exactly m:
+    diameter 3: T1;  caterpillars of diameter 4: T2, T3, P_5;  stars: Collins 1989, Theorem 1
+
+Collins–Shor, upper half
+  EVERY TREE: T9 [candidate proof, session 13 (MD-0022)]
+    ⇐ S41 (peak of d ≤ mode of q) ⇐ S40 (ℓ_T = 4(α − x)q) ⇐ Graham–Lovász, Weyl, Newton
+    ⇐ Darroch's rule [KNOWN, 1964] applied to q
+    ⇐ S42: μ_q ≤ n − tr(I+L)^{−1} [interlacing; KNOWN in substance: Merris 1990]
+    ⇐ T10: tr(I+L_T)^{−1} ≥ tr(I+L_{P_n})^{−1} [KNOWN: AMW 2020, Thm 4.4, via the subdivision (MD-0023)]
+        independent proof: S45 (MD-0025) ⇐ S43 (gluing), S43′, S44 (cosh forms; convexity of x/(φ^{2x}+1) on [3, ∞))
+    ⇐ S46: tr(I+L_{P_n})^{−1} > n/√5 + 2/5   [proof by Fourier series]
+  routes no longer needed:
+  ⇐ (PX-peak) + p_max(P_n) ≤ ⌈n − n/√5⌉               [(PX-peak) OPEN (MD-0021); path bound exact for n ≤ 2000]
+      ⇐ (PM) + Lemma S39                             [(PM) OPEN; S39 candidate proof (MD-0020)]
+  coefficientwise path maximality T8                 [candidate proof; does NOT locate the peak]
+  ⇐ Hypothesis A(ii) at k = p_n                      [OPEN; k = 0 proved (L2)]
+  ⇐ Collins 1989, Theorem 3: d_{n−k}(P_n) = C(n+k−1, 2k−1)(k−1)n/k; peak of P_n at ⌊n − n/√5⌋ or ⌈n − n/√5⌉
+                                                     [read in session 11; the last step of its proof is informal]
+  no mechanism from the skeleton expansion           [Property Γ says nothing about it]
+```
+
