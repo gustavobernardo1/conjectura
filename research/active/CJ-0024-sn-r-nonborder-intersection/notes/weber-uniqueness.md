@@ -1,7 +1,10 @@
 # Residuals of non-border-continuous t-norms that are (S,N)- and QL-implications
 
 *Note written 2026-11-27 by `claude-opus-5-5` (session 1 of CJ-0024). Status:
-candidate answer, not reviewed. Revision 1.*
+candidate answer. Revision 2 (2026-11-27): corrects the gaps G1–G5 of the
+review `../reviews/2026-11-27-review-1.md` of revision 1; revision 1 is kept
+byte-identical in `versions/weber-uniqueness-r1.md`. Revision 2 is not yet
+rechecked.*
 
 ## 1. The questions
 
@@ -29,8 +32,12 @@ copy <https://people.iith.ac.in/jbala/publications/fss/fss_ql_imp.pdf>, read
 The chapter (Section 3.1.3) gives the monograph form of Problem 4.2 (Problem
 4.8.1 of Baczyński–Jayaram, *Fuzzy Implications*, STUDFUZZ 231, 2008): "is
 the following equality true I_{S,N} ∩ (I_T \ I_{T*}) = {I_WB}?", where
-I_{T*} denotes the R-implications of left-continuous t-norms; it notes that the
-intersection is empty when T is border-continuous. Problem 4.5(ii) is Problem
+in the 2008 survey (FSS 159, §6.4) I_{T*} denotes the R-implications of
+left-continuous t-norms with strong induced negation; since that survey gives
+I_{S,N} ∩ I_{T_LC} = I_{T*}, the equality means the same with
+I_{T*} replaced by I_{T_LC}, the R-implications of all left-continuous
+t-norms (review G5). The chapter notes that the intersection is empty when T
+is border-continuous. Problem 4.5(ii) is Problem
 9.4(ii) of the 2010 paper. The chapter introduces Problem 4.5 with "The
 following problems originally appeared as open in [2] and still remain so".
 
@@ -49,8 +56,14 @@ following problems originally appeared as open in [2] and still remain so".
 - *QL-operation* (2010 paper, Definition 4.1): I(x,y) = S(N(x), T(x,y)); a
   QL-implication is a QL-operation that is a fuzzy implication.
 - *Border-continuous* (chapter, Definition 3.3): continuous on
-  [0,1]² \ ]0,1[².
-- *Weber implication*: I_WB(x,y) = 1 if x < 1, I_WB(1,y) = y (chapter p. 181
+  [0,1]² \ ]0,1[², read as: continuous at every point of that set as a
+  function on [0,1]² (joint continuity). The examples below fail this at a
+  point (x,1) even for the weaker property "T(x,·) continuous at 1", so the
+  conclusion holds under either reading.
+- *Left-continuous* t-norm: left-continuous in each variable (for a t-norm,
+  in one variable suffices by commutativity); Lemma 4 below uses only left
+  continuity of T(x,·) at 1.
+- *Weber implication*: I_WB(x,y) = 1 if x < 1, I_WB(1,y) = y (chapter p. 184
   and p. 189, the residual of the drastic product T_D).
 - *(OP)*: I(x,y) = 1 ⟺ x ≤ y.
 - Łukasiewicz t-conorm S_L(a,b) = min(1, a + b); minimum T_M(x,y) = min(x,y).
@@ -99,13 +112,36 @@ I_c and each J_c (1 < c < 2) is an (S,N)-implication and the residual of a
 non-border-continuous t-norm, is not the residual of any left-continuous
 t-norm, and differs from I_WB. Equivalently, the equality
 I_{S,N} ∩ (I_T \ I_{T*}) = {I_WB} of Problem 4.8.1 of the 2008 monograph is
-false; the intersection has the cardinality of the continuum. The answer to
-the first question of Problem 4.5(ii) (= Problem 9.4(ii) of the 2010 paper) is
-*no*: I_c and J_c are QL-implications that are residuals of non-left-continuous
-t-norms (and of no left-continuous one), other than I_WB. The
-characterisation parts (Problem 4.2(ii), the rest of 4.5(ii)) remain open.
+false; the intersection contains continuum many pairwise distinct
+elements (only this lower bound is claimed; review G1). The answer to the
+first question of Problem 4.5(ii) (= Problem 9.4(ii) of the 2010 paper), read
+as "is I_WB the only QL-implication that is the residual of a
+non-left-continuous t-norm and of no left-continuous t-norm?", is *no*: I_c
+and J_c are such QL-implications. The characterisation parts (Problem
+4.2(ii), the rest of 4.5(ii)) remain open.
+
+**On the reading of Problem 4.5(ii) (review G2).** Read literally ("an
+R-implication obtained from a non-left continuous t-norm", with no exclusion
+of left-continuous generators), the question is already answered *no* inside
+the sources: the chapter (p. 189) shows that the non-left-continuous
+nilpotent minimum T_nM* (zero for x + y < 1, min otherwise) has the Fodor
+implication I_FD as residual, and the 2010 paper (Table 6, Proposition 6.4)
+shows that I_FD is a QL-implication. The authors, who knew both facts, must
+therefore mean the strong reading above, which is also the reading of the
+monograph form 4.8.1 of the companion Problem 4.2 (I_T \ I_{T_LC}). The
+results here are claimed only under the strong reading; under the literal one
+they add nothing.
 
 ## 4. Proofs
+
+Lemmas 1 and 2 are standard: Lemma 1 is Corollary 1.8 of Klement, Mesiar,
+Pap, *Triangular Norms* (2000), as cited in Jayaram, Baczyński, Mesiar,
+*R-implications and the exchange principle: a complete characterization*,
+EUSFLAT 2011, pp. 223–229, §4, equation (5); Lemma 2 is their equation (6)
+(review G4; the citation is taken from the review and from the literature
+audit, the book itself was not read). Proofs are included to keep the note
+self-contained. That paper uses this construction to study (EP); its examples
+are not (S,N)-implications (review G4).
 
 **Lemma 1 (drastic boundary).** Let M : [0,1]² → [0,1] be commutative,
 associative, non-decreasing in each variable, with M(x,y) ≤ min(x,y) (a
@@ -178,7 +214,8 @@ left-continuous t-norm.
 4. For x = 1: S_L(0, min(1,y)) = y. For x ≤ c − 1: both sides are 1. For
    c − 1 < x < 1: if y ≤ x, S_L(c − x, min(x,y)) = min(1, c − x + y); if
    y > x, S_L(c − x, x) = min(1, c) = 1 = I_c(x,y) (as c − x + y > c). I_c
-   is a fuzzy implication, being an R-implication (or an (S,N)-implication).
+   is a fuzzy implication, being an R-implication (2010 paper, Theorem 5.10)
+   and an (S,N)-implication.
 5. 0 < c − 1 < 1 and I_c(c − 1, 0) = min(1, 1) = 1. Apply Lemma 4.
 6. For c − 1 < x < 1, I_c(x, 0) = c − x < 1 = I_WB(x, 0). If
    1 < c < c' < 2 and c' − 1 < x < 1, then I_c(x,0) = c − x ≠ c' − x =
@@ -206,7 +243,8 @@ left-continuous t-norm.
    x ≤ y or min(1, c − x) = 1. c − 1 < x < 1: N_c(x) = c − x. If y ≥ x,
    (c − x) + y ≥ c and (c − x) + T_M(x,y) = c, so both expressions are 1 =
    J_c(x,y). If y < x, (c − x) + y < c, so both expressions are
-   max(c − x, y) = J_c(x,y).
+   max(c − x, y) = J_c(x,y). J_c is a fuzzy implication, being an
+   R-implication (2010 paper, Theorem 5.10) and an (S,N)-implication.
 4. As in Theorem A: J_c(c − 1, 0) = max(min(1, 1), 0) = 1; Lemma 4.
 5. For c − 1 < x < 1: J_c(x,0) = c − x < 1 = I_WB(x,0). With x = 1 − ε and
    y = ε for small ε > 0 (y < x, c − x = c − 1 + ε < 1):
@@ -219,21 +257,38 @@ left-continuous t-norm.
 - Both families share the natural negation N_c; I_c and J_c are two different
   (S,N)-implications with the same non-continuous negation. (For continuous
   negations the representation is unique, chapter Theorem 2.12.)
-- φ-conjugation (2010 paper, Theorem 4.8, and the analogous facts for
-  R- and (S,N)-implications) turns each example into further ones.
-- The construction is the classical extension of a t-subnorm by the drastic
-  boundary (Lemma 1). Its residual for x < 1 depends only on the subnorm.
-  This suggests a general sufficient condition, not attempted here.
+- A general construction containing both families, with rescalings in place
+  of conjugations, is Theorem C of the separate note
+  [`rescaled-tnorms.md`](rescaled-tnorms.md) (the φ-conjugation remark of
+  revision 1 was unproved and is withdrawn; review G5).
+- **A printed theorem that Theorem B contradicts (review G3).** Theorem 5.14
+  of the 2010 paper (= Theorem 6.5 of the 2008 survey) reads: "For a
+  right-continuous t-conorm S and a t-norm T the following statements are
+  equivalent: (i) The (S,N)-implication I_{S,N_S} is also the R-implication
+  I_T. (ii) (S, N_S, T) form a De Morgan triple." Here N_S(x) =
+  inf{t : S(x,t) = 1}, and a De Morgan triple requires a strict negation. The
+  t-conorm S*_c is right-continuous (the set {a + b ≥ c} where it equals 1
+  is closed), N_{S*_c} = N_c, and Theorem B gives I_{S*_c,N_c} = J_c =
+  I_{T'_c}; but N_c is not strict, so (i) holds and (ii) fails. The same
+  happens already for S = S_M, N_{S_M} = N_D2 and I_{S_M,N_D2} = I_WB =
+  I_{T_D} (2008 survey, Remark 6.4(i), as reported by the review). So the
+  printed statement needs an additional hypothesis — presumably that N_S is
+  strong, or that T is left-continuous; this note does not determine which,
+  and none of its results uses that theorem.
 - Nothing here addresses Problem 9.4(iii) of the 2010 paper
   ((I_QL ∩ I_T) \ I_{S,N} = ∅?) or Problem 9.3: all examples above are
   (S,N)-implications.
 
 ## 6. Verification status
 
-- Exact checks on rational grids: `experiments/CJ-0024-sn-r-nonborder-intersection/`
-  (see its README; to be run).
-- Lean: not started at the time of writing.
-- Independent review: none yet.
-- Literature: whether these examples or an answer to the problems appeared
-  after 2013 is being audited; until that audit is recorded, novelty is
-  `unknown`.
+- Exact checks on rational grids:
+  `experiments/CJ-0024-sn-r-nonborder-intersection/check_examples.py`, all
+  passed (2026-11-27; see the README).
+- Lean: Theorem A in progress, `formalization/Conjectura/Research/WeberUniqueness.lean`.
+- Independent review: revision 1 reviewed (`../reviews/2026-11-27-review-1.md`,
+  fresh context, same model as the author): Theorems A, B and Lemmas 1–4
+  hold; gaps G1–G5 in side claims, reading and attribution, corrected here.
+  Revision 2 not yet rechecked.
+- Literature: audit `research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md`;
+  no answer found within its coverage (the 2015 handbook chapter and the 2008
+  monograph not read).
