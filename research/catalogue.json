@@ -1462,25 +1462,25 @@
       ],
       "dossier": "research/candidates/CJ-0017-nary-copula-perturbation.md",
       "status": {
-        "mathematical": "candidate",
+        "mathematical": "partial-result",
         "formal": "not-started",
         "novelty": "preliminary-search-completed",
         "external_review": "not-reviewed"
       },
       "open_status": {
         "as_of": "2026-11-27",
-        "evidence": "Posed in 2015; the 32 works listed by OpenAlex as citing the problem paper include no title about n-ary perturbation of copulas, and a web search found no answer. The scout's unchecked hand calculation indicates the first yes/no question has answer 'no' (C=Pi, n=3), leaving the characterization part open.",
+        "evidence": "Posed 2015. The literal first question is answered 'no' already at n = 2 by C = W (trivial). The characterisation is open as far as the audit shows; the 2019 paper above was not read.",
         "url": "http://library.utia.cas.cz/separaty/2019/E/mesiar-0506948.pdf"
       },
       "novelty_search": {
-        "as_of": "2026-11-27",
-        "coverage": "OpenAlex title search; OpenAlex cites-filter on W2036212222 (32 citing works, titles only); two web searches including one on n-ary perturbation of copulas; arXiv abstract of 2505.14058 (ratio-type copulas).",
-        "limitations": "Not checked: full texts of the citing works, the 2019 Kybernetika paper Random noise and perturbation of copulas beyond a search summary, Mesiar-Komornikova-Komornik 2015 itself, Google Scholar, MathSciNet/zbMATH. Whether the negative answer for n=3 is already published is unknown."
+        "as_of": "2026-11-28",
+        "coverage": "Literature audit research/candidates/CJ-0017-nary-copula-perturbation-audit.md (literature-auditor, Opus, 21 web operations): citing works of the 2015 paper (OpenAlex 32, Semantic Scholar 30) and of Mesiar-Komorníková-Komorník 2015 (27), titles and reported abstracts; Kybernetika 55 (2019) full text; Longla et al. arXiv:2101.04573. No answer found.",
+        "limitations": "Not read: Fernández-Sánchez and Úbeda-Flores, Fuzzy Sets Syst. 354 (2019) 116-122 (closed access; may treat higher dimensions); Zhu-Wang-Pipitpojanakarn 2017; Komorník et al. AGOP 2017; Durante-Fernández-Sánchez-Trutschnig 2014; no zbMATH, MathSciNet, Google Scholar. A failed search does not establish novelty."
       },
       "scores": {
         "statement_precision": {
-          "score": 1,
-          "why": "As transcribed, C_1 = C - prod(x_i - C) violates the uniform-margin condition for n >= 3 (at x_1 = 1 the factor 1 - C(1, x_2, ..., x_n) is not 0), which would make the question trivial; the transcription must be re-read from the primary source before any work (2026-11-27, director)."
+          "score": 3,
+          "why": "Verbatim statement and definition read from the author copy by two agents; C_1 satisfies the copula boundary conditions (an earlier director's note claiming otherwise was wrong, corrected 2026-11-28)."
         },
         "open_evidence": {
           "score": 2,

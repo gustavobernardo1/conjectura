@@ -81,3 +81,17 @@ When a target becomes an investigation, its record moves to
   23:47. Since then: MD-0027's registry statement corrected to the strong
   reading of Problem 4.5(ii) and the recheck bound to MD-0027/MD-0028
   (`a956225`); campaign 2 recorded in `research/scouting-log.md`.
+- **+55 min (00:05, clock):** Theorem C review: no gap found (same model as
+  the author; independent checks with three further base t-norms). Second
+  target CJ-0017 (Mesiar 2015, Problem 4.1), started about 23:52: for the
+  product copula, C − ∏(x_i − C) is not an n-copula for n = 3 (exact box,
+  volume −23/5⁹, two independent methods), for every even n ≥ 4 (corner
+  density 1 − (−1)ⁿ·D_n, D_n derangements; proof written) and for n = 5, 7
+  (exact); the 3-dimensional family Π − λ∏(x_i − Π) is a copula iff
+  −1/3 ≤ λ ≤ 15/19 (hand proof). Literature audit: no answer found, but
+  Fernández-Sánchez–Úbeda-Flores (FSS 354, 2019) — closed access, may contain
+  these results — not read; and the literal first question is already
+  answered at n = 2 by W (auditor's observation). Registered MD-0030
+  (candidate counterexample), MD-0031 (candidate proof); CJ-0017
+  `partial-result`. Running: Lean (CJ-0024), review of the CJ-0017 note.
+  Computation used so far: about 13 minutes (z3 run 4 min).

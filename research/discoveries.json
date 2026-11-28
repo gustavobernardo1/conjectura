@@ -2944,6 +2944,126 @@
         "coverage": "Literature audit (literature-auditor subagent, Opus, about 30 web operations), research/candidates/CJ-0024-sn-r-nonborder-intersection-audit.md: the 2008 survey FSS 159, the 2010 QL paper FSS 161, the 2013 chapter STUDFUZZ 300, Jayaram-Baczyński-Mesiar EUSFLAT 2011 read; OpenAlex citing-work titles of the 2008 survey (169), the 2010 paper (79), the 2015 handbook chapter (105); Fernández-Peralta's survey arXiv:2503.05702. No occurrence of the construction or of an answer found.",
         "limitations": "Not read: the 2015 handbook chapter (paywalled), the 2008 monograph, Klement-Mesiar-Pap's book, FSS 476 (2024) 108786, FSS 2025 109580 and 109285, the 2022 paper on non-continuous negations; titles only for citing works; no zbMATH, MathSciNet or Google Scholar. A failed search does not establish novelty."
       }
+    },
+    {
+      "id": "MD-0030",
+      "type": "counterexample",
+      "title": "The perturbation Π − ∏(x_i − Π) of the product copula is not an n-copula for n = 3, 5, 7 and every even n ≥ 4",
+      "statement": "Let Π(x) = x_1⋯x_n be the product copula on [0,1]^n and C_1 = Π − ∏_{i=1}^n (x_i − Π) (the construction of Mesiar's Problem 4.1, Fuzzy Sets Syst. 261 (2015), p. 114, applied to C = Π). C_1 satisfies the boundary conditions of an n-copula, but: for n = 3 its volume on [3/5,4/5]×[4/5,1]×[4/5,1] is −23/5^9; for every n ≥ 2 its density at (1,…,1) is 1 − (−1)^n·D_n, where D_n is the number of derangements of n elements, which is negative for every even n ≥ 4; and for n = 5 and n = 7 its density is negative at (159/200,1,…,1), respectively (177/200,1,…,1). Hence C_1 is not an n-copula for n = 3, 5, 7 and for every even n ≥ 4 (whereas for n = 2 it is the FGM copula with parameter −1).",
+      "registered": "2026-11-28",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "exact computations, the corner-density formula and its proof, the proof of the parameter range (AI-generated)"
+          },
+          {
+            "who": "claude-sonnet-5-5 (problem-scout subagent)",
+            "kind": "ai-model",
+            "role": "located the problem and first noticed, by hand, a negative density for Π at n = 3"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (mission and budget); no mathematical input"
+          }
+        ],
+        "record": "research/explorations/fuzzy-counterexamples.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0017-nary-copula-perturbation/notes/product-copula.md",
+          "summary": "Propositions 1-3, revision 1; not reviewed."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0017-nary-copula-perturbation/independent_check.py",
+          "summary": "Independent exact check of the n = 3 box volume (integral of the mixed partial): -23/1953125."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0017-nary-copula-perturbation/edge_density.py",
+          "summary": "Exact edge densities n = 2..8; corner values 0, 3, -8, 45, -264, 1855, -14832 = 1 - (-1)^n D_n."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-counterexample",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-28",
+        "coverage": "As in research/candidates/CJ-0017-nary-copula-perturbation-audit.md.",
+        "limitations": "The 2019 paper of Fernández-Sánchez and Úbeda-Flores (FSS 354, 116-122), which may contain these results, was not read. A failed search does not establish novelty."
+      },
+      "limitations": "Odd n ≥ 9 not covered. The literal first question of Problem 4.1 is already answered at n = 2 by C = W; this record concerns the product copula in dimensions ≥ 3 only.",
+      "relations": [
+        {
+          "type": "contributes_to",
+          "target": "CJ-0017",
+          "local_id": "P1-P3"
+        }
+      ]
+    },
+    {
+      "id": "MD-0031",
+      "type": "proposition",
+      "title": "Exact parameter range of the cubic perturbation of the 3-dimensional product copula",
+      "statement": "For real λ let D_λ(x,y,z) = xyz − λ(x − xyz)(y − xyz)(z − xyz) on [0,1]^3. Then D_λ is a 3-copula if and only if −1/3 ≤ λ ≤ 15/19. Equivalently, the density d = 4(xy+yz+zx) − 12xyz(x+y+z) + 27x²y²z² of Π − (x−Π)(y−Π)(z−Π) satisfies −4/15 ≤ d ≤ 4 on [0,1]^3, with −4/15 attained exactly at the permutations of (8/15,1,1) and 4 at the permutations of (0,1,1).",
+      "registered": "2026-11-28",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "exact computations, the corner-density formula and its proof, the proof of the parameter range (AI-generated)"
+          },
+          {
+            "who": "claude-sonnet-5-5 (problem-scout subagent)",
+            "kind": "ai-model",
+            "role": "located the problem and first noticed, by hand, a negative density for Π at n = 3"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (mission and budget); no mathematical input"
+          }
+        ],
+        "record": "research/explorations/fuzzy-counterexamples.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0017-nary-copula-perturbation/notes/product-copula.md",
+          "summary": "Proposition 4, case analysis of the density as a quadratic in one variable; revision 1; not reviewed."
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0017-nary-copula-perturbation/density_bounds_z3.py",
+          "summary": "z3 found d > 3 at (0,7/8,7/8); the exact min queries timed out (unknown). Exploratory floating grid (60^3) agrees with the extrema."
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "preliminary-search-completed",
+        "external_review": "not-reviewed"
+      },
+      "novelty_search": {
+        "as_of": "2026-11-28",
+        "coverage": "As in research/candidates/CJ-0017-nary-copula-perturbation-audit.md.",
+        "limitations": "The 2019 paper of Fernández-Sánchez and Úbeda-Flores (FSS 354, 116-122), which may contain these results, was not read. A failed search does not establish novelty."
+      },
+      "relations": [
+        {
+          "type": "contributes_to",
+          "target": "CJ-0017",
+          "local_id": "P4"
+        }
+      ]
     }
   ]
 }
