@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "uv run python experiments/CJ-0001-collins-shor-peak/path_formula_check.py --max-n 60 --out experiments/CJ-0001-collins-shor-peak/results/path-formula-check.json",
+    "git_revision": "e15ae8f16b7d961f34a77e80bdef91debeede1cb",
+    "tree_clean": true,
+    "python": "3.12.4",
+    "arithmetic": "exact (python-flint determinants, fractions.Fraction interpolation)"
+  },
+  "paths": [
+    2,
+    60
+  ],
+  "cases": 59,
+  "failures": 0,
+  "first_failure": null,
+  "composition_sums": {
+    "cases": 144,
+    "failures": 0
+  },
+  "elapsed_seconds": 46.4
+}

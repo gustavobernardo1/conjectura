@@ -18,6 +18,12 @@
 % defined; the Graham--Lovasz peak written with the floor; the open case of
 % peak-maximality of the path stated exactly; R(K,nu) defined; the decimal
 % estimate at the end of Lemma S44 replaced by an exact one.
+% Revision 4 (session 15, same day): the eight defects of the recheck of
+% revision 3 (reviews/2026-11-27-claude-opus-5-5-manuscript-recheck-r3.md)
+% corrected; Lemma lem:collins (a proof of Collins's formula, from
+% notes/path-formula.md, reviewed in
+% reviews/2026-11-27-claude-sonnet-5-5-path-formula.md) added at the end of
+% Section 11. Revision 3 is kept byte-identical in versions/r3/main.tex.
 \documentclass[11pt]{amsart}
 \usepackage{amsmath,amssymb,amsthm}
 \PassOptionsToPackage{hyphens}{url}
@@ -94,15 +100,14 @@ computation only; it has not been read by a mathematician.
 \textbf{Draft prepared with AI assistance, for independent review. Not for
 distribution.} The mathematics of this draft was produced by AI systems
 (Claude, models \nolinkurl{claude-fable-5-2} and \nolinkurl{claude-opus-5-5},
-Anthropic) in the Conjectura research project, November 2026. Its parts were
-reviewed only by AI reviewers run in fresh contexts (models of the same
-vendor); \textbf{AI review is not peer review}, and \textbf{no mathematician
-has read the proofs}. The first version of this document was reviewed as a
-whole by two AI reviewers of the same vendor; revision~2 was rechecked by
-one of them and reviewed as a whole by an AI model of another vendor
-(OpenAI, through Codex), all without finding a gap; this revision~3
-corrects the defects that the last review reported, and has been rechecked
-only as stated in Section~\ref{sec:status}.
+Anthropic) in the Conjectura research project, November 2026. It has been
+reviewed only by AI reviewers run in fresh contexts: its parts and its first
+versions by models of the author's vendor, revision~2 as a whole also by a
+model of another vendor (OpenAI, through Codex); \textbf{AI review is not
+peer review}, and \textbf{no mathematician has read the proofs}. None of
+these reviews found a gap; the defects they reported were corrected in the
+following revision. Which revision each review covers, and what in this
+revision~4 has not been reviewed, is stated in Section~\ref{sec:status}.
 The status of every statement is given in Section~\ref{sec:status}; novelty
 is not claimed beyond what is stated in Section~\ref{sec:literature}. Nothing
 has been submitted, posted or sent; every outside use is decided by the
@@ -296,8 +301,10 @@ are $2-2\cos(j\pi/n)$, $0\le j\le n-1$ \cite{BH}.
 \item[(C)] \emph{Collins's formula for the path} \cite[Theorem~3 and its
 proof, p.~31]{Col89}: for $n\ge3$ and $2\le k\le n$,
 $d_{n-k}(P_n)=\binom{n+k-1}{2k-1}\frac{(k-1)n}{k}$. Used only in
-Section~\ref{sec:path}. Read in the source; checked against the distance
-matrix in exact arithmetic for $3\le n\le30$.
+Section~\ref{sec:path}. Read in the source; proved again, independently of
+Collins's argument, in Lemma~\ref{lem:collins} at the end of
+Section~\ref{sec:path}; checked against the distance matrix in exact
+arithmetic for $2\le n\le60$.
 \item[(Kr)] \emph{Kronecker}: for irrational $\zeta$, the fractional parts of
 $n\zeta$, $n\ge1$, are dense in $[0,1)$. Used only in
 Corollary~\ref{cor:pathceil}.
@@ -1447,8 +1454,9 @@ The last term is positive.
 
 \begin{remark}
 The same value follows from \cite[Lemma~4.2, eq.~(8)]{AMW} applied to the
-path with $2n-1$ vertices, as the literature audit noted (not checked by a
-reviewer).
+path with $2n-1$ vertices, by the identity
+$\tr(I+L_{P_n})^{-1}=n-\mathrm{avm}(P_{2n-1})$ of Remark~\ref{rem:AMW} (checked
+by the reviewer of revision~3).
 \end{remark}
 
 \section{Proof of the upper bound}\label{sec:proof}
@@ -1634,6 +1642,67 @@ part of $\xi$ is below $2/5$ (which implies $\theta=1-\frc{\xi}>3/5\ge1/5$),
 Theorem~\ref{thm:upper} gives $p(T)\le\lfloor \xi\rfloor$ for every tree $T$ of
 order $n$, and Corollary~\ref{cor:pathceil}(a) gives $p(P_n)=\lfloor \xi\rfloor$; so
 for those $n$ the path has the largest peak index among trees of order $n$.
+
+\subsection*{A proof of Collins's formula}
+Section~\ref{sec:path} used Collins's formula (C) as cited. It also follows
+from Lemmas~\ref{lem:L1} and~\ref{lem:path} and the Cauchy--Binet formula;
+the proof uses nothing from this section, so there is no circularity.
+
+\begin{lemma}[Collins's formula]\label{lem:collins}
+For the path $P_n$, $n\ge2$, and $2\le k\le n$:
+$d_{n-k}(P_n)=\binom{n+k-1}{2k-1}\frac{(k-1)n}{k}$.
+\end{lemma}
+
+\begin{proof}
+Number the vertices $1,\dots,n$ along the path, put $M=I+xL$,
+$\Phi_n=\det M$ and $A_n=\det M[V\setminus\{1\}]$.
+
+\emph{Step 1.} Here $\tau=e_1+e_n$. By the symmetry of the path,
+$\adj(M)_{nn}=\adj(M)_{11}=A_n$, and by Lemma~\ref{lem:path} (with $\nu=0$,
+$d=n-1$, $Q=\emptyset$) $\adj(M)_{1n}=x^{n-1}$. Lemma~\ref{lem:L1} gives
+$\ell_{P_n}=(n-1)\Phi_n-2xA_n-2x^n$, so for $0\le j\le n-2$, by
+Lemma~\ref{lem:ident}, $d_j=(n-1)[x^j]\Phi_n-2[x^{j-1}]A_n$.
+
+\emph{Step 2 (forest expansion).} Let $T$ be any tree, $B$ an oriented
+vertex--edge incidence matrix ($L=BB^\T$), and $W\subseteq V$. Then
+$M[W]=I+xB_WB_W^\T$, where $B_W$ consists of the rows indexed by $W$, and by
+$\det(I+XY)=\det(I+YX)$ and the Cauchy--Binet formula,
+\[
+\det M[W]=\det(I+xB_W^\T B_W)=\sum_{S\subseteq E}x^{|S|}\sum_{R\subseteq W,\ |R|=|S|}\det B[R,S]^2 .
+\]
+For a set $S$ of edges with components $C_1,\dots,C_r$ (isolated vertices
+included), $B[R,S]$ is block-diagonal with blocks of size
+$|R\cap C_i|\times(|C_i|-1)$; it is nonsingular only if every block is square,
+that is, if $R$ omits exactly one vertex of each component (otherwise some
+block has more rows than columns), and then each block is the incidence
+matrix of a tree with one row removed, of determinant $\pm1$ (remove a leaf
+other than the omitted vertex and expand along its row; induct). Hence
+$\det M=\sum_Sx^{|S|}\prod_i|C_i|$, and for $W=V\setminus\{u\}$ the vertex
+omitted from the component containing $u$ must be $u$, so
+$\det M[V\setminus\{u\}]=\sum_Sx^{|S|}\prod_{i:\,u\notin C_i}|C_i|$.
+
+\emph{Step 3.} For $P_n$, the edge sets with $r$ components correspond to
+the compositions $(c_1,\dots,c_r)$ of $n$ (component sizes from vertex $1$),
+with $|S|=n-r$. With $\sum_{c\ge1}cz^c=z/(1-z)^2$, $\sum_{c\ge1}z^c=z/(1-z)$
+and $[z^m](1-z)^{-a}=\binom{m+a-1}{a-1}$:
+\[
+[x^{n-r}]\Phi_n=[z^n]\Bigl(\frac{z}{(1-z)^2}\Bigr)^r=\binom{n+r-1}{2r-1},\qquad
+[x^{n-r}]A_n=[z^n]\frac{z}{1-z}\Bigl(\frac{z}{(1-z)^2}\Bigr)^{r-1}=\binom{n+r-2}{2r-2}.
+\]
+
+\emph{Step 4.} For $2\le k\le n$, Step 3 with $r=k$ and $r=k+1$ gives
+$[x^{n-k}]\Phi_n=\binom{n+k-1}{2k-1}$ and $[x^{n-k-1}]A_n=\binom{n+k-1}{2k}
+=\binom{n+k-1}{2k-1}\frac{n-k}{2k}$ (both sides $0$ for $k=n$). By Step 1,
+$d_{n-k}=\binom{n+k-1}{2k-1}\bigl[(n-1)-\frac{n-k}k\bigr]
+=\binom{n+k-1}{2k-1}\frac{(k-1)n}{k}$.
+\end{proof}
+
+Step~2 is the matrix-forest expansion of $\det(I+xL)$ and of its principal
+minors, proved here from Cauchy--Binet so that nothing further is cited.
+Collins's proof~\cite{Col89} goes through the counting of his
+thesis~\cite{Col86}; the proof above is independent of it. Lemma~\ref{lem:collins}
+was checked exactly against the distance matrix for $2\le n\le60$
+(Section~\ref{sec:comp}).
 \part*{Discussion, evidence and provenance}
 
 \section{Further remarks and open problems}\label{sec:open}
@@ -1649,11 +1718,12 @@ with $p(P_n)=\lceil\xi-2/5\rceil$, $\xi=n-n/\sqrt5$: by
 Corollary~\ref{cor:pathceil}(a), for every $n$ for which the fractional part
 of $\xi$ is below $2/5$, and also for every $n$ with $p(P_n)=\lceil\xi\rceil$
 (for instance $n=9$: $\xi\approx4.975$, $\lceil\xi-2/5\rceil=5$, and
-$h_9(4)=10>0$, so $p(P_9)=5$). It remains open for the $n$ with
+$h_9(4)=10>0$, so $p(P_9)=5$). The argument does not reach the $n$ with
 $p(P_n)<\lceil\xi-2/5\rceil$, that is, $p(P_n)=\lfloor\xi\rfloor$ while the
 fractional part of $\xi$ exceeds $2/5$: $806$ of the $n$ with
-$3\le n\le2000$ (exact count), the smallest being $3,5,7,8,10$; for $n\le23$
-it holds by the exhaustive computation of Section~\ref{sec:comp}. A
+$3\le n\le2000$ (exact count). Eleven of them, $3,5,7,\dots,23$, are settled by
+the exhaustive computation of Section~\ref{sec:comp}; the question is open
+for the other $795$, the smallest being $n=25$. A
 mode--mean inequality for $q$ sharper than Darroch's would be one way to
 treat these $n$; it is not known to be necessary.
 \item \emph{Ratio comparison.} Exact computation supports
@@ -1738,10 +1808,15 @@ the path as the unique maximizer of $\mathrm{avm}$ on all $32{,}507$ trees of
 order $2$ to $16$, and $\mathrm{avm}(P_N)>aN+b$ for $4\le N\le200$ (exact
 sign test in $\mathbb Q(\sqrt5)$); the count of open orders in
 Section~\ref{sec:open}, item~1 (integer arithmetic, from
-Lemma~\ref{lem:S47}); and the tie at order~$13$. In addition, eq.~(8)
-of~\cite{AMW} was compared with the exact value of $\mathrm{avm}(P_N)$ for
-$N\le80$ in $60$-digit floating point (exploratory; agreement to $50$
-digits).
+Lemma~\ref{lem:S47}); and the tie at order~$13$. The result file was
+committed after the commit of revision~3 (it records a run on a clean tree
+at that commit).
+\item \emph{Revision~4} (\nolinkurl{path_formula_check.py}, result
+\nolinkurl{results/path-formula-check.json}, exact, run on a clean tree):
+for every path of order $2$ to $60$, the coefficients of $\Phi_n$ and $A_n$
+of Lemma~\ref{lem:collins}, Step~3, the identity of Step~1, and
+Lemma~\ref{lem:collins} itself against the distance matrix; the two
+composition sums of Step~3 by enumeration for $n\le12$. No failure.
 \end{enumerate}
 Finite checks establish the statements only in the range checked.
 
@@ -1753,7 +1828,10 @@ the maximizing indices of positive log-concave sequences (used in the first
 version of this text, no longer used); the cones $\K_d$ with (K1), (K2) and
 Lemma~\ref{lem:A}; the cone $\mathcal C_d$ with its product rules; and the
 sequence part of Lemma~\ref{lem:S41} (positivity of $q$ and the decrease of
-its ratios as hypotheses). Nothing about trees, determinants, distance
+its ratios as hypotheses); and the binomial statement of
+Lemma~\ref{lem:starshape} (the coefficients $(n-1)\binom{n-2}k+4(n-2)\binom{n-2}{k-1}-4\binom{n-2}{k-2}$
+rise strictly up to $\lfloor n/2\rfloor$ and fall strictly after it), but not
+their identification with $d_k(S_n)$. Nothing about trees, determinants, distance
 matrices, Darroch's rule or the trace of $(I+L)^{-1}$ is formalized. The
 project's receipts record that the library builds without \texttt{sorry} and
 with only the standard axioms; the comparison of the Lean statements with the
@@ -1810,6 +1888,8 @@ from \cite[Lemma~4.2]{AMW}.
 version, read in the project; an independent reviewer reports that the
 author's preprint numbers it Theorem~2), whose location of the peak up to one
 has an informal last step; Lemma~\ref{lem:S47} makes it exact.
+Lemma~\ref{lem:collins} reproves (C) by the matrix-forest expansion; whether
+this proof is in the literature was not searched.
 \end{itemize}
 
 \noindent\textbf{No prior source found within the coverage.}
@@ -1874,15 +1954,27 @@ report's own is ``agent based on GPT-6''), which reconstructed Sections
 remark not used by the Main Theorem (the multiplicity of the eigenvalue $0$
 in the spectrum of the subdivision, Remark~\ref{rem:AMW}) and five defects
 of wording or citation.
-\item \emph{Revision~3} (this text) corrects all six: Remark~\ref{rem:AMW}
-now proves that Theorem~\ref{thm:T10} follows from~\cite{AMW}; $\varphi$ is
-defined; the Graham--Lov\'asz peak is written with the floor; item~1 of
-Section~\ref{sec:open} states exactly which orders remain open and no longer
-claims that a sharper mode--mean inequality is needed; $R(K,\nu)$ is defined
-in item~3 there; and the decimal estimate at the end of the proof of
-Lemma~\ref{lem:S44} is replaced by an exact one. No step used by the Main
-Theorem changed. The recheck of revision~3 is recorded in the project's
-journal, not here.
+\item \emph{Revision~3} (commit \texttt{f695cbd}) corrected the six
+findings: findings~1 and~5 together in Remark~\ref{rem:AMW}, which now proves
+that Theorem~\ref{thm:T10} follows from~\cite{AMW}; $\varphi$ defined; the
+Graham--Lov\'asz peak written with the floor; item~1 of
+Section~\ref{sec:open} restated without the claim that a sharper mode--mean
+inequality is needed; $R(K,\nu)$ defined in item~3 there. It also took one
+suggestion of the report: the decimal estimate at the end of the proof of
+Lemma~\ref{lem:S44}, a step used by the Main Theorem through
+Theorem~\ref{thm:T10}, was replaced by an exact one. No other step used by
+the Main Theorem changed. Revision~3 was rechecked by a fresh context
+(\nolinkurl{claude-opus-5-5}, the author's model; its changes only): no gap
+found within stated scope, eight defects of wording, status or provenance.
+\item \emph{Revision~4} (this text) corrects those eight defects (among them
+the count of open orders in Section~\ref{sec:open}, item~1: $795$, not
+$806$, once the orders settled by computation are removed) and adds
+Lemma~\ref{lem:collins}, a proof of Collins's formula (C) from
+Lemmas~\ref{lem:L1} and~\ref{lem:path}. That proof was reviewed once, in the
+project's notes (\nolinkurl{claude-sonnet-5-5}, fresh context, no gap found
+within stated scope); its transcription here and the other changes of
+revision~4 have not been rechecked. No step used by the proof of the Main
+Theorem changed; Section~\ref{sec:path} no longer needs (C) as a citation.
 \item \emph{Human review:} none. \emph{Formal verification:} partial, of
 auxiliary lemmas only (Section~\ref{sec:formal}). \emph{Novelty:} as in
 Section~\ref{sec:literature}.
@@ -1933,8 +2025,9 @@ correctness.
 \item Several classical results are cited without proof, and some were not
 read at their sources (Section~\ref{sec:tools}): Darroch's paper and the
 textbook facts.
-\item Section~\ref{sec:path} rests on Collins's formula (C), checked against
-the distance matrix only for $n\le30$.
+\item Section~\ref{sec:path} rests on Collins's formula (C), now also proved
+here (Lemma~\ref{lem:collins}, revision~4; one AI review of the same proof
+in the project's notes, none yet of its text here).
 \item Novelty is not established; Theorem~\ref{thm:T10} is a consequence
 of a published theorem (Remark~\ref{rem:AMW}).
 \end{itemize}

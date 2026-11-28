@@ -2853,3 +2853,148 @@ above means "not found within this coverage".
   coverage qualifier remains the honest value. MD-0023 (path minimizes
   `tr(I+L)^{−1}`): still "very probably a known consequence of AMW Theorem 4.4";
   no source stating it directly was found.
+
+### Follow-up: MD-0025 (merging two pendant paths at a vertex)
+
+Question from the coordinator (same session, about 15 minutes): does AMW, or
+a paper it relies on, prove that merging two pendant paths at the same vertex
+into one longer pendant path increases `avm` (equivalently, through the
+subdivision, decreases `tr(I+L)^{−1}`), which would give MD-0025? Additional
+coverage: 4 web searches (verbatim below), 4 fetches, and page images of AMW
+arXiv v1 pp. 1–7 and 18–20 (pp. 8–17 had been read above), of
+arXiv:1807.08290 pp. 6–12, and of Csikvári, *On a poset of trees II*
+(accepted version) pp. 1–3, 8–14 and 20–21. Access date 2026-11-27.
+
+Queries: `Andriantiana Razanajatovo Misanantenaina Wagner "average size of independent sets" arXiv European Journal of Mathematics`;
+`Csikvári "generalized tree shift" poset of trees characteristic polynomial Laplacian coefficients theorem arXiv`;
+`Csikvári "On a poset of trees" Combinatorica pdf generalized tree shift "number of closed walks" matching polynomial`;
+`"generalized tree shift" OR "pendant paths" "average size of matchings" OR "average order" OR "mean" tree transformation monotone path extremal`.
+Fetched: `https://arxiv.org/pdf/1807.08290`, `https://real.mtak.hu/14003/`,
+`http://real.mtak.hu/14003/1/poset_treesIIV2.pdf`, `https://arxiv.org/abs/2605.22730`.
+
+**AMW, proof of Theorem 4.4 (arXiv v1, pp. 8–16): no tree transformation.**
+The proof is an induction on `n` for the linear bound `avm(T) ≤ an + b` for
+every non-path tree. Take a vertex `v` of degree `k ≥ 3`, with branches
+`T_1, …, T_k`, `e = vv_k`, and `T' = T − T_k`. The recursion (9), p. 9,
+writes `avm(T)` as a combination with weight `M(T−e)/M(T)` of
+`A = avm(T') + avm(T_k)` and `B = 1 + Σ_{j<k} avm(T_j) + avm(T_k − v_k)`.
+Every branch and `T'` are then bounded by Lemma 4.2 (the path), the induction
+hypothesis and Lemma 4.3 (p. 8: `1/(1+d(v)) ≤ M(T−v)/M(T) ≤ 1`).
+
+- For `k ≥ 4`: Case 1 (some branch is `P_2`) and Case 2 (by the size of the
+  smallest branch: 1, 3, 4, ≥ 5), by hand.
+- For `k = 3`: 35 cases, checked by computer (pp. 13–15).
+- The last step compares with `avm(P_n)` through Lemma 4.2 (p. 16).
+
+No lemma compares two trees of the same order other than this final
+comparison, and no shift, grafting or merging move appears anywhere in the
+paper (pp. 1–20 read). The only statements about modifying a graph are about
+deleting an edge: the example of Figure 1, p. 3, shows that `avm` is not
+monotone under edge deletion, and Theorem 3.2, p. 4, says some edge deletion
+decreases `avm`.
+
+**Two further items in AMW that bear on the project.**
+
+- Remark 5.5, p. 19, verbatim: "Note that in the case of trees, the matching
+  polynomial coincides with the characteristic polynomial." This is a direct
+  source for one of the two classical steps of Remark `rem:AMW`.
+- Theorem 6.1, p. 19, verbatim: "For every fixed positive real number α and
+  every n-vertex graph G, we have avm^α(E_n) ≤ avm^α(G) ≤ avm^α(K_n).
+  Moreover, for every real number α ∈ (0, 1] and every n-vertex tree T, we
+  have avm^α(S_n) ≤ avm^α(T) ≤ avm^α(P_n)." It is followed by "We refer to
+  [11] for more details on the proof. Note that the final inequality
+  (avm^α(T) ≤ avm^α(P_n)) is not generally true for all values of α." Here
+  [11] is the PhD thesis of Razanajatovo Misanantenaina (Stellenbosch, 2017),
+  not accessed. Lemma 6.2 gives `avm^α(G) = ½ Σ αμ_j²/(αμ_j² + 1)`.
+- *Auditor's derivation, unreviewed:* by the same subdivision argument,
+  `avm^α(S(T)) = Σ αμ_j/(1 + αμ_j)`. If Theorem 6.1 holds with uniqueness
+  (not checked: the printed statement has `≤` only), the path would minimize
+  `tr(I + αL_T)^{−1}` among trees of order `n` for every `α ∈ (0, 1]`.
+  This concerns Theorem `thm:T10`, not MD-0025.
+
+**Companion paper, same structure.** Andriantiana, Razanajatovo
+Misanantenaina, Wagner, *The average size of independent sets of graphs*
+(arXiv:1807.08290; Eur. J. Math. 6 (2020) 561–576 per the search tool,
+doi:10.1007/s40879-019-00333-8 per the AMW reference list; journal data not
+checked against Crossref).
+
+- Theorem 4.4, p. 9, states that the path minimizes `avi`. The proof is again
+  an induction for a linear bound at a vertex of degree `k ≥ 3`: `k ≥ 5` by
+  hand (p. 10), and for `k = 3, 4` "a total of 35 cases for k = 3 and 70 cases
+  for k = 4" (p. 11), then "105 cases, which can all be checked easily with a
+  computer" (p. 12).
+- Theorem 4.1 (the star maximizes `avi`, p. 7) is proved by removing a leaf.
+- No transformation lemma.
+
+**Csikvári's generalized tree shift (GTS).** P. Csikvári, *On a poset of trees
+II*, J. Graph Theory 74 (2013) 81–103, doi:10.1002/jgt.21693. Read in the
+accepted version on real.mtak.hu. Part I (Combinatorica 30 (2010) 125–137) was
+not opened.
+
+- *Definition 2.1, p. 3, verbatim:* "Let T be a tree and x and y be vertices
+  such that all the interior points of the path xPy (if they exist) have
+  degree 2 in T. The generalized tree shift (GTS) of T is the tree T′ obtained
+  from T as follows: let z be the neighbor of y lying on the path xPy, let us
+  erase all the edges between y and N(y)\{z} and add the edges between x and
+  N(y)\{z}." The paper adds that if neither `x` nor `y` is a leaf the GTS is
+  "proper" and `T′` has one more leaf; the path is the smallest element of the
+  poset and the star the largest.
+- *Auditor's observation, not from a source:* the merge of MD-0025 is the
+  inverse of a proper GTS. Let `T_m` be the merged tree, with one pendant path
+  of `j_1 + j_2` new vertices at `v`. Take `x = v` and `y` = the `j_1`-th new
+  vertex. The GTS moves the remaining `j_2` vertices to `v`, which gives `T_2`,
+  the tree with two pendant paths. The GTS is proper because `|X| ≥ 2` and
+  `j_2 ≥ 1`. So `T_2 = GTS(T_m)`, and likewise `S(T_2) = GTS(S(T_m))` with `y`
+  at distance `2j_1`.
+- *Theorem 6.1, p. 8, verbatim:* "The generalized tree shift decreases the
+  coefficients of the characteristic polynomial in absolute value, i.e., if
+  the tree T′ is obtained from the tree T by some generalized tree shift then
+  φ(T, x) ≫ φ(T′, x)." For a forest this is `m_k(T) ≥ m_k(T′)` (Lemma 6.2,
+  Remark 6.3).
+- *Theorem 7.3, p. 10, verbatim:* "The generalized tree shift decreases the
+  coefficients of the Laplacian polynomial in absolute value, i.e., if T′ is
+  obtained from T by a generalized tree shift then L(T, x) ≫ L(T′, x) or in
+  other words a_k(T) ≥ a_k(T′) for k = 1, …, n − 1. Furthermore, θ(T′) ≥ θ(T)
+  and a(T′) ≥ a(T)."
+- The proofs rest on the product formulas of Lemma 6.4 (p. 8) and Lemma 7.6
+  (p. 10). Lemma 7.6 reads
+  `L(T,x) − L(T′,x) = (1/x) L(P_{k−1},x)(L(H_1,x) − xL(H_1|1,x))(L(H_2,x) − xL(H_2|k,x))`.
+- Remark 7.5 credits the Laplacian-coefficient ordering of trees to Zhou–Gutman
+  (Linear Multilinear Algebra 56 (2008) 305–310) and to Mohar (LAA 422 (2007)
+  736–741, "using graph transformations"). Neither was opened.
+- *Consequence for MD-0025:* Theorems 6.1 and 7.3 give coefficientwise
+  domination by the merged tree: `m_k(S(T_m)) ≥ m_k(S(T_2))` and
+  `a_k(T_m) ≥ a_k(T_2)`. The coefficients of `det(I + xL)` are these unsigned
+  `a_k`.
+  - MD-0025 is a statement about a **mean**: `Σ μ/(1+μ) = Φ'(1)/Φ(1)`, and
+    `avm` is the mean of the matching-size distribution.
+  - Coefficientwise domination of two sequences does not order their means.
+  - So MD-0025 does **not** follow from these theorems as stated. Whether the
+    exact product formula of Lemma 7.6 can be pushed to a mean comparison was
+    not examined; that is mathematics, not an audit question.
+- The concluding table of the paper (p. 20) lists the 10 parameters known to
+  be monotone under GTS: largest adjacency and Laplacian eigenvalues,
+  coefficients of the adjacency, Laplacian, independence and edge-cover
+  polynomials, numbers of closed walks and of walks, algebraic connectivity,
+  and the smallest root of the independence polynomial. None is an average or
+  mean.
+
+**Other.** Liu–Tang, *Path-Minimality of p-Energy for Connected Graphs*
+(arXiv:2605.22730, v3 1 Jul 2026; abstract only). It proves path-minimality of
+the adjacency `p`-energy for `p ≥ 2`, and for `2 < p < 4` it uses "a
+determinant comparison involving matching generating polynomials and tree
+shifts". The abstract does not mention Laplacian spectra, `μ/(1+μ)`, or any
+mean. Body not read. Session 13 found that the admissible class of the
+companion paper arXiv:2606.30996 does not contain `μ/(1+μ)`.
+
+**Conclusion for MD-0025 (within this coverage only).** No source was found
+that states the merging inequality for `avm` or for `tr(I+L)^{−1}`, or any
+mean-type monotonicity under the GTS or under merging pendant paths.
+
+- AMW and its companion paper prove their extremal results without any
+  transformation.
+- Csikvári's GTS results apply to the MD-0025 move but are coefficientwise
+  only.
+- Not read: Csikvári Part I, Mohar (2007), Zhou–Gutman (2008), the
+  Razanajatovo Misanantenaina thesis, the body of arXiv:2605.22730,
+  MathSciNet, zbMATH, Google Scholar.
