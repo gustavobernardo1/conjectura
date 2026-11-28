@@ -3045,3 +3045,21 @@ scripts/catalogue.py validate`: 15 problems, 24 contributions, 0 errors.
   MD-0022's pin reassessed; validate 0 errors. Unfinished: the recheck of
   revision 3 (fresh `adversarial-reviewer`, running), STATE.md, the final
   tests. Next: STATE.md while the review runs.
+- **Checkpoint 2 (21:44 by the clock, 42 minutes).** Recheck of revision 3
+  (fresh `adversarial-reviewer`, `claude-opus-5-5`): no gap found within
+  stated scope, eight defects of wording, status or provenance (D1: 806
+  orders "open" included 11 settled by computation; 795 are open, the
+  smallest 25). Records committed (`9f6c091`): MD-0023 `previously-resolved`
+  (AMW), MD-0025 the merging lemma, STATE.md compacted to 397 lines (moved
+  text verbatim in `notes/obligations.md`). Auditor's follow-up: no source
+  for MD-0025; Csikvári's generalized tree shift orders coefficients only,
+  not means. **New:** a direct proof of Collins's formula for the path
+  (`notes/path-formula.md`, `e15ae8f`: Laplacian form, path cofactor,
+  Cauchy-Binet forest expansion, compositions), checked exactly for paths of
+  order 2 to 60 (`path_formula_check.py`, clean worktree, 0 failures; a
+  first version of the script had a wrong length test on `A_n` and an
+  infeasible enumeration, both fixed before the stored run) and reviewed by
+  a fresh `claude-sonnet-5-5` (no gap). Revision 4 (`4b02146`): D1 to D8
+  corrected, Lemma 11.3 added, revision 3 frozen in `versions/r3/`; registry
+  MD-0026 (type proof). Unfinished: the recheck of revision 4 (running),
+  the full test suite, closing. Next: tests while the recheck runs.

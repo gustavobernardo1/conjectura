@@ -34,6 +34,7 @@ decide an inequality.
 | `upper_bound.py` | Session 13: exact checks around `tr(T) = trace (I+L)^{-1}` and an upper bound on the peak index: path minimality of `tr`, the path value, the peak bound `p < n - n/sqrt 5 + 3/5`, pendant-path merging, a path inequality, the merge identity. Imports `lower_bound.py`, `distpoly.py`, `tree_shift.py`. Details below. |
 | `manuscript_check.py` | Session 14: independent exact check of the lower half as restated in `manuscripts/CJ-0001-collins-shor/main.tex` (rooted calculus with root weights, plant and merge rules, leaf recursion, distance formulas, the sum of squares, the cone memberships, star minimality), written from the manuscript's definitions and sharing no code with the other scripts. Details below. |
 | `amw_reduction_check.py` | Session 15: exact checks behind revision 3 of the manuscript: the subdivision identity `avm(S(T)) = n − tr(I+L_T)^{−1}` and `m_k(S(T)) = [t^k] det(I + tL_T)` (Remark 9.6), the path as the unique maximizer of the average matching size, `avm(P_N) > aN + b` (the comparison with Theorem 4.4 of arXiv:1903.09825), the orders for which peak-maximality of the path is settled (Section 12, item 1), the tie at order 13. Details below. |
+| `path_formula_check.py` | Session 15: exact check of a direct proof of Collins's formula for the path (`notes/path-formula.md`, Lemma 11.3 of the manuscript): the forest expansions of `det(I + xL)` and of its minor at a leaf, the Laplacian form of `ℓ_{P_n}`, and the formula against the distance matrix. Details below. |
 | `results/*.json` | Outputs of the runs below. |
 
 Validation: `uv run pytest tests/test_cj0001_distpoly.py` (101 tests) and
@@ -611,7 +612,7 @@ python-flint for exact characteristic polynomials):
 | A | matching numbers of the subdivision `S(T)` equal the coefficients of `det(I + tL_T)`; `avm(S(T)) = n − tr(I+L_T)^{−1}` | every tree of order 2..9 (94) | 0 failures |
 | B | the path is the unique maximizer of `avm` | every tree of order 2..16 (32,507) | 0 failures |
 | C | `avm(P_N) > aN + b`, `a = (5−√5)/10`, `b = (7√5−17)/10` | `4 ≤ N ≤ 200` | 0 failures |
-| D | orders `n` with `p(P_n) = ⌈ξ − 2/5⌉` (so `p(T) ≤ p(P_n)` for every tree by Theorem 10.1), from the criterion of Lemma 11.1 | `3 ≤ n ≤ 2000` | 799 with fractional part of `ξ` below `2/5`, 393 more with `p(P_n) = ⌈ξ⌉`, 806 open (first 3, 5, 7, 8, 10) |
+| D | orders `n` with `p(P_n) = ⌈ξ − 2/5⌉` (so `p(T) ≤ p(P_n)` for every tree by Theorem 10.1), from the criterion of Lemma 11.1 | `3 ≤ n ≤ 2000` | 799 with fractional part of `ξ` below `2/5`, 393 more with `p(P_n) = ⌈ξ⌉`, 806 not reached by the argument (first 3, 5, 7, 8, 10); of these, the 11 with `n ≤ 23` are settled by the exhaustive computation, so 795 are open, the smallest 25 |
 | E | ties among the maximal coefficients | every tree of order 13 (1,301) | one tie, indices 6 and 7, value 189972 |
 
 Command of the stored run (from the repository root):
@@ -625,6 +626,26 @@ clean temporary Git worktree at `f695cbd` (`tree_clean: true`), 19.7 s, 0
 failures. Regression test: `tests/test_cj0001_amw_reduction.py`. Exploratory
 only, not stored: eq. (8) of arXiv:1903.09825 agrees with the exact `avm(P_N)`
 for `N ≤ 80` to 50 digits (60-digit floating point).
+
+## Collins's formula for the path (session 15): `path_formula_check.py`
+
+Exact check of `notes/path-formula.md` (Lemma 11.3 of the manuscript,
+revision 4): for every path `P_n`, `2 ≤ n ≤ --max-n`, the polynomials
+`Φ_n = det(I + xL)` and `A_n = det((I + xL)[V ∖ {1}])` by exact determinants
+(python-flint) and interpolation over `fractions.Fraction`; their coefficient
+formulas `C(n+r−1, 2r−1)` and `C(n+r−2, 2r−2)`; the identity
+`ℓ_{P_n} = (n−1)Φ_n − 2xA_n − 2x^n` with `ℓ` computed from the distance
+matrix; Collins's formula `d_{n−k}(P_n) = C(n+k−1, 2k−1)(k−1)n/k` against
+the distance matrix (for `n ≥ 3`); and the two composition sums by
+enumeration for `n ≤ 12`. Command of the stored run (from the repository
+root):
+
+    uv run python experiments/CJ-0001-collins-shor-peak/path_formula_check.py \
+        --max-n 60 --out experiments/CJ-0001-collins-shor-peak/results/path-formula-check.json
+
+Budget fixed before the run: 5 minutes. Stored run in a clean temporary Git
+worktree at `e15ae8f`: 59 paths, 144 composition sums, 0 failures, 46.4 s.
+Regression test: `tests/test_cj0001_path_formula.py`.
 
 ## Limits
 

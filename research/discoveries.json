@@ -1827,9 +1827,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Sections 3 to 7 of the manuscript: items (i) to (iii) of this record in the cones K_d (Theorem 7.1, Theorem 7.3), with the cones C_d only in Remark 7.8; item (iv) (contraction of an edge, S36) is NOT in the manuscript and NOT covered by its reviews. Candidate proof; reviews listed below.",
-          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
-          "revision": "f695cbd"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 4 (session 15: the findings of the external review of revision 2 and of the recheck of revision 3 corrected; Lemma 11.3, a proof of Collins's formula, added; revisions 2 and 3 kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/). Sections 3 to 7 of the manuscript: items (i) to (iii) of this record in the cones K_d (Theorem 7.1, Theorem 7.3), with the cones C_d only in Remark 7.8; item (iv) (contraction of an edge, S36) is NOT in the manuscript and NOT covered by its reviews. Candidate proof; reviews listed below.",
+          "sha256": "5e0957a406004a83628c91fe007dd3fb06829cf347baf260f857a1144d1bf4ab",
+          "revision": "4b02146"
         },
         {
           "kind": "review",
@@ -2185,9 +2185,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Sections 8 to 10 of the manuscript (Lemmas 8.1 to 8.3, Theorem 10.1): the whole statement of this record. Candidate proof; reviews listed below.",
-          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
-          "revision": "f695cbd"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 4 (session 15: the findings of the external review of revision 2 and of the recheck of revision 3 corrected; Lemma 11.3, a proof of Collins's formula, added; revisions 2 and 3 kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/). Sections 8 to 10 of the manuscript (Lemmas 8.1 to 8.3, Theorem 10.1): the whole statement of this record. Candidate proof; reviews listed below.",
+          "sha256": "5e0957a406004a83628c91fe007dd3fb06829cf347baf260f857a1144d1bf4ab",
+          "revision": "4b02146"
         },
         {
           "kind": "review",
@@ -2346,9 +2346,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Theorem 9.5 and Lemma 9.7 of the manuscript: the whole statement of this record; Lemmas 9.1 to 9.4 give the independent proof (MD-0025), and Remark 9.6 proves the derivation from Andriantiana-Misanantenaina-Wagner. Candidate proof; reviews listed below.",
-          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
-          "revision": "f695cbd"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 4 (session 15: the findings of the external review of revision 2 and of the recheck of revision 3 corrected; Lemma 11.3, a proof of Collins's formula, added; revisions 2 and 3 kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/). Theorem 9.5 and Lemma 9.7 of the manuscript: the whole statement of this record; Lemmas 9.1 to 9.4 give the independent proof (MD-0025), and Remark 9.6 proves the derivation from Andriantiana-Misanantenaina-Wagner. Candidate proof; reviews listed below.",
+          "sha256": "5e0957a406004a83628c91fe007dd3fb06829cf347baf260f857a1144d1bf4ab",
+          "revision": "4b02146"
         },
         {
           "kind": "review",
@@ -2403,6 +2403,16 @@
           "date": "2026-11-27",
           "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
           "sha256": "b72d274000f8c6f8fe2e0177665d4f4a4f8783099c2ac3eb15dcd92620f37cd2",
+          "statement_fingerprint": "87dc9ddd92b90189357f9fb06d58405c150fb3249ce1beff0b04a0e30f2fcc87"
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript-recheck-r3.md",
+          "summary": "Recheck of the changes of revision 3 (f695cbd), fresh context, the author's model: Remark 9.6 (the derivation of this statement from AMW) re-derived step by step and checked against the arXiv source, eq. (8) checked exactly in Q(sqrt5) for N <= 120; no gap found within stated scope; eight defects of wording, status or provenance elsewhere, corrected in revision 4.",
+          "by": "claude-opus-5-5 (fresh context; the same model as the author, so independent by context only; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "f695cbd1c78ecb0b817ced0c5d94776d8e310fa6",
+          "sha256": "9988a1c4c02fd2f9875d5d743e178a8454b25c051990dc8cdc128b39be71e475",
           "statement_fingerprint": "87dc9ddd92b90189357f9fb06d58405c150fb3249ce1beff0b04a0e30f2fcc87"
         }
       ],
@@ -2483,9 +2493,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 3 (session 15: the six findings of the external review of revision 2 corrected; no step used by the Main Theorem changed; revision 2 is kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/r2/main.tex). Section 11 of the manuscript (Lemma 11.1, Corollary 11.2): the whole statement of this record. Candidate proof; reviews listed below.",
-          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
-          "revision": "f695cbd"
+          "summary": "Self-contained manuscript of both halves of the Collins-Shor conjecture, revision 4 (session 15: the findings of the external review of revision 2 and of the recheck of revision 3 corrected; Lemma 11.3, a proof of Collins's formula, added; revisions 2 and 3 kept byte-identical in manuscripts/CJ-0001-collins-shor/versions/). Section 11 of the manuscript (Lemma 11.1, Corollary 11.2): the whole statement of this record. Candidate proof; reviews listed below.",
+          "sha256": "5e0957a406004a83628c91fe007dd3fb06829cf347baf260f857a1144d1bf4ab",
+          "revision": "4b02146"
         },
         {
           "kind": "review",
@@ -2581,9 +2591,9 @@
         {
           "kind": "proof",
           "path": "manuscripts/CJ-0001-collins-shor/main.tex",
-          "summary": "Lemma 9.4 of the manuscript, revision 3, with Lemmas 9.1 to 9.3 (statement identical in revisions 1 to 3).",
-          "sha256": "3477baa0902eb3446415167baf38e83e939fb68f002f55b1162ebee2337d917b",
-          "revision": "f695cbd"
+          "summary": "Lemma 9.4 of the manuscript, revision 4, with Lemmas 9.1 to 9.3 (statement identical in revisions 1 to 3).",
+          "sha256": "5e0957a406004a83628c91fe007dd3fb06829cf347baf260f857a1144d1bf4ab",
+          "revision": "4b02146"
         },
         {
           "kind": "computation",
@@ -2624,10 +2634,10 @@
       "status": {
         "mathematical": "candidate-proof",
         "formal": "not-started",
-        "novelty": "unknown",
+        "novelty": "preliminary-search-completed",
         "external_review": "ai-reviewed"
       },
-      "limitations": "A candidate proof, reviewed only by AI models (the reviews of the manuscript listed in the evidence, and the two reviews of notes/upper-bound.md at 53421a6, which are not bound here); no human has read it. With the induction on the number of leaves in the proof of Theorem 9.5 it gives a proof of MD-0023 independent of Andriantiana-Misanantenaina-Wagner. Through the subdivision it is equivalent to avm(S(T(j_1, j_2))) < avm(S(T(j_1 + j_2, 0))), a statement about two pendant paths with 2j_1 and 2j_2 vertices at a vertex of a subdivided tree; transformations of this kind may occur in the literature on matchings or in the proof of AMW, which was not compared with it. No literature search was made for this lemma: novelty unknown.",
+      "limitations": "A candidate proof, reviewed only by AI models (the reviews of the manuscript listed in the evidence, and the two reviews of notes/upper-bound.md at 53421a6, which are not bound here); no human has read it. With the induction on the number of leaves in the proof of Theorem 9.5 it gives a proof of MD-0023 independent of Andriantiana-Misanantenaina-Wagner. Through the subdivision it is equivalent to avm(S(T(j_1, j_2))) < avm(S(T(j_1 + j_2, 0))), a statement about two pendant paths with 2j_1 and 2j_2 vertices at a vertex of a subdivided tree; transformations of this kind may occur in the literature on matchings or in the proof of AMW, which was not compared with it. A first literature search (session 15) found no source for it; coefficientwise orderings under the generalized tree shift (Csikvari 2013) do not imply it.",
       "relations": [
         {
           "type": "originated_from",
@@ -2639,6 +2649,84 @@
           "type": "contributes_to",
           "target": "MD-0023",
           "note": "An independent proof of MD-0023, with S43, S44 and the induction of Theorem 9.5."
+        }
+      ],
+      "novelty_search": {
+        "as_of": "2026-11-27",
+        "coverage": "Session 15 follow-up audit (dossier, \"Audit for session 15\", subsection \"Follow-up: MD-0025\"): AMW arXiv v1 read in full (the proof of Theorem 4.4 is an induction with a case analysis, with no transformation lemma); the companion paper on independent sets (arXiv:1807.08290, same structure); Csikvari, On a poset of trees II (J. Graph Theory 74 (2013)): the merge is the reverse of a generalized tree shift, which orders the characteristic and Laplacian coefficients one by one (Theorems 6.1, 7.3), not a mean such as sum mu/(1+mu) or avm; no source states the lemma.",
+        "limitations": "Not read: Csikvari Part I, Mohar (2007), Zhou-Gutman (2008), the Razanajatovo Misanantenaina thesis, the journal versions of the AMW papers; MathSciNet, zbMATH and Google Scholar not searched."
+      }
+    },
+    {
+      "id": "MD-0026",
+      "type": "proof",
+      "title": "A proof of Collins's formula for the path through the forest expansion",
+      "statement": "A proof of Collins's formula for the path: for n >= 2 and 2 <= k <= n, d_{n-k}(P_n) = C(n+k-1, 2k-1) (k-1) n / k, obtained from the Laplacian form ell_T = (n-1) det(I + xL) - x tau^T adj(I + xL) tau, the path cofactor formula adj(I + xL)_{1n} = x^{n-1}, and the forest expansions det(I + xL) = sum_F x^{|F|} prod_C |C| and det((I + xL)[V minus {u}]) = sum_F x^{|F|} prod_{C not containing u} |C| (proved by Cauchy-Binet), which for the path become sums over compositions of n.",
+      "registered": "2026-11-27",
+      "provenance": {
+        "contributors": [
+          {
+            "who": "claude-opus-5-5",
+            "kind": "ai-model",
+            "role": "session 15 (principal investigator): the proof (notes/path-formula.md, Lemma 11.3 of the manuscript)"
+          },
+          {
+            "who": "Gustavo Bernardo Brito",
+            "kind": "human",
+            "role": "research direction (no mathematical input)"
+          }
+        ],
+        "record": "research/active/CJ-0001-collins-shor-peak/journal.md"
+      },
+      "evidence": [
+        {
+          "kind": "proof",
+          "path": "research/active/CJ-0001-collins-shor-peak/notes/path-formula.md",
+          "summary": "The proof in four steps, as reviewed.",
+          "sha256": "06dbd51c87089c8a98815d2c4a77f550fceced95fc9272439c4f1b1800f53f1d",
+          "revision": "e15ae8f"
+        },
+        {
+          "kind": "proof",
+          "path": "manuscripts/CJ-0001-collins-shor/main.tex",
+          "summary": "Lemma 11.3 of the manuscript, revision 4: the same proof, with a one-line justification of the unimodularity step added.",
+          "sha256": "5e0957a406004a83628c91fe007dd3fb06829cf347baf260f857a1144d1bf4ab",
+          "revision": "4b02146"
+        },
+        {
+          "kind": "computation",
+          "path": "experiments/CJ-0001-collins-shor-peak/results/path-formula-check.json",
+          "summary": "Paths of order 2 to 60: Phi_n, A_n and ell_{P_n} by exact determinants, the identity of Step 1, the coefficient formulas, the formula against the distance matrix; composition sums for n <= 12. Run at e15ae8f on a clean worktree, 0 failures."
+        },
+        {
+          "kind": "review",
+          "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-formula.md",
+          "summary": "Independent review of notes/path-formula.md at e15ae8f: every step re-derived, own exact code for n <= 15; no gap found within stated scope; two cosmetic remarks.",
+          "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
+          "date": "2026-11-27",
+          "revision": "e15ae8f16b7d961f34a77e80bdef91debeede1cb",
+          "sha256": "c6e7cdb3f446a72109b4962a219f053ddca289f2dc51c18a5ce83b8962a131e4",
+          "statement_fingerprint": "ab240ee1a275423ac767ef7a3089f420e56cd4aa5fdf04bd83bbde311c473c56"
+        }
+      ],
+      "status": {
+        "mathematical": "candidate-proof",
+        "formal": "not-started",
+        "novelty": "unknown",
+        "external_review": "ai-reviewed"
+      },
+      "limitations": "The formula itself is known (K. L. Collins, Discrete Appl. Math. 25 (1989) 27-35, Theorem 3, proved there through the counting of Collins's thesis); this record is the proof only. The forest expansion of Step 2 is the classical matrix-forest theorem, proved here from Cauchy-Binet. Whether this route to the formula is in the literature was not searched: novelty unknown. One AI review; no human has read it.",
+      "relations": [
+        {
+          "type": "originated_from",
+          "target": "CJ-0001",
+          "local_id": "Lemma 11.3 of the manuscript",
+          "note": "Session 15."
+        },
+        {
+          "type": "contributes_to",
+          "target": "MD-0024",
+          "note": "MD-0024 uses Collins's formula; with this proof it no longer needs it as a citation."
         }
       ]
     }

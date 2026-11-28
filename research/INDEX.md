@@ -70,4 +70,5 @@ derived from them: `candidate` (not promoted), `established` (reviewed and packa
 | MD-0022 | theorem | The upper bound of the Collins–Shor conjecture for every tree | CJ-0001 (S40, S41, S42, S46, T9) | candidate-proof | partial | preliminary-search-completed | ai-reviewed | candidate |
 | MD-0023 | theorem | The path minimizes the trace of (I + L)^{−1} among trees | CJ-0001 (S43, S44, S45, S46, T10) | previously-resolved | not-started | prior-resolution-identified | ai-reviewed | rediscovered |
 | MD-0024 | theorem | The exact location of the peak of the path, and attainment of the upper bound of Collins–Shor | CJ-0001 (S47, S48) | candidate-proof | not-started | unknown | ai-reviewed | candidate |
-| MD-0025 | lemma | Merging two pendant paths lowers the trace of (I + L)^{-1} | CJ-0001 (S43, S44, S45) | candidate-proof | not-started | unknown | ai-reviewed | candidate |
+| MD-0025 | lemma | Merging two pendant paths lowers the trace of (I + L)^{-1} | CJ-0001 (S43, S44, S45) | candidate-proof | not-started | preliminary-search-completed | ai-reviewed | candidate |
+| MD-0026 | proof | A proof of Collins's formula for the path through the forest expansion | CJ-0001 (Lemma 11.3 of the manuscript) | candidate-proof | not-started | unknown | ai-reviewed | candidate |

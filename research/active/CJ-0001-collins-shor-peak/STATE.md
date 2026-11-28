@@ -17,23 +17,18 @@ Collins (1986) and Collins (1989) read (dossier, section "Primary sources read i
 S39, Theorems T7 and T8: the generalized tree shift lowers `ℓ` in the cone
 order, and the path is the coefficientwise maximum — a candidate proof;
 statements (PM) and (PX-peak) on the location of the peak, open).
-**Session 13:** [`notes/upper-bound.md`](notes/upper-bound.md) (S40 to
-S46, Theorems T9 and T10: **the upper bound `⌈n − n/√5⌉` for every tree** —
-a candidate proof by a spectral route independent of the cone machinery;
-the path minimizes `tr(I + L)^{−1}`; two independent AI reviews of `53421a6`,
-no gap; revision 1 at `2037b18`) and [`notes/path-peak.md`](notes/path-peak.md)
-(S47, S48: the exact peak of the path; the bound `⌈n − n/√5⌉` is attained
-for infinitely many `n`).
-**Session 14:** the manuscript of the whole conjecture,
+**Session 13:** [`notes/upper-bound.md`](notes/upper-bound.md) (S40 to S46,
+T9, T10: **the upper bound for every tree**, a spectral route; the path
+minimizes `tr(I + L)^{−1}`) and [`notes/path-peak.md`](notes/path-peak.md)
+(S47, S48: the exact peak of the path). **Session 14:** the manuscript
 [`manuscripts/CJ-0001-collins-shor/main.tex`](../../../manuscripts/CJ-0001-collins-shor/main.tex)
-(both halves, self-contained, 30 pages; the lower half restated with root
-weights only; its review: obligation 14); CJ-0001 moved to `candidate-proof`
-(director's approval).
-**Session 15:** the review of revision 2 by an OpenAI model through Codex
-(no gap; six findings, all accepted) and revision 3 of the manuscript
-(obligations 14, 15); T10 recognized as a consequence of
-Andriantiana–Misanantenaina–Wagner (MD-0023 `previously-resolved`; the
-merging lemma S45 is MD-0025).
+(both halves, self-contained; obligation 14); CJ-0001 `candidate-proof`
+(director). **Session 15:** the review of revision 2 by an OpenAI model
+through Codex (no gap; six findings, all accepted); revisions 3 and 4
+(obligation 15); T10 is a consequence of Andriantiana–Misanantenaina–Wagner
+(MD-0023 `previously-resolved`; the merging lemma S45 is MD-0025); a proof
+of Collins's formula ([`notes/path-formula.md`](notes/path-formula.md),
+MD-0026).
 Proofs: [`notes/lemmas.md`](notes/lemmas.md) (R1, L1 to L3),
 [`notes/double-stars.md`](notes/double-stars.md) (T1),
 [`notes/spine3.md`](notes/spine3.md) (T2),
@@ -178,6 +173,7 @@ Statuses are in the registry and in [`research/INDEX.md`](../../INDEX.md).
 | T10 with S46 | MD-0023 | theorem (previously resolved: AMW 2020; session 15) |
 | S47, S48 | MD-0024 | theorem (candidate) |
 | S45 (with S43, S44) | MD-0025 | lemma (candidate; session 15) |
+| proof of Collins's formula (`path-formula.md`; Lemma 11.3) | MD-0026 | proof (candidate; session 15) |
 
 Not registered: R1, L2, L4 and S1 to S4 are tools or steps (S3 and S4 are the
 evidence of MD-0010); Γ⁺ is an observation on the 47 small trees, recorded
@@ -203,9 +199,11 @@ section "Text moved from `STATE.md` in session 15".
 holds for every `n` with `p(P_n) = ⌈ξ − 2/5⌉`, `ξ = n − n/√5`: the `n` with
 fractional part of `ξ` below `2/5`, and the `n` with `p(P_n) = ⌈ξ⌉` (for
 instance `n = 9`; finding 2 of the review of revision 2). Open for the
-others: 806 of the `n` in `[3, 2000]` (`amw_reduction_check.py`, part D),
-all `n ≤ 23` among them settled by the exhaustive computation (the path has
-the largest peak index in every order ≤ 23). A sharper mode–mean inequality
+others: 806 of the `n` in `[3, 2000]` are not reached by the argument
+(`amw_reduction_check.py`, part D); the 11 of them with `n ≤ 23` are settled
+by the exhaustive computation (the path has the largest peak index in every
+order ≤ 23), so 795 are open, the smallest 25 (defect D1 of the recheck of
+revision 3). A sharper mode–mean inequality
 for `q` would be one approach; it is not known to be necessary. (PM) (every
 generalized shift lowers `p_max`) implies (PX-peak) (S39); its exact evidence
 and the failure of ratio dominance: `notes/obligations.md`, section "Text
@@ -260,7 +258,8 @@ Collins–Shor, upper half: every maximizing index ≤ ⌈n − n/√5 − 2/5�
   ⇐ T10: tr(I+L_T)^{−1} ≥ tr(I+L_{P_n})^{−1} [KNOWN: AMW 2020, Thm 4.4, via the subdivision (MD-0023)]
       independent proof: S45 (MD-0025) ⇐ S43 (gluing), S43′, S44 (cosh forms; convexity of x/(φ^{2x}+1) on [3, ∞))
   ⇐ S46: tr(I+L_{P_n})^{−1} > n/√5 + 2/5 [Fourier series; also AMW Lemma 4.2]
-Attainment: the star (Lemma 7.5); the path for infinitely many n (S47, S48; MD-0024) ⇐ Collins 1989, Thm 3
+Attainment: the star (Lemma 7.5); the path for infinitely many n (S47, S48; MD-0024)
+  ⇐ Collins's formula: Collins 1989, Thm 3, and Lemma 11.3 (MD-0026: Laplacian form, Lemma 4.3, Cauchy–Binet)
 Special cases with separate candidate proofs, peak exactly m: T1 (diameter 3), T2, T3, P_5 (diameter 4)
 ```
 
@@ -281,13 +280,9 @@ manuscript (director, session 11); verified commits may be pushed to
 `research` only; the lower half is to be consolidated into one manuscript
 before promotion (session 11).
 
-- 2026-11-27 (session 13). T9 with S40 to S42 and S46 is MD-0022; T10 with
-  S43 to S45 is MD-0023 (very probably a known consequence of a published
-  theorem; registered for its proof); S47, S48 are MD-0024. CJ-0001 is left
-  at `active-investigation` under the decision of session 10; the principal
-  investigator recommends `candidate-proof`.
-- 2026-11-27 (session 14, director). CJ-0001 is `candidate-proof`; this
-  does not authorize `proved`.
+- 2026-11-27 (session 13). T9 with S40–S42, S46 is MD-0022; T10 is MD-0023;
+  S47, S48 are MD-0024. (Session 14, director: CJ-0001 is `candidate-proof`,
+  which does not authorize `proved`.)
 - 2026-11-27 (session 15). MD-0023 reduced to its statement proper (T10 and
   the value S46) and set `previously-resolved` / `prior-resolution-identified`
   (AMW 2020), following the precedent of MD-0002 and MD-0003; the merging
@@ -347,11 +342,15 @@ Items 9 to 14 as of session 14, in full: `notes/obligations.md`, section
    slip for 1,346,022 (left in the note, corrected in the manuscript).
 15. **Session 15.** Revision 3 (`f695cbd`) corrects the six findings (record
    and assessment: `reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md`);
-   its recheck: journal of session 15. Owed: human reading (deferred by the
-   director); a result package once the director judges the manuscript
-   mature; MathSciNet and zbMATH (not accessible); the journal versions of
-   AMW and Collins (1989) were not compared with the versions read; MD-0025
-   (the merging lemma) has had no literature search of its own.
+   recheck (`claude-opus-5-5`, fresh context): no gap, eight minor defects.
+   Revision 4 (`4b02146`) corrects them and adds Lemma 11.3 (Collins's
+   formula proved; MD-0026, its note reviewed by `claude-sonnet-5-5`, no
+   gap); recheck of revision 4: journal of session 15. Revisions 2 and 3
+   frozen in `manuscripts/CJ-0001-collins-shor/versions/`. Owed: human
+   reading (deferred by the director); a result package once the director
+   judges the manuscript mature; MathSciNet and zbMATH (not accessible); the
+   journal versions of AMW and Collins (1989) were not compared with the
+   versions read; novelty of MD-0026 not searched.
 
 ## Remaining obstacles
 
@@ -363,26 +362,29 @@ Items 9 to 14 as of session 14, in full: `notes/obligations.md`, section
 - **Upper half.** No mathematical obstacle is known: T9 is a candidate proof
   for every tree, and its extremal step T10 is now also a consequence of a
   published theorem; what remains is validation (obligations 13 to 15).
-- Open, and not needed for Collins–Shor: (PX-peak) for 806 of the `n ≤ 2000`
+- Open, and not needed for Collins–Shor: (PX-peak) for 795 of the `n ≤ 2000`
   (see above); Γ_c for general weights, (E), (Λ), Conjecture Γ.
 
 ## Next step
 
-**Session 15:** revision 3 of the manuscript (`f695cbd`) corrects the six
-findings of the review of revision 2 by an OpenAI model through Codex (the
-first review by a model of another vendor; no gap found); its recheck is in
-the journal of session 15. The next steps are validation, not discovery:
+**Session 15:** revision 4 of the manuscript (`4b02146`) is the current text.
+It corrects the six findings of the review of revision 2 by an OpenAI model
+through Codex (the first review by a model of another vendor; no gap found)
+and the eight defects of the recheck of revision 3, and proves Collins's
+formula (Lemma 11.3). Its own recheck is in the journal of session 15. The
+next steps are validation, not discovery:
 (a) a decision by the director on `external_review` of CJ-0001 and on when
 the manuscript is mature enough for a result package and for human reading
 (both deferred by the director); (b) a recheck of any later revision; a
-second review by another vendor's model would add independence;
+second whole-document review by another vendor's model, of revision 4,
+would add independence (revision 2 is the only one read by such a model);
 (c) literature still owed: MathSciNet and zbMATH, Darroch (1964) and the
 journal versions of AMW and Collins (1989) (not accessible to the session-15
-auditor), a search for MD-0025; (d) optional, only after (a): a substantial
+auditor), a search for MD-0026; (d) optional, only after (a): a substantial
 simplification of the manuscript (for instance citing AMW for T10 and
-dropping Lemmas 9.1–9.4) as a new revision, keeping revision 3 and the
-frozen revision 2 intact; (e) open mathematics: (PX-peak) for the `n` with
-`p(P_n) = ⌊ξ⌋` and fractional part of `ξ` above `2/5`.
+dropping Lemmas 9.1–9.4) as a new revision, keeping the reviewed revisions
+intact; (e) open mathematics: (PX-peak) for the 795 orders `24 ≤ n ≤ 2000`
+(and beyond) with `p(P_n) = ⌊ξ⌋` and fractional part of `ξ` above `2/5`.
 
 The items of session 12 under "Next step" (the route through (PM), the upper
 cone LP) are in `notes/obligations.md`, section "Text moved from `STATE.md`

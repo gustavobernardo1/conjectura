@@ -35,9 +35,9 @@
   "latest_proved_conjecture": null,
   "latest_disproved_conjecture": null,
   "latest_registered_contribution": {
-    "id": "MD-0025",
-    "type": "lemma",
-    "title": "Merging two pendant paths lowers the trace of (I + L)^{-1}",
+    "id": "MD-0026",
+    "type": "proof",
+    "title": "A proof of Collins's formula for the path through the forest expansion",
     "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
@@ -48,18 +48,16 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
+      "experiments/CJ-0001-collins-shor-peak/results/path-formula-check.json",
       "manuscripts/CJ-0001-collins-shor/main.tex",
-      "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md"
+      "research/active/CJ-0001-collins-shor-peak/notes/path-formula.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-formula.md"
     ]
   },
   "latest_reviewed_contribution": {
-    "id": "MD-0025",
-    "type": "lemma",
-    "title": "Merging two pendant paths lowers the trace of (I + L)^{-1}",
+    "id": "MD-0026",
+    "type": "proof",
+    "title": "A proof of Collins's formula for the path through the forest expansion",
     "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
@@ -70,50 +68,44 @@
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
+      "experiments/CJ-0001-collins-shor-peak/results/path-formula-check.json",
       "manuscripts/CJ-0001-collins-shor/main.tex",
-      "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md"
+      "research/active/CJ-0001-collins-shor-peak/notes/path-formula.md",
+      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-formula.md"
     ],
     "review": {
-      "by": "claude-opus-5-5 (fresh context; the same model as the author of the manuscript text, so independent by context only; AI review, not human or peer review)",
+      "by": "claude-sonnet-5-5 (fresh context; a model other than the author's, same vendor; AI review, not human or peer review)",
       "date": "2026-11-27",
-      "revision": "8df6beac16b54e218d66ec3470a3f49a91546b17",
-      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md"
+      "revision": "e15ae8f16b7d961f34a77e80bdef91debeede1cb",
+      "path": "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-path-formula.md"
     }
   },
   "latest_formally_verified_contribution": null,
   "latest_contribution_with_originality_assessment": {
-    "id": "MD-0022",
-    "type": "theorem",
-    "title": "The upper bound of the Collins–Shor conjecture for every tree",
+    "id": "MD-0025",
+    "type": "lemma",
+    "title": "Merging two pendant paths lowers the trace of (I + L)^{-1}",
     "registered": "2026-11-27",
     "standing": "candidate",
     "status": {
       "mathematical": "candidate-proof",
-      "formal": "partial",
+      "formal": "not-started",
       "novelty": "preliminary-search-completed",
       "external_review": "ai-reviewed"
     },
     "record": "research/discoveries.json",
     "evidence": [
-      "formalization/Conjectura/Research/CollinsShorPeak/UpperBoundPeak.lean",
+      "experiments/CJ-0001-collins-shor-peak/results/upper-bound.json",
       "manuscripts/CJ-0001-collins-shor/main.tex",
       "research/active/CJ-0001-collins-shor-peak/notes/upper-bound.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-opus-5-5-upper-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript-recheck-r2.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-manuscript.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-recheck-upper-bound.md",
-      "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-claude-sonnet-5-5-upper-bound.md",
       "research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.md"
     ],
     "novelty_search": {
       "as_of": "2026-11-27",
-      "coverage": "Literature audit of session 13: 15 web searches; arXiv:1507.02341 and its five citing papers (Semantic Scholar); Pitman 1997; Merris 1990; arXiv:1903.09825; arXiv:2606.30996. No proof or disproof of the upper bound; no link of the peak with Darroch's rule or the distance eigenvalues.",
-      "limitations": "English web and arXiv only; no MathSciNet, zbMATH or Google Scholar; papers citing Andriantiana–Misanantenaina–Wagner not followed. An unsuccessful search does not establish originality."
+      "coverage": "Session 15 follow-up audit (dossier, \"Audit for session 15\", subsection \"Follow-up: MD-0025\"): AMW arXiv v1 read in full (the proof of Theorem 4.4 is an induction with a case analysis, with no transformation lemma); the companion paper on independent sets (arXiv:1807.08290, same structure); Csikvari, On a poset of trees II (J. Graph Theory 74 (2013)): the merge is the reverse of a generalized tree shift, which orders the characteristic and Laplacian coefficients one by one (Theorems 6.1, 7.3), not a mean such as sum mu/(1+mu) or avm; no source states the lemma.",
+      "limitations": "Not read: Csikvari Part I, Mohar (2007), Zhou-Gutman (2008), the Razanajatovo Misanantenaina thesis, the journal versions of the AMW papers; MathSciNet, zbMATH and Google Scholar not searched."
     }
   },
   "public": {
@@ -168,38 +160,39 @@
       }
     },
     "contributions": {
-      "registered": 25,
+      "registered": 26,
       "by_standing": {
-        "candidate": 22,
+        "candidate": 23,
         "established": 0,
         "rediscovered": 3,
         "withdrawn": 0
       },
-      "counted": 22,
+      "counted": 23,
       "by_type": {
         "computational-finding": 1,
         "conjecture": 5,
         "counterexample": 1,
         "lemma": 1,
+        "proof": 1,
         "structural-result": 5,
         "theorem": 9
       },
       "by_status": {
         "mathematical": {
           "candidate": 4,
-          "candidate-proof": 17,
+          "candidate-proof": 18,
           "partial-result": 1
         },
         "formal": {
-          "not-started": 18,
+          "not-started": 19,
           "partial": 4
         },
         "novelty": {
-          "preliminary-search-completed": 15,
+          "preliminary-search-completed": 16,
           "unknown": 7
         },
         "external_review": {
-          "ai-reviewed": 16,
+          "ai-reviewed": 17,
           "not-reviewed": 6
         }
       }
@@ -221,11 +214,11 @@
   "generated": {
     "date": "2026-11-28",
     "branch": "research",
-    "revision": "f695cbd1c78ecb0b817ced0c5d94776d8e310fa6",
+    "revision": "4b021468b854bd88f3a7a0e002f79fb617d3b909",
     "sources_committed": false,
     "sources": {
       "research/catalogue.json": "056a0fdc1995ddd17a327e7a94c8eb6bfcededed",
-      "research/discoveries.json": "349e27fb1fb3fe206de8a78fed6c785289e9dae0",
+      "research/discoveries.json": "ede29d817add1da1cb65d32c80a06bbf33abab51",
       "research/priorities.json": "a0ae5525b59b7535ee2b7ba0418273d476246622",
       "formalization/registry.json": "d6213327d28ca00900877b08e55c4816511f1396"
     }
