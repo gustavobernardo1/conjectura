@@ -7,14 +7,28 @@ satisfies `⌊n/2⌋ ≤ p ≤ ⌈n − n/√5 − 2/5⌉ ≤ ⌈n − n/√5⌉
 arXiv:1507.02341; Conjecture 9 of Collins, Discrete Appl. Math. 25 (1989)).
 
 **Status.** Draft written with AI assistance (Claude, model
-`claude-opus-5-5`, session 14, 2026-11-27) from the project's notes. Its
-parts were reviewed earlier by AI models of one vendor (Anthropic). The
-first version (`8df6bea`) was reviewed as one document by two AI models of
-the same vendor (`claude-opus-5-5`, `claude-sonnet-5-5`; no gap found within
-stated scope); revision 2 (`87c3c8c`) corrects their defects and adds
-Lemma 7.5. See `STATE.md` of the investigation, obligation 14. No mathematician has read it. It is a **candidate proof**,
-not an established result. Not for distribution: any outside use is decided
-by the project director.
+`claude-opus-5-5`, sessions 14 and 15, 2026-11-27) from the project's notes.
+It has been reviewed only by AI models (table below). No mathematician has
+read it. It is a **candidate proof**, not an established result. Not for
+distribution: any outside use is decided by the project director.
+
+## Versions
+
+A review applies to one revision. Every revision is retrievable with
+`git show <commit>:manuscripts/CJ-0001-collins-shor/main.tex`; revision 2,
+the one reviewed as a whole by a model of another vendor, is also kept
+byte-identical in [`versions/r2/main.tex`](versions/r2/main.tex), so that it
+survives any later rewriting of `main.tex`. Reviews are in
+`research/active/CJ-0001-collins-shor-peak/reviews/`.
+
+| Revision | Commit | SHA-256 of `main.tex` | Reviews of this revision | Checks |
+| --- | --- | --- | --- | --- |
+| 1 | `8df6bea` | `8feaaa4b…a1a5f0` | whole document: `claude-opus-5-5`, `claude-sonnet-5-5` (fresh contexts, Anthropic); no gap found within stated scope | `manuscript_check.py` (lower half), 11,379 checks, 0 failures |
+| 2 | `87c3c8c` | `5dd8d2b3…5b42a9` | changes only: `claude-sonnet-5-5` recheck, no gap; whole document: an OpenAI model through Codex ("GPT Astra 6 (Extra High)", director's description), no gap found within the scope of its review, six findings (one error in a remark not used by the Main Theorem, five of wording or citation) | as revision 1; Lemma 7.5 for `n < 800` |
+| 3 | session 15 | see `git log` | recheck of the changes: journal of session 15 | `amw_reduction_check.py` (Remark 9.6 and Section 12, item 1), 0 failures |
+
+Revision 3 corrects the six findings of the review of revision 2; it changes
+no step used by the Main Theorem.
 
 ## Compiling
 

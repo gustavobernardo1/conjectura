@@ -2563,3 +2563,293 @@ mean only "not found within this coverage".
   (1989) and AMW (via Semantic Scholar) to its coverage sentence, and note
   that the "not searched" item "the papers citing [AMW]" is now covered by
   title only.
+
+## Audit for session 15 (2026-11-27)
+
+Made by a `literature-auditor` subagent (`claude-opus-5-5`) on 2026-11-27 for
+the bibliography and the novelty statements of
+`manuscripts/CJ-0001-collins-shor/main.tex` (Sections 2, 9, 15 and the
+bibliography read). Budget: about 45 minutes. Used: 17 web searches and 42
+fetches (5 of the fetches failed: Springer redirect to a login page, EMIS 503,
+Wesleyan expired certificate, Wayback Machine refused by the tool,
+ScienceDirect 403; 3 OpenAlex/Semantic Scholar requests hit rate limits and
+one was repeated successfully). Three PDFs were downloaded and then read as
+page images from the locally saved files. Access date of every source:
+2026-11-27. **No prior resolution of the conjecture, or of either half, was
+found within this coverage.**
+
+### Queries (verbatim, general web search tool, standard mode)
+
+1. `"Laplacian eigenvalues" tree path maximizes "\sum \frac{\mu_i}{1+\mu_i}" OR "1/(1+\mu_i)" extremal trees forest matrix trace`
+2. `trace of the forest matrix (I+L)^{-1} trees extremal path star "matrix-forest" Chebotarev`
+3. `"expected number of" roots OR components "uniform" "rooted spanning forest" tree path minimizes OR maximizes among trees`
+4. `"average size of matchings" subdivision tree Laplacian eigenvalues`
+5. `"Laplacian resolvent energy" trees extremal path star "1+\mu" OR "(I+L)" sum reciprocal Laplacian eigenvalues plus one`
+6. `characteristic polynomial subdivision graph "signless Laplacian" P_{S(G)}(x) = x^{m-n} Q_G(x^2) Cvetković`
+7. `"spanning forest" "expected number of trees" OR "expected number of roots" "\sum" "1/(1+\lambda" Laplacian eigenvalues graph`
+8. `"forest index" OR "forest Kirchhoff index" OR "forest distance" trace "(I+L)^{-1}" trees extremal path`
+9. `Darroch 1964 "Theorem 4" mode Poisson binomial "1/(k+2)" OR "\frac{1}{k+2}" mean mode rule`
+10. `Graham Pollak 1971 "addressing problem for loop switching" pdf determinant distance matrix tree "(-1)^{n-1}(n-1)2^{n-2}"`
+11. `Razanajatovo Misanantenaina "Properties of graph polynomials and related parameters" Stellenbosch thesis average size matchings`
+12. `peak of coefficients distance characteristic polynomial tree "n/2" "1/\sqrt{5}" conjecture proof 2025 OR 2026`
+13. `"Graham-Lovász conjecture" OR "Graham and Lovász" distance polynomial tree unimodal peak location 2024 2025 2026 arXiv`
+14. `"distance matrix" tree "characteristic polynomial" coefficients mode OR peak "Shor" conjecture resolved OR proved OR counterexample`
+15. `Darroch mode mean "distance matrix" tree eigenvalues interlacing Merris coefficients peak "Laplacian eigenvalues"`
+16. `"Laplacian coefficients" trees mode OR peak OR "largest coefficient" location index "det(I+xL)" OR "rooted forests" mean number of components`
+17. `"Collins" "Shor" tree distance polynomial coefficients "n(1-1/\sqrt{5})" OR "1-1/√5" peak thesis OR dissertation 2023..2026`
+
+arXiv API queries (sorted by submission date, descending):
+`abs:"distance characteristic polynomial"` (5 results);
+`abs:unimodal AND abs:distance AND abs:tree` (6);
+`abs:"distance matrix" AND abs:tree AND abs:coefficients` (4);
+`abs:"Graham" AND abs:"Lovász" AND abs:distance` (10).
+OpenAlex: the record of AMW (`W2923064778`) and the works citing it; the
+works since 2023 citing Graham–Lovász (1978) (`W2116451290`, and the record
+`W4243586797`, DOI `10.1007/bfb0070375`, a second item with the same title).
+
+### Sources opened, and what was read
+
+| Source | What was read |
+| --- | --- |
+| Crossref, DOI `10.1007/s00373-020-02136-1` | Metadata and the journal reference list (14 entries). |
+| `https://arxiv.org/abs/1903.09825` | Abstract page (tool summary): one version only (v1, 23 Mar 2019); no journal reference on arXiv. |
+| `https://arxiv.org/pdf/1903.09825` (v1) | Page images, pp. 8–17 (Lemma 4.2 to Lemma 5.1 and its proof). |
+| OpenAlex `W2923064778` and `filter=cites:W2923064778` | Record (journal version not open access; green OA copy is the arXiv v1) and the 14 citing works (titles). |
+| OpenAlex `W7164465928` | Record of S. Bonte, *Extremal properties of average-based and chemical graph invariants*, dissertation, Univ. Mons, 2026 (no abstract in the record). The thesis was NOT opened. |
+| `https://arxiv.org/abs/2410.14112`, `https://arxiv.org/html/2410.14112v1` | Abstract and a tool extraction of the HTML text (Section 4 and the bibliography): Wan, Wang, Wang, *Subdivision method in the Laplacian matching polynomial*, v1 (18 Oct 2024). |
+| `https://arxiv.org/html/2512.13318v1` | Tool extraction: C. Nicolini, *Spectral Entropy via Random Spanning Forests* (Dec 2025). |
+| `https://arxiv.org/abs/math/0612792v4` | Abstract page (tool summary): P. Chebotarev, *Spanning forests and the golden ratio*, Discrete Appl. Math. 156 (2008) 813–821. Full text NOT read. |
+| Crossref, DOI `10.1214/aoms/1177703287` | Metadata of Darroch (1964). |
+| Project Euclid (three URLs for Darroch 1964) | Empty pages returned to the tool. NOT read. |
+| `https://arxiv.org/abs/1908.10024`, `https://arxiv.org/html/1908.10024v1` | Tool extraction of the HTML text: W. Tang, F. Tang, *The Poisson binomial distribution — Old & New*, v1 (27 Aug 2019); Example 2.2(2) and reference [32]. |
+| Crossref bibliographic query (Graham–Pollak) | Metadata of GP71. |
+| `https://web.vu.lt/mif/s.jukna/Knizka/Graham-Pollak1971.pdf` | Scan (IEEE Xplore copy): page images of pp. 2495–2496 and 2507–2511. |
+| `https://www.math.ucdavis.edu/~saito/data/distmat/graham-lovasz-distmat-tree.pdf` | Scan: page images of pp. 60–61, 82–84 and 88. |
+| Crossref, DOI `10.1016/0166-218X(89)90044-9` | Metadata of Collins (1989). |
+| `https://kcollins.web.wesleyan.edu/publications/unimodal.pdf` | NOT accessible (expired TLS certificate); the Wayback Machine copy was refused by the tool. |
+| `https://arxiv.org/abs/2411.11488`, `https://arxiv.org/html/2411.11488v2` (offsets 0 and 100000) | Abstract and a tool extraction of the whole HTML text: Richman, Shokrieh, Wu, *Principal minors of tree distance matrices*, v1 18 Nov 2024, v2 10 Dec 2025. |
+| `https://arxiv.org/abs/2407.01966`, `/2604.26385`, `/2601.14285` | Abstract pages (tool summaries). |
+| OpenAlex `filter=cites:W2116451290\|W4243586797,publication_year:>2022` | Titles of the 63 works since 2023 citing Graham–Lovász (1978); OpenAlex abstracts of four of them (`W4400905577`, `W4416526936`, `W7212321068`, `W7213427213`; the last two have no abstract). |
+
+### Findings per item (within this coverage only)
+
+**(a) Andriantiana–Razanajatovo Misanantenaina–Wagner (AMW) and the trace of
+`(I+L)^{−1}`.**
+
+- *Bibliographic data (Crossref):* E. O. D. Andriantiana, V. Razanajatovo
+  Misanantenaina, S. Wagner, *The Average Size of Matchings in Graphs*,
+  Graphs and Combinatorics 36(3) (2020) 539–560, published online
+  2020-02-08, print May 2020, doi:10.1007/s00373-020-02136-1. arXiv:1903.09825
+  has one version (v1) and no journal reference. The journal version is not
+  open access and was NOT read; whether it keeps the numbering of v1 is
+  **not verified**.
+- *arXiv v1 numbering (read as page images):* Lemma 4.2 with eq. (8), p. 8:
+  "avm(P_n) = (5−√5)/10 · n + (1−√5)/10 − (n+1)/(√5((−φ²)^{n+1} − 1))".
+  Theorem 4.4, p. 8: "For every tree T of order n that is not a path, we have
+  the inequality avm(T) ≤ an + b, where b = (7√5 − 17)/10 ≈ −0.13475241.
+  Consequently, the path maximizes the value of avm(T) among all trees of
+  order n." (`a = (5−√5)/10`, p. 8.) The end of the proof, p. 16, gives the
+  strict form: "Thus avm(P_n) > an + b ≥ avm(T) for every tree T with n
+  vertices other than P_n." Lemma 5.1, p. 17: "Let G be an n-vertex graph and
+  μ_1, …, μ_n be the zeros of the matching polynomial of G. Then
+  avm(G) = ½ Σ_{j=1}^n μ_j²/(μ_j² + 1)."
+- *Computer checks in the proof of Theorem 4.4 (arXiv v1):* only in the last
+  case, a vertex `v` of degree `k = 3`. P. 13: the case analysis by the
+  numbers of branches with 1, 2, 3, 4 and ≥ 5 vertices "gives us a total of
+  35 cases corresponding to the solutions of x_1 + x_2 + x_3 + x_4 + x_5 = 3".
+  P. 14: "The bounds and explicit values for |T_j| ≤ 4 are obtained by an
+  exhaustive case check" and, for the ratios `M(T_j − v_j)/M(T_j)`, "The
+  first four statements are obtained by checking all possible cases". P. 15:
+  "All this gives us an upper bound for avm(T) in each of the aforementioned
+  35 cases, which can all be checked easily with a computer." The paper works
+  out the worst case (`x_2 = 3`, equality `avm(T) = a|T| + b`) and the second
+  worst by hand (pp. 15–16); the other 33 are not printed.
+- *The two classical steps of the subdivision argument now have a secondary
+  source.* Wan–Wang–Wang (arXiv:2410.14112v1, §4, tool extraction): eq. (4.1)
+  `φ(A(S_G), x) = x^{|E(G)|−|V(G)|} φ(Q(G), x²)`, "It is well known that (see
+  e.g., [3, p. 63], [4] or [20, Theorem 1])", with [3] Cvetković–Doob–Sachs,
+  *Spectra of Graphs*, 3rd ed., 1995, and [4] Cvetković–Simić, LAA 432 (2010)
+  2257–2272; "G is a forest if and only if α(G,x) = φ(A(G),x), see [2,
+  Theorem 4.3] or [7, Corollary 4.2]" ([2] Cvetković–Doob–Gutman–Torgašev,
+  *Recent Results in the Theory of Graph Spectra*, 1988; [7] Godsil–Gutman,
+  J. Graph Theory 5 (1981) 137–144); Mohammadian "[16, Theorem 3.3] prove that
+  G is a forest if and only if β(G,x) = φ(L(G),x)"; and the identity of Yan and
+  Yeh (Discrete Appl. Math. 157 (2009) 195–200), eq. (1.3),
+  `α(S_G, x) = x^{|E(G)|−|V(G)|} β(G, x²)` (β the Laplacian matching
+  polynomial). For a tree `T` the last two give directly
+  `α(S(T), x) = x^{−1} φ(L_T, x²)`, so the zeros of the matching polynomial
+  of `S(T)` are `±√μ_j` (`μ_j ≠ 0`) and one zero. These were read through the
+  tool's extraction of the HTML text, not checked in the cited books.
+- *Consistency check by hand (auditor, not machine-verified):* eq. (8) at
+  order `2n − 1` gives `n − avm(P_{2n−1}) = n/√5 + 2/5 + 2n/(√5(φ^{4n} − 1))`,
+  which equals the right side of the manuscript's Lemma `lem:S46`,
+  since `r^{2n}/(1 − r^{2n}) = 1/(φ^{4n} − 1)` for `r = φ^{−2}`.
+- *Citing works of AMW (OpenAlex, 14; titles only):* arXiv:2008.06531,
+  2104.00600, 2204.10236, 2208.10475, 2604.28033, 2608.06818, 2610.11446;
+  DAM 2023 (maximal matchings), DAM 2025 (maximal matchings, diameter), DAM
+  2025 (minimal edge covers), Contrib. Math. 2022 (independent sets,
+  unicyclic), a 2021 item on dominating sets, Adv. Appl. Math. (Hans) 2026,
+  and the Bonte thesis (UMONS 2026, not opened). All titles concern average
+  sizes of matchings, maximal matchings, independent sets, dominating sets or
+  edge covers. None has a Laplacian, forest or distance-matrix title.
+- *Direct statements of the trace result.* Not found. Queries 1–8 returned:
+  the matrix-forest theorem and forest distances (Chebotarev–Shamis,
+  math/0602575, math/0602573, math/0508178; titles and tool summaries); the
+  identity "expected number of roots = Σ q/(q + λ_i)" of a random rooted
+  spanning forest (Nicolini, arXiv:2512.13318, which states no extremal result
+  over trees and cites neither AMW nor matchings); the Laplacian resolvent
+  energy `Σ 1/(n+1−μ_i)` (Cafure et al., a different shift; tool summary) and
+  Liu–Tang (arXiv:2606.30996, already seen in session 13); Chebotarev, *Spanning
+  forests and the golden ratio*, DAM 156 (2008) 813–821 (abstract only): for the
+  path the entries of `(I+L)^{−1}` (up to the factor 1/f) are products of
+  Fibonacci numbers, and some diagonal entries tend to `φ^{−1}` or `1 − φ^{−1}`.
+  That paper concerns entries of the path's matrix, not an extremal statement;
+  it is a possible prior source for the path computations of the manuscript's
+  Lemmas `lem:S44` and `lem:S46`, not checked against its full text.
+- *Combination with Darroch's rule or interlacing for the peak of the distance
+  coefficients.* Not found (queries 15 and 16, in addition to sessions 13
+  and 14).
+
+**(b) Darroch (1964).** Crossref: J. N. Darroch, *On the Distribution of the
+Number of Successes in Independent Trials*, The Annals of Mathematical
+Statistics 35(3) (September 1964) 1317–1321, doi:10.1214/aoms/1177703287
+(Institute of Mathematical Statistics). The original was **NOT read**: three
+Project Euclid URLs returned empty pages to the tool. The statement was read
+through two secondary sources only:
+Pitman, J. Combin. Theory Ser. A 77 (1997), p. 284 (session 13: "Darroch
+showed that such a mode m differs from the mean μ by less than 1"), and Tang
+and Tang, arXiv:1908.10024v1, Example 2.2(2) (tool extraction): "Darroch [32,
+Theorem 4] showed that the mode m of the Poisson binomial distribution
+differs from its mean μ by at most 1", followed by the rule (2.2): with
+`k = ⌊μ⌋`, `m = k` if `k ≤ μ < k + 1/(k+2)`; `m = k` or `k+1` if
+`k + 1/(k+2) ≤ μ ≤ k + 1 − 1/(n−k+1)`; `m = k+1` if
+`k + 1 − 1/(n−k+1) < μ ≤ k+1`; "reproved in [91]" (Samuels 1965). Tang–Tang's
+words "at most 1" differ from Pitman's "less than 1", but the rule (2.2) as
+extracted gives `|m − μ| < 1` in every case. Both secondary sources attribute
+the result to Theorem 4 of Darroch, which agrees with the manuscript's
+`\cite[Theorem~4]{Dar64}`. The exact printed statement of Darroch's Theorem 4
+remains unverified.
+
+**(c) Graham–Pollak (1971).** Crossref: R. L. Graham, H. O. Pollak, *On the
+Addressing Problem for Loop Switching*, Bell System Technical Journal 50(8)
+(October 1971) 2495–2519, doi:10.1002/j.1538-7305.1971.tb02618.x. Read as page
+images (scan of the IEEE Xplore copy). The formula **is in the 1971 paper**,
+in the proof of Theorem 3 ("If the graph G is a tree with n vertices, then
+N(G) = n − 1", p. 2509), not as a separately numbered statement. Pp. 2510–2511
+(verbatim; `D_n` denotes both the matrix and, in the recurrence, its
+determinant): "The first (surprising) conclusion we draw is that det (D_n)
+depends only on the number of vertices n and not on the structure of the tree
+G. By expanding det (D*_n) along the last column it is easy to get the
+recurrence D_n = (−1)^{n−1}2^{n−2} − 2D_{n−1}, D_1 = 0, D_2 = −1 from which it
+follows that D_n = (−1)^{n−1}(n − 1)2^{n−2}, n ≥ 1." P. 2511 also gives the
+inertia: "D_n must have n − 1 negative eigenvalues." Whether the 1972/1973
+paper (*On embedding graphs in squashed cubes*, Springer LNM 303, pp. 99–110,
+as listed in Graham–Lovász's reference [7]) also states the formula was not
+checked.
+
+**(d) Graham–Lovász (1978), p. 83, verbatim (page image):** "In [5], it is
+shown that for all trees T, (−1)^{n−1} δ_k(T) > 0 for 0 ≤ k < n − 1, (44)
+where n = |T|. It appears that in fact for each tree T, the quantities
+(−1)^{n−1} δ_k(T)/2^{n−k−2} are *unimodal* with the maximum value occurring
+for k = [n/2]. We see no way to prove this, however." The scan prints
+square brackets `[n/2]`, the notation of the time for the integer part; it is
+read as `⌊n/2⌋` by AAB and by Wagner (session 14). `Δ_G(λ) = det(D(G) − λI)`
+(p. 60). Reference [5] (p. 88) is M. Edelberg, M. R. Garey, R. L. Graham, *On
+the distance matrix of a tree*, Discrete Math. 14 (1976) 23–29: by
+Graham–Lovász's own attribution the sign statement (44) is due to that paper.
+OpenAlex also lists a second item with the same title, DOI
+`10.1007/bfb0070375` (Springer LNM, 1978), not opened.
+
+**(e) Collins (1989).** Crossref: K. L. Collins, *On a conjecture of Graham
+and Lovász about distance matrices*, Discrete Applied Mathematics 25(1–2)
+(October 1989) 27–35, doi:10.1016/0166-218X(89)90044-9. In this session the
+journal version could NOT be opened (ScienceDirect 403), and the author's
+preprint could NOT be opened (`kcollins.web.wesleyan.edu`: expired
+certificate; Wayback Machine refused). The journal numbering therefore rests
+on the session-11 reading of the director-supplied journal PDF
+(`1-s2.0-0166218X89900449-main.pdf`, SHA-256 `377d4ed7…`): **Theorem 3**,
+stated on p. 30, formula `d_{n−k} = C(n+k−1, 2k−1)(k−1)n/k` on p. 31 (see the
+section "Primary sources read in session 11" above). The preprint numbering
+"Theorem 2, p. 6 of the PDF" is reported by the external review
+`research/active/CJ-0001-collins-shor-peak/reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.original-pt.txt`
+(line 343–348) and was **not verified** here.
+
+**(f) 2023–2026 work on the peak.** No source that proves, disproves or claims
+either bound of Collins–Shor was found. New in this session:
+- arXiv API: `abs:"distance characteristic polynomial"` returns nothing after
+  2022; the other three API queries return, after 2022, only arXiv:2407.03309
+  (already known), 2411.11488, 2604.26385, 2607.23506, 2604.12404, 2510.04471,
+  2505.10501, 2504.11706 and unrelated hits.
+- Richman–Shokrieh–Wu, *Principal minors of tree distance matrices*
+  (arXiv:2411.11488, v2 10 Dec 2025; tool extraction of the whole HTML text):
+  Theorem A expresses `det D[S]` through `S`-rooted spanning forests and
+  recovers Graham–Pollak; Theorem C (§1.2, proof §6 eq. (29)) gives
+  `δ_{n−k} = (−1)^{n−1} 2^{k−2} ((n−1) Σ_{F∈ℱ_k} π(F) − Σ_{F∈ℱ_{k+1}} π(F)
+  Σ_j (outdeg(C_j) − 2)²/|V(C_j)|)`, "refines a result of Graham and Lovász on
+  the coefficients of the characteristic polynomial of the distance matrix".
+  The extracted text has no mention of unimodality, a peak, Collins, Shor,
+  AAB, Darroch or `det(I + xL)`, and states no open problem. It is close in
+  spirit to the forest/Laplacian machinery of the manuscript (Lemma `lem:L1`
+  and Section `sec:minors`) and is a candidate for the related-work paragraph.
+  Gutiérrez–Lillo, *Principal minors of the distance matrix of a tree*
+  (arXiv:2407.01966, BCC 2024; abstract only): a combinatorial proof of a
+  formula for `det D[S]`; no mention of coefficients or peaks.
+- arXiv:2604.26385 (Chen, Li, Li, 2026): distance spectral radius, Lin–Zhou
+  conjecture; unrelated. arXiv:2601.14285: tree clustering; unrelated.
+- OpenAlex, works since 2023 citing Graham–Lovász (1978): 63 titles. Only
+  arXiv:2407.03309 (Comput. Appl. Math. 2025) and the 2023 LAA paper of Abiad
+  et al. concern coefficients or peaks; both were known. Abstracts of four
+  other titles (Hayat et al., Axioms 2024; Liu et al., arXiv:2504.05337; two
+  2026 SSRN preprints of V. Gupta et al., no abstract) do not mention the
+  coefficients. Liu et al. describe the 1971 Graham–Pollak proof as an
+  induction with a two-term recurrence, consistent with (c).
+- Web queries 12–14 and 17 returned only the known papers (AAB,
+  arXiv:2206.07561, 2103.00647, 2104.14516, 2207.03343, 2407.03309).
+
+### Not searched or not accessible
+
+- The journal version of AMW (Springer, paywalled); hence the journal
+  numbering of Lemma 4.2, Theorem 4.4, Lemma 5.1 and the wording of the
+  computer-check passage in print.
+- Darroch (1964) itself (Project Euclid returned empty pages; JSTOR not
+  tried).
+- Collins (1989) journal PDF and the author's preprint (both inaccessible
+  today); the preprint's numbering is unverified.
+- Graham–Pollak 1972/1973 (LNM 303) and the Graham–Lovász LNM item
+  (DOI `10.1007/bfb0070375`); Edelberg–Garey–Graham (1976).
+- Full texts of: Chebotarev (DAM 2008), the Bonte thesis (UMONS 2026), the 14
+  papers citing AMW, the two 2026 SSRN preprints of Gupta et al.,
+  Cvetković–Doob–Sachs, Cvetković–Simić, Yan–Yeh, Godsil–Gutman, Mohammadian.
+- The Razanajatovo Misanantenaina PhD thesis (Stellenbosch, 2017) was not
+  found by query 11.
+- MathSciNet, zbMATH, Google Scholar, MathOverflow, ResearchGate, non-English
+  sources; papers citing the AMW journal record were taken from OpenAlex only.
+
+An unsuccessful search does not establish originality. Every "not found"
+above means "not found within this coverage".
+
+### Recommendations for the manuscript and the registry (the auditor did not edit them)
+
+- (GP) in Section `sec:tools`: it can now say "read at the source,
+  [GP71, proof of Theorem 3, pp. 2509–2511]" instead of "Not read at the
+  source".
+- Lemma `lem:ident`: Graham–Lovász (p. 83) attribute the sign
+  `(−1)^{n−1}δ_k > 0` to Edelberg, Garey and Graham, Discrete Math. 14 (1976)
+  23–29; consider citing it.
+- The Graham–Lovász peak conjecture is printed with "k = [n/2]" (p. 83).
+- Remark `rem:AMW`: the two classical steps have a secondary source
+  (Wan–Wang–Wang, arXiv:2410.14112, §4, with the primary references listed
+  there); the strict inequality is printed in AMW's proof (p. 16, arXiv v1);
+  the computer checks concern the 35 sub-cases of the degree-3 case
+  (pp. 13–15) and the small branches `|T_j| ≤ 4` (p. 14). Cite the arXiv v1
+  numbering unless the journal version is checked.
+- Bibliography: add the issue numbers and DOIs where wanted (AMW 36(3), DOI
+  above; Darroch 35(3); GP 50(8); Collins 25(1–2)). The existing page ranges
+  agree with Crossref.
+- Section 15: the item "the papers citing [AMW]" in "Not searched" is now
+  covered by title (OpenAlex, 14 works); Richman–Shokrieh–Wu (arXiv:2411.11488)
+  and Chebotarev (DAM 156 (2008)) are related prior work worth naming.
+- CJ-0001 novelty: unchanged in kind; `no-prior-resolution-found` with its
+  coverage qualifier remains the honest value. MD-0023 (path minimizes
+  `tr(I+L)^{−1}`): still "very probably a known consequence of AMW Theorem 4.4";
+  no source stating it directly was found.

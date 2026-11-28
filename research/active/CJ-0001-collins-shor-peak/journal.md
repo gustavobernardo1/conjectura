@@ -2986,3 +2986,42 @@ Final verification (18:42 by the clock): `uv run pytest` on a clean tree at
 `test_registry_and_lean_root_are_consistent` was the formalization agent's
 uncommitted registry edit, as expected; it passes now). `uv run python
 scripts/catalogue.py validate`: 15 problems, 24 contributions, 0 errors.
+
+## Session 15 — 2026-11-27
+
+- **Entry status:** in progress.
+- **Agent / model:** Claude, model `claude-opus-5-5` (Research Director and
+  principal investigator, main session). Human participant: the director
+  (instructions below).
+- **Mode:** focused work (validation: an external review and its consequences).
+- **Role(s):** research director; author of revision 3 of the manuscript.
+- **Repository revision at start:** `832e5ff` (`research`, clean tree).
+- **Director's instructions (2026-11-27):** an independent review of
+  revision 2 of the manuscript, by "GPT Astra 6 (Extra High), through Codex"
+  (the director's description), is in the report `parecer-revisao.txt`
+  (Portuguese); read it, verify its provenance against the reviewed file,
+  assess its findings independently and incorporate the justified
+  corrections; update the records, including the relation of MD-0023 to the
+  theorem of Andriantiana-Misanantenaina-Wagner; preserve a complete,
+  reproducible and independently reviewed version of the candidate proof
+  before any substantial simplification; continue the originality
+  assessment and the remaining verification obligations; the favourable
+  review is no guarantee of correctness or originality; human consultation
+  deferred; verified commits and pushes to `research` only.
+- **Objective (exact):** (1) the review recorded with its provenance and an
+  assessment of each of its six findings by this session; (2) revision 3 of
+  `main.tex` with the justified corrections, compiled, checked and
+  rechecked by a fresh reviewer; (3) the records (MD-0023, catalogue,
+  STATE.md) updated; (4) the literature items owed (papers citing AMW,
+  Darroch, Graham-Pollak, the Graham-Lovász wording, Collins's numbering).
+- **Falsification test:** each finding is checked against the text and,
+  where it states mathematics, recomputed exactly or re-derived here; a
+  finding that does not survive is recorded as rejected with the reason.
+- **Stopping conditions:** objectives (1) to (3) done and (4) reported; or
+  a gap found that the session cannot close.
+- **Budget:** at most 120 minutes of agent work, started 21:02 local (clock
+  reading); the last 20 minutes for verification and persistence;
+  computation 30 minutes of wall-clock in total.
+
+### Checkpoints
+

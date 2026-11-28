@@ -10,6 +10,14 @@
 % (reviews/2026-11-27-claude-{opus,sonnet}-5-5-manuscript.md) corrected;
 % Lemma "the star" (lem:starshape) added, so that the bounds no longer use the
 % log-concavity theorem of [AAB] or Collins's Theorem 1; Lemma R1 removed.
+% Revision 3 (session 15, same day): the findings of the independent review of
+% revision 2 by an OpenAI model through Codex
+% (reviews/2026-11-27-codex-gpt-astra-6-manuscript-r2.*) that this session
+% judged justified, all six: the spectrum of the subdivision corrected and the
+% derivation of Theorem T10 from [AMW] made a proved remark; the golden ratio
+% defined; the Graham--Lovasz peak written with the floor; the open case of
+% peak-maximality of the path stated exactly; R(K,nu) defined; the decimal
+% estimate at the end of Lemma S44 replaced by an exact one.
 \documentclass[11pt]{amsart}
 \usepackage{amsmath,amssymb,amsthm}
 \PassOptionsToPackage{hyphens}{url}
@@ -53,7 +61,8 @@ Federal de Goi\'as (UFG), Brazil}
 Let $T$ be a tree with $n\ge3$ vertices and distance matrix $D$, and let
 $d_0,\dots,d_{n-2}$ be the normalized coefficients
 $d_k=2^{k-(n-2)}|\delta_k|$ of $\det(D-xI)=\sum_k\delta_kx^k$. Graham and
-Lov\'asz conjectured that this sequence is unimodal with peak at $n/2$;
+Lov\'asz conjectured that this sequence is unimodal with peak at
+$\lfloor n/2\rfloor$;
 Collins showed that the peak of the path is near $n-n/\sqrt5$, and Aalipour
 et al.\ proved that the sequence is
 log-concave, hence unimodal, and recorded the conjecture of Collins and Shor
@@ -89,8 +98,11 @@ Anthropic) in the Conjectura research project, November 2026. Its parts were
 reviewed only by AI reviewers run in fresh contexts (models of the same
 vendor); \textbf{AI review is not peer review}, and \textbf{no mathematician
 has read the proofs}. The first version of this document was reviewed as a
-whole by two AI reviewers of the same vendor; revision~2 has not been
-rechecked, and no reviewer of another vendor has read it.
+whole by two AI reviewers of the same vendor; revision~2 was rechecked by
+one of them and reviewed as a whole by an AI model of another vendor
+(OpenAI, through Codex), all without finding a gap; this revision~3
+corrects the defects that the last review reported, and has been rechecked
+only as stated in Section~\ref{sec:status}.
 The status of every statement is given in Section~\ref{sec:status}; novelty
 is not claimed beyond what is stated in Section~\ref{sec:literature}. Nothing
 has been submitted, posted or sent; every outside use is decided by the
@@ -109,9 +121,10 @@ $(-1)^{n-1}\delta_k>0$ for $0\le k\le n-2$ (in the form
 \[
 d_k=d_k(T)=2^{k-(n-2)}\,|\delta_k|\qquad(0\le k\le n-2)
 \]
-are positive. The conjecture of Graham and Lov\'asz, as Collins recalls it
-\cite[p.~29]{Col89}, was that this sequence is unimodal with peak at
-$k=\tfrac12n$. Collins~\cite{Col89} computed the sequence for the star and for
+are positive. Graham and Lov\'asz~\cite[p.~83]{GL78} observed that these
+quantities appear to be unimodal ``with the maximum value occurring for
+$k=[n/2]$'' (the integer part, $\lfloor n/2\rfloor$); Collins recalls this
+conjecture with peak at $k=\tfrac12n$ \cite[p.~29]{Col89}. Collins~\cite{Col89} computed the sequence for the star and for
 the path, showed that the star peaks at $\lfloor n/2\rfloor$ but the path
 near $n-n/\sqrt5$ (\cite[Theorems~1 and~3]{Col89}), and stated, as
 Conjecture~9 of~\cite{Col89}, attributed there to Peter Shor: ``The
@@ -191,7 +204,8 @@ $\ell_T=4(\alpha-x)q(x)$ where $q$ has only negative zeros
 one; interlacing bounds the mean by $n-\tr(I+L)^{-1}$ (Lemma~\ref{lem:S42});
 and $\tr(I+L)^{-1}$ is minimized over trees of order $n$ by the path
 (Theorem~\ref{thm:T10}), where it equals
-$n/\sqrt5+2/5+O(n\varphi^{-4n})$ (Lemma~\ref{lem:S46}).
+$n/\sqrt5+2/5+O(n\varphi^{-4n})$, with $\varphi=(1+\sqrt5)/2$ the golden
+ratio (Lemma~\ref{lem:S46}).
 
 \subsection*{What is new and what is known}
 Section~\ref{sec:literature} gives the details and the coverage of the
@@ -199,8 +213,9 @@ searches made. In short: the formula of Lemma~\ref{lem:L1}, the path formula
 for the off-diagonal cofactors (Lemma~\ref{lem:path}), the polynomials of the
 star and of the path, Darroch's rule and the interlacing of
 Lemmas~\ref{lem:S40} and~\ref{lem:S42} are known; Theorem~\ref{thm:T10} is
-very probably a known consequence of a theorem of Andriantiana, Razanajatovo
-Misanantenaina and Wagner~\cite{AMW} (our proof is independent); no prior
+a consequence of a theorem of Andriantiana, Razanajatovo Misanantenaina and
+Wagner~\cite{AMW} on the average size of matchings
+(Remark~\ref{rem:AMW}; our proof is independent of theirs); no prior
 proof of either half of Conjecture~\ref{conj:CS}, and no prior statement of
 the coefficientwise minimality of the star (Theorem~\ref{thm:lower}(b)), was
 found within the coverage of the searches. That is not evidence of
@@ -212,7 +227,7 @@ $f$; $\binom ik=0$ unless $0\le k\le i$. For a matrix $N$ indexed by $V$ and
 $S\subseteq V$, $N[S]$ is the principal submatrix on $S$, with
 $\det N[\emptyset]=1$; $\adj N$ is the adjugate, $\adj(N)N=N\adj(N)=(\det N)I$;
 $E_{uu}$ is the matrix unit and $e_u$ the unit vector at $u$; $\one$ is the
-all-ones vector. An identity between polynomials in $x$ that holds for all
+all-ones vector; $\varphi=(1+\sqrt5)/2$. An identity between polynomials in $x$ that holds for all
 real $x>0$ holds identically; we use this to prove polynomial identities by
 matrix inversion at positive $x$, where the matrices involved are positive
 definite.
@@ -249,10 +264,11 @@ a tree with $n\ge2$ vertices, $D^{-1}=-\frac12L+\frac{1}{2(n-1)}\tau\tau^\T$.
 Used in Lemmas~\ref{lem:L1} and~\ref{lem:S40}. Read in a scan of~\cite{GL78}
 (two signs illegible in the scan were fixed from other formulas of the same
 paper); verified in exact arithmetic for every tree of order $3$ to $17$.
-\item[(GP)] \emph{Graham--Pollak determinant} \cite{GP71}:
-$\det D=(-1)^{n-1}(n-1)2^{n-2}$ for $n\ge2$. Used in Lemmas~\ref{lem:L1}
-and~\ref{lem:S40}. Not read at the source; quoted in~\cite{AAB}; consistent
-with all exact computations.
+\item[(GP)] \emph{Graham--Pollak determinant} \cite[proof of Theorem~3,
+pp.~2509--2511]{GP71}: $\det D=(-1)^{n-1}(n-1)2^{n-2}$ for $n\ge2$. Used in
+Lemmas~\ref{lem:L1} and~\ref{lem:S40}. Read at the source by the project's
+literature auditor (a scan); also quoted in~\cite{AAB}; consistent with all
+exact computations.
 \item[(LC)] \emph{Log-concavity} \cite[Theorem~2.1]{AAB}: the sequence
 $d_0,\dots,d_{n-2}$ is positive and log-concave. Not used in the proofs below;
 it supplies the word ``unimodal'' of Conjecture~\ref{conj:CS}. Read in the
@@ -269,7 +285,8 @@ $q_k^2\ge q_{k-1}q_{k+1}(1+1/k)(1+1/(N-k))>q_{k-1}q_{k+1}$ for $1\le k\le N-1$
 by Pitman~\cite[p.~284]{Pit97}: if a polynomial $P$ with non-negative
 coefficients has only real zeros, every index at which its coefficient is
 maximal lies at distance less than $1$ from $\mu=P'(1)/P(1)$. Darroch's paper
-was not read in the project; the statement was read in~\cite{Pit97},
+was not read in the project (its numbering, Theorem~4, is the one given by
+the secondary sources); the statement was read in~\cite{Pit97},
 including the case of two maximizing indices \cite[eq.~(13)]{Pit97}, and
 tested on $20{,}000$ random real-rooted polynomials.
 \item[(M)] \emph{M-matrix facts} \cite{BP}: for a connected graph $H$,
@@ -1268,9 +1285,13 @@ $\sigma'=-\gamma\sigma(1-\sigma)$, and
 \psi''(x)=\gamma\sigma(1-\sigma)\bigl[\gamma x\tanh(\gamma x/2)-2\bigr],
 \]
 which is positive if and only if $z\tanh z>1$ for $z=x\log\varphi$. The
-function $z\tanh z$ is increasing on $(0,\infty)$. At $x=3$,
-$\tanh(3\log\varphi)=(\varphi^6-1)/(\varphi^6+1)=(8\varphi+4)/(8\varphi+6)=2/\sqrt5>0.894$
-and $3\log\varphi>1.443$, so $z\tanh z>1.29$ for every $x\ge3$.
+function $z\tanh z$ is increasing on $(0,\infty)$, so it suffices that
+$z\tanh z>1$ at $z=3\log\varphi$. There
+$\tanh(3\log\varphi)=(\varphi^6-1)/(\varphi^6+1)=(8\varphi+4)/(8\varphi+6)=2/\sqrt5$;
+and $\tanh(\log\varphi)=(\varphi-\varphi^{-1})/(\varphi+\varphi^{-1})=1/\sqrt5$,
+so $\log\varphi=\operatorname{artanh}(1/\sqrt5)>1/\sqrt5$ (as
+$\operatorname{artanh}t>t$ for $0<t<1$). Hence
+$3\log\varphi\,\tanh(3\log\varphi)>(3/\sqrt5)(2/\sqrt5)=6/5>1$.
 \end{proof}
 
 \begin{lemma}[merging two pendant paths lowers the trace]\label{lem:S45}
@@ -1340,24 +1361,55 @@ $\Tr(T)>\Tr(P_n)$. The equivalent form follows from
 $\sum_j\mu_j/(1+\mu_j)=n-\Tr(T)$ (proof of Lemma~\ref{lem:S42}).
 \end{proof}
 
-\begin{remark}[a second route; not reviewed]\label{rem:AMW}
-The project's literature audit derived Theorem~\ref{thm:T10} from the work
-of Andriantiana, Razanajatovo Misanantenaina and Wagner~\cite{AMW} as
-follows. For a forest the matching polynomial is the characteristic
-polynomial. The subdivision $S(T)$ of a tree $T$ is a tree whose adjacency
-eigenvalues are $\pm\sqrt{\mu_j}$ (over the Laplacian eigenvalues $\mu_j$ of
-$T$) together with zeros. By \cite[Lemma~5.1]{AMW}, the average size of a
-matching satisfies $\mathrm{avm}(G)=\frac12\sum_\lambda\lambda^2/(\lambda^2+1)$
-over the zeros $\lambda$ of the matching polynomial of $G$; hence
-$\mathrm{avm}(S(T))=\sum_j\mu_j/(1+\mu_j)$. By \cite[Theorem~4.4]{AMW}, the
-path maximizes $\mathrm{avm}$ among trees of a given order, strictly (its
-proof uses computer-checked cases). Since $S(P_n)=P_{2n-1}$,
-Theorem~\ref{thm:T10} would follow. This derivation is the auditor's; its two
-classical steps (matching polynomial of a forest; spectrum of the
-subdivision) were not checked against a source, and no reviewer checked the
-derivation. If it is correct, Theorem~\ref{thm:T10} is a known consequence
-of a published theorem, and the proof given above is an independent,
-self-contained one. We regard Theorem~\ref{thm:T10} as very probably known.
+\begin{remark}[Theorem~\ref{thm:T10} follows from~\cite{AMW}]\label{rem:AMW}
+Theorem~\ref{thm:T10} is a consequence of a theorem of Andriantiana,
+Razanajatovo Misanantenaina and Wagner on the average size of matchings; the
+proof above is independent of theirs, and a reader willing to rely
+on~\cite{AMW} may skip Lemmas~\ref{lem:S43}--\ref{lem:S45}. For a graph $G$
+let $m_k(G)$ be the number of matchings of $G$ with $k$ edges ($m_0=1$) and
+$\mathrm{avm}(G)=\sum_kk\,m_k(G)/\sum_km_k(G)$. Put $a=(5-\sqrt5)/10$ and
+$b=(7\sqrt5-17)/10$. (Numbering and pages of the arXiv version of~\cite{AMW};
+the journal version was not compared.) By \cite[Theorem~4.4]{AMW}, every
+tree $T'$ of order $N$ that is not a path has $\mathrm{avm}(T')\le aN+b$; its
+proof includes, for a vertex of degree~$3$, $35$ cases that are checked by
+computer \cite[pp.~13--15]{AMW}. The strict form
+$\mathrm{avm}(P_N)>aN+b\ge\mathrm{avm}(T')$ is stated at the end of that
+proof \cite[p.~16]{AMW}; it also follows from \cite[Lemma~4.2,
+eq.~(8)]{AMW},
+$\mathrm{avm}(P_N)=aN+\frac{1-\sqrt5}{10}-\frac{N+1}{\sqrt5\,((-\varphi^2)^{N+1}-1)}$;
+since $\frac{1-\sqrt5}{10}-b=\frac{9-4\sqrt5}5>0.011$ and the last term is
+positive for even $N$ and of absolute value at most
+$6/(\sqrt5(\varphi^{12}-1))<0.0084$ for odd $N\ge5$, one has
+$\mathrm{avm}(P_N)>aN+b$ for $N\ge4$. So the path is the unique maximizer of
+$\mathrm{avm}$ among trees of order $N$, for every $N$.
+
+Let $T$ be a tree of order $n\ge2$ with degrees $k_v$, $\mathcal A_T$ its
+adjacency matrix, $\mathcal B$ its $n\times(n-1)$ unsigned vertex--edge
+incidence matrix, and $S(T)$ its subdivision (each edge replaced by a path
+of length two), a tree of order $N=2n-1$. Its adjacency matrix
+$\mathcal A_{S(T)}$ is
+$\left(\begin{smallmatrix}0&\mathcal B\\\mathcal B^\T&0\end{smallmatrix}\right)$,
+and $\mathcal B\mathcal B^\T=\diag(k_v)+\mathcal A_T$ equals $\Sigma L_T\Sigma$
+for the diagonal sign matrix $\Sigma$ of the bipartition of $T$. As $L_T$ has
+the simple eigenvalue $0$, $\mathcal B$ has rank $n-1$, and the spectrum of
+$S(T)$ consists of
+$\pm\sqrt{\mu_j}$ for the $n-1$ positive Laplacian eigenvalues
+$\mu_1,\dots,\mu_{n-1}$ of $T$, together with exactly one eigenvalue $0$. A
+forest has no cycles, so in the permutation expansion of
+$\det(yI-\mathcal A_{S(T)})$ only products of disjoint transpositions along
+edges survive, and $\det(yI-\mathcal A_{S(T)})=\sum_k(-1)^km_k(S(T))\,y^{N-2k}$. Comparing with
+$y\prod_j(y^2-\mu_j)$ gives $\sum_km_k(S(T))\,t^k=\prod_{j=1}^{n-1}(1+\mu_jt)$,
+and the logarithmic derivative at $t=1$ gives
+\[
+\mathrm{avm}(S(T))=\sum_{j=1}^{n-1}\frac{\mu_j}{1+\mu_j}=n-\tr(I+L_T)^{-1}
+\]
+(the eigenvalue $0$ of $L_T$ contributes $1$ to the trace); this is the case
+of a forest of \cite[Lemma~5.1]{AMW}. Finally $S(P_n)=P_{2n-1}$, and $S(T)$
+is a path only if $T$ is one. Hence $\tr(I+L_T)^{-1}>\tr(I+L_{P_n})^{-1}$ for
+every tree $T\ne P_n$ of order $n$, which is Theorem~\ref{thm:T10}.
+(The identity and the unique maximality of the path were also checked
+exactly on all trees of orders $2$ to $9$ and $2$ to $16$ respectively;
+Section~\ref{sec:comp}.)
 \end{remark}
 
 \begin{lemma}[the value for the path]\label{lem:S46}
@@ -1592,10 +1644,18 @@ for those $n$ the path has the largest peak index among trees of order $n$.
 AI-reviewed candidate proof that the path is coefficientwise maximal,
 $d_k(T)\le d_k(P_n)$ (not part of this manuscript and not used). Neither
 statement locates a peak. Whether every tree of order $n$ peaks no later than
-$P_n$ is open. By Theorem~\ref{thm:upper} and Corollary~\ref{cor:pathceil}(a)
-it holds for every $n$ for which the fractional part of $n-n/\sqrt5$ is below
-$2/5$; for the other $n$ a mode--mean inequality for $q$ sharper than
-Darroch's by about $0.4$ would be needed.
+$P_n$ is open in general. By Theorem~\ref{thm:upper} it holds for every $n$
+with $p(P_n)=\lceil\xi-2/5\rceil$, $\xi=n-n/\sqrt5$: by
+Corollary~\ref{cor:pathceil}(a), for every $n$ for which the fractional part
+of $\xi$ is below $2/5$, and also for every $n$ with $p(P_n)=\lceil\xi\rceil$
+(for instance $n=9$: $\xi\approx4.975$, $\lceil\xi-2/5\rceil=5$, and
+$h_9(4)=10>0$, so $p(P_9)=5$). It remains open for the $n$ with
+$p(P_n)<\lceil\xi-2/5\rceil$, that is, $p(P_n)=\lfloor\xi\rfloor$ while the
+fractional part of $\xi$ exceeds $2/5$: $806$ of the $n$ with
+$3\le n\le2000$ (exact count), the smallest being $3,5,7,8,10$; for $n\le23$
+it holds by the exhaustive computation of Section~\ref{sec:comp}. A
+mode--mean inequality for $q$ sharper than Darroch's would be one way to
+treat these $n$; it is not known to be necessary.
 \item \emph{Ratio comparison.} Exact computation supports
 $d_{k+1}(T)/d_k(T)\le d_{k+1}(P_n)/d_k(P_n)$ for
 $0\le k\le\min(p(P_n),n-3)$ on all trees of order $4$ to $20$ and on $10{,}000$
@@ -1605,8 +1665,16 @@ The analogous lower comparison with the star,
 $d_{k+1}(T)/d_k(T)\ge d_{k+1}(S_n)/d_k(S_n)$ at $k=\lfloor n/2\rfloor-1$, holds
 for all trees of order $4$ to $19$ and is false at order $20$: for the double
 star $S(9,9)$ at $k=9$ the ratio is $10791/10255<99/94$, the ratio of the star.
-\item \emph{Weighted versions.} Theorem~\ref{thm:T5} is the case of unit
-weight at the root of the statement ``$R(K,\nu)\in\mathcal C_{j+1}$ for every
+\item \emph{Weighted versions.} For a tree $K$ on $j$ vertices with degrees
+$k_v$ and a weight $\nu\colon V(K)\to\{0,1,2,\dots\}$, put $|\nu|=\sum_v\nu_v$,
+$M=M(K,\nu)$ and $\Phi(K,\nu)$ as in Section~\ref{sec:minors},
+$p^\nu=\one+x\tau-x\nu$ (so $p^\nu_v=1+(2-k_v-\nu_v)x$), and
+\[
+R(K,\nu)=(|\nu|+j-1)(1+x)\,\Phi(K,\nu)-p^{\nu\T}\adj(M)\,p^\nu ;
+\]
+for $\nu=we_u$ this is $R_w(K,u)$ of Section~\ref{sec:rooted}.
+Theorem~\ref{thm:T5}(iii) with Remark~\ref{rem:Ccone} is the case
+$\nu=e_u$ of the statement ``$R(K,\nu)\in\mathcal C_{j+1}$ for every
 weighted tree with $\nu\ne0$'', which is open for general weights; some
 stronger auxiliary statements of this kind are false (the project records
 counterexamples on stars with heavy leaves).
@@ -1628,8 +1696,11 @@ $[\lfloor n/2\rfloor,\lceil n-n/\sqrt5\rceil]$ for all $23{,}942{,}357$ trees of
 order $3$ to $23$ (\nolinkurl{experiments/CJ-0001-collins-shor-peak/exhaustive.py});
 orders $21$ to $23$, beyond the range $n\le20$ reported in~\cite{AAB}, were
 computed by one implementation only. One tie occurs (order $13$, indices $6$
-and $7$); the peak is always $\lfloor n/2\rfloor$ or $\lfloor n/2\rfloor+1$ in
-this range.
+and $7$, common value $d_6=d_7=189972$; the tie and its value were found
+again by the independent reviewer of revision~2 and by a separate
+recomputation over all $1{,}301$ trees of order $13$); the peak is always
+$\lfloor n/2\rfloor$ or $\lfloor n/2\rfloor+1$ in this range, and in every
+order the largest maximizing index over all trees is that of the path.
 \item \emph{Lower half, notes' code} (\nolinkurl{lower_bound.py}, result
 \nolinkurl{results/lower-bound.json}, run on a clean tree at commit
 \texttt{b1359cc}): $1{,}040{,}693$ checks of the identities and memberships of
@@ -1659,6 +1730,18 @@ Lemma~\ref{lem:S43} on all pairs of rooted trees of order at most $6$;
 Lemma~\ref{lem:S42} in floating point (exploratory) on trees of order $3$ to
 $14$. The criterion of Lemma~\ref{lem:S47} was checked against the exact peak
 of the path for $n\le2000$.
+\item \emph{Revision~3} (\nolinkurl{amw_reduction_check.py}, result
+\nolinkurl{results/amw-reduction-check.json}, exact): for
+Remark~\ref{rem:AMW}, the identities $m_k(S(T))=[t^k]\det(I+tL_T)$ and
+$\mathrm{avm}(S(T))=n-\tr(I+L_T)^{-1}$ on all $94$ trees of order $2$ to $9$,
+the path as the unique maximizer of $\mathrm{avm}$ on all $32{,}507$ trees of
+order $2$ to $16$, and $\mathrm{avm}(P_N)>aN+b$ for $4\le N\le200$ (exact
+sign test in $\mathbb Q(\sqrt5)$); the count of open orders in
+Section~\ref{sec:open}, item~1 (integer arithmetic, from
+Lemma~\ref{lem:S47}); and the tie at order~$13$. In addition, eq.~(8)
+of~\cite{AMW} was compared with the exact value of $\mathrm{avm}(P_N)$ for
+$N\le80$ in $60$-digit floating point (exploratory; agreement to $50$
+digits).
 \end{enumerate}
 Finite checks establish the statements only in the range checked.
 
@@ -1685,8 +1768,17 @@ OpenAlex (five papers: arXiv:2407.03309, 2206.07561, 2104.14516, 2103.00647,
 1812.05734; none resolves the conjecture), \cite{AAB} and~\cite{Col89} read in full, Collins's
 thesis~\cite{Col86} in part, \cite{GL78} in part, \cite{Mer90}, \cite{AMW}
 (arXiv version), \cite{Pit97} (one page), \cite{CS06}, and the papers of
-Mohar and Csikv\'ari on Laplacian coefficients of trees. \emph{Not searched:}
-MathSciNet, zbMATH, Google Scholar, MathOverflow, the papers citing~\cite{AMW}.
+Mohar and Csikv\'ari on Laplacian coefficients of trees; for revision~3, the
+$14$ papers citing~\cite{AMW} and the $63$ works since 2023 citing~\cite{GL78}
+listed by OpenAlex (by title), arXiv searches for 2023--2026, \cite{GP71} and
+p.~83 of~\cite{GL78} in scans. Related recent work, not used here: a
+rooted-spanning-forest formula for the coefficients of the distance
+polynomial of a tree (Richman, Shokrieh and Wu, arXiv:2411.11488,
+Theorem~C), and Chebotarev's study of the forest matrix of the path and the
+golden ratio (Discrete Appl.\ Math.\ 156 (2008) 813--821; abstract only),
+which may contain the values of Lemmas~\ref{lem:S44} and~\ref{lem:S46}.
+\emph{Not searched:} MathSciNet, zbMATH, Google Scholar, MathOverflow; the
+full texts of the papers citing~\cite{AMW}.
 An unsuccessful search does not establish originality, and nothing below is
 a claim of originality.
 
@@ -1707,11 +1799,17 @@ $1+x$ and a polynomial $r_u$ with non-negative coefficients, was not found
 there.
 \item Lemma~\ref{lem:S40} and the interlacing behind Lemma~\ref{lem:S42}:
 Merris~\cite{Mer90}. Darroch's rule: \cite{Dar64,Pit97}.
-\item Theorem~\ref{thm:T10}: very probably a consequence of
-\cite[Theorem~4.4]{AMW} (Remark~\ref{rem:AMW}); our proof is independent.
-Lemma~\ref{lem:S46} also follows from \cite[Lemma~4.2]{AMW}.
-\item The path: (C) is~\cite[Theorem~3]{Col89}, whose location of the peak
-up to one has an informal last step; Lemma~\ref{lem:S47} makes it exact.
+\item Theorem~\ref{thm:T10}: a consequence of \cite[Theorem~4.4 with
+Lemma~4.2]{AMW} through the subdivision of the tree (Remark~\ref{rem:AMW},
+where the reduction is proved; the reduction was first derived by the
+project's literature auditor and confirmed by the reviewer of revision~2).
+Our proof by merging pendant paths is independent of theirs; as a statement,
+Theorem~\ref{thm:T10} is a rediscovery. Lemma~\ref{lem:S46} also follows
+from \cite[Lemma~4.2]{AMW}.
+\item The path: (C) is~\cite[Theorem~3]{Col89} (numbering of the journal
+version, read in the project; an independent reviewer reports that the
+author's preprint numbers it Theorem~2), whose location of the peak up to one
+has an informal last step; Lemma~\ref{lem:S47} makes it exact.
 \end{itemize}
 
 \noindent\textbf{No prior source found within the coverage.}
@@ -1762,11 +1860,29 @@ document (models \nolinkurl{claude-opus-5-5} and
 both ``no gap found within stated scope'', with two errors in remarks or
 proofs not used by the Main Theorem and several defects of wording and
 bookkeeping, corrected in revision~2).
-\item \emph{New in revision~2 and not reviewed:} Lemma~\ref{lem:starshape}
-(the shape of the star's sequence), which replaces the use of (LC) and of
-\cite[Theorem~1]{Col89} in Theorem~\ref{thm:lower}(c) and in the attainment
-of the lower bound; the removal of the lemma on log-concave sequences.
-Lemma~\ref{lem:starshape} was checked exactly for $3\le n<800$.
+\item \emph{Revision~2} (commit \texttt{87c3c8c}) added
+Lemma~\ref{lem:starshape} (the shape of the star's sequence), which replaces
+the use of (LC) and of \cite[Theorem~1]{Col89} in
+Theorem~\ref{thm:lower}(c) and in the attainment of the lower bound, and
+removed the lemma on log-concave sequences; Lemma~\ref{lem:starshape} was
+checked exactly for $3\le n<800$. Revision~2 was rechecked
+(\nolinkurl{claude-sonnet-5-5}, its changes only) and then reviewed as a
+whole by an AI model of another vendor (OpenAI, through Codex; the project
+director's description of the model is ``GPT Astra 6 (Extra High)'', the
+report's own is ``agent based on GPT-6''), which reconstructed Sections
+2--11, ran its own exact checks, and found no gap; it reported one error in a
+remark not used by the Main Theorem (the multiplicity of the eigenvalue $0$
+in the spectrum of the subdivision, Remark~\ref{rem:AMW}) and five defects
+of wording or citation.
+\item \emph{Revision~3} (this text) corrects all six: Remark~\ref{rem:AMW}
+now proves that Theorem~\ref{thm:T10} follows from~\cite{AMW}; $\varphi$ is
+defined; the Graham--Lov\'asz peak is written with the floor; item~1 of
+Section~\ref{sec:open} states exactly which orders remain open and no longer
+claims that a sharper mode--mean inequality is needed; $R(K,\nu)$ is defined
+in item~3 there; and the decimal estimate at the end of the proof of
+Lemma~\ref{lem:S44} is replaced by an exact one. No step used by the Main
+Theorem changed. The recheck of revision~3 is recorded in the project's
+journal, not here.
 \item \emph{Human review:} none. \emph{Formal verification:} partial, of
 auxiliary lemmas only (Section~\ref{sec:formal}). \emph{Novelty:} as in
 Section~\ref{sec:literature}.
@@ -1787,7 +1903,9 @@ upper half (Lemmas~\ref{lem:S40}--\ref{lem:S47}, Theorems~\ref{thm:upper}
 and~\ref{thm:T10}), the stored computations for it, the formalization, the
 reviews named in Section~\ref{sec:status}, and this text, including the
 restatement of the lower half with root weights. \nolinkurl{claude-sonnet-5-5}:
-reviews, rechecks and computations. No human contributed mathematics.
+reviews, rechecks and computations. An AI model of OpenAI, run by the
+project director through Codex, reviewed revision~2 independently (its
+report is kept in the project's records). No human contributed mathematics.
 
 \emph{Human involvement.} The project director chose the problem and set the
 objectives, budgets and policies of the sessions. No mathematician has read
@@ -1808,16 +1926,17 @@ authorship, and AI systems are not listed as authors.
 \begin{itemize}
 \item The proofs are candidate proofs, checked by AI reviews of their parts
 and by exact computation; the first version of this document was reviewed
-as a whole by two AI models of one vendor (Section~\ref{sec:status}); no
-model of another vendor and no human has read it. AI review is not peer
-review.
+as a whole by two AI models of one vendor, and revision~2 by one AI model of
+another vendor (Section~\ref{sec:status}); no human has read it. AI review
+is not peer review, and agreement between AI reviewers does not establish
+correctness.
 \item Several classical results are cited without proof, and some were not
-read at their sources (Section~\ref{sec:tools}): Darroch's paper, the
-Graham--Pollak paper, and the textbook facts.
+read at their sources (Section~\ref{sec:tools}): Darroch's paper and the
+textbook facts.
 \item Section~\ref{sec:path} rests on Collins's formula (C), checked against
 the distance matrix only for $n\le30$.
-\item Novelty is not established; Theorem~\ref{thm:T10} is very probably
-known.
+\item Novelty is not established; Theorem~\ref{thm:T10} is a consequence
+of a published theorem (Remark~\ref{rem:AMW}).
 \end{itemize}
 
 \appendix

@@ -1,0 +1,403 @@
+PARECER INDEPENDENTE SOBRE main.tex
+Data: 27 de novembro de 2026
+Revisor: Codex (OpenAI, agente baseado em GPT-6).
+
+Arquivo recebido: D:\Usuarios\GBB\Downloads\main.tex
+Identificação interna: revisão 2, sessão 14, de 27/11/2026.
+SHA-256 dos bytes efetivamente lidos:
+5dd8d2b397e78ddf7a41d13d3fe07f115e5405583ee379e2fc0bd184865b42a9
+
+VEREDITO: “no gap found within the scope of this review”.
+Tradução: não encontrei lacuna no âmbito desta revisão.
+
+Reconstruí os argumentos das seções 2–11, incluindo a nova demonstração
+do Lema 7.5, o tratamento dos empates e a obtenção do Teorema Principal.
+Os problemas enumerados abaixo não interrompem essa cadeia de prova.
+Não estou afirmando que uma revisão por IA estabelece definitivamente
+o resultado ou sua originalidade. Esta conclusão descreve uma revisão
+matemática, apoiada por verificações finitas independentes; não é uma
+certificação formal.
+
+Não usei os relatos das revisões anteriores como evidência de correção.
+Não alterei main.tex. REVIEW-PROMPT.md foi adotado como roteiro depois
+da confirmação do usuário.
+
+1. ACHADOS CLASSIFICADOS
+
+1) ERROR — multiplicidade do autovalor zero na descrição da subdivisão.
+   Local: seção 9, Observação 9.6 (rem:AMW), linhas 1347–1350.
+
+   A expressão “±sqrt(mu_j) (over the Laplacian eigenvalues ...)
+   together with zeros”, se tomada sobre todos os n autovalores com
+   multiplicidade, já produz 2n entradas, antes dos zeros adicionais.
+   Mas S(T) tem 2n−1 vértices. A formulação exata para uma árvore é:
+
+       spec A(S(T)) = {0} ∪ {+sqrt(mu_j), −sqrt(mu_j): j=1,...,n−1},
+
+   onde mu_1,...,mu_{n−1} são somente os autovalores positivos de L_T.
+   Há exatamente um zero. Para n=1, há somente esse zero.
+
+   Correção local: escrever explicitamente “nonzero Laplacian eigenvalues,
+   together with one zero eigenvalue”. A identidade para avm continua
+   correta: a contribuição de zero é nula. A prova independente do
+   Teorema 9.5 não utiliza essa observação.
+
+2) WORDING — necessidade de uma estimativa adicional está superafirmada.
+   Local: seção 12, item 1, linhas 1593–1598; sem número de enunciado.
+
+   O texto diz que, para os demais n, seria necessária uma desigualdade
+   modo–média melhor que Darroch em cerca de 0,4. Os resultados existentes
+   já resolvem também todo n para o qual o caminho alcança ceil(xi).
+   Por exemplo, n=9: xi=9−9/sqrt(5)≈4,97508, K=5, e h_9(4)=10>0.
+   Portanto p(P_9)=5 e o Teorema 10.1 já implica p(T)≤p(P_9), embora
+   a parte fracionária de xi seja maior que 2/5.
+
+   Sugestão: dizer que a questão permanece nos casos em que p(P_n)<K,
+   e que uma estimativa mais forte é uma possível abordagem. Não foi
+   demonstrado que melhorar Darroch seja necessário para qualquer prova.
+
+3) WORDING — a constante phi não é definida.
+   Local: seção 1, linha 194; seção 9, Lemas 9.3 e 9.7, linhas 1184 e 1364.
+
+   O símbolo varphi é usado como razão áurea, mas não encontrei sua
+   definição no arquivo. Inserir varphi=(1+sqrt(5))/2 antes do primeiro
+   uso. Todas as identidades com varphi que verifiquei são corretas
+   com essa definição. Isso é uma omissão de notação, não uma lacuna
+   no argumento.
+
+4) WORDING — conjectura histórica no resumo deve conservar o piso.
+   Local: resumo, linhas 59–61; sem número de enunciado.
+
+   O resumo atribui a Graham–Lovász pico em n/2. A formulação na página 83
+   do artigo original, reproduzida por Aalipour et al., usa floor(n/2).
+   Para n ímpar, a diferença é relevante. Substituir por floor(n/2).
+   O manuscrito já usa corretamente o piso em seus próprios enunciados.
+
+5) CITATION — a relação com o resultado de AMW pode ser afirmada
+   precisamente, em vez de permanecer “very probably” conhecida.
+   Local: seção 9, Observação 9.6; seção 15, discussão do Teorema 9.5.
+
+   Conferi o enunciado do Teorema 4.4 e do Lema 5.1 de Andriantiana,
+   Razanajatovo Misanantenaina e Wagner, arXiv:1903.09825v1, e reconstruí
+   a redução indicada no manuscrito. Com a correção de multiplicidades
+   do achado 1, ela funciona. Portanto o Teorema 9.5 é consequência
+   daquele resultado publicado. A demonstração por fusão de caminhos
+   pode ser apresentada como uma demonstração independente.
+
+   Justificação da redução: seja B a matriz de incidência não orientada
+   de T. A matriz de adjacência de S(T) tem blocos [0 B; B^t 0]. Como T
+   é bipartida, BB^t=Diag(deg)+A é similar a L_T por uma matriz diagonal
+   de sinais. B tem posto n−1, dando o espectro corrigido no achado 1.
+   Para uma floresta, o desenvolvimento do determinante por permutações
+   identifica os coeficientes do polinômio característico com os
+   emparelhamentos. Aplicando o Lema 5.1 de AMW,
+
+       avm(S(T)) = sum_j mu_j/(1+mu_j) = n−tr((I+L_T)^−1).
+
+   O caminho maximiza estritamente avm entre árvores de ordem 2n−1;
+   S(P_n)=P_(2n−1), e S(T) só é caminho quando T é caminho. Segue a
+   conclusão, com o mesmo caso de igualdade. Essa confirmação não
+   verifica nem estabelece a novidade dos limites do Teorema Principal.
+
+6) WORDING — conjectura ponderada usa uma quantidade não definida.
+   Local: seção 12, item 3, linhas 1608–1612; sem número de enunciado.
+
+   R(K,nu) aparece sem definição. O artigo define Phi(K,nu), mas define
+   R_w apenas para peso concentrado na raiz. Para tornar a conjectura
+   auxiliar verificável, fornecer a definição de R(K,nu), incluindo
+   o vetor p e o fator que multiplica (1+x)Phi. Não presumi que uma
+   definição presente nas notas externas faça parte deste manuscrito.
+   A conjectura auxiliar não é usada na prova principal.
+
+Não identifiquei achado classificado como GAP. Em particular, não
+classifiquei como lacuna o uso de resultados clássicos corretamente
+enunciados e aplicados dentro de suas hipóteses.
+
+2. RECONSTRUÇÃO DAS DEMONSTRAÇÕES
+
+Esta seção registra o trabalho efetivamente feito, separadamente da lista
+de problemas. A numeração segue os contadores de teoremas do fonte.
+
+Seção 2 — Lemas 2.1 e 2.2.
+Conferi os sinais e as potências de 2 na passagem entre det(D−xI),
+det(2xI−D), ell_T e d_k. A expansão do determinante por uma atualização
+de posto um produz precisamente (n−1)Phi−x tau^t adj(M)tau.
+O caso n=2 dá ell=1−4x^2. O caso n=1 é separado corretamente quando
+necessário. Também reconstruí a fórmula da inversa sem depender da
+legibilidade do escaneamento: DL=1 tau^t−2I e D tau=(n−1)1 implicam
+D[−L/2+tau tau^t/(2(n−1))]=I. Na segunda identidade, cada corte por
+uma aresta contribui 1 à soma dos pesos 2−grau no lado distante da raiz.
+
+Seção 3 — Definição 3.1, regras K1/K2 e Lema 3.2.
+Os pesos dos geradores são 2e+i. Produtos somam esses pesos; multiplicar
+por x acrescenta 2 e por (1+x) acrescenta 1. K_d=K_0 para d≤0 não
+invalida essas inclusões. No lema binomial, o caso mu−e≤0 é correto,
+inclusive coeficientes fora do suporte; no outro caso i≥2(mu−e)−1
+garante a comparação dos binomiais adjacentes.
+
+Seção 4 — Lemas 4.1, 4.2, 4.3 e Corolário 4.4.
+Conferi a contribuição dos graus perdidos aos pesos dos blocos.
+Ao remover um caminho não vazio, cada componente restante liga-se
+ao caminho exatamente uma vez. A expansão pela folha dá os três
+termos de (K3) com os sinais apresentados. É possível escolher uma
+folha que preserve algum peso não nulo, inclusive para j=2.
+Na fórmula do cofator, o complemento de Schur altera só a diagonal
+do caminho; o sinal (−1)^d cancela o produto (−x)^d. O produto vazio
+tem valor 1 e peso 0. A indução do Corolário 4.4 preserva o vértice c
+e produz a pertinência ao cone indicada no texto.
+
+Seção 5 — Lema 5.1, Proposição 5.2 e Corolário 5.3.
+Reconstruí a identidade básica pelo complemento de Schur, inclusive
+o vetor p^(1) induzido nos ramos. Verifiquei a variação de Phi e pi
+com o peso da raiz e as cancelações nas fórmulas de plantio e fusão.
+As identidades são inicialmente válidas para x>0 e se estendem como
+identidades polinomiais, como justificado nas convenções. A divisão
+por Psi é legítima porque seu termo constante é 1. Os casos de uma
+árvore com um vértice e de fusão com um vértice isolado são compatíveis
+com os produtos e somas vazios. A identidade R_0=x ell−(1+4x)Phi
+produz a recorrência pela folha e a expressão da estrela.
+
+Seção 6 — Proposições 6.1, 6.2 e 6.3.
+Recalculei L delta=tau−2e_u. Disso seguem H=sum a_v e
+G=x sum(delta_v−1)a_v. O termo com delta_v=1 não contribui para G,
+o que é essencial para a melhora de um nível no cone.
+Na identidade para R_1, usar M^1 1=1+xe_u dá exatamente
+R_1=Q^1+x^2 W, com a soma sobre pares não ordenados contada uma vez.
+O grau máximo a+1 também está correto. As fórmulas de E por plantio,
+fusão e múltiplos ramos resultam das regras da seção 5.
+
+No passo central da Proposição 6.3, os termos potencialmente negativos
+se reúnem em
+
+   H_1 W_2 + H_2 W_1 − 2 J_1 J_2
+     = sum_(v,v') (delta_v−delta_v')^2 a_v a_v'.
+
+Conferi os níveis de cone: x Psi_1 R_(1,2) tem nível a_1+a_2+2;
+x^2 H_1 Q_2 tem o mesmo nível; os termos da soma de quadrados têm
+nível pelo menos a_1+a_2+4. Se a_i=1, os termos correspondentes
+se anulam, sem criar exceção.
+
+Seção 7 — Teoremas 7.1 e 7.3, Lemas 7.4 e 7.5.
+A indução do Teorema 7.1 usa (iii) somente para os ramos menores,
+depois deduz (iii) para a árvore atual a partir de (i) e (ii); não há
+circularidade. Para uma raiz com um único vizinho, a soma de termos
+cruzados é vazia e o termo de plantio basta. A soma telescópica pela
+folha leva a ell_T−ell_S em K_(n−1). Para cada 1≤mu≤floor(n/2),
+esse cone está contido em K_(2mu−1), dando a comparação dos incrementos.
+
+Recalculei as duas fórmulas de paridade do Lema 7.4 e a diferença 4
+para n=3. No Lema 7.5 conferi a razão F(j)/F(j+1), os intervalos onde
+os denominadores são positivos e a reflexão F(N+1−j)=−F(j). Tanto
+o crescimento até floor(n/2) quanto o decréscimo posterior são estritos.
+Para n=3 e n=4, a parte de decréscimo é vazia, como deve ser.
+A Observação 7.8 sobre o cone C_d é válida pela ausência de cancelamento
+de coeficientes líderes positivos dos geradores.
+
+Seção 8 — Lemas 8.1, 8.2 e 8.3.
+Conferi o sentido das duas desigualdades de entrelaçamento na ordem
+decrescente e a inversão dos autovalores negativos. A inércia obtida
+é (1,n−1,0), e tr(D)=0 dá alpha=sum beta_i. Newton implica diminuição
+estrita de q_(j+1)/q_j. Como a última razão é 1/alpha, a desigualdade
+alpha*rho_j>1 vale em todos os índices em que o Lema 8.2 a utiliza.
+Os três casos da diferença d_(j+1)−d_j estão corretamente separados.
+A comparação de médias usa |nu_i|≤mu_(i−1), não o sentido oposto.
+O autovalor laplaciano zero contribui exatamente 1 para o traço.
+
+Seção 9 — Lemas 9.1–9.4, Teorema 9.5 e Lema 9.7.
+Refiz a fórmula de colagem por Schur e Sherman–Morrison, descontando
+uma vez a entrada diagonal comum. A estimativa da raiz no Lema 9.2
+segue do máximo da coluna fora da raiz e de sua soma ser 1; vale
+também quando a árvore tem só dois vértices.
+
+No Lema 9.3, verifiquei a recorrência dos determinantes tridiagonais,
+a expressão hiperbólica de G_rr(t), dt/du=4 sinh(2u), a derivada
+logarítmica que produz c_r e o caso de igualdade N=2,r=1. Na parte
+de convexidade, a igualdade delta_0=delta_1 e a positividade de psi''
+para x≥3 estão corretas. A estimativa decimal final pode, se desejado,
+ser substituída por uma verificação exata: tanh(u)=1/sqrt(5) implica
+u>1/sqrt(5), enquanto tanh(3u)=2/sqrt(5); logo 3u*tanh(3u)>6/5>1.
+
+A expansão do numerador no Lema 9.4 é correta, e sua cota final é
+(a−1)(E−E')(c−1/2)>0. A construção do Teorema 9.5 reduz em um o número
+de folhas e conserva |X|≥2. Logo a desigualdade estrita fora dos caminhos
+não depende de casos não tratados.
+
+Conferi a soma trigonométrica do Lema 9.7, inclusive n=1. Uma segunda
+derivação, a partir do determinante tridiagonal do Lema 9.3, dá
+
+   tr((I+L_(P_n))^−1) = 2/5 + n/sqrt(5) coth(2n log(phi)),
+
+equivalente à expressão do texto. O termo de erro é estritamente positivo.
+
+Seção 10 — Teorema 10.1, prova do Teorema Principal e Corolário 10.2.
+As hipóteses de Darroch valem para q: coeficientes positivos e zeros
+negativos. A regra controla cada modo, não somente um modo escolhido.
+O argumento de contradição que produz q_(K+1)<q_K é correto mesmo
+quando há dois modos consecutivos. Se K≥n−2, o caso trivial está
+explicitamente coberto. Caso contrário, o Lema 8.2 exclui todo máximo
+de d após K. A passagem de p<xi+3/5 a p≤ceil(xi−2/5) usa corretamente
+a não integralidade de xi−2/5. O Corolário 10.2(b) também conserva o
+quantificador “todo índice maximizante”.
+
+Seção 11 — Lema 11.1 e Corolário 11.2.
+Conferi a razão dos coeficientes a partir da fórmula de Collins, o
+polinômio h_n e a monotonicidade de h_n(k)/k. A ausência de zeros
+inteiros k≥2 segue de k dividir 2 e da impossibilidade n^2=19.
+Verifiquei os casos n=3,4,5, as cotas que restringem k_0 ao piso ou
+teto de n/sqrt(5), e os critérios com partes fracionárias 1/5 e 1/10.
+A densidade de uma rotação irracional dá infinitos índices no intervalo
+aberto (0,1/10), também após remover os finitíssimos n<30. Isso prova
+a afirmação de atingimento para infinitos n. Não se supõe que o caminho
+seja pico-maximal para todas as ordens.
+
+Conclusão da reconstrução: os limites demonstrados são
+
+   floor(n/2) ≤ p ≤ ceil(n−n/sqrt(5)−2/5) ≤ ceil(n−n/sqrt(5)),
+
+para todo índice maximizante p e n≥3. A estrela tem máximo único no
+limite inferior; o caminho atinge o limite superior externo para
+infinitos n. O uso de Aalipour et al. fornece a unimodalidade completa;
+as provas dos dois limites não dependem dela.
+
+3. VERIFICAÇÕES COMPUTACIONAIS INDEPENDENTES
+
+Escrevi um verificador novo a partir das definições do manuscrito.
+Não recebi nem usei o código do projeto. O polinômio de distância foi
+calculado pelo polinômio característico da matriz de distâncias. Phi e
+adj(I+xA) foram calculados por álgebra matricial exata, e não pela
+recorrência cuja validade estava sendo testada.
+
+Resultado da execução final: nenhuma falha. Registro em
+verification-results.json; código reproduzível em verify_main.py.
+
+Cobertura:
+
+• 436 árvores não isomorfas de ordens 1 a 11: minimização do traço e
+  caso de igualdade. Nas 435 de ordens 2 a 11: inversa GL, determinante
+  GP e pertinência de ell_T−ell_S a K_(n−1). Nas 434 de ordens 3 a 11:
+  limites para todos os máximos e comparação estrita dos incrementos.
+
+• 142 escolhas de raiz, tomando cada vértice de cada representante
+  não isomorfo de ordens 1 a 7: identidade básica para w=0,1,2;
+  aumento do peso; plantio; recorrência pela folha; H,G,R_1,E;
+  pertinências dos cones e diferença Phi_1−(1+x)^a.
+
+• 196 pares ordenados de escolhas de raiz de ordens até 4:
+  identidades de fusão, soma de quadrados da Proposição 6.3, cone
+  correspondente e as duas fórmulas de colagem do Lema 9.1.
+
+• 640 comparações estritas de fusão de dois caminhos pendentes,
+  sobre todas as escolhas de raiz de árvores de ordens 2 a 6,
+  com comprimentos positivos cuja soma é no máximo 5.
+
+• Todos os vértices internos dos caminhos P_(N+1), 2≤N≤30:
+  as três comparações do Lema 9.3 e seu caso de igualdade.
+
+• Fórmula de Collins comparada diretamente com a matriz de distâncias
+  para 3≤n≤30. Critério do pico do caminho, piso/teto, critérios das
+  partes fracionárias e forma estrita da sequência da estrela para
+  3≤n≤300. O cálculo dos pisos e das condições com sqrt(5) foi feito
+  com desigualdades inteiras, sem arredondamento de ponto flutuante.
+
+• Contraexemplo auxiliar da seção 12: para a estrela dupla S(9,9),
+  confirmei d_10/d_9=10791/10255<99/94, razão correspondente de S_20.
+
+• Um teste adicional localizado encontrou uma árvore de ordem 13
+  com dois máximos: d_6=d_7=189972. A lista de arestas e todos os
+  coeficientes estão em tie-example.json. Ambos os índices pertencem
+  ao intervalo [6,7] do limite mais forte. A busca parou no primeiro
+  exemplo encontrado, após 259 árvores; não é uma nova verificação
+  da unicidade do exemplo entre todas as árvores de ordem 13.
+
+Os testes dos cones geraram 1031 certificados não triviais distintos
+na execução principal. SciPy foi usado somente para propor suportes
+de soluções de programação linear. Cada certificado aceito foi
+reconstruído e verificado com números racionais pelo SymPy: pesos
+não negativos e igualdade exata do polinômio. Portanto nenhuma
+pertinência relatada foi aceita apenas por tolerância numérica.
+
+Versões utilizadas: SymPy 1.14.0 e NetworkX 3.7. Durante o desenvolvimento,
+corrigi a ordenação dos vértices no próprio verificador antes da execução
+final; a falha preliminar de GL vinha dessa ordenação, não do manuscrito.
+As contagens acima são da execução final, registrada no JSON.
+
+4. FONTES E HIPÓTESES CLÁSSICAS
+
+• Aalipour et al., arXiv:1507.02341v3: conferidos Conjectura 1.2,
+  Fato 1.1, Teorema 2.1, Observação 3.1 e a distinção entre coeficientes
+  normalizados e coeficientes do polinômio original. A versão publicada
+  confirma a referência ELA 34 (2018), 373–380.
+  https://arxiv.org/html/1507.02341v3
+  https://jupiter.math.nycu.edu.tw/~chlin/Publications/Articles/GRWCds1.pdf
+
+• Graham–Lovász: consultados os trechos da inversa, do determinante
+  citado e da conjectura histórica. A fórmula matricial da inversa
+  também foi reconstruída diretamente, como descrito acima.
+  https://www.math.ucdavis.edu/~saito/data/distmat/graham-lovasz-distmat-tree.pdf
+
+• Pitman, pp. 281 e 284: conferidos Newton e Darroch, incluindo
+  a possibilidade de dois modos. q(1)>0 e as demais hipóteses
+  necessárias são satisfeitas no manuscrito.
+  https://www.stat.berkeley.edu/~pitman/453.pdf
+
+• Collins: conferida a fórmula de d_(n−k)(P_n) no texto disponibilizado
+  pela autora. Nessa versão o resultado sobre o caminho é Teorema 2,
+  e a fórmula aparece na página 6 do PDF; a numeração difere da
+  edição de revista citada no manuscrito. Não tratei essa diferença
+  de versões como erro comprovado da citação “Theorem 3, p.31”.
+  https://kcollins.web.wesleyan.edu/publications/unimodal.pdf
+  https://www.sciencedirect.com/science/article/pii/0166218X89900449
+
+• AMW: conferidos os enunciados 4.4 e 5.1, a fórmula 4.2 e o trecho
+  sobre verificações computacionais da prova publicada. Reconstruída
+  a aplicação à subdivisão; não refeita integralmente a prova de AMW.
+  https://arxiv.org/pdf/1903.09825
+
+• Weyl, propriedades de M-matrizes, espectro do caminho e densidade
+  de rotações irracionais: conferidos o enunciado matemático e a
+  aplicação, sem auditoria de páginas específicas dos livros citados.
+  A positividade da inversa também segue da expansão de Neumann de
+  (Diag(1+grau)−A)^−1; a conectividade dá positividade estrita.
+  O entrelaçamento de Merris foi reconstruído a partir de GL e Weyl;
+  não auditei o artigo original de Merris.
+
+5. LITERATURA, ESTADO E LIMITES DO PARECER
+
+As ressalvas sobre novidade nas seções 15 e 16 são, no geral, adequadas:
+o manuscrito não converte “nenhuma fonte encontrada” em prova de
+originalidade. O ajuste bibliográfico concreto é o achado 5. Minha
+busca direcionada não identificou uma resolução anterior dos dois
+limites, mas foi limitada à web pública e a fontes acessíveis; não
+substitui uma pesquisa exaustiva ou uma consulta a especialistas.
+O levantamento de Hogben–Reinhart de 2021 ainda apresenta a conjectura:
+https://arxiv.org/html/2103.00647
+Isso informa o estado naquela fonte, não certifica o estado de toda
+a literatura até novembro de 2026.
+
+Não verifiquei:
+
+• os arquivos, commits, logs, resultados anteriores e relatos sobre
+  revisões que o manuscrito menciona, mas que não foram fornecidos;
+• a enumeração até ordem 23, a unicidade global do empate de ordem 13,
+  os testes aleatórios, os valores para n=100000 ou a prova separada
+  da maximalidade coeficiente a coeficiente do caminho;
+• a compilação Lean, os axiomas utilizados ou a correspondência entre
+  os arquivos Lean externos e os enunciados matemáticos;
+• as afirmações de autoria, proveniência e ausência de participação
+  humana; elas não foram usadas para avaliar as demonstrações;
+• as provas completas nas fontes de todos os teoremas clássicos,
+  nem todas as páginas e números de resultados das referências;
+• o artigo original de Darroch ou o de Graham–Pollak. As fórmulas
+  usadas foram conferidas pelas fontes indicadas e pelas reconstruções
+  e verificações descritas, sem atribuir aos testes uma prova geral;
+• a tese de Collins, a referência original de expansão de cofatores,
+  a totalidade das buscas de novidade anteriores e todas as cinco
+  publicações posteriores listadas na seção 15;
+• a composição tipográfica e compilação do documento. Esta revisão
+  é do conteúdo matemático do arquivo-fonte com o hash acima.
+
+Não encontrei uma passagem da demonstração principal que precisasse
+ser deixada como “não reconstruída”. Os limites explícitos desta revisão
+referem-se às verificações externas, computacionais, históricas e formais
+enumeradas acima, e à possibilidade de erro de qualquer revisão humana
+ou automatizada.
